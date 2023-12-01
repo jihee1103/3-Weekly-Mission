@@ -1,0 +1,140 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f6ff;
+  font-family: "Pretendard", sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 238px 520px 252px 520px;
+}
+
+#sign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+#signup {
+  color: var(--linkbrary-primary-color, #6d6afe);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: underline;
+}
+
+#email {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 30px;
+  width: 400px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#box {
+  display: flex;
+  align-items: center;
+  width: 370px;
+  height: 24px;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  background: var(--linkbrary-white, #fff);
+  margin: 0;
+}
+
+#box:hover {
+  border-color: #6d6afe;
+}
+
+#password1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  width: 400px;
+  height: 89px;
+  margin-top: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 60px;
+}
+
+#box2 {
+  display: flex;
+  align-items: center;
+  width: 370px;
+  height: 24px;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  background: var(--linkbrary-white, #fff);
+  margin: 0;
+}
+
+#box2:hover {
+  border-color: #6d6afe;
+}
+#box3 {
+  display: flex;
+  width: 370px;
+  padding: 18px 15px;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+}
+
+#box4 {
+  display: flex;
+  width: 370px;
+  padding: 18px 15px;
+  margin-top: 32px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20, #ccd5e3);
+  background: var(--linkbrary-gray-10, #e7effb);
+  color: var(--linkbrary-gray-100, #373740);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#icon {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+input {
+  width: 370px;
+  height: 24px;
+  border: none;
+}
