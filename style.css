@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
+}
+
+html, body {
+  font-size: 10px;
+  font-family: 'Pretendard-Regular', Arial;
+}
+
+body {
+  margin: 0;
+}
+
+
+a {
+  text-decoration-line: none;
+}
+
+header {
+  background-color: #f0f6ff;
+  padding: 2rem 20rem;
+  margin: 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 152rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+nav > h1 {
+  width: 13.3rem; height: 2.4rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+.button {
+  background: linear-gradient(91deg, #6D6AFE 0%, #6AE3FE 100%); 
+  color: #F5F5F5;
+  cursor: pointer;
+  border-radius: 0.8rem; 
+  padding: 1.6rem 2rem;
+  font-weight: 600;
+}
+
+.login-button {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 12.8rem;
+  font-size: 1.8rem;
+}
+
+.sign-up-button {
+  width: 35rem;
+  margin: 4rem 0;
+  font-size: 1.8rem;
+}
+
+.main-section {
+  background-color: #f0f6ff;
+  text-align: center;
+}
+
+.main-section > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7rem 36rem 0;
+}
+
+.main-section-header {
+  width: 100%;
+  min-width: 70.8rem;
+  height: 16rem;
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 8rem;
+  margin: 0;
+}
+
+.world-information {
+  background: linear-gradient(91deg, #6D6AFE 0%, #FF9F9F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rem;
+  margin: 12rem 46.1rem;
+}
+
+.section-text {
+  display: inline-block;
+  width: 291px;
+  margin: 0;
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 98.8rem;
+  width: 100%;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.section-text > h3 {
+  width: 29.1rem;
+  font-size: 4.8rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.section-text > p {
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 50rem;
+  line-height: 150%;
+  margin: 0;
+}
+
+.second-section span {
+  background: linear-gradient(90deg, #FE8A8A, #A4CEFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.third-section span {
+  background: linear-gradient(90deg, #6FBAFF, #FFD88B);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fourth-section span {
+  background: linear-gradient(90deg,#6D7CCD, #52888538);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.last-section span {
+  background: linear-gradient(90deg,#68e8f9,#fe578f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.last-section {
+  margin-bottom: 5rem;
+}
+
+footer {
+  padding: 3.2rem 10.4rem 6.4rem;
+  background-color: #111322;
+}
+
+.codeit-footer,
+.link-footer {
+  font-size: 1.6rem;
+  font-family: Abel;
+  font-weight: 400;
+}
+
+.codeit-footer {
+  color: #676767;
+}
+
+.link-footer {
+  display: flex;
+  gap: 3rem;
+  cursor: pointer;
+}
+
+.link-footer > a {
+  color: #CFCFCF;
+}
+
+.sns-footer {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.sns-footer > a {
+  cursor: pointer;
+}
+
+footer > div {
+  display: flex;
+  justify-content: space-between;
+}

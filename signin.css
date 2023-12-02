@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
+}
+
+html, body {
+  font-size: 10px;
+  font-family: 'Pretendard-Regular', Arial;
+}
+
+body {
+  margin: 0;
+}
+
+
+a {
+  text-decoration-line: none;
+}
+
+body {
+  background-color:  #F0F6FF;
+}
+
+main {
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+  margin: 23.9rem auto 25.2rem;
+}
+
+input {
+  border: 0.1rem solid #CCD5E3;
+  border-radius : 0.8rem;
+}
+
+input:focus {
+  border: 0.1rem solid #6D6AFE; 
+}
+
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.signin-title > h1 {
+  margin: 0 0 1.6rem;
+}
+
+.signin-title > span {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
+
+.signup-link {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #6D6AFE;
+  line-height: 2.4rem;
+  text-decoration: underline;
+}
+
+.form > label {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.form input {
+  width: 40rem;
+  margin-top: 1.2rem;
+  padding: 1.8rem 1.5rem;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.password {
+  position: relative;
+}
+
+.password-switch {
+  position: absolute;
+  bottom: 1.8rem;
+  right: 1.5rem;
+}
+
+.signin > button {
+  width: 100%;
+  height: 5.4rem;
+  border-radius: 0.8rem;
+  padding: 1.6rem 2rem;
+  background: linear-gradient(91deg, #6D6AFE 0%, #6AE3FE 100%); 
+  color: #F5F5F5;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 600;
+  border: 0;
+}
+
+.social-signin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 6.6rem;
+  padding: 1.2rem 2.4rem;
+  margin-top: 3.2rem;
+  border: 0.1rem solid #CCD5E3;
+  border-radius: 0.8rem;
+  background-color: #E7EFFB;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
