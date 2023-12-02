@@ -1,0 +1,9 @@
+*{
+    box-sizing: border-box;
+    font-family: "Pretendard";
+    margin: 0;
+}
+
+a{
+    cursor: pointer;
+}
