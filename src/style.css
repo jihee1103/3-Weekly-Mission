@@ -1,0 +1,473 @@
+/* description, link 부분의 중복되는 속성들의 경우 나중에 SASS로 묶어버릴 것 */
+/* 로그인 페이지와 회원가입 페이지 */
+@import url(./signin-and-up.css);
+/* pretendard 폰트 */
+@import url(../static/pretendard.css);
+
+:root {
+    --primary: #6D6AFE;
+    --red: #FF5B56;
+    --black: #111322;
+    --white: #FFFFFF;
+    /* _number가 커질수록 진해짐  */
+    --gray_1: #F0F6FF;
+    --gray_2: #E7EFFB;
+    --gray_3: #CCD5E3;
+    --gray_4: #9FA6B2;
+    --gray_5: #3E3E43;
+}
+
+/* section fonts */
+.font-section-head {
+    font-family: Pretendard;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.3px;
+}
+
+.font-section-paragraph {
+    color: #6B6B6B;
+    font-family: Abel;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 24px */
+}
+
+/* footer fonts */
+
+.font-footer {
+    text-align: center;
+    font-family: Abel;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+/* section의 내용의 넓이, 높이 등등이 중복됨 */
+.section--container {
+    width: 998px;
+    height: 450px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 157px
+}
+
+header {
+    padding: 20px 200px;
+    background: var(--gray_1);
+
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 9999;
+}
+
+nav {
+    max-width: 1920px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0 auto;
+}
+
+.nav__logo {
+    min-width: 133px;
+    min-height: 24px;
+    width: 133px;
+    height: 24px;
+}
+
+.nav__login {
+    box-sizing: border-box;
+    width: 128px;
+    border: none;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 20px;
+    font-family: "Pretendard";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: -0.3px;
+    color: #F5F5F5;
+    background: linear-gradient(90.99deg, var(--primary) 0.12%, #6AE3FE 101.84%);
+    text-decoration: none;
+
+}
+
+
+section {
+    max-width: 1920px;
+
+    margin: 0 auto;
+}
+
+.introduce--background {
+    width: 100%;
+
+    background: var(--gray_1);
+}
+
+.section-introduce {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 360px 0;
+
+    margin-top: 94px;
+}
+
+.section-introduce__description {
+    color: #000000;
+    font-family: "Pretendard";
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 80px;
+    text-align: center;
+    white-space: nowrap;
+
+    margin-bottom: 40px;
+}
+
+.section-introduce__description--gradient {
+    background: linear-gradient(91deg, var(--primary) 17.28%, #FF9F9F 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+.section-introduce__add-link a {
+    box-sizing: border-box;
+    width: 350px;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    padding: 16px 20px;
+    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--primary) 0.12%, #6AE3FE 101.84%));
+    color: var(--grey-light, #F5F5F5);
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    margin-bottom: 40px;
+
+
+}
+
+.section-introduce__img {
+    width: 1200px;
+    height: 590px;
+
+    display: flex;
+    overflow: hidden;
+
+    position: relative;
+}
+
+.section-introduce__img img {
+    width: 1118px;
+    height: 706.956px;
+    border-radius: 25px;
+
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+    top: 50px;
+    right: 41px;
+    bottom: 119px;
+    left: 41px;
+}
+
+.section-introduce__img--gradient {
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, var(--gray_1) 94.76%);
+
+    position: absolute;
+    top: 120px;
+}
+
+.section-download {
+    display: flex;
+    justify-content: center;
+    padding: 120px 0 50px;
+}
+
+.section-download__description {
+    width: 291px;
+
+    margin: 126px 0 208px;
+    /*감싸는 박스를 만들어서 padding을 줘서 서술 부분을 위치 시킬것인가? 아니면 안만들고 서술 부분의 마진을 이용해서 위치 시킬것인가*/
+}
+
+.section-download__description h1 {
+    margin-bottom: 10px;
+}
+
+.section-download__description--gradient {
+    background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-download__window {
+    width: 550px;
+    height: 450px;
+    border-radius: 15px;
+
+    background: var(--gray_1);
+
+    position: relative;
+}
+
+.section-download__window--flex {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.img-window {
+    width: 279px;
+    /* flex-basis를 했을 때는 왜 다르게 나올까? */
+}
+
+.img-window:nth-of-type(1) {
+    position: relative;
+    left: 12px
+}
+
+.img-window--border {
+    width: 242px;
+    height: 239px;
+    border-radius: 11px;
+    border: 2px solid var(--linkbrary-primary-color, var(--primary));
+
+    position: absolute;
+    top: 101px;
+    left: 153px;
+}
+
+.img-window:nth-of-type(4) {
+    position: relative;
+    right: 12px
+}
+
+.download-badge {
+    position: absolute;
+    top: 312px;
+    right: 142px;
+    bottom: 92px;
+    left: 362px;
+}
+
+.section-manage {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.section-manage__popup-img {
+    box-sizing: border-box;
+    border-radius: 15px;
+    width: 550px;
+    height: 450px;
+
+    padding: 114px 68px 66px 68px;
+    /*padding으로 내부 사진의 위치를 조정함*/
+    background: var(--gray_1);
+}
+
+.section-manage__description {
+    width: 291px;
+
+    margin: 139px 0 197px;
+}
+
+.section-manage__description--gradient {
+    background: linear-gradient(277deg, #6FBAFF 0%, #FFD88B 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-share {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.section-share__description {
+    width: 291px;
+
+    margin: 115px 0 221px;
+}
+
+.section-share__description--gradient {
+    background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-share__img {
+    width: 550px;
+    height: 450px;
+    border-radius: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    position: relative;
+}
+
+.section-share__img--shadow {
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.40);
+
+    position: absolute;
+    z-index: 2;
+}
+
+/* 아래쪽 */
+.section-share__img img:nth-of-type(1) {
+    width: 934px;
+    height: 591px;
+    position: relative;
+    top: 8px;
+    left: 14px;
+    z-index: 1;
+}
+
+/* 위쪽 */
+.section-share__img img:nth-of-type(2) {
+    width: 418px;
+    height: 271px;
+
+    position: absolute;
+    z-index: 3;
+    left: 66px;
+    top: 113px;
+}
+
+.section-search {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0 170px;
+}
+
+.section-search__img {
+    width: 550px;
+    height: 450px;
+
+    border-radius: 15px;
+    background: var(--gray_1);
+    overflow: hidden;
+
+    position: relative;
+}
+
+.section-search__img img {
+    width: 606px;
+    height: 584px;
+    border-radius: 15px;
+
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+    top: 55px;
+    left: 60px;
+}
+
+.section-search__img--gradient {
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 48.72%, #000 128.17%);
+
+    position: absolute;
+    top: 180px;
+}
+
+.section-search__description {
+    width: 291px;
+
+    margin: 139px 0 197px;
+}
+
+.section-search__description--gradient {
+    background: var(--fandom-k-gra-blue-to-pink, linear-gradient(271deg, #FE578F 0%, #68E8F9 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+footer {
+    padding: 32px 104px 64px;
+    background: var(--the-julge-black, var(--black));
+}
+
+footer a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer--container {
+    max-width: 1920px;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin: 0 auto;
+}
+
+.footer--container-company {
+    color: #676767;
+    text-align: center;
+}
+
+.footer--container-privacy-and-faq {
+    display: flex;
+}
+
+.footer--container-privacy-and-faq a {
+    color: #CFCFCF;
+}
+
+.footer--container-privacy-and-faq a:nth-of-type(1) {
+    margin-right: 30px;
+}
+
+.footer--container__links {
+    display: flex;
+}
+
+.footer--container__links a:not(:first-child) {
+    margin-left: 12px;
+}
