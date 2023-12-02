@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>LinkBrary</title>
+    <title>로그인</title>
     <link rel="stylesheet" href="./css/signin.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,6 +9,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <article>
+        <header>
+            <a href="./index.html">
+                <img id="logo" src="./image/logo.svg" alt="LinkBrary 홈으로 가는 로고">
+            </a>
+            <div>
+                <span>회원이 아니신가요?</span> <a href="./signup.html">회원 가입하기</a>
+            </div>
+        </header>
+        <section>
+            <div>
+                <label>이메일</label>
+                <input type="email" name="email">
+            </div>
+            <div>
+                <label>비밀번호</label>
+                <div>
+                    <input type="password" name="password">
+                    <img src="./image/eye-off.svg" alt="비밀번호 보이게 설정">
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="로그인">
+            </div>
+            <div>
+                소셜 로그인
+                <a href="https://www.google.com/">
+                    <img src="./image/googleLogo.png" alt="구글 홈페이지 연결">
+                </a>
+                <a href="https://www.kakaocorp.com/page/">
+                    <img src="./image/kakaoLogo.png" alt="카카오 홈페이지 연결">
+                </a>
+            </div>
+        </section>
+    </article>
 </body>
 </html>
