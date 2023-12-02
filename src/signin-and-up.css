@@ -1,104 +1,94 @@
-/* sign-in-out.html */
-.sign-in-out-main {
+.sign--wrap {
+    width: 100vw;
     height: 100vh;
-    /* padding-top 나중에 반응형 때문에 변경해야할듯 */
-    padding-top: 10%;
-    background: var(--linkbrary-bg, var(--gray_1));
+    background: var(--linkbrary-bg, #F0F6FF);
     display: flex;
     justify-content: center;
+    padding-top: 238px;
 }
 
-.login-and-register {
+/* signin, signup의 형태가 비슷해 sign으로 묶음 */
+.sign {
     width: 400px;
-    height: 492px;
+    height: 394px;
 }
 
-.login-and-register__header {
+.sign__header {
     display: flex;
     justify-content: center;
-
     margin-bottom: 30px;
 }
 
-.login-and-register__header--container {
-    height: 78px;
+.sign__header--container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.login-and-register__header--container-logo {
+.sign__header--container-logo {
     width: 210.583px;
     height: 38px;
     display: flex;
     justify-content: center;
 }
 
-.login-and-register__header--container-register {
+.sign__header--container-register,
+.sign__header--container-login {
     margin-top: 16px;
 }
 
-
-.login-and-register__header--container-register>span {
+.sign__header--container-register>span,
+.sign__header--container-login>span {
     display: inline-block;
     width: 123px;
     height: 24px;
-
     color: var(--black, #000);
     font-family: Pretendard;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
-    /* 150% */
 }
 
-.login-and-register__header--container-register>a {
-    border-bottom: 1px solid var(--linkbrary-primary-color, var(--primary));
-
-    color: var(--linkbrary-primary-color, var(--primary));
+.sign__header--container-register>a,
+.sign__header--container-login>a {
+    border-bottom: 1px solid var(--linkbrary-primary-color, #6D6AFE);
+    color: var(--linkbrary-primary-color, #6D6AFE);
     font-family: Pretendard;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-
+    margin-bottom: 5px;
     position: relative;
-    bottom: 5px;
+    bottom: 4px;
     margin-left: 8px;
 }
 
-.form-login-and-register__input-email {
-    width: 400px;
-    height: 89px;
-
+.form-sign__input-email {
     display: flex;
     flex-direction: column;
-
     margin-bottom: 24px;
 }
 
-.form-login-and-register__input-email>label,
-.form-login-and-register__input-password>label {
+.form-sign__input-email>label,
+.form-sign__input-password>label {
     color: var(--black, #000);
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-
-    margin-bottom: 12px;
 }
 
-/* 클릭시 색깔이 바껴야한다!! */
-.form-login-and-register__input-email>input,
-.form-login-and-register__input-password>div {
+/* 클릭시 색깔이 바뀌어야한다!! */
+.form-sign__input-email>input,
+.form-sign__input-password input {
     box-sizing: border-box;
     width: 400px;
     height: 60px;
     border-radius: 8px;
-    border: 1px solid var(--linkbrary-gray-20, var(--gray_3));
-
+    border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
     padding: 18px 15px;
     color: var(--linkbrary-gray-100, #373740);
     font-family: Pretendard;
@@ -106,45 +96,45 @@
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
-    /* 150% */
-    background: var(--linkbrary-white, var(--white));
+    background: var(--linkbrary-white, #FFF);
+    margin-top: 12px;
 }
 
-.form-login-and-register__input-email>input:focus,
-.form-login-and-register__input-password>div:focus-within {
-    border: 1px solid var(--linkbrary-primary-color, var(--primary));
+.form-sign__input-email>input:focus,
+.form-sign__input-password input:focus {
+    border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
 }
 
-.form-login-and-register__input-password {
-    width: 400px;
-    height: 89px;
-
+.form-sign__input-password {
     display: flex;
     flex-direction: column;
-
     margin-bottom: 30px;
 }
 
-.password__inner {
+.password__box {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
-.password__inner>input {
-    flex-grow: 1;
-}
-
-.password__inner-eye-off {
+.password__btn-eye-off {
     display: flex;
     align-items: center;
+    position: absolute;
+    top: 33px;
+    right: 18px;
 }
 
-.form-login-and-register__btn-login-and-register {
+.password__btn-eye-off img {
+    width: 16px;
+    height: 16px;
+}
+
+.form-sign__btn-sign {
     width: 400px;
     height: 54px;
     border-radius: 8px;
-
     padding: 16px 20px;
     color: var(--grey-light, #F5F5F5);
     font-family: Pretendard;
@@ -152,30 +142,22 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--primary) 0.12%, #6AE3FE 101.84%));
+    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
     margin-bottom: 32px;
 }
 
-.form-login-and-register__btn-login-and-register>div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-login-and-register__social-login-and-register {
+.form-sign__social-sign {
     box-sizing: border-box;
     border-radius: 8px;
-    border: 1px solid var(--linkbrary-gray-20, var(--gray_3));
-    background: var(--linkbrary-gray-10, var(--gray_2));
-
+    border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+    background: var(--linkbrary-gray-10, #E7EFFB);
     display: flex;
-    width: 400px;
     padding: 12px 24px;
     justify-content: space-between;
     align-items: center;
 }
 
-.form-login-and-register__social-login-and-register>span {
+.form-sign__social-sign>span {
     color: var(--linkbrary-gray-100, #373740);
     font-family: Pretendard;
     font-size: 14px;
@@ -184,30 +166,30 @@
     line-height: normal;
 }
 
-.link-social-login-and-register {
+.link-social-sign {
     display: flex;
 }
 
-.link-social-login-and-register>a {
+.link-social-sign>a {
     width: 42px;
     height: 42px;
 }
 
-.link-social-login-and-register-google {
-    background-image: url(./img/google-icon__background.svg);
+.link-social-sign-google {
+    background-image: url(../img/google-icon__background.svg);
     margin-right: 16px;
 }
 
-.link-social-login-and-register-kakao {
-    background-image: url(./img/kakao-icon__backgound.svg);
+.link-social-sign-kakao {
+    background-image: url(../img/kakao-icon__backgound.svg);
 }
 
-.link-social-login-and-register-google img {
+.link-social-sign-google img {
     position: relative;
     inset: 10px;
 }
 
-.link-social-login-and-register-kakao img {
+.link-social-sign-kakao img {
     position: relative;
     inset: 8px;
     top: 10px;

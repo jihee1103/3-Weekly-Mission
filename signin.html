@@ -11,51 +11,52 @@
 
 <body>
 
-    <main class="sign-in-out-main">
-            <div class="login-and-register">
-                <div class="login-and-register__header">
-                    <div class="login-and-register__header--container">
-                        <a href="/" class="login-and-register__header--container-logo">
-                            <img src="./img/signin__logo.svg">
-                        </a>
-                        <div class="login-and-register__header--container-register">
-                            <span>회원이 아니신가요?</span><a href="/signup.html">회원 가입하기</a>
-                        </div>
+    <main class="sign--wrap">
+        <div class="sign">
+            <div class="sign__header">
+                <div class="sign__header--container">
+                    <a href="/" class="sign__header--container-logo">
+                        <img src="img/signin__logo.svg">
+                    </a>
+                    <div class="sign__header--container-register">
+                        <!-- 링크 이동의 편의성을 위해 일단 경로 /signup.html로 뒀습니다 -->
+                        <span>회원이 아니신가요?</span><a href="/signup.html">회원 가입하기</a>
                     </div>
                 </div>
-                <form class="form-login-and-register">
-                    <div class="form-login-and-register__input-email">
-                        <label>이메일</label>
-                        <input>
-                    </div>
-                    <div class="form-login-and-register__input-password">
-                        <label>비밀번호</label>
-                        <div class="password__inner">
-                            <input>
-                            <button class="password__inner-eye-off">
-                                <img src="./img/eye-off.svg" alt="eye-off" width="16px" height="16px">
-                            </button>
-                        </div>
-                    </div>
-                    <button class="form-login-and-register__btn-login-and-register">
-                        <div><span>로그인</span></div>
-                    </button>
-                    <div class="form-login-and-register__social-login-and-register">
-                        <span>소셜로그인</span>
-                        <div class="link-social-login-and-register">
-                            <a href="https://www.google.com/" class="link-social-login-and-register-google">
-                                <img src="./img/google-icon.png" alt="google-icon" width="24px" height="24px">
-                            </a>
-                            <a href="https://www.kakaocorp.com/page/" class="link-social-login-and-register-kakao">
-                                <img src="./img/kakao-icon.svg" alt="kakao-icon" width="26px" height="24px">
-                            </a>
-                        </div>
-                    </div>
-                </form>
             </div>
+            <form class="form-sign">
+                <div class="form-sign__input-email">
+                    <label>이메일</label>
+                    <input type="email">
+                </div>
+                <div class="form-sign__input-password">
+                    <label>비밀번호</label>
+                    <!-- div에 스타일을 하는 게 좋을까 아니면 input에 스타일을 하는게 좋을까 -->
+                    <!-- div에 width, height 주고 flex주고 space-between 주는게 편하긴 한데... -->
+                    <div class="password__box">
+                        <input type="password">
+                        <button class="password__btn-eye-off">
+                            <img src="img/eye-off.svg" alt="eye-off">
+                        </button>
+                    </div>
+                </div>
+                <button class="form-sign__btn-sign">
+                    <div>로그인</div>
+                </button>
+                <div class="form-sign__social-sign">
+                    <span>소셜로그인</span>
+                    <div class="link-social-sign">
+                        <a href="https://www.google.com/" class="link-social-sign-google">
+                            <img src="./img/google-icon.png" alt="google-icon" width="24px" height="24px">
+                        </a>
+                        <a href="https://www.kakaocorp.com/page/" class="link-social-sign-kakao">
+                            <img src="./img/kakao-icon.svg" alt="kakao-icon" width="26px" height="24px">
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
     </main>
-
-
 
 </body>
 
