@@ -1,6 +1,6 @@
 /* description, link 부분의 중복되는 속성들의 경우 나중에 SASS로 묶어버릴 것 */
 /* 로그인 페이지와 회원가입 페이지 */
-@import url(./signin-and-up.css);
+@import url(./sign.css);
 /* pretendard 폰트 */
 @import url(../static/pretendard.css);
 
@@ -34,11 +34,9 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-    /* 24px */
 }
 
 /* footer fonts */
-
 .font-footer {
     text-align: center;
     font-family: Abel;
@@ -52,7 +50,6 @@
 .section--container {
     width: 998px;
     height: 450px;
-
     display: flex;
     justify-content: space-between;
     gap: 157px
@@ -61,7 +58,6 @@
 header {
     padding: 20px 200px;
     background: var(--gray_1);
-
     position: fixed;
     top: 0px;
     left: 0px;
@@ -71,11 +67,9 @@ header {
 
 nav {
     max-width: 1920px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     margin: 0 auto;
 }
 
@@ -91,7 +85,6 @@ nav {
     width: 128px;
     border: none;
     border-radius: 8px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,32 +97,27 @@ nav {
     color: #F5F5F5;
     background: linear-gradient(90.99deg, var(--primary) 0.12%, #6AE3FE 101.84%);
     text-decoration: none;
-
 }
-
 
 section {
     max-width: 1920px;
-
     margin: 0 auto;
 }
 
-.introduce--background {
+.hero--background {
     width: 100%;
-
     background: var(--gray_1);
 }
 
-.section-introduce {
+.hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 70px 360px 0;
-
     margin-top: 94px;
 }
 
-.section-introduce__description {
+.hero__description {
     color: #000000;
     font-family: "Pretendard";
     font-size: 64px;
@@ -138,24 +126,20 @@ section {
     line-height: 80px;
     text-align: center;
     white-space: nowrap;
-
     margin-bottom: 40px;
 }
 
-.section-introduce__description--gradient {
+.hero__description--gradient {
     background: linear-gradient(91deg, var(--primary) 17.28%, #FF9F9F 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-
-
-.section-introduce__add-link a {
+.hero__add-link a {
     box-sizing: border-box;
     width: 350px;
     border-radius: 8px;
-
     display: flex;
     justify-content: center;
     padding: 16px 20px;
@@ -166,29 +150,22 @@ section {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-
     margin-bottom: 40px;
-
-
 }
 
-.section-introduce__img {
+.hero__img {
     width: 1200px;
     height: 590px;
-
     display: flex;
     overflow: hidden;
-
     position: relative;
 }
 
-.section-introduce__img img {
+.hero__img img {
     width: 1118px;
     height: 706.956px;
     border-radius: 25px;
-
     box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
-
     position: relative;
     top: 50px;
     right: 41px;
@@ -196,12 +173,10 @@ section {
     left: 41px;
 }
 
-.section-introduce__img--gradient {
+.hero__img--gradient {
     width: 100%;
     height: 100%;
-
     background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, var(--gray_1) 94.76%);
-
     position: absolute;
     top: 120px;
 }
@@ -214,7 +189,6 @@ section {
 
 .section-download__description {
     width: 291px;
-
     margin: 126px 0 208px;
     /*감싸는 박스를 만들어서 padding을 줘서 서술 부분을 위치 시킬것인가? 아니면 안만들고 서술 부분의 마진을 이용해서 위치 시킬것인가*/
 }
@@ -230,19 +204,16 @@ section {
     -webkit-text-fill-color: transparent;
 }
 
-.section-download__window {
+.section-download--img-window {
     width: 550px;
     height: 450px;
     border-radius: 15px;
-
     background: var(--gray_1);
-
     position: relative;
 }
 
-.section-download__window--flex {
+.section-download--img-window--container {
     height: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -260,11 +231,10 @@ section {
 }
 
 .img-window--border {
-    width: 242px;
-    height: 239px;
+    width: 240px;
+    height: 237px;
     border-radius: 11px;
     border: 2px solid var(--linkbrary-primary-color, var(--primary));
-
     position: absolute;
     top: 101px;
     left: 153px;
@@ -292,9 +262,6 @@ section {
 .section-manage__popup-img {
     box-sizing: border-box;
     border-radius: 15px;
-    width: 550px;
-    height: 450px;
-
     padding: 114px 68px 66px 68px;
     /*padding으로 내부 사진의 위치를 조정함*/
     background: var(--gray_1);
@@ -302,7 +269,6 @@ section {
 
 .section-manage__description {
     width: 291px;
-
     margin: 139px 0 197px;
 }
 
@@ -321,7 +287,6 @@ section {
 
 .section-share__description {
     width: 291px;
-
     margin: 115px 0 221px;
 }
 
@@ -334,23 +299,18 @@ section {
 
 .section-share__img {
     width: 550px;
-    height: 450px;
     border-radius: 16px;
-
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-
     position: relative;
 }
 
 .section-share__img--shadow {
     width: 100%;
     height: 100%;
-
     background: rgba(0, 0, 0, 0.40);
-
     position: absolute;
     z-index: 2;
 }
@@ -369,7 +329,6 @@ section {
 .section-share__img img:nth-of-type(2) {
     width: 418px;
     height: 271px;
-
     position: absolute;
     z-index: 3;
     left: 66px;
@@ -384,12 +343,9 @@ section {
 
 .section-search__img {
     width: 550px;
-    height: 450px;
-
     border-radius: 15px;
     background: var(--gray_1);
     overflow: hidden;
-
     position: relative;
 }
 
@@ -397,9 +353,7 @@ section {
     width: 606px;
     height: 584px;
     border-radius: 15px;
-
     box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
-
     position: relative;
     top: 55px;
     left: 60px;
@@ -408,16 +362,13 @@ section {
 .section-search__img--gradient {
     width: 100%;
     height: 100%;
-
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 48.72%, #000 128.17%);
-
     position: absolute;
     top: 180px;
 }
 
 .section-search__description {
     width: 291px;
-
     margin: 139px 0 197px;
 }
 
@@ -433,23 +384,15 @@ footer {
     background: var(--the-julge-black, var(--black));
 }
 
-footer a {
-    display: inline-flex;
-    align-items: center;
-}
-
 .footer--container {
     max-width: 1920px;
-
     display: flex;
     justify-content: space-between;
-
     margin: 0 auto;
 }
 
 .footer--container-company {
     color: #676767;
-    text-align: center;
 }
 
 .footer--container-privacy-and-faq {
