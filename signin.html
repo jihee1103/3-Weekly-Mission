@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Linkbrary</title>
-  <link rel="stylesheet" href="signin.css">
+  <link rel="stylesheet" href="src/reset.css">
+  <link rel="stylesheet" href="src/signin.css">
 </head>
 <body>
-  <main>
+  <article>
     <section class="signin">
       <div class="signin-title">
         <h1>
@@ -17,17 +18,15 @@
         <span>회원이 아니신가요? </span><a href="signup.html" class="signup-link">회원 가입하기</a>
       </div>
       <div class="forms">
-        <div class="email form">
-          <label for="signin-email">이메일</label><br>
-          <input id="signin-email" name="signin-email" required>
-        </div>
-        <div class="password form">
-          <label>
-            비밀번호<br>
-            <input type="password" name="sign-in-password" required>
-            <img class="password-switch" src="images/password-icon/eye-off.svg" alt="비밀번호 표시 아이콘" width="16" height="16">
-          </label>
-        </div>
+        <label class="email form">
+          이메일<br>
+          <input name="signin-email" required>
+        </label>
+        <label class="password form">
+          비밀번호<br>
+          <input type="password" name="signin-password" required>
+          <img class="password-switch-icon" src="images/password-icon/eye-on.svg" alt="비밀번호 표시 아이콘" width="16" height="16">
+        </label>
       </div>
       <button>로그인</button>
     </section>
@@ -38,6 +37,6 @@
         <a href="https://www.kakaocorp.com/page/" target="_blank"><img src="images/social-icon/Component 3kakao-icon.png" alt="카카오 아이콘" width="42" height="42"></a>
       </div>
     </section>
-  </main>
+  </article>
 </body>
 </html>

@@ -1,173 +1,133 @@
-* {
-  box-sizing: border-box;
-}
-
-@font-face {
-  font-family: 'Pretendard-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
-}
-
-html, body {
-  font-size: 10px;
-  font-family: 'Pretendard-Regular', Arial;
-}
-
-body {
-  margin: 0;
-}
-
-
-a {
-  text-decoration-line: none;
-}
-
 header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   background-color: #f0f6ff;
-  padding: 2rem 20rem;
-  margin: 0;
-  position: sticky;
-  top: 0;
-  left: 0;
+  position: relative;
 }
 
 nav {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  max-width: 152rem;
+  align-items: center;
   width: 100%;
-  margin: 0 auto;
+  max-width: 192rem;
+  height: 9.4rem;
+  padding: 0 20rem;
+  position: fixed;
+  top: 0;
+  background-color: #f0f6ff;
 }
 
-nav > h1 {
-  width: 13.3rem; height: 2.4rem;
-  margin: 0;
-  cursor: pointer;
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  padding-top: 7rem;
+  background-color: #f0f6ff;
+  margin-top: 9.4rem;
 }
 
 .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(91deg, #6D6AFE 0%, #6AE3FE 100%); 
   color: #F5F5F5;
   cursor: pointer;
   border-radius: 0.8rem; 
-  padding: 1.6rem 2rem;
+  height: 5.4rem;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
-.login-button {
-  display: flex;
-  justify-content: center;
+.signin-button {
   flex-shrink: 0;
   width: 12.8rem;
-  font-size: 1.8rem;
 }
 
-.sign-up-button {
+.signup-button {
   width: 35rem;
-  margin: 4rem 0;
-  font-size: 1.8rem;
 }
 
-.main-section {
-  background-color: #f0f6ff;
+.header-title {
   text-align: center;
-}
-
-.main-section > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 7rem 36rem 0;
-}
-
-.main-section-header {
-  width: 100%;
-  min-width: 70.8rem;
-  height: 16rem;
   font-size: 6.4rem;
   font-weight: 700;
   line-height: 8rem;
-  margin: 0;
 }
 
-.world-information {
+.header-title-gradient {
   background: linear-gradient(91deg, #6D6AFE 0%, #FF9F9F 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.container {
+article {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10rem;
-  margin: 12rem 46.1rem;
-}
-
-.section-text {
-  display: inline-block;
-  width: 291px;
-  margin: 0;
+  padding: 7rem 0 12rem;
 }
 
 .section {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 15.7rem;
   max-width: 98.8rem;
   width: 100%;
-  margin: 0;
-  flex-wrap: wrap;
+  height: 55rem;
+  padding: 5rem 0;
 }
 
-.section-text > h3 {
+.title {
   width: 29.1rem;
   font-size: 4.8rem;
   font-weight: 700;
-  margin: 0 0 10px;
+  margin-bottom: 1rem;
 }
 
-.section-text > p {
+.description {
   width: 100%;
   font-size: 1.6rem;
-  font-weight: 50rem;
+  font-weight: 500;
   line-height: 150%;
   margin: 0;
 }
 
-.second-section span {
+.section-1-gradient {
   background: linear-gradient(90deg, #FE8A8A, #A4CEFF);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.third-section span {
+.section-2-gradient {
   background: linear-gradient(90deg, #6FBAFF, #FFD88B);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.fourth-section span {
+.section-3-gradient {
   background: linear-gradient(90deg,#6D7CCD, #52888538);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.last-section span {
+.section-4-gradient {
   background: linear-gradient(90deg,#68e8f9,#fe578f);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.last-section {
+.fourth-section {
   margin-bottom: 5rem;
 }
 
