@@ -189,12 +189,11 @@ section {
 
 .section-download__description {
     width: 291px;
-    margin: 126px 0 208px;
-    /*감싸는 박스를 만들어서 padding을 줘서 서술 부분을 위치 시킬것인가? 아니면 안만들고 서술 부분의 마진을 이용해서 위치 시킬것인가*/
+    padding: 126px 0;
 }
 
-.section-download__description h1 {
-    margin-bottom: 10px;
+.section-download__description p {
+    margin-top: 10px;
 }
 
 .section-download__description--gradient {
@@ -269,7 +268,11 @@ section {
 
 .section-manage__description {
     width: 291px;
-    margin: 139px 0 197px;
+    padding: 139px 0;
+}
+
+.section-manage__description p {
+    margin-top: 10px;
 }
 
 .section-manage__description--gradient {
@@ -287,7 +290,11 @@ section {
 
 .section-share__description {
     width: 291px;
-    margin: 115px 0 221px;
+    padding: 115px 0;
+}
+
+.section-share__description p {
+    margin-top: 10px;
 }
 
 .section-share__description--gradient {
@@ -304,9 +311,21 @@ section {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    /* 부모에 relative 줘서 자식들은 absolute로 z축 정렬하기 */
     position: relative;
 }
 
+/* 배경 이미지 */
+.section-share__img img:nth-of-type(1) {
+    width: 934px;
+    height: 591px;
+    position: absolute;
+    z-index: 1;
+    left: -178px;
+    top: -63px;
+}
+
+/* 흐려지게 */
 .section-share__img--shadow {
     width: 100%;
     height: 100%;
@@ -315,24 +334,16 @@ section {
     z-index: 2;
 }
 
-/* 아래쪽 */
-.section-share__img img:nth-of-type(1) {
-    width: 934px;
-    height: 591px;
-    position: relative;
-    top: 8px;
-    left: 14px;
-    z-index: 1;
-}
-
-/* 위쪽 */
+/* 팝업 이미지 */
 .section-share__img img:nth-of-type(2) {
-    width: 418px;
+    width: 416px;
     height: 271px;
     position: absolute;
+    left: 67px;
+    top: 112px;
+    bottom: 67px;
+    right: 67px;
     z-index: 3;
-    left: 66px;
-    top: 113px;
 }
 
 .section-search {
@@ -369,7 +380,11 @@ section {
 
 .section-search__description {
     width: 291px;
-    margin: 139px 0 197px;
+    padding: 139px 0;
+}
+
+.section-search__description p {
+    margin-top: 10px;
 }
 
 .section-search__description--gradient {
