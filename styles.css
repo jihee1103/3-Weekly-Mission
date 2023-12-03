@@ -59,8 +59,9 @@ nav{
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    right: 20px;
-    left: 20px;
+    right: 0px;
+    left: 0px;
+    background-color: var(--linkbrary-bg);
 }
 
 .header-main{
