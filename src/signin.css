@@ -1,0 +1,158 @@
+*{
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+html{
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+body {
+  display: flex;
+  padding: 238px 0px 252px 0px;
+  justify-content: center;
+  align-items: center;
+  background-color: #F0F6FF;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+}
+
+#linkbrary-logo {
+  width: 210px;
+}
+
+.signin > a {
+  color: #6d6afe;
+  text-decoration: underline;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
+  border-radius: 0.5rem;
+  border: 0px;
+
+  color: #f5f5f5;
+  font-size: 1.125rem;
+  font-weight: 600;
+
+  padding: 1rem 1.25rem;
+  gap: 0.625rem;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form {
+  margin: 30px 0;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+
+input {
+  display: flex;
+  width: 400px;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #CCD5E3;
+  background: #FFFFFF;
+}
+
+input:focus {
+  border: 1px solid #6D6AFE;
+}
+
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.social.login {
+  margin: 30px 0 0;
+  padding: 12px 24px;
+  border-radius: 8px;
+  width: 100%;
+  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+  background: var(--linkbrary-gray-10, #E7EFFB);
+}
+
+.social.signin {
+  margin: 30px 0 0;
+  padding: 12px 24px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  color: #373740;
+  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+  background: var(--linkbrary-gray-10, #E7EFFB);
+}
+
+.social.icon{
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+
+#kakao-background,
+#google-background {
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+}
+
+#google-background {
+ background-color: #FFFFFF;
+ border-radius: 50%;
+ border: 1px solid #d3d4dd;
+}
+
+#kakao-background {
+ background-color: #F5E14B;
+ border-radius: 50%;  
+}
+
+#kakao,
+#google {
+  display: flex;
+  width: 22px;
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
