@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Linkbrary 회원가입</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="sign.css">
+  </head>
+  <body>
+    <!-- 로고 및 로그인 창 -->
+    <header>
+      <a href="../">
+        <img class="header-logo" src="../images/logo.svg" alt="홈 화면으로 이동">
+      </a>
+      <div class="header-sign">
+        <span class="left-word">이미 회원이신가요?</span>
+        <a href="signin.html">
+          <span class="right-word">로그인 하기</span>
+        </a>
+      </div>
+    </header>
+    <!-- 이메일 및 비밀번호, 비밀번호 확인 칸 입력 -->
+    <section>
+      <label for="email">이메일</label>
+      <input type="email"  class="sign-email">
+      <label for="password">비밀번호</label>
+      <input type="text" class="sign-password">
+      <label for="password">비밀번호 확인</label>
+      <input type="text" class="sign-password">
+    </section>
+    <!-- 회원가입 버튼 및 소셜 회원가입 -->
+    <footer>
+      <a class="footer-sign" href="../">
+        <span>회원가입</span>
+      </a>
+      <div class="footer-sign-box">
+        <span class="footer-word">다른 방식으로 가입하기</span>
+        <div class="footer-logo">
+          <a href="https://www.google.com/" target="_blank">
+            <img src="../images/google-logo.png" class="social-logo">
+          </a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank">
+            <img src="../images/kakao-logo.png" class="social-logo">
+          </a>
+        </div>  
+      </div>
+    </footer>
+  </body>
+</html>
