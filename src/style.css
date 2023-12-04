@@ -18,51 +18,8 @@
     --gray_5: #3E3E43;
 }
 
-body {
-    width: 100vw;
-}
-
-/* section fonts */
-.font-section-head {
-    font-family: Pretendard;
-    font-size: 3rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.3px;
-}
-
-.font-section-paragraph {
-    color: #6B6B6B;
-    font-family: Abel;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-}
-
-/* footer fonts */
-.font-footer {
-    text-align: center;
-    font-family: Abel;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-}
-
-/* section의 내용의 넓이, 높이 등등이 중복됨 */
-.section--container {
-    width: 998px;
-    height: 450px;
-    display: flex;
-    justify-content: space-between;
-    gap: 157px
-}
-
 header {
     box-sizing: border-box;
-    width: 100%;
     padding: 20px 200px;
     background: var(--gray_1);
     position: fixed;
@@ -78,11 +35,6 @@ nav {
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-}
-
-.nav__logo {
-    width: 133px;
-    height: 24px;
 }
 
 .nav__login {
@@ -101,7 +53,6 @@ nav {
     letter-spacing: -0.3px;
     color: #F5F5F5;
     background: linear-gradient(90.99deg, var(--primary) 0.12%, #6AE3FE 101.84%);
-    text-decoration: none;
 }
 
 section {
@@ -109,36 +60,32 @@ section {
     margin: 0 auto;
 }
 
-.hero--background {
-    width: 100%;
-    background: var(--gray_1);
-    margin-top: 94px;
-}
-
 .hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 70px 360px 0;
+    background: var(--gray_1);
+    margin-top: 94px;
 }
 
 .hero__description {
     color: #000000;
     font-family: "Pretendard";
     font-size: 4rem;
-    font-style: normal;
     font-weight: 700;
     line-height: 80px;
     text-align: center;
-    white-space: nowrap;
     margin-bottom: 40px;
+    white-space: nowrap;
+}
+
+.br-tablet {
+    display: none;
 }
 
 .hero__description--gradient {
     background: linear-gradient(91deg, var(--primary) 17.28%, #FF9F9F 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .hero__add-link-box {
@@ -152,177 +99,102 @@ section {
     display: flex;
     justify-content: center;
     padding: 16px 20px;
-    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--primary) 0.12%, #6AE3FE 101.84%));
-    color: var(--grey-light, #F5F5F5);
+    background: linear-gradient(91deg, var(--primary) 0.12%, #6AE3FE 101.84%);
+    color: #F5F5F5;
     font-family: Pretendard;
     font-size: 1rem;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
 }
 
 .hero__img {
     width: 1200px;
-    height: auto;
     overflow: hidden;
 }
 
-.hero__img img{
+.hero__img img {
     width: 100%;
 }
 
-.section-download {
+.section {
     display: flex;
     justify-content: center;
-    padding: 120px 0 50px;
+    padding: 50px 0;
 }
 
-.section-download__description {
+.section--container {
+    width: 998px;
+    height: 450px;
+    display: flex;
+    justify-content: space-between;
+    gap: 157px
+}
+
+.section__description {
     width: 291px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.section-download__description p {
+.section__description--header {
+    font-family: Pretendard;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.section__description--paragraph {
+    color: #6B6B6B;
+    font-family: Abel;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 150%;
     margin-top: 10px;
+}
+
+.section__img {
+    width: 550px;
+}
+
+.section__img img {
+    width: 100%;
+}
+
+.section.download {
+    padding: 120px 0 50px;
 }
 
 .section-download__description--gradient {
     background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.section-download--img-window {
-    width: 550px;
-    height: 450px;
-    border-radius: 15px;
-    background: var(--gray_1);
-    position: relative;
-}
-
-.section-download--img-window--container {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.section-download--img-window img {
-    width: 100%;
-}
-
-.section-manage {
-    display: flex;
-    justify-content: center;
-    padding: 50px 0;
-}
-
-.section-manage__popup-img {
-    width: 550px;
-}
-
-.section-manage__popup-img img {
-    width: 100%;
-}
-
-.section-manage__description {
-    width: 291px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.section-manage__description p {
-    margin-top: 10px;
 }
 
 .section-manage__description--gradient {
     background: linear-gradient(277deg, #6FBAFF 0%, #FFD88B 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.section-share {
-    display: flex;
-    justify-content: center;
-    padding: 50px 0;
-}
-
-.section-share__description {
-    width: 291px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.section-share__description p {
-    margin-top: 10px;
 }
 
 .section-share__description--gradient {
     background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
-.section-share__img {
-    width: 550px;
-    height: 450px;
-}
-
-.section-share__img img {
-    width: 100%;
-}
-
-.section-search {
-    display: flex;
-    justify-content: center;
+.section.search {
     padding: 50px 0 170px;
 }
 
-.section-search__img {
-    width: 550px;
-}
-
-.section-search__img img {
-    width: 100%;
-}
-
-.section-search__img--gradient {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 48.72%, #000 128.17%);
-    position: absolute;
-    top: 180px;
-}
-
-.section-search__description {
-    width: 291px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.section-search__description p {
-    margin-top: 10px;
-}
-
 .section-search__description--gradient {
-    background: var(--fandom-k-gra-blue-to-pink, linear-gradient(271deg, #FE578F 0%, #68E8F9 100%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(271deg, #FE578F 0%, #68E8F9 100%);
 }
 
 footer {
     padding: 32px 104px 64px;
-    background: var(--the-julge-black, var(--black));
+    background: var(--black);
+}
+
+.font-footer {
+    text-align: center;
+    font-family: Abel;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 20px;
 }
 
 .footer--container {
@@ -362,6 +234,15 @@ footer {
 }
 
 @media (max-width: 1200px) {
+    /* br태그로 만든 줄바꿈을 없앤다 */
+    .br-pc {
+        display: none;
+    }
+
+    .br-tablet {
+        display: inline;
+    }
+
     header {
         padding: 20px 32px;
     }
@@ -380,10 +261,7 @@ footer {
         height: 343px;
     }
 
-    .section-download,
-    .section-manage,
-    .section-share,
-    .section-search {
+    .section {
         padding: 80px 250px;
     }
 
@@ -393,46 +271,22 @@ footer {
         gap: 51px;
     }
 
-    .section-download__description,
-    .section-manage__description,
-    .section-share__description,
-    .section-search__description {
+    .section__description {
         width: 262px;
     }
 
-    .section-download--img-window,
-    .section-manage__popup-img,
-    .section-share__img,
-    .section-search__img {
+    .section__img {
         width: 385px;
-        height: 315px;
-    }
-
-    .download-badge {
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        top: 220px;
-        left: 260px;
     }
 }
 
 @media (max-width: 768px) {
-    :root {
-        font-size: calc(100vw/48);
-    }
-
-    /* br태그로 만든 줄바꿈을 없앤다 */
-    br {
-        display: none;
-    }
-
     header {
         padding: 13px 32px;
     }
 
     nav {
-        width: auto;
+        width: 100%;
     }
 
     .nav__logo {
@@ -440,20 +294,15 @@ footer {
         height: 16px;
     }
 
-    nav>a:nth-of-type(2) {
+    .nav__login {
         width: 80px;
         font-size: 14px;
         padding: 10px 16px;
     }
 
-    .hero--background {
-        width: 100%;
-        background: var(--gray_1);
-        margin-top: 68px;
-    }
-
     .hero {
         padding: 28px 32px 0;
+        margin-top: 68px;
     }
 
     .hero__description {
@@ -478,13 +327,18 @@ footer {
         height: auto;
     }
 
-    .section-download,
-    .section-manage,
-    .section-share,
-    .section-search {
+    .section {
         box-sizing: border-box;
         width: 100%;
-        height: auto;
+        padding: 40px 32px;
+    }
+
+    /* cascading 우선순위 문제로 패딩 지정해줘야함 */
+    .section.download {
+        padding: 40px 32px;
+    }
+
+    .section.search {
         padding: 40px 32px;
     }
 
@@ -497,36 +351,26 @@ footer {
         gap: 16px;
     }
 
-    .section-download__description,
-    .section-manage__description,
-    .section-share__description,
-    .section-search__description {
+    .section__description {
         text-align: center;
         width: 100%;
     }
 
-    .font-section-head {
+    .section__description--header {
         font-size: 24px;
     }
 
-    .font-section-paragraph {
+    .section__description--paragraph {
         font-size: 15px;
         margin-top: 20px;
         letter-spacing: -1px;
     }
 
-    .section-download--img-window,
-    .section-manage__popup-img,
-    .section-share__img,
-    .section-search__img {
+    .section__img {
         width: 100%;
-        height: auto;
     }
 
-    .section-download--img-window img,
-    .section-manage__popup-img img,
-    .section-share__img img,
-    .section-search__img img {
+    .section__img img {
         width: 100%;
     }
 
@@ -562,4 +406,11 @@ footer {
     .footer--container__links {
         grid-area: b;
     }
+}
+
+/* 기본 그라디언트 작업(반드시 그라디언트 효과 이후에 놓아야한다!!) */
+.gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
