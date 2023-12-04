@@ -1,0 +1,220 @@
+/* 전체 요소에 적용 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Pretendard";
+}
+
+:root {
+    --maincolor: #F0F6FF;
+    --linear-start: #6D6AFE;
+    --linear-start2: #FE8A8A;
+    --linear-start3: #6FBAFF;
+    --linear-start4: #6D7CCD;
+    --linear-start5: #FE578F;
+    --linear-end: #6AE3FE;
+    --linear-end2: #FF9F9F;
+    --linear-end3: #A4CEFF;
+    --linear-end4: #FFD88B;
+    --linear-end5: #68E8F9;
+    --link-word: #F5F5F5;
+    --description: #6B6B6B;
+    --footer: #111322;
+    --footer-description: #676767;
+    --footer-link: #CFCFCF;
+}
+
+/* 하이퍼링크 밑줄 기능 제거 */
+a {
+    text-decoration: none;
+}
+
+
+header {
+    display: flex; /* header 부분은 위에서 아래로 흐르는 일차원 방향 -> 세로 방향 */
+    flex-direction: column;
+    align-items: center; /* 가운데 정렬 */
+    width: 100%;
+    background-color: var(--maincolor);
+}
+
+.navigation {
+    display: flex; /* 왼쪽에서 오른쪽으로 흐르는 일차원 방향 */
+    justify-content: space-between; /* 기본 축 양 쪽 끝에 정렬 */
+    align-items: center; /* 교차축 가운데 정렬 */
+    position: fixed; /* 내비게이션바 상단에 고정 */
+    width: 100%;
+    padding: 0 200px; /* 양 옆으로 200px padding */
+    height: 94px; /* 전체 높이 : 20 + 20 + 54 */
+}
+
+.linkbox { /* header 오른쪽 로그인 박스 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(91deg, var(--linear-start) 0.12%, var(--linear-end) 101.84%);
+    border-radius: 8px;
+    font-size: 18px;
+    height: 54px; /* 전체 박스 높이 54px */
+    font-weight: 600;
+    width: 128px; /* 전체 박스 너비 128px */
+    color: var(--link-word);
+}
+
+.top-header { 
+    display: flex;
+    flex-direction: column; /* header에 포함된 제목, 링크, 사진은 위에서 아래 방향 */
+    align-items: center; /* 교차 축 가운데 정렬 */
+    padding-top: 70px; /* 위쪽 navigation과 padding 70px */
+    row-gap: 40px; /* 그냥 gap을 사용하면 전체 방향에서 gap이 생기는데 row, column을 앞에 붙여주면 해당 방향에 대한 gap만 적용 */
+}
+
+.top-header-title {
+    text-align: center;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 80px; /* 제목이 차지하는 높이 */
+}
+
+.title-style {
+    background-image: linear-gradient(91deg, var(--linear-start) 17.28%, var(--linear-end2) 74.98%);
+    background-clip: text; /* 해당 스타일을 텍스트에만 적용하도록 함 + background 속성보다 아래에 있어야 적용됨 */
+    -webkit-background-clip: text;
+    color: transparent; /* 텍스트가 그대로 있으면 보이지 않으므로, 텍스트 색을 지정해줌 */
+}
+
+.header-image { /* 이미지 크기 -> 직접 확인 */
+    width: 1200px;
+    height: 590px;
+}
+
+article { /* article과 section의 포함관계는 서로 바뀔 수도 있다. */
+    padding-top: 70px; /* article은 header(navigation)와 footer(footer-bottom)을 제외한 전체 부분이므로 가장 위 navigation와의 padding 값 70px */
+    padding-bottom: 120px; /* footer-bottom와의 padding 값 120px */
+}
+
+section { /* 각 페이지를 담고 있는 부분이라고 생각하면 됨 */
+    width: 100%;
+    display: grid; /* 페이지는 일차원적인 요소가 아니라 가로, 세로 방향으로 스타일링이 필요하기 때문에 flex가 아닌 grid 적용 */
+    justify-content: center; /* 기본 축 가운데 정렬 */
+    row-gap: 10px; /* 제목과 설명 사이 gap 10px 존재 -> 가로 방향 */
+    column-gap: 157px; /* 제목/설명과 이미지 사이 gap 157px 존재 -> 세로 방향 */
+    padding: 50px 0; /* section은 위 아래로 50px씩 padding 값 존재 */ 
+    height: 550px; /* 모든 section 높이 550px -> 가장 위랑 아래 section은 paading 값 70px과 120px를 뺴주어야 함 */
+}
+
+/* section은 총 4개로 이루어져 있다 */
+/* 1번째, 3번쨰 section은 제목이 왼쪽, 이미지가 오른쪽에 있고 2번째, 4번째 section은 제목이 오른쪽, 이미지가 왼쪽에 있다 */
+/* 그 부분을 제외하면 대부분의 스타일링이 일치함 */
+/* nth 속성을 이용해 홀수, 짝수 번째 스타일링 적용 */
+/* grid-area 이름으로 배치를 하며 가로 순서를 적용하고 세로에 크기를 지정 */
+section:nth-of-type(odd) {
+    grid-template:
+      ". article-image" /* X 이미지 */
+      "article-title article-image" /* 제목 이미지 */
+      "article-description article-image" /* 설명 이미지 */
+      ". article-image" / /* X 이미지 */
+      291px 550px; /* 세로 방면으로 왼쪽 291px (gap 157px) 이미지 550px */
+  }
+  
+section:nth-of-type(even) {
+    grid-template:
+        "article-image ." /* 이미지 X */
+        "article-image article-title" /* 이미지 제목 */
+        "article-image article-description" /* 이미지 설명 */
+        "article-image ." / /* 이미지 X */
+        550px 291px;
+}
+
+.article-title {
+    grid-area: article-title;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.3px; /* 글자 사이의 간격 조정 : 값이 낮을수록 간격이 좁아짐 */
+}
+
+.title1-style {
+    background-image: linear-gradient(96deg, var(--linear-start2) 1.72%, var(--linear-end3) 74.97%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.article-description {
+    grid-area: article-description;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--description);
+    line-height: 150%;
+    font-family: Abel;
+}
+
+.card-image { /* 모든 이미지 크기 동일 */ 
+    grid-area: article-image;
+    width: 550px;
+    height: 450px;
+}
+
+.title2-style {
+    background-image: linear-gradient(277deg, var(--linear-start3) 59.22%, var(--linear-end4) 93.66%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title3-style {
+    background-image: linear-gradient(99deg, var(--linear-start4) 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title4-style {
+    background-image: linear-gradient(271deg, var(--linear-start5) -9.84%, var(--linear-end5) 107.18%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+footer {
+    display: flex; /* footer 또한 왼쪽에서 오른쪽으로 일차원 방향 */
+    justify-content: center; /* 기본 축 가운데 정렬 */
+    width: 100%;
+    height: 160px; /* 전체 높이 32px + 64px + 64px */
+    padding-top: 32px; /* 위쪽 32px padding */
+    background-color: var(--footer);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between; /* 기본 축 양끝 정렬 */
+    width: 100%;
+    padding: 0 104px; /* 양 끝 104px padding */
+}
+
+.footer-left {
+    font-size:  16px;
+    font-family: Abel;
+    color: var(--footer-description);
+}
+
+.footer-center {
+    display: flex;
+    column-gap: 30px;
+    padding-right: 18px;
+}
+
+.footer-center-link {
+    display: flex;
+    font-size: 16px;
+    font-family: Abel;
+    color: var(--footer-link);
+    line-height: normal;
+}
+
+.footer-right {
+    display: flex;
+    height: 20px;
+    column-gap: 12px;
+}
