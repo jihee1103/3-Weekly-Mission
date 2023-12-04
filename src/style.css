@@ -21,7 +21,7 @@ nav {
   flex-direction: column;
   align-items: center;
   row-gap: 4rem;
-  padding-top: 7rem;
+  padding-top: 16.4rem;
 }
 
 .cta {
@@ -175,4 +175,12 @@ footer {
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  background-color: #edf7ff;
+  /* *fixed로 고정하고 백그라운드 컬러줘서 윗단고정, 
+  .hero-header에 nav 높이값만큼 더해서 화면내림 */
 }
