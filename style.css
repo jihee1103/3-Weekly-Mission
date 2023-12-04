@@ -21,8 +21,8 @@ body {
   align-items: center;
   width: 400px;
   border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-  background: var(--linkbrary-gray-10, #E7EFFB);
+  border: 1px solid var(--gray-20);
+  background: var(--gray-10);
   box-sizing: border-box;
 
 }
@@ -44,8 +44,8 @@ input {
   align-items: center;
 
   border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-  background: var(--linkbrary-white, #FFF);
+  border: 1px solid var(--gray-20);
+  background: var(--white);
 
   box-sizing: border-box;
 }
@@ -64,8 +64,8 @@ input {
   width: 100%;
   padding: 18px 15px 18px 15px;
   border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-  background: var(--linkbrary-white, #FFF);
+  border: 1px solid var(--gray-20);
+  background: var(--white);
 }
 
 .input-container .eye-icon {
@@ -77,7 +77,7 @@ input {
 }
 
 input:focus {
-  border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
+  border: 1px solid var(--primary-color);
 }
 
 .logo-section {
@@ -91,8 +91,8 @@ button {
   margin-bottom: 40px;
   border-radius: 8px;
   border: 0;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
-  color: var(--grey-light, #F5F5F5);
+  background: var(--gradient-purpleblue-to-skyblue);
+  color: var(--text-light);
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
@@ -111,7 +111,7 @@ button {
 }
 
 .social-text {
-  color: var(--linkbrary-gray-100, #373740);
+  color: var(--gray-100);
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
@@ -120,7 +120,7 @@ button {
 }
 
 .sign-in-click {
-  color: var(--linkbrary-primary-color, #6D6AFE);
+  color: var(--primary-color);
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
@@ -132,4 +132,14 @@ button {
   display: flex;
   gap: 16px;
   align-items: center;
+}
+
+:root {
+  --black: #000;
+  --white: #FFF;
+  --gray-20: #CCD5E3;
+  --gray-10: #E7EFFB;
+  --primary-color: #6D6AFE;
+  --text-light: #F5F5F5;
+  --gradient-purpleblue-to-skyblue: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
 }
