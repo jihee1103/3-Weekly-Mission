@@ -1,0 +1,139 @@
+:root{
+    --linkbrary-primary: #6D6AFE;
+    --linkbrary-red: #FF5B56;
+    --linkbrary-black: #111322;
+    --linkbrary-white: #ffffff;
+    --linkbrary-gray-100: #373740;
+    --linkbrary-gray-60: #9FA6B2;
+    --linkbrary-gray-20: #CCD5E3;
+    --linkbrary-gray-10: #E7EFFB;
+    --linkbrary-bg: #F0F6FF;
+    --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 238px 0px 252px 0px;
+    background: var(--linkbrary-bg);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+}
+
+article{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+.homeLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo{
+    width: 210.583px;
+    height: 38px;
+}
+
+.sign{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.sign a{
+    color: var(--linkbrary-primary);
+    font-weight: 600;
+}
+
+.user-login{
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    gap: 24px;
+}
+
+.user{
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    position: relative;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.user input{
+    display: flex;
+    width: 400px;
+    padding: 18px 15px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 8px;
+    border: 1px solid var(--linkbrary-gray-20);
+    background: var(--linkbrary-white);
+}
+
+.user input:focus{
+    outline: 1px solid var(--linkbrary-primary);
+}
+
+#eye-off{
+    position: absolute;
+    right: 15px;
+    bottom: 18px;
+}
+
+.login-button input{
+    width: 400px;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--gra-purpleblue-to-skyblue);
+    color: var(--linkbrary-white);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.social-login{
+    display: flex;
+    width: 400px;
+    padding: 12px 24px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--linkbrary-gray-20);
+    background: var(--linkbrary-gray-10);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.icon{
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.icon a{
+    text-decoration: none;
+}
