@@ -101,6 +101,10 @@ label {
   position: relative;
 }
 
+.password-eye img {
+  cursor: pointer;
+}
+
 input {
   display: flex;
   width: 400px;
@@ -135,6 +139,7 @@ button {
   align-items: center;
   gap: 10px;
   border: none;
+  cursor: pointer;
 
   color: var(--grey-light, #F5F5F5);
   font-family: Pretendard;
