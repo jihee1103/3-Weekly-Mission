@@ -17,19 +17,18 @@
       </h1>
 
       <form>
-        <label>이메일</label>
-        <input type="email" />
+        <label for="inputEmail">이메일</label>
+        <input type="email" id="inputEmail" />
 
-        <label class="label_pw">비밀번호</label>
-        <div>
-          <input class="pw_inputbox" type="password" />
-          <!-- <img class="eye-off" src="images/eye-off.png"> -->
-        </div>
-        <label class="label_pw">비밀번호 확인</label>
-        <div>
-          <input class="pw_inputbox" type="password" />
-          <!-- <img class="eye-off" src="images/eye-off.png"> -->
-        </div>
+        <label class="label_pw" for="inputPW">비밀번호</label>
+
+        <input class="pw_inputbox" type="password" id="inputPW" />
+        <!-- <img class="eye-off" src="images/eye-off.png"> -->
+
+        <label class="label_pw" for="inputPwCheck">비밀번호 확인</label>
+
+        <input class="pw_inputbox" type="password" id="inputPwCheck" />
+        <!-- <img class="eye-off" src="images/eye-off.png"> -->
       </form>
 
       <a class="login_btn" href="">회원가입</a>
