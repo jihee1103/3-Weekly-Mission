@@ -1,0 +1,136 @@
+
+/* 헤더 */
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 12.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: var(--color-gray0);
+}
+
+header .cta{
+  width: 5.5rem;
+}
+
+/* 푸터 */
+footer{
+  display: flex;
+  height: 10rem;
+  padding: 2rem 6.5rem 4rem;
+  justify-content: space-between;
+  background: var(--color-black);
+}
+
+footer .footer-copy{
+  color: var(--color-copy);
+}
+
+
+footer .footer-links{
+  display: flex;
+  gap: 1.875rem;
+}
+
+footer a{
+  color: var(--color-links);
+}
+
+footer .footer-sns{
+  display: flex;
+  gap: .75rem;
+}
+
+/* ========== main ========== */
+/* 메인 공통 */
+main{
+  padding-bottom: 7.5rem;
+}
+
+.main-sec{
+  padding: 3.125rem 0; 
+}
+
+.main-sec .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-sec .txt-area h2{
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: .625rem;
+}
+
+.main-sec .txt-area h2 strong{
+  color: var(--color-transparent);
+  -webkit-background-clip: text;
+}
+
+.main-sec .txt-area p{
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* 비주얼 */
+.main-visual{
+  background: var(--color-gray0);
+}
+
+.main-visual .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  text-align: center;
+  padding-top: 4.375rem;
+  max-width: 75rem;
+}
+
+.main-visual .main-visual-title h2{
+  font-size: 4rem;
+  line-height: 1.25;
+}
+
+.main-visual .main-visual-title strong{
+  background: linear-gradient(90deg, var(--color-primary), var(--color-pink));
+  color: var(--color-transparent);
+  -webkit-background-clip: text;
+}
+
+.main-visual .main-visual-btn{
+  width: 19.375rem;
+}
+
+/* 메인-세이브 */
+.main-sec-save{
+  padding-top: 7.5rem;
+}
+
+.main-sec-save .txt-area strong{
+  background: linear-gradient(90deg, var(--color-primary), var(--color-pink));
+}
+
+
+/* 메인-관리 */
+.main-sec-management .txt-area strong{
+  background: linear-gradient(90deg, var(--color-yellow), var(--color-pastelblue));
+}
+
+
+/* 메인-공유 */
+.main-sec-share .txt-area strong{
+  background: linear-gradient(90deg, var(--color-primary), var(--color-graypurple));
+}
+
+/* 메인-검색 */
+.main-sec-search .txt-area strong{
+  background: linear-gradient(90deg, var(--color-hotpink), var(--color-skyblue));
+}

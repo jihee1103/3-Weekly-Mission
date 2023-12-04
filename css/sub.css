@@ -1,0 +1,105 @@
+
+/* ========== 서브-로그인, 회원가입 ========== */
+.sign-wrap{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding-top: 14.875rem;
+  background: var(--color-gray0);
+  height: 100vh;
+}
+
+.sign-wrap main{
+  width: 100%;
+}
+
+/* 로그인, 회원가입 헤더 */
+.sign-header{
+  text-align: center;
+}
+
+.sign-header .logo{
+  margin-bottom: .625rem;
+  cursor: pointer;
+}
+
+.sign-header .logo img{
+  width: 13.125rem;
+}
+
+.sign-header p a{
+  margin-left: .3125rem;
+  color: var(--color-primary);
+  border-bottom: .0625rem solid var(--color-primary);
+}
+
+/* 로그인 */
+.sign-form-wrap, .sign-sns{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 25rem;
+  width: 100%;
+  margin: 1.875rem auto 2rem;
+}
+
+.sign-form-wrap .sign-input-wrap{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.sign-form-wrap .sign-input-wrap label{
+  font-size: .875rem;
+  font-weight: 400;
+}
+
+.sign-form-wrap .sign-input-wrap input{
+  width: 23.125rem;
+  height: 1.5rem;
+  padding: 1.125rem .9375rem;
+  border-radius: .5rem;
+  border: .0625rem solid var(--color-gray40);
+}
+
+.sign-form-wrap .sign-input-wrap input:focus{
+  outline: .0625rem solid var(--color-primary);
+}
+
+.sign-form-wrap .sign-input-wrap i{
+  position: absolute;
+  right: .9375rem;
+  bottom: 1.125rem;
+}
+
+.sign-form-wrap .sign-submit{
+  margin-top: .5rem;
+}
+
+.sign-form-wrap .sign-submit button{
+  cursor: pointer;
+  border: none;
+  outline: 0;
+}
+
+.sign-sns{
+  box-sizing: border-box;
+  display: flex;
+  padding: .75rem 1.5rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-gray20);
+  border: .0625rem solid var(--color-gray40);
+  border-radius: .5rem;
+}
+
+.sign-sns span{
+  font-size: 0.875rem;
+}
+
+.sign-sns .sign-sns-icon{
+  display: flex;
+  gap: 1rem;
+}
