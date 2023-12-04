@@ -85,7 +85,7 @@
 .form-sign__input-email>input,
 .form-sign__input-password input {
     box-sizing: border-box;
-    width: 400px;
+    width: 100%;
     height: 60px;
     border-radius: 8px;
     border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
@@ -132,7 +132,7 @@
 }
 
 .form-sign__btn-sign {
-    width: 400px;
+    width: 100%;
     height: 54px;
     border-radius: 8px;
     padding: 16px 20px;
@@ -193,4 +193,20 @@
     position: relative;
     inset: 8px;
     top: 10px;
+}
+
+@media (max-width:1199px) {
+    .sign--wrap {
+        padding-top:200px;
+    }
+}
+
+@media (max-width:390px) {
+    .sign--wrap {
+        padding-top:120px;
+    }
+    .sign {
+        max-width: 400px;
+        margin: 0 32px;
+    }
 }
