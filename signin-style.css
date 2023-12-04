@@ -24,7 +24,7 @@ body {
 }
 
 .signup-link {
-  color: var(--linkbrary-primary-color, #6D6AFE);
+  color: var(--linkbrary-primary-color);
   font-weight: 600;
   text-decoration: underline;
 }
@@ -70,7 +70,6 @@ input {
 }
 
 input:focus {
-  outline: 0;
   border: 1px solid var(--linkbrary-primary-color);
 }
 
@@ -94,7 +93,7 @@ input:focus {
 }
 
 .login-button a {
-  color: #F5F5F5;
+  color: var(--grey-light);
   font-family: Pretendard;
   font-size: 1.125rem;
   font-weight: 600;

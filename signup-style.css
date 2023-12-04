@@ -24,7 +24,7 @@ body {
 }
 
 .login-link {
-  color: var(--linkbrary-primary-color, #6D6AFE);
+  color: var(--linkbrary-primary-color);
   font-weight: 600;
   text-decoration: underline;
 }
@@ -95,7 +95,7 @@ input:focus {
 }
 
 .signin-button a {
-  color: #F5F5F5;
+  color: var(--grey-light);
   font-family: Pretendard;
   font-size: 1.125rem;
   font-weight: 600;

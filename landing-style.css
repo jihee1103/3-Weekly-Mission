@@ -10,13 +10,13 @@
   align-items: center;
   margin: 0 auto;
   padding: 1.25rem 12.5rem;
-  background: var(--linkbrary-bg);
+  background-color: var(--linkbrary-bg);
 }
 
 .login-button,
 .add-link {
   text-align: center;
-  color: #F5F5F5;
+  color: var(--grey-light);
   font-family: Pretendard;
   font-size: 1.125rem;
   font-weight: 600;
@@ -34,7 +34,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--linkbrary-bg);
+  background-color: var(--linkbrary-bg);
 }
 
 .title {
@@ -148,24 +148,24 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem 6.5rem 6.875rem;
-  background: var(--the-julge-black);
+  background-color: var(--the-julge-black);
   font-family: Arial;
 }
 
-.footer-left {
+.footer-copyright {
   color: #676767;
 }
 
-.footer-middle {
+.footer-link {
   display: flex;
   gap: 1.875rem;
 }
 
-.footer-middle a {
+.footer-link a {
   color: #CFCFCF;
 }
 
-.footer-right {
+.footer-sns {
   display: flex;
   gap: 0.75rem;
 }
