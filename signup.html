@@ -25,13 +25,23 @@
           ><a href="signin.html" class="signin-link">로그인 하기</a>
         </div>
         <div class="forms">
-          <label class="email form">
+          <label class="email form" for="signup-email">
             이메일<br />
-            <input type="email" name="signup-email" required />
+            <input
+              type="email"
+              id="signup-email"
+              name="signup-email"
+              required
+            />
           </label>
-          <label class="password form">
+          <label class="password form" for="signup-password">
             비밀번호<br />
-            <input type="password" name="signup-password" required />
+            <input
+              type="password"
+              id="signup-password"
+              name="signup-password"
+              required
+            />
             <img
               class="password-switch-icon"
               src="images/password-icon/eye-on.svg"
@@ -40,9 +50,14 @@
               height="16"
             />
           </label>
-          <label class="password-repeat form">
+          <label class="password-repeat form" for="password-repeat">
             비밀번호 확인<br />
-            <input type="password" name="sign-up-password-repeat" required />
+            <input
+              type="password"
+              id="password-repeat"
+              name="sign-up-password-repeat"
+              required
+            />
             <img
               class="password-switch-icon"
               src="images/password-icon/eye-on.svg"
