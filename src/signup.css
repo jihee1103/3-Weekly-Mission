@@ -70,7 +70,7 @@ header {
 section {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 2.4rem;
 }
 
@@ -171,4 +171,27 @@ footer>span {
   width: 4.2rem;
   height: 4.2rem;
   flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  :not(a, span, img, label, .icons, .goto-signin) {
+    width: 100%;
+  }
+
+  body {
+    background: var(--linkbrary-bg);
+
+    display: inline-flex;
+    padding: 12rem 3.2rem 11.9rem 3.3rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .password-eye,
+  input,
+  button,
+  footer,
+  section {
+    max-width: 40rem;
+  }
 }
