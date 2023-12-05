@@ -13,7 +13,7 @@
 body {
   display: flex;
   width: 100%;
-  padding: 238px 0px 252px 0px;
+  padding: 23.8rem 0 25.2rem 0;
   justify-content: center;
   align-items: center;
 
@@ -24,45 +24,45 @@ article {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 3.2rem;
 }
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 3rem;
 }
 
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 .linkbrary-logo {
-  width: 210.583px;
-  height: 38px;
+  width: 21.0583rem;
+  height: 3.8rem;
 }
 
 .goto-signup {
   display: flex;
-  gap: 8px;
+  gap: 0.8rem;
 }
 
 .goto-signup>span {
   color: var(--black, #000);
 
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2.4rem;
 }
 
 .goto-signup>a {
   color: var(--linkbrary-primary-color);
 
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 600;
   text-decoration: underline;
 }
@@ -71,21 +71,21 @@ section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 2.4rem;
 }
 
 .input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 label {
   color: var(--black, #000);
 
   /* Linkbrary/body2-regular */
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 400;
 }
 
@@ -99,76 +99,76 @@ label {
 
 input {
   display: flex;
-  width: 400px;
-  padding: 18px 15px;
+  width: 40rem;
+  padding: 1.8rem 1.5rem;
   justify-content: center;
   align-items: center;
 
-  border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--linkbrary-gray-20);
   background: var(--linkbrary-white);
 }
 
 input:focus {
-  border-radius: 8px;
-  border: 1px solid var(--linkbrary-primary-color);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--linkbrary-primary-color);
   background: var(--linkbrary-white);
   outline: none;
 }
 
 .password-eye>img {
   position: absolute;
-  right: 15px;
-  top: 18px;
-  bottom: 18px;
+  right: 1.5rem;
+  top: 1.8rem;
+  bottom: 1.8rem;
 }
 
 button {
   display: flex;
-  width: 400px;
-  padding: 16px 20px;
+  width: 40rem;
+  padding: 1.6rem 2rem;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
   border: none;
   cursor: pointer;
 
   color: var(--grey-light, #F5F5F5);
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
 
-  border-radius: 8px;
+  border-radius: 0.8rem;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
 }
 
 footer {
   display: flex;
-  width: 400px;
-  padding: 12px 24px;
+  width: 40rem;
+  padding: 1.2rem 2.4rem;
   justify-content: space-between;
   align-items: center;
 
-  border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--linkbrary-gray-20);
   background: var(--linkbrary-gray-10);
 }
 
 footer>span {
   color: var(--linkbrary-gray-100);
 
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 400;
 }
 
 .icons {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 .google,
 .kakao {
-  width: 42px;
-  height: 42px;
+  width: 4.2rem;
+  height: 4.2rem;
   flex-shrink: 0;
 }
