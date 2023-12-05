@@ -12,9 +12,9 @@
     --grey-light: #F5F5F5;
     --black: #000;
     --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
-    --fandom-k-gra-blue-to-pink: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%)
+    --fandom-k-gra-blue-to-pink: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
+    --zIndex-least-value: 1;
 }
-
 
 * {
     box-sizing: border-box;
@@ -22,7 +22,6 @@
 
 html {
     font-family: Pretendard, Abel, sans-serif;
-    word-break: keep-all;
 }
 
 body {
