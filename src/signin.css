@@ -54,9 +54,7 @@ header {
 .goto-signup>span {
   color: var(--black, #000);
 
-  font-family: Pretendard;
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
   line-height: 24px;
 }
@@ -64,11 +62,8 @@ header {
 .goto-signup>a {
   color: var(--linkbrary-primary-color);
 
-  font-family: Pretendard;
   font-size: 16px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
   text-decoration: underline;
 }
 
@@ -90,11 +85,8 @@ label {
   color: var(--black, #000);
 
   /* Linkbrary/body2-regular */
-  font-family: Pretendard;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
 }
 
 .password-eye {
@@ -142,11 +134,8 @@ button {
   cursor: pointer;
 
   color: var(--grey-light, #F5F5F5);
-  font-family: Pretendard;
   font-size: 18px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 
   border-radius: 8px;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
@@ -167,11 +156,8 @@ footer {
 footer>span {
   color: var(--linkbrary-gray-100);
 
-  font-family: Pretendard;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
 }
 
 .icons {
@@ -183,6 +169,6 @@ footer>span {
 .google,
 .kakao {
   width: 42px;
-height: 42px;
-flex-shrink: 0;
+  height: 42px;
+  flex-shrink: 0;
 }
