@@ -1,0 +1,139 @@
+:root {
+  --primary: #6d6afe;
+  --red: #ff5b56;
+  --black: #111322;
+  --white: #ffffff;
+  --gray1: #3e3e43;
+  --gray2: #9fa6b2;
+  --gray3: #ccd5e3;
+  --gray4: #e7effb;
+  --gray5: #f0f6ff;
+}
+
+#login7 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 54px;
+  width: 400px;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
+  border-radius: 0.8rem;
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+body {
+  background-color: #edf7ff;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.wraps {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#head {
+  width: 218px;
+  height: 78px;
+  display: flex;
+  flex-direction: column;
+}
+
+#head a img {
+  width: 100%;
+  flex-grow: 1;
+}
+
+#head #join {
+  height: 24px;
+  display: flex;
+  white-space: nowrap;
+  font-size: 1.3rem;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+#head div a {
+  display: block;
+  white-space: nowrap;
+  font-size: 1.3rem;
+  margin-left: 20px;
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 15px;
+  margin-bottom: 11px;
+}
+
+input {
+  width: 400px;
+  height: 60px;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  border: 0;
+  outline: 2px solid var(--gray3);
+  padding-left: 10px;
+}
+
+input:focus {
+  outline: 2px solid var(--primary);
+}
+
+#login {
+  margin-top: 30px;
+}
+
+#bottom {
+  margin-top: 30px;
+  width: 400px;
+  height: 66px;
+  background-color: var(--gray4);
+  border: 2px solid;
+  border-color: var(--gray3);
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30;
+}
+
+#bottom span {
+  margin-left: 30px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+#bottom div {
+  margin-right: 20px;
+}
+
+#bottom div a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#ps {
+  position: relative;
+}
+
+#ps img {
+  position: absolute;
+  top: 44px;
+  bottom: 0;
+  right: 10px;
+  margin: auto 2px;
+  height: 20px;
+
+  cursor: pointer;
+}
