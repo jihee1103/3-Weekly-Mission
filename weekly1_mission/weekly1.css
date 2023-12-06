@@ -1,0 +1,315 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+    width: 100%;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #edf7ff;
+  height: 1020px;
+  overflow: hidden;
+}
+
+.nav{
+ display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  
+  height: 94px;
+  padding: 30px 200px;
+  background-color: #edf7ff;
+  position: fixed;
+  
+}
+
+.login{
+    display: flex;
+    width: 128px;
+    padding: 16px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    border-radius: 8px;
+    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+}
+
+nav img{
+    width: 133px;
+    height: 24px;
+}
+
+.title{
+    display: flex;
+    width: 1220px;
+    padding: 70px 360px 0px 360px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 40px;
+    padding-top: 70px;
+}
+
+.title_color{
+    background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h1{
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 80px;
+    width: 718px;
+    height: 160px;
+    letter-spacing: -8px;
+    margin-top: 70px;
+}
+
+.link{
+    color: white;
+    display: flex;
+    width: 350px;
+    padding: 16px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%)); 
+    font-size: 18px;
+    color: var(--grey-light, #F5F5F5);
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    }
+
+
+.mainimage{
+    width: 1118px;
+    height: 659px;
+    flex-shrink: 0;
+    border-radius: 25px;
+    background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+    margin-top: 50px;
+}
+
+article{
+   
+    padding-top: 0px;
+    padding-bottom: 12rem;
+    
+}
+
+
+.content{
+    font-family: Pretendard;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    margin:0px
+}
+
+.inside{
+    color: #6B6B6B;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; 
+    align-self: stretch;
+
+}
+
+
+section{
+    display: flex;
+    padding: 120px 461px 50px 461px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 600px;
+    gap: 157px;
+}
+
+.contentbox{
+    width: 320px;
+}
+
+.content_image,.card{
+    width: 550px;
+    height: 450px;
+    border-radius: 15px;
+    background: #F0F6FF;
+}
+
+.change_image{
+    width: 414px;
+    height: 270px;
+    flex-shrink: 0;
+    margin: 114px 68px 66px ;
+}
+
+.link_save_color{
+    background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+.link_save_color2{
+    background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Pretendard;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.3px;
+}
+
+.link_save_color3{
+    background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Pretendard;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+
+.folder{
+    position: relative;
+    width: 570px;
+    height: 469px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.5);
+    background-image: url(image1.png);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    
+}
+
+.folder_image{
+    width: 416px;
+    height: 271px;
+    flex-shrink: 0;
+    margin: 121px 77px 77px;
+}
+
+.link_save_color4{
+    background: var(--fandom-k-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Pretendard;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.screen{
+    width: 550px;
+    height: 450px;
+    border-radius: 15px;
+    background: #F0F6FF;  
+    overflow: hidden;
+    margin: 0 0 0 -140px;  
+}
+
+.screen_image{
+    width: 619px;
+    height: 584px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 48.72%, #000 128.17%);
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+    margin: 55px 60px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 160px;
+    padding-top: 0 ;
+    background-color: #111322;
+}
+
+.footerbox{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 192rem;
+    height: fit-content;
+    padding-top: 32px;
+    margin: 0 104px;
+}
+
+.write{
+    color: #676767;
+    text-align: center;
+    font-family: Arial;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+    width: 105px;
+    height: 18px;
+    
+}
+
+.footer_links{
+    display: flex;
+    column-gap: 3rem;
+    padding-right: 1.8rem;
+}
+
+.footer_link {
+    color: #CFCFCF;
+    font-family: Abel;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;  
+  }
+  
+  .icorn {
+    display: flex;
+    column-gap: 1.2rem;
+    height: 2rem;
+  }
+  .right{
+    text-align: right;
+    padding-left: 150px;
+  }
+
+  .noline, .footer_link{
+    text-decoration-line: none;
+  }
