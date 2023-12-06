@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Pretendard';
+}
+
+html,
+body {
+  font-size: 62.5%;
+}
+
+button {
+  border: none;
+}
+
+address {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+input,
+textarea {
+  resize: none;
+  outline: none;
+}
