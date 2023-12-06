@@ -20,7 +20,7 @@ nav {
   right: 0;
 }
 
-nav>img {
+nav img {
   width: 133px;
   height: 24px;
 }
@@ -181,9 +181,9 @@ footer {
     padding: 0 3.2rem;
   }
 
-  nav>img {
-    width: 88.667px;
-    height: 16px;
+  nav img {
+    width: 8.8667rem;
+    height: 1.6rem;
   }
   
   .hero-header {
@@ -320,6 +320,22 @@ footer {
     height: 315px;
   }
 }
+
+
+
+
+/* nav바 반응형 여백 */
+@media (max-width: 1199px) {
+  nav {
+    padding: 0 calc((100% - 78.32rem) / 2);
+  }
+}
+@media (max-width: 864px) {
+  nav {
+    padding: 0 3.2rem;
+  }
+}
+
 
 
 
