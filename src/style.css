@@ -20,6 +20,11 @@ nav {
   right: 0;
 }
 
+nav>img {
+  width: 133px;
+  height: 24px;
+}
+
 .hero-header {
   display: flex;
   flex-direction: column;
@@ -85,24 +90,6 @@ section {
   width: 100%;
   height: 55rem;
   padding: 50px 0;
-}
-
-section:nth-of-type(odd) {
-  grid-template:
-    ". image"
-    "title image"
-    "description image"
-    ". image"
-    /291px 55rem;
-}
-
-section:nth-of-type(even) {
-  grid-template:
-    "image ."
-    "image title"
-    "image description"
-    "image ."
-    /550px 29.1rem;
 }
 
 .title {
@@ -182,7 +169,116 @@ footer {
   height: 2rem;
 }
 
-@media (max-width: 1199px) {
+
+
+
+
+
+/* 모바일 크기 */
+@media (max-width: 767px) {
+  nav {
+    height: 6.3rem;
+    padding: 0 3.2rem;
+  }
+
+  nav>img {
+    width: 88.667px;
+    height: 16px;
+  }
+  
+  .hero-header {
+    row-gap: 2.4rem;
+    padding-top: 2.8rem;
+    padding: 2.8rem 3.2rem 0;
+    margin-top: 6.3rem;
+  }
+  
+  .cta {
+    height: 3.7rem;
+    font-size: 1.4rem;
+  }
+  
+  .cta-short {
+    width: 8rem;
+  }
+  
+  .cta-long {
+    width: 20rem;
+  }
+  
+  .slogan {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: 100%;
+  }
+  
+  article {
+    padding: 0 3.2rem 4rem;
+  }
+  
+  section {
+    row-gap: 2.4rem;
+    height: auto;
+    padding: 4rem 0;
+
+    display: grid;
+    grid-template:
+      "title"
+      "image"
+      "description";
+  }
+  
+  .title {
+    font-size: 2.4rem;
+  }
+  
+  .description {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  br {
+    display: none;
+  }
+  
+  .content-image {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .footer-box {
+    display: grid;
+    grid-template-areas:
+      "links sns"
+      "copyright .";
+    row-gap: 6rem;
+    padding: 0 3.2rem;
+  }
+  
+  .copyright {
+    grid-area: copyright;
+    font-weight: 400;
+  }
+  
+  .footer-links {
+    grid-area: links;
+  }
+  
+  .footer-link {
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+}
+
+
+
+
+/* 태블릿 크기 */
+@media (min-width: 768px) {
   .hero-header {
     padding-top: 4rem;
   }
@@ -225,6 +321,27 @@ footer {
   }
 }
 
-@media (max-width: 767px) {
-  
+
+
+
+
+/* 컴퓨터 크기 */
+@media (min-width: 1200px) {
+  section:nth-of-type(odd) {
+    grid-template:
+      ". image"
+      "title image"
+      "description image"
+      ". image"
+      /291px 55rem;
+  }
+
+  section:nth-of-type(even) {
+    grid-template:
+      "image ."
+      "image title"
+      "image description"
+      "image ."
+      /550px 29.1rem;
+  }
 }
