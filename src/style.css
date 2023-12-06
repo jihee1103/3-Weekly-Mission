@@ -280,6 +280,12 @@ footer {
     }
 }
 
+@media (max-width: 864px) {
+    nav {
+        width: auto;
+    }
+}
+
 @media (max-width: 768px) {
     header {
         padding: 13px 32px;
