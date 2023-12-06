@@ -1,193 +1,182 @@
 *{
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
+
 body{
-    margin: 0 auto;
-    background-color: #F0F6FF;
+  margin: 0;
+  background-color: #F0F6FF;
 }
+
 .main_box{
-    display: flex;
-    padding: 238px 0px 252px 0px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  padding: 238px 0px 252px 0px;
+  justify-content: center;
+  align-items: center;
 }
-.gap_box{
-    display: flex;
-    
-}
+
 main{
-    
-    height: 394px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px
+  height: 394px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px
 }
 
 .logo{
-    width: 210.583px;
-    height: 38px;  
-    flex-direction: column;
+  width: 210.583px;
+  height: 38px;  
+  flex-direction: column;
 }
+
 .member{
-    color: var(--black, #000);
-    font-family: Pretendard;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 150% */
-    margin:16px 0 0 0;
-    
+  color: var(--black, #000);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  margin:0;
 }
+
 .text_color{
-    color: var(--linkbrary-primary-color, #6D6AFE);
-    font-family: Pretendard;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;   
+  color: var(--linkbrary-primary-color, #6D6AFE);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;   
 }
 
 .link_color{
-    text-decoration-color: #6D6AFE;
+  text-decoration-color: #6D6AFE;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 form label{
-    color: var(--black, #000);
-    font-family: Pretendard;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: var(--black, #000);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 form p{
-    margin: 0;
+  margin: 0;
 }
 
 
 input{
-    position: relative;
-    width: 400px;
-    padding: 18px 30px 18px 15px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-    background: var(--linkbrary-white, #FFF);   
+  position: relative;
+  width: 400px;
+  padding: 18px 30px 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+  background: var(--linkbrary-white, #FFF);   
 }
 
 input:focus{
-    border-color: blue;
-    outline: none;
+  border-color: blue;
+  outline: none;
 }
 
 .login{
-    display: flex;
-    width: 400px;
-    padding: 16px 20px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
-    color: var(--grey-light, #F5F5F5);
-    font-family: Pretendard;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+  display: flex;
+  width: 400px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  color: var(--grey-light, #F5F5F5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
+
 .sns{
-    display: flex;
-    width: 400px;
-    padding: 12px 24px;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-    border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-    background: var(--linkbrary-gray-10, #E7EFFB);
-    color: var(--linkbrary-gray-100, #373740);
-    font-family: Pretendard;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    
+  display: flex;
+  width: 400px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+  background: var(--linkbrary-gray-10, #E7EFFB);
+  color: var(--linkbrary-gray-100, #373740);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .icon{  
-    display: flex;
-    width: 120px;
-    height: 42px;
-    position: relative;
-    align-items: center;
-    justify-content: center;    
-    gap: 50px;
-
-
+  display: flex;
+  width: 120px;
+  height: 42px;
+  position: relative;
+  align-items: center;
+  justify-content: center;    
+  gap: 50px;
 }
 
 .icon_content{
-    position: relative;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
 .google{   
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .google_background{   
-    position: absolute;
-    width: 42px;
-    height: 42px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .kakao{
-    position: absolute;
-    width: 26px;
-    height: 24px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    
+  z-index: 1;
+  width: 26px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .kakao_background{
-    position: absolute;
-    width: 42px;
-    height: 42px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-
-.pass{
-    position: relative;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+.password{
+  position: relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .passwordicon1{
-    position: absolute;
-    right: 16px;
-    
+  position: absolute;
+  right: 16px;
 }
