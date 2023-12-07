@@ -60,15 +60,11 @@ header .ask-singup {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 0 30px;
   margin: 0 auto;
 }
 
-.content {
-  width: 100%;
-}
-
 form {
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -109,7 +105,7 @@ form label {
 
 form input {
   display: flex;
-  width: 400px;
+  width: 100%;
   padding: 18px 15px;
   justify-content: center;
   align-items: center;
@@ -138,7 +134,7 @@ input:focus {
 
 form button {
   display: flex;
-  width: 400px;
+  width: 100%;
   padding: 16px 20px;
   justify-content: center;
   align-items: center;
@@ -158,7 +154,7 @@ form button {
 
 .content-sns {
   display: flex;
-  width: 400px;
+  width: 100%;
   padding: 12px 24px;
   justify-content: space-between;
   align-items: center;

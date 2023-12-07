@@ -13,8 +13,7 @@ header {
   background: var(--linkbrary-bg, #F0F6FF);
 }
 
-.header-conten img {
-  width: 133px;
+.header-content img {
   height: 24px;
 }
 
@@ -36,7 +35,6 @@ header {
   color: var(--grey-light, #F5F5F5);
   font-size: 1.8rem;
   font-weight: 600;
-  line-height: normal;
   border-radius: 8px;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
 }
@@ -48,9 +46,10 @@ header {
 .title {
   display: flex;
   width: 1200px;
+  height: 953px;
   margin: 0 auto 120px;
+  padding-top: 163px;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 40px;
   overflow: hidden;
@@ -58,13 +57,16 @@ header {
 }
 
 h1 {
-  margin: 164px 0 0; /*헤더 마진주기*/
+  margin: 0;
   text-align: center;
   color: #000;
   font-size: 6.4rem;
-  font-style: normal;
   font-weight: 700;
   line-height: 80px;
+}
+
+#h1br {
+  display: none;
 }
 
 h1 span {
@@ -80,7 +82,6 @@ h1 span {
   padding: 16px 20px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   border-radius: 8px;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
 }
@@ -90,32 +91,33 @@ h1 span {
   font-size: 1.8rem;
   font-weight: 600;
 }
-.title-img{
-  width: 1200px;
-  height: 590px;
+.title-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.title-img img{
-  width: 1118px;
-  height: 706.956px;
+.title-img img {
+  width: 100%;
   border-radius: 25px;
+
 }
 
 .content {
   display: flex;
-  width: 998px;
-  height: 450px;
   margin: 100px auto;
   justify-content: center;
   align-items: center;
   gap: 157px;
+  width: 100%;
+  
 }
 
 .content-text {
   display: flex;
+  width: 291px;
   flex-direction: column;
   gap: 10px;
-  width: 291px;
 }
 
 h2 {
@@ -166,7 +168,6 @@ h2 {
   display: flex;
   position: relative;
   width: 550px;
-  height: 450px;
   border-radius: 15px;
   background: #F0F6FF;
   align-items: center;
@@ -174,63 +175,8 @@ h2 {
   overflow: hidden;
 }
 
-.content-img-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-}
-
-.content-img .container {
-  display: inline-flex;
-  align-items: center;
-  
-}
-.three-img {
-  width: 279px;
-  height: 274px;
-  }
-
-.dog-in {
-  position: relative;
-  width: 279px;
-  height: 274.927px;
-}
-.dog-in img {
-  width: 46px;
-  height: 46px;
-}
-
-.login-img {
-  display: flex;
-  width: 414px;
-  height: 270px;
-}
-
-.share-img {
-  width: 934px;
-  height: 591px;
-
-  filter: brightness(0.5);
-  border-radius: 25px;
-  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
-  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
-}
-
-.share-select-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 416px;
-  height: 271px;
-}
-
-.search-img {
-  display: flex;
-  align-items: end;
-  width: 619px;
-  height: 584px;
+.content-img img {
+  width: 100%;
 }
 
 footer {
