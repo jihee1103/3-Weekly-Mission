@@ -1,5 +1,14 @@
-header {
+html {
   position: relative;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: #f0f6ff;
 }
 
 nav {
@@ -8,11 +17,9 @@ nav {
   align-items: center;
   width: 100%;
   max-width: 192rem;
+  margin: 0 auto;
   height: 9.4rem;
   padding: 0 20rem;
-  position: fixed;
-  top: 0;
-  background-color: #f0f6ff;
 }
 
 .btn {
