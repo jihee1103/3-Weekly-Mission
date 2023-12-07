@@ -5,7 +5,7 @@
 @import url(../static/pretendard.css);
 
 :root {
-    font-size: 16px;
+    font-size: 62.5%;
     --primary: #6D6AFE;
     --red: #FF5B56;
     --black: #111322;
@@ -20,17 +20,17 @@
 
 header {
     box-sizing: border-box;
-    padding: 20px 200px;
+    padding: 2rem 20rem;
     background: var(--gray_1);
     position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
+    top: 0rem;
+    left: 0rem;
+    right: 0rem;
     z-index: 9999;
 }
 
 nav {
-    max-width: 1920px;
+    max-width: 192rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -39,24 +39,24 @@ nav {
 
 .nav__login {
     box-sizing: border-box;
-    width: 128px;
+    width: 12.8rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 16px 20px;
+    padding: 1.6rem 2rem;
     font-family: "Pretendard";
-    font-size: 1.125rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    line-height: 22px;
-    letter-spacing: -0.3px;
+    line-height: 2.2rem;
+    letter-spacing: -0.03rem;
     color: #F5F5F5;
     background: linear-gradient(90.99deg, var(--primary) 0.12%, #6AE3FE 101.84%);
 }
 
 section {
-    max-width: 1920px;
+    max-width: 192rem;
     margin: 0 auto;
 }
 
@@ -64,19 +64,19 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 70px 360px 0;
+    padding: 7rem 36rem 0;
     background: var(--gray_1);
-    margin-top: 94px;
+    margin-top: 9.4rem;
 }
 
 .hero__description {
     color: #000000;
     font-family: "Pretendard";
-    font-size: 4rem;
+    font-size: 6.4rem;
     font-weight: 700;
-    line-height: 80px;
+    line-height: 8rem;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
     white-space: nowrap;
 }
 
@@ -89,25 +89,25 @@ section {
 }
 
 .hero__add-link-box {
-    margin-bottom: 89px;
+    margin-bottom: 8.9rem;
 }
 
 .hero__add-link {
     box-sizing: border-box;
-    width: 350px;
-    border-radius: 8px;
+    width: 35rem;
+    border-radius: 0.8rem;
     display: flex;
     justify-content: center;
-    padding: 16px 20px;
+    padding: 1.6rem 2rem;
     background: linear-gradient(91deg, var(--primary) 0.12%, #6AE3FE 101.84%);
     color: #F5F5F5;
     font-family: Pretendard;
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 600;
 }
 
 .hero__img {
-    width: 1200px;
+    width: 120rem;
     overflow: hidden;
 }
 
@@ -118,19 +118,19 @@ section {
 .section {
     display: flex;
     justify-content: center;
-    padding: 50px 0;
+    padding: 5rem 0;
 }
 
 .section--container {
-    width: 998px;
-    height: 450px;
+    width: 99.8rem;
+    height: 45rem;
     display: flex;
     justify-content: space-between;
-    gap: 157px
+    gap: 15.7rem
 }
 
 .section__description {
-    width: 291px;
+    width: 29.1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -138,22 +138,22 @@ section {
 
 .section__description--header {
     font-family: Pretendard;
-    font-size: 3rem;
+    font-size: 4.8rem;
     font-weight: 700;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.03rem;
 }
 
 .section__description--paragraph {
     color: #6B6B6B;
     font-family: Abel;
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 400;
     line-height: 150%;
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
 .section__img {
-    width: 550px;
+    width: 55rem;
 }
 
 .section__img img {
@@ -161,7 +161,7 @@ section {
 }
 
 .section.download {
-    padding: 120px 0 50px;
+    padding: 12rem 0 5rem;
 }
 
 .section-download__description--gradient {
@@ -177,7 +177,7 @@ section {
 }
 
 .section.search {
-    padding: 50px 0 170px;
+    padding: 5rem 0 17rem;
 }
 
 .section-search__description--gradient {
@@ -185,7 +185,7 @@ section {
 }
 
 footer {
-    padding: 32px 104px 64px;
+    padding: 3.2rem 10.4rem 6.4rem;
     background: var(--black);
 }
 
@@ -194,11 +194,11 @@ footer {
     font-family: Abel;
     font-size: 1rem;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 2rem;
 }
 
 .footer--container {
-    max-width: 1920px;
+    max-width: 192rem;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
@@ -217,7 +217,7 @@ footer {
 }
 
 .footer--container-privacy-and-faq a:nth-of-type(1) {
-    margin-right: 30px;
+    margin-right: 3rem;
 }
 
 .footer--container__links {
@@ -225,15 +225,16 @@ footer {
 }
 
 .footer--container__links>a {
-    width: 20px;
-    height: 20px;
+    width: 2rem;
+    height: 2rem;
 }
 
 .footer--container__links a:not(:first-child) {
-    margin-left: 12px;
+    margin-left: 1.2rem;
 }
 
 @media (max-width: 1200px) {
+
     /* br태그로 만든 줄바꿈을 없앤다 */
     .br-pc {
         display: none;
@@ -340,10 +341,7 @@ footer {
     }
 
     /* cascading 우선순위 문제로 패딩 지정해줘야함 */
-    .section.download {
-        padding: 40px 32px;
-    }
-
+    .section.download,
     .section.search {
         padding: 40px 32px;
     }
