@@ -1,7 +1,12 @@
 @media screen and (max-width: 1199px) and (min-width: 768px) {
   
 header {
-  padding: 20px 32px;
+  display: grid;
+  grid-template-columns: minmax(32px, auto) minmax(32px, 800px) minmax(32px, auto);
+  padding: 20px 0;
+}
+.header-content {
+  grid-column: 2/3;
 }
 
 #h1br {
@@ -113,6 +118,24 @@ section.content:nth-of-type(3) {
 section.content:nth-of-type(2),
 section.content:nth-of-type(4) {
   flex-direction: column-reverse;
+}
+
+.footer-bar-content {
+  display: grid;
+  grid-template: 1fr 1fr/ 1.5fr 1fr;
+  grid-row-gap: 60px;
+}
+
+.footer-bar-content-logo {
+  grid-row: 2/3;
+}
+
+.footer-bar-content-mid {
+
+}
+
+.footer-bar-content-sns {
+
 }
 
 
