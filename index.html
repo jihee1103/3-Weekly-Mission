@@ -11,7 +11,7 @@
       name="description"
       content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
     />
-
+    <!--facebook-->
     <meta
       property="og:image"
       content="/asset/linkbrary-meta.jpg"
@@ -28,7 +28,7 @@
       property="og:url"
       content="https://siyeol-codeit-linkbrary.netlify.app"
     />
-
+    <!--twitter-->
     <meta
       name="twitter:card"
       content="summary_large_image"
@@ -45,7 +45,10 @@
       name="twitter:description"
       content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
     />
-
+    <link
+      rel="stylesheet"
+      href="reset.css"
+    />
     <link
       rel="stylesheet"
       href="style.css"
@@ -87,32 +90,33 @@
         </a>
       </section>
     </header>
-    <!--contents-01-->
-    <section class="contents-01">
-      <!--contents-01-box-->
-      <div class="contents-01-container">
-        <div class="contents-01-text">
-          <span class="contents-01-text__highlight">세상의 모든 정보</span
+    <!--contents-overview-->
+    <section class="contents-overview">
+      <!--contents-overview-box-->
+      <div class="contents-overview-container">
+        <div class="contents-overview-text">
+          <span class="contents-overview-text__highlight">세상의 모든 정보</span
           >를<br />쉽게 저장하고 관리해 보세요
         </div>
         <!--addlinkbutton-->
         <a href="/signup">
-          <div class="contents-01-text__addlinkbtn">
+          <div class="contents-overview-text__addlinkbtn">
             <span>링크 추가하기</span>
           </div>
         </a>
-        <!--contents-01-img-->
-        <div class="contents-01-imgbox">
-          <div class="content-01-img"></div>
+        <!--contents-overview-img-->
+        <div class="contents-overview-imgbox">
+          <div class="content-overview-img"></div>
         </div>
       </div>
     </section>
-    <!--contents-02-->
+    <!--contents-savelink-->
     <section class="section-frame">
       <div class="contents-container">
         <div class="contents-textbox">
           <p class="contents-textbox__h1">
-            <span class="contents-02-highlight">원하는 링크</span>를 저장하세요
+            <span class="contents-savelink-highlight">원하는 링크</span>를
+            저장하세요
           </p>
           <p class="contents-textbox__text">
             나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고
@@ -120,17 +124,21 @@
           </p>
         </div>
         <div class="contents-img_container">
-          <div class="contents-02-imgbox">
-            <div class="contents-02-img1 contents-02-img"></div>
-            <div class="contents-02-img2 contents-02-img">
+          <div class="contents-savelink-imgbox">
+            <div class="contents-savelink-img1 contents-savelink-img"></div>
+            <div class="contents-savelink-img2 contents-savelink-img">
               <div class="frame"></div>
+              <img
+                src="/asset/downloadIcon.svg"
+                alt="downloadIcon"
+              />
             </div>
-            <div class="contents-02-img3 contents-02-img"></div>
+            <div class="contents-savelink-img3 contents-savelink-img"></div>
           </div>
         </div>
       </div>
     </section>
-    <!--contents-03-->
+    <!--contents-manage-folder-->
     <section class="section-frame section-frame-padding">
       <div class="contents-container">
         <div class="contents-img_container">
@@ -142,7 +150,8 @@
         </div>
         <div class="contents-textbox">
           <p class="contents-textbox__h1">
-            링크를 폴더로 <span class="contents-03-highlight">관리</span>하세요.
+            링크를 폴더로
+            <span class="contents-manage-folder-highlight">관리</span>하세요.
           </p>
           <p class="contents-textbox__text">
             나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.
@@ -150,13 +159,13 @@
         </div>
       </div>
     </section>
-    <!--contents-04-->
+    <!--contents-sharelink-->
     <section class="section-frame section-frame-padding">
       <div class="contents-container">
         <div class="contents-textbox">
           <p class="contents-textbox__h1">
-            저장한 링크를 <span class="contents-04-highlight">공유</span>해
-            보세요.
+            저장한 링크를
+            <span class="contents-sharelink-highlight">공유</span>해 보세요.
           </p>
           <p class="contents-textbox__text">
             여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게
@@ -167,13 +176,13 @@
           class="contents-img_container"
           style="border-radius: 25px"
         >
-          <div class="contents-03-bg">
-            <div class="contents-03-popup"></div>
+          <div class="contents-sharelink-bg">
+            <div class="contents-sharelink-popup"></div>
           </div>
         </div>
       </div>
     </section>
-    <!--contents-05-->
+    <!--contents-searchlink-->
     <section class="section-frame section-frame-padding">
       <div class="contents-container">
         <div class="contents-img_container">
@@ -181,8 +190,8 @@
         </div>
         <div class="contents-textbox">
           <p class="contents-textbox__h1">
-            저장한 링크를 <span class="contents-05-highlight">검색</span>해
-            보세요.
+            저장한 링크를
+            <span class="contents-searchlink-highlight">검색</span>해 보세요.
           </p>
           <p class="contents-textbox__text">
             중요한 정보들을 검색으로 쉽게 찾아보세요.
@@ -190,6 +199,7 @@
         </div>
       </div>
     </section>
+    <!--footer-->
     <footer class="footer">
       <div class="footer-box">
         <div class="footer-contents">
