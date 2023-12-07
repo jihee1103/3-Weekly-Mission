@@ -7,7 +7,6 @@
     padding-top: 238px;
 }
 
-/* signin, signup의 형태가 비슷해 sign으로 묶음 */
 .sign {
     width: 400px;
     height: 394px;
@@ -187,13 +186,13 @@
     top: 10px;
 }
 
-@media (max-width:1199px) {
+@media (max-width:1200px) {
     .sign--wrap {
         padding-top:200px;
     }
 }
 
-@media (max-width:390px) {
+@media (max-width:464px) {
     .sign--wrap {
         padding-top:120px;
     }
