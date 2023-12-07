@@ -1,3 +1,7 @@
+body {
+  background-color: #f0f6ff;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -5,7 +9,6 @@ main {
   padding: 23.9rem 0 25.2rem;
   font-size: 1.4rem;
   font-weight: 400;
-  background-color: #f0f6ff;
 }
 
 input {
