@@ -110,7 +110,7 @@ a {
   font-weight: 600;
 }
 
-.contents-overview-imgbox {
+.content-overview-imgbox {
   position: relative;
   width: 1200px;
   height: 590px;
@@ -123,6 +123,7 @@ a {
   background: linear-gradient(180deg, rgba(196, 196, 196, 0) 67.68%, #f0f6ff 94.76%),
     url(./asset/image01.png);
   background-size: cover;
+  background-repeat: no-repeat;
   width: 1118px;
   height: 659px;
   border-radius: 25px;
@@ -312,7 +313,7 @@ a {
 .footer {
   display: flex;
   height: 280px;
-  padding-top: 120px;
+  padding: 120px 0 0;
 }
 
 .footer-box {
@@ -376,55 +377,42 @@ a {
   .header {
     padding: 20px max(32px, calc((100vw - 800px) / 2));
   }
-
   .contents-overview {
     padding: 39px 0 0;
   }
-
-  .contents-overview-imgbox {
+  .content-overview-imgbox {
     width: 698px;
     height: 343px;
+    padding: 29px 23px 0;
   }
-
   .content-overview-img {
-    width: 650.303px;
-    height: 383.114px;
+    width: 650px;
+    height: 383px;
   }
-
   .contents-overview-text {
     width: 472px;
     word-break: keep-all;
   }
-
-  .contents-overview-imgbox {
-    padding: 29px 23px 0;
-  }
-
   .section-frame {
     padding: 80px 0 50px;
   }
-
   .section-frame-padding {
     padding-top: 50px;
   }
-
   .contents-container {
     width: 698px;
     gap: 51px;
   }
-
   .contents-img_container {
     width: 385px;
     height: 315px;
   }
-
   .image02 {
     position: relative;
     top: 82px;
     width: 278px;
     height: 183px;
   }
-
   .contents-sharelink-popup {
     background-size: cover;
     background-repeat: no-repeat;
@@ -433,7 +421,6 @@ a {
     width: 248px;
     height: 175px;
   }
-
   .contents-04-bg {
     width: 420px;
     height: 385px;
@@ -442,4 +429,85 @@ a {
 
 /* mobile size */
 @media (max-width: 767px) {
+  .header {
+    padding: 13px 32px;
+  }
+  .header-logo {
+    width: 88.667px;
+    height: 16px;
+  }
+  .header-login {
+    width: 80px;
+    padding: 10px 16px;
+  }
+  .header-login span {
+    font-size: 14px;
+  }
+  .contents-overview {
+    padding: 28px 0 0;
+  }
+  .contents-overview-container {
+    gap: 24px;
+    margin: 0 32px;
+  }
+  .contents-overview-text {
+    width: 236px;
+    font-size: 32px;
+    line-height: 42px;
+  }
+  .contents-overview-text__addlinkbtn {
+    width: 200px;
+    padding: 10px 16px;
+  }
+  .contents-overview-text__addlinkbtn span {
+    font-size: 14px;
+  }
+  .content-overview-imgbox {
+    width: calc(100vw - 64px);
+    height: calc((100vw - 64px) / 2);
+    padding: 13.5px 11.1px 0;
+  }
+  .content-overview-img {
+    width: 100%;
+  }
+  .section-frame {
+    display: flex;
+    padding: 40px 32px;
+    justify-content: center;
+    align-items: center;
+  }
+  .contents-container {
+    width: calc(100vw - 64px);
+    flex-grow: 1;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contents-textbox {
+    width: 100%;
+  }
+  .contents-textbox__h1 {
+    font-size: 24px;
+  }
+  .contents-textbox__text {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .contents-img_container {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 11 / 9;
+  }
+  .footer {
+    height: 200px;
+    padding: 40px 0 0;
+  }
+  .footer-box {
+    padding: 32px 32px 64px;
+  }
 }
+/* To Do List {
+  모바일 스크린
+  1. 합친 이미지 넣기
+  2. 2, 4번째 section 순서 바꾸기
+  3. footer 수정
+} */
