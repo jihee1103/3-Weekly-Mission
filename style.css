@@ -57,7 +57,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 70px 360px 0 360px;
+  padding: 70px 0 0;
   background: #f0f6ff;
 }
 
@@ -67,6 +67,7 @@ a {
   justify-content: center;
   align-items: center;
   gap: 40px;
+  margin: 0 auto;
 }
 
 .contents-overview-text {
@@ -81,6 +82,11 @@ a {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.p-inlineblock {
+  margin: 0;
+  display: inline-block;
 }
 
 .contents-overview-text__addlinkbtn {
@@ -114,11 +120,7 @@ a {
 
 .content-overview-img {
   position: relative;
-  background: linear-gradient(
-      180deg,
-      rgba(196, 196, 196, 0) 67.68%,
-      #f0f6ff 94.76%
-    ),
+  background: linear-gradient(180deg, rgba(196, 196, 196, 0) 67.68%, #f0f6ff 94.76%),
     url(./asset/image01.png);
   background-size: cover;
   width: 1118px;
@@ -127,14 +129,9 @@ a {
   box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
-.contents-overview-imgbox img {
-  border-radius: 25px;
-  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
-}
-
 .section-frame {
   display: flex;
-  padding: 120px 461px 50px 461px;
+  padding: 120px 0 50px 0;
   justify-content: center;
   align-items: center;
 }
@@ -248,11 +245,7 @@ a {
 }
 
 .contents-sharelink-highlight {
-  background: linear-gradient(
-    99deg,
-    #6d7ccd 19.76%,
-    rgba(82, 136, 133, 0.22) 52.69%
-  );
+  background: linear-gradient(99deg, #6d7ccd 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -310,11 +303,7 @@ a {
 
 .contents-04-bg {
   position: relative;
-  background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0) 48.72%,
-      #000 128.17%
-    ),
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 48.72%, #000 128.17%),
     url(./asset/image03.png);
   background-size: cover;
   width: 619px;
@@ -380,4 +369,37 @@ a {
 
 .footer-logo img {
   cursor: pointer;
+}
+
+/* tablet size */
+@media (max-width: 1199px) {
+  .header {
+    padding: 20px max(32px, calc((100vw - 800px) / 2));
+  }
+
+  .contents-overview {
+    padding: 39px 0 0;
+  }
+
+  .contents-overview-imgbox {
+    width: 698px;
+    height: 343px;
+  }
+
+  .content-overview-img {
+    width: 650.303px;
+    height: 383.114px;
+  }
+
+  .p-inlineblock {
+    display: block;
+  }
+
+  .contents-overview-imgbox {
+    padding: 29px 23px 0;
+  }
+}
+
+/* mobile size */
+@media (max-width: 767px) {
 }
