@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Linkbrary</title>
     <link
       rel="stylesheet"
       as="style"
@@ -12,5 +12,49 @@
     />
     <link rel="stylesheet" href="../shared/style.css" />
   </head>
-  <body></body>
+  <body>
+    <div id="wrap">
+      <header class="header">
+        <a href="/">
+          <img class="logo" alt="Linkbrary logo linked to home" src="/public/images/logo/landing-logo.svg" />
+        </a>
+        <p class="header-message">회원이 아니신가요?<a class="header-link" href="../signup/">회원 가입하기</a></p>
+      </header>
+      <section class="container">
+        <form action="#" method="post">
+          <div class="input-area">
+            <div class="form-input-box">
+              <label for="email" class="form-input-label">이메일</label>
+              <input id="email" class="sign-input" type="email" />
+            </div>
+            <div class="form-input-box">
+              <label for="password" class="form-input-label">비밀번호</label>
+              <div class="password-input-box">
+                <input id="password" class="sign-input" type="password" />
+                <button type="button" class="password-eye-controller">
+                  <img src="/public/images/icons/password-eye-off.svg" />
+                </button>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="form-submit-btn">로그인</button>
+        </form>
+        <div class="social-media-area">
+          <span class="social-media-area-text">소셜 로그인</span>
+          <ul class="social-media-link-box">
+            <li>
+              <a class="social-media-link">
+                <img src="/public/images/site-map/google.svg" />
+              </a>
+            </li>
+            <li>
+              <a class="link">
+                <img src="/public/images/site-map/kakao.svg" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
 </html>

@@ -12,12 +12,19 @@ body {
   font-size: 62.5%;
 }
 
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+}
+
 button {
   border: none;
 }
 
 address {
   display: inline-block;
+  font-style: normal;
 }
 
 a {
@@ -29,4 +36,8 @@ input,
 textarea {
   resize: none;
   outline: none;
+}
+
+button {
+  cursor: pointer;
 }
