@@ -1,0 +1,152 @@
+@import url(/css/reset.css);
+@import url(/css/palette.css);
+
+body {
+  padding-top: 238px;
+  padding-bottom: 252px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 30px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.logo-link {
+  display: flex;
+  justify-content: center;
+}
+
+.header-logo {
+  height: 38px;
+}
+
+.header-text {
+  display: flex;
+  column-gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.header-text-link {
+  font-weight: 600;
+  line-height: normal;
+  color: var(--linkbrary-primary-color);
+  border-bottom: 1px solid var(--linkbrary-primary-color);
+}
+
+.main-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 32px;
+  width: 400px;
+}
+
+.sign-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  width: 100%;
+}
+
+.sign-inputs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+.sign-input-box {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.sign-password {
+  position: relative;
+}
+
+.sign-input-label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.sign-input {
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.sign-input:focus {
+  color: var(--linkbrary-primary-color);
+}
+
+.eye-button {
+  position: absolute;
+  bottom: 22px;
+  right: 15px;
+  width: 16px;
+  height: 16px;
+}
+
+.login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 54px;
+  background-image: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  border-radius: 8px;
+  color: var(--grey-light);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sns-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 66px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20);
+  background-color: var(--linkbrary-gray-10);
+}
+
+.sns-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--linkbrary-gray-100);
+}
+
+.sns-links {
+  display: flex;
+  column-gap: 16px;
+}
+
+.sns-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.google {
+  background-color: white;
+  border: 1px solid #d3d4dd;
+}
+
+.kakao {
+  background-color: #f5e14b;
+  padding-top: 2px;
+}
