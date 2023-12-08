@@ -6,10 +6,17 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 html {
-  font-size: 10px;
+  font-size: 62.5%;
   font-family: Pretendard, Arial;
+  word-break: keep-all;
 }
 
 a {
   text-decoration-line: none;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  html {
+    font-size: 31.25%;
+  }
 }
