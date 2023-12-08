@@ -326,10 +326,15 @@ a {
 
 .footer-contents {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
   flex-grow: 1;
   max-width: 1712px;
+}
+
+.footer-contents-box {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
 }
 
 .footer-codeit {
@@ -339,21 +344,21 @@ a {
   font-weight: 400;
 }
 
-.footer-text {
+.footer-policy-text {
   display: flex;
   font-size: 16px;
   font-weight: 400;
 }
 
-.footer-text a {
+.footer-policy-text a {
   color: #cfcfcf;
 }
 
-.footer-text span {
+.footer-policy-text span {
   cursor: pointer;
 }
 
-.footer-text-left {
+.footer-policy-text-left {
   margin-right: 30px;
 }
 
