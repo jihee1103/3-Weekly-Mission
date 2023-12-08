@@ -21,8 +21,7 @@ body {
   align-items: center;
   margin: 0 auto;
   background: var(--linkbrary-bg);
-  padding-top: 238px;
-  padding-bottom: 116px;
+  padding: 120px 32px 232px 32px;
 }
 
 .wrap {
@@ -31,6 +30,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 32px;
+  max-width: 400px;
 }
 
 .login-box {
@@ -38,6 +38,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  width: 100%;
 }
 
 .logo-box {
@@ -84,6 +85,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  width: 100%;
 }
 .form-box {
   display: flex;
@@ -97,6 +99,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
   gap: 12px;
 }
 
@@ -122,7 +125,8 @@ form {
 
 .form-input {
   display: flex;
-  width: 400px;
+  /* width: 400px; */
+  width: 100%;
   padding: 18px 15px;
   justify-content: center;
   align-items: center;
@@ -162,7 +166,8 @@ form {
 .form-btn-gradient {
   cursor: pointer;
   display: flex;
-  width: 400px;
+  /* width: 400px; */
+  width: 100%;
   padding: 16px 20px;
   justify-content: center;
   align-items: center;
@@ -189,11 +194,10 @@ form {
 
 .social-login-box {
   display: flex;
-  width: 400px;
   padding: 12px 24px;
   justify-content: space-between;
   align-items: center;
-
+  width: 100%;
   border-radius: 8px;
   border: 1px solid var(--linkbrary-gray-20);
   background: var(--linkbrary-gray-10);
@@ -220,4 +224,18 @@ form {
   width: 42px;
   height: 42px;
   cursor: pointer;
+}
+
+/*tablet*/
+@media (min-width: 768px) {
+  body {
+    padding: 200px 0px 290px 0px;
+  }
+}
+
+/*pc*/
+@media (min-width: 1200px) {
+  body {
+    padding: 238px 0px 252px 0px;
+  }
 }
