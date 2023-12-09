@@ -63,7 +63,6 @@ header{
     text-align: center;
     color: #000;
     margin: 0;
-    font-style: normal;
     font-weight: 700;
     line-height: 125%;
     font-size: 64px;
@@ -107,9 +106,7 @@ header{
 .detail-text{
     color: #000;
     font-size: 48px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     letter-spacing: -0.3px;
 }
 
@@ -145,31 +142,16 @@ header{
     font-size: 48px;
 }
 
-footer{
-    display: flex;
-    height: 280px;
-    padding-top: 120px;
-    flex-direction: column;
-    align-items: center;
-    align-self: stretch;
-}
-
 .foot{
     display: flex;
     height: 160px;
     padding: 32px 104px 64px 104px;
-    flex-direction: column;
-    align-items: center;
-    flex-shrink: 0;
-    align-self: stretch;
-    background: var(--linkbrary-black);
-}
-
-.foot-page{
-    display: flex;
+    margin-top: 120px;
     justify-content: space-between;
     align-items: flex-start;
     align-self: stretch;
+    flex-shrink: 0;
+    background: var(--linkbrary-black);
 }
 
 .company{
@@ -177,9 +159,7 @@ footer{
     text-align: center;
     font-family: Abel;
     font-size: 16px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
 }
 
 .foot-center{
@@ -194,9 +174,7 @@ footer{
     color: #CFCFCF;
     font-family: Abel;
     font-size: 16px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
 }
 
 .icon-container{
@@ -284,5 +262,33 @@ footer{
     .card img{
         width: 100%;
         height: 100%;
+    }
+
+    .foot{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row: 2 / span 1;
+        padding: 32px;
+        row-gap: 60px;
+        grid-template-areas:
+        "foot-center icon"
+        "company company";
+    }
+
+    .foot-center{
+        grid-area: foot-center;
+        justify-content: start;
+        gap: 30px;
+    }
+
+    .icon-container{
+        grid-area: icon;
+        justify-content: end;
+    }
+
+    .company{
+        grid-area: company;
+        display: flex;
+        justify-items: start;
     }
 }
