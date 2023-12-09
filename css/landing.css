@@ -47,7 +47,7 @@ nav {
   border-radius: 0.8rem;
   color: var(--grey-light);
   font-size: 1.8rem;
-  font-weight: 60rem;
+  font-weight: 600;
 }
 
 .login {
@@ -62,7 +62,7 @@ nav {
 .slogan {
   text-align: center;
   font-size: 6.4rem;
-  font-weight: 70rem;
+  font-weight: 700;
   line-height: 8rem;
 }
 
@@ -98,7 +98,7 @@ section {
 .title {
   grid-area: title;
   font-size: 4.8rem;
-  font-weight: 70rem;
+  font-weight: 700;
   letter-spacing: -0.03rem;
 }
 
@@ -118,7 +118,7 @@ section {
 .description {
   grid-area: description;
   font-size: 1.6rem;
-  font-weight: 40rem;
+  font-weight: 400;
   line-height: 2.4rem;
   color: #6b6b6b;
 }

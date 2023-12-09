@@ -29,12 +29,12 @@ header {
   display: flex;
   column-gap: 0.8rem;
   font-size: 1.6rem;
-  font-weight: 40rem;
+  font-weight: 400;
   line-height: 2.4rem;
 }
 
 .header-text-link {
-  font-weight: 60rem;
+  font-weight: 600;
   line-height: normal;
   color: var(--linkbrary-primary-color);
   border-bottom: 0.1rem solid var(--linkbrary-primary-color);
@@ -73,7 +73,7 @@ header {
 
 .sign-input-label {
   font-size: 1.4rem;
-  font-weight: 40rem;
+  font-weight: 400;
 }
 
 .sign-input {
@@ -106,7 +106,7 @@ header {
   border-radius: 0.8rem;
   color: var(--grey-light);
   font-size: 1.8rem;
-  font-weight: 60rem;
+  font-weight: 600;
 }
 
 .sns-box {
@@ -123,7 +123,7 @@ header {
 
 .sns-text {
   font-size: 1.4rem;
-  font-weight: 40rem;
+  font-weight: 400;
   color: var(--linkbrary-gray-100);
 }
 
