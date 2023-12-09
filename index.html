@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://Linkbrary.com" />
     <meta property="og:title" content="Linkbrary" />
@@ -12,16 +11,11 @@
       property="og:description"
       content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
     />
-    <!-- <meta property="og:site_name" content="Site Name" />
-    <meta property="og:locale" content="en_US" /> -->
 
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Abel&display=swap"
-      rel="stylesheet"
-    />
+
     <title>Linkbrary</title>
     <base href="/" />
     <script>
@@ -64,7 +58,7 @@
         </a>
         <a class="login" href="/signin.html">로그인</a>
       </nav>
-      <section class="section-1">
+      <section class="section-main">
         <div class="normal-text-1">
           <span class="colored-text-1">세상의 모든 정보</span>를
           <br />
@@ -76,97 +70,87 @@
           <div class="img-gradient"></div>
         </div>
       </section>
-      <section class="section-2">
+      <div class="margin"></div>
+      <section class="section-sub">
         <div class="frame">
           <div class="text-box">
             <div class="normal-text-2">
               <span class="colored-text-2">원하는 링크</span>를
-              <!-- <br /> -->
               <span>저장하세요</span>
             </div>
             <span class="text-small"
-              >나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br />
-              사고 싶은 옷, 기억하고 싶은 모든 것을<br />
-              한 공간에 저장하세요.</span
+              >나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고
+              싶은 모든 것을 한 공간에 저장하세요.</span
             >
           </div>
-          <div class="card-box">
-            <div class="card-images">
-              <img src="images/Card 1.png" class="card-image" />
-              <img src="images/Card.png" class="card-image" />
-              <img src="images/Card-1.png" class="card-image" />
-            </div>
-            <div class="card-image-border"></div>
-            <img class="down-img" src="images/download.svg" />
+
+          <div class="img-box">
+            <img class="card-img" src="images/card_images.png" />
           </div>
         </div>
       </section>
-      <section class="section-2">
-        <div class="frame">
-          <div class="popup-box">
-            <img class="popup-img" src="images/디스크립션 없는 팝업 1.png" />
-          </div>
+      <section class="section-sub">
+        <div class="frame-reverse">
           <div class="text-box">
             <div class="normal-text-2">
               <span>링크를 폴더로</span>
-              <!-- <br /> -->
               <span class="colored-text-3">관리</span>하세요
             </div>
             <span class="text-small"
-              >나만의 폴더를 무제한으로 만들고<br />
-              다양하게 활용할 수 있습니다.</span
+              >나만의 폴더를 무제한으로 만들고 다양하게 활용할 수
+              있습니다.</span
             >
+          </div>
+          <div class="img-box">
+            <img class="popup-img" src="images/popup_image_folder.png" />
           </div>
         </div>
       </section>
-      <section class="section-2">
+      <section class="section-sub">
         <div class="frame">
           <div class="text-box">
             <div class="normal-text-2">
               <span>저장한 링크를</span>
-              <!-- <br /> -->
-              <span class="colored-text-4">공유</span>해 보세요.
+              <span class="colored-text-4">공유</span>해 보세요
             </div>
             <span class="text-small"
-              >여러 링크를 폴더에 담고 공유할 수 있습니다.<br />
-              가족, 친구, 동료들에게 쉽고 빠르게 링크를<br />
-              공유해 보세요.</span
+              >여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구,
+              동료들에게 쉽고 빠르게 링크를 공유해 보세요.</span
             >
           </div>
-          <div class="share-box">
-            <img class="share-img" src="images/폴더 공유하기 팝업 1.png" />
+          <div class="img-box">
+            <img class="share-img" src="images/popup_image_share.png" />
           </div>
         </div>
       </section>
 
-      <section class="section-2">
-        <div class="frame">
-          <div class="search-box">
-            <div class="search-img"></div>
-          </div>
+      <section class="section-sub">
+        <div class="frame-reverse">
           <div class="text-box">
             <div class="normal-text-2">
               <span>저장한 링크를</span>
-              <!-- <br /> -->
-              <span class="colored-text-5">검색</span>해 보세요.
+              <span class="colored-text-5">검색</span>해 보세요
             </div>
             <span class="text-small"
               >중요한 정보들을 검색으로 쉽게 찾아보세요.</span
             >
+          </div>
+          <div class="img-box">
+            <img class="search-img" src="images/search_image.png" />
           </div>
         </div>
       </section>
       <footer>
         <div class="footer-frame">
           <div class="footer-bar">
-            <span class="bar-start">
-              <span class="footer-text">©codeit - 2023</span>
-            </span>
-            <span class="bar-middle">
-              <a class="footer-text" href="/privacy">Privacy Policy</a>
-              <a class="footer-text" href="/faq">FAQ</a>
-            </span>
-            <span class="bar-end">
+            <div class="footer-left">
+              <span class="footer-logo">©codeit - 2023</span>
+              <div class="footer-policy">
+                <a class="footer-text" href="/privacy">Privacy Policy</a>
+                <a class="footer-text" href="/faq">FAQ</a>
+              </div>
+            </div>
+            <div class="footer-right">
               <a href="https://www.facebook.com" target="_blank">
                 <img class="sns-icon" src="images/akar-icons_facebook-fill.svg"
               /></a>
@@ -181,7 +165,7 @@
                   class="sns-icon"
                   src="images/ant-design_instagram-filled.svg"
               /></a>
-            </span>
+            </div>
           </div>
         </div>
       </footer>
