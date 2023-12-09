@@ -93,7 +93,7 @@ header{
     margin: 50px 41px 0;
 }
 
-section img .card{
+.card{
     width: 550px;
     height: 450px;
 }
@@ -122,43 +122,6 @@ section img .card{
     -webkit-text-fill-color: transparent;
 }
 
-.card-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    background: var(--linkbrary-bg);
-    width: 550px;
-    height: 450px;
-    overflow: hidden;
-    position: relative;
-}
-
-.card{
-    width: 279px;
-    height: 274px;
-}
-
-#download{
-    position: absolute;
-    bottom: 92px;
-    right: 142px;
-    width: 46px;
-    height: 46px;
-    flex-shrink: 0;
-}
-
-.link-folder{
-    display: flex;
-    width: 550px;
-    height: 450px;
-    padding: 114px 68px 66px 68px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    background: var(--linkbrary-bg);
-}
-
 .BY-gradation{
     background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
     background-clip: text;
@@ -171,63 +134,6 @@ section img .card{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.share-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    width: 550px;
-    height: 450px;
-    position: relative;
-}
-
-.share-img{
-    position: absolute;
-    bottom: 77px;
-    right: 77px;
-    width: 416px;
-    height: 271px;
-    flex-shrink: 0;
-    z-index: 1;
-}
-
-.black{
-    background-color: rgba(0,0,0,0.4);
-    position: absolute;
-    inset: 0;
-    border-radius: 15px;
-    width: 550px;
-    height: 450px;
-}
-
-.search-box{
-    width: 550px;
-    height: 450px;
-    border-radius: 15px;
-    background: var(--linkbrary-bg);
-    position: relative;
-    overflow: hidden;
-}
-
-.search-box img{
-    position: absolute;
-    top: 55px;
-    left: 60px;
-    width: 619px;
-    height: 584px;
-    flex-shrink: 0;
-    border-radius: 15px;
-}
-
-.black-gradation{
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(224, 224, 224, 0.5));
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 490px;
-    height: 40px;
 }
 
 .PS-gradation{
