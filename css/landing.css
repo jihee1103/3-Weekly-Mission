@@ -24,45 +24,45 @@ nav {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1920px;
-  height: 94px;
-  padding: 0 200px;
+  max-width: 192rem;
+  height: 9.4rem;
+  padding: 0 20rem;
 }
 
 .header-main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 40px;
-  padding-top: 70px;
+  row-gap: 4rem;
+  padding-top: 7rem;
 }
 
 .header-text {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 54px;
+  height: 5.4rem;
   cursor: pointer;
   background-image: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-  border-radius: 8px;
+  border-radius: 0.8rem;
   color: var(--grey-light);
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 60rem;
 }
 
 .login {
-  width: 128px;
+  width: 12.8rem;
 }
 
 .plus-link {
-  width: 350px;
+  width: 35rem;
 }
 
 .slogan {
   text-align: center;
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 80px;
+  font-size: 6.4rem;
+  font-weight: 70rem;
+  line-height: 8rem;
 }
 
 .slogan > .gradient-text {
@@ -76,31 +76,29 @@ nav {
 }
 
 .header-img {
-  width: 1200px;
-  height: 590px;
+  width: 120rem;
+  height: 59rem;
 }
 
 article {
-  padding-top: 70px;
-  padding-bottom: 120px;
+  padding-top: 7rem;
+  padding-bottom: 12rem;
 }
 
 section {
   display: grid;
   justify-content: center;
-  column-gap: 157px;
-  row-gap: 10px;
+  column-gap: 15.7rem;
+  row-gap: 1rem;
   width: 100%;
-  height: 550px;
-  padding: 50px 0;
+  padding: 5rem 0;
 }
 
 .title {
   grid-area: title;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: normal; /* 체크해볼것 */
-  letter-spacing: -0.3px;
+  font-size: 4.8rem;
+  font-weight: 70rem;
+  letter-spacing: -0.03rem;
 }
 
 .section-title1 {
@@ -118,16 +116,16 @@ section {
 
 .description {
   grid-area: description;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
+  font-size: 1.6rem;
+  font-weight: 40rem;
+  line-height: 2.4rem;
   color: #6b6b6b;
 }
 
 .section-image {
   grid-area: image;
-  width: 570px;
-  height: 469px;
+  width: 57rem;
+  height: 46.9rem;
 }
 
 /*그리드 설정 코드 (홀수)*/
@@ -137,7 +135,7 @@ section:nth-of-type(odd) {
     "title image"
     "description image"
     ". image"
-    /271px 570px;
+    /27.1rem 57rem;
 }
 /*그리드 설정 코드 (짝수)*/
 section:nth-of-type(even) {
@@ -146,15 +144,15 @@ section:nth-of-type(even) {
     "image title"
     "image description"
     "image ."
-    /570px 271px;
+    /57rem 27.1rem;
 }
 
 footer {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 160px;
-  padding-top: 32px;
+  height: 16rem;
+  padding-top: 3.2rem;
   background: #111322;
 }
 
@@ -162,30 +160,30 @@ footer {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 1920px;
-  padding: 0 104px;
+  max-width: 192rem;
+  padding: 0 10.4rem;
 }
 
 .copyright {
   color: #676767;
   font-family: Arial;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .footer-links {
   display: flex;
-  column-gap: 30px;
-  padding-right: 18px;
+  column-gap: 3rem;
+  padding-right: 1.8rem;
 }
 
 .footer-link {
   color: #cfcfcf;
   font-family: Arial;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .sns {
   display: flex;
-  column-gap: 12px;
-  height: 20px;
+  column-gap: 1.2rem;
+  height: 2rem;
 }
