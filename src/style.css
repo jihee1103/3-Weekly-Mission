@@ -124,16 +124,22 @@ section {
 .section--container {
     width: 99.8rem;
     height: 45rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 15.7rem
+    display: grid;
+    grid-template-areas:
+        'header img'
+        'paragraph img';
+    gap: 0 15.7rem;
 }
 
-.section__description {
-    width: 29.1rem;
+.section--container.row-reverse {
+    grid-template-areas:
+        'img header'
+        'img paragraph';
+}
+
+.section__description--header-align {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: flex-end;
 }
 
 .section__description--header {
@@ -141,6 +147,7 @@ section {
     font-size: 4.8rem;
     font-weight: 700;
     letter-spacing: -0.03rem;
+    grid-area: header;
 }
 
 .section__description--paragraph {
@@ -150,10 +157,13 @@ section {
     font-weight: 400;
     line-height: 150%;
     margin-top: 1rem;
+    grid-area: paragraph;
 }
 
 .section__img {
     width: 55rem;
+    grid-area: img;
+    /* margin-left: 15.7rem */
 }
 
 .section__img img {
@@ -233,7 +243,8 @@ footer {
     margin-left: 1.2rem;
 }
 
-@media (max-width: 1200px) {
+
+@media (max-width: 1199px) {
 
     /* br태그로 만든 줄바꿈을 없앤다 */
     .br-pc {
@@ -263,17 +274,13 @@ footer {
     }
 
     .section {
-        padding: 80px 250px;
+        padding: 80px auto;
     }
 
     .section--container {
         width: 700px;
         height: 315px;
         gap: 51px;
-    }
-
-    .section__description {
-        width: 262px;
     }
 
     .section__img {
@@ -287,7 +294,7 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     header {
         padding: 13px 32px;
     }
@@ -345,19 +352,17 @@ footer {
     .section.search {
         padding: 40px 32px;
     }
-
-    .section--container {
+    /* cascading 우선순위 문제로 .section--container.row-reverse도 지정해주기 */
+    .section--container,
+    .section--container.row-reverse {
         width: 100%;
         height: auto;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .section__description {
-        text-align: center;
-        width: 100%;
+        display: grid;
+        grid-template-areas:
+            'header'
+            'img'
+            'paragraph';
+        gap: 0;
     }
 
     .section__description--header {
@@ -366,21 +371,17 @@ footer {
 
     .section__description--paragraph {
         font-size: 15px;
-        margin-top: 20px;
+        margin-top: 16px;
         letter-spacing: -1px;
     }
 
     .section__img {
         width: 100%;
+        margin-top: 20px;
     }
 
     .section__img img {
         width: 100%;
-    }
-
-    .section--container.column-reverse {
-        display: flex;
-        flex-direction: column-reverse;
     }
 
     footer {
