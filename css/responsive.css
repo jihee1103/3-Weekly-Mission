@@ -140,4 +140,24 @@
       "image"
       "description";
   }
+
+  /* footer 요소 그리드 설정 */
+  .copyright {
+    grid-area: copyright;
+  }
+  .footer-links {
+    grid-area: links;
+  }
+  .sns {
+    grid-area: sns;
+  }
+
+  .footer-box {
+    display: grid;
+    padding: 0 3.2rem 3.2rem;
+    row-gap: 6rem;
+    grid-template:
+      "links sns"
+      "copyright .";
+  }
 }
