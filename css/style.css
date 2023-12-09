@@ -17,6 +17,7 @@ header{
     width: 100%;
     position: sticky;
     top: 0;
+    z-index: 9999;
 }
 
 .nav-bar{
@@ -92,13 +93,6 @@ header{
     margin: 50px 41px 0;
 }
 
-section{
-    display: flex;
-    padding: 50px 461px 50px 461px;
-    justify-content: center;
-    align-items: center;
-}
-
 section img .card{
     width: 550px;
     height: 450px;
@@ -106,7 +100,8 @@ section img .card{
 
 .detail-page{
     display: flex;
-    justify-content: space-between;
+    padding: 50px 461px 50px 461px;
+    justify-content: center;
     align-items: center;
     gap: 157px;
 }
@@ -188,7 +183,7 @@ section img .card{
     position: relative;
 }
 
-#share{
+.share-img{
     position: absolute;
     bottom: 77px;
     right: 77px;
