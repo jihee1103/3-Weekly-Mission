@@ -130,6 +130,14 @@ h1 {
 .content h3 {
     font-size: 48px;
     font-weight: 700;
+    margin-bottom: 0;
+}
+
+.content h5 {
+    color: #6b6b6b;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 10px;
 }
 
 .content img {
