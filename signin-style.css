@@ -226,16 +226,9 @@ form {
   cursor: pointer;
 }
 
-/*tablet*/
+/*tablet pc*/
 @media (min-width: 768px) {
   body {
     padding: 200px 0px 290px 0px;
-  }
-}
-
-/*pc*/
-@media (min-width: 1200px) {
-  body {
-    padding: 238px 0px 252px 0px;
   }
 }
