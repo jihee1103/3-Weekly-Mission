@@ -110,11 +110,7 @@ section {
   background-image: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
 }
 .section-title3 {
-  background-image: linear-gradient(
-    99deg,
-    #6d7ccd 19.76%,
-    rgba(82, 136, 133, 0.22) 52.69%
-  );
+  background-image: linear-gradient(99deg, #6d7ccd 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
 }
 .section-title4 {
   background-image: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);

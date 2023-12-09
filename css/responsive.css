@@ -1,0 +1,17 @@
+/* 테블릿 Size (768px 이상 1199px이하) */
+@media (max-width: 1199px) {
+  .gnb {
+    justify-content: center;
+    padding: 0;
+    column-gap: 538px; /* 화면 1199px 시점 로고와 버튼 사이 넓이 */
+
+    @media (max-width: 863px /* 좌우 여백 32px되는 시점 화면 가로 픽셀 */) {
+      justify-content: space-between;
+      column-gap: 0;
+      padding: 32px;
+    }
+  }
+  .login {
+    flex-shrink: 0;
+  }
+}
