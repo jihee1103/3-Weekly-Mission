@@ -54,7 +54,7 @@ header{
 .intro{
     display: flex;
     flex-direction: column;
-    padding: 70px 360px 0 360px;
+    padding: 70px 0 0;
     margin-bottom: 70px;
     justify-content: center;
     align-items: center;
@@ -100,7 +100,7 @@ header{
 
 .detail-page{
     display: flex;
-    padding: 50px 461px 50px 461px;
+    padding: 50px;
     justify-content: center;
     align-items: center;
     gap: 157px;
@@ -206,4 +206,32 @@ footer{
     justify-content: center;
     align-items: cneter;
     gap: 12px;
+}
+
+/* tablet */
+@media (max-width: 1199px){
+    header{
+        display: grid;
+        grid-template-columns: minmax(32px, auto) minmax(auto, 799px) minmax(32px, auto);
+        padding: 20px 0;
+    }
+
+    .nav-bar{
+        grid-column: 2 / span 1;
+    }
+
+    .intro{
+        padding: 40px 250px 0 251px;
+    }
+
+    .intro img{
+        width: 650.303px;
+        height: 383.114px;
+    }
+
+    .card,
+    .card img{
+        width: 385px;
+        height: 315px;
+    }
 }
