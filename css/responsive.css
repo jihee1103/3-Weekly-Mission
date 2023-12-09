@@ -11,7 +11,49 @@
       padding: 32px;
     }
   }
-  .login {
-    flex-shrink: 0;
+
+  #block {
+    display: block;
+  }
+
+  .header-main {
+    padding-top: 4rem;
+  }
+
+  .header-img {
+    width: 69.8rem;
+    height: auto;
+  }
+
+  article {
+    padding-top: 3rem;
+  }
+
+  section {
+    column-gap: 5.1rem;
+  }
+
+  .section-image {
+    width: 38.5rem;
+    height: auto;
+  }
+
+  /*그리드 설정 코드 (홀수)*/
+  section:nth-of-type(odd) {
+    grid-template:
+      ". image"
+      "title image"
+      "description image"
+      ". image"
+      /29.1rem 38.5rem;
+  }
+  /*그리드 설정 코드 (짝수)*/
+  section:nth-of-type(even) {
+    grid-template:
+      "image ."
+      "image title"
+      "image description"
+      "image ."
+      /38.5rem 29.1rem;
   }
 }

@@ -52,6 +52,7 @@ nav {
 
 .login {
   width: 12.8rem;
+  flex-shrink: 0;
 }
 
 .plus-link {
@@ -124,8 +125,8 @@ section {
 
 .section-image {
   grid-area: image;
-  width: 57rem;
-  height: 46.9rem;
+  width: 55rem;
+  height: 45rem;
 }
 
 /*그리드 설정 코드 (홀수)*/
@@ -135,7 +136,7 @@ section:nth-of-type(odd) {
     "title image"
     "description image"
     ". image"
-    /27.1rem 57rem;
+    /29.1rem 55rem;
 }
 /*그리드 설정 코드 (짝수)*/
 section:nth-of-type(even) {
@@ -144,7 +145,7 @@ section:nth-of-type(even) {
     "image title"
     "image description"
     "image ."
-    /57rem 27.1rem;
+    /55rem 29.1rem;
 }
 
 footer {
