@@ -82,7 +82,7 @@ form {
 
 input {
   display: flex;
-  width: 400px;
+  width: 100%;
   padding: 18px 15px;
   justify-content: center;
   align-items: center;
@@ -155,4 +155,17 @@ input:focus {
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+}
+
+
+@media (min-width: 375px) and (max-width: 767px){
+  body{
+    padding: 120px 32px;
+  }
+}
+
+@media (min-width: 768px) and(max-width:1199px){
+  body{
+    padding-top: 200px;
+  }
 }
