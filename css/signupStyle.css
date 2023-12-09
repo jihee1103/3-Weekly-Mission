@@ -125,3 +125,35 @@ a {
     width: 42px;
     height: 42px;
 }
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+    html,
+    body {
+        font-size: 31.25%;
+    }
+
+    body {
+        padding-top: 238px;
+        padding-bottom: 252px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    input {
+        width: 100%;
+        max-width: 400px;
+    }
+    .content_area {
+        width: 100%;
+        max-width: 400px;
+    }
+    .login_btn {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .social_login {
+        width: 100%;
+        max-width: 400px;
+    }
+}
