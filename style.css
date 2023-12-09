@@ -1,17 +1,37 @@
 @import url('/global.css');
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+}
+
 .gnb {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20rem;
+  padding: 0 3.2rem;
 
   position: fixed;
   backdrop-filter: blur(10px);
 
-  width: 100%; /* fixed라서 필요 */
-  max-width: 192rem;
-  height: 9.4rem;
+  inset-inline: 0;
+  height: 6.3rem;
+
+  margin-inline: auto;
+
+  @media screen and (width >= 768px) {
+    height: 9.3rem;
+  }
+
+  @media screen and (width >= 1200px) {
+    max-width: 192rem;
+    padding: 0 20rem;
+  }
 }
 
 .cta {
@@ -19,92 +39,214 @@
   justify-content: center;
   align-items: center;
 
-  height: 5.4rem;
+  height: 3.7rem;
 
-  color: var(--grey-light, #f5f5f5);
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 600;
+  line-height: normal;
+  color: var(--grey-light, #f5f5f5);
 
   border-radius: 0.8rem;
   background-image: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+
+  @media screen and (width >= 768px) {
+    font-size: 1.8rem;
+    height: 5.3rem;
+  }
 }
 
 .cta-short {
-  width: 12.8rem;
+  width: 8rem;
+
+  @media screen and (width >= 768px) {
+    width: 12.8rem;
+  }
 }
 
 .cta-long {
-  width: 35rem;
+  width: 20rem;
+
+  @media screen and (width >= 768px) {
+    width: 35rem;
+  }
 }
 
 .hero-banner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 4rem;
+  row-gap: 2.4rem;
+  text-align: center;
 
-  box-sizing: content-box;
-  /* padding-top: 7rem; */
-  padding-top: 16.4rem; /* 7rem + 9.4rem(gnb height) */
+  width: 100%;
+  max-width: 100%;
+  /* box-sizing: content-box; */ /* ? content-box 주석 처리하니까 헤더 스크롤 할 때 흔들리던 현상 사라짐 */
+  /* padding-top: 2.8rem; */
+  padding: 9.1rem 3.2rem 0; /* pt: 2.8rem + 6.3rem(gnb height) */
+  margin: 0 auto;
 
   background: #f0f6ff;
+
+  @media screen and (width > 768px) {
+    row-gap: 4rem;
+    /* padding-top: 4rem; */
+    padding-top: 13.3rem; /* 4rem + 9.3rem(gnb height) */
+  }
+
+  @media screen and (width >= 1200px) {
+    row-gap: 4rem;
+    /* padding-top: 7rem; */
+    padding-top: 16.3rem; /* 7rem + 9.3rem(gnb height) */
+  }
 }
 
 .slogan {
-  text-align: center;
-  font-size: 6.4rem;
+  font-size: 3.2rem;
   font-weight: 700;
-  line-height: 8rem; /* 125% */
+  line-height: 4.2rem; /* 131.25% */
+
+  @media screen and (width >= 768px) {
+    font-size: 6.4rem;
+    font-weight: 700;
+    line-height: 8rem; /* 125% */
+  }
 }
 
 .slogan-gradient {
   background-image: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
 }
 
+.header-line-break {
+  display: initial;
+
+  @media screen and (width >= 1200px) {
+    display: none;
+  }
+}
+
 .hero-img {
-  width: 120rem;
-  height: 59rem;
+  object-fit: cover;
+  max-width: 100%;
+
+  @media screen and (width >= 768px) {
+    width: 69.8rem;
+    height: 34.3rem;
+  }
+
+  @media screen and (width >= 1200px) {
+    width: 120rem;
+    height: 59rem;
+  }
 }
 
 article {
-  padding-block: 7rem 12rem;
+  padding-block: 0 4rem;
+
+  @media screen and (width >= 768px) {
+    padding-block: 3rem 12rem;
+  }
+
+  @media screen and (width >= 1200px) {
+    padding-block: 7rem 12rem;
+  }
 }
 
 article > section {
   display: grid;
   justify-content: center;
-  padding-block: 5rem; /* border box */
-  gap: 1rem 15.7rem;
 
-  height: 55rem; /* (border box) 45rem + 5 * 2 rem */
+  padding: 4rem 3.2rem;
+  /* height: 45.7rem; */ /* (border box) 37.7rem + 4 rem* 2  */
+
+  grid-template:
+    'title'
+    'image'
+    'desc'
+    / 100%;
+
+  @media screen and (width >= 768px) {
+    gap: 1rem 5.1rem;
+
+    padding-block: 5rem; /* border box */
+    height: 41.5rem; /* (border box) 31.5rem + 5 rem* 2  */
+  }
+
+  @media screen and (width >= 1200px) {
+    gap: 1rem 15.7rem;
+
+    padding-block: 5rem; /* border box */
+    height: 55rem; /* (border box) 45rem + 5 rem* 2  */
+  }
 }
 
-article > section:nth-of-type(odd) {
-  grid-template:
-    '. image'
-    'title image'
-    'desc image'
-    '. image'
-    /29.1rem 55rem;
+@media screen and (width >= 768px) {
+  article > section:nth-of-type(odd) {
+    grid-template:
+      '. image'
+      'title image'
+      'desc image'
+      '. image'
+      /26.2rem 38.5rem;
+  }
+
+  article > section:nth-of-type(even) {
+    grid-template:
+      'image .'
+      'image title'
+      'image desc'
+      'image .'
+      /38.5rem 26.2rem;
+  }
 }
 
-article > section:nth-of-type(even) {
-  grid-template:
-    'image .'
-    'image title'
-    'image desc'
-    'image .'
-    /55rem 29.1rem;
+@media screen and (width >= 1200px) {
+  article > section:nth-of-type(odd) {
+    grid-template:
+      '. image'
+      'title image'
+      'desc image'
+      '. image'
+      /29.1rem 55rem;
+  }
+
+  article > section:nth-of-type(even) {
+    grid-template:
+      'image .'
+      'image title'
+      'image desc'
+      'image .'
+      /55rem 29.1rem;
+  }
 }
 
 .title {
-  font-size: 4.8rem;
+  font-size: 2.4rem;
   font-weight: 700;
+  line-height: normal;
   letter-spacing: -0.03rem;
-
-  align-self: flex-start;
+  align-self: stretch;
 
   grid-area: title;
+
+  @media screen and (width >= 768px) {
+    font-size: 4.8rem;
+    font-weight: 700;
+
+    align-self: flex-start;
+  }
+
+  @media screen and (width >= 1200px) {
+    font-weight: 700;
+
+    align-self: flex-start;
+  }
+}
+
+.line-break {
+  display: none;
+  @media screen and (width >= 1200px) {
+    display: initial;
+  }
 }
 
 .title-1-gradient {
@@ -122,50 +264,86 @@ article > section:nth-of-type(even) {
 
 .description {
   color: #6b6b6b;
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 150%; /* 2.4rem */
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 150%; /* 2.25rem */
 
   grid-area: desc;
+
+  @media screen and (width >= 768px) {
+    font-size: 1.6rem;
+  }
 }
 
 .content-image {
-  width: 55rem;
-  height: 45rem;
+  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
 
   grid-area: image;
+
+  margin-block: 2rem 1.6rem;
+
+  @media screen and (width >= 768px) {
+    margin-block: 0;
+    width: 38.5rem;
+    height: 31.5rem;
+  }
+
+  @media screen and (width >= 1200px) {
+    width: 55rem;
+    height: 45rem;
+  }
 }
 
 footer {
-  display: flex;
   height: 16rem;
+  width: 100%;
   padding-block: 3.2rem 6.4rem;
 
   background: var(--the-julge-black, #111322);
 }
 
 .footer-area {
-  display: flex;
+  display: grid;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  row-gap: 6rem;
+  white-space: nowrap;
+
+  grid-template:
+    'service sm'
+    'copy .'
+    / 1fr 1fr;
 
   width: 100%;
-  padding-inline: 10.4rem;
+  padding-inline: 3.2rem;
+
+  @media screen and (width >= 768px) {
+    padding-inline: 10.4rem;
+
+    display: flex;
+    row-gap: 0;
+  }
 }
 
 .copyright {
   color: #676767;
   font-size: 1.6rem;
   font-weight: 400;
+
+  grid-area: copy;
 }
 
-.corp-box {
+.service-box {
   display: flex;
   column-gap: 3rem;
 
   color: #cfcfcf;
   font-size: 1.6rem;
   font-weight: 400;
+
+  grid-area: service;
 }
 
 .social-media-box {
@@ -173,6 +351,8 @@ footer {
   justify-content: center;
   align-items: center;
   column-gap: 1.2rem;
+
+  grid-area: sm;
 
   padding: 0; /* ul reset */
   list-style-type: none;
