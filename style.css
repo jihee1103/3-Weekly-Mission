@@ -297,7 +297,7 @@ a {
   position: absolute;
 }
 
-.contents-04-bg {
+.contents-searchlink-bg {
   position: relative;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 48.72%, #000 128.17%),
     url(./asset/image03.png);
@@ -349,6 +349,7 @@ a {
   display: flex;
   font-size: 16px;
   font-weight: 400;
+  gap: 30px;
 }
 
 .footer-policy-text a {
@@ -482,6 +483,7 @@ a {
     flex-direction: column;
     gap: 20px;
   }
+
   .contents-textbox {
     width: 100%;
   }
@@ -497,6 +499,33 @@ a {
     height: auto;
     aspect-ratio: 11 / 9;
   }
+  .mobile-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .mobile-overview-img {
+    background-image: url("/asset/mobileoverview.png");
+  }
+  .mobile-savelink-img {
+    background-image: url("/asset/mobilecard.png");
+  }
+  .mobile-managefolder-img {
+    background-image: url("/asset/mobileimg02.png");
+  }
+  .mobile-sharelink-img {
+    background-image: url("/asset/mobilesharelinkimg.png");
+  }
+  .mobile-searchlink-img {
+    background-image: url("/asset/mobileimg03.png");
+  }
+  .content-overview-img,
+  .contents-sharelink-bg,
+  .contents-searchlink-bg,
+  .contents-savelink-img,
+  .image02 {
+    display: none;
+  }
   .footer {
     height: 200px;
     padding: 40px 0 0;
@@ -504,10 +533,25 @@ a {
   .footer-box {
     padding: 32px 32px 64px;
   }
+  .footer-contents-box {
+    display: grid;
+    grid-template: 1fr 1fr / auto 1fr;
+    row-gap: 60px;
+  }
+  .footer-copyright {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  .footer-policy-text {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  .footer-logo {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    justify-self: right;
+  }
+  .even {
+    flex-direction: column-reverse;
+  }
 }
-/* To Do List {
-  모바일 스크린
-  1. 합친 이미지 넣기
-  2. 2, 4번째 section 순서 바꾸기
-  3. footer 수정
-} */
