@@ -1,0 +1,10 @@
+/* 모바일 Size (375px 이상 767px이하) | 이 단계에서 375px 이하 고려안함 */
+@media (max-width: 767px) {
+  body {
+    padding: 12rem 3.2rem 23.3rem;
+  }
+  .main-box {
+    max-width: 40rem;
+    width: 100%;
+  }
+}
