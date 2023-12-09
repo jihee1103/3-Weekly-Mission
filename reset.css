@@ -10,7 +10,9 @@ body {
   margin: 0;
   height: 100%;
 
-  font-size: 62.5%;
+  font-size: 62.5%; /* 1rem = 10px */
+
+  min-width: 375px; /* 375px까지만 커버 */
 }
 
 ul,
