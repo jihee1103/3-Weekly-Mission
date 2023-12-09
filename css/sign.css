@@ -12,25 +12,19 @@
 }
 
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
     padding: 238px 0px 252px 0px;
 }
 
 main{
     display: flex;
     flex-direction: column;
-    gap: 32px;
     align-items: center;
 }
 
-article{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
+.article{
+    width: 100%;
+    max-width: 400px;
+    margin: 30px 0 32px;
 }
 
 header{
@@ -68,36 +62,25 @@ header{
     font-weight: 600;
 }
 
-.user-login{
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
-    gap: 24px;
-}
-
-.user{
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
+.pwd{
     position: relative;
-    gap: 12px;
     font-size: 14px;
     font-weight: 400;
 }
 
-.user input{
+.user.login-info{
     display: flex;
-    width: 400px;
+    width: 100%;
     padding: 18px 15px;
     justify-content: center;
     align-items: center;
-
+    margin: 12px 0 24px;
     border-radius: 8px;
     border: 1px solid var(--linkbrary-gray-20);
     background: var(--linkbrary-white);
 }
 
-.user input:focus{
+.user.login-info:focus{
     outline: 1px solid var(--linkbrary-primary);
 }
 
@@ -107,20 +90,23 @@ header{
     bottom: 18px;
 }
 
-.login-button input{
-    width: 400px;
+input.login-button{
+    width: 100%;
     padding: 16px 20px;
+    margin-top: 6px;
     border: none;
     border-radius: 8px;
     background: var(--gra-purpleblue-to-skyblue);
     color: var(--linkbrary-white);
     font-size: 18px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .social-login{
     display: flex;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     padding: 12px 24px;
     justify-content: space-between;
     align-items: center;
@@ -139,4 +125,16 @@ header{
 
 .icon a{
     text-decoration: none;
+}
+
+@media (max-width: 767px){
+    body{
+        padding: 120px 32px 233px;
+    }
+    
+    input,
+    button,
+    .social-login {
+    width: 100%;
+  }
 }
