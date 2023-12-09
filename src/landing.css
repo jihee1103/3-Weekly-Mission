@@ -280,6 +280,7 @@ footer {
 
 
 @media (min-width: 375px) and (max-width: 767px) {
+
   .text-box {
     display: flex;
     flex-direction: column;
@@ -384,6 +385,7 @@ footer {
   .footer-box {
     display: grid;
     gap: 60px;
+    padding: 0 32px;
     grid-template:
       "first second"
       "third ."
