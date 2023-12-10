@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>signin</title>
-    <link rel="stylesheet" href="./css/signin.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>signin</title>
+        <link rel="stylesheet" href="./css/signin.css">
+    </head>
 <body>
-    <div id="main">
-        <div id="main_form">
-            <div id="title">
-                <a id="logo" href="./index.html"></a>
-                <div id="title_membership">
-                    <div id="areyoumember">회원이 아니신가요?</div>
-                    <div id="join">
-                        회원 가입하기
-                        <div id="line"></div>
+    <div class="main">
+        <div class="main_form">
+            <div class="title">
+                <a class="logo" href="./main.html"></a>
+                <div class="title_membership">
+                    <div class="areyoumember">회원이 아니신가요?</div>
+                    <div class="join">
+                        <a class="signup" href="./signup">회원 가입하기</a>
+                        <div class="line"></div>
                     </div>
                 </div>
             </div>
-            <div id="id_password">
-                <div id="id">
+            <form class="id_password" name="login-form" method="post">
+                <div class="id">
                     <label for="id_input">이메일</label>
-                    <input id="id_input" type="email" name="username"></input>
+                    <input class="id_input" type="email" name="username"></input>
                 </div>
-                <div id="password">
+                <div class="password">
                     <label for="password_input">비밀번호</label>
-                    <input id="password_input" type="password" name="password"></input>
+                    <input class="password_input" type="password" name="password"></input>
                 </div>
-            </div>
-            <input id="login" type="submit" value="로그인">
+            </form>
+            <button class="login" type="submit" value="로그인" form="id_password">로그인</button>
         </div>
-        <div id="bottom_form">
+        <div class="bottom_form">
             <p>소셜 로그인</p>
-            <div>
-                <a id="google" href="https://google.com"></a>
-                <a id="kakaotalk" href="https://kakaotalk.com"></a>
+            <div class="sns">
+                <div class="google-background">
+                    <a class="google" href="https://google.com/" target="_blank"></a>
+                </div>
+                <div class="kakaotalk-background">
+                    <a  href="https://www.kakaocorp.com/page/" target="_blank">
+                        <img class="kakaotalk" src="./svgs/kakatalk.svg"/>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

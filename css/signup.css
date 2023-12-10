@@ -31,7 +31,9 @@ body{
 .logo{
     width: 210.583px;
     height: 38px;
-    background-image: url("./svgs/logo.svg");
+    background-image: url("../svgs/logo.svg");
+    background-size: contain; /* 이미지를 가득 채우지 않고 비율을 유지하며 보여줍니다. */
+    background-repeat: no-repeat; /* 배경 이미지를 반복하지 않도록 설정합니다. */
     border:none;
 }
 
@@ -239,7 +241,7 @@ p{
     flex-shrink: 0;
     justify-content: center;
     align-items: center;
-    background-image: url("./svgs/google_background.svg");
+    background-image: url("../svgs/google_background.svg");
 }
 
 .google{
@@ -247,7 +249,7 @@ p{
     width: 22px;
     height: 22px;
     flex-shrink: 0;
-    background-image: url("./images/google.png");
+    background-image: url("../images/google.png");
 }
 
 .kakaotalk-background{
@@ -257,7 +259,7 @@ p{
     flex-shrink: 0;
     justify-content: center;
     align-items: center;
-    background-image: url("./svgs/kakaotalk_background.svg");
+    background-image: url("../svgs/kakaotalk_background.svg");
 }
 
 .kakaotalk{

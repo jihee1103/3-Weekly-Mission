@@ -7,41 +7,44 @@ body{
     background: var(--linkbrary-bg, #F0F6FF);
 }
 
-#main{
+.main{
+    width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 32px;
 }
 
-#main_form{
+.main_form{
+    width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
 }
 
-#title{
+.title{
+    width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
 }
 
-#logo{
+.logo{
     width: 210.583px;
     height: 38px;
-    background-image: url("./svgs/logo.svg");
+    background-image: url("../svgs/logo.svg");
     border:none;
 }
 
-#title_membership{
+.title_membership{
     display: flex;
     align-items: flex-start;
     gap: 8px;
 }
 
-#areyoumember{
+.areyoumember{
     color: var(--black, #000);
     /* Linkbrary/body1-regular */
     font-family: Pretendard;
@@ -51,7 +54,7 @@ body{
     line-height: 24px; /* 150% */
 }
 
-#join{
+.join{
     color: var(--linkbrary-primary-color, #6D6AFE);
 
     /* Linkbrary/body 1-semibold */
@@ -62,27 +65,32 @@ body{
     line-height: normal;
 }
 
-#line{
+.signup{
+    text-decoration: none;
+}
+
+.line{
     height: 1px;
     align-self: stretch;
     background: var(--linkbrary-primary-color, #6D6AFE);
 }
 
-#id_password{
+.id_password{
+    width: 400px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
 }
 
-#id{
+.id{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
 }
 
-#id label{
+.id label{
     color: var(--black, #000);
 
     /* Linkbrary/body2-regular */
@@ -93,35 +101,8 @@ body{
     line-height: normal;
 }
 
-#id_input{
-    display: flex;
-    width: 400px;
-    padding: 18px 15px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
-    background: var(--linkbrary-white, #FFF);
-}
-
-#password{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-#password label{
-    color: var(--black, #000);
-    /* Linkbrary/body2-regular */
-    font-family: Pretendard;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-#password_input{
+.id_input{
+    box-sizing: border-box;
     display: flex;
     width: 400px;
     padding: 18px 15px;
@@ -132,7 +113,51 @@ body{
     background: var(--linkbrary-white, #FFF);
 }
 
-#login{
+.id_input:focus{
+    border-radius: 8px;
+    border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
+    background: var(--linkbrary-white, #FFF);
+    outline: none;
+}
+
+.password{
+    display: flex;
+    width:  400px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.password label{
+    color: var(--black, #000);
+    /* Linkbrary/body2-regular */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.password_input{
+    box-sizing: border-box;
+    display: flex;
+    width: 400px;
+    padding: 18px 15px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+    background: var(--linkbrary-white, #FFF);
+}
+
+.password_input:focus{
+    border-radius: 8px;
+    border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
+    background: var(--linkbrary-white, #FFF);
+    outline: none;
+}
+
+.login{
     border: none;
     color: white;
     display: flex;
@@ -144,6 +169,7 @@ body{
     gap: 10px;
     border-radius: 8px;
     background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+    cursor:pointer;
 }
 
 p{
@@ -157,7 +183,8 @@ p{
     line-height: normal;
 }
 
-#bottom_form{
+.bottom_form{
+    box-sizing: border-box;
     display: flex;
     width: 400px;
     padding: 12px 24px;
@@ -168,16 +195,43 @@ p{
     background: var(--linkbrary-gray-10, #E7EFFB);
 }
 
-#google{
+.sns{
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.google-background{
+    display: flex;
     width: 42px;
     height: 42px;
     flex-shrink: 0;
-    background-image: url("./svgs/google.svg");
+    justify-content: center;
+    align-items: center;
+    background-image: url("../svgs/google_background.svg");
 }
 
-#kakatalk{
+.google{
+    display: flex;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    background-image: url("../images/google.png");
+}
+
+.kakaotalk-background{
+    display: flex;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../svgs/kakaotalk_background.svg");
+}
+
+.kakaotalk{
+    display: flex;
     width: 26px;
     height: 24px;
     flex-shrink: 0;
-    background-image: url("./svgs/kakatalk.svg");
 }
