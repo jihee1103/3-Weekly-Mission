@@ -208,7 +208,9 @@
     width: 1200px;
     max-width: 192rem;
     height: 9.4rem;
-    padding: 0 auto;
   }
 
+  section {
+    column-gap: 5.1rem;
+  }
 }
