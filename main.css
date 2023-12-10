@@ -20,7 +20,7 @@ header {
   width: 100%;
 }
 
-.black {
+.black-text {
   font-family: Pretendard;
   font-size: 48rem;
   font-style: normal;
@@ -29,7 +29,7 @@ header {
   letter-spacing: -0.3rem;
 }
 
-.gray {
+.gray-text {
   color: #6b6b6b;
   font-family: Abel;
   font-size: 16rem;
@@ -38,7 +38,7 @@ header {
   line-height: 150%;
 }
 
-.tool {
+.text_box {
   display: flex;
   width: 291rem;
   flex-direction: column;
@@ -46,7 +46,7 @@ header {
   gap: 10rem;
 }
 
-.main3 {
+.main-box_3 {
   display: flex;
   padding: 120rem 461rem 50rem 461rem;
   justify-content: center;
@@ -80,7 +80,7 @@ header {
   margin: 0 auto;
 }
 
-.main-1 {
+.main-box_1 {
   display: flex;
   padding: 70rem 360rem 0rem 360rem;
   flex-direction: column;
@@ -151,7 +151,7 @@ header {
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
 
-.main2 {
+.main-box_2 {
   display: flex;
   padding: 120rem 461rem 50rem 461rem;
   justify-content: center;
@@ -180,7 +180,7 @@ footer {
   box-shadow: 0rem 0rem 16rem 0rem rgba(0, 0, 0, 0.02);
 }
 
-.bottom {
+.bottom-box {
   display: flex;
   height: 160rem;
   padding: 32rem 104rem 64rem 104rem;
@@ -191,7 +191,7 @@ footer {
   background: var(--the-julge-black, #111322);
 }
 
-.bottom1 {
+.bottom-box2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -208,12 +208,11 @@ footer {
   line-height: normal;
 }
 
-.center {
+.center-text {
   display: flex;
   width: 181.111rem;
   align-items: flex-start;
   gap: 30rem;
-  color: #cfcfcf;
   font-family: Abel;
   font-size: 16rem;
   font-style: normal;
@@ -269,7 +268,7 @@ footer {
     gap: 24rem;
   }
 
-  .main-1 {
+  .main-box_1 {
     display: flex;
     padding: 28rem 32rem 0rem 32rem;
     flex-direction: column;
@@ -285,7 +284,7 @@ footer {
     line-height: 42rem;
   }
 
-  .black {
+  .black-text {
     font-family: Pretendard;
     font-size: 24rem;
     font-style: normal;
@@ -294,7 +293,7 @@ footer {
     letter-spacing: -0.3rem;
   }
 
-  .gray {
+  .gray-text {
     color: #6b6b6b;
     font-family: Abel;
     font-size: 15rem;
@@ -303,14 +302,14 @@ footer {
     line-height: 150%;
   }
 
-  .main2 {
+  .main-box_2 {
     display: flex;
     padding: 40rem 32rem 36.09rem 33rem;
     justify-content: center;
     align-items: center;
     margin: 0;
   }
-  .main3 {
+  .main-box_3 {
     display: flex;
     padding: 40rem 32rem 36.09rem 33rem;
     justify-content: center;
@@ -319,20 +318,20 @@ footer {
   .image-1 {
     width: 100%;
   }
-  .pic1 {
+  .image-2 {
     width: 90%;
   }
-  .pic2 {
+  .image-3 {
     width: 90%;
   }
-  .pic3 {
+  .image-4 {
     width: 90%;
   }
-  .pic4 {
+  .image-5 {
     width: 90%;
   }
 
-  .bottom {
+  .bottom-box {
     display: flex;
     height: 160rem;
     padding: 32rem 32rem 64rem 32rem;
@@ -343,7 +342,7 @@ footer {
     background: var(--the-julge-black, #111322);
   }
 
-  .bottom1 {
+  .bottom-box2 {
     position: relative;
   }
   .codeit {
