@@ -13,7 +13,7 @@
 body {
   display: flex;
   width: 100%;
-  padding: 238px 0px 116px 0px;
+  padding: 23.8rem 0 11.6rem 0;
   justify-content: center;
   align-items: center;
 
@@ -24,160 +24,177 @@ article {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 3.2rem;
+  width: 100%;
 }
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 3rem;
+  width: 100%;
 }
 
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 .linkbrary-logo {
-  width: 210.583px;
-  height: 38px;
+  width: 21.0583rem;
+  height: 3.8rem;
 }
 
 .goto-signin {
   display: flex;
-  gap: 8px;
+  gap: 0.8rem;
 }
 
 .goto-signin>span {
   color: var(--black, #000);
 
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2.4rem;
 }
 
 .goto-signin>a {
   color: var(--linkbrary-primary-color);
 
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
+  font-size: 1.6rem;
   font-weight: 600;
-  line-height: normal;
   text-decoration: underline;
 }
 
 section {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
+  align-items: center;
+  gap: 2.4rem;
+  max-width: 40rem;
+  width: 100%;
 }
 
 .input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 1.2rem;
+  width: 100%;
 }
 
 label {
   color: var(--black, #000);
 
   /* Linkbrary/body2-regular */
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
+  font-size: 1.4rem;
   font-weight: 400;
-  line-height: normal;
 }
 
 .password-eye {
   position: relative;
+  max-width: 40rem;
+  width: 100%;
+}
+
+.password-eye img {
+  cursor: pointer;
 }
 
 input {
   display: flex;
-  width: 400px;
-  padding: 18px 15px;
+  max-width: 40rem;
+  width: 100%;
+  padding: 1.8rem 1.5rem;
   justify-content: center;
   align-items: center;
 
-  border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--linkbrary-gray-20);
   background: var(--linkbrary-white);
 }
 
 input:focus {
-  border-radius: 8px;
-  border: 1px solid var(--linkbrary-primary-color);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--linkbrary-primary-color);
   background: var(--linkbrary-white);
   outline: none;
 }
 
 .password-eye>img {
   position: absolute;
-  right: 15px;
-  top: 18px;
-  bottom: 18px;
+  right: 1.5rem;
+  top: 1.8rem;
+  bottom: 1.8rem;
 }
 
 button {
   display: flex;
-  width: 400px;
-  padding: 16px 20px;
+  max-width: 40rem;
+  width: 100%;
+  padding: 1.6rem 2rem;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
   border: none;
+  cursor: pointer;
 
   color: var(--grey-light, #F5F5F5);
-  font-family: Pretendard;
-  font-size: 18px;
-  font-style: normal;
+  font-size: 1.8rem;
   font-weight: 600;
-  line-height: normal;
 
-  border-radius: 8px;
+  border-radius: 0.8rem;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
 }
 
 footer {
   display: flex;
-  width: 400px;
-  padding: 12px 24px;
+  max-width: 40rem;
+  width: 100%;
+  padding: 1.2rem 2.4rem;
   justify-content: space-between;
   align-items: center;
 
-  border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--linkbrary-gray-20);
   background: var(--linkbrary-gray-10);
 }
 
 footer>span {
   color: var(--linkbrary-gray-100);
 
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
+  font-size: 1.4rem;
   font-weight: 400;
-  line-height: normal;
 }
 
 .icons {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 .google,
 .kakao {
-  width: 42px;
-  height: 42px;
+  width: 4.2rem;
+  height: 4.2rem;
   flex-shrink: 0;
+}
+
+
+
+
+
+
+/* 모바일 크기 */
+@media (max-width: 767px) {
+  body {
+    background: var(--linkbrary-bg);
+
+    display: inline-flex;
+    padding: 12rem 3.2rem 11.9rem 3.3rem;
+    flex-direction: column;
+  }
 }
