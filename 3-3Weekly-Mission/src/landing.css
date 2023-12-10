@@ -204,6 +204,9 @@ footer {
 }
 
 @media screen and (max-width: 767px) and (min-width: 375px) {
+  .gnb {
+    padding: 0px 3.2rem;
+  }
   article {
     display: flex;
     flex-flow: wrap;
