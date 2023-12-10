@@ -323,3 +323,22 @@ footer > nav .icons {
     display: flex;
     gap: 12px;
  }
+
+ @media (min-width:768px) and (max-width: 1199px){
+      
+    nav{
+        width: 1200px;
+        padding: 20px 200px;
+      }
+}
+
+@media (min-width:375px) and (max-width: 767px){
+     body{
+        padding: 0 32px;
+        background-color: tomato;
+     }
+     main section{
+        display: flex;
+        flex-wrap: wrap;
+     }
+}

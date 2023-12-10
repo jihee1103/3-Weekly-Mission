@@ -1,9 +1,14 @@
 /* 로그인, 회원가입 메인 타이틀 스타일 */
+*{
+    box-sizing: border-box;
+
+}
+
 .login-body{
     background-color: var(--linkbrary-bg);
 }
 
-main{
+.login-main{
     padding: 238px 0 252px;
 }
 
@@ -143,4 +148,10 @@ form input:focus{
     position: absolute;
     z-index: 1;
 }
+ 
 
+@media (min-width:375px) and (max-width: 767px){
+    .inputs,.social,.btns{
+        width: 325px;
+    }
+}
