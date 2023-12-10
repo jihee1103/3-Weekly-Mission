@@ -66,7 +66,7 @@ nav {
   text-align: center;
   font-size: 6.4rem;
   font-weight: 700;
-  line-height: 8rem;
+  line-height: 1.25;
 }
 
 .section-1__image {
@@ -132,7 +132,7 @@ article:nth-of-type(even) {
   width: 100%;
   font-size: 1.6rem;
   font-weight: 500;
-  line-height: 150%;
+  line-height: 1.5;
   margin: 0;
 }
 
@@ -276,7 +276,7 @@ footer > div {
   }
 
   .section-1__title {
-    line-height: 8.4rem;
+    line-height: 1.3125;
   }
 
   .section-1__image {
