@@ -87,7 +87,7 @@ header {
 
   background: #f0f6ff;
 
-  @media screen and (width > 768px) {
+  @media screen and (width >= 768px) {
     row-gap: 4rem;
     /* padding-top: 4rem; */
     padding-top: 13.3rem; /* 4rem + 9.3rem(gnb height) */
