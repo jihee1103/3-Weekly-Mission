@@ -1,115 +1,192 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
     <title>Linkbrary</title>
-    <link rel="stylesheet" href="/css/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://cozy-starlight-4c5003.netlify.app"
+    />
+    <meta property="og:image" content="images/library.png" />
+    <meta property="og:title" content="Linkbrary" />
+    <meta
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해보세요"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./src/reset.css" />
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
-    <nav>
-      <a href="/">
-        <img src="/img/logo.png" alt="랜딩페이지 로고" style="cursor: pointer"
-      /></a>
-      <a href="/signin.html"> <button id="login_btn">로그인</button></a>
-    </nav>
-    <main>
-      <h1>
-        <span class="color_font">세상의 모든 정보</span>를<br />
-        쉽게 저장하고 관리해 보세요
-      </h1>
-      <button id="link_btn">링크 추가하기</button>
-      <img src="/img/page.png" class="main_img" />
-    </main>
-    <section>
-      <div class="section">
-        <div>
-          <div class="font">
-            <span class="color_font2">원하는 링크</span>를<br />저장하세요
-          </div>
+    <header>
+      <nav>
+        <a href="index.html">
+          <img src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
+        </a>
+        <a class="cta cta-short" href="signin.html">
+          <span>로그인</span>
+        </a>
+      </nav>
+      <div class="hero-header">
+        <h1 class="slogan">
+          <span class="slogan-gradient background-clip-text">
+            세상의 모든 정보</span
+          >를
+          <br />
+          <span class="line">쉽게 저장하고 </span
+          ><span class="line">관리해 보세요</span>
+        </h1>
+        <a class="cta cta-long" href="signup.html">
+          <span>링크 추가하기</span>
+        </a>
+        <img
+          src="./images/hero.png"
+          class="hero-image"
+          alt="Linkbrary 서비스 소개"
+        />
+      </div>
+    </header>
+    <article>
+      <section>
+        <div class="desc_wrap">
+          <h2 class="title">
+            <span class="line"
+              ><span class="title-1-gradient background-clip-text">
+                원하는 링크</span
+              >를 저장하세요</span
+            >
+          </h2>
           <p class="description">
-            나중에 읽고 싶은 글, 다시 보고 싶은 영상,
-            <br />
-            사고 싶은 옷, 기억하고 싶은 모든 것을
-            <br />
-            한 공간에 저장하세요.
+            <span>
+              나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷,</span
+            >
+            기억하고 싶은 모든 것을 한 공간에 저장하세요.
           </p>
         </div>
-
-        <div class="img_wrap">
-          <img src="/img/Card.png" style="width: 135px; height: 274px" />
-          <div class="img_wrap2">
-            <img src="/img/Card2.png" style="width: 279px" />
-            <img src="/img/download.png" class="down_icon img" />
-            <div class="purple"></div>
-          </div>
-          <img src="/img/Card3.png" style="width: 135px; height: 274px" />
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="section">
-        <div class="img_wrap">
-          <img src="/img/popup2.png" style="width: 414px" />
-        </div>
-        <div>
-          <div class="font">링크를 폴더로</div>
-          <div class="font"><span class="color_font3">관리</span>하세요</div>
+        <img
+          src="./images/image1.png"
+          class="content-image"
+          alt="링크의 내용이 담긴 카드들"
+        />
+      </section>
+      <section>
+        <div class="desc_wrap">
+          <h2 class="title">
+            링크를 폴더로
+            <span class="title-2-gradient background-clip-text">관리</span
+            >하세요
+          </h2>
           <p class="description">
-            나만의 폴더를 무제한으로 만들고
-            <br />
+            <span class="line"> 나만의 폴더를 무제한으로 만들고</span>
             다양하게 활용할 수 있습니다.
           </p>
         </div>
-      </div>
-    </section>
-    <section>
-      <div class="section">
-        <div>
-          <div class="font">저장한 링크를</div>
-          <div class="font"><span class="color_font4">공유</span>해 보세요</div>
+        <img
+          src="./images/image2.png"
+          class="content-image"
+          alt="폴더 이름 변경 기능"
+        />
+      </section>
+      <section>
+        <div class="desc_wrap">
+          <h2 class="title">
+            <span class="line">
+              저장한 링크를
+              <span class="title-3-gradient background-clip-text">공유</span>해
+              보세요
+            </span>
+          </h2>
           <p class="description">
-            여러 링크를 폴더에 담고 공유할 수 있습니다.
-            <br />
-            가족, 친구, 동료들에게 쉽고 빠르게 링크를
-            <br />
-            공유해 보세요.
+            <span class="line">여러 링크를 폴더에 담고 공유할 수 </span
+            >있습니다.
+            <span> 가족, 친구, 동료들에게 쉽고 </span>
+            <span class="line">빠르게 링크를 공유해 보세요.</span>
           </p>
         </div>
-        <div style="position: relative">
-          <div style="background-color: #000000; border-radius: 25px">
-            <img src="/img/back.png" class="back_img" />
-          </div>
-          <img src="/img/popup.png" class="front_img" />
+        <img
+          src="./images/image3.png"
+          class="content-image"
+          alt="폴더 공유 기능"
+        />
+      </section>
+      <section>
+        <div class="desc_wrap">
+          <h2 class="title">
+            <span>
+              저장한 링크를
+              <span class="title-4-gradient background-clip-text">검색</span>해
+              보세요
+            </span>
+          </h2>
+          <p class="description">
+            <span>중요한 정보들을 검색으로 쉽게 </span
+            ><span class="line">찾아보세요.</span>
+          </p>
         </div>
-      </div>
-    </section>
-    <section>
-      <div class="section">
-        <div class="img_wrap" style="position: relative">
-          <img
-            src="/img/search_result.png"
-            style="position: absolute; top: 40px; left: 35px"
-          />
-        </div>
-        <div>
-          <div class="font">저장한 링크를</div>
-          <div class="font"><span class="color_font5">검색</span>해 보세요</div>
-          <p class="description">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
-        </div>
-      </div>
-    </section>
+        <img
+          src="./images/image4.png"
+          class="content-image"
+          alt="링크 검색 기능"
+        />
+      </section>
+    </article>
     <footer>
-      <p class="codeit">©codeit - 2023</p>
-      <div class="faq">
-        <p>Privacy Policy</p>
-        <p>FAQ</p>
-      </div>
-      <div class="icon_wrap">
-        <img src="/img/facebook.png" />
-        <img src="/img/twitter.png" />
-        <img src="/img/youtube.png" />
-        <img src="/img/insta.png" />
+      <div class="footer-box">
+        <span class="copyright">©codeit - 2023</span>
+        <div class="mobile-wrap">
+          <div class="footer-links">
+            <a class="footer-link" href="privacy.html">Privacy Policy</a>
+            <a class="footer-link" href="faq.html">FAQ</a>
+          </div>
+          <div class="sns">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="./images/facebook.svg"
+                alt="facebook 홈페이지로 연결된 facebook 로고"
+              />
+            </a>
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="./images/twitter.svg"
+                alt="twitter 홈페이지로 연결된 twitter 로고"
+              />
+            </a>
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="./images/youtube.svg"
+                alt="youtube 홈페이지로 연결된 youtube 로고"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="./images/instagram.svg"
+                alt="instagram 홈페이지로 연결된 instagram 로고"
+              />
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   </body>
