@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <title>Linkbrary</title>
+  </head>
+  <body>
+    <main class="login-page">
+      <section>
+        <div class="header">
+          <a href="/"><img class="logo" src="../images/logo.svg" alt="logo" /> </a>
+          <div class="not-user">
+            <span>이미 회원이신가요?</span>
+            <a class="sign-up" href="signin.html">로그인 하기
+            <div class="under-line"></div
+              ></a>
+          </div>
+        </div>
+
+        <div class="email-passwd-wrapper">
+          <div class="email-passwd">
+            <label for="email-input">이메일</label>
+            <input id="email-input" type="text" class="email-passwd-input"/>
+          </div>
+          <div class="email-passwd">
+            <label for="passwd-input">비밀번호</label>
+            <input id="passwd-input" type="password" class="email-passwd-input"/>
+            <img class="eye-off" src="../images/eye-off.svg" alt="eye-off" />
+          </div>
+          <div class="email-passwd check">
+            <label for="passwd-check">비밀번호 확인</label>
+            <input id="passwd-check" type="password" class="email-passwd-input"/>
+            <img class="eye-off" src="../images/eye-off.svg" alt="eye-off" />
+          </div>
+        </div>
+        <div class="login long">회원가입</div>
+      </section>
+
+      <section class="social-login">
+        <div>다른 방식으로 가입하기</div>
+        <div class="google-and-kakao-login">
+          <a href="https://www.google.com/">
+            <div class="bg google">
+              <img
+                class="google-login"
+                src="https://s3-alpha-sig.figma.com/img/a92e/9426/c3a9be9cb365010056fa7aa9cc9f05a2?Expires=1702252800&Signature=AHX7JA0FAvSf1Zsfs7ArmVmEA4PijPyaJKNaGrkhGGTHex0FyWOtTA3mvfcxC1M4NdAd6l8aqBw6FTjBEgI9SIpmptm8DxqJgrwaZrwmwxJJq4OWoqjFRU2twe3Kgoc5QujbwOVORXJnCAbkvX2lu1tjLjYXZ5SWpctzp9MFjoZiqd3xJJQrYD2KHv-DzwkHuFnUySPnGhfMY6b8vVpdBLRK3IjH0il5fB0YW-~YrRdaGEED43DdAG5Tl7HVzn8yov4aRCGZTIvPndPPzHa0-S0M5mxyJEtNU4bP7GReNtFEXM2rKgqT~cCvzMZ5nI917xpuuUULdBJVcyDB6~qMlQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                alt="google-login"
+              />
+            </div>
+          </a>
+          <a href="https://www.kakaocorp.com/page/">
+            <div class="bg kakao">
+              <img
+                class="kakao-login"
+                src="../images/kakao-icon.svg"
+                alt="kakao-login"
+              /></div
+          ></a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
