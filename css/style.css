@@ -103,6 +103,17 @@ header{
     gap: 157px;
 }
 
+.detail-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    word-break: keep-all;
+    word-wrap: break-word;
+    color: #6B6B6B;
+    font-size: 16px;
+    font-weight: 500;
+}
+
 .detail-text{
     color: #000;
     font-size: 48px;
@@ -252,10 +263,17 @@ header{
         gap: 24px;
     }
 
+    .detail-info,
     .detail-text,
     .gradient{
         font-size: 24px;
         order: -1;
+    }
+
+
+    .detail-subtext{
+        font-size: 15px;
+        order: 2;
     }
 
     .card,
