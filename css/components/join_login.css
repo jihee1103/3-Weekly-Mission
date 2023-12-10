@@ -1,11 +1,11 @@
 /* 로그인, 회원가입 메인 타이틀 스타일 */
-*{
-    box-sizing: border-box;
-
-}
 
 .login-body{
     background-color: var(--linkbrary-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .login-main{
@@ -25,6 +25,7 @@ header .main-text{
     font-style: normal;
     font-weight: 400;
     line-height: 24px; /* 150% */
+    text-align: center;
 
 }
 

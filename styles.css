@@ -48,9 +48,9 @@ button{
     font-weight: 600;
 }
 
-header{
+.main-header{
     background-color: #F0F6FF;
-    flex-shrink: 0;
+
 }
 
 .main-nav{
@@ -70,7 +70,8 @@ header{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    display: grid;
+    place-items: center;
 }
 
 .header-main__h1{
@@ -95,18 +96,19 @@ header{
 
 .header-main__btn-add{
     margin: 40px 0;
-}
+
+    }
 
 
 .header-main__img{
     width: 1200px;
-    height: 590px;
-    flex-shrink: 0;
+    height: auto;
+    max-width: 100%;
 }
 
 
 /* main부분 + (공통적용되는 부분) */
-main{
+.main{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,17 +116,20 @@ main{
     
 }
 
-main section{
+.main section{
     width: 998px;
     height: 450px;
     display: flex;
     align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: auto;
     margin: 50px 0;
     gap: 157px;
     
 }
 
-main .section__h1{
+.main .section__h1{
     font-family: Pretendard-B;
     font-size: 48px;
     font-style: normal;
@@ -134,7 +139,7 @@ main .section__h1{
     margin: 0;
 }
 
-main section .section__p{
+.main section .section__p{
     color: #6B6B6B;
     font-family: Abel;
     font-size: 14px;
@@ -146,7 +151,7 @@ main section .section__p{
     
 }
 
-main section .section__h1-box{
+.main section .section__h1-box{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -154,7 +159,7 @@ main section .section__h1-box{
     margin: 0;
 }
 
-main section .section__h1-black,
+.main section .section__h1-black,
 .header-main__h1-black{
     background: linear-gradient(#000,#000);
     background-clip: text;
@@ -162,15 +167,15 @@ main section .section__h1-black,
     -webkit-text-fill-color: transparent;
 }
 /* 첫번째 section */
-main section:first-child{
+.main section:first-child{
     margin-top: 120px;
 }
 
-main section:first-child .section__h1-box{
+.main section:first-child .section__h1-box{
     width: 291px;
 }
 
-main section:first-child .section__h1{
+.main section:first-child .section__h1{
     background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -178,7 +183,7 @@ main section:first-child .section__h1{
 }
 
 
-main section:first-child .img-box{
+.main section:first-child .img-box{
     border-radius: 15px;
     width: 550px;
     height: 450px; 
@@ -190,17 +195,17 @@ main section:first-child .img-box{
 
 }
 
-main section:first-child .img-box img:first-child{
+.main section:first-child .img-box img:first-child{
     position: absolute;
     z-index: 1;
     left: 0px;
 } 
 
-main section:first-child .img-box img:nth-child(4){
+.main section:first-child .img-box img:nth-child(4){
     position: relative;
 } 
 
-main section:first-child .img-box .img-border{
+.main section:first-child .img-box .img-border{
     width: 244px;
     height: 239px;
     flex-shrink: 0;
@@ -211,14 +216,14 @@ main section:first-child .img-box .img-border{
     z-index: 2;
 } 
 
-main section:first-child .img-box .img-download{
+.main section:first-child .img-box .img-download{
     position: absolute;
     z-index: 3;
     bottom: 92px;
     right: 142px;
 } 
 
-main section:first-child .img-box img:last-child{
+.main section:first-child .img-box img:last-child{
     position: absolute;
     z-index: 1;
     right: 0px ;
@@ -226,11 +231,11 @@ main section:first-child .img-box img:last-child{
 
 
 /* 두번째 section */
-main section:nth-child(2) .section__h1-box{
+.main section:nth-child(2) .section__h1-box{
     width: 291px;
 }
 
-main section:nth-child(2) .section__h1{
+.main section:nth-child(2) .section__h1{
     background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -238,7 +243,7 @@ main section:nth-child(2) .section__h1{
 }
 
 
-main section:nth-child(2) .img-box{
+.main section:nth-child(2) .img-box{
     background-color: #F0F6FF;
     width: 550px;
     padding: 114px 68px 66px 68px;
@@ -247,18 +252,18 @@ main section:nth-child(2) .img-box{
 
 
 /* 세번째 section */
-main section:nth-child(3) .section__h1-box{
-    flex-basis: 291px;
+.main section:nth-child(3) .section__h1-box{
+    width: 291px;
 }
 
-main section:nth-child(3) .section__h1{
+.main section:nth-child(3) .section__h1{
     background-image: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-main section:nth-child(3) .img-box{
+.main section:nth-child(3) .img-box{
     width: 550px;
     height: 450px;
     background-image:linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('imgs/section3_bg.png');
@@ -272,11 +277,11 @@ main section:nth-child(3) .img-box{
 
 
 /* 네번째 section */
-main section:last-child .section__h1-box{
+.main section:last-child .section__h1-box{
     width: 291px;
 }
 
-main section:last-child .section__h1{
+.main section:last-child .section__h1{
     background: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -284,7 +289,7 @@ main section:last-child .section__h1{
 }
 
 
-main section:last-child .img-box{
+.main section:last-child .img-box{
     width: 550px;
     height: 450px;
     background-color: #F0F6FF;
@@ -292,7 +297,7 @@ main section:last-child .img-box{
     position: relative;
 }
 
-main section:last-child .img-box img{
+.main section:last-child .img-box img{
     position:absolute;
     right: 0;
     bottom: 0;
@@ -303,12 +308,12 @@ main section:last-child .img-box img{
 footer{
     margin-top: 120px;
     background-color:  #111322;
-    flex-shrink: 0;
 }
 
 .footer-nav{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: 32px 104px 64px 104px;
     color: #CFCFCF;
 }
@@ -328,11 +333,37 @@ footer{
 
  @media (min-width:768px) and (max-width: 1199px){
       
-    nav{
+    .main-nav{
         width: 1200px;
         padding: 20px 200px;
+        max-width: 100%;
       }
+
+
 }
 
 @media (min-width:375px) and (max-width: 767px){
+    .main section{
+        grid-template-columns: 1fr;
+        place-items: center;
+        gap: 24px;
+        padding: 40px 32px;
+        
+    }
+
+    .main section .section__h1-box .section__h1{
+        width: auto;
+
+    }
+ 
+    .main section:nth-child(2) .section__h1-box,
+    .main section:last-child .section__h1-box{
+        grid-row: 1;
+        grid-column: 1; 
+    }
+
+    .main{
+        display: grid;
+        gap: 200px;
+    }
 }
