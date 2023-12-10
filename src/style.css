@@ -148,13 +148,6 @@ footer {
   background-color: #111322;
 }
 
-.copy-faq {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 10rem;
-}
-
 .footer-box {
   display: flex;
   justify-content: space-between;

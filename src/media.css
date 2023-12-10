@@ -4,21 +4,7 @@
     display: none;
   }
 
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    background-color: #edf7ff;
-  }
-
   nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 192rem;
-    height: 9.4rem;
     padding: 0 3.2rem;
   }
 
@@ -35,17 +21,9 @@
   }
 
   .cta {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: auto;
     padding: 1rem 1.6rem;
-    cursor: pointer;
-    background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
-    border-radius: 0.8rem;
-    color: #f5f5f5;
     font-size: 1.4rem;
-    font-weight: 600;
   }
 
   .cta-short {
@@ -57,20 +35,8 @@
   }
 
   .slogan {
-    text-align: center;
     font-size: 3.2rem;
-    font-weight: 700;
     line-height: 4.2rem;
-  }
-
-  .slogan-gradient {
-    background-image: linear-gradient(119deg, #6d6afe 0%, #ff9f9f 100%);
-  }
-
-  .background-clip-text {
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
   }
 
   .hero-image {
@@ -84,9 +50,6 @@
   }
 
   section {
-    display: grid;
-    justify-content: center;
-    width: 100%;
     height: auto;
     padding: 4rem 3.2rem 3.6rem;
     column-gap: 0;
@@ -108,49 +71,24 @@
   }
 
   .title {
-    grid-area: title;
     font-size: 2.4rem;
-    font-weight: 700;
     line-height: normal;
-    letter-spacing: -0.03rem;
-  }
-
-  .title-1-gradient {
-    background-image: linear-gradient(117deg, #fe8a8a 2.29%, #a4ceff 100%);
-  }
-  .title-2-gradient {
-    background-image: linear-gradient(304deg, #6fbaff 0%, #ffd88b 100%);
-  }
-  .title-3-gradient {
-    background-image: linear-gradient(133deg, #2945c7 0%, #dbe1f8 100%);
-  }
-  .title-4-gradient {
-    background-image: linear-gradient(310deg, #fe578f 0%, #68e8f9 100%);
   }
 
   .description {
-    grid-area: description;
     font-size: 1.5rem;
-    font-weight: 500;
-    color: #6b6b6b;
-    line-height: 150%;
   }
 
   .content-image {
-    grid-area: image;
     width: 100%;
     height: auto;
     padding: 2rem 0 1.6rem;
   }
 
   footer {
-    display: flex;
     justify-content: space-between;
-    width: 100%;
-    height: 16rem;
     padding: 3.2rem 3.2rem 6.4rem;
     align-items: flex-start;
-    background-color: #111322;
   }
 
   .footer-box {
@@ -170,29 +108,14 @@
 
   .copyright {
     grid-area: copyright;
-    color: #676767;
-    font-family: Arial;
-    font-size: 1.6rem;
   }
 
   .footer-links {
     grid-area: links;
-    display: flex;
-    column-gap: 3rem;
-    padding-right: 1.8rem;
-  }
-
-  .footer-link {
-    color: #cfcfcf;
-    font-family: Arial;
-    font-size: 1.6rem;
   }
 
   .sns {
     grid-area: sns;
-    display: flex;
-    column-gap: 1.2rem;
-    height: 2rem;
   }
 
 }
@@ -204,12 +127,7 @@
   }
   
   nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 1200px;
-    max-width: 192rem;
-    height: 9.4rem;
   }
 
   section {
