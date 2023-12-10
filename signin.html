@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Linkbrary_SignIn</title>
+  <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"/>
+  <link rel="stylesheet" href="sign.css">
+</head>
+<body>
+<main>
+  <section class="form-login-area">
+    <div class="header">
+      <a href="index.html">
+        <div class="logo-area">
+          <img src="images/signin-logo.svg" alt="logo">
+        </div>
+      </a>
+      <div class="sign-text">
+        <p class="ask-member">회원이 아니신가요?</p>
+        <a class="signup-link" href="signup.html">회원가입하기</a>
+      </div>
+    </div>
+    <div>
+      <form class="login-form" action="/submit_form" method="GET">
+        <div class="input-box-container">
+          <div class="input-box">
+            <label for="email">이메일</label>
+            <input id="email" type="email">
+          </div>
+          <div class="input-box">
+            <label for="password">비밀번호</label>
+            <div class="password-box">
+              <input id="password" type="password">
+              <img src="images/signin-eye-off.svg" alt="icon-eyes">
+            </div>
+          </div>
+        </div>
+        <button>로그인</button>
+      </form>
+    </div>
+
+  </section>
+  <section class="social-login-area">
+    <p class="text">
+      소셜 로그인
+    </p>
+    <div class="icon-box-container">
+      <div class="icon-box">
+        <a href="https://google.com">
+          <img id="google-icon-box" src="images/signin-icon-google.svg" alt="icon-box">
+          <img id="google-icon" src="images/signin-ic-google.png" alt="icon">
+        </a>
+      </div>
+      <div class="icon-box">
+        <a href="https://kakaocorp.com/page">
+          <img id="kakao-icon-box" src="images/signin-icon-kakao.svg" alt="icon-box">
+          <img id="kakao-icon" src="images/signin-ic-kakao.png" alt="icon">
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
