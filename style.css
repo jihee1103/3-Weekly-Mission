@@ -280,7 +280,7 @@ footer > div {
   }
 
   .section-1__image {
-    content: url(../images/landing/main-image-mobile.png);
+    content: url(landing-images/main-mobile.png);
   }
 
   .section-2 {
