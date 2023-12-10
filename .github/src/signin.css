@@ -2,7 +2,6 @@ body {
   display: flex;
   background-color: #F0F6FF;
   width: 1440px;
-  padding: 238px 0px 252px 0px;
   justify-content: center;
   align-items: center;
 }
@@ -108,7 +107,6 @@ button {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-
 
   width:400px;
   padding: 16px 20px;
