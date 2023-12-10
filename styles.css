@@ -53,7 +53,7 @@ header{
     flex-shrink: 0;
 }
 
-nav{
+.main-nav{
     padding: 20px 200px;
     display: flex;    
     justify-content: space-between;
@@ -306,20 +306,22 @@ footer{
     flex-shrink: 0;
 }
 
-footer > nav{
+.footer-nav{
+    display: flex;
+    justify-content: space-between;
     padding: 32px 104px 64px 104px;
     color: #CFCFCF;
 }
 
-footer > nav div:nth-child(2) a{
+.footer-nav div:nth-child(2) a{
    display: inline-block;
 }
 
-footer > nav div:nth-child(2) a:first-child{
+.footer-nav div:nth-child(2) a:first-child{
     margin-right: 30px;
  }
 
-footer > nav .icons {
+.footer-nav .icons {
     display: flex;
     gap: 12px;
  }
@@ -333,12 +335,4 @@ footer > nav .icons {
 }
 
 @media (min-width:375px) and (max-width: 767px){
-     body{
-        padding: 0 32px;
-        background-color: tomato;
-     }
-     main section{
-        display: flex;
-        flex-wrap: wrap;
-     }
 }
