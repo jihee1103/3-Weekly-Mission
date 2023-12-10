@@ -1,0 +1,23 @@
+/* mobile */
+@media (min-width:375px) and (max-width:767px) {
+    /* 사용자 해상도가 375px 이상일 때 767px이하일때  이 코드가 실행됨. 테블릿과 데스크톱의 공통 코드를 작성한다. */
+    
+    header {
+        width: 100%;
+        padding: 20px 16px;
+    }
+
+    .header_in_div {
+        width: 100%;
+        gap: 8px;
+    }
+
+    .content1,
+    .content2,
+    .content3,
+    .content4,
+    .content5 {
+        gap: 10px 16px;
+        padding: 30px 0 30px;
+    }
+}

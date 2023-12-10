@@ -1,18 +1,102 @@
+<!-- <Route path="/" element={<Main />}></Route> -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <title>Linkbrary</title>
+    <meta name="description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="./css/main_desktop.css">
+    <link rel="stylesheet" href="./css/main_tablet.css">
+    <link rel="stylesheet" href="./css/main_mobile.css">
 </head>
 <body>
-    
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
+    <header>
+        <nav>
+            <div class="header_in_div">
+                <a class="gotomain" href="./index.html"></a>
+                <a class="loginbutton" href="./login/signin.html">로그인</a>
+            </div> 
+        </nav>
+    </header>
+        <div class="content1">
+                <div class="content1_word_info_text">
+                    세상의 모든 정보<span class="content1_word_info_text_normal_text">를<br> 쉽게 저장하고 관리해보세요</span>
+                </div>
+                <a class="signup" href="/signup">
+                    링크 추가하기
+                </a>
+                <div class="content1_contents">
+                    <img class="content1_contents_dim" src="./images/image.png">
+                </div>
+        </div>
+        <div class="content2">
+            <div class="content2_main">
+                <div class="content2_save_link">
+                    <div class="content2_want_link_normal"><span class="content2_want_link">원하는 링크</span>를<br>저장하세요</div>
+                    <div class="content2_comment">나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>
+                        사고 싶은 옷, 기억하고 싶은 모든 것을<br>
+                        한 공간에 저장하세요.
+                    </div>
+                </div>
+                <div class="content2_comment_sample"></div>
+            </div>
+        </div>
+        <div class="content3">
+            <div class="content3_main">
+                <div class="content3_popup">
+                    <div class="content3_popup_img">
+                        <!-- <img src="./images/folder_change_form.png" alt="폴더이름변경하기"> -->
+                    </div>
+                </div>
+                <div class="content3_save_folder">
+                    <div class="content3_set_normal">링크를 폴더로<br> <span class="content3_set">관리</span>하세요</div>
+                    <div class="content3_set_comment">나만의 폴더를 무제한으로 만들고 <br>
+                        다양하게 활용할 수 있습니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content4">
+            <div class="content4_main">
+                <div class="content4_save_link">
+                    <div class="content4_set_normal">저장한 링크를<br> <span class="content4_set">공유</span>해 보세요</div>
+                    <div>여러 링크를 폴더에 담고 공유할 수 있습니다. <br>가족, 친구, 동료들에게 쉽고 빠르게 링크를<br> 
+                        공유해 보세요.</div>
+                </div>
+                <div class="content4_share_folder">
+                    <div class="content4_share_box"></div>
+                </div>
+            </div>
+        </div>
+        <div class="content5">
+            <div class="content5_main">
+                <div class="content5_leftbox">
+                    <div class="content5_leftbox_img"></div>
+                </div>
+                <div class="content5_search_link">
+                    <div class="content5_set_normal">저장한 링크를<br> <span class="content5_set">검색</span>해 보세요</div>
+                    <div>중요한 정보들을 검색으로 쉽게 찾아보세요.</div>
+                </div>
+            </div>
+        </div>
+    <footer>
+        <div class="footer_div">
+            <div class="footer_nav">
+                <div class="footer_year">©codeit - 2023</div>
+                <div class="footer_privacy">Privacy Policy</div>
+                <div class="footer_FAQ">FAQ</div>
+                <div class="footer_sns">
+                    <a class="footer_facebook" href="https://www.facebook.com"></a>
+                    <a class="footer_twitter" href="https://www.twitter.com"></a>
+                    <a class="footer_youtube" href="https://www.youtube.com"></a>
+                    <a class="footer_instagram" href="https://www.instagram.com"></a>
+                </div>
+            </div>        
+        </div>
+    </footer>
 </body>
-</html>
 
+</html>
