@@ -24,6 +24,10 @@ nav {
   padding-top: 7rem;
 }
 
+br.break-media {
+  display: none;
+}
+
 .cta {
   display: flex;
   justify-content: center;
@@ -142,6 +146,13 @@ footer {
   height: 16rem;
   padding-top: 3.2rem;
   background-color: #111322;
+}
+
+.copy-faq {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10rem;
 }
 
 .footer-box {
