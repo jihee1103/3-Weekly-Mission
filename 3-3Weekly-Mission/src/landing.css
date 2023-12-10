@@ -193,3 +193,57 @@ footer {
   column-gap: 1.2rem;
   height: 2rem;
 }
+
+@media screen and (min-width: 1200px) {
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .gnb {
+    padding: 0px 3.2rem;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 375px) {
+  article {
+    display: flex;
+    flex-flow: wrap;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+
+    margin: 5rem 3.2rem 5rem;
+  }
+  body {
+    //width: 100vh;
+    //width: 100%;
+  }
+  section br {
+    display: none;
+  }
+
+  .content-image {
+    width: 100%;
+  }
+
+  .hero-image {
+    width: 80%;
+    height: 80%; /*높이값을 아예 안주면 빈공간이 생기는데 높이값을 주니까 빈공간은 사라지는데 크기변화가없음*/
+    object-fit: contain;
+  }
+
+  .description {
+    order: 3;
+  }
+
+  .footer-box {
+    position: relative;
+    padding: 0 3.2rem;
+  }
+
+  .copyright {
+    position: absolute;
+    left: 3.2rem;
+    top: 8rem;
+  }
+}
