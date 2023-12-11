@@ -123,10 +123,8 @@ form {
   bottom: 50%;
   translate: 0 50%;
 
-  width: 1.6rem;
-  height: 1.6rem;
-
-  background-color: inherit;
+  display: flex;
+  padding: 0; /* 버튼 padding 기본값 삭제 */
 }
 
 .form-submit-btn {
@@ -177,6 +175,8 @@ form {
 }
 
 .social-media-link {
+  display: inline-block;
+
   width: 4.2rem;
   height: 4.2rem;
 }
