@@ -20,7 +20,7 @@ nav {
   padding: 20px 200px;
 }
 
-.btn {
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,12 +33,12 @@ nav {
   padding: 16px 20px;
 }
 
-.signin-btn {
+.header__button {
   flex-shrink: 0;
   width: 12.8rem;
 }
 
-.signup-btn {
+.hero-article__button {
   width: 35rem;
 }
 
@@ -49,19 +49,19 @@ nav {
   align-items: center;
 }
 
-.section-1 {
+.hero-section {
   padding-top: 70px;
   background-color: #f0f6ff;
 }
 
-.section-1-article {
+.hero-article {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
 }
 
-.section-1__title {
+.hero-article__title {
   width: 62.5vw;
   text-align: center;
   font-size: 6.4rem;
@@ -69,25 +69,25 @@ nav {
   line-height: 1.25;
 }
 
-.section-1__image {
-  width: 100%;
-  height: 100%;
-  max-width: 120rem;
-}
-
-.section-1__title--gradient {
+.hero-article__title--gradient {
   background: linear-gradient(91deg, #6d6afe 0%, #ff9f9f 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.section-2 {
+.hero-article__image {
+  width: 100%;
+  height: 100%;
+  max-width: 120rem;
+}
+
+.main-section {
   padding-top: 30px;
   padding-bottom: 120px;
 }
 
-.article {
+.main-article {
   display: grid;
   justify-content: space-between;
   row-gap: 10px;
@@ -136,36 +136,32 @@ article:nth-of-type(even) {
   margin: 0;
 }
 
-.article-1-gradient {
+.main-article-01--gradient {
   background: linear-gradient(90deg, #fe8a8a, #a4ceff);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.article-2-gradient {
+.main-article-02--gradient {
   background: linear-gradient(90deg, #6fbaff, #ffd88b);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.article-3-gradient {
+.main-article-03--gradient {
   background: linear-gradient(90deg, #6d7ccd, #52888538);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.article-4-gradient {
+.main-article-04--gradient {
   background: linear-gradient(90deg, #68e8f9, #fe578f);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.fourth-article {
-  margin-bottom: 50px;
 }
 
 footer {
@@ -205,13 +201,10 @@ footer {
   grid-area: sns;
   display: flex;
   gap: 12px;
-}
-
-.footer__sns > a {
   cursor: pointer;
 }
 
-footer > div {
+.footer-container {
   display: flex;
   justify-content: space-between;
 }
@@ -219,8 +212,7 @@ footer > div {
 /* 태블릿 + 모바일 */
 @media (max-width: 1199px) {
   nav,
-  .article,
-  .section-1__image,
+  .main-article,
   .footer-container {
     width: calc(100vw - 64px);
   }
@@ -245,20 +237,20 @@ footer > div {
     padding: 13px 0;
   }
 
-  .btn {
+  .button {
     padding: 10px 16px;
     font-size: 2.8rem;
   }
 
-  .signin-btn {
+  .header__button {
     width: 16rem;
   }
 
-  .signup-btn {
+  .hero-article__button {
     width: 40rem;
   }
 
-  .linkbrary_logo {
+  .linkbrary-icon {
     height: 3.2rem;
   }
 
@@ -267,28 +259,28 @@ footer > div {
     height: 100%;
   }
 
-  .section-1 {
+  .hero-section {
     padding-top: 28px;
   }
 
-  .section-1-article {
+  .hero-article {
     gap: 24px;
   }
 
-  .section-1__title {
+  .hero-article__title {
     line-height: 1.3125;
   }
 
-  .section-1__image {
+  .hero-article__image {
     content: url(landing-images/main-mobile.png);
   }
 
-  .section-2 {
+  .main-section {
     padding-top: 0;
     padding-bottom: 40px;
   }
 
-  .article {
+  .main-article {
     flex-direction: column;
     padding: 40px 0;
   }
