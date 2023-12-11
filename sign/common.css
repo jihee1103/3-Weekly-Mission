@@ -58,12 +58,6 @@ input:focus {
   position: relative;
 }
 
-.password-form__switch-icon {
-  position: absolute;
-  right: 15px;
-  bottom: 48px;
-}
-
 .submit-button {
   width: 100%;
   border-radius: 8px;
