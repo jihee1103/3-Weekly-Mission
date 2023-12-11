@@ -12,6 +12,7 @@ nav {
   align-items: center;
   width: 100%;
   max-width: 192rem;
+  margin: 0 auto;
   height: 9.4rem;
   padding: 0 20rem;
   position: fixed;
