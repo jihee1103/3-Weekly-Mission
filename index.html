@@ -3,30 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- HTML Meta Tags -->
     <title>Linkbrary</title>
+    <meta
+      name="description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:image" content="/img/linkbrary.jpg" />
+    <meta property="og:title" content="Linkbrary" />
+    <meta
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    />
+    <meta
+      property="og:url"
+      content="https://week3-linkbrary-parkjinah.netlify.app/"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:domain"
+      content="week3-linkbrary-parkjinah.netlify.app/"
+    />
+    <meta
+      property="twitter:url"
+      content="https://week3-linkbrary-parkjinah.netlify.app/"
+    />
+    <meta name="twitter:title" content="Linkbrary" />
+    <meta
+      name="twitter:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    />
+    <meta name="twitter:image" content="/img/linkbrary.jpg" />
+
+    <!-- CSS link -->
     <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
     <div class="header-container">
       <header>
         <nav>
-          <a href="/"><img src="/img/logo.svg" alt="logo"></a>
+          <a href="/"><img src="/img/logo.svg" alt="logo" /></a>
           <div class="nav-login">
             <a href="/signin.html">로그인</a>
           </div>
         </nav>
         <div class="header-top">
-          <span class="header-text1">
-            <span class="header-text2">
-            세상의 모든 정보</span>를
-            <div></div>
-            쉽게 저장하고 관리해 보세요
+          <span class="header-heading">
+            <span class="header-heading-color">세상의 모든 정보</span>를
+            <div>쉽게 저장하고 관리해 보세요</div>
           </span>
           <a href="/signup.html">링크 추가하기</a>
           <div class="header-page">
             <div class="header-content">
-              <img src="/img/img-header.png" class="img-header">
-              <div class="shadow-box">
+              <img src="/img/img-header.png" class="img-header" />
             </div>
           </div>
         </div>
@@ -35,84 +69,77 @@
 
     <main>
       <section class="sec-link">
-        <div class="link-textbox">
-          <span class="link-text1">
-            <span class="link-text2">
-            원하는 링크</span>를
-            <div></div>
-            저장하세요
-          </span>
+        <span class="link-heading">
+          <span class="link-heading-color">원하는 링크</span>를
+          <div>저장하세요</div>
+        </span>
+        <div class="link-pictures sec-pictures-common">
+          <img src="/img/img-link.png" />
         </div>
-        <div class="link-picturebox">
-          <div class="link-pictures">
-            <img src="/img/img-link1.png">
-            <img src="/img/img-link2.png">
-            <div class="img-link2-border"></div>
-            <img src="/img/img-link3.png">
-          </div>
-          <img src="/img/ic-download.png" class="ic-download">
+        <div class="description">
+          나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고 싶은
+          모든 것을 한 공간에 저장하세요.
         </div>
       </section>
 
       <section class="sec-folder">
-        <div class="folder-textbox">
-          <span class="folder-text1">
-            링크를 폴더로<div></div>
-            <span class="folder-text2">
-            관리</span>하세요
-          </span>
+        <span class="folder-heading">
+          <div>링크를 폴더로</div>
+          <span class="folder-heading-color">관리</span>하세요
+        </span>
+        <div class="folder-picture sec-pictures-common">
+          <img src="/img/img-folder-change.png" />
         </div>
-        <div class="folder-picturebox">
-          <div class="folder-picture">
-            <img src="/img/img-folder.png">
-          </div>
+        <div class="description">
+          나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.
         </div>
       </section>
 
       <section class="sec-share">
-        <div class="share-textbox">
-          <span class="share-text1">
-            저장한 링크를<div></div>
-            <span class="share-text2">
-              공유</span>해 보세요.
-          </span>
+        <span class="share-heading">
+          <div>저장한 링크를</div>
+          <span class="share-heading-color">공유</span>해 보세요
+        </span>
+        <div class="share-bg-picture sec-pictures-common">
+          <img src="/img/img-folder-share.png" />
         </div>
-        <div class="share-picturebox">
-          <div class="share-bg-picture">
-            <img src="/img/img-share.png">
-          </div>
-          
+        <div class="description">
+          여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게
+          쉽고 빠르게 링크를 공유해 보세요.
         </div>
       </section>
 
       <section class="sec-search">
-        <div class="search-textbox">
-          <span class="search-text1">
-            저장한 링크를<div></div>
-            <span class="search-text2">
-              검색</span>해 보세요
-          </span>
+        <span class="search-heading">
+          <div>저장한 링크를</div>
+          <span class="search-heading-color">검색</span>해 보세요
+        </span>
+        <div class="search-bg sec-pictures-common">
+          <img src="/img/img-codeit-search.png" />
         </div>
-        <div class="search-picturebox">
-          <div class="search-bg">
-            <img src="/img/img-codeit.png">
-            <div class="search-shadow"></div>
-          </div>
-        </div>
+        <div class="description">중요한 정보들을 검색으로 쉽게 찾아보세요.</div>
       </section>
     </main>
 
     <footer>
-      <div class="codeit-2023">©codeit - 2023</div>
+      <div class="footer-copyright">©codeit - 2023</div>
       <div class="footer-links">
         <a href="/privacy" class="footer-privacy">Privacy Policy</a>
         <a href="/faq" class="footer-faq">FAQ</a>
       </div>
       <div class="footer-icons">
-        <a href="https://www.facebook.com/?locale=ko_KR" target="_blank"><img src="/img/ic-facebook.png"></a>
-        <a href="https://twitter.com/?lang=ko" target="_blank"><img src="/img/ic-twitter.png"></a>
-        <a href="https://www.youtube.com/" target="_blank"><img src="/img/ic-youtube.png"></a>
-        <a href="https://www.instagram.com/" target="_blank"><img src="/img/ic-instagram.png"></a>
+        <a href="https://www.facebook.com/?locale=ko_KR" target="_blank"
+          ><img src="/img/ic-facebook.png"
+        /></a>
+        <a href="https://twitter.com/?lang=ko" target="_blank"
+          ><img src="/img/ic-twitter.png"
+        /></a>
+        <a href="https://www.youtube.com/" target="_blank"
+          ><img src="/img/ic-youtube.png"
+        /></a>
+        <a href="https://www.instagram.com/" target="_blank"
+          ><img src="/img/ic-instagram.png"
+        /></a>
       </div>
     </footer>
   </body>

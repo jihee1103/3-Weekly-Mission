@@ -13,15 +13,24 @@ html {
   height: 100%;
 }
 
+body {
+  height: 100%;
+  background-color: #f0f6ff;
+  font-family: Pretendard;
+  font-style: normal;
+  justify-content: center;
+  line-height: normal;
+  display: flex;
+}
+
 main {
+  width: 100%;
+  max-width: 400px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 238px 0 252px;
-  justify-content: center;
-  align-items: center;
   gap: 30px;
-  background-color: #f0f6ff;
+  justify-content: center;
 }
 
 .text-big {
@@ -36,9 +45,6 @@ main {
 
 .text-common {
   color: #000;
-  font-family: Pretendard;
-  font-style: normal;
-  line-height: normal;
 }
 
 .sign-container {
@@ -63,11 +69,8 @@ main .sign-linkbrary-container {
 main .sign-linkbrary-container > a {
   color: #6d6afe;
   border-bottom: 1px solid #6d6afe;
-  font-family: Pretendard;
   font-size: 16px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 }
 
 .sign-logo,
@@ -84,9 +87,9 @@ main .sign-linkbrary-container > a {
   gap: 12px;
 }
 
-.sign-form-container > input {
+.sign-form-container input {
   display: flex;
-  width: 400px;
+  width: 100%;
   padding: 18px 15px;
   justify-content: center;
   align-items: center;
@@ -95,11 +98,12 @@ main .sign-linkbrary-container > a {
   background: #fff;
 }
 
-.sign-form-container > input:focus {
+.sign-form-container input:focus {
   border: 1px solid #6d6afe;
 }
 
 .sign-login-container {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -122,7 +126,6 @@ a.sign-login {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 400px;
   padding: 16px 20px;
   border-radius: 8px;
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
@@ -131,14 +134,31 @@ a.sign-login {
   font-weight: 600;
 }
 
-input.sign-password[type="password"] {
-  background: url("/img/ic-eye-off.png") no-repeat 16px 16px white;
-  background-position-x: 370px;
+.input-container {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
 }
 
-input.sign-password {
-  background: url("/img/ic-eye-on.png") no-repeat 16px 16px white;
-  background-position-x: 370px;
+.sign-password {
+  width: 100%;
+}
+
+.input-container::after {
+  background-image: url("/img/ic-eye-on.png");
+  background-size: cover;
+  content: "";
+  height: 16px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+}
+
+.input-container.password::after {
+  background-image: url("/img/ic-eye-off.png");
+  /* background: url("/img/ic-eye-on.png") no-repeat 16px 16px; */
 }
 
 .social-login {
@@ -148,10 +168,45 @@ input.sign-password {
 .social-icons {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
 }
 
 .social-icons .ic-kakao {
   border: 1.5px solid #d3d4dd;
   border-radius: 50%;
+}
+
+/* PC */
+@media (min-width: 1200px) {
+}
+
+/* 태블릿 이하 */
+@media (max-width: 1199px) {
+}
+
+/* 태블릿 */
+@media (min-width: 768px) and (max-width: 1199px) {
+}
+
+/* 모바일 */
+@media (min-width: 375px) and (max-width: 767px) {
+  body {
+    padding: 120px 32px;
+  }
+  main {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .sign-logo {
+    width: 100%;
+  }
+
+  input.sign-password {
+    width: 100%;
+  }
+
+  a.sign-login {
+    width: 100%;
+  }
 }
