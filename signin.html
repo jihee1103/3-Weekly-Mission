@@ -10,7 +10,6 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./src/reset.css" />
     <link rel="stylesheet" href="./src/signin.css" />
   </head>
   <body>
@@ -27,10 +26,10 @@
       <main>
         <form>
           <label for="email">이메일</label>
-          <input type="email" name="email" id="email" />
+          <input class="sign-input" type="email" name="email" id="email" />
           <label for="password">비밀번호</label>
           <div class="password-container">
-            <input type="password" name="password" id="password" />
+            <input class="sign-input" type="password" name="password" id="password" />
             <img src="./images/eye-off.png" alt="비밀번호숨기기" />
           </div>
           <button type="submit" class="sumbit-button">로그인</button>

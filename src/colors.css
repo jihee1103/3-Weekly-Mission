@@ -1,0 +1,14 @@
+:root {
+  --primary: #6d6afe;
+  --red: #ff5b56;
+  --black: #111322;
+  --white: #fff;
+
+  --gray-100: #373740;
+  --gray-80: #6b6b6b;
+  --gray-60: #9fa6b2;
+  --gray-20: #ccd5e3;
+  --gray-10: #e7effb;
+
+  --background: #f0f6ff;
+}
