@@ -5,7 +5,6 @@
   margin: 0 auto;
 }
 
-
 .cta{
   display: flex;
   justify-content: center;
@@ -25,4 +24,32 @@
 
 .cta a{
   color: var( --color-white);
+}
+
+.pc-blind{
+  display: none;
+}
+
+
+/* 태블릿 이하 */
+@media (max-width: 1199px) {
+  .pc-blind{
+    display: unset;
+  }  
+} 
+
+/* 태블릿 */
+@media all and (min-width:768px) and (max-width:1199px) { 
+  .container{
+    max-width: 43.625rem;
+  }
+} 
+
+
+/* 모바일 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .cta{
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
 }

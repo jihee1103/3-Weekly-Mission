@@ -22,6 +22,7 @@ footer{
   padding: 2rem 6.5rem 4rem;
   justify-content: space-between;
   background: var(--color-black);
+  position: relative;
 }
 
 footer .footer-copy{
@@ -133,4 +134,100 @@ main{
 /* 메인-검색 */
 .main-sec-search .txt-area strong{
   background: linear-gradient(90deg, var(--color-hotpink), var(--color-skyblue));
+}
+
+
+/* 반응형 */
+
+/* 태블릿 이하 */
+@media (max-width: 1199px) {
+  /* 공통 */
+  img{
+    width: 100%;
+  }
+} 
+
+/* 태블릿 */
+@media all and (min-width:768px) and (max-width:1199px) { 
+  .main-sec img{
+    max-width: 24.0625rem;
+  }
+
+  /* 비주얼 */
+  .main-visual-img img{
+    max-width: 43.625rem;
+  }
+} 
+
+
+/* 모바일 */
+@media (min-width: 375px) and (max-width: 767px) {
+  /* 공통 */
+  header{
+    padding: 0.8125rem 2rem;
+  }
+
+  main{
+    padding-bottom: 2.5rem;
+  }
+
+  footer{
+    height: 4rem;
+    padding: 2rem 2rem 4rem;
+  }
+
+  .footer-copy{
+    position: absolute;
+    bottom: 32px;
+  }
+
+  .main-sec{
+    padding: 2rem 0;
+  }
+
+  .main-sec:nth-child(odd) .container{
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .main-sec .container{
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 0 2rem;
+  }
+
+  .main-sec img{
+    max-width: 100%;
+  }
+
+  .main-sec .txt-area h2{
+    font-size: 1.5rem;
+  }
+
+  .main-sec .txt-area h2 br{
+    display: none;
+  }
+
+  .main-sec .txt-area p{
+    margin-bottom: 1.5rem;
+  }
+
+  .main-sec .txt-area p br{
+    display: none;
+  }
+
+  /* 비주얼 */
+  .main-visual .container{
+    padding: 4.375rem 2rem 0;
+    box-sizing: border-box;
+  }
+  
+  .main-visual .main-visual-title h2{
+    font-size: 2rem;
+  }
+
+  .main-visual .main-visual-btn{
+    max-width: 12.5rem;
+  }
+
 }
