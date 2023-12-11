@@ -19,9 +19,9 @@ input {
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
-    border-radius: 8px;
-    border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-    background: var(--linkbrary-white, #FFF);
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+  background: var(--linkbrary-white, #FFF);
 }
 
 input:focus {
@@ -30,7 +30,7 @@ input:focus {
 }
 
 .signup-box {
-    width: 30rem;
+  width: 30rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -56,11 +56,11 @@ input:focus {
 	align-items: center;
 	cursor: pointer;
 	gap: 10px;
-    border: none;
+  border: none;
 	border-radius: 8px;
 	background: var(
-	--gra-purpleblue-to-skyblue,
-	linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
 	);
 }
 
