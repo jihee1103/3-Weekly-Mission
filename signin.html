@@ -10,44 +10,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="sign-page">
+    <header>
+        <div class="home-logo">
+            <a href="./index.html">
+                <img id="logo" src="./image/logo.svg" alt="LinkBrary 홈으로 가는 로고">
+            </a>
+        </div>
+        <div class="sign">
+            <span>회원이 아니신가요?</span> <a href="./signup.html">회원 가입하기</a>
+        </div>
+    </header>
     <main>
-        <article>
-            <header>
-                <div class="homeLogo">
-                    <a href="./index.html">
-                        <img id="logo" src="./image/logo.svg" alt="LinkBrary 홈으로 가는 로고">
-                    </a>
-                </div>
-                <div class="sign">
-                    <span>회원이 아니신가요?</span> <a href="./signup.html">회원 가입하기</a>
-                </div>
-            </header>
-            <section class="user-login">
-                <div class="user">
-                    <label for="email">이메일</label>
-                    <input type="email" id="email">
-                </div>
-                <div class="user">
-                    <label for="password">비밀번호</label>
-                    <input type="password" id="password">
-                    <img src="./image/eye-off.svg" alt="비밀번호 보이게 설정" id="eye-off">
-                </div>
-            </section>
-            <section class="login-button">
-                    <input type="submit" value="로그인">
-            </section>
+        <article class="article">
+            <label for="email">이메일</label>
+            <input type="email" class="user login-info" id="email">
+            <label for="password">비밀번호</label>
+            <div class="pwd">
+                <input type="password" class="user login-info" id="password">
+                <img src="./image/eye-off.svg" alt="비밀번호 보이게 설정" class="eye-off">
+            </div>
+            <input type="submit" class="login-button" value="로그인">
         </article>
         <section class="social-login">
-                <span>소셜 로그인</span>
-                <div class="icon">
-                    <a href="https://www.google.com/" target='_blank'>
-                        <img src="./image/googleLogo.png" alt="구글 홈페이지 연결">
-                    </a>
-                    <a href="https://www.kakaocorp.com/page/" target='_blank'>
-                        <img src="./image/kakaoLogo.png" alt="카카오 홈페이지 연결">
-                    </a>
-                </div>
+            <span>소셜 로그인</span>
+            <div class="icon">
+                <a href="https://www.google.com/" target='_blank'>
+                    <img src="./image/googleLogo.png" alt="구글 홈페이지 연결">
+                </a>
+                <a href="https://www.kakaocorp.com/page/" target='_blank'>
+                    <img src="./image/kakaoLogo.png" alt="카카오 홈페이지 연결">
+                </a>
+            </div>
         </section>
     </main>
 </body>
