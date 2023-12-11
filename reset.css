@@ -1,23 +1,23 @@
 * {
-	box-sizing: border-box;
-	margin: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 html {
-	font-size: 62.5%;
-	line-height: normal;
-	font-family: Pretendard, Arial;
-	word-break: keep-all;
+  font-size: 62.5%;
+  line-height: normal;
+  font-family: Pretendard, Arial;
+  word-break: keep-all;
 }
 
 a {
-	text-decoration-line: none;
+  text-decoration-line: none;
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
-	html {
-		font-size: 31.25%;
-	}
+  html {
+    font-size: 31.25%;
+  }
 }
