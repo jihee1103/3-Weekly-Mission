@@ -3,6 +3,9 @@ const inputPassword = document.querySelector('#password-input');
 const emailAlert = document.querySelector('#email-alert');
 const passwordAlert = document.querySelector('#password-alert');
 
+const loginButton = document.querySelector('#login-button');
+const inputSection = document.querySelector('section');
+
 function showEmailAlert() {
   if (inputEmail.value.includes('@')) {
     emailAlert.style.display = 'NONE';
@@ -25,5 +28,24 @@ function showPasswordAlert() {
   }
 }
 
+function checkLogin() {
+  if (inputEmail.value === 'test@codeit.com' && inputPassword.value === 'codeit101') {
+    location.replace('folder.html');
+  } else {
+    emailAlert.textContent = '이메일을 확인해 주세요.';
+    passwordAlert.textContent = '비밀번호를 확인해 주세요.';
+    emailAlert.style.display = 'INLINE';
+    passwordAlert.style.display = 'INLINE';
+  }
+}
+
+function pressEnter(e) {
+  if (e.target.tagName === 'INPUT' && e.key === 'Enter') {
+    checkLogin();
+  }
+}
+
 inputEmail.addEventListener('focusout', showEmailAlert);
 inputPassword.addEventListener('focusout', showPasswordAlert);
+loginButton.addEventListener('click', checkLogin);
+inputSection.addEventListener('keypress', pressEnter);
