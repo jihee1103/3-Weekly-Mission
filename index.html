@@ -6,129 +6,112 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Linkbrary</title>
-    <meta
-      name="description"
-      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
-    />
-    <meta
-      property="og:image"
-      content="/assets/images/landing/meta-linkbrary.jpg"
-    />
+    <meta name="description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+    <!-- Open Graph general (Facebook, Pinterest)-->
     <meta property="og:title" content="Linkbrary" />
-    <meta
-      property="og:description"
-      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
-    />
-    <meta property="og:url" content="strong-alfajores-91fa01.netlify.app" />
+    <meta property="og:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+    <meta property="og:url" content="https://part1-week3-jspp.netlify.app/" />
+    <meta property="og:site_name" content="part1-week3-jspp.netlify.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="landing-images/meta.jpg" />
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:domain"
-      content="strong-alfajores-91fa01.netlify.app"
-    />
-    <meta
-      name="twitter:image"
-      content="/assets/images/landing/meta-linkbrary.jpg"
-    />
     <meta name="twitter:title" content="Linkbrary" />
-    <meta
-      name="twitter:description"
-      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
-    />
-    <link rel="stylesheet" href="assets/styles/reset.css" />
-    <link rel="stylesheet" href="assets/styles/style.css" />
+    <meta name="twitter:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta name="twitter:image" content="landing-images/meta.jpg" />
+    <link rel="stylesheet" href="shared/reset.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
       <nav>
         <a href="/">
           <img
-            class="linkbrary_logo"
-            src="assets/icon/linkbrary_logo.svg"
+            class="linkbrary-icon"
+            src="langding_icons/linkbrary-icon.svg"
             alt="홈으로 연결된 Linkbrary 로고"
           />
         </a>
-        <a href="pages/signin.html" class="btn signin-btn" target="_blank">
-          로그인
-        </a>
+        <a href="sign/signin.html" class="button header__button" target="_blank"> 로그인 </a>
       </nav>
     </header>
     <main>
-      <section class="section section-1">
-        <article class="section-1-article">
-          <h1 class="section-1__title">
-            <span class="section-1__title--gradient">세상의 모든 정보</span
-            >를<br />
+      <section class="section hero-section">
+        <article class="hero-article">
+          <h1 class="hero-article__title">
+            <span class="hero-article__title--gradient">세상의 모든 정보</span>를<br />
             쉽게 저장하고 관리해 보세요
           </h1>
-          <a class="btn signup-btn" href="pages/signup.html" target="_blank"
+          <a class="button hero-article__button" href="sign/signup.html" target="_blank"
             >링크 추가하기</a
           >
           <img
-            class="image section-1__image"
-            src="assets/images/landing/main-image.png"
+            class="image hero-article__image"
+            src="landing_images/main.png"
             width="1118"
             alt="메인 이미지"
           />
         </article>
       </section>
-      <section class="section section-2">
-        <article class="article article-1">
+      <section class="section main-section">
+        <article class="main-article main-article-01">
           <h2 class="article__title">
-            <span class="article-1-gradient">원하는 링크</span>를 저장하세요
+            <span class="main-article-01--gradient">원하는 링크</span>를 저장하세요
           </h2>
           <p class="article__description">
-            나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고
-            싶은 모든 것을 한 공간에 저장하세요.
+            나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고 싶은 모든 것을 한
+            공간에 저장하세요.
           </p>
           <img
             class="image article__image"
-            src="assets/images/landing/img1.png"
+            src="landing_images/article-1.png"
             width="550"
             height="450"
           />
         </article>
-        <article class="article article-2">
+        <article class="main-article main-article-02">
           <img
             class="image article__image"
-            src="assets/images/landing/img2.png"
+            src="landing_images/article-2.png"
             width="550"
             height="450"
           />
           <h2 class="article__title">
-            링크를 폴더로 <span class="article-2-gradient">관리</span>하세요
+            링크를 폴더로
+            <span class="main-article-02--gradient">관리</span>하세요
           </h2>
           <p class="article__description">
             나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.
           </p>
         </article>
-        <article class="article article-3">
+        <article class="main-article main-article-03">
           <h2 class="article__title">
-            저장한 링크를 <span class="article-3-gradient">공유</span>해 보세요
+            저장한 링크를 <span class="main-article-03--gradient">공유</span>해 보세요
           </h2>
           <p class="article__description">
-            여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게
-            쉽고 빠르게 링크를 공유해 보세요.
+            여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고 빠르게 링크를
+            공유해 보세요.
           </p>
           <img
             class="image article__image"
-            src="assets/images/landing/img3.png"
+            src="landing_images/article-3.png"
             width="550"
             height="450"
           />
         </article>
-        <article class="article article-4">
+        <article class="main-article main-article-04">
           <img
             class="image article__image"
-            src="assets/images/landing/img4.png"
+            src="landing_images/article-4.png"
             width="550"
             height="450"
           />
           <h2 class="article__title">
-            저장한 링크를 <span class="article-4-gradient">검색</span>해 보세요
+            저장한 링크를 <span class="main-article-04--gradient">검색</span>해 보세요
           </h2>
-          <p class="article__description">
-            중요한 정보들을 검색으로 쉽게 찾아보세요.
-          </p>
+          <p class="article__description">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
         </article>
       </section>
     </main>
@@ -136,29 +119,21 @@
       <div class="footer-container">
         <span class="footer__codeit">©codeit - 2023</span>
         <div class="footer__link">
-          <a href="pages/privacy-policy.html" target="_blank">Privacy Policy</a>
-          <a href="pages/FAQ.html" target="_blank">FAQ</a>
+          <a href="incomplete/privacy-policy.html" target="_blank">Privacy Policy</a>
+          <a href="incomplete/FAQ.html" target="_blank">FAQ</a>
         </div>
         <div class="footer__sns">
           <a href="https://www.facebook.com/" target="_blank"
-            ><img
-              src="assets/icon/sns-icon/facebook-icon.svg"
-              alt="페이스북 아이콘"
+            ><img src="langding_icons/facebook-icon.svg" alt="페이스북 아이콘"
           /></a>
           <a href="https://twitter.com/" target="_blank"
-            ><img
-              src="assets/icon/sns-icon/twitter-icon.svg"
-              alt="트위터 아이콘"
+            ><img src="langding_icons/twitter-icon.svg" alt="트위터 아이콘"
           /></a>
           <a href="https://www.youtube.com/" target="_blank"
-            ><img
-              src="assets/icon/sns-icon/youtube-icon.svg"
-              alt="유튜브 아이콘"
+            ><img src="langding_icons/youtube-icon.svg" alt="유튜브 아이콘"
           /></a>
           <a href="https://www.instagram.com/" target="_blank"
-            ><img
-              src="assets/icon/sns-icon/instagram-icon.svg"
-              alt="인스타그램 아이콘"
+            ><img src="langding_icons/instagram-icon.svg" alt="인스타그램 아이콘"
           /></a>
         </div>
       </div>

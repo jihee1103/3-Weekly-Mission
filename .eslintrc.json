@@ -13,7 +13,7 @@
     "prettier/prettier": [
       "error",
       {
-        "endOfLine": "auto" // EOL 자동 생성해 줌
+        "endOfLine": "auto"
       }
     ]
   }
