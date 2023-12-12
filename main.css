@@ -53,7 +53,7 @@ header {
   align-items: center;
 }
 
-.main-1,
+.main-box_1,
 header {
   background-color: #f0f6ff;
 }
@@ -82,7 +82,7 @@ header {
 
 .main-box_1 {
   display: flex;
-  padding: 70rem 360rem 0rem 360rem;
+  padding-top: 70rem;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
