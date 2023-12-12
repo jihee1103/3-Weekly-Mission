@@ -289,13 +289,13 @@ footer .footer_sns {
     }
 
     footer {
-        padding: 32px 32px 64px 32px;
+        padding: 32px;
     }
     .footer_item {
-        justify-content: start;
+        justify-content: space-between;
         align-items: center;
+        /* justify-items: start; */
         row-gap: 60px;
-
         grid-template: "footer_link footer_sns" "footer_codeit ." /1fr 1fr;
     }
 }
