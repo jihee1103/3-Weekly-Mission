@@ -204,11 +204,6 @@ footer {
   cursor: pointer;
 }
 
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-}
-
 /* 태블릿 + 모바일 */
 @media (max-width: 1199px) {
   nav,
