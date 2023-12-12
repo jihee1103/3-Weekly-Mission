@@ -1,15 +1,12 @@
 /* mobile */
 @media (min-width:375px) and (max-width:767px) {
-    /* 사용자 해상도가 375px 이상일 때 767px이하일때  이 코드가 실행됨. 테블릿과 데스크톱의 공통 코드를 작성한다. */
-
+    /* 사용자 해상도가 375px 이상일 때 767px이하일때  이 코드가 실행됨. 테블릿과 데스크톱의 공통 코드를 작성한다. */    
     header{
         padding: 13px 32px;
     }
 
     main {
         display: flex;
-
-        /* align-items: stretch; */
       }
 
     .content1{
@@ -25,51 +22,35 @@
         width: 100%;
         flex-direction: column;
         justify-content: center;
-        /* display: block; */
     }
 
-    .content2_main > div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        display: block;
+    .footer_div{
+        height: 160px;
+        padding: 32px 32px 64px 32px;
     }
-    .footer_nav{
+
+      .footer_nav {
         width: 100%;
-    }
-/* 
-    .content1{
-        width: 390px;
-        height: 399px;
-        padding: 28px 32px 0px 33px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
     }
 
-    .content2 .content3 .content4 .content5{
-        padding: 40px 32px 36.091px 33px;
+    .footer-links {
+        display: flex;
+        gap: 30px;
+        order: -1;
     }
 
-    footer{
-        padding-top: 40px;
+    .footer_sns {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
     }
 
-    .content1_word_info_text{
-        font-size: 32px;
-        line-height: 42px;
+    /* 순서 조정 */
+    .footer_year {
+        margin-top: 60px;
+        order: 1; /* 순서 변경 */
     }
-
-    .content1_word_info_text_normal_text{
-        font-size: 32px;
-        line-height: 42px;
-    }
-
-    .signup{
-        width: 200px;
-        padding: 10px 16px;
-    }
-
-    .content1_contents_dim{
-        width: 302.792px;
-        height: 178.712px;
-    } */
 }

@@ -494,7 +494,14 @@ footer{
     background: var(--the-julge-black, #111322);
 }
 
-.footer_privacy{
+.footer-links {
+    display: flex;
+    width: 181.111px;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.footer-link{
     color: #CFCFCF;
     font-family: Arial;
     font-size: 16px;
@@ -503,26 +510,12 @@ footer{
     line-height: normal;
     background: var(--the-julge-black, #111322);
 }
-
-.footer_FAQ{
-    color: #CFCFCF;
-    font-family: Arial;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    background: var(--the-julge-black, #111322);
-}
-
-/* #footer_sns{
-    width: 112px;
-    height: 20px;
-} */
 
 .footer_sns a{
     display: inline-block;
     width: 20px;
     height: 20px;
+    gap: 12px;
 }
 
 .footer_facebook{
