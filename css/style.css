@@ -293,7 +293,7 @@ footer .footer_sns {
     }
     .footer_item {
         justify-content: start;
-        align-items: space-between;
+        align-items: center;
         row-gap: 60px;
 
         grid-template: "footer_link footer_sns" "footer_codeit ." /1fr 1fr;
