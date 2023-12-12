@@ -10,6 +10,10 @@ header {
     display: block;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 nav {
     padding: 20px 200px;
     box-sizing: border-box;
