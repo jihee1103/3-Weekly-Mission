@@ -71,12 +71,13 @@ a {
     padding-bottom: 120px;
 }
 
-h1 {
+.main_text {
+    font-size: 6.4rem;
     margin: 0;
     display: block;
     text-align: center;
-    font-size: 6.4rem;
 }
+
 .section1 h1 span {
     background: linear-gradient(91deg, #6d6afe, #ff9f9f);
     color: transparent;
@@ -220,10 +221,6 @@ footer .footer_sns {
 }
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
-    html,
-    body {
-        font-size: 31.25%;
-    }
     nav {
         padding: 20px 32px;
         justify-content: space-between;
@@ -233,6 +230,7 @@ footer .footer_sns {
     .login_btn {
         height: 31px;
         width: 80px;
+        font-size: 1.4rem;
     }
 
     .section1 {
@@ -246,6 +244,7 @@ footer .footer_sns {
 
     .main_text {
         width: 239px;
+        font-size: 3.2rem;
     }
 
     .section1 img {
@@ -258,6 +257,14 @@ footer .footer_sns {
     .content {
         flex-direction: column;
         margin-top: 80px;
+    }
+
+    .content h3 {
+        font-size: 2.4rem;
+    }
+
+    .content h5 {
+        font-size: 1.5rem;
     }
 
     .content img {
@@ -277,7 +284,7 @@ footer .footer_sns {
         height: 37px;
         width: 200px;
         color: #fff;
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         cursor: pointer;
         display: flex;
         justify-content: center;
