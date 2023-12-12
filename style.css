@@ -90,6 +90,7 @@ nav {
 .main-article {
   display: grid;
   justify-content: space-between;
+  column-gap: 30px;
   row-gap: 10px;
   max-width: 98.8rem;
   width: 100%;
