@@ -181,26 +181,21 @@ footer {
 }
 
 .bottom-box {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: 'a b c' 'd e f';
   height: 160rem;
   padding: 32rem 104rem 64rem 104rem;
-  justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
   align-self: stretch;
   background: var(--the-julge-black, #111322);
 }
 
-.bottom-box2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
-}
-
 .codeit {
+  display: flex;
   color: #676767;
-  text-align: center;
+  justify-content: flex-start;
+  align-items: center;
   font-family: Abel;
   font-size: 16rem;
   font-style: normal;
@@ -210,8 +205,9 @@ footer {
 
 .center-text {
   display: flex;
-  width: 181.111rem;
-  align-items: flex-start;
+  grid-area: b;
+  align-items: center;
+  justify-content: center;
   gap: 30rem;
   font-family: Abel;
   font-size: 16rem;
@@ -221,7 +217,10 @@ footer {
 }
 .footer-icon {
   display: flex;
+  grid-area: c;
   gap: 12rem;
+  align-items: center;
+  justify-content: flex-end;
 }
 .footer-text-1 {
   color: #cfcfcf;
@@ -332,27 +331,39 @@ footer {
   }
 
   .bottom-box {
-    display: flex;
-    height: 160rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      'a b'
+      'c d';
     padding: 32rem 32rem 64rem 32rem;
-    flex-direction: column;
     align-items: center;
-    flex-shrink: 0;
     align-self: stretch;
     background: var(--the-julge-black, #111322);
     position: relative;
   }
 
-  .bottom-box2 {
-    position: relative;
-  }
   .codeit {
     position: absolute;
     left: 30px;
     bottom: 0px;
   }
+  .center-text {
+    display: flex;
+    grid-area: a;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30rem;
+    font-family: Abel;
+    font-size: 16rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
   .footer-icon {
     display: flex;
+    grid-area: b;
+    justify-content: flex-end;
     gap: 12rem;
   }
   .footer-text-1 {
