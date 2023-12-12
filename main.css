@@ -318,16 +318,16 @@ footer {
     width: 100%;
   }
   .image-2 {
-    width: 90%;
+    width: 100%;
   }
   .image-3 {
-    width: 90%;
+    width: 100%;
   }
   .image-4 {
-    width: 90%;
+    width: 100%;
   }
   .image-5 {
-    width: 90%;
+    width: 100%;
   }
 
   .bottom-box {
@@ -383,6 +383,15 @@ footer {
     left: 0;
     right: 0;
   }
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 51rem;
+    
+
+  }
+  
   .main-1 {
     display: flex;
     padding: 39rem 250rem 0rem 251rem;
@@ -391,6 +400,23 @@ footer {
     align-items: center;
     gap: 40rem;
   }
+  .main-box_1 {
+    display: flex;
+    padding: 70rem 250rem 0 250rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 40rem;
+  }
+  .main-text1 {
+    text-align: center;
+    font-size: 32rem;
+    font-weight: 700;
+    line-height: 42rem;
+    width: auto 472px;
+    height: auto 240px;
+  }
+  
 
   .main-header {
     display: flex;
@@ -414,6 +440,31 @@ footer {
     justify-content: center;
     align-items: center;
   }
+  .image-1 {
+    width: 100%;
+  }
+  .image-2 {
+    width: 385px;
+    height: 315px;
+
+  }
+  .image-3 {
+    width: 385px;
+    height: 315px;
+  }
+  .image-4 {
+    width: 385px;
+    height: 315px;
+  }
+  .image-5 {
+    width: 385px;
+    height: 315px;
+}
+.main-box_2 {
+  display: flex;
+  padding: 80rem 250rem 50rem 250rem;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 1200px) {
