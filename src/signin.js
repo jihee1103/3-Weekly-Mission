@@ -6,7 +6,9 @@ const passwordAlert = document.querySelector('#password-alert');
 const loginButton = document.querySelector('#login-button');
 const inputSection = document.querySelector('section');
 
-function showEmailAlert() {
+const eyeIcon = document.querySelector('#eye-icon');
+
+function errorEmailAlert() {
   if (inputEmail.value.includes('@')) {
     emailAlert.style.display = 'NONE';
   } else {
@@ -19,7 +21,7 @@ function showEmailAlert() {
   }
 }
 
-function showPasswordAlert() {
+function errorPasswordAlert() {
   if (inputPassword.value) {
     passwordAlert.style.display = 'NONE';
   } else {
@@ -45,7 +47,22 @@ function pressEnter(e) {
   }
 }
 
-inputEmail.addEventListener('focusout', showEmailAlert);
-inputPassword.addEventListener('focusout', showPasswordAlert);
+function showAndHidePassword() {
+  if (inputPassword.type === 'password') {
+    inputPassword.type = 'text';
+    eyeIcon.src = 'images/eye-on.svg';
+    eyeIcon.alt = '눈 아이콘';
+  } else {
+    inputPassword.type = 'password';
+    eyeIcon.src = 'images/eye-off.svg';
+    eyeIcon.alt = '눈에 빗금친 아이콘';
+  }
+}
+
+inputEmail.addEventListener('focusout', errorEmailAlert);
+inputPassword.addEventListener('focusout', errorPasswordAlert);
+
 loginButton.addEventListener('click', checkLogin);
 inputSection.addEventListener('keypress', pressEnter);
+
+eyeIcon.addEventListener('click', showAndHidePassword);
