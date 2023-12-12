@@ -90,7 +90,6 @@ nav {
 .main-article {
   display: grid;
   justify-content: space-between;
-  column-gap: 30px;
   row-gap: 10px;
   max-width: 98.8rem;
   width: 100%;
@@ -98,6 +97,7 @@ nav {
 }
 
 article:nth-of-type(odd) {
+  column-gap: 10px;
   grid-template:
     '. image'
     'title image'
@@ -107,6 +107,7 @@ article:nth-of-type(odd) {
 }
 
 article:nth-of-type(even) {
+  column-gap: 30px;
   grid-template:
     'image .'
     'image title'
@@ -268,7 +269,7 @@ footer {
   }
 
   .hero-article__image {
-    content: url(landing-images/main-mobile.png);
+    content: url(landing_images/main-mobile.png);
   }
 
   .main-section {
