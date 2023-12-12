@@ -184,7 +184,7 @@ footer {
   display: flex;
   height: 160rem;
   padding: 32rem 104rem 64rem 104rem;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
   align-self: stretch;
@@ -340,6 +340,7 @@ footer {
     flex-shrink: 0;
     align-self: stretch;
     background: var(--the-julge-black, #111322);
+    position: relative;
   }
 
   .bottom-box2 {
@@ -347,7 +348,8 @@ footer {
   }
   .codeit {
     position: absolute;
-    bottom: -100rem;
+    left: 30px;
+    bottom: 0px;
   }
   .footer-icon {
     display: flex;
