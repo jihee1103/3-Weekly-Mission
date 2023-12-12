@@ -252,6 +252,7 @@ footer .footer_sns {
     .content {
         flex-direction: column;
         margin-top: 80px;
+        display: flex;
     }
 
     .content h3 {
@@ -288,13 +289,23 @@ footer .footer_sns {
         text-align: center;
     }
 
+    .item:nth-child(1) {
+        order: 1;
+    }
+
+    .item:nth-child(2) {
+        order: 3;
+    }
+    .item:nth-child(3) {
+        order: 2;
+    }
+
     footer {
         padding: 32px;
     }
     .footer_item {
         justify-content: space-between;
         align-items: center;
-        /* justify-items: start; */
         row-gap: 60px;
         grid-template: "footer_link footer_sns" "footer_codeit ." /1fr 1fr;
     }
