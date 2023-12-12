@@ -8,7 +8,6 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  
 }
 
 .signup-top-section {
@@ -35,12 +34,14 @@ body {
   gap: 1.5rem;
   align-items: center;
   margin-top: 1.87rem;
+  width: 25rem;
 }
 
 .email-password-form div {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  width: 100%;
 }
 
 .password-field,
@@ -49,7 +50,7 @@ body {
 }
 
 .eye-on-icon {
-  width: 16px;
+  width: 1rem;
   position: absolute;
   top: 1.12rem;
   right: 0.94rem;
@@ -62,7 +63,7 @@ label {
 }
 
 input {
-  width: 25rem;
+  width: 100%;
   padding: 1.125rem 0.9375rem;
   border-radius: 8px;
   border: 1px solid var(--linkbrary-gray-20);
@@ -71,7 +72,6 @@ input {
 }
 
 input:focus {
-  outline: 0;
   border: 1px solid var(--linkbrary-primary-color);
 }
 
@@ -82,10 +82,11 @@ input:focus {
   align-items: center;
   gap: 2rem;
   margin-top: 1.88rem;
+  width: 25rem;
 }
 
 .signin-button {
-  width: 25rem;
+  width: 100%;
   padding: 1rem 1.25rem;
   border-radius: 0.5rem;
   background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
@@ -103,7 +104,7 @@ input:focus {
 
 .social-signin-button {
   display: flex;
-  width: 25rem;
+  width: 100%;
   padding: 0.75rem 1.5rem;
   justify-content: space-between;
   align-items: center;
@@ -134,4 +135,14 @@ input:focus {
 .google-img,
 .kakao-img {
   position: absolute;
+}
+
+@media (max-width: 767px) { 
+  .email-password-form,
+  .signin-button-set {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 100%;
+    max-width: 25rem;
+  }
 }
