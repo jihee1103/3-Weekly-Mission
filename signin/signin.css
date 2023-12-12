@@ -148,7 +148,6 @@ input {
     align-items: center;
     justify-content: center;
     margin: 120rem 32rem 232rem 32rem;
-    
   }
 }
 
@@ -160,15 +159,9 @@ input {
     align-items: center;
     justify-content: center;
     margin: 200rem 399rem 291rem 400rem;
-    
   }
-
-
 }
 
 @media (min-width: 1200px) {
   /* 데스크탑 일반 */
-
-
-  }
 }
