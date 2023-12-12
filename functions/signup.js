@@ -8,10 +8,19 @@ const inputSection = document.querySelector("section");
 
 const eyeIcon = document.querySelector("#eye-icon");
 
+const REGEXP = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+
 function errorEmailAlert() {
+  console.log(REGEXP.test(inputEmail.value));
   if (inputEmail.value.includes("@")) {
-    emailAlert.style.display = "NONE";
-    inputEmail.classList.remove("alert-input");
+    if (inputEmail.value === "test@codeit.com") {
+      emailAlert.textContent = "이미 사용중인 이메일입니다.";
+      emailAlert.style.display = "INLINE";
+      inputEmail.classList.add("alert-input");
+    } else {
+      emailAlert.style.display = "NONE";
+      inputEmail.classList.remove("alert-input");
+    }
   } else {
     if (!inputEmail.value) {
       emailAlert.textContent = "이메일을 입력해 주세요.";
