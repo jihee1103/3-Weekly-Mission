@@ -32,7 +32,7 @@ function errorPasswordAlert() {
 
 function checkLogin() {
   if (inputEmail.value === 'test@codeit.com' && inputPassword.value === 'codeit101') {
-    location.replace('folder.html');
+    location.href = 'folder.html';
   } else {
     emailAlert.textContent = '이메일을 확인해 주세요.';
     passwordAlert.textContent = '비밀번호를 확인해 주세요.';
