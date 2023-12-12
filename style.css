@@ -293,9 +293,9 @@ footer {
   article:nth-of-type(odd),
   article:nth-of-type(even) {
     grid-template:
-      'title title'
-      'image image'
-      'description description';
+      'title'
+      'image'
+      'description';
   }
 
   .footer-container {
