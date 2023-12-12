@@ -26,14 +26,16 @@
         <section>
           <div class="email input">
             <label>이메일</label>
-            <input type="email" name="user-email">
+            <input type="email" name="user-email" id="email-input">
+            <span id="email-alert" class="alert"></span>
           </div>
           <div class="password input">
             <label>비밀번호</label>
             <div class="password-eye">
-              <input type="password" name="user-password">
-              <img src="images/eye-off.svg" alt="눈에 빗금친 아이콘">
+              <input type="password" name="user-password" id="password-input">
+              <img type="button" id="eye-icon" src="images/eye-off.svg" alt="눈에 빗금친 아이콘">
             </div>
+            <span id="password-alert" class="alert"></span>
           </div>
         </section>
         <button type="button">로그인</button>
@@ -50,5 +52,6 @@
         </div>
       </footer>
     </article>
+    <script src="./src/signin.js"></script>
   </body>
 </html>
