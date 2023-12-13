@@ -57,11 +57,11 @@ header{
   -webkit-text-fill-color: transparent;
 }
 
-.mainimage{
+.main_image{
   width: 1118px;
   height: 540px;
   border-radius: 25px;
-  background-image: url(/3-Weekly-Mission/weekly1_mission/image1.png);
+  background-image: url(image1.png);
   background-size: cover; 
   box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
   margin-top : 50px 
@@ -126,35 +126,35 @@ section{
   line-height: 150%
 }
 
-.sectionImage{
+.section_image{
   width: 550px;
   height: 450px;
   border-radius: 15px;
   background: #F0F6FF;
 }
 
-.link_save_color{
+.link_color{
   background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 
 }
 
-.link_save_color2{
+.link_color2{
   background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.link_save_color3{
+.link_color3{
   background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.link_save_color4{
+.link_color4{
   background: var(--fandom-k-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
   background-clip: text;
   -webkit-background-clip: text;
@@ -169,7 +169,7 @@ footer{
   background-color: #111322;
 }
 
-.footerbox{
+.footer_box{
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -188,6 +188,8 @@ footer{
 .footer_links{
   display: flex;
   column-gap: 30px;
+  margin-top: 0;
+  padding-left: 0;
 }
 
 .footer_link {
@@ -197,13 +199,17 @@ footer{
   font-weight: 400;
 }
 
-.icon {
+.icon_list {
   display: flex;
   column-gap: 12px;
+  margin-top: 0;
 }
 
 .noline, .footer_link{
   text-decoration-line: none;
+}
+li{
+  list-style-type: none;
 }
 
 /* 반응형 pc 1200px 이상 이미지 크기 고정값*/
@@ -238,7 +244,7 @@ footer{
     line-height: 80px;
   }
 
-  .mobileTitle{
+  .mobile_title{
     display: block;
   }
 
@@ -247,7 +253,7 @@ footer{
     font-size: 18px;
   }
 
-  .mainimage{
+  .main_image{
     width: 650px;
     margin-top: 30px;
   }
@@ -268,7 +274,7 @@ footer{
     font-size: 16px;
   }
 
-  .sectionImage{
+  .section_image{
     width: 384px;
     height: 315px;
   }
@@ -302,7 +308,7 @@ footer{
     line-height: 42px;
   }
 
-  .mobileTitle{
+  .mobile_title{
     display: block;
   }
   
@@ -311,7 +317,7 @@ footer{
     font-size: 14px;
   }
 
-  .mainimage{
+  .main_image{
     width: 100%;
     height: 180px;
     margin: 0;
@@ -323,7 +329,7 @@ footer{
     order: 1;
   }
   
-  .sectionImage{
+  .section_image{
     width: 100%;
     order: 2;
   }
@@ -342,7 +348,7 @@ footer{
     width: 100%; 
   }
 
- .footerbox{
+ .footer_box{
     position: relative;
     padding: 32px;
     margin: 0;
