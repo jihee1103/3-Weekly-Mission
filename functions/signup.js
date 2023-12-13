@@ -1,86 +1,87 @@
-const inputEmail = document.querySelector("#email-input");
-const inputPassword = document.querySelector("#password-input");
-const emailAlert = document.querySelector("#email-alert");
-const passwordAlert = document.querySelector("#password-alert");
+import {
+  inputEmail,
+  inputPassword,
+  emailAlert,
+  passwordAlert,
+  inputSection,
+} from "./src/tags.js";
 
-const loginButton = document.querySelector("#login-button");
-const inputSection = document.querySelector("section");
+import errorEmailAlert from "./src/error_alert.js";
 
-const eyeIcon = document.querySelector("#eye-icon");
+import showHidePassword from "./src/show_hide.js";
 
-const REGEXP = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+const signupButton = document.querySelector("#signup-button");
+const passwordCheckAlert = document.querySelector("#password-check-alert");
+const inputPasswordCheck = document.querySelector("#password-check-input");
 
-function errorEmailAlert() {
-  console.log(REGEXP.test(inputEmail.value));
-  if (inputEmail.value.includes("@")) {
-    if (inputEmail.value === "test@codeit.com") {
-      emailAlert.textContent = "이미 사용중인 이메일입니다.";
-      emailAlert.style.display = "INLINE";
-      inputEmail.classList.add("alert-input");
-    } else {
-      emailAlert.style.display = "NONE";
-      inputEmail.classList.remove("alert-input");
-    }
-  } else {
-    if (!inputEmail.value) {
-      emailAlert.textContent = "이메일을 입력해 주세요.";
-    } else if (!inputEmail.value.includes("@")) {
-      emailAlert.textContent = "올바른 이메일 주소가 아닙니다.";
-    }
-    emailAlert.style.display = "INLINE";
+const NUMBER_PASSWORD = /\d/;
+const STRING_PASSWORD = /\D/;
+
+function checkEmailAlert() {
+  if (inputEmail.value === "test@codeit.com") {
     inputEmail.classList.add("alert-input");
+    emailAlert.textContent = "이미 사용 중인 이메일입니다.";
+    emailAlert.style.display = "INLINE";
+  } else {
+    errorEmailAlert();
   }
 }
 
-function errorPasswordAlert() {
-  if (inputPassword.value) {
+function checkPasswordAlert() {
+  const value = inputPassword.value;
+  if (
+    value.length < 8 ||
+    !(STRING_PASSWORD.test(value) && NUMBER_PASSWORD.test(value))
+  ) {
+    passwordAlert.textContent =
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
+    passwordAlert.style.display = "INLINE";
+    inputPassword.classList.add("alert-input");
+  } else {
     passwordAlert.style.display = "NONE";
     inputPassword.classList.remove("alert-input");
-  } else {
-    passwordAlert.textContent = "비밀번호를 입력해 주세요.";
-    passwordAlert.style.display = "INLINE";
-    inputPassword.classList.add("alert-input");
   }
 }
 
-function checkLogin() {
+function checkPasswordSameAlert() {
+  const value = inputPasswordCheck.value;
+  if (inputPassword.value !== value) {
+    passwordCheckAlert.textContent = "비밀번호가 일치하지 않아요.";
+    passwordCheckAlert.style.display = "INLINE";
+    inputPasswordCheck.classList.add("alert-input");
+  } else {
+    passwordCheckAlert.style.display = "NONE";
+    inputPasswordCheck.classList.remove("alert-input");
+  }
+}
+
+function checkSignup() {
+  checkEmailAlert();
+  checkPasswordAlert();
+  checkPasswordSameAlert();
   if (
-    inputEmail.value === "test@codeit.com" &&
-    inputPassword.value === "codeit101"
+    !(
+      inputEmail.classList.contains("alert-input") ||
+      inputPassword.classList.contains("alert-input") ||
+      inputPasswordCheck.classList.contains("alert-input")
+    )
   ) {
     location.href = "folder.html";
-  } else {
-    emailAlert.textContent = "이메일을 확인해 주세요.";
-    passwordAlert.textContent = "비밀번호를 확인해 주세요.";
-    emailAlert.style.display = "INLINE";
-    passwordAlert.style.display = "INLINE";
-    inputEmail.classList.add("alert-input");
-    inputPassword.classList.add("alert-input");
   }
 }
 
-function pressEnter(e) {
+function pressEnterSignup(e) {
   if (e.target.tagName === "INPUT" && e.key === "Enter") {
-    checkLogin();
+    checkSignup();
   }
 }
 
-function showAndHidePassword() {
-  if (inputPassword.type === "password") {
-    inputPassword.type = "text";
-    eyeIcon.src = "images/eye-on.svg";
-    eyeIcon.alt = "눈 아이콘";
-  } else {
-    inputPassword.type = "password";
-    eyeIcon.src = "images/eye-off.svg";
-    eyeIcon.alt = "눈에 빗금친 아이콘";
-  }
-}
+inputEmail.addEventListener("focusout", checkEmailAlert);
+inputPassword.addEventListener("focusout", checkPasswordAlert);
+inputPassword.addEventListener("focusout", checkPasswordSameAlert);
+inputPasswordCheck.addEventListener("input", checkPasswordSameAlert);
 
-inputEmail.addEventListener("focusout", errorEmailAlert);
-inputPassword.addEventListener("focusout", errorPasswordAlert);
+signupButton.addEventListener("click", checkSignup);
+inputSection.addEventListener("keypress", pressEnterSignup);
 
-loginButton.addEventListener("click", checkLogin);
-inputSection.addEventListener("keypress", pressEnter);
-
-eyeIcon.addEventListener("click", showAndHidePassword);
+inputSection.addEventListener("click", showHidePassword);

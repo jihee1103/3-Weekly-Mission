@@ -37,27 +37,24 @@
             <label>비밀번호</label>
             <div class="password-eye">
               <input type="password" name="user-password" id="password-input" />
-              <img
-                id="eye-icon"
-                src="images/eye-off.svg"
-                alt="눈에 빗금친 아이콘"
-              />
+              <img src="images/eye-off.svg" alt="눈에 빗금친 아이콘" />
             </div>
             <span id="password-alert" class="alert">에러 메세지</span>
           </div>
           <div class="password-check input">
             <label>비밀번호 확인</label>
             <div class="password-eye">
-              <input type="password" name="user-password-check" />
-              <img
-                id="eye-icon"
-                src="images/eye-off.svg"
-                alt="눈에 빗금친 아이콘"
+              <input
+                type="password"
+                name="user-password-check"
+                id="password-check-input"
               />
+              <img src="images/eye-off.svg" alt="눈에 빗금친 아이콘" />
             </div>
+            <span id="password-check-alert" class="alert">에러 메세지</span>
           </div>
         </section>
-        <button type="button">회원가입</button>
+        <button type="button" id="signup-button">회원가입</button>
       </form>
       <footer>
         <span>다른 방식으로 가입하기</span>
@@ -75,6 +72,6 @@
         </div>
       </footer>
     </article>
-    <script src="./functions/signup.js"></script>
+    <script type="module" src="./functions/signup.js"></script>
   </body>
 </html>

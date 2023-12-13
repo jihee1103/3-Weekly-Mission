@@ -117,7 +117,7 @@ input {
   background: var(--linkbrary-white);
 }
 
-input:focus {
+input:focus:not(.alert-input) {
   border-radius: 0.8rem;
   border: 0.1rem solid var(--linkbrary-primary-color);
   background: var(--linkbrary-white);
@@ -197,9 +197,10 @@ footer > span {
 }
 
 .alert-input {
-  border-radius: 8px;
-  border: 1px solid var(--linkbrary-red, #ff5b56);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--linkbrary-red, #ff5b56);
   background: var(--linkbrary-white, #fff);
+  outline: none;
 }
 
 /* 모바일 크기 */
