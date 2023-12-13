@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Pretendard';
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+
+  font-size: 62.5%; /* 1rem = 10px */
+
+  min-width: 375px; /* 375px까지만 커버 */
+}
+
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+button {
+  border: none;
+}
+
+address {
+  display: inline-block;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+input,
+textarea {
+  resize: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}

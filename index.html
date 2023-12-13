@@ -1,127 +1,143 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linkbrary</title>
-    <link rel="stylesheet" href="global.css" />
-    <link rel="stylesheet" href="style.css" />
+    <meta property="og:title" content="Linkbrary" key="title" />
+    <meta
+      name="description"
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+      key="description"
+    />
+    <meta
+      property="og:image"
+      content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr"
+      key="image"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@linkbrary" />
+    <meta name="twitter:title" content="Linkbrary" />
+    <meta name="twitter:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+    <meta name="twitter:image" content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <div id="wrap">
-      <header id="header" role="banner">
-        <nav class="gnb">
-          <a href="/"><img class="logo" src="public/images/landing-logo.svg" alt="landing-logo" /></a>
-          <a href="/auth/signin" class="CTA">로그인</a>
-        </nav>
-      </header>
-      <main id="container" role="main">
-        <div class="contents-wrapper contents1-wrapper">
-          <section class="contents1-area">
-            <h1>
-              <span class="gradient-text">세상의 모든 정보를</span><br />
-              쉽게 저장하고 관리해 보세요
-            </h1>
-            <div><a href="/auth/signup" class="CTA">링크 추가하기</a></div>
-            <div class="contents1-img-area">
-              <img alt="dim" src="public/images/landing-image-25.png" />
-            </div>
-          </section>
+    <header id="header" role="heading">
+      <nav class="gnb" role="navigation">
+        <a href="/" rel="nofollow"
+          ><img alt="symlink logo linked to home" src="/public/images/logo/landing-logo.svg"
+        /></a>
+        <a class="cta cta-short" href="/src/pages/auth/signin/" rel="nofollow">로그인</a>
+      </nav>
+      <section class="hero-banner" role="banner">
+        <h1 class="slogan">
+          <span class="background-clip-text slogan-gradient">세상의 모든 정보</span>를
+          <br />
+          쉽게 저장하고
+          <br class="header-line-break" />
+          관리해 보세요
+        </h1>
+        <a class="cta cta-long" href="/src/pages/auth/signup/"><span>링크 추가하기</span></a>
+        <img class="hero-img" alt="Linkbrary service description" src="/public/images/landing/hero.png" />
+      </section>
+    </header>
+
+    <article role="article">
+      <section>
+        <h2 class="title">
+          <span class="title-1-gradient background-clip-text">원하는 링크</span>를
+          <br class="line-break" />
+          저장하세요
+        </h2>
+        <p class="description">
+          나중에 읽고 싶은 글, 다시 보고 싶은 영상,
+          <br class="line-break" />
+          사고 싶은 옷, 기억하고 싶은 모든 것을
+          <br class="line-break" />
+          한 공간에 저장하세요.
+        </p>
+        <img class="content-image" alt="link card image" src="/public/images/landing/landing-img-1.png" />
+      </section>
+
+      <section>
+        <h2 class="title">
+          링크를 폴더로
+          <br class="line-break" />
+          <span class="background-clip-text title-2-gradient">관리</span>하세요
+        </h2>
+        <p class="description">
+          나만의 폴더를 무제한으로 만들고
+          <br class="line-break" />
+          다양하게 활용할 수 있습니다.
+        </p>
+        <img class="content-image" alt="link card image" src="/public/images/landing/landing-img-2.png" />
+      </section>
+
+      <section>
+        <h2 class="title">
+          저장한 링크를
+          <br class="line-break" />
+          <span class="background-clip-text title-3-gradient">공유</span>해 보세요
+        </h2>
+        <p class="description">
+          여러 링크를 폴더에 담고 공유할 수 있습니다.
+          <br class="line-break" />
+          가족, 친구, 동료들에게 쉽고 빠르게 링크를
+          <br class="line-break" />
+          공유해 보세요.
+        </p>
+        <img class="content-image" alt="link card image" src="/public/images/landing/landing-img-3.png" />
+      </section>
+
+      <section>
+        <h2 class="title">
+          저장한 링크를
+          <br class="line-break" />
+          <span class="background-clip-text title-4-gradient">검색</span>해 보세요
+        </h2>
+        <p class="description">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
+        <img class="content-image" alt="link card image" src="/public/images/landing/landing-img-4.png" />
+      </section>
+    </article>
+
+    <footer>
+      <section class="footer-area">
+        <address class="copyright" role="contentinfo"><span>&#169;codeit</span>- 2023</address>
+        <div class="service-box" role="contentinfo link">
+          <a class="service-policy" href="/privacy/">Privacy Policy</a>
+          <a class="service-faq" href="/faq/">FAQ</a>
         </div>
-        <div class="contents-wrapper contents2-wrapper">
-          <section class="contents-area contents2-area">
-            <div class="content-textbox">
-              <h2>
-                <span><span class="gradient-text">원하는 링크</span>를</span><br />
-                저장하세요
-              </h2>
-              <p class="description">
-                나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고 싶은 모든 것을 한 공간에 저장하세요.
-              </p>
-            </div>
-            <img src="public/images/landing-img-1.svg" />
-          </section>
-        </div>
-        <div class="contents-wrapper contents3-wrapper">
-          <section class="contents-area contents3-area">
-            <div class="contents3-img-area">
-              <img alt="folder_manage" src="public/images/landing-1.png" />
-            </div>
-            <div class="content-textbox">
-              <h2>
-                링크를 폴더로<br />
-                <span class="gradient-text">관리</span>하세요
-              </h2>
-              <p class="description">나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.</p>
-            </div>
-          </section>
-        </div>
-        <div class="contents-wrapper contents4-wrapper">
-          <section class="contents-area contents4-area">
-            <div class="content-textbox">
-              <h2>
-                저장한 링크를<br />
-                <span class="gradient-text">공유</span>해 보세요
-              </h2>
-              <p class="description">
-                여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고 빠르게 링크를 공유해 보세요.
-              </p>
-            </div>
-            <div class="contents4-img-area">
-              <img alt="folder_share" src="public/images/landing-img-3.svg" />
-            </div>
-          </section>
-        </div>
-        <div class="contents-wrapper contents5-wrapper">
-          <section class="contents-area contents5-area">
-            <div class="contents5-img-area">
-              <img alt="link_search" src="public/images/landing-img-4.svg" />
-            </div>
-            <div class="content-textbox">
-              <h2>
-                저장한 링크를<br />
-                <span class="gradient-text">검색</span>해 보세요
-              </h2>
-              <p class="description">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
-            </div>
-          </section>
-        </div>
-      </main>
-      <footer id="footer" role="contentinfo">
-        <div class="footer-wrapper">
-          <section class="corp-area">
-            <address class="addr">
-              <a class="corpright">©codeit - 2023</a>
-            </address>
-            <div class="service_box">
-              <a href="/privacy">Privacy Policy</a>
-              <a href="/faq">FAQ</a>
-            </div>
-            <ul class="sns_logo_box">
-              <li>
-                <a href="https://www.facebook.com/" target="_blank"
-                  ><img alt="facebook" src="public/images/landing-akar-icons-facebook-fill.svg"
-                /></a>
-              </li>
-              <li>
-                <a href="https://www.instagram.com/" target="_blank"
-                  ><img alt="instagram" src="public/images/landing-ant-design-instagram-filled.svg"
-                /></a>
-              </li>
-              <li>
-                <a href="https://twitter.com/home" target="_blank"
-                  ><img alt="twitter" src="public/images/landing-akar-icons-twitter-fill.svg"
-                /></a>
-              </li>
-              <li>
-                <a href="https://www.youtube.com/" target="_blank"
-                  ><img alt="youtube" src="public/images/landing-akar-icons-youtube-fill.svg"
-                /></a>
-              </li>
-            </ul>
-          </section>
-        </div>
-      </footer>
-    </div>
+        <ul class="social-media-box">
+          <li>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+              <img alt="logo linked to facebook homepage" src="/public/images/social-media/facebook.svg" />
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+              <img alt="logo linked to twitter homepage" src="/public/images/social-media/twitter.svg" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+              <img alt="logo linked to youtube homepage" src="/public/images/social-media/youtube.svg" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+              <img alt="logo linked to instagram homepage" src="/public/images/social-media/instagram.svg" />
+            </a>
+          </li>
+        </ul>
+      </section>
+    </footer>
   </body>
 </html>
