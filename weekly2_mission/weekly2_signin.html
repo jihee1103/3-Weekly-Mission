@@ -1,58 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="weekly2.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
 </head>
 <body>
     <div class="main_box">
         <main>
-            <div gap_box>
-                <img src="/3-Weekly-Mission/weekly1_mission/logo.svg" class="logo">
-                <p class="member">
-                    회원이 아니신가요? 
-                    <a href="weekly2_singup.html" target="_blank" class="link_color">
-                        <span class="text_color"> 
-                            회원 가입하기 
-                        </span>
-                    </a>
-                </p> 
-            </div>
-        <form>
-            <p>
-                <label for="emai;">이메일</label>
-            </p>
-                <input type="email" id="email" name="email" type="email">
-            
-            <p>
-                <label for="password">비밀번호</label>
-            </p>
-            <div class="pass">
-                <input id="password" name="password" type="password" >
-                <img class="passwordicon1" src="eye-off.svg">
-            </div>    
-        </form>
-
-        <span class="login">
-            로그인
-        </span>
-        <span class="sns">
-            소셜 로그인
-            <div class="icon">
-                <a href="https://www.google.com" class="icon_content" target="_blank">                  
-                    <img class="google_background" src="google.svg">                      
-                    <img  class="google" src="google2.png" >
-                </a>  
-                
-                <a href="https://www.kakaocorp.com/page/" class="icon_content" target="_blank"> 
-                    <img class="kakao_background" src="kakao2.svg">
-                    <img class="kakao" src="kakao.svg">
+            <div class="gap_box">
+                <a href="../weekly1_mission/weekly1.html">
+                  <img src="../weekly1_mission/logo.svg" class="logo">
                 </a>
-
-             </div>
-        </span>
+            </div>
+            <p class="member">
+                회원이 아니신가요? 
+                <a href="weekly2_singup.html" class="member_color">
+                    <span class="text_color">회원 가입하기</span>
+                </a>
+            </p> 
+            <form>
+                 <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" type="email">   
+                 <label for="password">비밀번호</label>
+                <div class="password">
+                    <input id="password" name="password" type="password" >
+                    <img class="password_icon1" src="eye-off.svg">
+                </div>    
+            </form>
+            <span class="login">
+                로그인
+            </span>
+            <span class="sns">
+                소셜 로그인
+              <ul class="icons">
+                <!-- <a href="https://www.google.com" class="google" target="_blank"></a>
+                <a href="https://www.kakaocorp.com/page/" class="kakao" target="_blank"></a> -->
+                <li class="google">
+                  <a href="https://www.google.com" target="_blank"></a>
+                </li>
+                <li class="kakao">
+                  <a href="https://www.kakaocorp.com/page/" target="_blank"></a>
+                </li>
+              </ul>
+            </span>
         </main>
     </div>    
 </body>
