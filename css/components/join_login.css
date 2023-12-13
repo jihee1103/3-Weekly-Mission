@@ -1,9 +1,14 @@
 /* 로그인, 회원가입 메인 타이틀 스타일 */
+
 .login-body{
     background-color: var(--linkbrary-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-main{
+.login-main{
     padding: 238px 0 252px;
 }
 
@@ -20,6 +25,7 @@ header .main-text{
     font-style: normal;
     font-weight: 400;
     line-height: 24px; /* 150% */
+    text-align: center;
 
 }
 
@@ -143,4 +149,10 @@ form input:focus{
     position: absolute;
     z-index: 1;
 }
+ 
 
+@media (min-width:375px) and (max-width: 767px){
+    .inputs,.social,.btns{
+        width: 325px;
+    }
+}
