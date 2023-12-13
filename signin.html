@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/signin-style.css">
-  <link rel="stylesheet" href="css/signin-responsive-style.css">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/color.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  <title>Linkbrary</title>
-</head>
-<body>
-  <header>
-    <div class="container">
-      <a href="/"><img src="source/logo-sign.png" alt="로고"></a>
-      <div class="ask-singup">
-        <div class="ask-singup-text">회원이 아니신가요?</div>
-        <div class="ask-singup-link"><a href="">회원 가입하기</a></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/signin-style.css" />
+    <link rel="stylesheet" href="css/signin-responsive-style.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/color.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <title>Linkbrary</title>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="/"><img src="source/logo-sign.png" alt="로고" /></a>
+        <div class="ask-singup">
+          <div class="ask-singup-text">회원이 아니신가요?</div>
+          <div class="ask-singup-link"><a href="">회원 가입하기</a></div>
+        </div>
       </div>
-    </div>
-  </header>
-  <div class="container">
-      <form action="">
+    </header>
+    <div class="container">
+      <form action="" id="loginForm">
         <div>
           <label for="signup-email">이메일</label>
-          <input id="signup-email" type="email">
+          <input id="signup-email" type="email" />
         </div>
         <div class="password-container">
           <label for="signup-password">비밀번호</label>
-          <input id="signup-password" type="password">
-          <img src="source/eye-off.png" alt="비밀번호 보이게 설정하기">
+          <input id="signup-password" type="password" />
+          <img
+            id="passwordEye"
+            src="source/eye-off.png"
+            alt="비밀번호 보이게 설정하기"
+          />
         </div>
         <div>
-          <button type="submit">로그인</button>
+          <button id="loginButton" type="submit">로그인</button>
         </div>
       </form>
       <div class="content-sns">
-        <div class="content-sns-text">
-          소셜 로그인
-        </div>
+        <div class="content-sns-text">소셜 로그인</div>
         <div class="content-sns-logo">
-          <a href="https://www.google.com/"><img src="source/google-logo.png" alt="구글로고"></a>
-          <a href="https://www.kakaocorp.com/page/"><img src="source/kakao-logo.png" alt="카카오로고"></a>
+          <a href="https://www.google.com/"
+            ><img src="source/google-logo.png" alt="구글로고"
+          /></a>
+          <a href="https://www.kakaocorp.com/page/"
+            ><img src="source/kakao-logo.png" alt="카카오로고"
+          /></a>
         </div>
       </div>
     </div>
-</body>
+  </body>
 </html>
