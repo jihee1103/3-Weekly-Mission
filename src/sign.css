@@ -1,5 +1,5 @@
 .sign--wrap {
-    width: 100vw;
+    box-sizing: border-box;
     height: 100vh;
     background: var(--linkbrary-bg, #F0F6FF);
     display: flex;

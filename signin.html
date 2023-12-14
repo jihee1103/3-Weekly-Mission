@@ -7,6 +7,7 @@
     <title>Linkbrary</title>
     <link rel="stylesheet" href="./src/style.css">
     <link rel="stylesheet" href="./src/reset.css">
+    <script defer src="./signin.js"></script>
 </head>
 
 <body>
@@ -29,7 +30,7 @@
                     <label>이메일</label>
                     <input type="email" id="signin_email_input" name="email">
                     <!-- div와 스타일 미리주고 textContent만 바꾸게하기 -->
-                    <div class="form-sign__input-error email"></div>
+                    <div class="form-sign__input-error email" id="email"></div>
                 </div>
                 <div class="form-sign__input-password">
                     <label>비밀번호</label>
@@ -59,8 +60,6 @@
             </form>
         </div>
     </main>
-
-    <script src="./script.js"></script>
 </body>
 
 </html>
