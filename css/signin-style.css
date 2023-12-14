@@ -1,14 +1,6 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
-  background: var(--linkbrary-bg, #F0F6FF);
-}
-
-a {
-  text-decoration: none;
+  background: var(--linkbrary-bg, #f0f6ff);
 }
 
 header {
@@ -44,7 +36,7 @@ header .ask-singup {
 }
 
 .ask-singup-link a {
-  color: var(--linkbrary-primary-color, #6D6AFE);
+  color: var(--linkbrary-primary-color, #6d6afe);
   /* Linkbrary/body 1-semibold */
   font-family: Pretendard;
   font-size: 16px;
@@ -52,7 +44,6 @@ header .ask-singup {
   font-weight: 600;
   line-height: normal;
   text-decoration: underline;
-  
 }
 
 .container {
@@ -94,13 +85,12 @@ form div:nth-child(4) {
 
 form label {
   color: var(--black, #000);
-/* Linkbrary/body2-regular */
+  /* Linkbrary/body2-regular */
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-
 }
 
 form input {
@@ -111,13 +101,16 @@ form input {
   align-items: center;
 
   border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-  background: var(--linkbrary-white, #FFF);
+  border: 1px solid var(--linkbrary-gray-20, #ccd5e3);
+  background: var(--linkbrary-white, #fff);
 }
 
 input:focus {
   outline-color: var(--linkbrary-primary-color);
-  
+}
+
+input.redBorder {
+  border: 1px solid var(--linkbrary-red, #ff5b56);
 }
 
 .password-container {
@@ -142,9 +135,12 @@ form button {
 
   border: none;
   border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
 
-  color: var(--grey-light, #F5F5F5);
+  color: var(--grey-light, #f5f5f5);
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
@@ -160,14 +156,14 @@ form button {
   align-items: center;
 
   border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-  background: var(--linkbrary-gray-10, #E7EFFB);
+  border: 1px solid var(--linkbrary-gray-20, #ccd5e3);
+  background: var(--linkbrary-gray-10, #e7effb);
 }
 
 .content-sns-text {
   color: var(--linkbrary-gray-100, #373740);
 
-/* Linkbrary/body2-regular */
+  /* Linkbrary/body2-regular */
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
@@ -181,6 +177,4 @@ form button {
   gap: 16px;
 }
 .content-sns-logo .img {
-  
-
 }
