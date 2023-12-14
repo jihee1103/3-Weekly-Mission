@@ -32,7 +32,7 @@ passwordInp.addEventListener("focusin", () => {
   passwordInp.classList.remove("redBorder");
 });
 
-rePasswordInp.addEventListener("focusin", () => {
+rePasswordInp?.addEventListener("focusin", () => {
   removePreviousWarning("removeRepassword");
   rePasswordInp.classList.remove("redBorder");
 });
