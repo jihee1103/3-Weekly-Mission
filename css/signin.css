@@ -1,0 +1,174 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  background-color: #F0F6FF;
+}
+
+.main_box{
+  display: flex;
+  padding: 238px 0px 252px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+main{
+  height: 394px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo{
+  width: 210px; 
+  flex-direction: column;
+}
+
+.member{
+  color: var(--black, #000);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  margin:0;
+}
+
+.text_color{
+  color: var(--linkbrary-primary-color, #6D6AFE);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.member_color{
+  text-decoration-color: #6D6AFE;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+form label{
+  color: var(--black, #000);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+form p{
+  margin: 0;
+}
+
+input{
+  width: 400px;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+  background: var(--linkbrary-white, #FFF);   
+}
+
+input:focus{
+  border-color: blue;
+  outline: none;
+}
+
+.login{
+  display: flex;
+  width: 400px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  color: var(--grey-light, #F5F5F5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sns{
+  display: flex;
+  width: 400px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+  background: var(--linkbrary-gray-10, #E7EFFB);
+  color: var(--linkbrary-gray-100, #373740);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.icons{  
+  display: flex;   
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.google{
+  width: 42px;
+  padding: 8px;
+  background-color: white;
+  border-radius: 50px;
+}
+
+.kakao{
+  width: 42px;
+  padding: 8px;
+  background-color: yellow;
+  border-radius: 50px;
+}
+
+.password{
+  position: relative;
+  display:flex;
+  align-items: center;
+}
+
+.password_icon1{
+  position: absolute;
+  right: 16px;
+}
+
+li{
+  list-style-type: none;
+}
+
+/* 반응형 모바일 375~767 */
+@media (max-width:767px){
+
+  .main_box{
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  
+  main{
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  input{
+    width: 100%;
+  }
+
+  .login{
+      width: 100%;
+  }
+
+  .sns{
+    width: 100%;
+  }
+  
+  form{
+    width: 100%;
+  }
+}
+
+
