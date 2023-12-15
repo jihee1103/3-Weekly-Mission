@@ -9,6 +9,8 @@ const emailError = document.querySelector('#email-error');
 const pwError = document.querySelector('#password-error');
 const pwRepeatError = document.querySelector('#password-repeat-error');
 
+const pwToggle = document.querySelector('.switch-icon');
+
 // 유효성 검사 관련
 const email_regex =
   /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
@@ -119,7 +121,17 @@ function checkError(e) {
   }
 }
 
+// 눈 모양 아이콘 토글
+function toggleEye(e) {
+  const type = pwInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  pwInput.setAttribute('type', type);
+
+  // 아이콘 변경
+  e.target.src = type === 'password' ? 'icons/eye-off.svg' : 'icons/eye-on.svg';
+}
+
 emailInput.addEventListener('focusout', toggleEmailError);
 pwInput.addEventListener('focusout', togglePWError);
 pwRepeatInput.addEventListener('focusout', togglePWRepeatError);
 formList.addEventListener('submit', checkError);
+pwToggle.addEventListener('click', toggleEye);
