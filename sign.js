@@ -6,7 +6,7 @@
 const button = document.querySelector('#submit');
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
-// const eyeIcon = document.querySelector('.password-box img');
+const eyeIcon = document.querySelector('.password-box img');
 
 const TEST_EMAIL = "test@codeit.com";
 const TEST_PASSWORD = "codeit101";
@@ -91,12 +91,23 @@ function submit(e) {
   }
 }
 
+function toggleEyeIcon() {
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    eyeIcon.src = "./images/signin-eye-on.svg";
+  } else {
+    passwordInput.type = 'password';
+    eyeIcon.src = "./images/signin-eye-off.svg";
+  }
+}
+
 //addEventListeners
 emailInput.addEventListener('focusout', emailFocusout);
 emailInput.addEventListener('focusin', emailFocusin);
 passwordInput.addEventListener('focusout', passwordFocusout);
 passwordInput.addEventListener('focusin', passwordFocusin);
 button.addEventListener('click', submit);
+eyeIcon.addEventListener('click', toggleEyeIcon);
 
 
 
