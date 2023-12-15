@@ -14,8 +14,7 @@ const signupButton = document.querySelector("#signup-button");
 const passwordCheckAlert = document.querySelector("#password-check-alert");
 const inputPasswordCheck = document.querySelector("#password-check-input");
 
-const NUMBER_PASSWORD = /\d/;
-const STRING_PASSWORD = /\D/;
+const CHECK_PASSWORD = /^(?=.*?[a-zA-Z])(?=.*?[0-9])[a-zA-Z0-9]{8,}$/;
 
 function checkEmailAlert() {
   if (inputEmail.value === "test@codeit.com") {
@@ -29,10 +28,7 @@ function checkEmailAlert() {
 
 function checkPasswordAlert() {
   const value = inputPassword.value;
-  if (
-    value.length < 8 ||
-    !(STRING_PASSWORD.test(value) && NUMBER_PASSWORD.test(value))
-  ) {
+  if (!CHECK_PASSWORD.test(value)) {
     passwordAlert.textContent =
       "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
     passwordAlert.style.display = "INLINE";
