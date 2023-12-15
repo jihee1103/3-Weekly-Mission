@@ -122,3 +122,12 @@ main {
     font-size: 2.8rem;
   }
 }
+
+/* error */
+.error {
+  border: 1px solid #ff5b56;
+}
+
+.errorText {
+  color: #ff5b56;
+}
