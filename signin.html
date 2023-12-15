@@ -7,7 +7,6 @@
     <title>Linkbrary</title>
     <link rel="stylesheet" href="./src/style.css">
     <link rel="stylesheet" href="./src/reset.css">
-    <script defer src="./signin.js"></script>
 </head>
 
 <body>
@@ -35,10 +34,10 @@
                 <div class="form-sign__input-password">
                     <label>비밀번호</label>
                     <div class="password__box">
-                        <input type="password" id="signin_password_input">
+                        <input type="password" id="signin_password_input" name="password">
                         <!-- type을 button으로 안주면 자동으로 submit이 돼서 form의 action으로 이동해버림 -->
-                        <button type="button" class="password__btn-eye-off" id="signin_eye-off">
-                            <img src="img/eye-off.svg" alt="eye-off" name="password">
+                        <button type="button" class="password__btn-eye-off">
+                            <img src="img/eye-off.svg" alt="eye-off">
                         </button>
                     </div>
                     <div class="form-sign__input-error password"></div>
@@ -60,6 +59,7 @@
             </form>
         </div>
     </main>
+    <script type="module" src="./signin.js"></script>
 </body>
 
 </html>
