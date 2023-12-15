@@ -1,13 +1,13 @@
-import { emailInp, passwordInp, rePasswordInp } from "../tags.js";
+import { $emailInput, $passwordInput, $repasswordInput } from "../tags.js";
 import {
   changeRedBorder,
-  addWarningSpanTag,
-  removePreviousWarning,
-} from "./addWarningEmailBlankTag.js";
+  makeWarningSpanTag,
+  removePreviousWarningSpanTag,
+} from "./handleSpanTag.js";
 export { performSignUp };
 function vaildateRepassword() {
-  const firstPassword = passwordInp.value;
-  const secondPassword = rePasswordInp.value;
+  const firstPassword = $passwordInput.value;
+  const secondPassword = $repasswordInput.value;
   if (firstPassword === secondPassword) {
     return true;
   } else {
@@ -16,7 +16,7 @@ function vaildateRepassword() {
 }
 
 function vaildatePassword() {
-  const passwordValue = passwordInp.value;
+  const passwordValue = $passwordInput.value;
   if (
     passwordValue.length < 8 ||
     /^\d+$/.test(passwordValue) ||
@@ -29,7 +29,7 @@ function vaildatePassword() {
 }
 
 function vailedateEmail() {
-  const inputEamil = emailInp.value;
+  const inputEamil = $emailInput.value;
   const dataEmail = "test@codeit.com";
   if (inputEamil === dataEmail) {
     return false;
@@ -42,32 +42,32 @@ function performSignUp() {
   if (vaildateRepassword() && vailedateEmail() && vaildatePassword()) {
     window.location.href = "/folder";
   }
-  if (!emailInp.value) {
-    removePreviousWarning("removeEmail");
-    changeRedBorder(emailInp);
-    addWarningSpanTag("이메일을 입력해주세요.", emailInp, "removeEmail");
+  if (!$emailInput.value) {
+    removePreviousWarningSpanTag("emailSpan");
+    changeRedBorder($emailInput);
+    makeWarningSpanTag("이메일을 입력해주세요.", $emailInput, "emailSpan");
   }
   if (!vaildateRepassword()) {
-    removePreviousWarning("removeRepassword");
-    changeRedBorder(rePasswordInp);
-    addWarningSpanTag(
+    removePreviousWarningSpanTag("removeRepassword");
+    changeRedBorder($repasswordInput);
+    makeWarningSpanTag(
       "비밀번호가 다릅니다.",
-      rePasswordInp,
+      $repasswordInput,
       "removeRepassword"
     );
   }
   if (!vailedateEmail()) {
-    removePreviousWarning("removeEmail");
-    changeRedBorder(emailInp);
-    addWarningSpanTag("이미 사용 중인 이메일입니다", emailInp, "removeEmail");
+    removePreviousWarningSpanTag("emailSpan");
+    changeRedBorder($emailInput);
+    makeWarningSpanTag("이미 사용 중인 이메일입니다", $emailInput, "emailSpan");
   }
   if (!vaildatePassword()) {
-    removePreviousWarning("removePassword");
-    changeRedBorder(passwordInp);
-    addWarningSpanTag(
+    removePreviousWarningSpanTag("passwordSpan");
+    changeRedBorder($passwordInput);
+    makeWarningSpanTag(
       "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
-      passwordInp,
-      "removePassword"
+      $passwordInput,
+      "passwordSpan"
     );
   }
 }

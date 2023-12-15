@@ -1,17 +1,17 @@
 export {
-  emailInp,
-  passwordInp,
-  loginForm,
-  passwordEye,
-  rePasswordInp,
-  rePasswordEye,
-  signUpForm,
+  $emailInput,
+  $passwordInput,
+  $loginForm,
+  $passwordEye,
+  $repasswordInput,
+  $rePasswordEye,
+  $signUpForm,
 };
 
-const emailInp = document.querySelector("#signup-email");
-const passwordInp = document.querySelector("#signup-password");
-const loginForm = document.querySelector("#loginForm");
-const passwordEye = document.querySelector(".passwordEye");
-const rePasswordInp = document.querySelector("#signup-repassword");
-const rePasswordEye = document.querySelector('[data-img="eye"]');
-const signUpForm = document.querySelector("#signUpForm");
+const $emailInput = document.querySelector("#signup-email");
+const $passwordInput = document.querySelector("#signup-password");
+const $loginForm = document.querySelector("#loginForm");
+const $passwordEye = document.querySelector('[data-img="passwordEye"]');
+const $repasswordInput = document.querySelector("#signup-repassword");
+const $rePasswordEye = document.querySelector('[data-img="repasswordEye"]');
+const $signUpForm = document.querySelector("#signUpForm");

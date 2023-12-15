@@ -1,22 +1,26 @@
 export { performLogin };
-import { emailInp, passwordInp } from "../tags.js";
+import { $emailInput, $passwordInput } from "../tags.js";
 import {
-  addWarningSpanTag,
+  makeWarningSpanTag,
   changeRedBorder,
-  removePreviousWarning,
-} from "./addWarningEmailBlankTag.js";
+  removePreviousWarningSpanTag,
+} from "./handleSpanTag.js";
 function performLogin() {
-  removePreviousWarning("removeEmail");
-  removePreviousWarning("removePassword");
+  removePreviousWarningSpanTag("emailSpan");
+  removePreviousWarningSpanTag("passwordSpan");
   if (
-    emailInp.value === "test@codeit.com" &&
-    passwordInp.value === "codeit101"
+    $emailInput.value === "test@codeit.com" &&
+    $passwordInput.value === "codeit101"
   ) {
     window.location.href = "/folder";
   } else {
-    addWarningSpanTag("이메일을 확인해주세요", emailInp, "removeEmail");
-    addWarningSpanTag("비밀번호를 확인해주세요", passwordInp, "removePassword");
-    changeRedBorder(emailInp);
-    changeRedBorder(passwordInp);
+    makeWarningSpanTag("이메일을 확인해주세요", $emailInput, "emailSpan");
+    makeWarningSpanTag(
+      "비밀번호를 확인해주세요",
+      $passwordInput,
+      "passwordSpan"
+    );
+    changeRedBorder($emailInput);
+    changeRedBorder($passwordInput);
   }
 }
