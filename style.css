@@ -138,28 +138,28 @@ article:nth-of-type(even) {
   margin: 0;
 }
 
-.main-article-01--gradient {
+.first-article--gradient {
   background: linear-gradient(90deg, #fe8a8a, #a4ceff);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.main-article-02--gradient {
+.second-article--gradient {
   background: linear-gradient(90deg, #6fbaff, #ffd88b);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.main-article-03--gradient {
+.third-article--gradient {
   background: linear-gradient(90deg, #6d7ccd, #52888538);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.main-article-04--gradient {
+.fourth-article--gradient {
   background: linear-gradient(90deg, #68e8f9, #fe578f);
   -webkit-background-clip: text;
   background-clip: text;
@@ -208,7 +208,7 @@ footer {
 
 /* 태블릿 + 모바일 */
 @media (max-width: 1199px) {
-  nav,
+  .nav,
   .main-article,
   .footer-container {
     width: calc(100vw - 64px);
@@ -222,7 +222,7 @@ footer {
 
 /* 태블릿 */
 @media (min-width: 768px) and (max-width: 1199px) {
-  nav {
+  .nav {
     max-width: 80rem;
     padding: 20px 0;
   }
@@ -230,7 +230,7 @@ footer {
 
 /* 모바일 */
 @media (min-width: 375px) and (max-width: 767px) {
-  nav {
+  .nav {
     padding: 13px 0;
   }
 
