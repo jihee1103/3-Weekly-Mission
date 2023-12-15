@@ -7,7 +7,7 @@ const signupPasswordConfirmInput = document.querySelector('#signup_password_inpu
 const signupRegisterBtn = document.querySelector('#signup_register_btn');
 // css를 다루는 곳
 const signupPasswordEyeOff = document.querySelector('.password__btn-eye-off');
-const signupPasswordConfirmEyeOff = document.querySelector('#signup_eye-off_confirm');
+const signupPasswordConfirmEyeOff = document.querySelector('.password__btn-eye-off.confirm');
 const signupEmailError = document.querySelector('.form-sign__input-error.email');
 const signupPasswordError = document.querySelector('.form-sign__input-error.password');
 const signupPasswordConfirmError = document.querySelector('.form-sign__input-error.password.confirm');
@@ -43,6 +43,8 @@ const signupPasswordConfirmHandler = function (event) { // 패스워드 인풋 �
     const password = event.target.value;
     if (!password) { // 비밀번호를 입력 안한 경우
         signupPasswordConfirmError.textContent = '비밀번호를 입력해주세요';
+    } else if (signupPasswordConfirmInput.value !== signupPasswordInput.value) {
+        signupPasswordConfirmError.textContent = '비밀번호가 일치하지 않아요'
     } else { // 비밀번호를 입력한 경우
         signupPasswordConfirmError.textContent = '';
     }

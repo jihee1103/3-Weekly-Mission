@@ -27,7 +27,7 @@ const signinPasswordHandler = function (event) { // 패스워드 인풋 관련 �
     const confirmPasswordNumber = new RegExp("[0-9]")
     if (!password) { // 비밀번호를 입력 안한 경우
         signinPasswordError.textContent = '비밀번호를 확인해주세요';
-    } if (password.length < 8 || !confirmPasswordAlphabet.test(password) || !confirmPasswordNumber.test(password)) { // 비밀번호 유효성 검사
+    } else if (password.length < 8 || !confirmPasswordAlphabet.test(password) || !confirmPasswordNumber.test(password)) { // 비밀번호 유효성 검사
         signinPasswordError.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요';
     } else { // 비밀번호를 입력한 경우
         signinPasswordError.textContent = '';
