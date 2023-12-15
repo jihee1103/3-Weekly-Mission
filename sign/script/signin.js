@@ -3,11 +3,9 @@ const form = document.querySelector('.form');
 
 const emailInput = document.querySelector('.email-form__input');
 const pwInput = document.querySelector('.password-form__input');
-const pwRepeatInput = document.querySelector('.password-repeat-form__input');
 
 const emailError = document.querySelector('#email-error');
 const pwError = document.querySelector('#password-error');
-const pwRepeatError = document.querySelector('#password-repeat-error');
 
 // 유효성 검사 관련
 const email_regex =
