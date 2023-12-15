@@ -11,11 +11,6 @@ main {
   font-weight: 400;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-}
-
 .input {
   border: 0.1rem solid #ccd5e3;
   border-radius: 8px;
@@ -129,10 +124,10 @@ main {
 }
 
 /* error */
-.error {
+.error-border {
   border: 1px solid #ff5b56;
 }
 
-.errorText {
+.error-text {
   color: #ff5b56;
 }
