@@ -38,6 +38,18 @@ function checkPassword() {
     }
 }
 
+function passwordConfirm() {
+    if (!inputPwConfirm.value) {
+        pwConfirmError.textContent = "비밀번호를 입력해주세요.";
+        inputPwConfirm.className = "error-box";
+    } else if (inputPwConfirm.value !== inputPw.value) {
+        pwConfirmError.textContent = "비밀번호가 일치하지 않아요.";
+    } else {
+        pwConfirmError.textContent = " ";
+        inputPwConfirm.className = "inputbox";
+    }
+}
+
 function signIn() {
     if (
         inputEmail.value === "test@codeit.com" &&
@@ -53,4 +65,6 @@ function signIn() {
 
 inputEmail.addEventListener("focusout", checkEmail);
 inputPw.addEventListener("focusout", checkPassword);
+inputPwConfirm.addEventListener("focusout", passwordConfirm);
+
 signinBtn.addEventListener("click", signIn);
