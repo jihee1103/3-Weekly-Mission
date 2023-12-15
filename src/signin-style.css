@@ -61,6 +61,14 @@ body {
   line-height: normal;
 }
 
+.err-msg {
+  display: none;
+  font-size: 1.4rem;
+  color: var(--linkbrary-red);
+  margin-top: 0.6rem;
+  margin-bottom: 0;
+}
+
 form {
   display: flex;
   flex-direction: column;

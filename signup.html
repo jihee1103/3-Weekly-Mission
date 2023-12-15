@@ -42,6 +42,10 @@
                 type="email"
                 required
               />
+              <p class="err-msg" id="no-email">이메일을 입력해주세요.</p>
+              <p class="err-msg" id="wrong-email">
+                올바른 이메일 주소가 아닙니다.
+              </p>
             </div>
             <div class="input-frame">
               <label class="form-name" for="signup-password">비밀번호</label>
@@ -52,20 +56,26 @@
                 type="password"
                 required
               />
+              <p class="err-msg" id="no-password">비밀번호를 입력해주세요.</p>
               <img src="images/eye-off.svg" class="eye-icon" />
             </div>
             <div class="input-frame">
-              <label class="form-name" for="signup-password2"
+              <label class="form-name" for="signup-repassword"
                 >비밀번호 확인</label
               >
               <input
                 class="form-input"
-                id="signup-password2"
+                id="signup-repassword"
                 name="password"
                 type="password"
                 required
               />
-              <span class="input-check"> 비밀번호가 다릅니다. </span>
+              <span class="err-msg" id="no-repassword"
+                >비밀번호를 입력해주세요.</span
+              >
+              <span class="err-msg" id="wrong-repassword"
+                >비밀번호가 다릅니다.</span
+              >
               <img src="images/eye-off.svg" class="eye-icon" />
             </div>
           </div>
@@ -88,5 +98,6 @@
         </div>
       </div>
     </div>
+    <script src="./signup.js"></script>
   </body>
 </html>

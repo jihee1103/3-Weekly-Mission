@@ -42,9 +42,14 @@
                 type="email"
                 required
               />
+              <p class="err-msg" id="no-email">이메일을 입력해주세요.</p>
+              <p class="err-msg" id="wrong-email">
+                올바른 이메일 주소가 아닙니다.
+              </p>
+              <p class="err-msg" id="check-email">이메일을 확인해주세요.</p>
             </div>
             <div class="input-frame">
-              <label class="form-name" for="signin-email">비밀번호</label>
+              <label class="form-name" for="signin-password">비밀번호</label>
               <input
                 class="form-input"
                 id="signin-password"
@@ -52,11 +57,17 @@
                 type="password"
                 required
               />
+              <p class="err-msg" id="no-password">비밀번호를 입력해주세요.</p>
+              <p class="err-msg" id="check-password">
+                비밀번호를 확인해주세요.
+              </p>
               <img src="images/eye-off.svg" class="eye-icon" />
             </div>
           </div>
           <div class="form-btn">
-            <button type="submit" class="form-btn-gradient">로그인</button>
+            <button type="button" class="form-btn-gradient" id="login-btn">
+              로그인
+            </button>
           </div>
         </form>
       </div>
@@ -73,5 +84,6 @@
         </div>
       </div>
     </div>
+    <script src="./signin.js"></script>
   </body>
 </html>
