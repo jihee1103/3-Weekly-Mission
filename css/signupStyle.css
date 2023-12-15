@@ -46,6 +46,23 @@ input:focus {
     outline: 1px solid #6d6afe;
 }
 
+.error-box{
+  width: 400px;
+    height: 60px;
+    border: 1px;
+    box-sizing: border-box;
+    border-color: #FF5B56;
+    border-style: solid;
+    border-radius: 8px;
+    margin-top: 12px;
+    padding: 18px 15px;
+}
+.error_msg{
+  font-size: 14px;
+  color: #FF5B56;
+  text-align: start;
+}
+
 form div.pw_inputbox {
     position: relative;
 }

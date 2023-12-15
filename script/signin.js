@@ -36,7 +36,7 @@ function checkPassword() {
 
 function signIn() {
     if (
-        inputEmail.value === "est@codeit.com" &&
+        inputEmail.value === "test@codeit.com" &&
         inputPw.value === "codeit101"
     ) {
         location.herf = "folder.html";
