@@ -28,20 +28,21 @@
             <form>
                  <label for="email">이메일</label> 
                     <input type="email" id="email" name="email" type="email">
+                    <span class="email_error"></span>   
                  <label for="password">비밀번호</label> 
                 <div class="password">
                     <input id="password" name="password" type="password" >
                     <img src="../images/eye-on.svg" class="password_icon1">
-                </div>    
-                 <label for="password_check">비밀번호 확인</label> 
+                </div>
+                <span class="password_error"></span>     
+                 <label for="password2">비밀번호 확인</label> 
                 <div class="password">
-                    <input id="password_check" name="password_check" type="password">
+                    <input id="password2" name="password2" type="password">
                     <img src="../images/eye-on.svg" class="password_icon1">
-                </div>   
+                </div>
+                <span class="password_error2"></span>    
             </form>
-            <span class="login">
-                회원가입
-            </span>
+            <button class="createbtn">회원가입</button>
             <span class="sns">
                 다른 방식으로 가입하기
                 <ul class="icons">
