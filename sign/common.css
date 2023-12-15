@@ -27,6 +27,7 @@ main {
 .suggest-sign {
   font-size: 1.6rem;
   line-height: 1.5;
+  z-index: 2;
 }
 
 .suggest-sign__link {
@@ -130,4 +131,5 @@ main {
 
 .error-text {
   color: #ff5b56;
+  font-size: 1.4rem;
 }
