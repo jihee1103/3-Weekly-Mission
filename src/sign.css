@@ -4,12 +4,11 @@
     background: var(--linkbrary-bg, #F0F6FF);
     display: flex;
     justify-content: center;
-    padding-top: 238px;
+    align-items: center;
 }
 
 .sign {
     width: 400px;
-    height: 394px;
 }
 
 .sign__header {
@@ -108,9 +107,6 @@
 .form-sign__input-error {
     font-family: Pretendard;
     font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
     color: #FF5B56;
     margin-top: 6px;
 }
@@ -197,17 +193,7 @@
     top: 10px;
 }
 
-@media (max-width:1199px) {
-    .sign--wrap {
-        padding-top: 200px;
-    }
-}
-
 @media (max-width:767px) {
-    .sign--wrap {
-        padding-top: 120px;
-    }
-
     .sign {
         max-width: 400px;
         margin: 0 32px;

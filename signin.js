@@ -1,8 +1,10 @@
-import {eyeOffHandler} from './eye-off.js';
-
+import { eyeOffHandler } from './eye-off.js';
+// css를 다루는 곳과 데이터를 다루는 곳을 분리
+// 데이터를 다루는 곳
 const signinEmailInput = document.querySelector('#signin_email_input');
 const signinPasswordInput = document.querySelector('#signin_password_input');
 const signinLoginBtn = document.querySelector('#signin_login_btn');
+// css를 다루는 곳
 const signinEyeOff = document.querySelector('.password__btn-eye-off');
 const signinEmailError = document.querySelector('.form-sign__input-error.email');
 const signinPasswordError = document.querySelector('.form-sign__input-error.password');
@@ -51,4 +53,4 @@ signinPasswordInput.addEventListener('focusout', signinPasswordHandler);
 signinLoginBtn.addEventListener('click', signinLoginBtnHandler);
 // Enter 키를 누를시 로그인 버튼 핸들러가 작동하도록 한다.
 window.addEventListener('keyup', (event) => { if (event.key === 'Enter') signinLoginBtnHandler() });
-signinEyeOff.addEventListener('click', (event) => { eyeOffHandler(signinPasswordInput, signinEyeOff) });
+signinEyeOff.addEventListener('click', () => { eyeOffHandler(signinPasswordInput, signinEyeOff) });

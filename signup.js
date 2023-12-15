@@ -1,9 +1,11 @@
 import { eyeOffHandler } from './eye-off.js';
-
+// css를 다루는 곳과 데이터를 다루는 곳을 분리
+// 데이터를 다루는 곳
 const signupEmailInput = document.querySelector('#signup_email_input');
 const signupPasswordInput = document.querySelector('#signup_password_input');
 const signupPasswordConfirmInput = document.querySelector('#signup_password_input_confirm');
 const signupRegisterBtn = document.querySelector('#signup_register_btn');
+// css를 다루는 곳
 const signupPasswordEyeOff = document.querySelector('.password__btn-eye-off');
 const signupPasswordConfirmEyeOff = document.querySelector('#signup_eye-off_confirm');
 const signupEmailError = document.querySelector('.form-sign__input-error.email');
@@ -73,7 +75,5 @@ signupPasswordConfirmInput.addEventListener('focusout', signupPasswordConfirmHan
 signupRegisterBtn.addEventListener('click', signupRegisterBtnHandler);
 // Enter 키를 누를시 로그인 버튼 핸들러가 작동하도록 한다.
 window.addEventListener('keyup', (event) => { if (event.key === 'Enter') signupRegisterBtnHandler() });
-signupPasswordEyeOff.addEventListener('click', (event) => { eyeOffHandler(signupPasswordInput, signupPasswordEyeOff) });
-signupPasswordConfirmEyeOff.addEventListener('click', (event) => { eyeOffHandler(signupPasswordConfirmInput, signupPasswordConfirmEyeOff) });
-
-
+signupPasswordEyeOff.addEventListener('click', () => { eyeOffHandler(signupPasswordInput, signupPasswordEyeOff) });
+signupPasswordConfirmEyeOff.addEventListener('click', () => { eyeOffHandler(signupPasswordConfirmInput, signupPasswordConfirmEyeOff) });
