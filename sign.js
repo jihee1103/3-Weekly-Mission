@@ -1,8 +1,3 @@
-/*
--심화
-눈 모양 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
-비밀번호의 문자열이 가려질 때는 눈 모양 아이콘에는 사선이 그어져있고, 비밀번호의 문자열이 보일 때는 사선이 없는 눈 모양 아이콘이 보이도록 합니다.
-*/
 const button = document.querySelector('#submit');
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
@@ -52,11 +47,9 @@ function emailFocusin() {
 //이메일 Focusout 핸들러
 function emailFocusout() {
   const value = emailInput.value;
-  //값이 없을경우 에러메세지
   if (value === "") {
     alertFunction.create(".email-box", errorMapper.emailVoidError, emailInput);
-  }  //유효성검사
-  else if (!emailValidation(value)) {
+  } else if (!emailValidation(value)) {
     alertFunction.create(".email-box", errorMapper.emailInvalidError,
         emailInput);
   }
@@ -91,6 +84,7 @@ function submit(e) {
   }
 }
 
+// Password Icon 이벤트 핸들러
 function toggleEyeIcon() {
   if (passwordInput.type === 'password') {
     passwordInput.type = 'text';
