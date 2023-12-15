@@ -23,14 +23,15 @@
 
             <form>
                 <label for="inputEmail">이메일</label>
-                <input type="email" id="inputEmail" />
+                <input type="email" id="inputEmail" class="inputbox" />
+                <p class="error_msg" id="email_err"></p>
 
                 <label class="label_pw" for="inputPw">비밀번호</label>
-
-                <input class="pw_inputbox" type="password" id="inputPw" />
+                <input class="inputbox" type="password" id="inputPw" />
+                <p class="error_msg" id="pw_err"></p>
             </form>
 
-            <a class="login_btn" href="">로그인</a>
+            <a class="login_btn" id="signinBtn">로그인</a>
 
             <div class="social_login">
                 <h1>소셜 로그인</h1>
