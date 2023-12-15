@@ -4,11 +4,11 @@ import {
   emailAlert,
   passwordAlert,
   inputSection,
-} from "./src/tags.js";
+} from "./ingredient/tags.js";
 
-import errorEmailAlert from "./src/error_alert.js";
+import errorEmailAlert from "./ingredient/error_alert.js";
 
-import showHidePassword from "./src/show_hide.js";
+import showHidePassword from "./ingredient/show_hide.js";
 
 const signupButton = document.querySelector("#signup-button");
 const passwordCheckAlert = document.querySelector("#password-check-alert");
@@ -23,7 +23,7 @@ function checkEmailAlert() {
     emailAlert.textContent = "이미 사용 중인 이메일입니다.";
     emailAlert.style.display = "INLINE";
   } else {
-    errorEmailAlert();
+    return errorEmailAlert();
   }
 }
 
@@ -40,6 +40,7 @@ function checkPasswordAlert() {
   } else {
     passwordAlert.style.display = "NONE";
     inputPassword.classList.remove("alert-input");
+    return "pass";
   }
 }
 
@@ -52,20 +53,12 @@ function checkPasswordSameAlert() {
   } else {
     passwordCheckAlert.style.display = "NONE";
     inputPasswordCheck.classList.remove("alert-input");
+    return "pass";
   }
 }
 
 function checkSignup() {
-  checkEmailAlert();
-  checkPasswordAlert();
-  checkPasswordSameAlert();
-  if (
-    !(
-      inputEmail.classList.contains("alert-input") ||
-      inputPassword.classList.contains("alert-input") ||
-      inputPasswordCheck.classList.contains("alert-input")
-    )
-  ) {
+  if (checkEmailAlert() && checkPasswordAlert() && checkPasswordSameAlert()) {
     location.href = "folder.html";
   }
 }

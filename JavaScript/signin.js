@@ -4,10 +4,10 @@ import {
   emailAlert,
   passwordAlert,
   inputSection,
-} from "./src/tags.js";
+} from "./ingredient/tags.js";
 
-import errorEmailAlert from "./src/error_alert.js";
-import showHidePassword from "./src/show_hide.js";
+import errorEmailAlert from "./ingredient/error_alert.js";
+import showHidePassword from "./ingredient/show_hide.js";
 
 const signinButton = document.querySelector("#signin-button");
 

@@ -6,6 +6,7 @@ function errorEmailAlert() {
   if (REGEXP_EMAIL.test(inputEmail.value)) {
     emailAlert.style.display = "NONE";
     inputEmail.classList.remove("alert-input");
+    return "pass";
   } else {
     if (!inputEmail.value) {
       emailAlert.textContent = "이메일을 입력해 주세요.";
