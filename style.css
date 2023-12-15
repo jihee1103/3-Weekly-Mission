@@ -2,7 +2,7 @@ body {
   position: relative;
 }
 
-header {
+.header {
   width: 100%;
   position: sticky;
   top: 0;
@@ -11,7 +11,7 @@ header {
   background-color: #f0f6ff;
 }
 
-nav {
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
