@@ -19,15 +19,19 @@ function email_check(){
   if(email.value === 'test@codeit.com'){
     email.classList.add('input_line');
     email_error.innerText ='이미 사용 중인 이메일입니다.';
+    return false;
   }else if(email.value === ""){
     email.classList.add('input_line');
-    email_error.innerText='이메일을 입력해주세요'
+    email_error.innerText='이메일을 입력해주세요';
+    return false;
   }else if(!email.value.includes('@')){
     email.classList.add('input_line');
-    email_error.innerText='올바른 이메일 주소가 아닙니다'
+    email_error.innerText='올바른 이메일 주소가 아닙니다';
+    return false;
   }else{
     email.classList.remove('input_line');
     email_error.innerText='';
+    return true;
   }
 }
 email.addEventListener('focusout', email_check);
@@ -37,18 +41,22 @@ function password_check(){
   if(password.value === ""){
     password.classList.add('input_line');
     password_error.innerText = '비밀번호를 입력해주세요';
+    return false;
   }else if(password.value!==""){
     if(!reg.test(password.value)){
       password.classList.add('input_line')
       password_error.innerText = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요';
+      return false;
     }
   else{ 
     password.classList.remove('input_line');
     password_error.innerText = '';
+    return true;
   }
   }else{
     password.classList.remove('input_line');
     password_error.innerText = '';
+    return true;
   }
 };
 
@@ -56,15 +64,25 @@ function password_check(){
   function password_check2(){
     if(password.value !== password2.value){
       password_error2.innerText = '비밀번호가 일치하지 않아요';
-      password2.classList.add('input_line')
+      password2.classList.add('input_line');
+      return false;
   }else{
     password_error2.innerText = '';
     password2.classList.remove('input_line');
+    return true;
   };
 };
 password.addEventListener('focusout', password_check)
 password2.addEventListener('focusout', password_check2)
 
+
+// 유요한 회원가입시 페이지 변경
+function folder_page(){
+  if(email_check() && password_check() && password_check2()){
+    window.location.href = '../html/folder.html';
+  };
+};
+createbtn.addEventListener('click', folder_page)
 
 //이메일 비교해서 중복 경고하는  함수
 

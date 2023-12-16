@@ -1,10 +1,15 @@
-
+//이메일 관련
 const email = document.querySelector('#email');
 const email_error = document.querySelector('.email_error');
+//패스워드 관련
 const password = document.querySelector('#password');
 const password_error = document.querySelector('.password_error');
+//인풋박스 라인
 const input_line = document.querySelector('.input_line');
+//로그인 버튼
 const logbtn = document.querySelector('.logbtn');
+//패스워든 눈 아이콘
+const password_icon1 = document.querySelector('.password_icon1')
 
 //이메일
 email.addEventListener('focusout', email_check)
@@ -20,7 +25,7 @@ function email_check(){
     email_error.innerText='';
   };
 };
-email.addEventListener('focusout', email_check)
+email.addEventListener('focusout', email_check);
 
 // 비밀번호 없으면 경고하는 함수
 
@@ -56,6 +61,13 @@ function folder_page(){
   };
 };
 logbtn.addEventListener('click', folder_page);
+
+
+//눈모양 클릭시 문자열 보이기 가리기
+// function eye_Off(){
+//   password_icon1.classList.add('eyeswitch');
+// }
+// password_icon1.addEventListener('toggle',eye_Off)
 
 // 이메일 입력안하면 경고뜨는 함수
 
