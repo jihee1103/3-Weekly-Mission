@@ -18,7 +18,7 @@ nav {
 }
 
 .hero-header {
-  margin-top: 100px;
+  margin-top: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -177,4 +177,90 @@ footer {
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+
+/*Tablet*/
+@media (max-width: 1199px) {
+
+  nav {
+    column-gap: 40rem;
+    width: auto;
+  }
+
+  section {
+    column-gap: 5.1rem;
+  }
+}
+
+/*Mobile*/
+@media (max-width: 767px) {
+
+  nav {
+    padding: 0 3.2rem;
+    column-gap: 0;
+    width: 100%;
+  }
+
+  br {
+    display: none;
+  }
+
+  .hero-header,
+  .hero-image,
+  .content-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .description {
+    margin-bottom: 2.4rem;
+  }
+
+  section {
+    column-gap: 0;
+    padding: 4rem 3rem;
+    height: auto; 
+  }
+
+  section:nth-of-type(odd) {
+    grid-template:
+      "title"
+      "description"
+      "image"
+  }
+
+  section:nth-of-type(even) {
+    grid-template:
+      "title"
+      "description"
+      "image"
+  }
+
+  /* footer 설정 */
+
+  .copyright {
+    grid-area: copyright;
+  }
+
+  .footer-link-container {
+    grid-area: footer-links;
+  }
+
+  .sns {
+    grid-area: sns;
+  }
+
+  footer {
+    height: auto;
+    padding: 0;
+  }
+
+  .footer-box {
+    display: grid;
+    padding: 3.2rem;
+    row-gap: 6rem;
+    grid-template:
+      "footer-links sns"
+      "copyright ."
+  }
 }
