@@ -1,5 +1,9 @@
 @import "./global.css";
 
+.hide {
+  display: none;
+}
+
 body {
   background-color: var(--background);
   display: flex;
@@ -102,9 +106,27 @@ header {
   border-color: var(--primary);
 }
 
+.sign-input-error {
+  border-color: var(--red);
+}
+
+.sign-input-errMsg {
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .eye-button {
   position: absolute;
   bottom: 2.2rem;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.eye-button-focusout {
+  position: absolute;
+  top: 5.2rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;

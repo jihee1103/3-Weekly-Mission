@@ -34,19 +34,21 @@
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
-          </div>
+            <input class="sign-input email" type="email" required />
+            <div class="emailErrMsg hide"></div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
+            <input class="sign-input password1" type="password" required  minlength="8"/>
+            <div class="pwErrMsg hide"></div>
+            <button class="eye-button pw1" type="button">
               <img src="./images/eye-off.svg" />
             </button>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호 확인</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
+            <input class="sign-input password2" type="password" required minlength="8"/>
+            <div class="pwCheckErrMsg hide"></div>
+            <button class="eye-button pw2" type="button">
               <img src="./images/eye-off.svg" />
             </button>
           </div>
@@ -65,5 +67,6 @@
         </div>
       </div>
     </div>
+    <script src="signup.js"></script>
   </body>
 </html>
