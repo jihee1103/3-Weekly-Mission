@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,33 +17,34 @@
           >
         </p>
       </div>
-      <div class="email">
-        <p>이메일</p>
-        <p class="box">codeit@codeit.com</p>
-      </div>
-      <form>
+      <form id="signin-form">
+        <div class="email">
+          <p>이메일</p>
+          <p class="box2">
+            <input type="email" class="email-box" name="email" />
+          </p>
+          <p class="error-email"></p>
+        </div>
         <div class="password1">
           <p>비밀번호</p>
-          <div class="box2">
+          <div class="box5">
             <label for="password"></label>
-            <input class="password" name="password" />
-            <img src="../image/eye-on.png" />
+            <input class="password-box" name="password" />
+            <img src="../image/eye-on.png" class="eye-icon" />
           </div>
         </div>
-
+        <p class="error-password"></p>
         <div class="password2">
           <p>비밀번호 확인</p>
-          <div class="box2">
+          <div class="box6">
             <label for="password"></label>
-            <input class="password" name="password" />
-            <img src="../image/eye-on.png" />
+            <input class="password-box2" name="password" />
+            <img src="../image/eye-on.png" class="eye-icon2" />
           </div>
-          <div class="password3">비밀번호가 다릅니다.</div>
+          <div class="error-password2"></div>
         </div>
       </form>
-
-      <div class="box3">회원가입</div>
-
+      <div class="box3" id="login-button">회원가입</div>
       <div class="box4">
         다른 방식으로 가입하기
         <div class="icon">
@@ -56,5 +57,6 @@
         </div>
       </div>
     </header>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
