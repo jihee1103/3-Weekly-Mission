@@ -1,7 +1,7 @@
 body {
   display: flex;
+  height: 800px;
   background-color: #F0F6FF;
-  width: 1440px;
   justify-content: center;
   align-items: center;
 }
