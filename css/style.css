@@ -222,8 +222,13 @@ header {
     grid-column: 2 / span 1;
   }
 
+  .break-word::after {
+    content: "\A";
+    white-space: pre;
+  }
+
   .intro {
-    padding: 4rem 25rem 0 25.1rem;
+    padding: 4rem 0 0 0;
   }
 
   .intro img {
