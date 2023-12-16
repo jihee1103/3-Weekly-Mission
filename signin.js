@@ -52,11 +52,17 @@ document.addEventListener('DOMContentLoaded', function () {
   passwordInput.addEventListener('focusout', validatePassword);
   confirmPasswordInput.addEventListener('focusout', validateConfirmPassword);
 
-  var signupButton = document.querySelector('.cta');
-  signupButton.addEventListener('click', function (event) {
+  var loginButton = document.querySelector('.cta');
+  loginButton.addEventListener('click', function (event) {
     event.preventDefault();
     validateEmail();
     validatePassword();
-    validateConfirmPassword();
+
+    var correctEmail = 'test@codeit.com';
+    var correctPassword = 'codeit101';
+
+    if (emailInput.value === correctEmail && passwordInput.value === correctPassword) {
+      window.location.href = '/folder';
+    }
   });
 });
