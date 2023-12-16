@@ -4,7 +4,11 @@ const inputPwConfirm = document.querySelector("#inputPwConfirm");
 const emailError = document.querySelector("#email_err");
 const pwError = document.querySelector("#pw_err");
 const pwConfirmError = document.querySelector("#pwConfirm_err");
-const signinBtn = document.querySelector("#signinBtn");
+const signupBtn = document.querySelector("#signupBtn");
+
+let emailValid = false;
+let passwordValid = false;
+let passwordConfirmValid = false;
 
 function checkEmail() {
     const email_format =
@@ -20,6 +24,7 @@ function checkEmail() {
     } else {
         emailError.textContent = " ";
         inputEmail.className = "inputbox";
+        emailValid = true;
     }
 }
 
@@ -32,9 +37,10 @@ function checkPassword() {
         pwError.textContent =
             "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
         inputPw.className = "error-box";
-    } else {
+    } else if (inputPw.value && passwordRegex.test(inputPw.value)) {
         pwError.textContent = " ";
         inputPw.className = "inputbox";
+        passwordValid = true;
     }
 }
 
@@ -47,19 +53,26 @@ function passwordConfirm() {
     } else {
         pwConfirmError.textContent = " ";
         inputPwConfirm.className = "inputbox";
+        passwordConfirmValid = true;
     }
 }
 
-function signIn() {
+function signUp() {
     if (
-        inputEmail.value === "test@codeit.com" &&
-        inputPw.value === "codeit101"
+        emailValid === true &&
+        passwordValid === true &&
+        passwordConfirmValid === true
     ) {
-        location.herf = "folder.html";
-        console.log("로그인");
-    } else {
+        location.href = "/folder";
+    } else if (emailValid === false) {
         emailError.textContent = "이메일을 확인해주세요.";
+        inputEmail.className = "error-box";
+    } else if (passwordValid === false) {
         pwError.textContent = "비밀번호를 확인해주세요.";
+        inputPw.className = "error-box";
+    } else if (passwordConfirmValid === false) {
+        pwConfirmError.textContent = "비밀번호를 확인해주세요.";
+        inputPwConfirm.className = "error-box";
     }
 }
 
@@ -67,4 +80,4 @@ inputEmail.addEventListener("focusout", checkEmail);
 inputPw.addEventListener("focusout", checkPassword);
 inputPwConfirm.addEventListener("focusout", passwordConfirm);
 
-signinBtn.addEventListener("click", signIn);
+signupBtn.addEventListener("click", signUp);

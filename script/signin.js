@@ -39,8 +39,7 @@ function signIn() {
         inputEmail.value === "test@codeit.com" &&
         inputPw.value === "codeit101"
     ) {
-        location.herf = "folder.html";
-        console.log("로그인");
+        location.href = "/folder";
     } else {
         emailError.textContent = "이메일을 확인해주세요.";
         pwError.textContent = "비밀번호를 확인해주세요.";
