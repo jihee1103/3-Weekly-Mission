@@ -6,7 +6,7 @@ const pwInput = document.querySelector('.password-form__input');
 
 const emailError = document.querySelector('#email-error');
 const pwError = document.querySelector('#password-error');
-const pwToggle = document.querySelector('.switch-icon');
+const pwToggle = document.querySelector('#password-visibility-icon');
 
 // 유효성 검사 관련
 const email_regex =

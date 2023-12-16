@@ -9,7 +9,8 @@ const emailError = document.querySelector('#email-error');
 const pwError = document.querySelector('#password-error');
 const pwRepeatError = document.querySelector('#password-repeat-error');
 
-const pwToggle = document.querySelector('.switch-icon');
+const pwVisibility = document.querySelector('#password-visibility-icon');
+const pwRepeatVisibility = document.querySelector('#password-repeat-visibility-icon');
 
 // 유효성 검사 관련
 const email_regex =
@@ -122,11 +123,14 @@ function checkError(e) {
 }
 
 // 눈 모양 아이콘 토글
-function toggleEye(e) {
+function togglePWVisibility(e) {
   const type = pwInput.getAttribute('type') === 'password' ? 'text' : 'password';
   pwInput.setAttribute('type', type);
-
-  // 아이콘 변경
+  e.target.src = type === 'password' ? 'icons/eye-off.svg' : 'icons/eye-on.svg';
+}
+function togglePWRepeatVisibility(e) {
+  const type = pwRepeatInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  pwRepeatInput.setAttribute('type', type);
   e.target.src = type === 'password' ? 'icons/eye-off.svg' : 'icons/eye-on.svg';
 }
 
@@ -134,4 +138,5 @@ emailInput.addEventListener('focusout', toggleEmailError);
 pwInput.addEventListener('focusout', togglePWError);
 pwRepeatInput.addEventListener('focusout', togglePWRepeatError);
 formList.addEventListener('submit', checkError);
-pwToggle.addEventListener('click', toggleEye);
+pwVisibility.addEventListener('click', togglePWVisibility);
+pwRepeatVisibility.addEventListener('click', togglePWRepeatVisibility);
