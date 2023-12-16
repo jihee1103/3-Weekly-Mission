@@ -53,7 +53,7 @@ header {
 
 .container {
   width: 100%;
-  max-width: 40rem;
+  max-width: 46.4rem; /* maximum 40rem + (border box) 3.2rem * 2 */
   padding-inline: 3.2rem;
 
   display: flex;
