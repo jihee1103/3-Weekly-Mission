@@ -345,12 +345,9 @@ h3 {
     }
 
     .main-header .hero-image {
-        width: 30.2rem;
-        height: 17.8rem ;
-    }
-
-    .main-contents {
-        margin-top: -5rem;
+        margin-top: 4rem;
+        padding: 0 5rem;
+        width: 100%;
     }
 
     .info {
@@ -358,52 +355,56 @@ h3 {
         flex-wrap: nowrap;
         align-items: center;
         height: 100%;
+        width: 90%;
     }
 
     .info h3{
+        width: 90%;
         order: 1;
     }
 
     .info p {
+        width: 90%;
         line-height: 150%;
         order: 3;
     }
     
     .image-box {
         margin-left: 6rem;
-        width:32.5rem;
-        height: 26.5rem;
+        width:100%;
         order:2;
     }
 
     .image-box.cut img {
-        width: 15rem;
-        height: 15rem;
+        width: 50%;
+    }
+
+    .image-box.cut .download img {
+        width: 100%;
     }
 
     .image-box.cut .download .badge {
-        width: 3rem;
-        height: 3rem;
+        width: 20%;
     }
 
     .image-box.manage img {
-        width: 20rem;
-        height: 15rem;
+        width: 70%;
     }
 
     .image-box.share {
-        background-size: 55rem 35rem;
-        background-position-x: -10.5rem;
-        background-position-y: -3.5rem;
+        background-size: 80rem 40rem;
+        background-position: center center;
+        background-repeat: no-repeat;
     }
 
     .image-box.share img {
-        width: 20rem;
-        height: 15rem;
+        width: 70%;
+        left: clamp(2rem, 15%, 10rem);
     }
 
-    .image-box.search {
-        height: 31.5rem;
+    .image-box.search img{
+        width: 90%;
+        left: 6.9rem;
     }
 
     .footer {

@@ -139,6 +139,11 @@
     gap: 1.88rem;
 }
 
+input::-ms-reveal,
+input::-ms-clear {
+    display : none;
+}
+
 .eye {
     position: absolute;
     right: 1.87rem;
@@ -147,14 +152,29 @@
     height: 1.6rem;
 }
 
+.eye.none {
+    display: none;
+}
+
+.error-message {
+    display: inline-block;
+    margin-top: 6px;
+    color: red;
+    font-size: var(--small-font-size);
+    font-weight: var(--small-font-weight);
+}
+
+.sign-inputs .error-input{
+    border: 1px solid var(--Linkbrary-red); 
+}
+
 @media (max-width:768px) {
     .sign {
         margin: 12rem auto;
         width: clamp(32.5rem, 80% ,40rem);
     }
-    .signin-container,
-    .signup-container,
-    .social-login{
+
+    article {
         margin-left: 3.2rem;
         margin-right: 3.2rem;
     }
