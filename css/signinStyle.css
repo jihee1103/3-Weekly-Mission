@@ -40,6 +40,7 @@ div h1 span a {
     border-radius: 8px;
     margin-top: 12px;
     padding: 18px 15px;
+  
 }
 
 input:focus {
@@ -62,9 +63,6 @@ input:focus {
   text-align: start;
 }
 
-form div.pw_inputbox {
-    position: relative;
-}
 
 .eye-off {
     width: 16px;
@@ -109,6 +107,24 @@ a {
     align-items: center;
     margin-top: 30px;
     text-align: center;
+}
+
+.sign-input-box {
+  display: flex;
+  flex-direction: column;
+}
+.sign-password {
+  position: relative;
+}
+
+.eye-button {
+  position: absolute;
+  bottom: 4.9rem;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+  
 }
 
 .social_login {

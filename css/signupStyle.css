@@ -45,6 +45,20 @@ input {
 input:focus {
     outline: 1px solid #6d6afe;
 }
+.sign-input-box {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.eye-button {
+  position: absolute;
+  bottom: 4.9rem;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+}
 
 .error-box{
   width: 400px;
