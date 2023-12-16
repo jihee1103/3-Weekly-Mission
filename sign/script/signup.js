@@ -9,8 +9,8 @@ const emailError = document.querySelector('#email-error');
 const pwError = document.querySelector('#password-error');
 const pwRepeatError = document.querySelector('#password-repeat-error');
 
-const pwVisibility = document.querySelector('#password-visibility-icon');
-const pwRepeatVisibility = document.querySelector('#password-repeat-visibility-icon');
+const pwVisibilityIcon = document.querySelector('#password-visibility-icon');
+const pwRepeatVisibilityIcon = document.querySelector('#password-repeat-visibility-icon');
 
 // 유효성 검사 관련
 const email_regex =
@@ -138,5 +138,5 @@ emailInput.addEventListener('focusout', toggleEmailError);
 pwInput.addEventListener('focusout', togglePWError);
 pwRepeatInput.addEventListener('focusout', togglePWRepeatError);
 formList.addEventListener('submit', checkError);
-pwVisibility.addEventListener('click', togglePWVisibility);
-pwRepeatVisibility.addEventListener('click', togglePWRepeatVisibility);
+pwVisibilityIcon.addEventListener('click', togglePWVisibility);
+pwRepeatVisibilityIcon.addEventListener('click', togglePWRepeatVisibility);

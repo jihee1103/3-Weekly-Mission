@@ -6,7 +6,8 @@ const pwInput = document.querySelector('.password-form__input');
 
 const emailError = document.querySelector('#email-error');
 const pwError = document.querySelector('#password-error');
-const pwToggle = document.querySelector('#password-visibility-icon');
+
+const pwVisibilityIcon = document.querySelector('#password-visibility-icon');
 
 // 유효성 검사 관련
 const email_regex =
@@ -97,4 +98,4 @@ function toggleEye(e) {
 emailInput.addEventListener('focusout', toggleEmailError);
 pwInput.addEventListener('focusout', togglePWError);
 formList.addEventListener('submit', checkError);
-pwToggle.addEventListener('click', toggleEye);
+pwVisibilityIcon.addEventListener('click', toggleEye);
