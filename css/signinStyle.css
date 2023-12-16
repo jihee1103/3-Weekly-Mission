@@ -112,10 +112,10 @@ a {
 .sign-input-box {
   display: flex;
   flex-direction: column;
-}
-.sign-password {
   position: relative;
+
 }
+
 
 .eye-button {
   position: absolute;

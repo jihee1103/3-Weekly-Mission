@@ -5,6 +5,8 @@ const emailError = document.querySelector("#email_err");
 const pwError = document.querySelector("#pw_err");
 const pwConfirmError = document.querySelector("#pwConfirm_err");
 const signupBtn = document.querySelector("#signupBtn");
+const inputPwIcon = document.querySelector("#inputPwIcon");
+const inputPwComfirmIcon = document.querySelector("#inputPwComfirmIcon");
 
 let emailValid = false;
 let passwordValid = false;
@@ -75,6 +77,26 @@ function signUp() {
         inputPwConfirm.className = "error-box";
     }
 }
+
+function showPasswordToggle(element_icon, element_input) {
+    const img_path = "../images/eye-off.png";
+
+    if (element_input.type == "text") {
+        element_input.type = "password";
+        element_icon.src = "../images/eye-off.png";
+    } else {
+        element_input.type = "text";
+        element_icon.src = "../images/eye-on.png";
+    }
+}
+
+inputPwIcon.addEventListener("click", () => {
+    showPasswordToggle(inputPwIcon, inputPw);
+});
+
+inputPwComfirmIcon.addEventListener("click", () => {
+    showPasswordToggle(inputPwComfirmIcon, inputPwConfirm);
+});
 
 inputEmail.addEventListener("focusout", checkEmail);
 inputPw.addEventListener("focusout", checkPassword);

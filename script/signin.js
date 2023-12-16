@@ -3,6 +3,7 @@ const inputPw = document.querySelector("#inputPw");
 const emailError = document.querySelector("#email_err");
 const pwError = document.querySelector("#pw_err");
 const signinBtn = document.querySelector("#signinBtn");
+const inputPwIcon = document.querySelector("#inputPwIcon");
 
 function checkEmail() {
     const email_format =
@@ -45,6 +46,22 @@ function signIn() {
         pwError.textContent = "비밀번호를 확인해주세요.";
     }
 }
+
+function showPasswordToggle(element_icon, element_input) {
+    const img_path = "../images/eye-off.png";
+
+    if (element_input.type == "text") {
+        element_input.type = "password";
+        element_icon.src = "../images/eye-off.png";
+    } else {
+        element_input.type = "text";
+        element_icon.src = "../images/eye-on.png";
+    }
+}
+
+inputPwIcon.addEventListener("click", () => {
+    showPasswordToggle(inputPwIcon, inputPw);
+});
 
 inputEmail.addEventListener("focusout", checkEmail);
 inputPw.addEventListener("focusout", checkPassword);
