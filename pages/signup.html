@@ -37,9 +37,9 @@
             <a href="/pages/signin.html">로그인 하기</a>
           </div>
         </div>
-        <form action="submit">
+        <form>
           <div class="login-form-box">
-            <div class="login-input">
+            <div class="login-input login-input-email">
               <label
                 class="login-label"
                 for="email"
@@ -51,9 +51,10 @@
                 id="email"
                 name="email"
                 placeholder="codeit@codeit.com"
+                class="email-inputbox"
               />
             </div>
-            <div class="login-input">
+            <div class="login-input login-input-password">
               <label
                 class="login-label"
                 for="password"
@@ -65,15 +66,16 @@
                   type="password"
                   id="password"
                   name="password"
-                  placeholder="비밀번호"
+                  placeholder="password"
+                  class="password-inputbox"
                 />
                 <div class="eye"></div>
               </div>
             </div>
-            <div class="login-input">
+            <div class="login-input login-input-password-repeat">
               <label
                 class="login-label"
-                for="password"
+                for="password-repeat"
               >
                 비밀번호 확인
               </label>
@@ -83,6 +85,7 @@
                   id="password-repeat"
                   name="password-repeat"
                   placeholder="비밀번호 확인"
+                  class="password-repeat-inputbox"
                 />
                 <div class="eye"></div>
               </div>
@@ -107,5 +110,13 @@
         </div>
       </div>
     </section>
+    <script
+      type="module"
+      src="/utils/signinErrorMessage.js"
+    ></script>
+    <script
+      type="module"
+      src="/utils/login.js"
+    ></script>
   </body>
 </html>

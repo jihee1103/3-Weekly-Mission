@@ -9,9 +9,12 @@ export function displayLoginError(input, inputBox, message) {
   if (input === $inputEmail) {
     $loginErrorMessage.classList.add("error-message-email");
     input.classList.add("error-box-email");
-  } else {
+  } else if (input === $inputPassword) {
     $loginErrorMessage.classList.add("error-message-password");
     input.classList.add("error-box-password");
+  } else {
+    $loginErrorMessage.classList.add("error-message-password-repeat");
+    input.classList.add("error-box-password-repeat");
   }
   $loginErrorMessage.textContent = message;
   inputBox.append($loginErrorMessage);
@@ -23,7 +26,8 @@ export function removeLoginError(input, className) {
   if ($existErrorMessage) {
     $existErrorMessage.remove();
     if (input === $inputEmail) input.classList.remove("error-box-email");
-    else input.classList.remove("error-box-password");
+    else if (input === $inputPassword) input.classList.remove("error-box-password");
+    else input.classList.remove("error-box-password-repeat");
   }
 }
 

@@ -198,7 +198,8 @@ form {
 }
 
 .error-message-email,
-.error-message-password {
+.error-message-password,
+.error-message-password-repeat {
   font-size: 14px;
   font-weight: 400;
   color: var(--linkbrary-red);
@@ -206,7 +207,8 @@ form {
 }
 
 .login-input-email > .error-box-email,
-.login-input-password .error-box-password {
+.login-input-password .error-box-password,
+.login-input-password-repeat .error-box-password-repeat {
   border: 1px solid var(--linkbrary-red);
 }
 
