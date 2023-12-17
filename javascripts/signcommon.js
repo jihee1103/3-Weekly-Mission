@@ -59,15 +59,7 @@ function checkInputValid({target}) {
     emailInputValid();
   } else if (target === passwdInputElement) {
     passwdInputValid();
-  } else {
-    // 로그인 버튼이나 회원가입버튼 또는 엔터 누를때 검사하기 위함 
-    if (emailInputValid() && passwdInputValid()) {
-      return true;
-    } else {
-      emailInputValid();
-      passwdInputValid();
-    }
-  }
+  } 
 }
 
 // email, password input창 유효성 검사 이벤트 추가

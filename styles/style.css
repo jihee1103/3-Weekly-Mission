@@ -30,6 +30,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  border: 0;
+  cursor: pointer;
+}
 .wrap {
   max-width: 192rem;
   margin: 9.4rem auto 0;

@@ -1,11 +1,9 @@
 function accountValid() {
   emailInputElement.classList.add("error-border");
   emailErrorMentionElement.innerText = "이메일을 확인해주세요.";
-  emailInputElement.parentElement.append(emailErrorMentionElement);
   emailErrorMentionElement.style.display = "block";
   passwdInputElement.classList.add("error-border");
   passwdErrorMentionElement.innerText = "비밀번호를 확인해주세요.";
-  passwdInputElement.parentElement.append(passwdErrorMentionElement);
   passwdErrorMentionElement.style.display = "block";
 }
 
