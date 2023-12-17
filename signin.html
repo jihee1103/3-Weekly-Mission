@@ -24,22 +24,22 @@
   <form class="signin-form">
     <div class="email-section">
       <label for="email" class="email-label">이메일</label>
-      <input class="signin-input" type="email" name="email" id="email">
+      <input class="email-input signin-input" type="email" name="email" id="email">
+      <div class="email-result"></div>
     </div>
     <div class="password-section">
       <label for="password" class="password-label">비밀번호</label>
       <div class="password-field">
-        <img class="eye-off-icon" src="/svg/eye_off.svg" alt="눈감고있는 아이콘">
-        <input class="signin-input" type="password" name="password" id="password">
+        <img class="eye-icon" src="/svg/eye_off.svg">
+        <input class="password-input signin-input" type="password" name="password" id="password">
+        <div class="password-result"></div>
       </div>
     </div>
   </form>
   <section class="login-button-set">
-  <div class="login-button">
-      <a href="">
-        로그인
-      </a>
-    </div>
+    <button class="login-button" href="">
+      로그인
+    </button>
     <div class="social-login-button">
       <span>소셜 로그인</span>
       <div class="social-login-button-img">
@@ -54,5 +54,8 @@
       </div>
     </div>
   </section>
+
+  <script type="module" src="./javascript/signin.js"></script>
+
 </body>
 </html>

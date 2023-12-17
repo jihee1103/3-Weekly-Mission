@@ -49,7 +49,8 @@ body {
   position: relative;
 }
 
-.eye-on-icon {
+.eye-icon,
+.repeat-eye-icon {
   width: 1rem;
   position: absolute;
   top: 1.12rem;
@@ -75,7 +76,15 @@ label {
   border: 1px solid var(--linkbrary-primary-color);
 }
 
-.signin-button-set {
+.email-result,
+.password-result,
+.password-repeat-result {
+  color: var(--linkbrary-red);
+  font-family: Pretendard;
+  font-size: 0.875rem;
+}
+
+.signup-button-set {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,7 +94,7 @@ label {
   width: 25rem;
 }
 
-.signin-button {
+.signup-button {
   width: 100%;
   padding: 1rem 1.25rem;
   border-radius: 0.5rem;
@@ -93,16 +102,13 @@ label {
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-}
-
-.signin-button a {
   color: var(--grey-light);
   font-family: Pretendard;
   font-size: 1.125rem;
   font-weight: 600;
 }
 
-.social-signin-button {
+.social-signup-button {
   display: flex;
   width: 100%;
   padding: 0.75rem 1.5rem;
@@ -114,13 +120,13 @@ label {
   box-sizing: border-box;
 }
 
-.social-signin-button span {
+.social-signup-button span {
   color: var(--linkbrary-gray-100);
   font-family: Pretendard;
   font-size: 0.875rem;
 }
 
-.social-signin-button-img {
+.social-signup-button-img {
   display: flex;
   gap: 1rem;
 }
@@ -139,7 +145,7 @@ label {
 
 @media (max-width: 768px) { 
   .signup-form,
-  .signin-button-set {
+  .signup-button-set {
     padding-left: 2rem;
     padding-right: 2rem;
     width: 100%;
