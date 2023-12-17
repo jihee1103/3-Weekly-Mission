@@ -114,6 +114,7 @@ form {
   cursor: pointer;
 }
 
+.sign-up-btn,
 .login-btn {
   margin-top: 30px;
   display: flex;

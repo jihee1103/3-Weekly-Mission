@@ -2,8 +2,19 @@ export const $inputEmailBox = document.querySelector(".login-input-email");
 export const $inputEmail = document.querySelector(".email-inputbox");
 export const $inputPasswordBox = document.querySelector(".login-input-password");
 export const $inputPassword = document.querySelector(".password-inputbox");
+export const $loginButton = document.querySelector(".login-btn");
+export const $eyeIcon = document.querySelectorAll(".eye");
+export const $inputPasswordRepeat = document.querySelector(".password-repeat-inputbox");
+export const $inputPasswordRepeatBox = document.querySelector(".login-input-password-repeat");
+export const $signupButton = document.querySelector(".sign-up-btn");
+export const users = [
+  {
+    id: "test@codeit.com",
+    password: "codeit101",
+  },
+];
 
-// 로그인 에러 메세지 생성
+// 에러 메세지 생성
 export function displayLoginError(input, inputBox, message) {
   const $loginErrorMessage = document.createElement("p");
   if (input === $inputEmail) {
@@ -20,7 +31,7 @@ export function displayLoginError(input, inputBox, message) {
   inputBox.append($loginErrorMessage);
 }
 
-// 로그인 에러 메세지 삭제
+// 에러 메세지 삭제
 export function removeLoginError(input, className) {
   const $existErrorMessage = document.querySelector(className);
   if ($existErrorMessage) {
@@ -31,33 +42,43 @@ export function removeLoginError(input, className) {
   }
 }
 
-// 이메일 값 유무 확인
-function checkInputEmail(e) {
+// 이메일 값 유무 확인, 형식 검사
+export function checkInputEmail() {
   const regEmail = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-  const isValidEmail = regEmail.test(e.target.value);
+  const isValidEmail = regEmail.test($inputEmail.value);
 
   // 에러 메세지가 존재하면 삭제
   removeLoginError($inputEmail, ".error-message-email");
-
   // 이메일 값이 없을 경우 에러 메세지 생성
-  if (!e.target.value) {
+  if (!$inputEmail.value) {
     displayLoginError($inputEmail, $inputEmailBox, "이메일을 입력해주세요.");
+    return false;
   } else if (!isValidEmail) {
     // 이메일 형식 검사
     displayLoginError($inputEmail, $inputEmailBox, "올바른 이메일 주소가 아닙니다.");
+    return false;
   }
+  return true;
 }
 
 // 비밀번호 값 유무 확인
-function checkInputPassword(e) {
+export function checkInputPassword() {
   // 에러 메세지가 존재하면 삭제
   removeLoginError($inputPassword, ".error-message-password");
 
-  if (!e.target.value) {
+  if (!$inputPassword.value) {
     displayLoginError($inputPassword, $inputPasswordBox, "비밀번호를 입력해주세요.");
+    return false;
   }
+  return true;
 }
 
-// 로그인 이벤트 리스너 추가
-$inputEmail.addEventListener("focusout", checkInputEmail);
-$inputPassword.addEventListener("focusout", checkInputPassword);
+// 눈 모양 아이콘
+export function toggleDisplayPassword(e) {
+  const parentEle = e.target.parentElement;
+  const passwordInputBox = parentEle.children[0];
+  const currentType = passwordInputBox.type;
+  passwordInputBox.type = currentType === "password" ? "text" : "password";
+  e.target.style.backgroundImage =
+    currentType === "password" ? "url(/asset/eye-on.svg)" : "url(/asset/eye-off.svg)";
+}
