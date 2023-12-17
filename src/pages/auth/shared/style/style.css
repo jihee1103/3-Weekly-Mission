@@ -113,8 +113,31 @@ form {
   }
 }
 
+.input-box-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.6rem;
+}
+
+.email-input-box,
 .password-input-box {
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.6rem;
+}
+
+.error-box {
+  border-color: var(--Linkbrary-red, #ff5b56);
+}
+
+.form-validation-message {
+  color: var(--Linkbrary-red, #ff5b56);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: normal;
+  display: inline-block;
 }
 
 .password-eye-controller {
