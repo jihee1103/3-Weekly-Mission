@@ -1,4 +1,4 @@
-import { addStyles, deleteStyles } from "./input-style";
+import { addStyles, deleteStyles } from "./input-style.js";
 
 const signForm = document.querySelector(".sign-form");
 const signInputEmail = document.querySelector(".email");
