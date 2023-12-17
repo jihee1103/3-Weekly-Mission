@@ -1,5 +1,5 @@
 import {
-  form,
+  formElement,
   emailInput,
   pwInput,
   pwRepeatInput,
@@ -41,9 +41,9 @@ function checkSubmitError(e) {
 
   // 에러 발생 확인 및 처리
   if (emailInput.value === 'test@codeit.com' && pwInput.value === 'codeit101') {
-    form.action = '/folder.html';
-    form.method = 'GET';
-    form.submit();
+    formElement.action = '/folder.html';
+    formElement.method = 'GET';
+    formElement.submit();
   } else {
     if (emailInput.value !== 'test@codeit.com') {
       emailInput.classList.add('error-border');
@@ -58,5 +58,5 @@ function checkSubmitError(e) {
 
 emailInput.addEventListener('focusout', checkError);
 pwInput.addEventListener('focusout', checkError);
-form.addEventListener('submit', checkSubmitError);
+formElement.addEventListener('submit', checkSubmitError);
 pwVisibilityIcon.addEventListener('click', togglePWVisibility);

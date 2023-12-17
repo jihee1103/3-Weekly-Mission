@@ -1,5 +1,5 @@
 import {
-  form,
+  formElement,
   emailInput,
   pwInput,
   pwRepeatInput,
@@ -8,9 +8,9 @@ import {
   pwRepeatError,
   pwVisibilityIcon,
   pwRepeatVisibilityIcon,
-  emailValid,
-  pwValid,
-  pwRepeatValid,
+  isValidEmail,
+  isValidPW,
+  isValidPWRepeat,
   validateSignUpEmail,
   validatePW,
   validatePWRepeat,
@@ -48,20 +48,20 @@ function checkSubmitError(e) {
   pwRepeatError.textContent = '';
 
   // 에러 발생 확인 및 처리
-  if (emailValid && pwValid && pwRepeatValid) {
-    form.action = '/folder.html';
-    form.method = 'GET';
-    form.submit();
+  if (isValidEmail && isValidPW && isValidPWRepeat) {
+    formElement.action = '/folder.html';
+    formElement.method = 'GET';
+    formElement.submit();
   } else {
-    if (!emailValid) {
+    if (!isValidEmail) {
       emailInput.classList.add('error-border');
       emailError.textContent = '이메일을 확인해 주세요.';
     }
-    if (!pwValid) {
+    if (!isValidPW) {
       pwInput.classList.add('error-border');
       pwError.textContent = '비밀번호를 확인해 주세요.';
     }
-    if (!pwRepeatValid) {
+    if (!isValidPWRepeat) {
       pwRepeatInput.classList.add('error-border');
       pwRepeatError.textContent = '비밀번호를 다시 확인해 주세요.';
     }
@@ -71,6 +71,6 @@ function checkSubmitError(e) {
 emailInput.addEventListener('focusout', checkError);
 pwInput.addEventListener('focusout', checkError);
 pwRepeatInput.addEventListener('focusout', checkError);
-form.addEventListener('submit', checkSubmitError);
+formElement.addEventListener('submit', checkSubmitError);
 pwVisibilityIcon.addEventListener('click', togglePWVisibility);
 pwRepeatVisibilityIcon.addEventListener('click', togglePWRepeatVisibility);
