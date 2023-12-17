@@ -1,60 +1,60 @@
 import {
   inputEmail,
   inputPassword,
-  emailAlert,
-  passwordAlert,
+  emailErrorMessage,
+  passwordErrorMessage,
   inputSection,
 } from "./ingredient/tags.js";
 
-import errorEmailAlert from "./ingredient/error_alert.js";
+import emailError from "./ingredient/error_message.js";
 
 import showHidePassword from "./ingredient/show_hide.js";
 
 const signupButton = document.querySelector("#signup-button");
-const passwordCheckAlert = document.querySelector("#password-check-alert");
+const passwordCheckError = document.querySelector("#password-check-error");
 const inputPasswordCheck = document.querySelector("#password-check-input");
 
 const CHECK_PASSWORD = /^(?=.*?[a-zA-Z])(?=.*?[0-9])[a-zA-Z0-9]{8,}$/;
 
-function checkEmailAlert() {
+function checkEmailError() {
   if (inputEmail.value === "test@codeit.com") {
-    inputEmail.classList.add("alert-input");
-    emailAlert.textContent = "이미 사용 중인 이메일입니다.";
-    emailAlert.style.display = "INLINE";
+    inputEmail.classList.add("error-input");
+    emailErrorMessage.textContent = "이미 사용 중인 이메일입니다.";
+    emailErrorMessage.style.display = "INLINE";
   } else {
-    return errorEmailAlert();
+    return emailError();
   }
 }
 
-function checkPasswordAlert() {
+function checkPasswordError() {
   const value = inputPassword.value;
   if (!CHECK_PASSWORD.test(value)) {
-    passwordAlert.textContent =
+    passwordErrorMessage.textContent =
       "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
-    passwordAlert.style.display = "INLINE";
-    inputPassword.classList.add("alert-input");
+    passwordErrorMessage.style.display = "INLINE";
+    inputPassword.classList.add("error-input");
   } else {
-    passwordAlert.style.display = "NONE";
-    inputPassword.classList.remove("alert-input");
+    passwordErrorMessage.style.display = "NONE";
+    inputPassword.classList.remove("error-input");
     return "pass";
   }
 }
 
-function checkPasswordSameAlert() {
+function checkPasswordSameError() {
   const value = inputPasswordCheck.value;
   if (inputPassword.value !== value) {
-    passwordCheckAlert.textContent = "비밀번호가 일치하지 않아요.";
-    passwordCheckAlert.style.display = "INLINE";
-    inputPasswordCheck.classList.add("alert-input");
+    passwordCheckError.textContent = "비밀번호가 일치하지 않아요.";
+    passwordCheckError.style.display = "INLINE";
+    inputPasswordCheck.classList.add("error-input");
   } else {
-    passwordCheckAlert.style.display = "NONE";
-    inputPasswordCheck.classList.remove("alert-input");
+    passwordCheckError.style.display = "NONE";
+    inputPasswordCheck.classList.remove("error-input");
     return "pass";
   }
 }
 
 function checkSignup() {
-  if (checkEmailAlert() && checkPasswordAlert() && checkPasswordSameAlert()) {
+  if (checkEmailError() && checkPasswordError() && checkPasswordSameError()) {
     location.href = "folder.html";
   }
 }
@@ -65,10 +65,10 @@ function pressEnterSignup(e) {
   }
 }
 
-inputEmail.addEventListener("focusout", checkEmailAlert);
-inputPassword.addEventListener("focusout", checkPasswordAlert);
-inputPassword.addEventListener("focusout", checkPasswordSameAlert);
-inputPasswordCheck.addEventListener("input", checkPasswordSameAlert);
+inputEmail.addEventListener("focusout", checkEmailError);
+inputPassword.addEventListener("focusout", checkPasswordError);
+inputPassword.addEventListener("focusout", checkPasswordSameError);
+inputPasswordCheck.addEventListener("input", checkPasswordSameError);
 
 signupButton.addEventListener("click", checkSignup);
 inputSection.addEventListener("keypress", pressEnterSignup);

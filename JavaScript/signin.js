@@ -1,24 +1,24 @@
 import {
   inputEmail,
   inputPassword,
-  emailAlert,
-  passwordAlert,
+  emailErrorMessage,
+  passwordErrorMessage,
   inputSection,
 } from "./ingredient/tags.js";
 
-import errorEmailAlert from "./ingredient/error_alert.js";
+import emailError from "./ingredient/error_message.js";
 import showHidePassword from "./ingredient/show_hide.js";
 
 const signinButton = document.querySelector("#signin-button");
 
-function errorPasswordAlert() {
+function passwordError() {
   if (inputPassword.value) {
-    passwordAlert.style.display = "NONE";
-    inputPassword.classList.remove("alert-input");
+    passwordErrorMessage.style.display = "NONE";
+    inputPassword.classList.remove("error-input");
   } else {
-    passwordAlert.textContent = "비밀번호를 입력해 주세요.";
-    passwordAlert.style.display = "INLINE";
-    inputPassword.classList.add("alert-input");
+    passwordErrorMessage.textContent = "비밀번호를 입력해 주세요.";
+    passwordErrorMessage.style.display = "INLINE";
+    inputPassword.classList.add("error-input");
   }
 }
 
@@ -29,12 +29,12 @@ function checkSignin() {
   ) {
     location.href = "folder.html";
   } else {
-    emailAlert.textContent = "이메일을 확인해 주세요.";
-    passwordAlert.textContent = "비밀번호를 확인해 주세요.";
-    emailAlert.style.display = "INLINE";
-    passwordAlert.style.display = "INLINE";
-    inputEmail.classList.add("alert-input");
-    inputPassword.classList.add("alert-input");
+    emailErrorMessage.textContent = "이메일을 확인해 주세요.";
+    passwordErrorMessage.textContent = "비밀번호를 확인해 주세요.";
+    emailErrorMessage.style.display = "INLINE";
+    passwordErrorMessage.style.display = "INLINE";
+    inputEmail.classList.add("error-input");
+    inputPassword.classList.add("error-input");
   }
 }
 
@@ -44,8 +44,8 @@ function pressEnterSignin(e) {
   }
 }
 
-inputEmail.addEventListener("focusout", errorEmailAlert);
-inputPassword.addEventListener("focusout", errorPasswordAlert);
+inputEmail.addEventListener("focusout", emailError);
+inputPassword.addEventListener("focusout", passwordError);
 
 signinButton.addEventListener("click", checkSignin);
 inputSection.addEventListener("keypress", pressEnterSignin);
