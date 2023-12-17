@@ -165,3 +165,30 @@ header {
   }
 
 }
+
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sign-input {
+  width: 100%;
+}
+
+.eye-button {
+  position: absolute;
+  right: 10px;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.input-error {
+  border: 1px solid red;
+}

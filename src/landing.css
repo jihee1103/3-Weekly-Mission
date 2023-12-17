@@ -92,38 +92,40 @@ article {
 section {
   display: grid;
   justify-content: center;
-  column-gap: 15.7rem;
   row-gap: 1rem;
   width: 100%;
   height: 55rem;
   padding: 50px 0;
 }
 
+@media (min-width: 1200px) {
+  section {
+    column-gap: 15.7rem;
+  }
+}
+
 section:nth-of-type(odd) {
   grid-template:
     ". image"
     "title image"
+    "description image"
     ". image"
-    /291px 55rem;
 }
 
 section:nth-of-type(even) {
   grid-template:
     "image ."
     "image title"
+    "image description"
     "image ."
-    /550px 29.1rem;
 }
 
 .title {
+  grid-area: title;
   font-size: 4.8rem;
   font-weight: 700;
   line-height: 5.8rem;
   letter-spacing: -0.03rem;
-}
-
-.text-box {
-  grid-area: title;
 }
 
 .title-1-gradient {
@@ -202,6 +204,7 @@ footer {
 
 /* 태블릿 사이즈 */
 @media (min-width: 768px) and (max-width: 1199px) {
+
   .gnb {
     justify-content: space-between;
     padding-left: 32px;
@@ -216,21 +219,16 @@ footer {
   }
 
   section {
-    section {
-      display: grid;
-      justify-content: center;
-      column-gap: 15.7rem;
-      row-gap: 1rem;
-      width: 100%;
-      height: 55rem;
-      padding: 50px 0;
-    }
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    height: 55rem;
+    padding-left: 32px;
+    padding-right: 32px;
+    gap: 25px;
   }
 
   section:nth-of-type(odd) {
-    grid-template-columns: 291px 1fr;
-    /* or 550px 1fr, etc. */
-    grid-template-rows: repeat(3, auto);
     grid-template:
       ". image"
       "title image"
@@ -239,9 +237,6 @@ footer {
   }
 
   section:nth-of-type(even) {
-    grid-template-columns: 291px 1fr;
-    /* or 550px 1fr, etc. */
-    grid-template-rows: repeat(3, auto);
     grid-template:
       "image ."
       "image title"
@@ -250,17 +245,12 @@ footer {
   }
 
   .description {
-    /* display: flex;
-    width: 262px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px; */
-
     grid-area: description;
     font-size: 1.6rem;
     font-weight: 500;
     color: #6b6b6b;
     line-height: 150%;
+    width: 300px;
   }
 
   .title {
@@ -269,12 +259,14 @@ footer {
     font-weight: 700;
     line-height: 5.8rem;
     letter-spacing: -0.03rem;
+    width: 300px;
   }
 
   .content-image {
     grid-area: image;
-    width: 385px;
-    height: 315px;
+    width: 550px;
+    height: 450px;
+    margin: 32px
   }
 }
 
@@ -320,22 +312,20 @@ footer {
   section:nth-of-type(odd) {
     grid-template:
       "title"
-      "description"
       "image"
-
+      "description";
   }
 
   section:nth-of-type(even) {
     grid-template:
       "title"
-      "description"
       "image"
-
+      "description";
   }
 
   .title {
     grid-area: title;
-    text-align: center;
+    text-align: left;
     margin: 0 32px;
     font-family: Pretendard;
     font-size: 24px;
