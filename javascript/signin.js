@@ -4,6 +4,7 @@ const signinButton = document.querySelector("#signin-button");
 const inputError = document.querySelector(".inputbox-error");
 const emailErrorMessage = document.querySelector("#email-error-message");
 const passwordErrorMessage = document.querySelector("#password-error-message");
+const passwordOnOff = document.querySelector("#password-show-hide");
 
 function checkEmail() {
   const regEmail =
@@ -53,6 +54,20 @@ function pressEnterToSignIn(e) {
     signIn();
   }
 }
+
+function showAndHidePassword(elementbutton, elementInput) {
+  if (elementInput.type == "password") {
+    elementInput.type = "text";
+    elementbutton.src = "./image/eye-on.svg";
+  } else if (elementInput.type == "text") {
+    elementInput.type = "password";
+    elementbutton.src = "./image/eye-off.svg";
+  }
+}
+
+passwordOnOff.addEventListener("click", () => {
+  showAndHidePassword(passwordOnOff, inputPassword);
+});
 
 inputEmail.addEventListener("focusout", checkEmail);
 inputPassword.addEventListener("focusout", checkPassword);

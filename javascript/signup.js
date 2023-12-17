@@ -8,6 +8,10 @@ const passwordErrorMessage = document.querySelector("#password-error-message");
 const confirmPasswordErrorMessage = document.querySelector(
   "#confirm-password-error-message"
 );
+const passwordOnOff = document.querySelector("#password-show-hide");
+const confirmPasswordOnOff = document.querySelector(
+  "#confirm-password-show-hide"
+);
 
 let verifyEmail = false;
 let verifyPassword = false;
@@ -84,6 +88,24 @@ function pressEnterToSignIn(e) {
     signIn();
   }
 }
+
+function showAndHidePassword(elementbutton, elementInput) {
+  if (elementInput.type == "password") {
+    elementInput.type = "text";
+    elementbutton.src = "./image/eye-on.svg";
+  } else if (elementInput.type == "text") {
+    elementInput.type = "password";
+    elementbutton.src = "./image/eye-off.svg";
+  }
+}
+
+passwordOnOff.addEventListener("click", () => {
+  showAndHidePassword(passwordOnOff, inputPassword);
+});
+
+confirmPasswordOnOff.addEventListener("click", () => {
+  showAndHidePassword(confirmPasswordOnOff, inputConfirmPassword);
+});
 
 inputEmail.addEventListener("focusout", checkEmail);
 inputPassword.addEventListener("focusout", checkPassword);
