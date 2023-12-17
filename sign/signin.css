@@ -1,3 +1,7 @@
+@import '/shared/reset.css';
+@import '/shared/color.css';
+@import './common.css';
+
 .password-form {
   padding-bottom: 30px;
 }

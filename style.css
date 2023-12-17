@@ -1,3 +1,6 @@
+@import '/shared/reset.css';
+@import '/shared/color.css';
+
 body {
   position: relative;
 }
@@ -8,7 +11,7 @@ body {
   top: 0;
   display: flex;
   justify-content: center;
-  background-color: #f0f6ff;
+  background-color: var(--Linkbrary-bg);
 }
 
 .nav {
@@ -24,7 +27,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(91deg, #6d6afe 0%, #6ae3fe 100%);
+  background: linear-gradient(91deg, var(--Linkbrary-primary-color) 0%, #6ae3fe 100%);
   color: #f5f5f5;
   cursor: pointer;
   border-radius: 8px;
@@ -51,7 +54,7 @@ body {
 
 .hero-section {
   padding-top: 70px;
-  background-color: #f0f6ff;
+  background-color: var(--Linkbrary-bg);
 }
 
 .hero-article {
@@ -70,7 +73,7 @@ body {
 }
 
 .hero-article__title--gradient {
-  background: linear-gradient(91deg, #6d6afe 0%, #ff9f9f 100%);
+  background: linear-gradient(91deg, var(--Linkbrary-primary-color) 0%, #ff9f9f 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
