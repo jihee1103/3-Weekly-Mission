@@ -15,7 +15,6 @@ import {
   validatePW,
   validatePWRepeat,
   togglePWVisibility,
-  togglePWRepeatVisibility,
 } from './common.js';
 
 // input focusout 에러 확인
@@ -72,5 +71,9 @@ emailInput.addEventListener('focusout', checkError);
 pwInput.addEventListener('focusout', checkError);
 pwRepeatInput.addEventListener('focusout', checkError);
 formElement.addEventListener('submit', checkSubmitError);
-pwVisibilityIcon.addEventListener('click', togglePWVisibility);
-pwRepeatVisibilityIcon.addEventListener('click', togglePWRepeatVisibility);
+pwVisibilityIcon.addEventListener('click', () => {
+  togglePWVisibility(pwVisibilityIcon, pwInput);
+});
+pwRepeatVisibilityIcon.addEventListener('click', () => {
+  togglePWVisibility(pwRepeatVisibilityIcon, pwRepeatInput);
+});

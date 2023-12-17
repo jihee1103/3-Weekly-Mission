@@ -59,4 +59,6 @@ function checkSubmitError(e) {
 emailInput.addEventListener('focusout', checkError);
 pwInput.addEventListener('focusout', checkError);
 formElement.addEventListener('submit', checkSubmitError);
-pwVisibilityIcon.addEventListener('click', togglePWVisibility);
+pwVisibilityIcon.addEventListener('click', () => {
+  togglePWVisibility(pwVisibilityIcon, pwInput);
+});

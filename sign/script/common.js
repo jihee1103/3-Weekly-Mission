@@ -97,16 +97,10 @@ function validatePWRepeat() {
 }
 
 // 눈 모양 아이콘 토글
-function togglePWVisibility(e) {
-  const type = pwInput.getAttribute('type') === 'password' ? 'text' : 'password';
-  pwInput.setAttribute('type', type);
-  e.target.src = type === 'password' ? 'icons/eye-off.svg' : 'icons/eye-on.svg';
-}
-
-function togglePWRepeatVisibility(e) {
-  const type = pwRepeatInput.getAttribute('type') === 'password' ? 'text' : 'password';
-  pwRepeatInput.setAttribute('type', type);
-  e.target.src = type === 'password' ? 'icons/eye-off.svg' : 'icons/eye-on.svg';
+function togglePWVisibility(icon, input) {
+  const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+  input.setAttribute('type', type);
+  icon.src = type === 'password' ? 'icons/eye-off.svg' : 'icons/eye-on.svg';
 }
 
 export {
@@ -129,5 +123,4 @@ export {
   validatePW,
   validatePWRepeat,
   togglePWVisibility,
-  togglePWRepeatVisibility,
 };
