@@ -23,21 +23,25 @@
         <div class="login-info email">
           <label>이메일</label>
           <input
+            id="email"
             name="email"
             type="email"
           />
         </div>
+        <div id="email-error"></div>
   
         <div class="login-info pw">
           <label>비밀번호</label>
           <div class="pw-box">
             <input
+            id="password"
             name="password"
             type="password"
             />
             <img class="eye-off" src="./images/eye-off.svg"/>
           </div>
         </div>
+        <div id="pw-error"></div>
       </div>
       <button>로그인</button>
      </div>
@@ -62,5 +66,7 @@
         </div>
       </div>
     </form>
+    <script src="validation..js"></script>
+    <script src="login.js"></script>
   </body>
 </html>
