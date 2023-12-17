@@ -1,6 +1,7 @@
 const controller = new AbortController();
 const signal = controller.signal;
 const $form = document.signForm;
+const $passwordShowBtns = $form.querySelectorAll('button[type="button"]');
 const mockUserList = [
   {
     id: 'test@codeit.com',
@@ -70,7 +71,7 @@ function getErrorMessage(event, eventTarget) {
         return errmsg;
       case 'password-check':
         if (!formRegexTest('password-check')) {
-          return (errmsg = '비밀번호가 일치하지 않아요.');
+          return '비밀번호가 일치하지 않아요.';
         }
         break;
       default:
@@ -132,8 +133,6 @@ function passwordShowHandler() {
 $form.addEventListener('focusout', formValidation, { signal });
 $form.addEventListener('input', formValidation, { signal });
 $form.addEventListener('submit', submitHandler, { signal });
-
-const $sumbitBtns = $form.querySelectorAll('button[type="button"]');
-$sumbitBtns.forEach($btn => {
+$passwordShowBtns.forEach($btn => {
   $btn.addEventListener('click', passwordShowHandler());
 });
