@@ -1,8 +1,9 @@
 //데이터
 const emailInput = document.querySelector("#signup-email");
-const passwordInput = document.querySelector("#signup-password");
+const passInput = document.querySelector("#password");
 const inputs = document.querySelectorAll(".input");
 const errorMessage = document.querySelectorAll(".message");
+const secondPassInput = document.querySelector("#check-password");
 
 //이메일 에러
 function validEmail(e) {
@@ -21,4 +22,29 @@ function validEmail(e) {
   }
 }
 
+function passChecker(e) {
+  const pass = e.target.value;
+  if (pass.length === 0) {
+    errorMessage[1].textContent = "비밀번호를 입력해주세요.";
+    errorMessage[1].classList.add("error");
+    passInput.classList.add("error-border");
+  } else {
+    passInput.classList.remove("error-border");
+    errorMessage[1].remove();
+  }
+}
+
+function signupPassChecker(e) {
+  if (passInput.value !== secondPassInput.value) {
+    errorMessage[2].textContent = "비밀번호가 일지하지 않습니다.";
+    errorMessage[2].classList.add("error");
+    secondPassInput.classList.add("error-border");
+  } else {
+    secondPassInput.classList.remove("error-border");
+    errorMessage[2].remove();
+  }
+}
+
 emailInput.addEventListener("focusout", validEmail);
+passInput.addEventListener("focusout", passChecker);
+secondPassInput.addEventListener("focusout", signupPassChecker);
