@@ -21,25 +21,28 @@
       <form class="sign-form">
         <div class="sign-inputs">
           <div class="sign-input-box">
-            <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <label class="sign-input-label" for="email">이메일</label>
+            <input class="sign-input" type="text" name="email" id="email"/>
+            <span id="email-error"></span>
           </div>
           <div class="sign-input-box sign-password">
-            <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
+            <label class="sign-input-label" for="password">비밀번호</label>
+            <input class="sign-input" type="password" name="password" id="password"/>
             <button class="eye-button" type="button">
               <img src="./images/eye-off.svg" />
             </button>
+            <span id="password-error"></span>
           </div>
           <div class="sign-input-box sign-password">
-            <label class="sign-input-label">비밀번호 확인</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
+            <label class="sign-input-label" for="password-double">비밀번호 확인</label>
+            <input class="sign-input" type="password" name="password-double" id="password-double"/>
+            <button class="eye-button" type="button" id="eye-button-double">
               <img src="./images/eye-off.svg" />
             </button>
+            <span id="password-double-error"></span>
           </div>
         </div>
-        <button class="link" type="submit">회원가입</button>
+        <button class="link" type="submit" id="signup-btn">회원가입</button>
       </form>
       <div class="sns-box">
         <span class="sns-text">다른 방식으로 가입하기</span>
@@ -53,5 +56,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="./js/signup.js"></script>
   </body>
 </html>
