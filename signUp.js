@@ -1,5 +1,9 @@
 import {default as common, signUpModule as signUp} from "./signModule.js";
 
+const {passwordConfirmInput, passwordConfirmFocusout} = signUp;
+const IMAGE_EYE_ON = "./images/signin-eye-on.svg";
+const IMAGE_EYE_OFF = "./images/signin-eye-off.svg";
+
 const {
   submitButton,
   emailInput,
@@ -45,17 +49,13 @@ function toggleEyeIcons() {
   if (passwordInput.type === 'password') {
     passwordConfirmInput.type = 'text';
     passwordInput.type = 'text';
-    common.eyeIcons.forEach((icon) => icon.src = "./images/signin-eye-on.svg");
+    common.eyeIcons.forEach((icon) => icon.src = IMAGE_EYE_ON);
   } else {
     passwordInput.type = 'password';
     passwordConfirmInput.type = 'password';
-    common.eyeIcons.forEach((icon) => icon.src = "./images/signin-eye-off.svg");
+    common.eyeIcons.forEach((icon) => icon.src = IMAGE_EYE_OFF);
   }
 }
-
-const {passwordConfirmInput, passwordConfirmFocusout} = signUp;
-
-console.log(eyeIcons);
 
 //addEventListeners
 emailInput.addEventListener('focusout', emailFocusout.bind(common));
