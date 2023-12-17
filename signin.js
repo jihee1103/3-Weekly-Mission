@@ -1,27 +1,22 @@
+import { addStyles, deleteStyles } from "./input-style";
+
 const signForm = document.querySelector(".sign-form");
 const signInputEmail = document.querySelector(".email");
 const signInputPw = document.querySelector(".password1");
 const emailErrMsg = document.querySelector(".emailErrMsg");
 const pwErrMsg = document.querySelector(".pwErrMsg");
 const eyeBtn1 = document.querySelector(".pw1");
-const btn = document.querySelector(".cta");
 
-const INPUT_ERROR_STYLE = "sign-input-error";
-const INPUT_ERROR_MSG_STYLE = "sign-input-errMsg";
-
-function addStyles(signInput, errMsgObj, errMsgText) {
-  signInput.classList.add(INPUT_ERROR_STYLE);
-  errMsgObj.classList.add(INPUT_ERROR_MSG_STYLE);
-  errMsgObj.classList.remove("hide");
-  errMsgObj.textContent = errMsgText;
+// 이메일 유효성 검사 함수
+function handleValidationEmail() {
+  if (signInputEmail.value === "") {
+    addStyles(signInputEmail, emailErrMsg, `이메일을 입력해주세요.`);
+  } else if (signInputEmail.value !== "") {
+    deleteStyles(signInputEmail, emailErrMsg);
+  }
 }
 
-function deleteStyles(signInput, errMsgObj) {
-  signInput.classList.remove("sign-input-error");
-  errMsgObj.classList.remove("sign-input-errMsg");
-  errMsgObj.classList.add("hide");
-}
-
+// 비밀번호 유효성 검사 함수
 function handleValidationPw() {
   if (signInputPw.value === "") {
     addStyles(signInputPw, pwErrMsg, `비밀번호를 입력해주세요.`);
@@ -32,14 +27,7 @@ function handleValidationPw() {
   }
 }
 
-function handleValidationEmail() {
-  if (signInputEmail.value === "") {
-    addStyles(signInputEmail, emailErrMsg, `이메일을 입력해주세요.`);
-  } else if (signInputEmail.value !== "") {
-    deleteStyles(signInputEmail, emailErrMsg);
-  }
-}
-
+// 로그인 유효성 검사 함수
 function handleSumbmit(e) {
   if (
     signInputEmail.value === "test@codeit.com" &&
