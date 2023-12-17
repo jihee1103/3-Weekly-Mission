@@ -154,3 +154,14 @@ button {
   flex-shrink: 0;
   inset: 10px;
 }
+
+.error {
+  border: 1px solid red;
+}
+
+.error-message {
+  font-size: 14px;
+  color: red;
+  display: none;
+  margin-top: 5px;
+}
