@@ -83,9 +83,9 @@ function signUp() {
   }
 }
 
-function pressEnterToSignIn(e) {
-  if (e.target.tagName === "INPUT" && e.key === "Enter") {
-    signIn();
+function sendEnter(e) {
+  if (e.key === "Enter") {
+    signUp();
   }
 }
 
@@ -107,6 +107,9 @@ confirmPasswordOnOff.addEventListener("click", () => {
   showAndHidePassword(confirmPasswordOnOff, inputConfirmPassword);
 });
 
+inputEmail.addEventListener("keypress", sendEnter);
+inputPassword.addEventListener("keypress", sendEnter);
+inputConfirmPassword.addEventListener("keypress", sendEnter);
 inputEmail.addEventListener("focusout", checkEmail);
 inputPassword.addEventListener("focusout", checkPassword);
 inputConfirmPassword.addEventListener("focusout", checkConfirmPassword);

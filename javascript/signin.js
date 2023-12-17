@@ -43,14 +43,17 @@ function signIn() {
     inputEmail.value === "test@codeit.com" &&
     inputPassword.value === "codeit101"
   ) {
-    alert("로그인 성공");
+    location.href = "./folder.html";
   } else {
-    alert("로그인 실패");
+    emailErrorMessage.textContent = "이메일을 확인해주세요.";
+    passwordErrorMessage.textContent = "비밀번호를 확인해주세요.";
+    inputEmail.classList.add("inputbox-error");
+    inputPassword.classList.add("inputbox-error");
   }
 }
 
-function pressEnterToSignIn(e) {
-  if (e.target.tagName === "INPUT" && e.key === "Enter") {
+function sendEnter(e) {
+  if (e.key === "Enter") {
     signIn();
   }
 }
@@ -69,6 +72,8 @@ passwordOnOff.addEventListener("click", () => {
   showAndHidePassword(passwordOnOff, inputPassword);
 });
 
+inputEmail.addEventListener("keypress", sendEnter);
+inputPassword.addEventListener("keypress", sendEnter);
 inputEmail.addEventListener("focusout", checkEmail);
 inputPassword.addEventListener("focusout", checkPassword);
 signinButton.addEventListener("click", signIn);
