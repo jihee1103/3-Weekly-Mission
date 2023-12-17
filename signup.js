@@ -1,56 +1,97 @@
 const signupEmail = document.getElementById("signup-email");
-const noEmail = document.getElementById("no-email");
-const wrongEmail = document.getElementById("wrong-email");
+const errEmail = document.getElementById("err-email");
+const emailRegex = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
-function checkEmailValidation() {
-  const emailRegex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
+signupEmail.addEventListener("focusout", function () {
   if (!signupEmail.value) {
     // 빈칸일 때
-    noEmail.style.display = "block";
-    noEmail.style.color = "var(--linkbrary-red)";
-    wrongEmail.style.display = "none";
+    errEmail.style.display = "block";
+    errEmail.innerText = "이메일을 입력해주세요.";
     signupEmail.style.borderColor = "var(--linkbrary-red)";
   } else if (!emailRegex.test(signupEmail.value)) {
     // 이메일 형식 오류일 때
-    noEmail.style.display = "none";
-    wrongEmail.style.display = "block";
+    errEmail.style.display = "block";
+    errEmail.innerText = "올바른 이메일 주소가 아닙니다.";
+    signupEmail.style.borderColor = "var(--linkbrary-red)";
+  } else if (signupEmail.value === "test@codeit.com") {
+    errEmail.style.display = "block";
+    errEmail.innerText = "이미 사용중인 이메일입니다.";
     signupEmail.style.borderColor = "var(--linkbrary-red)";
   } else {
-    noEmail.style.display = "none";
-    wrongEmail.style.display = "none";
+    errEmail.style.display = "none";
     signupEmail.style.borderColor = "var(--linkbrary-gray-20)";
   }
-}
-
-signupEmail.addEventListener("focusout", checkEmailValidation);
+});
 
 const signupPassword = document.getElementById("signup-password");
-const signupRepassword = document.getElementById("signup-repassword");
-const noPassword = document.getElementById("no-password");
-const noRepassword = document.getElementById("no-repassword");
+const errPassword = document.getElementById("err-password");
+const pwdRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 
-function checkPasswordValidation() {
+signupPassword.addEventListener("focusout", function () {
   if (!signupPassword.value) {
     // 빈칸일 때
-    noPassword.style.display = "block";
+    errPassword.style.display = "block";
+    errPassword.innerText = "비밀번호를 입력해주세요.";
+    signupPassword.style.borderColor = "var(--linkbrary-red)";
+  } else if (!pwdRegex.test(signupPassword.value)) {
+    //8글자 미만 or 문자열만 있거나 숫자만 있는 경우
+    errPassword.style.display = "block";
+    errPassword.innerText =
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
     signupPassword.style.borderColor = "var(--linkbrary-red)";
   } else {
-    noPassword.style.display = "none";
+    errPassword.style.display = "none";
     signupPassword.style.borderColor = "var(--linkbrary-gray-20)";
   }
-}
-signupPassword.addEventListener("focusout", checkPasswordValidation);
+});
 
-function checkRePasswordValidation() {
+const signupRepassword = document.getElementById("signup-repassword");
+const errRepassword = document.getElementById("err-repassword");
+
+signupRepassword.addEventListener("focusout", function () {
   if (!signupRepassword.value) {
     // 빈칸일 때
-    noRepassword.style.display = "block";
+    errRepassword.style.display = "block";
+    errRepassword.innerText = "비밀번호를 입력해주세요.";
+    signupRepassword.style.borderColor = "var(--linkbrary-red)";
+  } else if (!pwdRegex.test(signupRepassword.value)) {
+    //8글자 미만 or 문자열만 있거나 숫자만 있는 경우
+    errRepassword.style.display = "block";
+    errRepassword.innerText =
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
+    signupRepassword.style.borderColor = "var(--linkbrary-red)";
+  } else if (signupPassword.value !== signupRepassword.value) {
+    //비밀번호가 일치하지 않을 때
+    errRepassword.style.display = "block";
+    errRepassword.innerText = "비밀번호가 일치하지 않아요.";
     signupRepassword.style.borderColor = "var(--linkbrary-red)";
   } else {
-    noRepassword.style.display = "none";
+    errRepassword.style.display = "none";
     signupRepassword.style.borderColor = "var(--linkbrary-gray-20)";
   }
-}
-signupRepassword.addEventListener("focusout", checkRePasswordValidation);
+});
 
-//같은 비밀번호인지 체크
+function submit() {
+  // e.preventDefault();
+  if (
+    errEmail.style.display == "none" &&
+    errPassword.style.display == "none" &&
+    errRepassword.style.display == "none"
+  ) {
+    alert("회원가입 성공");
+    const link = "folder.html";
+    window.location.href = link;
+  }
+}
+
+const button = document.getElementById("signup-btn");
+button.addEventListener("click", submit);
+
+// 키보드 엔터로 제출--안 먹어요..
+document
+  .getElementById("signup-form")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      submit();
+    }
+  });

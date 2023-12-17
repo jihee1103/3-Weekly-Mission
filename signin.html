@@ -30,7 +30,7 @@
           </div>
         </div>
 
-        <form>
+        <form id="signin-form">
           <!-- 라벨(인풋의 설명을 적음)과 인풋 연결 -->
           <div class="form-box">
             <div class="input-frame">
@@ -42,11 +42,7 @@
                 type="email"
                 required
               />
-              <p class="err-msg" id="no-email">이메일을 입력해주세요.</p>
-              <p class="err-msg" id="wrong-email">
-                올바른 이메일 주소가 아닙니다.
-              </p>
-              <p class="err-msg" id="check-email">이메일을 확인해주세요.</p>
+              <p class="err-msg" id="err-email">이메일을 입력해주세요.</p>
             </div>
             <div class="input-frame">
               <label class="form-name" for="signin-password">비밀번호</label>
@@ -57,15 +53,12 @@
                 type="password"
                 required
               />
-              <p class="err-msg" id="no-password">비밀번호를 입력해주세요.</p>
-              <p class="err-msg" id="check-password">
-                비밀번호를 확인해주세요.
-              </p>
+              <p class="err-msg" id="err-password">비밀번호를 입력해주세요.</p>
               <img src="images/eye-off.svg" class="eye-icon" />
             </div>
           </div>
           <div class="form-btn">
-            <button type="button" class="form-btn-gradient" id="login-btn">
+            <button type="button" class="form-btn-gradient" id="signin-btn">
               로그인
             </button>
           </div>

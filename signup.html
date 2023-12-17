@@ -30,7 +30,7 @@
           </div>
         </div>
 
-        <form>
+        <form id="signup-form">
           <!-- 라벨(인풋의 설명을 적음)과 인풋 연결 -->
           <div class="form-box">
             <div class="input-frame">
@@ -42,10 +42,7 @@
                 type="email"
                 required
               />
-              <p class="err-msg" id="no-email">이메일을 입력해주세요.</p>
-              <p class="err-msg" id="wrong-email">
-                올바른 이메일 주소가 아닙니다.
-              </p>
+              <p class="err-msg" id="err-email">이메일을 입력해주세요.</p>
             </div>
             <div class="input-frame">
               <label class="form-name" for="signup-password">비밀번호</label>
@@ -56,7 +53,7 @@
                 type="password"
                 required
               />
-              <p class="err-msg" id="no-password">비밀번호를 입력해주세요.</p>
+              <p class="err-msg" id="err-password">비밀번호를 입력해주세요.</p>
               <img src="images/eye-off.svg" class="eye-icon" />
             </div>
             <div class="input-frame">
@@ -70,18 +67,17 @@
                 type="password"
                 required
               />
-              <span class="err-msg" id="no-repassword"
-                >비밀번호를 입력해주세요.</span
-              >
-              <span class="err-msg" id="wrong-repassword"
-                >비밀번호가 다릅니다.</span
-              >
+              <p class="err-msg" id="err-repassword">
+                비밀번호를 입력해주세요.
+              </p>
               <img src="images/eye-off.svg" class="eye-icon" />
             </div>
           </div>
 
           <div class="form-btn">
-            <button type="submit" class="form-btn-gradient">회원가입</button>
+            <button type="button" class="form-btn-gradient" id="signup-btn">
+              회원가입
+            </button>
           </div>
         </form>
       </div>
