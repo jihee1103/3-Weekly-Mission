@@ -1,32 +1,30 @@
-const eyeBtn = document.querySelector(".eye-button");
 const eyeBtn1 = document.querySelector(".pw1");
 const eyeBtn2 = document.querySelector(".pw2");
-const eyeBtnOn = document.querySelector(".eye-button-on");
+const eyeBtnOnPw = document.querySelector(".eye-button-on");
 const eyeBtnOnPwCheck = document.querySelector(".eye-button-on-pwcheck");
 const signInputPw = document.querySelector(".password1");
 const signInputPwCheck = document.querySelector(".password2");
 
-function handleEyeBtnPw() {
-  eyeBtnOn.classList.toggle("hide");
-  eyeBtn1.classList.toggle("hide");
-  if (eyeBtn1.classList.contains("hide")) {
-    signInputPw.type = "text";
+const CLASS_HIDE = "hide";
+
+function handleEyeBtn(btnObj, btn, signInput) {
+  btnObj.classList.toggle(CLASS_HIDE);
+  btn.classList.toggle(CLASS_HIDE);
+  if (btn.classList.contains(CLASS_HIDE)) {
+    signInput.type = "text";
   } else {
-    signInputPw.type = "password";
+    signInput.type = "password";
   }
+}
+function handleEyeBtnPw() {
+  handleEyeBtn(eyeBtnOnPw, eyeBtn1, signInputPw);
 }
 
 function handleEyeBtnPwCheck() {
-  eyeBtnOnPwCheck.classList.toggle("hide");
-  eyeBtn2.classList.toggle("hide");
-  if (eyeBtn2.classList.contains("hide")) {
-    signInputPwCheck.type = "text";
-  } else {
-    signInputPwCheck.type = "password";
-  }
+  handleEyeBtn(eyeBtnOnPwCheck, eyeBtn2, signInputPwCheck);
 }
 
 eyeBtn1.addEventListener("click", handleEyeBtnPw);
-eyeBtnOn.addEventListener("click", handleEyeBtnPw);
+eyeBtnOnPw.addEventListener("click", handleEyeBtnPw);
 eyeBtn2.addEventListener("click", handleEyeBtnPwCheck);
 eyeBtnOnPwCheck.addEventListener("click", handleEyeBtnPwCheck);
