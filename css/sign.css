@@ -72,20 +72,50 @@ header {
   font-weight: 400;
 }
 
-.user.login-info {
+.input-label {
+  display: block;
+  margin-top: 1.8rem;
+}
+
+.inputbox {
   display: flex;
   width: 100%;
   padding: 1.8rem 1.5rem;
   justify-content: center;
   align-items: center;
-  margin: 1.2rem 0 2.4rem;
+  margin: 1.2rem 0 0.6rem;
   border-radius: 0.8rem;
   border: 1px solid var(--linkbrary-gray-20);
   background: var(--linkbrary-white);
 }
 
-.user.login-info:focus {
+.inputbox:focus {
   outline: 1px solid var(--linkbrary-primary);
+}
+
+.inputbox-error {
+  display: flex;
+  width: 100%;
+  padding: 1.8rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2rem 0 0.6rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--linkbrary-red);
+  background: var(--linkbrary-white);
+}
+
+.inputbox-error:focus {
+  border: 1px solid var(--linkbrary-gray-20);
+  outline: 1px solid var(--linkbrary-red);
+}
+
+#email-error-message,
+#password-error-message,
+#confirm-password-error-message {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--linkbrary-red);
 }
 
 .eye-off {
@@ -94,10 +124,11 @@ header {
   bottom: 1.8rem;
 }
 
-input.login-button {
+#signin-button,
+#signup-button {
   width: 100%;
   padding: 1.6rem 2rem;
-  margin-top: 0.6rem;
+  margin-top: 2.4rem;
   border: none;
   border-radius: 0.8rem;
   background: var(--gra-purpleblue-to-skyblue);

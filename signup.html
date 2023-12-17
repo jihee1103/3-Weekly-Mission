@@ -33,29 +33,32 @@
       </div>
     </header>
     <main>
-      <article class="article">
-        <label for="email">이메일</label>
-        <input type="email" class="user login-info" id="email" />
-        <label for="password">비밀번호</label>
+      <form class="form">
+        <label for="input-email" class="input-label">이메일</label>
+        <input type="email" class="inputbox" id="input-email" />
+        <p id="email-error-message"></p>
+        <label for="input-password" class="input-label">비밀번호</label>
         <div class="pwd">
-          <input type="password" class="user login-info" id="password" />
+          <input type="password" class="inputbox" id="input-password" />
+          <p id="password-error-message"></p>
           <img
             src="./image/eye-off.svg"
             alt="비밀번호 보이게 설정"
             class="eye-off"
           />
         </div>
-        <label for="password2">비밀번호 확인</label>
+        <label for="confirm-password" class="input-label">비밀번호 확인</label>
         <div class="pwd">
-          <input type="password" class="user login-info" id="password2" />
+          <input type="password" class="inputbox" id="confirm-password" />
+          <p id="confirm-password-error-message"></p>
           <img
             src="./image/eye-off.svg"
             alt="비밀번호 보이게 설정"
             class="eye-off"
           />
         </div>
-        <input type="submit" class="login-button" value="회원가입" />
-      </article>
+        <button type="button" id="signup-button">회원가입</button>
+      </form>
       <section class="social-login">
         <span>다른 방식으로 가입하기</span>
         <div class="icon">
@@ -68,5 +71,6 @@
         </div>
       </section>
     </main>
+    <script src="./javascript/signup.js"></script>
   </body>
 </html>

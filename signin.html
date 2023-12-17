@@ -35,18 +35,20 @@
     </header>
     <main>
       <form class="form">
-        <label for="email">이메일</label>
-        <input type="email" class="user login-info" id="email" />
-        <label for="password">비밀번호</label>
+        <label for="input-email" class="input-label">이메일</label>
+        <input type="email" class="inputbox" id="input-email" />
+        <p id="email-error-message"></p>
+        <label for="input-password" class="input-label">비밀번호</label>
         <div class="pwd">
-          <input type="password" class="user login-info" id="password" />
+          <input type="password" class="inputbox" id="input-password" />
+          <p id="password-error-message"></p>
           <img
             src="./image/eye-off.svg"
             alt="비밀번호 보이게 설정"
             class="eye-off"
           />
         </div>
-        <input type="submit" class="login-button" value="로그인" />
+        <button type="button" id="signin-button">로그인</button>
       </form>
       <section class="social-login">
         <span>소셜 로그인</span>
@@ -60,5 +62,6 @@
         </div>
       </section>
     </main>
+    <script src="./javascript/signin.js"></script>
   </body>
 </html>
