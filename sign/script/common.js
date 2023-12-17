@@ -21,7 +21,7 @@ let isValidPWRepeat = false;
 
 // 회원가입 이메일 유효성 검사
 function validateSignUpEmail() {
-  if (emailInput.value === '') {
+  if (!emailInput.value) {
     // input 공백 시 실행
     emailInput.classList.add('error-border');
     emailError.textContent = '이메일를 입력해주세요.';
@@ -46,7 +46,7 @@ function validateSignUpEmail() {
 
 // 로그인 이메일 유효성 검사
 function validateSignInEmail() {
-  if (emailInput.value === '') {
+  if (!emailInput.value) {
     emailInput.classList.add('error-border');
     emailError.textContent = '이메일를 입력해주세요.';
     isValidEmail = false;
@@ -63,7 +63,7 @@ function validateSignInEmail() {
 
 // PW 유효성 검사
 function validatePW() {
-  if (pwInput.value === '') {
+  if (!pwInput.value) {
     pwInput.classList.add('error-border');
     pwError.textContent = '비밀번호를 입력해주세요.';
     isValidPW = false;
@@ -80,11 +80,11 @@ function validatePW() {
 
 // PW-Repaet 유효성 검사
 function validatePWRepeat() {
-  if (pwRepeatInput.value === '') {
+  if (!pwRepeatInput.value) {
     pwRepeatInput.classList.add('error-border');
     pwRepeatError.textContent = '비밀번호를 다시 한번 입력해주세요.';
     isValidPWRepeat = false;
-  } else if (pwRepeatInput.value !== pwRepeatInput.value) {
+  } else if (pwRepeatInput.value !== pwInput.value) {
     // PW와 일치하지 않을 시 실행
     pwRepeatInput.classList.add('error-border');
     pwRepeatError.textContent = '비밀번호가 일치하지 않아요.';
