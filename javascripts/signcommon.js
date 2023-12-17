@@ -53,18 +53,9 @@ function passwdInputValid() {
   }
 }
 
-// target에 따라 함수 호출
-function checkInputValid({target}) {
-  if (target === emailInputElement) {
-    emailInputValid();
-  } else if (target === passwdInputElement) {
-    passwdInputValid();
-  } 
-}
-
 // email, password input창 유효성 검사 이벤트 추가
-emailInputElement.addEventListener("blur", checkInputValid);
-passwdInputElement.addEventListener("blur", checkInputValid);
+emailInputElement.addEventListener("blur", emailInputValid);
+passwdInputElement.addEventListener("blur", passwdInputValid);
 
 // eye-image toggle
 const eyeOffElements = document.querySelectorAll(".eye-off");

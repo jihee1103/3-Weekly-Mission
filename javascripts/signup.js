@@ -34,9 +34,9 @@ function checkEmail() {
 emailInputElement.addEventListener("blur", checkEmail);
 
 // 계정 존재 유무, input 유효성 검사, password 값은지 검사 후 모두 true라면 사이트 연결
-function signup(e) {
+function signup() {
   const emailDuplicationOk = checkEmail();
-  const passwdInputOk = passwdInputValid(e);
+  const passwdInputOk = passwdInputValid();
   const equalOk = checkPasswdEqual();
   if (equalOk && passwdInputOk && emailDuplicationOk) location.href = "/folder";
 }
