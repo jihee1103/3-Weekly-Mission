@@ -36,7 +36,7 @@ function passChecker(e) {
 
 function signupPassChecker(e) {
   if (passInput.value !== secondPassInput.value) {
-    errorMessage[2].textContent = "비밀번호가 일지하지 않습니다.";
+    errorMessage[2].textContent = "비밀번호가 일지하지 않아요.";
     errorMessage[2].classList.add("error");
     secondPassInput.classList.add("error-border");
   } else {
