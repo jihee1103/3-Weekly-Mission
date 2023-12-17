@@ -18,30 +18,24 @@ import {
   togglePWRepeatVisibility,
 } from './common.js';
 
-// input에 focusout 이벤트 발생 시 에러 확인
+// input focusout 에러 확인
 function checkError(e) {
   switch (e.target) {
-    // 이메일 유효성 검사
     case emailInput:
       validateSignUpEmail();
       break;
-
-    // 비밀번호 유효성 검사
     case pwInput:
       validatePW();
       break;
-
-    // 비밀번호 확인 유효성 검사
     case pwRepeatInput:
       validatePWRepeat();
       break;
-
     default:
       break;
   }
 }
 
-// submit 시 에러 체크
+// submit 에러 확인
 function checkSubmitError(e) {
   e.preventDefault();
 
