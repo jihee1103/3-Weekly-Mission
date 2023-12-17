@@ -207,7 +207,7 @@ form {
   margin-top: 6px;
 }
 
-.login-input-email > .error-box-email,
+.login-input-email .error-box-email,
 .login-input-password .error-box-password,
 .login-input-password-repeat .error-box-password-repeat {
   border: 1px solid var(--linkbrary-red);

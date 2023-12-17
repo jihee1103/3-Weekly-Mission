@@ -65,8 +65,9 @@ function checkSignup(e) {
 $eyeIcon.forEach((icon) => {
   icon.addEventListener("click", toggleDisplayPassword);
 });
-$inputEmail.addEventListener("focusout", checkInputEmail);
-$inputEmail.addEventListener("focusout", checkSignupDuplicateEmail);
+$inputEmail.addEventListener("focusout", () => {
+  if (checkInputEmail()) checkSignupDuplicateEmail();
+});
 $inputPassword.addEventListener("focusout", checkPasswordRepeat);
 $inputPassword.addEventListener("focusout", checkVaildPassword);
 $inputPasswordRepeat.addEventListener("focusout", checkPasswordRepeat);
