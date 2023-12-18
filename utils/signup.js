@@ -52,10 +52,10 @@ function checkSignupDuplicateEmail() {
 }
 
 function checkSignup(e) {
-  const isValidEmail = checkInputEmail();
   const isNoDuplicateEmail = checkSignupDuplicateEmail();
   const isValuePassword = checkInputPassword();
   const isValidPassword = checkVaildPassword();
+  const isValidEmail = checkInputEmail();
 
   if (isValidEmail && isNoDuplicateEmail && isValuePassword && isValidPassword) {
   } else e.preventDefault();
