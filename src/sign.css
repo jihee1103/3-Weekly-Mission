@@ -30,7 +30,6 @@ header #logo img {
 .header-bottom {
   color: var(--black);
   font-size: 1.6rem;
-  font-weight: 400;
   line-height: 2.4rem; /* 150% */
 }
 
@@ -39,13 +38,23 @@ header #logo img {
   font-weight: 600;
 }
 
-label {
+.sign-input-box .error-box {
+  border: 1px solid var(--red);
+}
+
+.sign-input-box .error-message {
+  display: inline-block;
+  color: var(--red);
   font-size: 1.4rem;
-  font-weight: 400;
+  margin-bottom: 2.4rem;
+}
+
+.sign-input-label {
+  font-size: 1.4rem;
   margin-bottom: 1.2rem;
 }
 
-input {
+.sign-input {
   display: flex;
   width: 40rem;
   padding: 1.8rem 1.5rem;
@@ -57,18 +66,20 @@ input {
   margin-top: 1.2rem;
 }
 
-input:focus {
+.sign-input:focus {
   border: 0.1rem solid var(--primary);
 }
 
-.password-container {
+.sign-password {
   position: relative;
 }
 
-.password-container img {
+.eye-button {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  bottom: 1.9rem;
+  right: 1.7rem;
+  width: 1.6rem;
+  height: 1.6rem;
   cursor: pointer;
 }
 
@@ -101,7 +112,6 @@ input:focus {
 
 .social-login-text {
   font-size: 1.4rem;
-  font-weight: 400;
 }
 
 .social-login-icon {
@@ -142,8 +152,8 @@ input:focus {
     padding: 12rem 3.2rem 23.2rem 3.2rem;
   }
 
-  input,
-  button,
+  .sign-input,
+  .sumbit-button,
   .social-login {
     width: 100%;
   }
