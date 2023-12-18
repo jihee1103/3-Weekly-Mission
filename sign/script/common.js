@@ -8,8 +8,7 @@ const emailErrorText = document.querySelector('#email-error');
 const passwordErrorText = document.querySelector('#password-error');
 const passwordRepeatErrorText = document.querySelector('#password-repeat-error');
 
-const passwordVisibilityIcon = document.querySelector('#password-visibility-icon');
-const passwordRepeatVisibilityIcon = document.querySelector('#password-repeat-visibility-icon');
+const visibilityIconList = document.querySelectorAll('.switch-icon');
 
 const emailRegex =
   /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
@@ -101,6 +100,7 @@ function togglePasswordVisibility(icon, input) {
   const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
   input.setAttribute('type', type);
   icon.src = type === 'password' ? 'icons/eye-off.svg' : 'icons/eye-on.svg';
+  console.log(icon);
 }
 
 export {
@@ -111,8 +111,7 @@ export {
   emailErrorText,
   passwordErrorText,
   passwordRepeatErrorText,
-  passwordVisibilityIcon,
-  passwordRepeatVisibilityIcon,
+  visibilityIconList,
   isValidEmail,
   isValidPassword,
   isValidPasswordRepeat,

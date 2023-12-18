@@ -5,7 +5,7 @@ import {
   passwordRepeatInput,
   emailErrorText,
   passwordErrorText,
-  passwordVisibilityIcon,
+  visibilityIconList,
   validateSignInEmail,
   validatePassword,
   validatePasswordRepeat,
@@ -59,6 +59,9 @@ function checkSubmitError(e) {
 emailInput.addEventListener('focusout', checkFocusOutError);
 passwordInput.addEventListener('focusout', checkFocusOutError);
 formElement.addEventListener('submit', checkSubmitError);
-passwordVisibilityIcon.addEventListener('click', () => {
-  togglePasswordVisibility(passwordVisibilityIcon, passwordInput);
+
+visibilityIconList.forEach((icon) => {
+  icon.addEventListener('click', function () {
+    togglePasswordVisibility(this, this.previousElementSibling);
+  });
 });
