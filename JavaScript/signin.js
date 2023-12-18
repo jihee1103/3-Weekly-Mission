@@ -11,6 +11,10 @@ import showHidePassword from "./ingredient/show_hide.js";
 
 const signinButton = document.querySelector("#signin-button");
 
+const localStorage = window.localStorage;
+
+if (localStorage.getItem("signin")) location.href = "folder.html";
+
 function passwordError() {
   if (inputPassword.value) {
     passwordErrorMessage.style.display = "NONE";
@@ -37,8 +41,10 @@ async function checkSignin() {
       body: JSON.stringify(user),
     });
 
-    if (post.status === 200) location.href = "folder.html";
-    else if (post.status === 400) {
+    if (post.status === 200) {
+      localStorage.setItem("signin", post);
+      location.href = "folder.html";
+    } else if (post.status === 400) {
       emailErrorMessage.textContent = "이메일을 확인해 주세요.";
       passwordErrorMessage.textContent = "비밀번호를 확인해 주세요.";
       emailErrorMessage.style.display = "INLINE";
@@ -46,7 +52,9 @@ async function checkSignin() {
       inputEmail.classList.add("error-input");
       inputPassword.classList.add("error-input");
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function pressEnterSignin(e) {

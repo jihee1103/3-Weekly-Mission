@@ -16,6 +16,10 @@ const inputPasswordCheck = document.querySelector("#password-check-input");
 
 const CHECK_PASSWORD = /^(?=.*?[a-zA-Z])(?=.*?[0-9])[a-zA-Z0-9]{8,}$/;
 
+const localStorage = window.localStorage;
+
+if (localStorage.getItem("signup")) location.href = "folder.html";
+
 async function checkEmailError() {
   const userEmail = {
     email: inputEmail.value,
@@ -89,6 +93,7 @@ async function checkSignup() {
       });
 
       if (post.status === 200) {
+        localStorage.setItem("signup", post);
         location.href = "folder.html";
       }
     } catch (error) {
