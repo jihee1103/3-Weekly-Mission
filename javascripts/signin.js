@@ -8,7 +8,7 @@ import {
   formElement,
 } from "./signcommon.js";
 
-function accountCheck() {
+function checkAccount() {
   emailInputElement.classList.add("error-border");
   emailErrorMentionElement.innerText = "이메일을 확인해주세요.";
   emailErrorMentionElement.style.display = "block";
@@ -22,7 +22,7 @@ function signin() {
   emailInputElement.value === users.email &&
   passwdInputElement.value === users.passwd
     ? (location.href = "/folder")
-    : accountCheck();
+    : checkAccount();
 }
 
 // 클릭 및 엔터 시 signin
