@@ -121,7 +121,7 @@ a {
 .content-overview-img {
   position: relative;
   background: linear-gradient(180deg, rgba(196, 196, 196, 0) 67.68%, #f0f6ff 94.76%),
-    url(./asset/image01.png);
+    url(/asset/image01.png);
   background-size: cover;
   background-repeat: no-repeat;
   width: 1118px;
@@ -205,12 +205,12 @@ a {
 }
 
 .contents-savelink-img1 {
-  background-image: url("./asset/card01.png");
+  background-image: url("/asset/card01.png");
 }
 
 .contents-savelink-img2 {
   position: relative;
-  background-image: url("./asset/card02.png");
+  background-image: url("/asset/card02.png");
   margin: auto -12px;
 }
 
@@ -231,7 +231,7 @@ a {
 }
 
 .contents-savelink-img3 {
-  background-image: url("./asset/card03.png");
+  background-image: url("/asset/card03.png");
 }
 
 .contents-manage-folder-highlight {
@@ -270,7 +270,7 @@ a {
   justify-content: center;
   align-items: center;
   position: relative;
-  background-image: url(./asset/image01.png);
+  background-image: url(/asset/image01.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -288,7 +288,7 @@ a {
 }
 
 .contents-sharelink-popup {
-  background-image: url(./asset/popup.png);
+  background-image: url(/asset/popup.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -300,7 +300,7 @@ a {
 .contents-searchlink-bg {
   position: relative;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 48.72%, #000 128.17%),
-    url(./asset/image03.png);
+    url(/asset/image03.png);
   background-size: cover;
   width: 619px;
   height: 584px;

@@ -2,7 +2,7 @@ body {
   margin: 0;
   background: var(--linkbrary-bg);
   display: flex;
-  padding-top: 238px;
+  padding: 238px 0 253px 0;
   justify-content: center;
   align-items: center;
 }
@@ -60,12 +60,13 @@ form {
   gap: 24px;
 }
 
-.login-box label {
+.login-label {
   color: var(--linkbrary-black);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 12px;
 }
 
 .login-input {
@@ -73,7 +74,6 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
 }
 
 .login-input input {
@@ -114,6 +114,7 @@ form {
   cursor: pointer;
 }
 
+.sign-up-btn,
 .login-btn {
   margin-top: 30px;
   display: flex;
@@ -173,7 +174,7 @@ form {
 }
 
 .google-logo {
-  background-image: url(https://s3-alpha-sig.figma.com/img/a92e/9426/c3a9be9cb365010056fa7aa9cc9f05a2?Expires=1702252800&Signature=AHX7JA0FAvSf1Zsfs7ArmVmEA4PijPyaJKNaGrkhGGTHex0FyWOtTA3mvfcxC1M4NdAd6l8aqBw6FTjBEgI9SIpmptm8DxqJgrwaZrwmwxJJq4OWoqjFRU2twe3Kgoc5QujbwOVORXJnCAbkvX2lu1tjLjYXZ5SWpctzp9MFjoZiqd3xJJQrYD2KHv-DzwkHuFnUySPnGhfMY6b8vVpdBLRK3IjH0il5fB0YW-~YrRdaGEED43DdAG5Tl7HVzn8yov4aRCGZTIvPndPPzHa0-S0M5mxyJEtNU4bP7GReNtFEXM2rKgqT~cCvzMZ5nI917xpuuUULdBJVcyDB6~qMlQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+  background-image: url(/asset/googlelogo.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -197,9 +198,24 @@ form {
   height: 24px;
 }
 
+.error-message-email,
+.error-message-password,
+.error-message-password-repeat {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--linkbrary-red);
+  margin-top: 6px;
+}
+
+.login-input-email .error-box-email,
+.login-input-password .error-box-password,
+.login-input-password-repeat .error-box-password-repeat {
+  border: 1px solid var(--linkbrary-red);
+}
+
 @media (max-width: 1199px) {
   body {
-    padding: 200px 32px 0;
+    padding: 200px 32px 291px;
   }
 }
 
