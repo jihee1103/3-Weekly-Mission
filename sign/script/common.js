@@ -4,9 +4,9 @@ const emailInput = document.querySelector('.email-form__input');
 const passwordInput = document.querySelector('.password-form__input');
 const passwordRepeatInput = document.querySelector('.password-repeat-form__input');
 
-const emailError = document.querySelector('#email-error');
-const passwordError = document.querySelector('#password-error');
-const passwordRepeatError = document.querySelector('#password-repeat-error');
+const emailErrorText = document.querySelector('#email-error');
+const passwordErrorText = document.querySelector('#password-error');
+const passwordRepeatErrorText = document.querySelector('#password-repeat-error');
 
 const passwordVisibilityIcon = document.querySelector('#password-visibility-icon');
 const passwordRepeatVisibilityIcon = document.querySelector('#password-repeat-visibility-icon');
@@ -24,21 +24,21 @@ function validateSignUpEmail() {
   if (!emailInput.value) {
     // input 공백 시 실행
     emailInput.classList.add('error-border');
-    emailError.textContent = '이메일를 입력해주세요.';
+    emailErrorText.textContent = '이메일를 입력해주세요.';
     isValidEmail = false;
   } else if (emailRegex.test(emailInput.value) === false) {
     // 이메일 유형이 아닐 시 실행
     emailInput.classList.add('error-border');
-    emailError.textContent = '올바른 이메일 주소가 아닙니다.';
+    emailErrorText.textContent = '올바른 이메일 주소가 아닙니다.';
     isValidEmail = false;
   } else if (emailInput.value === 'test@codeit.com') {
     // test@codeit.com 입력 시 실행
     emailInput.classList.add('error-border');
-    emailError.textContent = '이미 사용 중인 이메일입니다.';
+    emailErrorText.textContent = '이미 사용 중인 이메일입니다.';
     isValidEmail = false;
   } else {
     // 유효성 검사 통과
-    emailError.textContent = '';
+    emailErrorText.textContent = '';
     emailInput.classList.remove('error-border');
     isValidEmail = true;
   }
@@ -48,14 +48,14 @@ function validateSignUpEmail() {
 function validateSignInEmail() {
   if (!emailInput.value) {
     emailInput.classList.add('error-border');
-    emailError.textContent = '이메일를 입력해주세요.';
+    emailErrorText.textContent = '이메일를 입력해주세요.';
     isValidEmail = false;
   } else if (emailRegex.test(emailInput.value) === false) {
     emailInput.classList.add('error-border');
-    emailError.textContent = '올바른 이메일 주소가 아닙니다.';
+    emailErrorText.textContent = '올바른 이메일 주소가 아닙니다.';
     isValidEmail = false;
   } else {
-    emailError.textContent = '';
+    emailErrorText.textContent = '';
     emailInput.classList.remove('error-border');
     isValidEmail = true;
   }
@@ -65,14 +65,14 @@ function validateSignInEmail() {
 function validatePassword() {
   if (!passwordInput.value) {
     passwordInput.classList.add('error-border');
-    passwordError.textContent = '비밀번호를 입력해주세요.';
+    passwordErrorText.textContent = '비밀번호를 입력해주세요.';
     isValidPassword = false;
   } else if (passwordRegex.test(passwordInput.value) === false || passwordInput.value.length < 8) {
     passwordInput.classList.add('error-border');
-    passwordError.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요';
+    passwordErrorText.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요';
     isValidPassword = false;
   } else {
-    passwordError.textContent = '';
+    passwordErrorText.textContent = '';
     passwordInput.classList.remove('error-border');
     isValidPassword = true;
   }
@@ -82,15 +82,15 @@ function validatePassword() {
 function validatePasswordRepeat() {
   if (!passwordRepeatInput.value) {
     passwordRepeatInput.classList.add('error-border');
-    passwordRepeatError.textContent = '비밀번호를 다시 한번 입력해주세요.';
+    passwordRepeatErrorText.textContent = '비밀번호를 다시 한번 입력해주세요.';
     isValidPasswordRepeat = false;
   } else if (passwordRepeatInput.value !== passwordInput.value) {
     // Password와 일치하지 않을 시 실행
     passwordRepeatInput.classList.add('error-border');
-    passwordRepeatError.textContent = '비밀번호가 일치하지 않아요.';
+    passwordRepeatErrorText.textContent = '비밀번호가 일치하지 않아요.';
     isValidPasswordRepeat = false;
   } else {
-    passwordRepeatError.textContent = '';
+    passwordRepeatErrorText.textContent = '';
     passwordRepeatInput.classList.remove('error-border');
     isValidPasswordRepeat = true;
   }
@@ -108,9 +108,9 @@ export {
   emailInput,
   passwordInput,
   passwordRepeatInput,
-  emailError,
-  passwordError,
-  passwordRepeatError,
+  emailErrorText,
+  passwordErrorText,
+  passwordRepeatErrorText,
   passwordVisibilityIcon,
   passwordRepeatVisibilityIcon,
   isValidEmail,

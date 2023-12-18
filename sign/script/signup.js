@@ -3,9 +3,9 @@ import {
   emailInput,
   passwordInput,
   passwordRepeatInput,
-  emailError,
-  passwordError,
-  passwordRepeatError,
+  emailErrorText,
+  passwordErrorText,
+  passwordRepeatErrorText,
   passwordVisibilityIcon,
   passwordRepeatVisibilityIcon,
   isValidEmail,
@@ -18,7 +18,7 @@ import {
 } from './common.js';
 
 // input focusout 에러 확인
-function checkError(e) {
+function checkFocusoutError(e) {
   switch (e.target) {
     case emailInput:
       validateSignUpEmail();
@@ -42,34 +42,34 @@ function checkSubmitError(e) {
   emailInput.classList.remove('error-border');
   passwordInput.classList.remove('error-border');
   passwordRepeatInput.classList.remove('error-border');
-  emailError.textContent = '';
-  passwordError.textContent = '';
-  passwordRepeatError.textContent = '';
+  emailErrorText.textContent = '';
+  passwordErrorText.textContent = '';
+  passwordRepeatErrorText.textContent = '';
 
   // 에러 발생 확인 및 처리
   if (isValidEmail && isValidPassword && isValidPasswordRepeat) {
-    formElement.action = '/folder.html';
     formElement.method = 'POST';
+    formElement.action = '/folder.html';
     formElement.submit();
   } else {
     if (!isValidEmail) {
       emailInput.classList.add('error-border');
-      emailError.textContent = '이메일을 확인해 주세요.';
+      emailErrorText.textContent = '이메일을 확인해 주세요.';
     }
     if (!isValidPassword) {
       passwordInput.classList.add('error-border');
-      passwordError.textContent = '비밀번호를 확인해 주세요.';
+      passwordErrorText.textContent = '비밀번호를 확인해 주세요.';
     }
     if (!isValidPasswordRepeat) {
       passwordRepeatInput.classList.add('error-border');
-      passwordRepeatError.textContent = '비밀번호를 다시 확인해 주세요.';
+      passwordRepeatErrorText.textContent = '비밀번호를 다시 확인해 주세요.';
     }
   }
 }
 
-emailInput.addEventListener('focusout', checkError);
-passwordInput.addEventListener('focusout', checkError);
-passwordRepeatInput.addEventListener('focusout', checkError);
+emailInput.addEventListener('focusout', checkFocusoutError);
+passwordInput.addEventListener('focusout', checkFocusoutError);
+passwordRepeatInput.addEventListener('focusout', checkFocusoutError);
 formElement.addEventListener('submit', checkSubmitError);
 passwordVisibilityIcon.addEventListener('click', () => {
   togglePasswordVisibility(passwordVisibilityIcon, passwordInput);
