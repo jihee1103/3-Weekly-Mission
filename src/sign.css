@@ -1,15 +1,14 @@
 .sign--wrap {
-    width: 100vw;
+    box-sizing: border-box;
     height: 100vh;
     background: var(--linkbrary-bg, #F0F6FF);
     display: flex;
     justify-content: center;
-    padding-top: 238px;
+    align-items: center;
 }
 
 .sign {
     width: 400px;
-    height: 394px;
 }
 
 .sign__header {
@@ -105,6 +104,13 @@
     margin-bottom: 30px;
 }
 
+.form-sign__input-error {
+    font-family: Pretendard;
+    font-size: 14px;
+    color: #FF5B56;
+    margin-top: 6px;
+}
+
 .password__box {
     display: flex;
     justify-content: space-between;
@@ -123,6 +129,7 @@
 .password__btn-eye-off img {
     width: 16px;
     height: 16px;
+
 }
 
 .form-sign__btn-sign {
@@ -186,16 +193,7 @@
     top: 10px;
 }
 
-@media (max-width:1199px) {
-    .sign--wrap {
-        padding-top:200px;
-    }
-}
-
 @media (max-width:767px) {
-    .sign--wrap {
-        padding-top:120px;
-    }
     .sign {
         max-width: 400px;
         margin: 0 32px;

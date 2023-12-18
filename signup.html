@@ -23,31 +23,37 @@
                     </div>
                 </div>
             </div>
-            <form class="form-sign">
+            <!-- 만약 올바른 이메일, 비밀번호면 /folder로 post요청 -->
+            <form id="signup_form" class="form-sign" action="/folder" method="post">
                 <div class="form-sign__input-email">
-                    <label class="font-pretendard-400">이메일</label>
-                    <input type="email">
+                    <label>이메일</label>
+                    <input type="email" id="signup_email_input" name="email">
+                    <!-- div와 스타일 미리주고 textContent만 바꾸게하기 -->
+                    <div class="form-sign__input-error email" id="email"></div>
                 </div>
                 <div class="form-sign__input-password">
                     <label>비밀번호</label>
                     <div class="password__box">
-                        <input type="password">
-                        <button class="password__btn-eye-off">
-                            <img src="img/eye-off.svg" alt="eye-off" width="16px" height="16px">
+                        <input type="password" id="signup_password_input" name="password">
+                        <!-- type을 button으로 안주면 기본값으로 submit이 돼서 form의 action으로 이동해버림 -->
+                        <button type="button" class="password__btn-eye-off">
+                            <img src="img/eye-off.svg" alt="eye-off">
                         </button>
                     </div>
+                    <div class="form-sign__input-error password"></div>
                 </div>
                 <div class="form-sign__input-password">
                     <label>비밀번호 확인</label>
                     <div class="password__box">
-                        <input>
-                        <button class="password__btn-eye-off">
+                        <input type="password" id="signup_password_input_confirm">
+                        <button type="button" class="password__btn-eye-off confirm">
                             <img src="img/eye-off.svg" alt="eye-off">
                         </button>
                     </div>
+                    <div class="form-sign__input-error password confirm"></div>
                 </div>
-                <button class="form-sign__btn-sign">
-                    <div><span>회원가입</span></div>
+                <button type="submit" class="form-sign__btn-sign" id="signup_register_btn">
+                    <div>회원가입</div>
                 </button>
                 <div class="form-sign__social-sign">
                     <span>다른 방식으로 가입하기</span>
@@ -64,6 +70,7 @@
         </div>
     </main>
 
+    <script type="module" src="./script/signup.js"></script>
 </body>
 
 </html>
