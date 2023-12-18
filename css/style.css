@@ -1,34 +1,25 @@
-a {
-  text-decoration: none;
-}
-
+@import "./global.css";
 body {
-  margin: 0 auto;
-}
-#Linkbrary {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 header {
-  background: var(--linkbrary-bg, #F0F6FF);
+  display: flex;
+  justify-content: center;
   position: sticky;
   top: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 200px;
-  align-items: center;
-  align-self: stretch;
-  gap: 8px ;
+  width: 100%;
+  background-color: #edf7ff;
 }
 
 header .gnb {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  align-self: stretch;
+  align-items: center;
   width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
+  height: 6.3rem;
+  padding: 0 3.2rem;
 }
 header .gnb a {
   display: inline;
@@ -36,16 +27,28 @@ header .gnb a {
 }
 header .gnb img {
   cursor: pointer;
+  height: 1.6rem;
+  @media (min-width: 768px) {
+    height: 2.4rem;
+  }
 }
 header .gnb .btn{
-  width: 128px;
-  height: 54px;
+  width: 8rem;  
+  height: 3.7rem;
   background: linear-gradient(0.25turn, #6d6afe, #6ae3fe);
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  @media (min-width: 768px) {
+    height: 5.4rem;
+    border-radius: 0.8rem;
+    font-size: 1.8rem;
+  }
 }
 header .gnb .btn .text {
   color: #fff;
@@ -56,28 +59,38 @@ header .gnb .btn .text {
   font-size: 100%;
   font-style: normal;
   font-weight: 500;
-  line-height: 150%; /* 22.5px */
+  line-height: 150%;
 }
 .content-01 {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 40px 250px 0px 251px;
+  width: 100%;
   background: #F0F6FF;
 }
 .content-01 .content-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-self: stretch;
-  gap: 40px ;
+  row-gap: 2.4rem;
+  padding: 2.8rem 3.2rem 0;
 }
 .content-01 .text {
+  width: 24rem;
   color: #000;
-  font-size: 64px;
+  font-size: 3.2rem;
   font-weight: 700;
   text-align: center;
-  line-height: 80px;
+  line-height: 131.25%;
+  @media (min-width: 768px) {
+    width: 48rem;
+    font-size: 6.4rem;
+    line-height: 125%;
+  }
+
+  @media (min-width: 1200px) {
+    width: 80rem;
+  }
 }
 .content-01 .text span {
   background: linear-gradient(0.25turn,#6D6AFE, #FF9F9F);
@@ -86,25 +99,49 @@ header .gnb .btn .text {
   color: transparent;
 }
 .content-01 .btn {
-  width: 350px;
-  height: 54px;
+  width: 20rem;
+  height: 3.7rem;
   background: linear-gradient(0.25turn, #6d6afe, #6ae3fe);
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  @media (min-width: 768px) {
+    width: 12.8rem;
+  }
 }
 .content-01 .btn > a {
   color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  @media (min-width: 768px) {
+    font-size: 1.8rem;
+  }
+}
+.content-01 img {
+  width: 100%;
+  height: fit-content;
+  @media (min-width: 768px) {
+    width: 69.8rem;
+    height: 34.3rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 120rem;
+    height: 59rem;
+  }
 }
 .content-02 {  
   display: flex;
-  padding: 120px 461px 50px 461px;
   justify-content: center;
   align-items: center;
 }
 .content-02 .content-box {
+  padding: 4rem 3.2rem;
   display: flex;
   align-items: center;
   gap: 157px;
@@ -117,10 +154,14 @@ header .gnb .btn .text {
   gap: 10px;
 }
 .content-02 .content-box .subtitle {
-  font-size: 48px;
-  font-weight: 550;
+  font-size: 2.4rem;
+  font-weight: 700;
   display: inline;
   gap: 10px;
+  @media (min-width: 768px) {
+    font-size: 4.8rem;
+    line-height: 5.8rem;
+  }
 }
 .content-02 .content-box .subtitle span {
   background: linear-gradient(-0.25turn,#6D6AFE, #FF9F9F);
@@ -128,13 +169,28 @@ header .gnb .btn .text {
   -webkit-background-clip: text;
   color: transparent;
 }
+.content-02 img {
+  width: 100%;
+  padding-top: 0.4rem;
+
+  @media (min-width: 768px) {
+    width: 38.5rem;
+    height: 31.5rem;
+    padding-top: 0;
+  }
+
+  @media (min-width: 1200px) {
+    width: 55rem;
+    height: 45rem;
+  }
+}
 .content-03 {
   display: flex;
-  padding: 50px 461px;
   justify-content: center;
   align-items: center;
 }
 .content-03 .content-box {
+  padding: 4rem 3.2rem;
   display: flex;
   align-items: center;
   gap: 157px;
@@ -147,9 +203,13 @@ header .gnb .btn .text {
   gap: 10px;
 }
 .content-03 .content-box .subtitle {
-  font-size: 48px;
+  font-size: 2.4rem;
   font-weight: 550;
   display: inline;
+  @media (min-width: 768px) {
+    font-size: 4.8rem;
+    line-height: 5.8rem;
+  }
 }
 
 .content-03 .content-box .subtitle span{
@@ -158,13 +218,28 @@ header .gnb .btn .text {
   -webkit-background-clip: text;
   color: transparent;
 }
+.content-03 img {
+  width: 100%;
+  padding-top: 0.4rem;
+
+  @media (min-width: 768px) {
+    width: 38.5rem;
+    height: 31.5rem;
+    padding-top: 0;
+  }
+
+  @media (min-width: 1200px) {
+    width: 55rem;
+    height: 45rem;
+  }
+}
 .content-04 {
   display: flex;
-  padding: 50px 461px;
   justify-content: center;
   align-items: center;
 }
 .content-04 .content-box {
+  padding: 4rem 3.2rem;
   display: flex;
   align-items: center;
   gap: 157px;
@@ -177,10 +252,14 @@ header .gnb .btn .text {
   gap: 10px ;
 }
 .content-04 .content-box .subtitle {
-  font-size: 48px;
+  font-size: 2.4rem;
   font-weight: 550;
   display: inline;
   gap: 10px;
+  @media (min-width: 768px) {
+    font-size: 4.8rem;
+    line-height: 5.8rem;
+  }
 }
 .content-04 .content-box .subtitle span {
   background: linear-gradient(0.25turn,#6e7ccd, #98aeca);
@@ -188,21 +267,28 @@ header .gnb .btn .text {
   -webkit-background-clip: text;
   color: transparent;
 }
-.content-04 .content-box .img-box {
-  background-image: url("../img/img3\ 1.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 550px;
-  height: 450px;
-  border-radius: 15px;
+.content-04 img {
+  width: 100%;
+  padding-top: 0.4rem;
+
+  @media (min-width: 768px) {
+    width: 38.5rem;
+    height: 31.5rem;
+    padding-top: 0;
+  }
+
+  @media (min-width: 1200px) {
+    width: 55rem;
+    height: 45rem;
+  }
 }
 .content-05 {
   display: flex;
-  padding: 50px 461px;
   justify-content: center;
   align-items: center;
 }
 .content-05 .content-box { 
+  padding: 4rem 3.2rem;
   display: flex;
   align-items: center;
   gap: 157px;
@@ -216,15 +302,34 @@ header .gnb .btn .text {
   gap: 10px;
 }
 .content-05 .content-box .subtitle {
-  font-size: 48px;
+  font-size: 2.4rem;
   font-weight: 550;
   display: inline;
+  @media (min-width: 768px) {
+    font-size: 4.8rem;
+    line-height: 5.8rem;
+  }
 }
 .content-05 .content-box .subtitle span{
   background: linear-gradient(0.25turn,#77daf0, #99b8d6);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+}
+.content-05 img {
+  width: 100%;
+  padding-top: 0.4rem;
+
+  @media (min-width: 768px) {
+    width: 38.5rem;
+    height: 31.5rem;
+    padding-top: 0;
+  }
+
+  @media (min-width: 1200px) {
+    width: 55rem;
+    height: 45rem;
+  }
 }
 footer {
   display: flex;
@@ -274,18 +379,17 @@ footer .contents .icons {
 
 /* mobile */
 
-@media (min-width: 375px) {                           
-  header {
-    padding: 20px 32px;
-  } 
+@media (min-width: 375px) {
+  .gnb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 6.3rem;
+    padding: 0 3.2rem;
+  }
   .content-box .exp  {
     font-size: 190%;
-  }
-  .content-01 {
-    padding: 40px 32px 0px 32px;
-  }
-  .content-02 {
-    padding: 40px 32px 36.09px 33px;
   }
   .content-02 .content-box {
     flex-direction: column;
@@ -298,9 +402,6 @@ footer .contents .icons {
   .content-02 .content-box img {
     width: 100%;
   } 
-  .content-03 {
-    padding: 40px 32px 42.091px 33px;
-  }
   .content-03 .content-box {
     gap: 24px;
     flex-direction: column-reverse;
@@ -315,10 +416,6 @@ footer .contents .icons {
     width: 100%;
     align-self: stretch;
   }
-    
-  .content-04 {
-    padding: 40px 32px 42.091px 33px;
-  }
   .content-04 .content-box {
     flex-direction: column;
     justify-content: start;
@@ -331,7 +428,6 @@ footer .contents .icons {
     width: 100%;
   }
   .content-05 {
-    padding: 40px 32px 41.091px 33px;
     flex-direction: column;
     align-items: stretch;
   }
@@ -377,19 +473,19 @@ footer .contents .icons {
 /* tablet */
 
 @media (min-width: 768px) {
-  header {
-    padding: 20px 200px;
+  header .gnb {
+    height: 9.4rem;
+    max-width: 86.3rem;
   }
   .content-box .exp  {
     font-size: 100%;
   }
-  .content-01 {
-    padding: 40px 250px 0px 251px;
-  }
-  .content-02 {
-    padding: 80px 250px 50px 251px;
+  .content-01 .content-box{
+    padding: 3.9rem 0 0;
+    row-gap: 4rem;
   }
   .content-02 .content-box {
+    padding: 5rem 0;
     flex-direction: row;
     gap: 51px ;
   }
@@ -402,10 +498,8 @@ footer .contents .icons {
     height: 315px;
     
   }
-  .content-03 {
-    padding: 50px 250px 50px 251px;
-  }
   .content-03 .content-box {
+    padding: 5rem 0;
     flex-direction: row;
     gap: 51px;
     align-items: center;
@@ -419,11 +513,8 @@ footer .contents .icons {
     width: 262px;
     align-self: auto;
   }
-
-  .content-04 {
-    padding: 50px 250px 50px 251px;
-  }
   .content-04 .content-box {
+    padding: 5rem 0;
     flex-direction: row;
     gap: 51px;
   }
@@ -436,10 +527,10 @@ footer .contents .icons {
   }
 
   .content-05 {
-    padding: 50px 250px 50px 251px;
     flex-direction: row;
   }
   .content-05 .content-box {
+    padding: 5rem 0;
     flex-direction: row;
     gap: 51px ;
     align-items: center;
@@ -464,31 +555,30 @@ footer .contents .icons {
 /* pc */
 
 @media (min-width: 1200px) {
-  .content-02 {
-    padding: 120px 461px 50px 461px;
+  header .gnb {
+    height: 9.4rem;
+    max-width: 192rem;
+    padding: 0 20rem;
+  }
+  .content-01 .content-box{
+    padding: 7rem 0 0;
   }
   .content-02 .content-box {
+    
     gap: 157px ;
-  }
-  .content-03 {
-    padding: 50px 461px;
   }
   .content-03 .content-box {
+    
     gap: 157px;
-  }
-  .content-04 {
-    padding: 50px 461px;
   }
   .content-04 .content-box {
+    
     gap: 157px;
   }
-  .content-05 {
-    padding: 50px 461px;
-  }
   .content-05 .content-box {
+    
     gap: 157px ;
   }
-  
 }
 
 

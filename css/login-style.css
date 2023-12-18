@@ -4,6 +4,7 @@ body {
   padding-bottom: 252px;
   background: var(--linkbrary-bg, #F0F6FF);
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -42,6 +43,27 @@ body {
   align-items: flex-start;
   gap: 24px;
 }
+.error {
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-red, #FF5B56);
+  background: var(--linkbrary-white, #FFF);
+}
+.errorComment {
+  color: var(--linkbrary-red, #FF5B56);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.writing {
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
+  background: var(--linkbrary-white, #FFF);
+}
+.normal {
+  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+}
 .container .contents > form .email {
   display: flex;
   flex-direction: column;
@@ -55,12 +77,9 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
   background: var(--linkbrary-white, #FFF);
+  outline: none;
 }
-/* .container .contents > form #email:focus {
-  border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
-} */
 .container .contents > form .password {
   display: flex;
   flex-direction: column;
@@ -74,7 +93,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+  outline: none;
   background: var(--linkbrary-white, #FFF);
 }
 .container .contents > form .password {
@@ -105,6 +124,13 @@ body {
   color: #F5F5F5;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
   cursor: pointer;
+
+  color: var(--grey-light, #F5F5F5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 .container .social-login {
   display: flex;

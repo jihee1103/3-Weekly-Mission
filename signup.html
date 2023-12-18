@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인</title>
     <link rel="stylesheet" href="css/signup-style.css" />
+    <script src="./js/signup.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -17,29 +18,30 @@
             <div><a href="login.html">로그인 하기</a></div>
           </div>
         </div>
-        <form action="">
-          <div class="input email">
+        <form id="login_form">
+          <div class="email">
             <label for="email">이메일</label>
-            <input type="email" id="email" placeholder="이메일 입력" />
+            <input type="email" id="email" class="input normal" placeholder="이메일 입력" />
           </div>
-          <div class="input password">
+          <div class="password">
             <label for="password">비밀번호</label>
             <input
               type="password"
-              value=""
               id="pw"
+              class="input normal"
               placeholder="비밀번호 입력"
             />
             <div class="eye">
               <img src="img/eye-off.svg" alt="" />
             </div>
           </div>
-          <div class="input password check">
+          <div class="re-password">
             <label for="password">비밀번호 확인</label>
             <input
               type="password"
               value=""
-              id="pw"
+              id="re-pw"
+              class="input normal"
               placeholder="비밀번호 입력"
             />
             <div class="eye">
@@ -47,8 +49,8 @@
             </div>
           </div>
         </form>
-        <div class="input login">
-          <input type="button" id="btn" value="회원가입" />
+        <div class="login">
+          <button id="btn" >회원가입</button>
         </div>
       </div>
       <div class="social-login">

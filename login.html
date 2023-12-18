@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인</title>
     <link rel="stylesheet" href="css/login-style.css" />
+    <script src="./js/login.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -17,17 +18,17 @@
             <div><a href="signup.html">회원 가입하기</a></div>
           </div>
         </div>
-        <form action="">
-          <div class="input email">
+        <form id="login_form">
+          <div class="email">
             <label for="email">이메일</label>
-            <input type="email" id="email" placeholder="이메일 입력" />
+            <input type="email" id="email" class="input normal" placeholder="이메일 입력"/>
           </div>
-          <div class="input password">
+          <div class="password">
             <label for="password">비밀번호</label>
             <input
               type="password"
-              value=""
               id="pw"
+              class="input normal"
               placeholder="비밀번호 입력"
             />
             <div class="eye">
@@ -35,8 +36,8 @@
             </div>
           </div>
         </form>
-        <div class="input login">
-          <input type="button" id="btn" value="로그인" />
+        <div class="login">
+          <button id="btn" >로그인</button>
         </div>
       </div>
       <div class="social-login">
