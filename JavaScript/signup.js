@@ -32,6 +32,7 @@ async function checkEmailError() {
         {
           method: "POST",
           headers: {
+            accept: "*/*",
             "Content-Type": "application/json",
           },
           body: JSON.stringify(userEmail),
@@ -87,6 +88,7 @@ async function checkSignup() {
       const post = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
         method: "POST",
         headers: {
+          accept: "*/*",
           "Content-Type": "application/json",
         },
         body: JSON.stringify(user),
