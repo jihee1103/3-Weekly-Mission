@@ -1,20 +1,20 @@
 import {
   formElement,
   emailInput,
-  pwInput,
-  pwRepeatInput,
+  passwordInput,
+  passwordRepeatInput,
   emailError,
-  pwError,
-  pwRepeatError,
-  pwVisibilityIcon,
-  pwRepeatVisibilityIcon,
+  passwordError,
+  passwordRepeatError,
+  passwordVisibilityIcon,
+  passwordRepeatVisibilityIcon,
   isValidEmail,
-  isValidPW,
-  isValidPWRepeat,
+  isValidPassword,
+  isValidPasswordRepeat,
   validateSignUpEmail,
-  validatePW,
-  validatePWRepeat,
-  togglePWVisibility,
+  validatePassword,
+  validatePasswordRepeat,
+  togglePasswordVisibility,
 } from './common.js';
 
 // input focusout 에러 확인
@@ -23,11 +23,11 @@ function checkError(e) {
     case emailInput:
       validateSignUpEmail();
       break;
-    case pwInput:
-      validatePW();
+    case passwordInput:
+      validatePassword();
       break;
-    case pwRepeatInput:
-      validatePWRepeat();
+    case passwordRepeatInput:
+      validatePasswordRepeat();
       break;
     default:
       break;
@@ -40,14 +40,14 @@ function checkSubmitError(e) {
 
   // 에러 메세지 초기화
   emailInput.classList.remove('error-border');
-  pwInput.classList.remove('error-border');
-  pwRepeatInput.classList.remove('error-border');
+  passwordInput.classList.remove('error-border');
+  passwordRepeatInput.classList.remove('error-border');
   emailError.textContent = '';
-  pwError.textContent = '';
-  pwRepeatError.textContent = '';
+  passwordError.textContent = '';
+  passwordRepeatError.textContent = '';
 
   // 에러 발생 확인 및 처리
-  if (isValidEmail && isValidPW && isValidPWRepeat) {
+  if (isValidEmail && isValidPassword && isValidPasswordRepeat) {
     formElement.action = '/folder.html';
     formElement.method = 'GET';
     formElement.submit();
@@ -56,24 +56,24 @@ function checkSubmitError(e) {
       emailInput.classList.add('error-border');
       emailError.textContent = '이메일을 확인해 주세요.';
     }
-    if (!isValidPW) {
-      pwInput.classList.add('error-border');
-      pwError.textContent = '비밀번호를 확인해 주세요.';
+    if (!isValidPassword) {
+      passwordInput.classList.add('error-border');
+      passwordError.textContent = '비밀번호를 확인해 주세요.';
     }
-    if (!isValidPWRepeat) {
-      pwRepeatInput.classList.add('error-border');
-      pwRepeatError.textContent = '비밀번호를 다시 확인해 주세요.';
+    if (!isValidPasswordRepeat) {
+      passwordRepeatInput.classList.add('error-border');
+      passwordRepeatError.textContent = '비밀번호를 다시 확인해 주세요.';
     }
   }
 }
 
 emailInput.addEventListener('focusout', checkError);
-pwInput.addEventListener('focusout', checkError);
-pwRepeatInput.addEventListener('focusout', checkError);
+passwordInput.addEventListener('focusout', checkError);
+passwordRepeatInput.addEventListener('focusout', checkError);
 formElement.addEventListener('submit', checkSubmitError);
-pwVisibilityIcon.addEventListener('click', () => {
-  togglePWVisibility(pwVisibilityIcon, pwInput);
+passwordVisibilityIcon.addEventListener('click', () => {
+  togglePasswordVisibility(passwordVisibilityIcon, passwordInput);
 });
-pwRepeatVisibilityIcon.addEventListener('click', () => {
-  togglePWVisibility(pwRepeatVisibilityIcon, pwRepeatInput);
+passwordRepeatVisibilityIcon.addEventListener('click', () => {
+  togglePasswordVisibility(passwordRepeatVisibilityIcon, passwordRepeatInput);
 });

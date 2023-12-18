@@ -1,23 +1,23 @@
 const formElement = document.querySelector('#form-list');
 
 const emailInput = document.querySelector('.email-form__input');
-const pwInput = document.querySelector('.password-form__input');
-const pwRepeatInput = document.querySelector('.password-repeat-form__input');
+const passwordInput = document.querySelector('.password-form__input');
+const passwordRepeatInput = document.querySelector('.password-repeat-form__input');
 
 const emailError = document.querySelector('#email-error');
-const pwError = document.querySelector('#password-error');
-const pwRepeatError = document.querySelector('#password-repeat-error');
+const passwordError = document.querySelector('#password-error');
+const passwordRepeatError = document.querySelector('#password-repeat-error');
 
-const pwVisibilityIcon = document.querySelector('#password-visibility-icon');
-const pwRepeatVisibilityIcon = document.querySelector('#password-repeat-visibility-icon');
+const passwordVisibilityIcon = document.querySelector('#password-visibility-icon');
+const passwordRepeatVisibilityIcon = document.querySelector('#password-repeat-visibility-icon');
 
 const emailRegex =
   /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-const pwRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 
 let isValidEmail = false;
-let isValidPW = false;
-let isValidPWRepeat = false;
+let isValidPassword = false;
+let isValidPasswordRepeat = false;
 
 // 회원가입 이메일 유효성 검사
 function validateSignUpEmail() {
@@ -61,43 +61,43 @@ function validateSignInEmail() {
   }
 }
 
-// PW 유효성 검사
-function validatePW() {
-  if (!pwInput.value) {
-    pwInput.classList.add('error-border');
-    pwError.textContent = '비밀번호를 입력해주세요.';
-    isValidPW = false;
-  } else if (pwRegex.test(pwInput.value) === false || pwInput.value.length < 8) {
-    pwInput.classList.add('error-border');
-    pwError.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요';
-    isValidPW = false;
+// Password 유효성 검사
+function validatePassword() {
+  if (!passwordInput.value) {
+    passwordInput.classList.add('error-border');
+    passwordError.textContent = '비밀번호를 입력해주세요.';
+    isValidPassword = false;
+  } else if (passwordRegex.test(passwordInput.value) === false || passwordInput.value.length < 8) {
+    passwordInput.classList.add('error-border');
+    passwordError.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요';
+    isValidPassword = false;
   } else {
-    pwError.textContent = '';
-    pwInput.classList.remove('error-border');
-    isValidPW = true;
+    passwordError.textContent = '';
+    passwordInput.classList.remove('error-border');
+    isValidPassword = true;
   }
 }
 
-// PW-Repaet 유효성 검사
-function validatePWRepeat() {
-  if (!pwRepeatInput.value) {
-    pwRepeatInput.classList.add('error-border');
-    pwRepeatError.textContent = '비밀번호를 다시 한번 입력해주세요.';
-    isValidPWRepeat = false;
-  } else if (pwRepeatInput.value !== pwInput.value) {
-    // PW와 일치하지 않을 시 실행
-    pwRepeatInput.classList.add('error-border');
-    pwRepeatError.textContent = '비밀번호가 일치하지 않아요.';
-    isValidPWRepeat = false;
+// Password-Repaet 유효성 검사
+function validatePasswordRepeat() {
+  if (!passwordRepeatInput.value) {
+    passwordRepeatInput.classList.add('error-border');
+    passwordRepeatError.textContent = '비밀번호를 다시 한번 입력해주세요.';
+    isValidPasswordRepeat = false;
+  } else if (passwordRepeatInput.value !== passwordInput.value) {
+    // Password와 일치하지 않을 시 실행
+    passwordRepeatInput.classList.add('error-border');
+    passwordRepeatError.textContent = '비밀번호가 일치하지 않아요.';
+    isValidPasswordRepeat = false;
   } else {
-    pwRepeatError.textContent = '';
-    pwRepeatInput.classList.remove('error-border');
-    isValidPWRepeat = true;
+    passwordRepeatError.textContent = '';
+    passwordRepeatInput.classList.remove('error-border');
+    isValidPasswordRepeat = true;
   }
 }
 
 // 눈 모양 아이콘 토글
-function togglePWVisibility(icon, input) {
+function togglePasswordVisibility(icon, input) {
   const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
   input.setAttribute('type', type);
   icon.src = type === 'password' ? 'icons/eye-off.svg' : 'icons/eye-on.svg';
@@ -106,21 +106,19 @@ function togglePWVisibility(icon, input) {
 export {
   formElement,
   emailInput,
-  pwInput,
-  pwRepeatInput,
+  passwordInput,
+  passwordRepeatInput,
   emailError,
-  pwError,
-  pwRepeatError,
-  pwVisibilityIcon,
-  pwRepeatVisibilityIcon,
-  emailRegex,
-  pwRegex,
+  passwordError,
+  passwordRepeatError,
+  passwordVisibilityIcon,
+  passwordRepeatVisibilityIcon,
   isValidEmail,
-  isValidPW,
-  isValidPWRepeat,
+  isValidPassword,
+  isValidPasswordRepeat,
   validateSignUpEmail,
   validateSignInEmail,
-  validatePW,
-  validatePWRepeat,
-  togglePWVisibility,
+  validatePassword,
+  validatePasswordRepeat,
+  togglePasswordVisibility,
 };

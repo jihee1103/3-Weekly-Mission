@@ -1,15 +1,15 @@
 import {
   formElement,
   emailInput,
-  pwInput,
-  pwRepeatInput,
+  passwordInput,
+  passwordRepeatInput,
   emailError,
-  pwError,
-  pwVisibilityIcon,
+  passwordError,
+  passwordVisibilityIcon,
   validateSignInEmail,
-  validatePW,
-  validatePWRepeat,
-  togglePWVisibility,
+  validatePassword,
+  validatePasswordRepeat,
+  togglePasswordVisibility,
 } from './common.js';
 
 // input focusout 에러 확인
@@ -18,11 +18,11 @@ function checkError(e) {
     case emailInput:
       validateSignInEmail();
       break;
-    case pwInput:
-      validatePW();
+    case passwordInput:
+      validatePassword();
       break;
-    case pwRepeatInput:
-      validatePWRepeat();
+    case passwordRepeatInput:
+      validatePasswordRepeat();
       break;
     default:
       break;
@@ -35,12 +35,12 @@ function checkSubmitError(e) {
 
   // 에러 메세지 초기화
   emailInput.classList.remove('error-border');
-  pwInput.classList.remove('error-border');
+  passwordInput.classList.remove('error-border');
   emailError.textContent = '';
-  pwError.textContent = '';
+  passwordError.textContent = '';
 
   // 에러 발생 확인 및 처리
-  if (emailInput.value === 'test@codeit.com' && pwInput.value === 'codeit101') {
+  if (emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101') {
     formElement.action = '/folder.html';
     formElement.method = 'GET';
     formElement.submit();
@@ -49,16 +49,16 @@ function checkSubmitError(e) {
       emailInput.classList.add('error-border');
       emailError.textContent = '이메일을 확인해 주세요.';
     }
-    if (pwInput.value !== 'codeit101') {
-      pwInput.classList.add('error-border');
-      pwError.textContent = '비밀번호를 확인해 주세요.';
+    if (passwordInput.value !== 'codeit101') {
+      passwordInput.classList.add('error-border');
+      passwordError.textContent = '비밀번호를 확인해 주세요.';
     }
   }
 }
 
 emailInput.addEventListener('focusout', checkError);
-pwInput.addEventListener('focusout', checkError);
+passwordInput.addEventListener('focusout', checkError);
 formElement.addEventListener('submit', checkSubmitError);
-pwVisibilityIcon.addEventListener('click', () => {
-  togglePWVisibility(pwVisibilityIcon, pwInput);
+passwordVisibilityIcon.addEventListener('click', () => {
+  togglePasswordVisibility(passwordVisibilityIcon, passwordInput);
 });
