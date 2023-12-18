@@ -124,6 +124,13 @@ input:focus:not(.error-input) {
   outline: none;
 }
 
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+input:autofill:active {
+  box-shadow: 0 0 0px 1000px #fff inset;
+}
+
 .password-eye > img {
   position: absolute;
   right: 1.5rem;
