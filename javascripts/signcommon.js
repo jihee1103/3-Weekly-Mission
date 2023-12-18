@@ -1,5 +1,6 @@
 const emailInputElement = document.querySelector("#email-input");
 const passwdInputElement = document.querySelector("#passwd-input");
+const formElement = document.querySelector(".email-passwd-wrapper");
 const loginElement = document.querySelector(".login");
 
 // 유효성 검사
@@ -19,7 +20,7 @@ passwdInputElement.parentElement.append(passwdErrorMentionElement);
 const users = { email: "test@codeit.com", passwd: "codeit101" };
 
 // email input값 검사
-function emailInputValid() {
+function emailValidCheck() {
   if (emailInputElement.value.trim() === "") {
     emailInputElement.classList.add("error-border");
     emailErrorMentionElement.innerText = "이메일을 입력해주세요";
@@ -36,7 +37,7 @@ function emailInputValid() {
 }
 
 // password input값 검사
-function passwdInputValid() {
+function passwdValidCheck() {
   if (passwdInputElement.value === "") {
     passwdInputElement.classList.add("error-border");
     passwdErrorMentionElement.innerText = "비밀번호를 입력해주세요.";
@@ -54,13 +55,13 @@ function passwdInputValid() {
 }
 
 // email, password input창 유효성 검사 이벤트 추가
-emailInputElement.addEventListener("blur", emailInputValid);
-passwdInputElement.addEventListener("blur", passwdInputValid);
+emailInputElement.addEventListener("blur", emailValidCheck);
+passwdInputElement.addEventListener("blur", passwdValidCheck);
 
 // eye-image toggle
 const eyeOffElements = document.querySelectorAll(".eye-off");
 
-function passwdVisible({ target }) {
+function passwdVisibleChange({ target }) {
   const targetInput = target.previousElementSibling;
   if (targetInput.type === "password") {
     targetInput.type = "text";
@@ -71,4 +72,18 @@ function passwdVisible({ target }) {
   }
 }
 
-eyeOffElements.forEach((el) => el.addEventListener("click", passwdVisible));
+eyeOffElements.forEach((el) =>
+  el.addEventListener("click", passwdVisibleChange)
+);
+
+export {
+  loginElement,
+  emailInputElement,
+  passwdInputElement,
+  users,
+  emailErrorMentionElement,
+  passwdErrorMentionElement,
+  formElement,
+  emailValidCheck,
+  passwdValidCheck,
+};

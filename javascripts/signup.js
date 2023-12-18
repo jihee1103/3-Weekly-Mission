@@ -1,3 +1,14 @@
+import {
+  emailInputElement,
+  passwdInputElement,
+  emailErrorMentionElement,
+  emailValidCheck,
+  passwdValidCheck,
+  loginElement,
+  formElement,
+  users
+} from "./signcommon.js";
+
 const passwdCheckInputElement = document.querySelector("#passwd-check");
 const passwdCheckErrorMentionElement = document.createElement("div");
 
@@ -22,25 +33,25 @@ function checkPasswdEqual() {
 passwdCheckInputElement.addEventListener("blur", checkPasswdEqual);
 
 // 이미 계정이 존재하는지 검사후 존재하지 않는다면 email 검사 후 return
-function checkEmail() {
+function emailCheck() {
   if (emailInputElement.value === users.email) {
     emailInputElement.classList.add("error-border");
     emailErrorMentionElement.innerText = "이미 사용중인 이메일입니다.";
     emailErrorMentionElement.style.display = "block";
-  } else return emailInputValid();
+  } else return emailValidCheck();
 }
 
 // email input 이벤트 추가
-emailInputElement.addEventListener("blur", checkEmail);
+emailInputElement.addEventListener("blur", emailCheck);
 
 // 계정 존재 유무, input 유효성 검사, password 값은지 검사 후 모두 true라면 사이트 연결
 function signup() {
-  const emailDuplicationOk = checkEmail();
-  const passwdInputOk = passwdInputValid();
+  const emailDuplicationOk = emailCheck();
+  const passwdInputOk = passwdValidCheck();
   const equalOk = checkPasswdEqual();
   if (equalOk && passwdInputOk && emailDuplicationOk) location.href = "/folder";
 }
 
 // 클릭 및 엔터시 signup
 loginElement.addEventListener("click", signup);
-addEventListener("keypress", ({ key }) => (key === "Enter" ? signup(key) : ""));
+formElement.addEventListener("keypress", ({ key }) => (key === "Enter" ? signup(key) : ""));
