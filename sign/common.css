@@ -40,7 +40,7 @@ main {
   text-decoration: underline;
 }
 
-.form-list {
+#form-list {
   display: flex;
   flex-direction: column;
   line-height: 1.5;
