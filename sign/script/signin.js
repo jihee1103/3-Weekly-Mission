@@ -42,7 +42,7 @@ function checkSubmitError(e) {
   // 에러 발생 확인 및 처리
   if (emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101') {
     formElement.action = '/folder.html';
-    formElement.method = 'GET';
+    formElement.method = 'POST';
     formElement.submit();
   } else {
     if (emailInput.value !== 'test@codeit.com') {

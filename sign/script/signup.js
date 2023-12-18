@@ -49,7 +49,7 @@ function checkSubmitError(e) {
   // 에러 발생 확인 및 처리
   if (isValidEmail && isValidPassword && isValidPasswordRepeat) {
     formElement.action = '/folder.html';
-    formElement.method = 'GET';
+    formElement.method = 'POST';
     formElement.submit();
   } else {
     if (!isValidEmail) {
