@@ -13,7 +13,7 @@ import {
 } from './common.js';
 
 // input focusout 에러 확인
-function checkFocusoutError(e) {
+function checkFocusOutError(e) {
   switch (e.target) {
     case emailInput:
       validateSignInEmail();
@@ -56,8 +56,8 @@ function checkSubmitError(e) {
   }
 }
 
-emailInput.addEventListener('focusout', checkFocusoutError);
-passwordInput.addEventListener('focusout', checkFocusoutError);
+emailInput.addEventListener('focusout', checkFocusOutError);
+passwordInput.addEventListener('focusout', checkFocusOutError);
 formElement.addEventListener('submit', checkSubmitError);
 passwordVisibilityIcon.addEventListener('click', () => {
   togglePasswordVisibility(passwordVisibilityIcon, passwordInput);
