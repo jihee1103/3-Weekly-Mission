@@ -72,7 +72,8 @@ passwordRepeatInput.addEventListener('focusout', checkFocusOutError);
 formElement.addEventListener('submit', checkSubmitError);
 
 visibilityIconList.forEach((icon) => {
-  icon.addEventListener('click', function () {
-    togglePasswordVisibility(this, this.previousElementSibling);
+  icon.addEventListener('click', ({ target }) => {
+    const targetInput = target.previousElementSibling;
+    togglePasswordVisibility(target, targetInput);
   });
 });
