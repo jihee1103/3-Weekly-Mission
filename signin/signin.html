@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>signin</title>
-    <link rel="stylesheet" href="signin.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="signin.css" />
   </head>
   <body>
     <main>
@@ -11,22 +12,39 @@
         <div class="header">
           <div class="logo">
             <a href="/index.html">
-              <img src="/images/logo.svg" alt="홈 버튼" width="250rem"/>
+              <img src="/images/logo.svg" alt="홈 버튼" width="250rem" />
             </a>
           </div>
           <div class="signup-msg">
-            회원이 아니신가요? 
+            회원이 아니신가요?
             <a class="sign-up-link" href="/signup/signup.html">회원 가입하기</a>
           </div>
         </div>
         <div>
-          이메일
-          <input class="input-id" type="text" placeholder="이메일">
+          <label class="sign-input-label">이메일</label>
+          <input
+            class="sign-input-email"
+            type="email"
+            value=""
+            placeholder="이메일"
+          />
         </div>
-        <div>
-          비밀번호
-          <input class="input-pw" type="password" placeholder="비밀번호">      
+        <span class="email-empty hidden">이메일을 입력해주세요.</span>
+        <span class="email-wrong hidden">올바른 이메일 주소가 아닙니다.</span>
+        <span class="not-valid-email hidden">이메일을 확인해주세요.</span>
+        <div class="sign-password">
+          <label class="sign-input-label">비밀번호</label>
+          <input
+            class="sign-input-password"
+            type="password"
+            placeholder="비밀번호"
+          />
+          <button class="eye-button" type="submit">
+            <img src="/images/eye-off.svg" />
+          </button>
         </div>
+        <span class="password-empty hidden">비밀번호를 입력해주세요.</span>
+        <span class="not-valid-password hidden">비밀번호를 확인해주세요.</span>
         <div>
           <button class="signin-btn">로그인</button>
         </div>
@@ -37,15 +55,16 @@
             </div>
             <div class="social-login-btn">
               <a href="https://www.google.com/">
-                <img src="/images/google.svg">
+                <img src="/images/google.svg" />
               </a>
               <a href="https://kakao.com/">
-                <img src="/images/kakao.png">
+                <img src="/images/kakao.png" />
               </a>
             </div>
           </div>
         </div>
       </div>
     </main>
+    <script src="./signin.js"></script>
   </body>
 </html>

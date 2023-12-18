@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>signup</title>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="signup.css" />
   </head>
   <body>
     <main>
@@ -11,24 +11,31 @@
         <div class="header">
           <div class="logo">
             <a href="/index.html">
-              <img src="/images/logo.svg" alt="홈 버튼" width="250rem"/>
+              <img src="/images/logo.svg" alt="홈 버튼" width="250rem" />
             </a>
           </div>
           <div class="signip-msg">
-            이미 회원이신가요? <a class="sign-up-link" href="/signin/signin.html">로그인 하기</a>
+            이미 회원이신가요?
+            <a class="sign-up-link" href="/signin/signin.html">로그인 하기</a>
           </div>
         </div>
         <div>
-          이메일
-          <input class="input-id" type="text" placeholder="이메일">
+          <label class="sign-input-label">이메일</label>
+          <input class="sign-input" type="text" placeholder="이메일" />
         </div>
-        <div>
-          비밀번호
-          <input class="input-pw" type="password" placeholder="비밀번호">      
+        <div class="sign-password">
+          <label class="sign-input-label">비밀번호</label>
+          <input class="sign-input" type="password" placeholder="비밀번호" />
+          <button class="eye-button" type="button">
+            <img src="/images/eye-off.svg" />
+          </button>
         </div>
-        <div>
-          비밀번호 확인
-          <input class="input-pw-check" type="password" placeholder="비밀번호 확인">      
+        <div class="sign-password">
+          <label class="sign-input-label">비밀번호 확인</label>
+          <input class="sign-input" type="password" placeholder="비밀번호" />
+          <button class="eye-button" type="button">
+            <img src="/images/eye-off.svg" />
+          </button>
         </div>
         <div>
           <button class="signup-btn">회원가입</button>
@@ -40,10 +47,10 @@
             </div>
             <div class="social-login-btn">
               <a href="https://www.google.com/">
-                <img src="/images/google.svg">
+                <img src="/images/google.svg" />
               </a>
               <a href="https://kakao.com/">
-                <img src="/images/kakao.png">
+                <img src="/images/kakao.png" />
               </a>
             </div>
           </div>
