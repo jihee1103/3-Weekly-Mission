@@ -7,6 +7,8 @@ const eyeBtnSlash1 = document.querySelector(".slash1");
 const eyeBtnSlash2 = document.querySelector(".slash2");
 const signInputPasswordChk = document.querySelector(".passwordChk");
 const passwordChkErrMsg = document.querySelector(".passwordChkErrMsg");
+const eyeBtnNonSlash1 = document.querySelector(".non-slash1");
+const eyeBtnNonSlash2 = document.querySelector(".non-slash2");
 
 //이메일 유효성 검사 함수
 const patternEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -58,17 +60,20 @@ function passwordErrMsgHandler() {
     passwordErrMsg.classList.remove("hide");
     passwordErrMsg.textContent = "비밀번호를 입력해주세요.";
     eyeBtnSlash1.classList.add("eye-button-focusout");
+    eyeBtnNonSlash1.classList.add("eye-button-focusout");
   } else if (signInputPassword.value !== "" && passwordValidChk(signInputPassword.value) === false) {
     signInputPassword.classList.add("sign-input-err");
     passwordErrMsg.classList.add("sign-input-errMsg");
     passwordErrMsg.classList.remove("hide");
     passwordErrMsg.textContent = "비밀번호는 영문,숫자 조합 8자 이상 입력해 주세요.";
     eyeBtnSlash1.classList.add("eye-button-focusout");
+    eyeBtnNonSlash1.classList.add("eye-button-focusout");
   } else {
     signInputPassword.classList.remove("sign-input-err");
     passwordErrMsg.classList.remove("sign-input-errMsg");
     passwordErrMsg.classList.add("hide");
     eyeBtnSlash1.classList.remove("eye-button-focusout");
+    eyeBtnNonSlash1.classList.remove("eye-button-focusout");
   }
 }
 
@@ -82,11 +87,13 @@ function passwordChkErrMsgHandler() {
     passwordChkErrMsg.classList.remove("hide");
     passwordChkErrMsg.textContent = "비밀번호가 일치하지 않아요.";
     eyeBtnSlash2.classList.add("eye-button-focusout");
+    eyeBtnNonSlash2.classList.add("eye-button-focusout");
   } else {
     signInputPasswordChk.classList.remove("sign-input-err");
     passwordChkErrMsg.classList.remove("sign-input-errMsg");
     passwordChkErrMsg.classList.add("hide");
     eyeBtnSlash2.classList.remove("eye-button-focusout");
+    eyeBtnNonSlash2.classList.remove("eye-button-focusout");
   }
 }
 

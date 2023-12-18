@@ -4,6 +4,7 @@ const emailErrMsg = document.querySelector(".emailErrMsg");
 const signInputPassword = document.querySelector(".password");
 const passwordErrMsg = document.querySelector(".passwordErrMsg");
 const eyeBtnSlash1 = document.querySelector(".slash1");
+const eyeBtnNonSlash1 = document.querySelector(".non-slash1");
 
 //이메일 유효성 검사 함수
 const patternEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -40,11 +41,13 @@ function passwordErrMsgHandler() {
     passwordErrMsg.classList.remove("hide");
     passwordErrMsg.textContent = "비밀번호를 입력해주세요.";
     eyeBtnSlash1.classList.add("eye-button-focusout");
+    eyeBtnNonSlash1.classList.add("eye-button-focusout");
   } else {
     signInputPassword.classList.remove("sign-input-err");
     passwordErrMsg.classList.remove("sign-input-errMsg");
     passwordErrMsg.classList.add("hide");
     eyeBtnSlash1.classList.remove("eye-button-focusout");
+    eyeBtnNonSlash1.classList.remove("eye-button-focusout");
   }
 }
 
