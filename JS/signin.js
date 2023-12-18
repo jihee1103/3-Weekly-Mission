@@ -3,12 +3,12 @@ const signInputEmail = document.querySelector(".email");
 const emailErrMsg = document.querySelector(".emailErrMsg");
 const signInputPassword = document.querySelector(".password");
 const passwordErrMsg = document.querySelector(".passwordErrMsg");
-const eyeBtnSlash = document.querySelector(".slash");
+const eyeBtnSlash1 = document.querySelector(".slash1");
 
 //이메일 유효성 검사 함수
-const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const patternEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 function emailValidChk(email) {
-  if (pattern.test(email)) {
+  if (patternEmail.test(email)) {
     return true;
   } else {
     return false;
@@ -39,12 +39,12 @@ function passwordErrMsgHandler() {
     passwordErrMsg.classList.add("sign-input-errMsg");
     passwordErrMsg.classList.remove("hide");
     passwordErrMsg.textContent = "비밀번호를 입력해주세요.";
-    eyeBtnSlash.classList.add("eye-button-focusout");
+    eyeBtnSlash1.classList.add("eye-button-focusout");
   } else {
     signInputPassword.classList.remove("sign-input-err");
     passwordErrMsg.classList.remove("sign-input-errMsg");
     passwordErrMsg.classList.add("hide");
-    eyeBtnSlash.classList.remove("eye-button-focusout");
+    eyeBtnSlash1.classList.remove("eye-button-focusout");
   }
 }
 
@@ -62,7 +62,7 @@ function submitHandler(e) {
     passwordErrMsg.classList.add("sign-input-errMsg");
     passwordErrMsg.classList.remove("hide");
     passwordErrMsg.textContent = "비밀번호를 확인해주세요.";
-    eyeBtnSlash.classList.add("eye-button-focusout");
+    eyeBtnSlash1.classList.add("eye-button-focusout");
   }
 }
 
