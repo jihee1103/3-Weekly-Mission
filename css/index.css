@@ -263,22 +263,8 @@ footer a {
 
 /* PC */
 @media (min-width: 1200px) {
-  .header-page {
-    width: 1200px;
-  }
-
   nav {
     padding: 20px 200px;
-  }
-}
-
-/* 태블릿 이하 */
-@media (max-width: 1199px) {
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
   }
 }
 
@@ -294,11 +280,7 @@ footer a {
   }
 
   .header-heading {
-    width: 472px;
-  }
-
-  .header-page {
-    width: 698px;
+    width: 520px;
   }
 
   nav {
@@ -346,10 +328,6 @@ footer a {
     font-size: 14px;
     font-weight: 600;
     height: 16px;
-  }
-
-  .header-content {
-    width: 100%;
   }
 
   nav img {

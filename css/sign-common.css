@@ -23,7 +23,7 @@ body {
   display: flex;
 }
 
-main {
+form {
   width: 100%;
   max-width: 400px;
   height: 100%;
@@ -59,14 +59,14 @@ main {
   height: 38px;
 }
 
-main .sign-linkbrary-container {
+form .sign-linkbrary-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
 }
 
-main .sign-linkbrary-container > a {
+form .sign-linkbrary-container > a {
   color: #6d6afe;
   border-bottom: 1px solid #6d6afe;
   font-size: 16px;
@@ -87,6 +87,10 @@ main .sign-linkbrary-container > a {
   gap: 12px;
 }
 
+.error-message {
+  color: #ff5b56;
+}
+
 .sign-form-container input {
   display: flex;
   width: 100%;
@@ -96,6 +100,11 @@ main .sign-linkbrary-container > a {
   border-radius: 8px;
   border: 1px solid #ccd5e3;
   background: #fff;
+}
+
+/* 같은 우선순위라면 밑에 작성해야 최종 적용됨 */
+input.input-error {
+  border: 1px solid #ff5b56;
 }
 
 .sign-form-container input:focus {
@@ -124,6 +133,7 @@ main .sign-linkbrary-container > a {
 
 a.sign-login {
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
   padding: 16px 20px;
@@ -144,10 +154,9 @@ a.sign-login {
   width: 100%;
 }
 
-.input-container::after {
+.eye-icon {
   background-image: url("/img/ic-eye-on.png");
   background-size: cover;
-  content: "";
   height: 16px;
   position: absolute;
   right: 10px;
@@ -156,9 +165,8 @@ a.sign-login {
   width: 16px;
 }
 
-.input-container.password::after {
+.eye-icon.password {
   background-image: url("/img/ic-eye-off.png");
-  /* background: url("/img/ic-eye-on.png") no-repeat 16px 16px; */
 }
 
 .social-login {
@@ -193,7 +201,7 @@ a.sign-login {
   body {
     padding: 120px 32px;
   }
-  main {
+  form {
     display: flex;
     align-items: stretch;
   }

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/sign-common.css" />
   </head>
   <body>
-    <main>
+    <form method="post" id="signup-form" action="/">
       <div class="sign-container">
         <a href="/"><img src="/img/logo.svg" class="sign-logo" /></a>
         <div class="sign-linkbrary-container text-common text-big">
@@ -20,17 +20,24 @@
       <div class="sign-form-container text-common text-small">
         <label for="email">이메일</label>
         <input type="email" class="sign-email" />
+        <div id="email-error-message" class="error-message"></div>
         <label for="password">비밀번호</label>
-        <div class="input-container password">
-          <input type="password" class="sign-password" />
+        <div class="input-container">
+          <div class="eye-icon password"></div>
+          <input name="password" class="sign-password" />
         </div>
+        <div id="password-error-message" class="error-message"></div>
         <label for="password">비밀번호 확인</label>
-        <div class="input-container password">
-          <input type="password" class="sign-password" />
+        <div class="input-container">
+          <div class="eye-icon password"></div>
+          <input name="password-check" class="sign-password" />
         </div>
+        <div id="password-error-message-different" class="error-message"></div>
       </div>
       <div class="sign-login-container">
-        <a href="/" class="sign-login text-common">회원가입</a>
+        <a href="#" class="sign-login text-common" id="signup-button"
+          >회원가입</a
+        >
         <div class="sign-social">
           <span class="social-login text-common">다른 방식으로 가입하기</span>
           <div class="social-icons">
@@ -43,6 +50,8 @@
           </div>
         </div>
       </div>
-    </main>
+    </form>
+    <script src="/js/sign-common.js"></script>
+    <script src="/js/signup.js"></script>
   </body>
 </html>
