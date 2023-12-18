@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>Linkbrary</title>
+    <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://Linkbrary.com" />
@@ -11,52 +13,35 @@
       property="og:description"
       content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
     />
-
-    <link rel="stylesheet" href="style.css" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@linkbrary" />
+    <meta name="twitter:title" content="Linkbrary" />
+    <meta
+      name="twitter:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    />
+    <meta
+      name="twitter:image"
+      content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr"
+    />
+    <link rel="stylesheet" href="src/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <title>Linkbrary</title>
-    <base href="/" />
-    <script>
-      (function (d) {
-        var config = {
-            kitId: "bsb1fhv",
-            scriptTimeout: 3000,
-            async: true,
-          },
-          h = d.documentElement,
-          t = setTimeout(function () {
-            h.className =
-              h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-          }, config.scriptTimeout),
-          tk = d.createElement("script"),
-          f = false,
-          s = d.getElementsByTagName("script")[0],
-          a;
-        h.className += " wf-loading";
-        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
-        tk.async = true;
-        tk.onload = tk.onreadystatechange = function () {
-          a = this.readyState;
-          if (f || (a && a != "complete" && a != "loaded")) return;
-          f = true;
-          clearTimeout(t);
-          try {
-            Typekit.load(config);
-          } catch (e) {}
-        };
-        s.parentNode.insertBefore(tk, s);
-      })(document);
-    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
   </head>
   <body>
     <div class="wrap">
-      <nav class="nav">
-        <a href="/">
-          <img class="logo" src="images/logo.svg" />
-        </a>
-        <a class="login" href="/signin.html">로그인</a>
+      <nav>
+        <div class="gnb">
+          <a href="/">
+            <img class="logo" src="images/logo.svg" />
+          </a>
+          <a class="login" href="/signin.html">로그인</a>
+        </div>
       </nav>
       <section class="section-main">
         <div class="normal-text-1">

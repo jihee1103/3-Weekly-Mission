@@ -2,47 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>Linkbrary</title>
+    <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="signin-style.css" />
+    <link rel="stylesheet" href="src/signin-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Abel&display=swap"
       rel="stylesheet"
     />
-    <title>Linkbrary</title>
-    <base href="/" />
-    <script>
-      (function (d) {
-        var config = {
-            kitId: "bsb1fhv",
-            scriptTimeout: 3000,
-            async: true,
-          },
-          h = d.documentElement,
-          t = setTimeout(function () {
-            h.className =
-              h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-          }, config.scriptTimeout),
-          tk = d.createElement("script"),
-          f = false,
-          s = d.getElementsByTagName("script")[0],
-          a;
-        h.className += " wf-loading";
-        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
-        tk.async = true;
-        tk.onload = tk.onreadystatechange = function () {
-          a = this.readyState;
-          if (f || (a && a != "complete" && a != "loaded")) return;
-          f = true;
-          clearTimeout(t);
-          try {
-            Typekit.load(config);
-          } catch (e) {}
-        };
-        s.parentNode.insertBefore(tk, s);
-      })(document);
-    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
   </head>
   <body>
     <div class="wrap">
@@ -56,7 +30,7 @@
           </div>
         </div>
 
-        <form>
+        <form id="signup-form">
           <!-- 라벨(인풋의 설명을 적음)과 인풋 연결 -->
           <div class="form-box">
             <div class="input-frame">
@@ -68,6 +42,7 @@
                 type="email"
                 required
               />
+              <p class="err-msg" id="err-email">이메일을 입력해주세요.</p>
             </div>
             <div class="input-frame">
               <label class="form-name" for="signup-password">비밀번호</label>
@@ -78,26 +53,31 @@
                 type="password"
                 required
               />
+              <p class="err-msg" id="err-password">비밀번호를 입력해주세요.</p>
               <img src="images/eye-off.svg" class="eye-icon" />
             </div>
             <div class="input-frame">
-              <label class="form-name" for="signup-password2"
+              <label class="form-name" for="signup-repassword"
                 >비밀번호 확인</label
               >
               <input
                 class="form-input"
-                id="signup-password2"
+                id="signup-repassword"
                 name="password"
                 type="password"
                 required
               />
-              <span class="input-check"> 비밀번호가 다릅니다. </span>
+              <p class="err-msg" id="err-repassword">
+                비밀번호를 입력해주세요.
+              </p>
               <img src="images/eye-off.svg" class="eye-icon" />
             </div>
           </div>
 
           <div class="form-btn">
-            <button type="submit" class="form-btn-gradient">회원가입</button>
+            <button type="button" class="form-btn-gradient" id="signup-btn">
+              회원가입
+            </button>
           </div>
         </form>
       </div>
@@ -114,5 +94,6 @@
         </div>
       </div>
     </div>
+    <script src="./signup.js"></script>
   </body>
 </html>

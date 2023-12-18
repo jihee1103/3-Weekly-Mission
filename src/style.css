@@ -1,18 +1,4 @@
-:root {
-  --linkbrary-primary-color: #6d6afe;
-  --linkbrary-red: #ff5b56;
-  --the-julge-black: #111322;
-  --linkbrary-white: #ffffff;
-  --linkbrary-gray-100: #373740;
-  --linkbrary-gray-60: #9fa6b2;
-  --linkbrary-gray-20: #ccd5e3;
-  --linkbrary-gray-10: #e7effb;
-  --linkbrary-bg: #f0f6ff;
-}
-
-* {
-  box-sizing: border-box;
-}
+@import "./global.css";
 
 body {
   position: relative;
@@ -26,18 +12,33 @@ body {
   width: 100%;
 }
 
-.nav {
+nav {
+  display: flex;
+  justify-content: center;
   position: sticky;
   top: 0;
-  left: 0;
-  z-index: 1;
-  display: flex;
+  width: 100%;
+  background: var(--linkbrary-bg);
+}
 
+.gnb {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  align-self: stretch;
-  padding: 20px 32px;
-  background: var(--linkbrary-bg);
+  width: 100%;
+  height: 6.3rem;
+  padding: 0 3.2rem;
+
+  @media (min-width: 768px) {
+    height: 9.4rem;
+    max-width: 86.3rem;
+  }
+
+  @media (min-width: 1200px) {
+    height: 9.4rem;
+    max-width: 192rem;
+    padding: 0 20rem;
+  }
 }
 
 .logo {
@@ -72,7 +73,7 @@ body {
       rgba(196, 196, 196, 0) 67.68%,
       #c0c0c0 94.76%
     ),
-    url("images/image25.png"); /*img위에 그라디언트 겹치기*/
+    url("../images/image25.png"); /*img위에 그라디언트 겹치기*/
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 25px;
@@ -83,8 +84,7 @@ body {
   width: 236px;
   height: 126px;
   text-align: center;
-  font-family: Pretendard;
-  font-size: 2rem;
+  font-size: 3.2rem;
   font-style: normal;
   font-weight: 700;
   line-height: 42px;
@@ -112,8 +112,7 @@ body {
   );
 
   color: #f5f5f5;
-  font-family: Pretendard;
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -152,16 +151,14 @@ body {
 .text-small {
   align-self: stretch;
   color: #6b6b6b;
-  font-family: Pretendard;
-  font-size: 0.938rem;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
 }
 .normal-text-2 {
   color: #000;
-  font-family: Pretendard;
-  font-size: 1.5rem;
+  font-size: 2.4rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -272,7 +269,7 @@ footer {
 .footer-logo {
   text-align: center;
   font-family: Arial;
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -293,12 +290,6 @@ footer {
 
 /*tablet*/
 @media (min-width: 768px) {
-  .nav {
-    /* padding: 20px 32px; */
-    /* padding: 20px 200px; */
-    padding: 20px max(10%, 32px);
-  }
-
   .section-main {
     padding: 39px 250px 0px 251px;
     gap: 40px;
@@ -315,14 +306,14 @@ footer {
   .normal-text-1 {
     width: 472px;
     height: 240px;
-    font-size: 4rem;
+    font-size: 6.4rem;
     line-height: 80px;
   }
   .normal-text-2 {
-    font-size: 3rem;
+    font-size: 4.8rem;
   }
   .text-small {
-    font-size: 1rem;
+    font-size: 1.6rem;
   }
   .img-frame {
     width: 698px;
@@ -336,7 +327,7 @@ footer {
   }
   .login,
   .add-button {
-    font-size: 1.125rem;
+    font-size: 1.8rem;
     padding: 16px 20px;
     gap: 10px;
   }
@@ -395,9 +386,6 @@ footer {
 
 /*pc*/
 @media (min-width: 1200px) {
-  .nav {
-    padding: 20px 120px;
-  }
   .section-main {
     padding: 70px 360px 0px 360px;
   }
