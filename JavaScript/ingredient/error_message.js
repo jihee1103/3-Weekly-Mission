@@ -1,6 +1,6 @@
 import { inputEmail, emailErrorMessage } from "./tags.js";
 
-const REGEXP_EMAIL = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+const REGEXP_EMAIL = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]{2,}/;
 
 function emailError() {
   if (REGEXP_EMAIL.test(inputEmail.value)) {

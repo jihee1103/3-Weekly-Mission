@@ -16,13 +16,32 @@ const inputPasswordCheck = document.querySelector("#password-check-input");
 
 const CHECK_PASSWORD = /^(?=.*?[a-zA-Z])(?=.*?[0-9])[a-zA-Z0-9]{8,}$/;
 
-function checkEmailError() {
-  if (inputEmail.value === "test@codeit.com") {
-    inputEmail.classList.add("error-input");
-    emailErrorMessage.textContent = "이미 사용 중인 이메일입니다.";
-    emailErrorMessage.style.display = "INLINE";
-  } else {
-    return emailError();
+async function checkEmailError() {
+  const userEmail = {
+    email: inputEmail.value,
+  };
+
+  if (emailError()) {
+    try {
+      const post = await fetch(
+        "https://bootcamp-api.codeit.kr/api/check-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userEmail),
+        }
+      );
+
+      if (post.status === 409) {
+        inputEmail.classList.add("error-input");
+        emailErrorMessage.textContent = "이미 사용 중인 이메일입니다.";
+        emailErrorMessage.style.display = "INLINE";
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
@@ -53,9 +72,28 @@ function checkPasswordSameError() {
   }
 }
 
-function checkSignup() {
+async function checkSignup() {
   if (checkEmailError() && checkPasswordError() && checkPasswordSameError()) {
-    location.href = "folder.html";
+    const user = {
+      email: inputEmail.value,
+      password: inputPassword.value,
+    };
+
+    try {
+      const post = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      if (post.status === 200) {
+        location.href = "folder.html";
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 

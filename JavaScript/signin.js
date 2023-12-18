@@ -22,20 +22,31 @@ function passwordError() {
   }
 }
 
-function checkSignin() {
-  if (
-    inputEmail.value === "test@codeit.com" &&
-    inputPassword.value === "codeit101"
-  ) {
-    location.href = "folder.html";
-  } else {
-    emailErrorMessage.textContent = "이메일을 확인해 주세요.";
-    passwordErrorMessage.textContent = "비밀번호를 확인해 주세요.";
-    emailErrorMessage.style.display = "INLINE";
-    passwordErrorMessage.style.display = "INLINE";
-    inputEmail.classList.add("error-input");
-    inputPassword.classList.add("error-input");
-  }
+async function checkSignin() {
+  const user = {
+    email: inputEmail.value,
+    password: inputPassword.value,
+  };
+
+  try {
+    const post = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    if (post.status === 200) location.href = "folder.html";
+    else if (post.status === 400) {
+      emailErrorMessage.textContent = "이메일을 확인해 주세요.";
+      passwordErrorMessage.textContent = "비밀번호를 확인해 주세요.";
+      emailErrorMessage.style.display = "INLINE";
+      passwordErrorMessage.style.display = "INLINE";
+      inputEmail.classList.add("error-input");
+      inputPassword.classList.add("error-input");
+    }
+  } catch (error) {}
 }
 
 function pressEnterSignin(e) {
