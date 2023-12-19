@@ -1,3 +1,5 @@
+import { MOCK_EMAIL } from './magic-values.js';
+
 const formElement = document.getElementById('form-list');
 const emailInput = document.getElementById('email-input');
 const passwordInput = document.getElementById('password-input');
@@ -26,7 +28,7 @@ function handleSignUpEmailInputFocusout() {
     return false;
   }
 
-  if (emailInput.value === 'test@codeit.com') {
+  if (emailInput.value === MOCK_EMAIL) {
     emailInput.classList.add('error-border');
     emailErrorText.textContent = '이미 사용 중인 이메일입니다.';
     return false;

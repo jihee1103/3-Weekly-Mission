@@ -9,24 +9,25 @@ import {
   handlePasswordInputFocusout,
   handlePasswordVisibilityIconClick,
 } from './common.js';
+import { MOCK_EMAIL, MOCK_PASSWORD } from './magic-values.js';
 
 // submit 에러 확인
 function handleSignInFormSubmit(e) {
   e.preventDefault();
 
-  if (emailInput.value !== 'test@codeit.com') {
+  if (emailInput.value !== MOCK_EMAIL) {
     emailInput.classList.add('error-border');
     emailErrorText.textContent = '이메일을 확인해 주세요.';
     return;
   }
 
-  if (passwordInput.value !== 'codeit101') {
+  if (passwordInput.value !== MOCK_PASSWORD) {
     passwordInput.classList.add('error-border');
     passwordErrorText.textContent = '비밀번호를 확인해 주세요.';
     return;
   }
 
-  if (emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101') {
+  if (emailInput.value === MOCK_EMAIL && passwordInput.value === MOCK_PASSWORD) {
     formElement.submit();
     return;
   }
