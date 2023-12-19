@@ -2,44 +2,78 @@ import {
   formElement,
   emailInput,
   passwordInput,
-  emailErrorText,
-  passwordErrorText,
   passwordVisibilityIcon,
-  handleSignInEmailInputFocusout,
-  handlePasswordInputFocusout,
+  validateEmail,
+  validatePassword,
+  verifyRegisteredEmail,
+  verifyRegisteredPassword,
+  showError,
+  removeError,
   handlePasswordVisibilityIconClick,
 } from './common.js';
-import { MOCK_EMAIL, MOCK_PASSWORD } from './magic-values.js';
+
+// Email 유효성 검사
+function handleSignInEmailInputFocusout() {
+  const input = this;
+  const value = input.value;
+  const errorText = document.getElementById('email-error');
+
+  if (!value) {
+    showError(input, errorText, '이메일을 입력해주세요.');
+    return false;
+  }
+
+  if (!validateEmail(value)) {
+    showError(input, errorText, '올바른 이메일 주소가 아닙니다.');
+    return false;
+  }
+
+  removeError(input, errorText);
+  return true;
+}
+
+// Password 유효성 검사
+function handleSignInPasswordInputFocusout() {
+  const input = this;
+  const value = input.value;
+  const errorText = document.getElementById('password-error');
+
+  if (!value) {
+    showError(input, errorText, '비밀번호를 입력해주세요.');
+    return false;
+  }
+
+  if (!validatePassword(value)) {
+    showError(input, errorText, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
+    return false;
+  }
+
+  removeError(input, errorText);
+}
 
 // submit 에러 확인
 function handleSignInFormSubmit(e) {
   e.preventDefault();
 
-  if (emailInput.value !== MOCK_EMAIL) {
-    emailInput.classList.add('error-border');
-    emailErrorText.textContent = '이메일을 확인해 주세요.';
+  const isEmailValid = verifyRegisteredEmail(emailInput.value);
+  const isPasswordValid = verifyRegisteredPassword(passwordInput.value);
+
+  if (!isEmailValid) {
+    const emailErrorText = document.getElementById('email-error');
+    showError(emailInput, emailErrorText, '이메일을 확인해주세요.');
     return;
   }
 
-  if (passwordInput.value !== MOCK_PASSWORD) {
-    passwordInput.classList.add('error-border');
-    passwordErrorText.textContent = '비밀번호를 확인해 주세요.';
+  if (!isPasswordValid) {
+    const passwordErrorText = document.getElementById('password-error');
+    showError(passwordInput, passwordErrorText, '비밀번호를 확인해주세요.');
     return;
   }
 
-  if (emailInput.value === MOCK_EMAIL && passwordInput.value === MOCK_PASSWORD) {
-    formElement.submit();
-    return;
-  }
-
-  // 에러 메세지 초기화
-  emailInput.classList.remove('error-border');
-  passwordInput.classList.remove('error-border');
-  emailErrorText.textContent = '';
-  passwordErrorText.textContent = '';
+  formElement.submit();
 }
 
 emailInput.addEventListener('focusout', handleSignInEmailInputFocusout);
-passwordInput.addEventListener('focusout', handlePasswordInputFocusout);
+passwordInput.addEventListener('focusout', handleSignInPasswordInputFocusout);
 formElement.addEventListener('submit', handleSignInFormSubmit);
 passwordVisibilityIcon.addEventListener('click', handlePasswordVisibilityIconClick);
