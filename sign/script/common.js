@@ -1,13 +1,10 @@
-const formElement = document.querySelector('#form-list');
-
-const emailInput = document.querySelector('.email-form__input');
-const passwordInput = document.querySelector('.password-form__input');
-const passwordRepeatInput = document.querySelector('.password-repeat-form__input');
-
-const emailErrorText = document.querySelector('#email-error');
-const passwordErrorText = document.querySelector('#password-error');
-const passwordRepeatErrorText = document.querySelector('#password-repeat-error');
-
+const formElement = document.getElementById('form-list');
+const emailInput = document.getElementById('email-input');
+const passwordInput = document.getElementById('password-input');
+const passwordRepeatInput = document.getElementById('password-repeat-input');
+const emailErrorText = document.getElementById('email-error');
+const passwordErrorText = document.getElementById('password-error');
+const passwordRepeatErrorText = document.getElementById('password-repeat-error');
 const passwordVisibilityIcon = document.getElementById('password-visibility-icon');
 const passwordRepeatVisibilityIcon = document.getElementById('password-repeat-visibility-icon');
 
