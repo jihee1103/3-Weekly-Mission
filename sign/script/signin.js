@@ -32,6 +32,12 @@ function handleSignInEmailInputFocusout() {
   return true;
 }
 
+function handleSignInEmailInputKeydown(e) {
+  if (e.key === 'Enter') {
+    handleSignInEmailInputFocusout();
+  }
+}
+
 // Password 유효성 검사
 function handleSignInPasswordInputFocusout() {
   const input = this;
@@ -43,12 +49,13 @@ function handleSignInPasswordInputFocusout() {
     return false;
   }
 
-  if (!validatePassword(value)) {
-    showError(input, errorText, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
-    return false;
-  }
-
   removeError(input, errorText);
+}
+
+function handleSignInPasswordInputKeydown(e) {
+  if (e.key === 'Enter') {
+    handleSignInPasswordInputFocusout();
+  }
 }
 
 // submit 에러 확인
@@ -74,6 +81,8 @@ function handleSignInFormSubmit(e) {
 }
 
 emailInput.addEventListener('focusout', handleSignInEmailInputFocusout);
+emailInput.addEventListener('keydown', handleSignInEmailInputKeydown);
 passwordInput.addEventListener('focusout', handleSignInPasswordInputFocusout);
+passwordInput.addEventListener('keydown', handleSignInPasswordInputKeydown);
 formElement.addEventListener('submit', handleSignInFormSubmit);
 passwordVisibilityIcon.addEventListener('click', handlePasswordVisibilityIconClick);

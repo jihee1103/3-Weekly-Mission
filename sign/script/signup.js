@@ -39,6 +39,12 @@ function handleSignUpEmailInputFocusout() {
   return true;
 }
 
+function handleSignUpEmailInputKeydown(e) {
+  if (e.key === 'Enter') {
+    handleSignUpEmailInputFocusout();
+  }
+}
+
 // Password 유효성 검사
 function handleSignUpPasswordInputFocusout() {
   const input = this;
@@ -59,6 +65,12 @@ function handleSignUpPasswordInputFocusout() {
   return true;
 }
 
+function handleSignUpPasswordInputKeydown(e) {
+  if (e.key === 'Enter') {
+    handleSignUpPasswordInputFocusout();
+  }
+}
+
 // Password-repeat 유효성 검사
 function handlePasswordRepeatInputFocusout() {
   const input = this;
@@ -77,6 +89,12 @@ function handlePasswordRepeatInputFocusout() {
 
   removeError(input, errorText);
   return true;
+}
+
+function handleSignUpPasswordRepeatInputKeydown(e) {
+  if (e.key === 'Enter') {
+    handlePasswordRepeatInputFocusout();
+  }
 }
 
 // submit 에러 확인
@@ -109,8 +127,11 @@ function handleSignUpFormSubmit(e) {
 }
 
 emailInput.addEventListener('focusout', handleSignUpEmailInputFocusout);
+emailInput.addEventListener('keydown', handleSignUpEmailInputKeydown);
 passwordInput.addEventListener('focusout', handleSignUpPasswordInputFocusout);
+passwordInput.addEventListener('keydown', handleSignUpPasswordInputKeydown);
 passwordRepeatInput.addEventListener('focusout', handlePasswordRepeatInputFocusout);
+passwordRepeatInput.addEventListener('keydown', handleSignUpPasswordRepeatInputKeydown);
 formElement.addEventListener('submit', handleSignUpFormSubmit);
 passwordVisibilityIcon.addEventListener('click', handlePasswordVisibilityIconClick);
 passwordRepeatVisibilityIcon.addEventListener('click', handlePasswordVisibilityIconClick);
