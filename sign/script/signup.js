@@ -11,10 +11,10 @@ import {
   isValidEmail,
   isValidPassword,
   isValidPasswordRepeat,
-  validateSignUpEmail,
-  validatePassword,
-  validatePasswordRepeat,
-  togglePasswordVisibility,
+  handleSignUpEmailInputFocusout,
+  handlePasswordInputFocusout,
+  handlePasswordRepeatInputFocusout,
+  handlePasswordVisibilityIconClick,
 } from './common.js';
 
 // submit 에러 확인
@@ -48,9 +48,9 @@ function checkSubmitError(e) {
   }
 }
 
-emailInput.addEventListener('focusout', validateSignUpEmail);
-passwordInput.addEventListener('focusout', validatePassword);
-passwordRepeatInput.addEventListener('focusout', validatePasswordRepeat);
+emailInput.addEventListener('focusout', handleSignUpEmailInputFocusout);
+passwordInput.addEventListener('focusout', handlePasswordInputFocusout);
+passwordRepeatInput.addEventListener('focusout', handlePasswordRepeatInputFocusout);
 formElement.addEventListener('submit', checkSubmitError);
-passwordVisibilityIcon.addEventListener('click', togglePasswordVisibility);
-passwordRepeatVisibilityIcon.addEventListener('click', togglePasswordVisibility);
+passwordVisibilityIcon.addEventListener('click', handlePasswordVisibilityIconClick);
+passwordRepeatVisibilityIcon.addEventListener('click', handlePasswordVisibilityIconClick);

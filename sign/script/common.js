@@ -20,7 +20,7 @@ let isValidPassword = false;
 let isValidPasswordRepeat = false;
 
 // 회원가입 이메일 유효성 검사
-function validateSignUpEmail() {
+function handleSignUpEmailInputFocusout() {
   if (!emailInput.value) {
     // input 공백 시 실행
     emailInput.classList.add('error-border');
@@ -45,7 +45,7 @@ function validateSignUpEmail() {
 }
 
 // 로그인 이메일 유효성 검사
-function validateSignInEmail() {
+function handleSignInEmailInputFocusout() {
   if (!emailInput.value) {
     emailInput.classList.add('error-border');
     emailErrorText.textContent = '이메일를 입력해주세요.';
@@ -62,7 +62,7 @@ function validateSignInEmail() {
 }
 
 // Password 유효성 검사
-function validatePassword() {
+function handlePasswordInputFocusout() {
   if (!passwordInput.value) {
     passwordInput.classList.add('error-border');
     passwordErrorText.textContent = '비밀번호를 입력해주세요.';
@@ -79,7 +79,7 @@ function validatePassword() {
 }
 
 // Password-Repaet 유효성 검사
-function validatePasswordRepeat() {
+function handlePasswordRepeatInputFocusout() {
   if (!passwordRepeatInput.value) {
     passwordRepeatInput.classList.add('error-border');
     passwordRepeatErrorText.textContent = '비밀번호를 다시 한번 입력해주세요.';
@@ -97,9 +97,9 @@ function validatePasswordRepeat() {
 }
 
 // 눈 모양 아이콘 토글
-function togglePasswordVisibility() {
+function handlePasswordVisibilityIconClick() {
   const input = this.parentElement.querySelector('.input');
-  const icon = this.parentElement.querySelector('.switch-icon');
+  const icon = this.parentElement.querySelector('.visibility-icon');
 
   input.type = input.type === 'password' ? 'text' : 'password';
   icon.src = input.type === 'password' ? 'icons/eye-off.svg' : 'icons/eye-on.svg';
@@ -118,9 +118,9 @@ export {
   isValidEmail,
   isValidPassword,
   isValidPasswordRepeat,
-  validateSignUpEmail,
-  validateSignInEmail,
-  validatePassword,
-  validatePasswordRepeat,
-  togglePasswordVisibility,
+  handleSignUpEmailInputFocusout,
+  handleSignInEmailInputFocusout,
+  handlePasswordInputFocusout,
+  handlePasswordRepeatInputFocusout,
+  handlePasswordVisibilityIconClick,
 };

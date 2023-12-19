@@ -5,13 +5,13 @@ import {
   emailErrorText,
   passwordErrorText,
   passwordVisibilityIcon,
-  validateSignInEmail,
-  validatePassword,
-  togglePasswordVisibility,
+  handleSignInEmailInputFocusout,
+  handlePasswordInputFocusout,
+  handlePasswordVisibilityIconClick,
 } from './common.js';
 
 // submit 에러 확인
-function checkSubmitError(e) {
+function handleSubmit(e) {
   e.preventDefault();
 
   // 에러 메세지 초기화
@@ -35,7 +35,7 @@ function checkSubmitError(e) {
   }
 }
 
-emailInput.addEventListener('focusout', validateSignInEmail);
-passwordInput.addEventListener('focusout', validatePassword);
-formElement.addEventListener('submit', checkSubmitError);
-passwordVisibilityIcon.addEventListener('click', togglePasswordVisibility);
+emailInput.addEventListener('focusout', handleSignInEmailInputFocusout);
+passwordInput.addEventListener('focusout', handlePasswordInputFocusout);
+formElement.addEventListener('submit', handleSubmit);
+passwordVisibilityIcon.addEventListener('click', handlePasswordVisibilityIconClick);
