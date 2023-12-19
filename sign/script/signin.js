@@ -11,7 +11,7 @@ import {
 } from './common.js';
 
 // submit 에러 확인
-function handleSubmit(e) {
+function handleSignInFormSubmit(e) {
   e.preventDefault();
 
   // 에러 메세지 초기화
@@ -37,5 +37,5 @@ function handleSubmit(e) {
 
 emailInput.addEventListener('focusout', handleSignInEmailInputFocusout);
 passwordInput.addEventListener('focusout', handlePasswordInputFocusout);
-formElement.addEventListener('submit', handleSubmit);
+formElement.addEventListener('submit', handleSignInFormSubmit);
 passwordVisibilityIcon.addEventListener('click', handlePasswordVisibilityIconClick);
