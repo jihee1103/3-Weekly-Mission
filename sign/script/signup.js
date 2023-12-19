@@ -17,23 +17,6 @@ import {
   togglePasswordVisibility,
 } from './common.js';
 
-// input focusout 에러 확인
-function checkFocusOutError(e) {
-  switch (e.target) {
-    case emailInput:
-      validateSignUpEmail();
-      break;
-    case passwordInput:
-      validatePassword();
-      break;
-    case passwordRepeatInput:
-      validatePasswordRepeat();
-      break;
-    default:
-      break;
-  }
-}
-
 // submit 에러 확인
 function checkSubmitError(e) {
   e.preventDefault();
@@ -65,9 +48,9 @@ function checkSubmitError(e) {
   }
 }
 
-emailInput.addEventListener('focusout', checkFocusOutError);
-passwordInput.addEventListener('focusout', checkFocusOutError);
-passwordRepeatInput.addEventListener('focusout', checkFocusOutError);
+emailInput.addEventListener('focusout', validateSignUpEmail);
+passwordInput.addEventListener('focusout', validatePassword);
+passwordRepeatInput.addEventListener('focusout', validatePasswordRepeat);
 formElement.addEventListener('submit', checkSubmitError);
 passwordVisibilityIcon.addEventListener('click', togglePasswordVisibility);
 passwordRepeatVisibilityIcon.addEventListener('click', togglePasswordVisibility);
