@@ -1,0 +1,163 @@
+/* 테블릿 Size (768px 이상 1199px이하) */
+@media (max-width: 1199px) {
+  .gnb {
+    justify-content: center;
+    padding: 0;
+    column-gap: 538px; /* 화면 1199px 시점 로고와 버튼 사이 넓이 */
+
+    @media (max-width: 863px /* 좌우 여백 32px되는 시점 화면 가로 픽셀 */) {
+      justify-content: space-between;
+      column-gap: 0;
+      padding: 0 3.2rem;
+    }
+  }
+
+  #block {
+    display: block;
+  }
+
+  .header-main {
+    padding-top: 4rem;
+  }
+
+  .header-img {
+    width: 69.8rem;
+    height: auto;
+  }
+
+  article {
+    padding-top: 3rem;
+  }
+
+  section {
+    column-gap: 5.1rem;
+  }
+
+  .section-image {
+    width: 38.5rem;
+    height: auto;
+  }
+
+  /*그리드 설정 코드 (홀수)*/
+  section:nth-of-type(odd) {
+    grid-template:
+      ". image"
+      "title image"
+      "description image"
+      ". image"
+      /29.1rem 38.5rem;
+  }
+  /*그리드 설정 코드 (짝수)*/
+  section:nth-of-type(even) {
+    grid-template:
+      "image ."
+      "image title"
+      "image description"
+      "image ."
+      /38.5rem 29.1rem;
+  }
+}
+
+/* 모바일 Size (375px 이상 767px이하) | 이 단계에서 375px 이하 고려안함 */
+@media (max-width: 767px) {
+  .gnb {
+    height: 6.3rem;
+  }
+
+  #Linkbrary-logo {
+    width: 8.9rem;
+    height: auto;
+  }
+
+  .header-text {
+    font-size: 1.4rem;
+    height: 3.7rem;
+  }
+
+  .header-main {
+    width: 100%;
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+    row-gap: 2.4rem;
+    padding-top: 2.8rem;
+  }
+
+  .slogan {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
+
+  .login {
+    width: 8rem;
+  }
+
+  .plus-link {
+    width: 20rem;
+  }
+
+  .header-img {
+    width: 100%;
+  }
+  article {
+    padding-top: 0;
+    padding-bottom: 4rem;
+  }
+  section {
+    row-gap: 1.6rem;
+    padding: 4rem 3.2rem;
+  }
+
+  .br {
+    display: none;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .description {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.25rem;
+  }
+
+  .section-image {
+    width: 100%;
+    margin-top: 0.4rem; /* 요구사항에 그리드 부분별 gap이 다른데 grid 옵션으로 처리할 수 있는지 궁금 */
+  }
+
+  /*그리드 설정 코드 (홀수)*/
+  section:nth-of-type(odd) {
+    grid-template:
+      "title"
+      "image"
+      "description";
+  }
+  /*그리드 설정 코드 (짝수)*/
+  section:nth-of-type(even) {
+    grid-template:
+      "title"
+      "image"
+      "description";
+  }
+
+  /* footer 요소 그리드 설정 */
+  .copyright {
+    grid-area: copyright;
+  }
+  .footer-links {
+    grid-area: links;
+  }
+  .sns {
+    grid-area: sns;
+  }
+
+  .footer-box {
+    display: grid;
+    padding: 0 3.2rem 3.2rem;
+    row-gap: 6rem;
+    grid-template:
+      "links sns"
+      "copyright .";
+  }
+}

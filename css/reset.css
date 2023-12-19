@@ -15,3 +15,8 @@ button {
   background-color: unset;
   cursor: pointer;
 }
+
+html,
+body {
+  font-size: 62.5%;
+}
