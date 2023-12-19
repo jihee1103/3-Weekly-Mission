@@ -8,9 +8,6 @@ import {
   passwordRepeatErrorText,
   passwordVisibilityIcon,
   passwordRepeatVisibilityIcon,
-  isValidEmail,
-  isValidPassword,
-  isValidPasswordRepeat,
   handleSignUpEmailInputFocusout,
   handlePasswordInputFocusout,
   handlePasswordRepeatInputFocusout,
@@ -21,6 +18,33 @@ import {
 function handleSignUpFormSubmit(e) {
   e.preventDefault();
 
+  if (!handleSignUpEmailInputFocusout) {
+    emailInput.classList.add('error-border');
+    emailErrorText.textContent = '이메일을 확인해 주세요.';
+    return;
+  }
+
+  if (!handlePasswordInputFocusout) {
+    passwordInput.classList.add('error-border');
+    passwordErrorText.textContent = '비밀번호를 확인해 주세요.';
+    return;
+  }
+
+  if (!handlePasswordRepeatInputFocusout) {
+    passwordRepeatInput.classList.add('error-border');
+    passwordRepeatErrorText.textContent = '비밀번호를 다시 확인해 주세요.';
+    return;
+  }
+
+  if (
+    handleSignUpEmailInputFocusout &&
+    handlePasswordInputFocusout &&
+    handlePasswordRepeatInputFocusout
+  ) {
+    formElement.submit();
+    return;
+  }
+
   // 에러 메세지 초기화
   emailInput.classList.remove('error-border');
   passwordInput.classList.remove('error-border');
@@ -28,24 +52,6 @@ function handleSignUpFormSubmit(e) {
   emailErrorText.textContent = '';
   passwordErrorText.textContent = '';
   passwordRepeatErrorText.textContent = '';
-
-  // 에러 발생 확인 및 처리
-  if (isValidEmail && isValidPassword && isValidPasswordRepeat) {
-    formElement.submit();
-  } else {
-    if (!isValidEmail) {
-      emailInput.classList.add('error-border');
-      emailErrorText.textContent = '이메일을 확인해 주세요.';
-    }
-    if (!isValidPassword) {
-      passwordInput.classList.add('error-border');
-      passwordErrorText.textContent = '비밀번호를 확인해 주세요.';
-    }
-    if (!isValidPasswordRepeat) {
-      passwordRepeatInput.classList.add('error-border');
-      passwordRepeatErrorText.textContent = '비밀번호를 다시 확인해 주세요.';
-    }
-  }
 }
 
 emailInput.addEventListener('focusout', handleSignUpEmailInputFocusout);
