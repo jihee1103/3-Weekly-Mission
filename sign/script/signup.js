@@ -6,7 +6,8 @@ import {
   emailErrorText,
   passwordErrorText,
   passwordRepeatErrorText,
-  visibilityIconList,
+  passwordVisibilityIcon,
+  passwordRepeatVisibilityIcon,
   isValidEmail,
   isValidPassword,
   isValidPasswordRepeat,
@@ -70,10 +71,5 @@ emailInput.addEventListener('focusout', checkFocusOutError);
 passwordInput.addEventListener('focusout', checkFocusOutError);
 passwordRepeatInput.addEventListener('focusout', checkFocusOutError);
 formElement.addEventListener('submit', checkSubmitError);
-
-visibilityIconList.forEach((icon) => {
-  icon.addEventListener('click', ({ target }) => {
-    const targetInput = target.previousElementSibling;
-    togglePasswordVisibility(target, targetInput);
-  });
-});
+passwordVisibilityIcon.addEventListener('click', togglePasswordVisibility);
+passwordRepeatVisibilityIcon.addEventListener('click', togglePasswordVisibility);
