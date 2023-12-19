@@ -8,8 +8,8 @@ const emailErrorText = document.querySelector('#email-error');
 const passwordErrorText = document.querySelector('#password-error');
 const passwordRepeatErrorText = document.querySelector('#password-repeat-error');
 
-const passwordVisibilityIcon = document.getElementById('#password-visibility-icon');
-const passwordRepeatVisibilityIcon = document.getElementById('#password-repeat-visibility-icon');
+const passwordVisibilityIcon = document.getElementById('password-visibility-icon');
+const passwordRepeatVisibilityIcon = document.getElementById('password-repeat-visibility-icon');
 
 const emailRegex =
   /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
@@ -98,8 +98,8 @@ function validatePasswordRepeat() {
 
 // 눈 모양 아이콘 토글
 function togglePasswordVisibility() {
-  const input = this.parentElement.querySelector('input');
-  const icon = this.parentElement.querySelector('img');
+  const input = this.parentElement.querySelector('.input');
+  const icon = this.parentElement.querySelector('.switch-icon');
 
   input.type = input.type === 'password' ? 'text' : 'password';
   icon.src = input.type === 'password' ? 'icons/eye-off.svg' : 'icons/eye-on.svg';

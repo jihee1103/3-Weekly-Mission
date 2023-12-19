@@ -25,8 +25,8 @@
         ><a href="signup.html" class="suggest-sign__link">회원 가입하기</a>
       </p>
       <form id="form-list">
-        <label class="form email-form" for="signin-email">
-          이메일<br />
+        <div class="form email-form">
+          <label for="signin-email">이메일<br /></label>
           <input
             class="input email-form__input"
             type="email"
@@ -35,9 +35,9 @@
             required
           />
           <p id="email-error" class="error-text"></p>
-        </label>
-        <label class="form password-form" for="password">
-          비밀번호<br />
+        </div>
+        <div class="form password-form">
+          <label for="password">비밀번호<br /></label>
           <input
             class="input password-form__input"
             type="password"
@@ -54,7 +54,7 @@
             height="16"
           />
           <p id="password-error" class="error-text"></p>
-        </label>
+        </div>
         <button class="submit-button" type="submit">로그인</button>
       </form>
       <article class="social-sign">
