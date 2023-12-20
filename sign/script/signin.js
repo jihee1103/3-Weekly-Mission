@@ -4,7 +4,6 @@ import {
   passwordInput,
   passwordVisibilityIcon,
   validateEmail,
-  validatePassword,
   verifyRegisteredEmail,
   verifyRegisteredPassword,
   showError,
