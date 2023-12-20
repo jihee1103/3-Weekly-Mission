@@ -128,4 +128,6 @@ export {
   errorPasswordbox,
   loginButton,
   passwordBtn,
+  eyeIcon,
+  passwordEye,
 };

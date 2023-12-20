@@ -19,6 +19,14 @@ input {
   outline: none;
 }
 
+.email label {
+  font-size: 0;
+}
+
+.password1 label {
+  font-size: 0;
+}
+
 .sign {
   display: flex;
   flex-direction: column;

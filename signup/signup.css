@@ -159,16 +159,13 @@ input {
   margin: 0;
 }
 
-.box2:hover {
-  border-color: #6d6afe;
-}
 .box3 {
   display: flex;
   font-size: 18px;
   font-weight: 600;
-  width: 370rem;
+  width: 402rem;
   padding: 18rem 15rem;
-  margin-top: 30rem;
+  margin-top: 20rem;
   justify-content: center;
   align-items: center;
   color: white;
@@ -230,6 +227,18 @@ input {
   gap: 16rem;
 }
 
+.email label {
+  font-size: 0;
+}
+
+.password1 label {
+  font-size: 0;
+}
+
+.password2 label {
+  font-size: 0;
+}
+
 input {
   width: 370rem;
   height: 24rem;
@@ -242,6 +251,15 @@ input {
 
 .error-box {
   border-color: #ff5b56;
+}
+
+#signup-button {
+  cursor: pointer;
+}
+
+.error-password-check {
+  color: #ff5b56;
+  font-size: 14px;
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
