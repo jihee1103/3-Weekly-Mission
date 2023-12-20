@@ -2,7 +2,7 @@ const inputEmail = document.querySelector("#inputEmail");
 const inputPw = document.querySelector("#inputPw");
 const emailError = document.querySelector("#email_err");
 const pwError = document.querySelector("#pw_err");
-const signinBtn = document.querySelector("#signinBtn");
+const signinForm = document.querySelector("form");
 const inputPwIcon = document.querySelector("#inputPwIcon");
 
 function checkEmail() {
@@ -35,7 +35,8 @@ function checkPassword() {
     }
 }
 
-function signIn() {
+function signIn(event) {
+    event.preventDefault();
     if (
         inputEmail.value === "test@codeit.com" &&
         inputPw.value === "codeit101"
@@ -65,4 +66,4 @@ inputPwIcon.addEventListener("click", () => {
 
 inputEmail.addEventListener("focusout", checkEmail);
 inputPw.addEventListener("focusout", checkPassword);
-signinBtn.addEventListener("click", signIn);
+signinForm.addEventListener("submit", signIn);
