@@ -1,3 +1,5 @@
+import { userEmail, userPassword } from "./userInfo.js";
+
 const inputEmail = document.querySelector("#inputEmail");
 const inputPassword = document.querySelector("#inputPw");
 const emailError = document.querySelector("#email_err");
@@ -38,8 +40,8 @@ function checkPassword() {
 function signIn(event) {
     event.preventDefault();
     if (
-        inputEmail.value === "test@codeit.com" &&
-        inputPassword.value === "codeit101"
+        inputEmail.value === userEmail &&
+        inputPassword.value === userPassword
     ) {
         location.href = "/folder";
     } else {

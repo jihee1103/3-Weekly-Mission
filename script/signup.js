@@ -1,3 +1,5 @@
+import { userEmail } from "./userInfo.js";
+
 const inputEmail = document.querySelector("#inputEmail");
 const inputPassword = document.querySelector("#inputPw");
 const inputPasswordConfirm = document.querySelector("#inputPwConfirm");
@@ -21,7 +23,7 @@ function checkEmail() {
     } else if (!EMAIL_REGEX.test(inputEmail.value)) {
         emailError.textContent = "올바른 이메일 주소가 아닙니다.";
         inputEmail.className = "error-box";
-    } else if (inputEmail.value === "test@codeit.com") {
+    } else if (inputEmail.value === userEmail) {
         emailError.textContent = "이미 사용 중인 이메일입니다.";
     } else {
         emailError.textContent = " ";
