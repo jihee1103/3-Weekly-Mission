@@ -69,7 +69,10 @@ function signUp(event) {
         passwordValid === true &&
         passwordConfirmValid === true
     ) {
-        location.href = "/folder";
+        signupForm.action = "/folder";
+        signupForm.method = "Get";
+
+        signupForm.submit();
     } else if (emailValid === false) {
         emailError.textContent = "이메일을 확인해주세요.";
         inputEmail.className = "error-box";

@@ -43,7 +43,10 @@ function signIn(event) {
         inputEmail.value === userEmail &&
         inputPassword.value === userPassword
     ) {
-        location.href = "/folder";
+        signinForm.action = "/folder";
+        signinForm.method = "Get";
+
+        signinForm.submit();
     } else {
         emailError.textContent = "이메일을 확인해주세요.";
         passwordError.textContent = "비밀번호를 확인해주세요.";
