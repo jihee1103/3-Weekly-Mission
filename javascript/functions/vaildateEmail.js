@@ -2,8 +2,8 @@ import { $emailInput } from "../tags.js";
 import { makeWarningSpanTag, changeRedBorder } from "./handleSpanTag.js";
 export { validateEmail, addWarningEmailMsg };
 
-function addWarningEmailMsg(e) {
-  if (!e.target.value) {
+function addWarningEmailMsg() {
+  if (!$emailInput.value) {
     changeRedBorder($emailInput);
     makeWarningSpanTag("이메일을 입력해주세요.", $emailInput, "emailSpan");
   }
@@ -20,6 +20,5 @@ function validateEmail() {
       $emailInput,
       "vaildEmailSpan"
     );
-    console.log(emailValue);
   }
 }
