@@ -4,7 +4,7 @@ const inputPwConfirm = document.querySelector("#inputPwConfirm");
 const emailError = document.querySelector("#email_err");
 const pwError = document.querySelector("#pw_err");
 const pwConfirmError = document.querySelector("#pwConfirm_err");
-const signupBtn = document.querySelector("#signupBtn");
+const signupForm = document.querySelector("form");
 const inputPwIcon = document.querySelector("#inputPwIcon");
 const inputPwComfirmIcon = document.querySelector("#inputPwComfirmIcon");
 
@@ -59,7 +59,9 @@ function passwordConfirm() {
     }
 }
 
-function signUp() {
+function signUp(event) {
+    event.preventDefault();
+
     if (
         emailValid === true &&
         passwordValid === true &&
@@ -102,4 +104,4 @@ inputEmail.addEventListener("focusout", checkEmail);
 inputPw.addEventListener("focusout", checkPassword);
 inputPwConfirm.addEventListener("focusout", passwordConfirm);
 
-signupBtn.addEventListener("click", signUp);
+signupForm.addEventListener("submit", signUp);

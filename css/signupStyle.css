@@ -46,35 +46,35 @@ input:focus {
     outline: 1px solid #6d6afe;
 }
 .sign-input-box {
-  display: flex;
-  flex-direction: column;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .eye-button {
-  position: absolute;
-  bottom: 4.9rem;
-  right: 1.5rem;
-  width: 1.6rem;
-  height: 1.6rem;
-  cursor: pointer;
+    position: absolute;
+    bottom: 4.9rem;
+    right: 1.5rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    cursor: pointer;
 }
 
-.error-box{
-  width: 400px;
+.error-box {
+    width: 400px;
     height: 60px;
     border: 1px;
     box-sizing: border-box;
-    border-color: #FF5B56;
+    border-color: #ff5b56;
     border-style: solid;
     border-radius: 8px;
     margin-top: 12px;
     padding: 18px 15px;
 }
-.error_msg{
-  font-size: 14px;
-  color: #FF5B56;
-  text-align: start;
+.error_msg {
+    font-size: 14px;
+    color: #ff5b56;
+    text-align: start;
 }
 
 form div.pw_inputbox {
@@ -124,6 +124,7 @@ a {
     align-items: center;
     margin-top: 30px;
     text-align: center;
+    border: none;
 }
 
 .social_login {
