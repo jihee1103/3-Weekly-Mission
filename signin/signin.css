@@ -57,7 +57,7 @@ input {
 }
 
 .error-email {
-  display: none;
+  display: block;
   font-family: Pretendard, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -84,10 +84,6 @@ input {
   font-weight: 400;
   color: #ff5b56;
   margin: 0;
-}
-
-.error-box {
-  bordercolor: '#ff5b56';
 }
 
 .box {
@@ -133,9 +129,6 @@ input {
   margin: 0;
 }
 
-.box2:hover {
-  border-color: #6d6afe;
-}
 .box3 {
   display: flex;
   width: 370rem;
@@ -193,6 +186,14 @@ input {
   width: 370rem;
   height: 24rem;
   border: none;
+}
+
+.error {
+  display: block;
+}
+
+.error-box {
+  border-color: #ff5b56;
 }
 
 @media (min-width: 375px) and (max-width: 767px) {

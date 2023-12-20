@@ -1,14 +1,3 @@
-export {
-  emailInput,
-  errorEmail,
-  errorBox,
-  passwordInput,
-  errorPassword,
-  errorBox2,
-  loginButton,
-  passwordBtn,
-};
-
 //이메일 에러구현
 
 const emailInput = document.querySelector('.email-box'); // 이메일 입력란
@@ -20,15 +9,15 @@ emailInput.addEventListener('focusout', function () {
 
   if (!emailValue) {
     errorEmail.textContent = '이메일을 입력해주세요.'; // 값이 없을 경우
-    errorEmail.style.display = 'block'; // 에러 메시지 표시
-    errorBox.style.borderColor = '#ff5b56';
+    errorEmail.classList.add('error');
+    errorBox.classList.add('error-box');
   } else if (!isValidEmail(emailValue)) {
     errorEmail.textContent = '올바른 이메일 주소가 아닙니다.'; // 이메일 형식이 아닌 경우
-    errorEmail.style.display = 'block'; // 에러 메시지 표시
-    errorBox.style.borderColor = '#ff5b56';
+    errorEmail.classList.add('error');
+    errorBox.classList.add('error-box');
   } else {
-    errorEmail.style.display = 'none'; // 아무 문제가 없는 경우 에러 메시지 숨김
-    errorBox.style.borderColor = ''; // 에러가 아닌 경우 박스 border 컬러 초기화
+    errorEmail.classList.remove('error'); // 아무 문제가 없는 경우 에러 메시지 숨김
+    errorBox.classList.remove('error-box'); // 에러가 아닌 경우 박스 border 컬러 초기화
   }
 });
 
@@ -40,24 +29,25 @@ function isValidEmail(email) {
 
 //패스워드 에러구현
 
-const passwordInput = document.querySelector('.password-box'); // 비밀번호 입력란
-const errorPassword = document.querySelector('.error-password'); // 비밀번호 에러 메시지
+const passwordInput = document.querySelector('.password-box');
+const errorPassword = document.querySelector('.error-password');
 const errorBox2 = document.querySelector('.box5');
+
 passwordInput.addEventListener('focusout', function () {
   const passwordValue = this.value.trim();
 
   if (!passwordValue) {
-    errorPassword.textContent = '비밀번호를 입력해주세요.'; // 값이 없을 경우
-    errorPassword.style.display = 'block'; // 에러 메시지 표시
-    errorBox2.style.borderColor = '#ff5b56';
+    errorPassword.textContent = '비밀번호를 입력해주세요.';
+    errorPassword.classList.add('error');
+    errorBox2.classList.add('error-box');
   } else if (!isValidPassword(passwordValue)) {
     errorPassword.textContent =
-      '비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.'; // 패스워드 형식이 아닌 경우
-    errorPassword.style.display = 'block'; // 에러 메시지 표시
-    errorBox2.style.borderColor = '#ff5b56';
+      '비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.';
+    errorPassword.classList.add('error');
+    errorBox2.classList.add('error-box');
   } else {
-    errorPassword.style.display = 'none'; // 아무 문제가 없는 경우 에러 메시지 숨김
-    errorBox2.style.borderColor = ''; // 에러가 아닌 경우 박스 border 컬러 초기화
+    errorPassword.classList.remove('error');
+    errorBox2.classList.remove('error-box');
   }
 });
 
@@ -93,11 +83,11 @@ function login() {
     // 로그인 실패 시 처리
 
     errorEmail.textContent = '이메일을 확인해주세요.';
-    errorEmail.style.display = 'block';
+    errorEmail.classList.add('error');
     errorPassword.textContent = '비밀번호를 확인해주세요.';
-    errorPassword.style.display = 'block';
-    errorBox.style.borderColor = '#ff5b56';
-    errorBox2.style.borderColor = '#ff5b56';
+    errorPassword.classList.add('error');
+    errorBox.classList.add('error-box');
+    errorBox2.classList.add('error-box');
   }
 }
 
@@ -119,3 +109,14 @@ function togglePasswordVisibility() {
     eyeIcon.src = '../image/eye-off.png'; // 기본 이미지 경로
   }
 }
+
+export {
+  emailInput,
+  errorEmail,
+  errorBox,
+  passwordInput,
+  errorPassword,
+  errorBox2,
+  loginButton,
+  passwordBtn,
+};

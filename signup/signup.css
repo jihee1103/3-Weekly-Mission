@@ -236,6 +236,14 @@ input {
   border: none;
 }
 
+.error {
+  display: block;
+}
+
+.error-box {
+  border-color: #ff5b56;
+}
+
 @media (min-width: 375px) and (max-width: 767px) {
   /* 모바일 */
   header {
