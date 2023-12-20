@@ -1,61 +1,83 @@
 //이메일 에러구현
 
-const emailInput = document.querySelector('.email-box'); // 이메일 입력란
-const errorEmail = document.querySelector('.error-email'); // 이메일 에러 메시지
-const errorBox = document.querySelector('.box2'); //이메일 에러 박스
+const emailInput = document.querySelector('.email-box');
+const errorEmail = document.querySelector('.error-email');
+const errorEmailbox = document.querySelector('.box2');
+const passwordInput = document.querySelector('.password-box');
+const errorPassword = document.querySelector('.error-password');
+const errorPasswordbox = document.querySelector('.box5');
 
-emailInput.addEventListener('focusout', function () {
-  const emailValue = this.value.trim();
+function handleEmailInputFocusout() {
+  const emailValue = emailInput.value;
 
   if (!emailValue) {
-    errorEmail.textContent = '이메일을 입력해주세요.'; // 값이 없을 경우
-    errorEmail.classList.add('error');
-    errorBox.classList.add('error-box');
-  } else if (!isValidEmail(emailValue)) {
-    errorEmail.textContent = '올바른 이메일 주소가 아닙니다.'; // 이메일 형식이 아닌 경우
-    errorEmail.classList.add('error');
-    errorBox.classList.add('error-box');
-  } else {
-    errorEmail.classList.remove('error'); // 아무 문제가 없는 경우 에러 메시지 숨김
-    errorBox.classList.remove('error-box'); // 에러가 아닌 경우 박스 border 컬러 초기화
+    handleEmailErrorMessage('이메일을 입력해주세요.');
+    return;
   }
-});
+
+  if (!validateEmail(emailValue)) {
+    handleEmailErrorMessage('올바른 이메일 주소가 아닙니다.');
+    return;
+  }
+  handleEmailErrorMessage('');
+  resetEmailErrorState();
+}
+
+function handleEmailErrorMessage(message) {
+  errorEmail.textContent = message;
+  errorEmail.classList.toggle('error', !!message);
+  errorEmailbox.classList.toggle('error-box', !!message);
+}
+
+function resetEmailErrorState() {
+  errorEmail.classList.remove('error');
+  errorEmailbox.classList.remove('error-box');
+}
 
 //이메일 검증
-function isValidEmail(email) {
+function validateEmail(email) {
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  return emailRegex.test(email);
+  const emailWhitespace = /\s/.test(email);
+  return emailRegex.test(email) && !emailWhitespace;
 }
 
 //패스워드 에러구현
 
-const passwordInput = document.querySelector('.password-box');
-const errorPassword = document.querySelector('.error-password');
-const errorBox2 = document.querySelector('.box5');
-
-passwordInput.addEventListener('focusout', function () {
-  const passwordValue = this.value.trim();
+function handlePasswordInputFocusout() {
+  const passwordValue = passwordInput.value;
 
   if (!passwordValue) {
-    errorPassword.textContent = '비밀번호를 입력해주세요.';
-    errorPassword.classList.add('error');
-    errorBox2.classList.add('error-box');
-  } else if (!isValidPassword(passwordValue)) {
-    errorPassword.textContent =
-      '비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.';
-    errorPassword.classList.add('error');
-    errorBox2.classList.add('error-box');
-  } else {
-    errorPassword.classList.remove('error');
-    errorBox2.classList.remove('error-box');
+    handlePasswordErrorMessage('비밀번호를 입력해주세요.');
+    return;
   }
-});
 
-// 패스워드 검증
+  if (!validatePassword(passwordValue)) {
+    handlePasswordErrorMessage(
+      '비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.',
+    );
+    return;
+  }
 
-function isValidPassword(password) {
+  handlePasswordErrorMessage('');
+  resetPasswordErrorState();
+}
+
+function handlePasswordErrorMessage(message) {
+  errorPassword.textContent = message;
+  errorPassword.classList.toggle('error', !!message);
+  errorPasswordbox.classList.toggle('error-box', !!message);
+}
+
+function resetPasswordErrorState() {
+  errorPassword.classList.remove('error');
+  errorPasswordbox.classList.remove('error-box');
+}
+
+function validatePassword(password) {
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
-  return passwordRegex.test(password);
+  const passwordWhitespace = /\s/.test(password);
+
+  return passwordRegex.test(password) && !passwordWhitespace;
 }
 
 //로그인기능 구현
@@ -86,8 +108,8 @@ function login() {
     errorEmail.classList.add('error');
     errorPassword.textContent = '비밀번호를 확인해주세요.';
     errorPassword.classList.add('error');
-    errorBox.classList.add('error-box');
-    errorBox2.classList.add('error-box');
+    errorBoxclassList.add('error-box');
+    errorBox2classList.add('error-box');
   }
 }
 
@@ -110,13 +132,16 @@ function togglePasswordVisibility() {
   }
 }
 
+emailInput.addEventListener('focusout', handleEmailInputFocusout);
+passwordInput.addEventListener('focusout', handlePasswordInputFocusout);
+
 export {
   emailInput,
   errorEmail,
-  errorBox,
+  errorEmailbox,
   passwordInput,
   errorPassword,
-  errorBox2,
+  errorPasswordbox,
   loginButton,
   passwordBtn,
 };
