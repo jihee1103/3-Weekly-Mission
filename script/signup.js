@@ -10,10 +10,6 @@ const signupForm = document.querySelector("form");
 const inputPasswordIcon = document.querySelector("#inputPwIcon");
 const inputPasswordComfirmIcon = document.querySelector("#inputPwComfirmIcon");
 
-let emailValid = false;
-let passwordValid = false;
-let passwordConfirmValid = false;
-
 function checkEmail() {
     const EMAIL_REGEX =
         /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
@@ -28,7 +24,7 @@ function checkEmail() {
     } else {
         emailError.textContent = " ";
         inputEmail.className = "inputbox";
-        emailValid = true;
+        return true;
     }
 }
 
@@ -44,7 +40,7 @@ function checkPassword() {
     } else if (inputPassword.value && passwordRegex.test(inputPassword.value)) {
         passwordError.textContent = " ";
         inputPassword.className = "inputbox";
-        passwordValid = true;
+        return true;
     }
 }
 
@@ -57,7 +53,7 @@ function passwordConfirm() {
     } else {
         passwordConfirmError.textContent = " ";
         inputPasswordConfirm.className = "inputbox";
-        passwordConfirmValid = true;
+        return true;
     }
 }
 
@@ -65,21 +61,21 @@ function signUp(event) {
     event.preventDefault();
 
     if (
-        emailValid === true &&
-        passwordValid === true &&
-        passwordConfirmValid === true
+        checkEmail() === true &&
+        checkPassword() === true &&
+        passwordConfirm() === true
     ) {
         signupForm.action = "/folder";
         signupForm.method = "Get";
 
         signupForm.submit();
-    } else if (emailValid === false) {
+    } else if (checkEmail() !== true) {
         emailError.textContent = "이메일을 확인해주세요.";
         inputEmail.className = "error-box";
-    } else if (passwordValid === false) {
+    } else if (checkPassword() !== true) {
         passwordError.textContent = "비밀번호를 확인해주세요.";
         inputPassword.className = "error-box";
-    } else if (passwordConfirmValid === false) {
+    } else if (passwordConfirm() !== true) {
         passwordConfirmError.textContent = "비밀번호를 확인해주세요.";
         inputPasswordConfirm.className = "error-box";
     }
