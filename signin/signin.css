@@ -131,11 +131,11 @@ input {
 
 .box3 {
   display: flex;
-  width: 370rem;
+  width: 402rem;
   font-size: 18px;
   font-weight: 600;
   padding: 18rem 15rem;
-  margin-top: 20px;
+  margin-top: 70px;
   justify-content: center;
   align-items: center;
   color: white;

@@ -1,12 +1,16 @@
-//이메일 에러구현
-
 const emailInput = document.querySelector('.email-box');
 const errorEmail = document.querySelector('.error-email');
 const errorEmailbox = document.querySelector('.box2');
 const passwordInput = document.querySelector('.password-box');
 const errorPassword = document.querySelector('.error-password');
 const errorPasswordbox = document.querySelector('.box5');
+const passwordBtn = document.querySelector('.password-box');
+const loginButton = document.getElementById('login-button');
+const signinForm = document.getElementById('signin-form');
+const eyeIcon = document.querySelector('.eye-icon');
+const passwordEye = document.querySelector('.password-box');
 
+//이메일 에러
 function handleEmailInputFocusout() {
   const emailValue = emailInput.value;
 
@@ -41,7 +45,7 @@ function validateEmail(email) {
   return emailRegex.test(email) && !emailWhitespace;
 }
 
-//패스워드 에러구현
+//패스워드 에러
 
 function handlePasswordInputFocusout() {
   const passwordValue = passwordInput.value;
@@ -73,6 +77,8 @@ function resetPasswordErrorState() {
   errorPasswordbox.classList.remove('error-box');
 }
 
+//패스워드 에러
+
 function validatePassword(password) {
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
   const passwordWhitespace = /\s/.test(password);
@@ -82,58 +88,36 @@ function validatePassword(password) {
 
 //로그인기능 구현
 
-const loginButton = document.querySelector('#login-button');
-const passwordBtn = document.querySelector('.password-box');
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const userEmail = document.querySelector('.email-box').value;
+  const userPassword = document.querySelector('.password-box').value;
 
-passwordBtn.addEventListener('keyup', function (event) {
-  if (event.key === 'Enter') {
-    login();
-  }
-});
-
-loginButton.addEventListener('click', login);
-
-function login() {
-  const email = 'test@codeit.com';
-  const password = 'codeit101';
-  const emailInput = document.querySelector('.email-box').value;
-  const passwordInputValue = passwordBtn.value;
-
-  if (emailInput === email && passwordInputValue === password) {
-    window.location.href = '../etc/folder.html'; // 로그인 성공 시 페이지 이동
+  if (userEmail === 'test@codeit.com' && userPassword === 'codeit101') {
+    signinForm.action = '../etc/folder.html';
+    signinForm.submit();
   } else {
-    // 로그인 실패 시 처리
-
-    errorEmail.textContent = '이메일을 확인해주세요.';
-    errorEmail.classList.add('error');
-    errorPassword.textContent = '비밀번호를 확인해주세요.';
-    errorPassword.classList.add('error');
-    errorBoxclassList.add('error-box');
-    errorBox2classList.add('error-box');
+    handleEmailErrorMessage('이메일을 확인해주세요.');
+    handlePasswordErrorMessage('비밀번호를 확인해주세요.');
   }
 }
 
 //패스워드 눈모양 아이콘 기능
-
-const eyeIcon = document.querySelector('.eye-icon');
-
 eyeIcon.addEventListener('click', togglePasswordVisibility);
 
 function togglePasswordVisibility() {
-  const passwordEye = document.querySelector('.password-box');
-  const eyeIcon = document.querySelector('.eye-icon');
-
   if (passwordEye.type === 'password') {
     passwordEye.type = 'text';
-    eyeIcon.src = '../image/eye-on.png'; // 변경된 이미지 경로
+    eyeIcon.src = '../image/eye-on.png';
   } else {
     passwordEye.type = 'password';
-    eyeIcon.src = '../image/eye-off.png'; // 기본 이미지 경로
+    eyeIcon.src = '../image/eye-off.png';
   }
 }
 
 emailInput.addEventListener('focusout', handleEmailInputFocusout);
 passwordInput.addEventListener('focusout', handlePasswordInputFocusout);
+signinForm.addEventListener('submit', handleFormSubmit);
 
 export {
   emailInput,

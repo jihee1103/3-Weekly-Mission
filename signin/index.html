@@ -17,12 +17,12 @@
           >
         </p>
       </div>
-      <form>
+      <form id="signin-form">
         <div class="email">
           <p>이메일</p>
           <div class="box2">
             <label for="email"></label>
-            <input class="email-box" name="email" />
+            <input type="email" class="email-box" name="email" />
           </div>
           <p class="error-email"></p>
         </div>
@@ -30,13 +30,13 @@
           <p>비밀번호</p>
           <div class="box5">
             <label for="password"></label>
-            <input class="password-box" name="password" type="password" />
+            <input type="password" class="password-box" name="password" />
             <img src="../image/eye-off.png" class="eye-icon" />
           </div>
           <p class="error-password"></p>
         </div>
+        <button type="submit" class="box3" id="login-button">로그인</button>
       </form>
-      <div class="box3" id="login-button">로그인</div>
       <div class="box4">
         소셜로그인
         <div class="icon">
