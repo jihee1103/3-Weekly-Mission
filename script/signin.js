@@ -8,18 +8,21 @@ const signinForm = document.querySelector("form");
 const inputPwIcon = document.querySelector("#inputPwIcon");
 
 function checkEmail() {
-    const email_format =
+    const EMAIL_REGEX =
         /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
     if (!inputEmail.value) {
         emailError.textContent = "이메일을 입력해주세요.";
         inputEmail.className = "error-box";
-    } else if (!email_format.test(inputEmail.value)) {
+        return false;
+    }
+    if (!EMAIL_REGEX.test(inputEmail.value)) {
         emailError.textContent = "올바른 이메일 주소가 아닙니다.";
         inputEmail.className = "error-box";
-    } else {
-        emailError.textContent = " ";
-        inputEmail.className = "inputbox";
+        return false;
     }
+    emailError.textContent = " ";
+    inputEmail.className = "inputbox";
+    return true;
 }
 
 function checkPassword() {
@@ -27,14 +30,16 @@ function checkPassword() {
     if (!inputPassword.value) {
         passwordError.textContent = "비밀번호를 입력해주세요.";
         inputPassword.className = "error-box";
+        return false;
     } else if (!passwordRegex.test(inputPassword.value)) {
         passwordError.textContent =
             "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
         inputPassword.className = "error-box";
-    } else {
-        passwordError.textContent = " ";
-        inputPassword.className = "inputbox";
+        return false;
     }
+    passwordError.textContent = " ";
+    inputPassword.className = "inputbox";
+    return true;
 }
 
 function signIn(event) {
@@ -47,10 +52,11 @@ function signIn(event) {
         signinForm.method = "Get";
 
         signinForm.submit();
-    } else {
-        emailError.textContent = "이메일을 확인해주세요.";
-        passwordError.textContent = "비밀번호를 확인해주세요.";
+        return true;
     }
+    emailError.textContent = "이메일을 확인해주세요.";
+    passwordError.textContent = "비밀번호를 확인해주세요.";
+    return false;
 }
 
 function showPasswordToggle(elementIcon, elementInput) {

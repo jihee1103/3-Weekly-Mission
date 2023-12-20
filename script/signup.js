@@ -16,16 +16,20 @@ function checkEmail() {
     if (!inputEmail.value) {
         emailError.textContent = "이메일을 입력해주세요.";
         inputEmail.className = "error-box";
-    } else if (!EMAIL_REGEX.test(inputEmail.value)) {
+        return false;
+    }
+    if (!EMAIL_REGEX.test(inputEmail.value)) {
         emailError.textContent = "올바른 이메일 주소가 아닙니다.";
         inputEmail.className = "error-box";
-    } else if (inputEmail.value === userEmail) {
-        emailError.textContent = "이미 사용 중인 이메일입니다.";
-    } else {
-        emailError.textContent = " ";
-        inputEmail.className = "inputbox";
-        return true;
+        return false;
     }
+    if (inputEmail.value === userEmail) {
+        emailError.textContent = "이미 사용 중인 이메일입니다.";
+        return false;
+    }
+    emailError.textContent = " ";
+    inputEmail.className = "inputbox";
+    return true;
 }
 
 function checkPassword() {
@@ -33,11 +37,15 @@ function checkPassword() {
     if (!inputPassword.value) {
         passwordError.textContent = "비밀번호를 입력해주세요.";
         inputPassword.className = "error-box";
-    } else if (!passwordRegex.test(inputPassword.value)) {
+        return false;
+    }
+    if (!passwordRegex.test(inputPassword.value)) {
         passwordError.textContent =
             "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
         inputPassword.className = "error-box";
-    } else if (inputPassword.value && passwordRegex.test(inputPassword.value)) {
+        return false;
+    }
+    if (inputPassword.value && passwordRegex.test(inputPassword.value)) {
         passwordError.textContent = " ";
         inputPassword.className = "inputbox";
         return true;
@@ -48,13 +56,15 @@ function passwordConfirm() {
     if (!inputPasswordConfirm.value) {
         passwordConfirmError.textContent = "비밀번호를 입력해주세요.";
         inputPasswordConfirm.className = "error-box";
-    } else if (inputPasswordConfirm.value !== inputPassword.value) {
-        passwordConfirmError.textContent = "비밀번호가 일치하지 않아요.";
-    } else {
-        passwordConfirmError.textContent = " ";
-        inputPasswordConfirm.className = "inputbox";
-        return true;
+        return false;
     }
+    if (inputPasswordConfirm.value !== inputPassword.value) {
+        passwordConfirmError.textContent = "비밀번호가 일치하지 않아요.";
+        return false;
+    }
+    passwordConfirmError.textContent = " ";
+    inputPasswordConfirm.className = "inputbox";
+    return true;
 }
 
 function signUp(event) {
