@@ -20,7 +20,6 @@ export function displayLoginError(input, inputBox, message) {
   if (input === $inputEmail) {
     $loginErrorMessage.classList.add("error-message-email");
     input.classList.add("error-box-email");
-    console.log(input);
   } else if (input === $inputPassword) {
     $loginErrorMessage.classList.add("error-message-password");
     input.classList.add("error-box-password");
@@ -29,7 +28,6 @@ export function displayLoginError(input, inputBox, message) {
     input.classList.add("error-box-password-repeat");
   }
   $loginErrorMessage.textContent = message;
-  console.log($loginErrorMessage);
   inputBox.append($loginErrorMessage);
 }
 

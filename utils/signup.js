@@ -42,7 +42,7 @@ function checkVaildPassword() {
 // 회원가입 시 이메일 중복 검사
 function checkSignupDuplicateEmail() {
   removeLoginError($inputEmail, ".error-message-email");
-  for (let user of users) {
+  for (const user of users) {
     if (user.id === $inputEmail.value) {
       displayLoginError($inputEmail, $inputEmailBox, "이미 사용중인 이메일 입니다.");
       return false;
