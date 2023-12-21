@@ -14,6 +14,18 @@ import {
 import { addWarningPasswordMsg } from "./functions/vaildatePassword.js";
 import { togglePasswordView } from "./addEyeToggle.js";
 import { performSignUp } from "./functions/createAccount.js";
+
+window.onload = function () {
+  // 로컬 스토리지에서 accessToken 가져오기
+  const storedToken = localStorage.getItem("accessToken");
+
+  // accessToken이 존재하는 경우
+  if (storedToken) {
+    // "/folder" 페이지로 리디렉션
+    window.location.href = "/folder";
+  }
+};
+
 $emailInput.addEventListener("focusout", addWarningEmailMsg);
 $emailInput.addEventListener("focusin", () => {
   removePreviousWarningSpanTag("emailSpan");
@@ -37,11 +49,23 @@ $repasswordInput.addEventListener("focusin", () => {
 
 $signUpForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  removePreviousWarningSpanTag("emailSpan");
+  removePreviousWarningSpanTag("vaildEmailSpan");
+  removePreviousWarningSpanTag("removeRepassword");
+  removePreviousWarningSpanTag("emailSpan");
+  removePreviousWarningSpanTag("passwordSpan");
+
   performSignUp();
 });
 $signUpForm.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();
+    removePreviousWarningSpanTag("emailSpan");
+    removePreviousWarningSpanTag("vaildEmailSpan");
+    removePreviousWarningSpanTag("removeRepassword");
+    removePreviousWarningSpanTag("emailSpan");
+    removePreviousWarningSpanTag("passwordSpan");
+
     performSignUp();
   }
 });

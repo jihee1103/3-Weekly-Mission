@@ -1,6 +1,6 @@
 import { $emailInput } from "../tags.js";
 import { makeWarningSpanTag, changeRedBorder } from "./handleSpanTag.js";
-export { validateEmail, addWarningEmailMsg };
+export { validateEmail, addWarningEmailMsg, vaildateFormEmail };
 
 function addWarningEmailMsg() {
   if (!$emailInput.value) {
@@ -10,10 +10,7 @@ function addWarningEmailMsg() {
 }
 
 function validateEmail() {
-  const emailValue = $emailInput.value;
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!emailRegex.test(emailValue) && $emailInput.value) {
+  if (!vaildateFormEmail()) {
     changeRedBorder($emailInput);
     makeWarningSpanTag(
       "올바른 이메일 주소가 아닙니다.",
@@ -21,4 +18,13 @@ function validateEmail() {
       "vaildEmailSpan"
     );
   }
+}
+
+function vaildateFormEmail() {
+  const emailValue = $emailInput.value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailValue) && emailValue) {
+    return false;
+  }
+  return true;
 }
