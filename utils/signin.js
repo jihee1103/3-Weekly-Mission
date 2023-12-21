@@ -31,10 +31,20 @@ async function checkLogin(e) {
       body: JSON.stringify(inputUser),
     });
 
-    if (response.status === 200) location.href = "folder.html";
-    else if (response.status === 400) displayCheckEmailPassword();
+    // 리퀘스트 성공
+    if (response.status === 200) {
+      // 로컬 스토리지에 accessToken 저장
+      const result = response.json();
+      result.then((res) => {
+        const accessToken = res.data.accessToken;
+        localStorage.setItem("accessToken", accessToken);
+      });
+      // folder page로 이동
+      location.href = "folder.html";
+      // 리퀘스트 실패
+    } else if (response.status === 400) displayCheckEmailPassword();
   } catch (error) {
-    console.log(error);
+    alert("오류가 발생했습니다.");
   }
 }
 
