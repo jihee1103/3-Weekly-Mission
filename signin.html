@@ -23,14 +23,33 @@
 
             <form>
                 <label for="inputEmail">이메일</label>
-                <input type="email" id="inputEmail" />
+                <input
+                    type="email"
+                    id="inputEmail"
+                    class="inputbox"
+                    autofocus="autofocus"
+                />
+                <p class="error_msg" id="email_err"></p>
 
-                <label class="label_pw" for="inputPw">비밀번호</label>
+                <div class="sign-input-box">
+                    <label class="label_pw" for="inputPw">비밀번호</label>
+                    <input
+                        class="inputbox inputpw"
+                        type="password"
+                        id="inputPw"
+                    />
+                    <img
+                        class="eye-button"
+                        src="./images/eye-off.png"
+                        id="inputPwIcon"
+                    />
+                    <p class="error_msg" id="pw_err"></p>
+                </div>
 
-                <input class="pw_inputbox" type="password" id="inputPw" />
+                <button type="submit" class="login_btn" id="signinBtn">
+                    로그인
+                </button>
             </form>
-
-            <a class="login_btn" href="">로그인</a>
 
             <div class="social_login">
                 <h1>소셜 로그인</h1>
@@ -44,5 +63,6 @@
                 </div>
             </div>
         </div>
+        <script type="module" src="./script/signin.js"></script>
     </body>
 </html>
