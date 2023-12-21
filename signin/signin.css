@@ -28,11 +28,11 @@ main{
 }
 
 .member{
+  margin:0;
   color: var(--black, #000);
   font-family: Pretendard;
   font-size: 16px;
   font-weight: 400;
-  margin:0;
 }
 
 .text_color{
@@ -76,7 +76,7 @@ input:focus{
   outline: none;
 }
 
-.createbtn{
+.logbtn{
   width: 400px;
   padding: 16px 20px;
   border-radius: 8px;
@@ -104,10 +104,10 @@ input:focus{
 }
 
 .icons{  
-  display: flex;   
-  gap: 16px;
   margin: 0;
   padding: 0;
+  display: flex;   
+  gap: 16px;
 }
 
 .google{
@@ -139,7 +139,7 @@ li{
   list-style-type: none;
 }
 
-.email_error, .password_error, .password_error2{
+.email_error, .password_error{
   color: red;
   font-family: Pretendard;
   font-size: 14px;
@@ -151,7 +151,6 @@ li{
   border: 1px solid var(--Linkbrary-red, #FF5B56);
   background-color: #fff;
 }
-
 
 /* 반응형 모바일 375~767 */
 @media (max-width:767px){
@@ -170,7 +169,7 @@ li{
     width: 100%;
   }
 
-  .createbtn{
+  .logbtn{
       width: 100%;
   }
 

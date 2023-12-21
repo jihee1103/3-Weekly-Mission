@@ -10,6 +10,8 @@ const input_line = document.querySelector('.input_line');
 const logbtn = document.querySelector('.logbtn');
 //패스워든 눈 아이콘
 const password_icon1 = document.querySelector('.password_icon1')
+//이메일 정규식
+const emailreg = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
 //이메일
 email.addEventListener('focusout', email_check)
@@ -17,12 +19,15 @@ function email_check(){
   if(email.value===""){
     email.classList.add('input_line');
     email_error.innerText='이메일을 입력해주세요';
-  }else if(!email.value.includes('@')){
+    return false;
+  }else if(!emailreg.test(email.value)){
     email.classList.add('input_line')
     email_error.innerText='올바른 이메일 주소가 아닙니다.'
+    return false;
   }else{
     email.classList.remove('input_line');
     email_error.innerText='';
+    return true;
   };
 };
 email.addEventListener('focusout', email_check);
@@ -33,9 +38,11 @@ function password_check(){
   if(password.value === ""){
     password.classList.add('input_line');
     password_error.innerText = '비밀번호를 입력해주세요';
+    return false;
   }else{
     password.classList.remove('input_line');
     password_error.innerText = '';
+    return true;
   };
 };
 password.addEventListener('focusout', password_check);
@@ -56,7 +63,7 @@ logbtn.addEventListener('click', logbtn_check);
 // 로그인시 folder 페이지로 이동하는 함수
 
 function folder_page(){
-  if(email.value === 'test@codeit.com' && password.value === 'codeit101'){
+  if(email_check() && password_check()){
     window.location.href = '../html/folder.html';
   };
 };
@@ -101,11 +108,4 @@ logbtn.addEventListener('click', folder_page);
 
 //이벤트 위임으로 처리해보기
 
-// const inputlist = document.querySelectorAll('input');
-// inputlist.forEach((input) =>{ 
-// input.addEventListener('focusout', function(){
-//   if(email.value === ""){
-//       email.classList.add('input_line');
-//       email_error.innerText='이메일을 입력해주세요';
-//     }
-// })
+//display none

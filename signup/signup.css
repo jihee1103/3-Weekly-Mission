@@ -76,21 +76,7 @@ input:focus{
   outline: none;
 }
 
-/* .login{
-  display: flex;
-  width: 400px;
-  padding: 16px 20px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
-  color: var(--grey-light, #F5F5F5);
-  font-family: Pretendard;
-  font-size: 18px;
-  font-weight: 600;
-} */
-
-.logbtn{
+.create_btn{
   width: 400px;
   padding: 16px 20px;
   border-radius: 8px;
@@ -153,7 +139,7 @@ li{
   list-style-type: none;
 }
 
-.email_error, .password_error{
+.email_error, .password_error, .password_error2{
   color: red;
   font-family: Pretendard;
   font-size: 14px;
@@ -165,6 +151,7 @@ li{
   border: 1px solid var(--Linkbrary-red, #FF5B56);
   background-color: #fff;
 }
+
 
 /* 반응형 모바일 375~767 */
 @media (max-width:767px){
@@ -183,7 +170,7 @@ li{
     width: 100%;
   }
 
-  .logbtn{
+  .create_btn{
       width: 100%;
   }
 

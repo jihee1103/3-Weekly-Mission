@@ -12,7 +12,9 @@ const createbtn = document.querySelector('.createbtn');
 //에러시 인풋 박스 라인 빨갛게
 const input_line = document.querySelector('.input_line');
 //패스워드 정규식
-let reg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/
+const reg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/
+//이메일 정규식
+const emailreg = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
 //이메일 확인
 function email_check(){
@@ -24,7 +26,7 @@ function email_check(){
     email.classList.add('input_line');
     email_error.innerText='이메일을 입력해주세요';
     return false;
-  }else if(!email.value.includes('@')){
+  }else if(!emailreg.test(email.value)){
     email.classList.add('input_line');
     email_error.innerText='올바른 이메일 주소가 아닙니다';
     return false;
@@ -59,6 +61,7 @@ function password_check(){
     return true;
   }
 };
+password.addEventListener('focusout', password_check)
 
 //패스워드 확인 2
   function password_check2(){
@@ -72,9 +75,7 @@ function password_check(){
     return true;
   };
 };
-password.addEventListener('focusout', password_check)
 password2.addEventListener('focusout', password_check2)
-
 
 // 유요한 회원가입시 페이지 변경
 function folder_page(){
