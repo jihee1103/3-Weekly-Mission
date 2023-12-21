@@ -9,17 +9,9 @@ import {
   removeLoginError,
   checkInputEmail,
   checkInputPassword,
-  users,
   toggleDisplayPassword,
+  displayCheckEmailPassword,
 } from "./sign.js";
-
-// 로그인 실패시 에러 메세지
-function displayCheckEmailPassword() {
-  removeLoginError($inputEmail, ".error-message-email");
-  removeLoginError($inputPassword, ".error-message-password");
-  displayLoginError($inputEmail, $inputEmailBox, "이메일을 확인해주세요.");
-  displayLoginError($inputPassword, $inputPasswordBox, "비밀번호를 확인해주세요.");
-}
 
 // 로그인 할 때, 이메일, 비밀번호 검사
 async function checkLogin(e) {

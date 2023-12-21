@@ -82,3 +82,11 @@ export function toggleDisplayPassword(e) {
   e.target.style.backgroundImage =
     currentType === "password" ? "url(/asset/eye-on.svg)" : "url(/asset/eye-off.svg)";
 }
+
+// 로그인 실패시 에러 메세지
+export function displayCheckEmailPassword() {
+  removeLoginError($inputEmail, ".error-message-email");
+  removeLoginError($inputPassword, ".error-message-password");
+  displayLoginError($inputEmail, $inputEmailBox, "이메일을 확인해주세요.");
+  displayLoginError($inputPassword, $inputPasswordBox, "비밀번호를 확인해주세요.");
+}

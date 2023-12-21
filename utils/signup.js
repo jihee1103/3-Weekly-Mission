@@ -8,11 +8,11 @@ import {
   $inputEmailBox,
   $signupButton,
   toggleDisplayPassword,
-  users,
   displayLoginError,
   removeLoginError,
   checkInputEmail,
   checkInputPassword,
+  displayCheckEmailPassword,
 } from "./sign.js";
 
 // 회원가입 시 비밀번호 값과 확인값 검사
@@ -22,6 +22,7 @@ function checkPasswordRepeat() {
     displayLoginError($inputPasswordRepeat, $inputPasswordRepeatBox, "비밀번호가 다릅니다.");
     return false;
   }
+  return true;
 }
 
 // 회원가입 시 비밀번호 유효성 검사
@@ -40,25 +41,58 @@ function checkVaildPassword() {
 }
 
 // 회원가입 시 이메일 중복 검사
-function checkSignupDuplicateEmail() {
+async function checkSignupDuplicateEmail() {
+  const inputEmail = { email: $inputEmail.value };
+
   removeLoginError($inputEmail, ".error-message-email");
-  for (const user of users) {
-    if (user.id === $inputEmail.value) {
+
+  try {
+    const emailCheckResponse = await fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputEmail),
+    });
+
+    if (emailCheckResponse.status === 409) {
       displayLoginError($inputEmail, $inputEmailBox, "이미 사용중인 이메일 입니다.");
-      return false;
+      return true;
     }
+  } catch (error) {
+    console.log(error);
   }
-  return true;
+
+  return false;
 }
 
-function checkSignup(e) {
-  const isNoDuplicateEmail = checkSignupDuplicateEmail();
-  const isValuePassword = checkInputPassword();
-  const isValidPassword = checkVaildPassword();
-  const isValidEmail = checkInputEmail();
+// 회원가입 버튼을 눌렀을 때
+async function checkSignup(e) {
+  e.preventDefault();
 
-  if (isValidEmail && isNoDuplicateEmail && isValuePassword && isValidPassword) {
-  } else e.preventDefault();
+  const isValidEmail = checkInputEmail(); // 이메일 값 유무 확인
+  const isValuePassword = checkInputPassword(); // 비밀번호 값 유무 확인
+  const isValidPassword = checkVaildPassword(); // 비밀번호 값 유효성 검사
+  const isCheckedPassword = checkPasswordRepeat(); // 비밀번호 확인 검사
+
+  // 모든 값이 유효하면
+  if (isValidEmail && isValuePassword && isValidPassword && isCheckedPassword) {
+    const inputSignup = {
+      email: $inputEmail.value,
+      password: $inputPassword.value,
+    };
+
+    const vaildSignup = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputSignup),
+    });
+    // 회원가입 성공 시
+    if (vaildSignup.status === 200) location.href = "folder.html";
+    else displayCheckEmailPassword();
+  } else displayCheckEmailPassword(); // 유효한 값이 하나라도 있을 때
 }
 
 // 이벤트 리스너 추가
