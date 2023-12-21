@@ -2,8 +2,8 @@
   padding-bottom: 30px;
 }
 
-.password-form__switch-icon {
+.password-form__visibility-icon {
   position: absolute;
   right: 15px;
-  bottom: 48px;
+  top: 52px;
 }

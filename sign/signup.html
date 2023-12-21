@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Linkbrary</title>
-    <link rel="stylesheet" href="/shared/reset.css" />
     <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="signup.css" />
   </head>
@@ -15,7 +14,7 @@
         <a href="/"
           ><img
             class="linkbrary-icon"
-            src="/langding-icons/linkbrary-icon.svg"
+            src="/langding_icons/linkbrary-icon.svg"
             alt="로고 이미지"
             width="210.583"
             height="38"
@@ -25,51 +24,57 @@
         <span>이미 회원이신가요? </span
         ><a href="signin.html" class="suggest-sign__link">로그인 하기</a>
       </p>
-      <form class="forms">
-        <label class="email-form" for="signup-email">
-          이메일<br />
+      <form id="form-list" method="POST" action="/folder.html">
+        <div class="form email-form">
+          <label for="email-input">이메일<br /></label>
           <input
-            class="input email-form__input"
+            class="input signup-email-form__input"
             type="email"
-            id="signup-email"
+            id="email-input"
             name="signup-email"
+            autofocus
             required
           />
-        </label>
-        <label class="password-form" for="password">
-          비밀번호<br />
+          <p id="email-error" class="error-text"></p>
+        </div>
+        <div class="form password-form">
+          <label for="password">비밀번호<br /></label>
           <input
             class="input password-form__input"
             type="password"
-            id="password"
+            id="password-input"
             name="signup-password"
             required
           />
           <img
-            class="password-form__switch-icon"
+            class="visibility-icon password-form__visibility-icon"
+            id="password-visibility-icon"
             src="icons/eye-off.svg"
             alt="비밀번호 표시 아이콘"
             width="16"
             height="16"
           />
-        </label>
-        <label class="password-repeat-form" for="password-repeat">
-          비밀번호 확인<br />
+          <p id="password-error" class="error-text"></p>
+        </div>
+        <div class="form password-repeat-form">
+          <label for="password-repeat">비밀번호 확인<br /></label>
           <input
             class="input password-repeat-form__input"
             type="password"
-            id="password-repeat"
+            id="password-repeat-input"
             name="sign-up-password-repeat"
             required
           />
           <img
-            class="password-repeat-form__switch-icon"
-            src="icons/eye-on.svg"
+            class="visibility-icon password-repeat-form__visibility-icon"
+            id="password-repeat-visibility-icon"
+            src="icons/eye-off.svg"
             alt="비밀번호 표시 아이콘"
             width="16"
             height="16"
           />
-        </label>
+          <p id="password-repeat-error" class="error-text"></p>
+        </div>
         <button class="submit-button" type="submit">회원가입</button>
       </form>
       <article class="social-sign">
@@ -84,5 +89,6 @@
         </div>
       </article>
     </main>
+    <script type="module" src="script/signup.js"></script>
   </body>
 </html>

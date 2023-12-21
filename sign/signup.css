@@ -2,10 +2,10 @@
   padding-bottom: 24px;
 }
 
-.password-form__switch-icon {
+.password-form__visibility-icon {
   position: absolute;
   right: 15px;
-  bottom: 42px;
+  top: 52px;
 }
 
 .password-repeat-form {
@@ -13,8 +13,8 @@
   padding-bottom: 30px;
 }
 
-.password-repeat-form__switch-icon {
+.password-repeat-form__visibility-icon {
   position: absolute;
   right: 15px;
-  bottom: 48px;
+  top: 51px;
 }

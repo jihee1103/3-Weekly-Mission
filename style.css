@@ -2,16 +2,16 @@ body {
   position: relative;
 }
 
-header {
+.header {
   width: 100%;
   position: sticky;
   top: 0;
   display: flex;
   justify-content: center;
-  background-color: #f0f6ff;
+  background-color: var(--Linkbrary-bg);
 }
 
-nav {
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,7 +24,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(91deg, #6d6afe 0%, #6ae3fe 100%);
+  background: linear-gradient(91deg, var(--Linkbrary-primary-color) 0%, #6ae3fe 100%);
   color: #f5f5f5;
   cursor: pointer;
   border-radius: 8px;
@@ -51,7 +51,7 @@ nav {
 
 .hero-section {
   padding-top: 70px;
-  background-color: #f0f6ff;
+  background-color: var(--Linkbrary-bg);
 }
 
 .hero-article {
@@ -70,7 +70,7 @@ nav {
 }
 
 .hero-article__title--gradient {
-  background: linear-gradient(91deg, #6d6afe 0%, #ff9f9f 100%);
+  background: linear-gradient(91deg, var(--Linkbrary-primary-color) 0%, #ff9f9f 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -138,28 +138,28 @@ article:nth-of-type(even) {
   margin: 0;
 }
 
-.main-article-01--gradient {
+.first-article--gradient {
   background: linear-gradient(90deg, #fe8a8a, #a4ceff);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.main-article-02--gradient {
+.second-article--gradient {
   background: linear-gradient(90deg, #6fbaff, #ffd88b);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.main-article-03--gradient {
+.third-article--gradient {
   background: linear-gradient(90deg, #6d7ccd, #52888538);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.main-article-04--gradient {
+.fourth-article--gradient {
   background: linear-gradient(90deg, #68e8f9, #fe578f);
   -webkit-background-clip: text;
   background-clip: text;
@@ -208,7 +208,7 @@ footer {
 
 /* 태블릿 + 모바일 */
 @media (max-width: 1199px) {
-  nav,
+  .nav,
   .main-article,
   .footer-container {
     width: calc(100vw - 64px);
@@ -222,7 +222,7 @@ footer {
 
 /* 태블릿 */
 @media (min-width: 768px) and (max-width: 1199px) {
-  nav {
+  .nav {
     max-width: 80rem;
     padding: 20px 0;
   }
@@ -230,7 +230,7 @@ footer {
 
 /* 모바일 */
 @media (min-width: 375px) and (max-width: 767px) {
-  nav {
+  .nav {
     padding: 13px 0;
   }
 
