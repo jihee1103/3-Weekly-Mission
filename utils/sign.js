@@ -122,6 +122,6 @@ function checkAccessToken() {
   }
 }
 // /pages/signin 또는 signup 페이지에 있으면 accessToken 있는지 검사
-if (location.pathname === "/pages/signin.html" || location.pathname === "/pages/signup.html") {
+if (location.pathname === "/pages/signin" || location.pathname === "/pages/signup") {
   checkAccessToken();
 }
