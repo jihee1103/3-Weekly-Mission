@@ -9,5 +9,18 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^3.1.0"
-  }
+  },
+  "name": "3-weekly-mission",
+  "version": "1.0.0",
+  "description": "Linkbrary",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "\"array\"",
+    "\"string\""
+  ],
+  "author": "Sunghoon",
+  "license": "ISC"
 }
