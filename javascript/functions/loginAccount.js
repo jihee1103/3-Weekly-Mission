@@ -1,6 +1,6 @@
 export { performLogin };
 import { $emailInput, $passwordInput } from "../tags.js";
-import { makeWarningSpanTag, changeRedBorder } from "./handleSpanTag.js";
+import { makeWarningSpanTag } from "./handleSpanTag.js";
 
 async function performLogin() {
   const email = $emailInput.value;

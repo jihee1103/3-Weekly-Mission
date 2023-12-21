@@ -1,6 +1,11 @@
 import { $emailInput } from "../tags.js";
 import { makeWarningSpanTag, changeRedBorder } from "./handleSpanTag.js";
-export { validateEmail, addWarningEmailMsg, vaildateFormEmail };
+export {
+  validateEmail,
+  addWarningEmailMsg,
+  vaildateFormEmail,
+  vailedateDuplicateEmail,
+};
 
 function addWarningEmailMsg() {
   if (!$emailInput.value) {
@@ -27,4 +32,33 @@ function vaildateFormEmail() {
     return false;
   }
   return true;
+}
+
+async function vailedateDuplicateEmail() {
+  const email = $emailInput.value;
+  try {
+    const response = await fetch(
+      "https://bootcamp-api.codeit.kr/api/check-email",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      }
+    );
+    if (response.status === 409) {
+      changeRedBorder($emailInput);
+      makeWarningSpanTag(
+        "이미 사용 중인 이메일입니다",
+        $emailInput,
+        "emailSpan"
+      );
+      return;
+    }
+    const data = await response.json();
+    return "pass";
+  } catch (error) {
+    console.error("로그인 중 오류 발생:", error);
+  }
 }

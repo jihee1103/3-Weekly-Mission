@@ -1,59 +1,8 @@
 import { $emailInput, $passwordInput, $repasswordInput } from "../tags.js";
 import { changeRedBorder, makeWarningSpanTag } from "./handleSpanTag.js";
-import { vaildateFormEmail, validateEmail } from "./vaildateEmail.js";
+import { vaildateFormEmail, vailedateDuplicateEmail } from "./vaildateEmail.js";
+import { vaildateRepassword, vaildatePassword } from "./vaildatePassword.js";
 export { performSignUp };
-
-function vaildateRepassword() {
-  const firstPassword = $passwordInput.value;
-  const secondPassword = $repasswordInput.value;
-  if (firstPassword === secondPassword) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function vaildatePassword() {
-  const passwordValue = $passwordInput.value;
-  if (
-    passwordValue.length < 8 ||
-    /^\d+$/.test(passwordValue) ||
-    /^[a-zA-Z]+$/.test(passwordValue)
-  ) {
-    return false;
-  } else {
-    return true;
-  }
-}
-
-async function vailedateDuplicateEmail() {
-  const email = $emailInput.value;
-  try {
-    const response = await fetch(
-      "https://bootcamp-api.codeit.kr/api/check-email",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      }
-    );
-    if (response.status === 409) {
-      changeRedBorder($emailInput);
-      makeWarningSpanTag(
-        "이미 사용 중인 이메일입니다",
-        $emailInput,
-        "emailSpan"
-      );
-      return;
-    }
-    const data = await response.json();
-    return "pass";
-  } catch (error) {
-    console.error("로그인 중 오류 발생:", error);
-  }
-}
 
 async function performSignUp() {
   const isValid = await vaildateSignUp();
