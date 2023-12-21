@@ -8,6 +8,8 @@ import {
   handlePasswordError,
   validateEmail,
   validatePassword,
+  MOCK_EMAIL,
+  MOCK_PASSWORD,
 } from '../common.js';
 
 const signinForm = document.getElementById('signin-form');
@@ -49,7 +51,7 @@ function handleFormSubmit(event) {
   const userEmail = emailInput.value;
   const userPassword = passwordInput.value;
 
-  if (userEmail === 'test@codeit.com' && userPassword === 'codeit101') {
+  if (userEmail === MOCK_EMAIL && userPassword === MOCK_PASSWORD) {
     signinForm.action = '../etc/folder.html';
     signinForm.submit();
   } else {

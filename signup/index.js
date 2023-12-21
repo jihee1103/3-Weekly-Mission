@@ -1,4 +1,3 @@
-// signup.js
 import {
   emailInput,
   passwordInput,
@@ -12,7 +11,9 @@ import {
   validatePasswordcheck,
   passwordEye,
   eyeIcon,
-  eyeIcon2,
+  eyeIconcheck,
+  MOCK_EMAIL,
+  MOCK_PASSWORD,
 } from '../common.js';
 
 function handleEmailInputFocusout() {
@@ -71,8 +72,8 @@ function handleFormSubmit(event) {
   const userPasswordcheck = passwordcheckInput.value;
 
   if (
-    userEmail === 'test@codeit.com' &&
-    userPassword === 'codeit101' &&
+    userEmail === MOCK_EMAIL &&
+    userPassword === MOCK_PASSWORD &&
     userPassword === userPasswordcheck
   ) {
     signupForm.action = '../etc/folder.html';
@@ -84,7 +85,6 @@ function handleFormSubmit(event) {
   }
 }
 
-// 눈 아이콘 클릭 이벤트 핸들러
 function togglePasswordVisibility() {
   if (passwordInput.type === 'password') {
     passwordInput.type = 'text';
@@ -97,14 +97,13 @@ function togglePasswordVisibility() {
 function togglePasswordcheckVisibility() {
   if (passwordcheckInput.type === 'password') {
     passwordcheckInput.type = 'text';
-    eyeIcon2.src = '../image/eye-on.png';
+    eyeIconcheck.src = '../image/eye-on.png';
   } else {
     passwordcheckInput.type = 'password';
-    eyeIcon2.src = '../image/eye-off.png';
+    eyeIconcheck.src = '../image/eye-off.png';
   }
 }
 
-// 이벤트 핸들러 등록
 emailInput.addEventListener('focusout', handleEmailInputFocusout);
 passwordInput.addEventListener('focusout', handlePasswordInputFocusout);
 passwordcheckInput.addEventListener(
@@ -113,4 +112,4 @@ passwordcheckInput.addEventListener(
 );
 signupForm.addEventListener('submit', handleFormSubmit);
 eyeIcon.addEventListener('click', togglePasswordVisibility);
-eyeIcon2.addEventListener('click', togglePasswordcheckVisibility);
+eyeIconcheck.addEventListener('click', togglePasswordcheckVisibility);

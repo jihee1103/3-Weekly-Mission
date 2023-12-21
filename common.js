@@ -13,7 +13,7 @@ const passwordEye = document.querySelector('.password-box');
 const passwordcheckInput = document.querySelector('.password-check'); // passwordcheckInput 추가
 const signupForm = document.getElementById('signup-form'); // signupForm 추가
 const errorPasswordcheck = document.querySelector('.error-password-check'); // 변수명을 수정해야 할 수도 있음
-const eyeIcon2 = document.querySelector('.eye-icon2');
+const eyeIconcheck = document.querySelector('.eye-icon2');
 // 이메일 에러 처리 함수
 function handleEmailError(message) {
   errorEmail.textContent = message;
@@ -54,6 +54,10 @@ function validatePasswordcheck(password, passwordcheck) {
   return password === passwordcheck;
 }
 
+// 이메일 및 비밀번호 매직 리터럴
+export const MOCK_EMAIL = 'test@codeit.com';
+export const MOCK_PASSWORD = 'codeit101';
+
 export {
   emailInput,
   errorEmail,
@@ -64,7 +68,7 @@ export {
   errorPasswordcheckbox,
   loginButton,
   eyeIcon,
-  eyeIcon2,
+  eyeIconcheck,
   passwordEye,
   passwordcheckInput,
   handleEmailError,
