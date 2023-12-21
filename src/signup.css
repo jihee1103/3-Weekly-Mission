@@ -1,13 +1,13 @@
 :root {
   --linkbrary-primary-color: #6d6afe;
-  --linkbrary-red: #FF5B56;
+  --linkbrary-red: #ff5b56;
   --the-julge-black: #111322;
-  --linkbrary-white: #FFF;
+  --linkbrary-white: #fff;
   --linkbrary-gray-100: #373740;
-  --linkbrary-gray-60: #9FA6B2;
-  --linkbrary-gray-20: #CCD5E3;
-  --linkbrary-gray-10: #E7EFFB;
-  --linkbrary-bg: #F0F6FF;
+  --linkbrary-gray-60: #9fa6b2;
+  --linkbrary-gray-20: #ccd5e3;
+  --linkbrary-gray-10: #e7effb;
+  --linkbrary-bg: #f0f6ff;
 }
 
 body {
@@ -53,7 +53,7 @@ header {
   gap: 0.8rem;
 }
 
-.goto-signin>span {
+.goto-signin > span {
   color: var(--black, #000);
 
   font-size: 1.6rem;
@@ -61,7 +61,7 @@ header {
   line-height: 2.4rem;
 }
 
-.goto-signin>a {
+.goto-signin > a {
   color: var(--linkbrary-primary-color);
 
   font-size: 1.6rem;
@@ -117,14 +117,14 @@ input {
   background: var(--linkbrary-white);
 }
 
-input:focus {
+input:focus:not(.alert-input) {
   border-radius: 0.8rem;
   border: 0.1rem solid var(--linkbrary-primary-color);
   background: var(--linkbrary-white);
   outline: none;
 }
 
-.password-eye>img {
+.password-eye > img {
   position: absolute;
   right: 1.5rem;
   top: 1.8rem;
@@ -142,12 +142,15 @@ button {
   border: none;
   cursor: pointer;
 
-  color: var(--grey-light, #F5F5F5);
+  color: var(--grey-light, #f5f5f5);
   font-size: 1.8rem;
   font-weight: 600;
 
   border-radius: 0.8rem;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
 }
 
 footer {
@@ -163,7 +166,7 @@ footer {
   background: var(--linkbrary-gray-10);
 }
 
-footer>span {
+footer > span {
   color: var(--linkbrary-gray-100);
 
   font-size: 1.4rem;
@@ -183,10 +186,22 @@ footer>span {
   flex-shrink: 0;
 }
 
+.alert {
+  color: var(--linkbrary-red, #ff5b56);
+  display: none;
 
+  /* Linkbrary/body2-regular */
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-top: -0.6rem;
+}
 
-
-
+.alert-input {
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--linkbrary-red, #ff5b56);
+  background: var(--linkbrary-white, #fff);
+  outline: none;
+}
 
 /* 모바일 크기 */
 @media (max-width: 767px) {
