@@ -1,5 +1,6 @@
 const emailInputElement = document.querySelector("#email-input");
 const passwdInputElement = document.querySelector("#passwd-input");
+const formElement = document.querySelector(".email-passwd-wrapper");
 const loginElement = document.querySelector(".login");
 
 // 유효성 검사
@@ -10,6 +11,22 @@ const PASSWDPATTERN = /(?=.*[0-9])(?=.*[A-Za-z])^.{8,}$/;
 const emailErrorMentionElement = document.createElement("div");
 const passwdErrorMentionElement = document.createElement("div");
 
+function setErrorMentionElement(
+  visibility,
+  inputType,
+  errorType,
+  errorMention
+) {
+  if (visibility) {
+    inputType.classList.add("error-border");
+    errorType.innerText = errorMention;
+    errorType.style.display = "block";
+  } else {
+    inputType.classList.remove("error-border");
+    errorType.style.display = "none";
+  }
+}
+
 emailErrorMentionElement.classList.add("error-mention");
 passwdErrorMentionElement.classList.add("error-mention");
 emailInputElement.parentElement.append(emailErrorMentionElement);
@@ -19,48 +36,61 @@ passwdInputElement.parentElement.append(passwdErrorMentionElement);
 const users = { email: "test@codeit.com", passwd: "codeit101" };
 
 // email input값 검사
-function emailInputValid() {
+function checkEmailValidity() {
   if (emailInputElement.value.trim() === "") {
-    emailInputElement.classList.add("error-border");
-    emailErrorMentionElement.innerText = "이메일을 입력해주세요";
-    emailErrorMentionElement.style.display = "block";
+    setErrorMentionElement(
+      true,
+      emailInputElement,
+      emailErrorMentionElement,
+      "이메일을 입력해주세요."
+    );
   } else if (!EMAILPATTERN.test(emailInputElement.value)) {
-    emailInputElement.classList.add("error-border");
-    emailErrorMentionElement.innerText = "올바른 이메일 주소가 아닙니다.";
-    emailErrorMentionElement.style.display = "block";
+    setErrorMentionElement(
+      true,
+      emailInputElement,
+      emailErrorMentionElement,
+      "올바른 이메일 주소가 아닙니다."
+    );
   } else {
-    emailInputElement.classList.remove("error-border");
-    emailErrorMentionElement.style.display = "none";
+    setErrorMentionElement(false, emailInputElement);
     return true;
   }
 }
 
 // password input값 검사
-function passwdInputValid() {
+function checkPasswdValidity() {
   if (passwdInputElement.value === "") {
-    passwdInputElement.classList.add("error-border");
-    passwdErrorMentionElement.innerText = "비밀번호를 입력해주세요.";
-    passwdErrorMentionElement.style.display = "block";
+    setErrorMentionElement(
+      true,
+      passwdInputElement,
+      passwdErrorMentionElement,
+      "비밀번호를 입력해주세요."
+    );
   } else if (!PASSWDPATTERN.test(passwdInputElement.value)) {
-    passwdInputElement.classList.add("error-border");
-    passwdErrorMentionElement.innerText =
-      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
-    passwdErrorMentionElement.style.display = "block";
+    setErrorMentionElement(
+      true,
+      passwdInputElement,
+      passwdErrorMentionElement,
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
+    );
   } else {
-    passwdInputElement.classList.remove("error-border");
-    passwdErrorMentionElement.style.display = "none";
+    setErrorMentionElement(
+      false,
+      passwdInputElement,
+      passwdErrorMentionElement
+    );
     return true;
   }
 }
 
 // email, password input창 유효성 검사 이벤트 추가
-emailInputElement.addEventListener("blur", emailInputValid);
-passwdInputElement.addEventListener("blur", passwdInputValid);
+emailInputElement.addEventListener("blur", checkEmailValidity);
+passwdInputElement.addEventListener("blur", checkPasswdValidity);
 
 // eye-image toggle
 const eyeOffElements = document.querySelectorAll(".eye-off");
 
-function passwdVisible({ target }) {
+function changePasswdVisiblity({ target }) {
   const targetInput = target.previousElementSibling;
   if (targetInput.type === "password") {
     targetInput.type = "text";
@@ -71,4 +101,18 @@ function passwdVisible({ target }) {
   }
 }
 
-eyeOffElements.forEach((el) => el.addEventListener("click", passwdVisible));
+eyeOffElements.forEach((el) =>
+  el.addEventListener("click", changePasswdVisiblity)
+);
+
+export {
+  loginElement,
+  emailInputElement,
+  passwdInputElement,
+  users,
+  emailErrorMentionElement,
+  passwdErrorMentionElement,
+  formElement,
+  checkEmailValidity,
+  checkPasswdValidity,
+};
