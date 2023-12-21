@@ -14,7 +14,7 @@ body{
   align-items: center;
 }
 
-main{
+.main_box > main{
   height: 394px;
   display: flex;
   flex-direction: column;
@@ -46,24 +46,20 @@ main{
   text-decoration-color: #6D6AFE;
 }
 
-form {
+.login_form {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-form label{
+.login_form > label{
   color: var(--black, #000);
   font-family: Pretendard;
   font-size: 14px;
   font-weight: 400;
 }
 
-form p{
-  margin: 0;
-}
-
-input{
+.login_form > input, #password, #password2 {
   width: 400px;
   padding: 18px 15px;
   border-radius: 8px;
@@ -124,7 +120,7 @@ input:focus{
   border-radius: 50px;
 }
 
-.password{
+.password_box{
   position: relative;
   display:flex;
   align-items: center;
@@ -135,7 +131,7 @@ input:focus{
   right: 16px;
 }
 
-li{
+.icons > li{
   list-style-type: none;
 }
 
@@ -161,12 +157,16 @@ li{
     padding-right: 32px;
   }
   
-  main{
+  .main_box > main{
     width: 100%;
     max-width: 400px;
   }
+
+  .login_form{
+    width: 100%;
+  }
   
-  input{
+  .login_form > input, #password, #password2{
     width: 100%;
   }
 
@@ -178,9 +178,6 @@ li{
     width: 100%;
   }
   
-  form{
-    width: 100%;
-  }
 }
 
 
