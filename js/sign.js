@@ -31,6 +31,12 @@ const signBtn = document.querySelector('.sign-submit-btn');
 // api url
 const apiUrl = 'https://bootcamp-api.codeit.kr/'
 
+const token = localStorage.getItem('accessToken');
+
+if (token != null) {
+  location.href = '../pages/forder.html';
+}
+
 // focusout 되었을 때 
 function handleInputFocusOut({ target }) {
   switch (target.id) {
@@ -103,7 +109,9 @@ async function signTry(url, userValue) {
       }),
     });
     if (postResult.ok) {
-      successSignin();
+      const response = await postResult.json();
+      const accessToken = response.data.accessToken;
+      successSignin(accessToken);
     } else {
       failSignin();
     }
@@ -113,9 +121,10 @@ async function signTry(url, userValue) {
 }
 
 //sign 성공
-function successSignin() {
+function successSignin(accessToken) {
+  localStorage.setItem('accessToken', accessToken);
   controller.abort();
-  location.href = '../pages/forder.html'
+  location.href = '../pages/forder.html';
 }
 
 //로그인 실패
@@ -123,7 +132,6 @@ function failSignin() {
   setErrorMessage(spanId, inputId, 5);
   setErrorMessage(spanPw, inputPw, 5);
 }
-
 
 // 눈 모양 아이콘 띄우고 제거하기
 function eyeToggle({ target }) {
@@ -148,7 +156,6 @@ function eyeOnClick({ target }) {
     targetPw.type = 'password';
   }
 }
-
 
 //events
 eyes.forEach(eye => {
