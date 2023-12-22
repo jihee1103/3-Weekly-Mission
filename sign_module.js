@@ -1,5 +1,27 @@
+// export function validateEmail(emailInput, emailError) {
+//   const email = emailInput.value;
+//   if (email.length === 0) {
+//     emailError.textContent = '이메일을 입력해주세요.';
+//     emailError.style.display = 'block';
+//     emailInput.classList.add('input-error');
+//     return;
+//   }
+
+//   if (!email.includes('@')) {
+//     emailError.textContent = '올바른 이메일 주소가 아닙니다.';
+//     emailError.style.display = 'block';
+//     emailInput.classList.add('input-error');
+//     return;
+//   }
+
+//   emailError.style.display = 'none';
+//   emailInput.classList.remove('input-error');
+// }
+
 export function validateEmail(emailInput, emailError) {
   const email = emailInput.value;
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
+
   if (email.length === 0) {
     emailError.textContent = '이메일을 입력해주세요.';
     emailError.style.display = 'block';
@@ -7,7 +29,7 @@ export function validateEmail(emailInput, emailError) {
     return;
   }
 
-  if (!email.includes('@')) {
+  if (!emailRegex.test(email)) {
     emailError.textContent = '올바른 이메일 주소가 아닙니다.';
     emailError.style.display = 'block';
     emailInput.classList.add('input-error');
