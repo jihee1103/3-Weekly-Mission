@@ -1,13 +1,13 @@
 import { validateEmail, validatePassword, togglePasswordVisibility } from './sign_module.js';
 
 document.addEventListener('DOMContentLoaded', function () {
-  var emailInput = document.querySelector('#email');
-  var passwordInput = document.querySelector('#password');
-  var confirmPasswordInput = document.querySelector('#confirm-password');
-  var emailError = document.querySelector('#email-error');
-  var passwordError = document.querySelector('#password-error');
-  var confirmPasswordError = document.querySelector('#confirm-password-error');
-  var eyeButtons = document.querySelectorAll('.eye-button');
+  const emailInput = document.querySelector('#email');
+  const passwordInput = document.querySelector('#password');
+  const confirmPasswordInput = document.querySelector('#confirm-password');
+  const emailError = document.querySelector('#email-error');
+  const passwordError = document.querySelector('#password-error');
+  const confirmPasswordError = document.querySelector('#confirm-password-error');
+  const eyeButtons = document.querySelectorAll('.eye-button');
 
   eyeButtons.forEach(function (button) {
     button.addEventListener('click', function () {
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  var signupButton = document.querySelector('.cta');
+  const signupButton = document.querySelector('.cta');
   signupButton.addEventListener('click', function (event) {
     event.preventDefault();
     validateEmail(emailInput, emailError);

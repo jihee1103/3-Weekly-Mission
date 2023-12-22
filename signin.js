@@ -1,11 +1,14 @@
 import { validateEmail, validatePassword, togglePasswordVisibility } from './sign_module.js';
 
+const CORRECT_EMAIL = 'test@codeit.com';
+const CORRECT_PASSWORD = 'codeit101';
+
 document.addEventListener('DOMContentLoaded', function () {
-  var emailInput = document.querySelector('#email');
-  var passwordInput = document.querySelector('#password');
-  var emailError = document.querySelector('#email-error');
-  var passwordError = document.querySelector('#password-error');
-  var eyeButtons = document.querySelectorAll('.eye-button');
+  const emailInput = document.querySelector('#email');
+  const passwordInput = document.querySelector('#password');
+  const emailError = document.querySelector('#email-error');
+  const passwordError = document.querySelector('#password-error');
+  const eyeButtons = document.querySelectorAll('.eye-button');
 
   eyeButtons.forEach(function (button) {
     button.addEventListener('click', function () {
@@ -21,17 +24,13 @@ document.addEventListener('DOMContentLoaded', function () {
     validatePassword(passwordInput, passwordError);
   });
 
-  var loginButton = document.querySelector('.cta');
+  const loginButton = document.querySelector('.cta');
   loginButton.addEventListener('click', function (event) {
     event.preventDefault();
     validateEmail(emailInput, emailError);
     validatePassword(passwordInput, passwordError);
 
-
-    var correctEmail = 'test@codeit.com';
-    var correctPassword = 'codeit101';
-
-    if (emailInput.value === correctEmail && passwordInput.value === correctPassword) {
+    if (emailInput.value === CORRECT_EMAIL && passwordInput.value === CORRECT_PASSWORD) {
       window.location.href = '/folder';
     }
   });

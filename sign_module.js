@@ -1,13 +1,13 @@
 export function validateEmail(emailInput, emailError) {
-  const EMAIL = emailInput.value;
-  if (EMAIL.length === 0) {
+  const email = emailInput.value;
+  if (email.length === 0) {
     emailError.textContent = '이메일을 입력해주세요.';
     emailError.style.display = 'block';
     emailInput.classList.add('input-error');
     return;
   }
 
-  if (!EMAIL.includes('@')) {
+  if (!email.includes('@')) {
     emailError.textContent = '올바른 이메일 주소가 아닙니다.';
     emailError.style.display = 'block';
     emailInput.classList.add('input-error');
@@ -19,8 +19,8 @@ export function validateEmail(emailInput, emailError) {
 }
 
 export function validatePassword(passwordInput, passwordError) {
-  const PASSWORD = passwordInput.value;
-  if (PASSWORD.length === 0) {
+  const password = passwordInput.value;
+  if (password.length === 0) {
     passwordError.textContent = '비밀번호를 입력해주세요.';
     passwordError.style.display = 'block';
     passwordInput.classList.add('input-error');
@@ -31,13 +31,13 @@ export function validatePassword(passwordInput, passwordError) {
 }
 
 export function togglePasswordVisibility(button) {
-  const PASSWORD_FIELD = button.previousElementSibling;
-  const EYE_ICON = button.querySelector('.eye-icon');
-  if (PASSWORD_FIELD.type === 'password') {
-    PASSWORD_FIELD.type = 'text';
-    EYE_ICON.src = './images/eye.png';
+  const passwordField = button.previousElementSibling;
+  const eyeIcon = button.querySelector('.eye-icon');
+  if (passwordField.type === 'password') {
+    passwordField.type = 'text';
+    eyeIcon.src = './images/eye.png';
   } else {
-    PASSWORD_FIELD.type = 'password';
-    EYE_ICON.src = './images/eye-off.svg';
+    passwordField.type = 'password';
+    eyeIcon.src = './images/eye-off.svg';
   }
 }
