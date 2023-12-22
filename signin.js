@@ -4,55 +4,56 @@ const TEST_PWD = "codeit101";
 const signinEmail = document.getElementById("signin-email");
 const errEmail = document.getElementById("err-email");
 
-signinEmail.addEventListener("focusout", function () {
-  const emailRegex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
-  if (!signinEmail.value) {
+function validateEmail(emailInput) {
+  if (!emailInput.value) {
     // 빈칸일 때
-    errEmail.style.display = "block";
-    errEmail.innerText = "이메일을 입력해주세요.";
-    signinEmail.style.borderColor = "var(--linkbrary-red)";
-  } else if (!emailRegex.test(signinEmail.value)) {
-    // 이메일 형식 오류일 때
-    errEmail.style.display = "block";
-    errEmail.innerText = "올바른 이메일 주소가 아닙니다.";
-    signinEmail.style.borderColor = "var(--linkbrary-red)";
-  } else {
-    errEmail.style.display = "none";
-    signinEmail.style.borderColor = "var(--linkbrary-gray-20)";
+    return validateInput(emailInput, errEmail, "이메일을 입력해주세요.");
   }
+  if (!emailRegex.test(signinEmail.value)) {
+    // 이메일 형식 오류일 때
+    return validateInput(
+      emailInput,
+      errEmail,
+      "올바른 이메일 주소가 아닙니다."
+    );
+  }
+
+  return validateInput(emailInput, errEmail, "");
+}
+signinEmail.addEventListener("focusout", function () {
+  validateEmail(this);
 });
 
 const signinPassword = document.getElementById("signin-password");
 const errPassword = document.getElementById("err-password");
 
-signinPassword.addEventListener("focusout", function () {
-  if (!signinPassword.value) {
+function validatePassword(passwordInput) {
+  if (!passwordInput.value) {
     // 빈칸일 때
-    errPassword.style.display = "block";
-    errPassword.innerText = "비밀번호를 입력해주세요.";
-    signinPassword.style.borderColor = "var(--linkbrary-red)";
-  } else {
-    errPassword.style.display = "none";
-    signinPassword.style.borderColor = "var(--linkbrary-gray-20)";
+    return validateInput(
+      passwordInput,
+      errPassword,
+      "비밀번호를 입력해주세요."
+    );
   }
+
+  return validateInput(passwordInput, errPassword, "");
+}
+signinPassword.addEventListener("focusout", function () {
+  validatePassword(this);
 });
 
 function submit() {
-  // e.preventDefault();
   if (signinEmail.value === TEST_EMAIL && signinPassword.value === TEST_PWD) {
     alert("로그인 성공");
     const link = "folder.html";
     window.location.href = link;
   } else {
     if (signinEmail.value !== TEST_EMAIL) {
-      errEmail.style.display = "block";
-      errEmail.innerText = "이메일을 확인해주세요.";
-      signinEmail.style.borderColor = "var(--linkbrary-red)";
+      validateInput(signinEmail, errEmail, "이메일을 확인해주세요.");
     }
     if (signinPassword.value !== TEST_PWD) {
-      errPassword.style.display = "block";
-      errPassword.innerText = "비밀번호를 확인해주세요.";
-      signinPassword.style.borderColor = "var(--linkbrary-red)";
+      validateInput(signinPassword, errPassword, "비밀번호를 확인해주세요.");
     }
   }
 }
