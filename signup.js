@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
       confirmPasswordError.textContent = '비밀번호가 일치하지 않습니다.';
       confirmPasswordError.style.display = 'block';
       confirmPasswordInput.classList.add('input-error');
-    } else {
-      confirmPasswordError.style.display = 'none';
-      confirmPasswordInput.classList.remove('input-error');
+      return;
     }
+    confirmPasswordError.style.display = 'none';
+    confirmPasswordInput.classList.remove('input-error');
   });
 
   const signupButton = document.querySelector('.cta');
