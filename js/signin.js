@@ -2,7 +2,7 @@ import { addStyles, deleteStyles } from "./input-style.js";
 
 const signForm = document.querySelector(".sign-form");
 const signInputEmail = document.querySelector(".email");
-const signInputPw = document.querySelector(".password1");
+const signInputPw = document.querySelector(".sign-input-pw");
 const emailErrMsg = document.querySelector(".emailErrMsg");
 const pwErrMsg = document.querySelector(".pwErrMsg");
 const eyeBtn1 = document.querySelector(".pw1");

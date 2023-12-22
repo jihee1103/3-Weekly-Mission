@@ -2,13 +2,12 @@ import { addStyles, deleteStyles } from "./input-style.js";
 
 const signForm = document.querySelector(".sign-form");
 const signInputEmail = document.querySelector(".email");
-const signInputPw = document.querySelector(".password1");
-const signInputPwCheck = document.querySelector(".password2");
+const signInputPw = document.querySelector(".sign-input-pw");
+const signInputPwCheck = document.querySelector(".sign-input-pw-check");
 const emailErrMsg = document.querySelector(".emailErrMsg");
 const pwErrMsg = document.querySelector(".pwErrMsg");
 const pwCheckErrMsg = document.querySelector(".pwCheckErrMsg");
-const eyeBtn1 = document.querySelector(".pw1");
-const eyeBtn2 = document.querySelector(".pw2");
+const eyeBtn = document.querySelectorAll(".eye-button-off");
 
 // 이메일 유효성 검사
 function handleValidationEmail() {
@@ -34,10 +33,10 @@ function handleValidationPw(e) {
       pwErrMsg,
       `비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.`
     );
-    eyeBtn1.classList.add("eye-button-focusout");
+    eyeBtn[0].classList.add("eye-button-focusout");
   } else {
     deleteStyles(signInputPw, pwErrMsg);
-    eyeBtn1.classList.remove("eye-button-focusout");
+    eyeBtn[0].classList.remove("eye-button-focusout");
   }
 }
 
@@ -47,10 +46,10 @@ function handeleCheckPw() {
   let pw2 = signInputPwCheck.value;
   if (pw1 !== pw2) {
     addStyles(signInputPwCheck, pwCheckErrMsg, `비밀번호가 일치하지 않아요.`);
-    eyeBtn2.classList.add("eye-button-focusout");
+    eyeBtn[1].classList.add("eye-button-focusout");
   } else {
     deleteStyles(signInputPwCheck, pwCheckErrMsg);
-    eyeBtn2.classList.remove("eye-button-focusout");
+    eyeBtn[1].classList.remove("eye-button-focusout");
   }
 }
 
