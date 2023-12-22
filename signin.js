@@ -1,4 +1,4 @@
-import { validateEmail, validatePassword, togglePasswordVisibility } from './sign_moduel.js';
+import { validateEmail, validatePassword, togglePasswordVisibility } from './sign_module.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   var emailInput = document.querySelector('#email');
