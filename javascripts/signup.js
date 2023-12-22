@@ -6,7 +6,8 @@ import {
   checkPasswdValidity,
   loginElement,
   formElement,
-  users
+  users,
+  setErrorMentionElement,
 } from "./signcommon.js";
 
 const passwdCheckInputElement = document.querySelector("#passwd-check");
@@ -19,12 +20,18 @@ passwdCheckInputElement.parentElement.append(passwdCheckErrorMentionElement);
 // password 두개 같은지 검사 후 같다면 true return
 function checkPasswdIsEqual() {
   if (passwdInputElement.value !== passwdCheckInputElement.value) {
-    passwdCheckErrorMentionElement.innerText = "비밀번호가 일치하지 않아요.";
-    passwdCheckErrorMentionElement.style.display = "block";
-    passwdCheckInputElement.classList.add("error-border");
+    setErrorMentionElement(
+      true,
+      passwdCheckInputElement,
+      passwdCheckErrorMentionElement,
+      "비밀번호가 일치하지 않아요."
+    );
   } else {
-    passwdCheckErrorMentionElement.style.display = "none";
-    passwdCheckInputElement.classList.remove("error-border");
+    setErrorMentionElement(
+      false,
+      passwdCheckInputElement,
+      passwdCheckErrorMentionElement
+    );
     return true;
   }
 }
@@ -35,9 +42,12 @@ passwdCheckInputElement.addEventListener("blur", checkPasswdIsEqual);
 // 이미 계정이 존재하는지 검사후 존재하지 않는다면 email 검사 후 return
 function checkEmail() {
   if (emailInputElement.value === users.email) {
-    emailInputElement.classList.add("error-border");
-    emailErrorMentionElement.innerText = "이미 사용중인 이메일입니다.";
-    emailErrorMentionElement.style.display = "block";
+    setErrorMentionElement(
+      true,
+      emailInputElement,
+      emailErrorMentionElement,
+      "이미 사용중인 이메일입니다."
+    );
   } else return checkEmailValidity();
 }
 
@@ -54,4 +64,6 @@ function signup() {
 
 // 클릭 및 엔터시 signup
 loginElement.addEventListener("click", signup);
-formElement.addEventListener("keypress", ({ key }) => (key === "Enter" ? signup(key) : ""));
+formElement.addEventListener("keypress", ({ key }) =>
+  key === "Enter" ? signup(key) : ""
+);

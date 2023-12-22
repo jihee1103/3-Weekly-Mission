@@ -33,7 +33,10 @@ emailInputElement.parentElement.append(emailErrorMentionElement);
 passwdInputElement.parentElement.append(passwdErrorMentionElement);
 
 // 저장된 유저 정보
-const users = { email: "test@codeit.com", passwd: "codeit101" };
+const users = {
+  email: "test@codeit.com",
+  password: "codeit101",
+};
 
 // email input값 검사
 function checkEmailValidity() {
@@ -52,7 +55,7 @@ function checkEmailValidity() {
       "올바른 이메일 주소가 아닙니다."
     );
   } else {
-    setErrorMentionElement(false, emailInputElement);
+    setErrorMentionElement(false, emailInputElement, emailErrorMentionElement);
     return true;
   }
 }
@@ -115,4 +118,5 @@ export {
   formElement,
   checkEmailValidity,
   checkPasswdValidity,
+  setErrorMentionElement,
 };
