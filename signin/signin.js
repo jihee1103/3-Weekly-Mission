@@ -1,5 +1,5 @@
 import { remove_error, error_event, email_valid, password_valid, eye_change
-  } from "../../module.js";
+  } from "../module.js";
 
 //e메일 관련
 const email = document.querySelector('#email');
