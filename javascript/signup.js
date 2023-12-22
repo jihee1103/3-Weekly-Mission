@@ -1,13 +1,13 @@
 import { emailInput, emailResult, passwordInput, passwordResult } from "./tags.js";
 
-let passwordRepeatInput = document.querySelector('.password-repeat-input');
-let passwordRepeatResult = document.querySelector('.password-repeat-result');
-let signupForm = document.querySelector('.signup-form');
+const passwordRepeatInput = document.querySelector('.password-repeat-input');
+const passwordRepeatResult = document.querySelector('.password-repeat-result');
+const signupForm = document.querySelector('.signup-form');
 
 // 이메일 유효성 검사
-let emailCheck = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const emailCheck = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-function formError() {
+function makeFormError() {
   if (emailInput.value === "") {
     emailInput.style.border = "1px solid var(--linkbrary-red)";
     emailResult.innerHTML = "이메일을 입력해주세요.";
@@ -36,8 +36,8 @@ function formError() {
   }
 };
 
-let icon = document.querySelector(".eye-icon");
-let repeatIcon = document.querySelector(".repeat-eye-icon");
+const icon = document.querySelector(".eye-icon");
+const repeatIcon = document.querySelector(".repeat-eye-icon");
 
 icon.addEventListener("click", function () {
   if (passwordInput.type === "password") {
@@ -61,9 +61,9 @@ repeatIcon.addEventListener("click", function () {
 
 function enterSignup(e) {
   if (e.key === "Enter") {
-    formError();
+    makeFormError();
   }
 }
 
-document.addEventListener("click", formError);
+document.addEventListener("click", makeFormError);
 signupForm.addEventListener("keypress", enterSignup);

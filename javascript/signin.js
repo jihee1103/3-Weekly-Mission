@@ -1,16 +1,16 @@
 import { emailInput, emailResult, passwordInput, passwordResult } from "./tags.js";
 
-let loginButton = document.querySelector('.login-button');
-let signinForm = document.querySelector('.signin-form');
+const loginButton = document.querySelector('.login-button');
+const signinForm = document.querySelector('.signin-form');
 
 // 이메일 유효성 검사
-let emailCheck = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const emailCheck = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-function formError() {
+function makeFormError() {
   if (emailInput.value === "") {
     emailInput.style.border = "1px solid var(--linkbrary-red)";
     emailResult.innerHTML = "이메일을 입력해주세요.";
-  } else if (emailCheck.test(emailInput.value) == false) {
+  } else if (emailCheck.test(emailInput.value) === false) {
     emailInput.style.border = "1px solid var(--linkbrary-red)";
     emailResult.innerHTML = "올바른 이메일 주소가 아닙니다.";
   } else {
@@ -38,7 +38,7 @@ function checkSignin() {
   }
 }
 
-let icon = document.querySelector(".eye-icon");
+const icon = document.querySelector(".eye-icon");
 
 icon.addEventListener("click", function () {
   if (passwordInput.type === "password") {
@@ -56,6 +56,6 @@ function enterSignin(e) {
   }
 }
 
-document.addEventListener("click", formError);
+document.addEventListener("click", makeFormError);
 loginButton.addEventListener("click", checkSignin);
 signinForm.addEventListener("keypress", enterSignin);
