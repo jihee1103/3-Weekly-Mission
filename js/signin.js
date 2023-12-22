@@ -5,7 +5,7 @@ const signInputEmail = document.querySelector(".email");
 const signInputPw = document.querySelector(".sign-input-pw");
 const emailErrMsg = document.querySelector(".emailErrMsg");
 const pwErrMsg = document.querySelector(".pwErrMsg");
-const eyeBtn1 = document.querySelector(".pw1");
+const eyeBtn = document.querySelector(".eye-button-off");
 
 // 이메일 유효성 검사 함수
 function handleValidationEmail() {
@@ -20,10 +20,10 @@ function handleValidationEmail() {
 function handleValidationPw() {
   if (signInputPw.value === "") {
     addStyles(signInputPw, pwErrMsg, `비밀번호를 입력해주세요.`);
-    eyeBtn1.classList.add("eye-button-focusout");
+    eyeBtn.classList.add("eye-button-focusout");
   } else {
     deleteStyles(signInputPw, pwErrMsg);
-    eyeBtn1.classList.remove("eye-button-focusout");
+    eyeBtn.classList.remove("eye-button-focusout");
   }
 }
 
@@ -41,11 +41,11 @@ function handleSumbmit(e) {
   ) {
     e.preventDefault();
     addStyles(signInputPw, pwErrMsg, `비밀번호를 확인해주세요.`);
-    eyeBtn1.classList.add("eye-button-focusout");
+    eyeBtn.classList.add("eye-button-focusout");
     addStyles(signInputEmail, emailErrMsg, `이메일을 확인해주세요.`);
   } else {
     deleteStyles(signInputPw, pwErrMsg);
-    eyeBtn1.classList.remove("eye-button-focusout");
+    eyeBtn.classList.remove("eye-button-focusout");
     deleteStyles(signInputEmail, emailErrMsg);
   }
 }
