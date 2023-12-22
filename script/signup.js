@@ -1,5 +1,6 @@
 import { eyeOffHandler } from './eye-off.js';
-// css를 다루는 곳과 데이터를 다루는 곳을 분리
+import { checkSignInHandler } from './checkSignInHandler.js';
+
 // 데이터를 다루는 곳
 const signupEmailInput = document.querySelector('#signup_email_input');
 const signupPasswordInput = document.querySelector('#signup_password_input');
@@ -19,8 +20,6 @@ const signupEmailHandler = function (event) {
         signupEmailError.textContent = '이메일을 입력해주세요';
     } else if (!confirmEmail.test(emailAddress)) { // 이메일 형식이 아닌경우
         signupEmailError.textContent = '올바른 이메일 주소가 아닙니다';
-    } else if (emailAddress === 'test@codeit.com') {
-        signupEmailError.textContent = '이미 사용 중인 이메일입니다';
     } else { // 이메일 형식인 경우 경고창을 띄우지 않는다
         signupEmailError.textContent = '';
     }
@@ -52,23 +51,64 @@ const signupPasswordConfirmHandler = function (event) { // 패스워드 인풋 �
 
 // 수정
 const signupRegisterBtnHandler = function (event) { // 회원가임 버튼을 눌렀을 때 함수
-    // if 문이 else if 형태로 나열돼있으면 여러개가 해당되는 상황일때 첫상황만 적용이 되버림 따라서 if문을 여러번 주는 것이 옳다
+    event.preventDefault();
     if (!signupEmailInput.value) {
-        event.preventDefault();
         signupEmailError.textContent = '이메일을 입력해주세요';
     }
     if (!signupPasswordInput.value) {
-        event.preventDefault();
         signupPasswordError.textContent = '비밀번호를 입력해주세요';
     }
     if (!signupPasswordConfirmInput.value) {
-        event.preventDefault();
         signupPasswordConfirmError.textContent = '비밀번호를 입력해주세요';
     }
     if (signupPasswordConfirmInput.value !== signupPasswordInput.value) {
-        event.preventDefault();
         signupPasswordConfirmError.textContent = '비밀번호가 일치하지 않아요'
     }
+    // async, await로 구현해보기
+    let signUpData = {
+        "email": signupEmailInput.value,
+        "password": signupPasswordInput.value
+    }
+    // 회원가입시 이메일 중복 확인 함수
+    const checkEmailduplication = async function () {
+        try {
+            const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ "email": signUpData["email"] }),
+            })
+            if (response.status === 409) signupEmailError.textContent = '이미 사용중인 이메일입니다.';
+            // 중복되지 않은경우 signUpSuccess함수 실행
+            else signUpSuccess();
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+    const signUpSuccess = async function () {
+        try {
+            const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(signUpData),
+            })
+            if (response.status === 200) {
+                let result = await response.json();
+                let accessToken = await result.data.accessToken;
+                let refreshToken = await result.data.refreshToken;
+                localStorage.setItem("accessToken", await accessToken);
+                localStorage.setItem("refreshToken", await refreshToken);
+                location.href = '/folder.html';
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    checkEmailduplication();
 }
 
 signupEmailInput.addEventListener('focusout', signupEmailHandler);
@@ -79,3 +119,5 @@ signupRegisterBtn.addEventListener('click', signupRegisterBtnHandler);
 window.addEventListener('keyup', (event) => { if (event.key === 'Enter') signupRegisterBtnHandler() });
 signupPasswordEyeOff.addEventListener('click', () => { eyeOffHandler(signupPasswordInput, signupPasswordEyeOff) });
 signupPasswordConfirmEyeOff.addEventListener('click', () => { eyeOffHandler(signupPasswordConfirmInput, signupPasswordConfirmEyeOff) });
+// defer 속성을 사용 + DOMContentLoaded를 사용하는 것이 페이지 로드시 가장빠르게 토큰을 확인하는 방법일듯?...
+window.addEventListener('DOMContentLoaded', checkSignInHandler);

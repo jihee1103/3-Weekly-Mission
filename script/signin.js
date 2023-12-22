@@ -1,4 +1,5 @@
 import { eyeOffHandler } from './eye-off.js';
+import { checkSignInHandler } from './checkSignInHandler.js';
 // css를 다루는 곳과 데이터를 다루는 곳을 분리
 // 데이터를 다루는 곳
 const signinEmailInput = document.querySelector('#signin_email_input');
@@ -35,17 +36,42 @@ const signinPasswordHandler = function (event) { // 패스워드 인풋 관련 �
 }
 
 const signinLoginBtnHandler = function (event) { // 로그인 버튼을 눌렀을 때 함수
-    if (signinEmailInput.value !== 'test@codeit.com' && signinPasswordInput.value !== 'codeit101') {
-        event.preventDefault();
-        signinEmailError.textContent = '이메일을 확인해주세요';
-        signinPasswordError.textContent = '비밀번호를 확인해주세요';
-    } else if (!signinEmailInput.value) {
-        event.preventDefault();
-        signinEmailError.textContent = '이메일을 입력해주세요';
-    } else if (!signinPasswordInput.value) {
-        event.preventDefault();
-        signinPasswordError.textContent = '비밀번호를 입력해주세요';
+    event.preventDefault();
+    // 이메일과 비밀번호를 입력하지 않은 경우
+    if (!signinEmailInput.value) {
+        return signinEmailError.textContent = '이메일을 입력해주세요';
     }
+    if (!signinPasswordInput.value) {
+        return signinPasswordError.textContent = '비밀번호를 입력해주세요';
+    }
+
+    // promise로만 구현해보기
+    // POST요청 보낼 데이터
+    let signInData = {
+        "email": signinEmailInput.value,
+        "password": signinPasswordInput.value
+    };
+    fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signInData),
+    })
+        .then((response) => {
+            // 응답이 성공한경우 데이터를 가공하고 다음 then 메서드에 보내준다
+            if (response.status === 200) {
+                return response.json()
+            }
+        })
+        .then((result) => {
+            let accessToken = result.data.accessToken;
+            let refreshToken = result.data.refreshToken;
+            localStorage.setItem("accessToken", accessToken);
+            localStorage.setItem("refreshToken", refreshToken);
+            location.href = '/folder.html';
+        })
+        .catch((error) => { console.log(error) })
 }
 
 signinEmailInput.addEventListener('focusout', signinEmailHandler);
@@ -54,3 +80,4 @@ signinLoginBtn.addEventListener('click', signinLoginBtnHandler);
 // Enter 키를 누를시 로그인 버튼 핸들러가 작동하도록 한다.
 window.addEventListener('keyup', (event) => { if (event.key === 'Enter') signinLoginBtnHandler() });
 signinEyeOff.addEventListener('click', () => { eyeOffHandler(signinPasswordInput, signinEyeOff) });
+window.addEventListener('DOMContentLoaded', checkSignInHandler);

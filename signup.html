@@ -23,19 +23,16 @@
                     </div>
                 </div>
             </div>
-            <!-- 만약 올바른 이메일, 비밀번호면 /folder로 post요청 -->
-            <form id="signup_form" class="form-sign" action="/folder" method="post">
+            <form id="signup_form" class="form-sign">
                 <div class="form-sign__input-email">
                     <label>이메일</label>
                     <input type="email" id="signup_email_input" name="email">
-                    <!-- div와 스타일 미리주고 textContent만 바꾸게하기 -->
                     <div class="form-sign__input-error email" id="email"></div>
                 </div>
                 <div class="form-sign__input-password">
                     <label>비밀번호</label>
                     <div class="password__box">
                         <input type="password" id="signup_password_input" name="password">
-                        <!-- type을 button으로 안주면 기본값으로 submit이 돼서 form의 action으로 이동해버림 -->
                         <button type="button" class="password__btn-eye-off">
                             <img src="img/eye-off.svg" alt="eye-off">
                         </button>
