@@ -22,8 +22,3 @@ export function handleEyeBtnPw() {
 export function handleEyeBtnPwCheck() {
   handleEyeBtn(eyeBtnOnPwCheck, eyeBtn[1], signInputPwCheck);
 }
-
-eyeBtn[0].addEventListener("click", handleEyeBtnPw);
-eyeBtnOnPw.addEventListener("click", handleEyeBtnPw);
-eyeBtn[1].addEventListener("click", handleEyeBtnPwCheck);
-eyeBtnOnPwCheck.addEventListener("click", handleEyeBtnPwCheck);
