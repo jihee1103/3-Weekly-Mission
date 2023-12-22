@@ -21,23 +21,23 @@
                             </a>
                             <span>이미 회원이신가요? <a href="signin.html">로그인 하기</a></span>
                         </div>
-                        <form class="sign-form" action="../forder.html">
+                        <form class="sign-form">
                             <div class="sign-inputs">
-                                <div class="label-input">
+                                <div class="field">
                                     <label for="email">이메일</label>
                                     <input id="email" name="email" type="email">
-                                    <span class="error-message"></span>
+                                    <span id="spanId" class="error-message"></span>
                                 </div>
-                                <div class="label-input">
+                                <div class="field">
                                     <label for="password">비밀번호</label>
                                     <input id="password" name="password" type="password">
-                                    <span class="error-message"></span>
-                                    <img class="eye none" src="/images/eye-off.svg" alt="비밀번호 표시하기 아이콘">
+                                    <span id="spanPw" class="error-message"></span>
+                                    <img id="password-eye-img" class="eye none" src="/images/eye-off.svg" alt="비밀번호 표시하기 아이콘">
                                 </div>
-                                <div class="label-input">
+                                <div class="field">
                                     <label for="password-repeat">비밀번호 확인</label>
                                     <input id="password-repeat" name="password-repeat" type="password">
-                                    <span class="error-message"></span>
+                                    <span id="spanPwRe" class="error-message"></span>
                                     <img class="eye none" src="/images/eye-off.svg" alt="비밀번호 표시하기 아이콘">
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
 
 
         </main>
-        <script src="../js/sign.js"></script>
+        <script type="module" src="../js/sign.js"></script>
     </body>
 
 </html>
