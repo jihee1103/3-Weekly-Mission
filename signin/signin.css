@@ -126,7 +126,7 @@ input:focus{
   align-items: center;
 }
 
-.password_icon1{
+.eye_off{
   position: absolute;
   right: 16px;
 }
@@ -145,7 +145,6 @@ input:focus{
 .input_line{
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-red, #FF5B56);
-  background-color: #fff;
 }
 
 /* 반응형 모바일 375~767 */

@@ -1,61 +1,36 @@
+import { remove_error, error_event, email_valid, password_valid, eye_change} from "../../module.js";
+
 //e메일 관련
 const email = document.querySelector('#email');
 const email_error = document.querySelector('.email_error');
+
 //비밀번호
 const password = document.querySelector('#password');
 const password_error = document.querySelector('.password_error');
+
 //비밀번호 확인
 const password2 = document.querySelector('#password2');
 const password_error2 = document.querySelector('.password_error2');
+
 //회원가입 버튼
 const create_btn = document.querySelector('.create_btn');
-//에러시 인풋 박스 라인 빨갛게
-// const input_line = document.querySelector('.input_line');
-//패스워드 정규식
-const reg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/
-//이메일 정규식
-const emailreg = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
-//에러 지우는 것
-const remove_error = function(remove_line, remove_text){
-  remove_line.classList.remove('input_line');
-  remove_text.innerText ="";
-};
+//패스워든 눈 아이콘
+const eye_off = document.querySelector('.eye_off')
+const eye_off_2 = document.querySelector('.eye_off_2')
 
-//이메일 에러 발생시키는것
-const email_error_event = function(add_line, add_text){
-  add_line.classList.add('input_line');
-  email_error.innerText = add_text;
-}
-
-//패스워드 에러 발생시키는것
-const password_error_event = function(add_line, add_text){
-  add_line.classList.add('input_line');
-  password_error.innerText = add_text;
-}
-
-//패스워드 비교해서 확인하는것
-const password_error2_event = function(add_line, add_text){
-  add_line.classList.add('input_line');
-  password_error2.innerText = add_text;
-}
-
-
-
-
-
-//이메일 확인
+//이메일 확인해주는 함수
 function email_check(){
   if(email.value === 'test@codeit.com'){
-    email_error_event(email, '이미 사용 중인 이메일입니다.')
+    error_event(email_error, email, '이미 사용 중인 이메일입니다.')
     return false;
   }
   if(email.value === ""){
-    email_error_event(email, '이메일을 입력해주세요')
+    error_event(email_error, email, '이메일을 입력해주세요')
     return false;
   }
-  if(!emailreg.test(email.value)){
-    email_error_event(email, '올바른 이메일 주소가 아닙니다');
+  if(!email_valid(email)){
+    error_event(email_error, email, '올바른 이메일 주소가 아닙니다');
     return false;
   }
     remove_error(email, email_error);
@@ -63,14 +38,14 @@ function email_check(){
 }
 email.addEventListener('focusout', email_check);
 
-// 패스워드 확인
+// 패스워드 확인해주는 함수
 function password_check(){
   if(password.value === ""){
-    password_error_event(password, '비밀번호를 입력해주세요');
+    error_event(password_error, password, '비밀번호를 입력해주세요');
     return false;
   }
-  if(!reg.test(password.value)){
-    password_error_event(password, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요');
+  if(!password_valid(password)){
+    error_event(password_error, password, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요');
     return false;
   }  
     remove_error(password, password_error);
@@ -79,23 +54,44 @@ function password_check(){
 password.addEventListener('focusout', password_check)
 
 //패스워드 확인 2
-  function password_check2(){
-    if(password.value !== password2.value){
-      password_error2_event(password2, '비밀번호가 일치하지 않아요')
-      return false;
+function password_check2(){
+  if(password.value !== password2.value){
+    error_event(password_error2, password2, '비밀번호가 일치하지 않아요')
+    return false;
   }
     remove_error(password2, password_error2);
     return true;
 };
 password2.addEventListener('focusout', password_check2)
 
-// 유요한 회원가입시 페이지 변경
+// 유요한 회원가입시 페이지 변경해주는 함수
 function move_to_folder_page(){
   if(email_check() && password_check() && password_check2()){
     window.location.href = '../folder/folder.html';
   };
 };
 create_btn.addEventListener('click', move_to_folder_page)
+
+//눈모양 바꾸기
+eye_off.addEventListener('click', () =>{
+  eye_change(password, eye_off)
+})
+
+eye_off_2.addEventListener('click', () =>{
+  eye_change(password2, eye_off_2)
+})
+
+// eye_on.addEventListener('click', function(){
+//   password.type = 'password';
+//   eye_on.style.display = 'none';
+//   eye_off.style.display = 'block';
+// });
+
+// eye_off.addEventListener('click', function() {
+//   password.type = 'text';
+//   eye_off.style.display = 'none'; 
+//   eye_on.style.display = 'block'; 
+// });
 
 //이메일 비교해서 중복 경고하는  함수
 
@@ -248,3 +244,4 @@ create_btn.addEventListener('click', move_to_folder_page)
 //   };
 // };
 // createbtn.addEventListener('click', move_to_folder_page)
+
