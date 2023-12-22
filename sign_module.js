@@ -24,10 +24,10 @@ export function validatePassword(passwordInput, passwordError) {
     passwordError.textContent = '비밀번호를 입력해주세요.';
     passwordError.style.display = 'block';
     passwordInput.classList.add('input-error');
-  } else {
-    passwordError.style.display = 'none';
-    passwordInput.classList.remove('input-error');
+    return;
   }
+  passwordError.style.display = 'none';
+  passwordInput.classList.remove('input-error');
 }
 
 export function togglePasswordVisibility(button) {
@@ -36,8 +36,8 @@ export function togglePasswordVisibility(button) {
   if (passwordField.type === 'password') {
     passwordField.type = 'text';
     eyeIcon.src = './images/eye.png';
-  } else {
-    passwordField.type = 'password';
-    eyeIcon.src = './images/eye-off.svg';
+    return;
   }
+  passwordField.type = 'password';
+  eyeIcon.src = './images/eye-off.svg';
 }

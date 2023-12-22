@@ -4,13 +4,14 @@ const CORRECT_EMAIL = 'test@codeit.com';
 const CORRECT_PASSWORD = 'codeit101';
 
 document.addEventListener('DOMContentLoaded', function () {
-  const emailInput = document.querySelector('#email');
-  const passwordInput = document.querySelector('#password');
-  const emailError = document.querySelector('#email-error');
-  const passwordError = document.querySelector('#password-error');
-  const eyeButtons = document.querySelectorAll('.eye-button');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const emailError = document.getElementById('email-error');
+  const passwordError = document.getElementById('password-error');
 
-  eyeButtons.forEach(function (button) {
+  const eyeButtons = document.getElementsByClassName('eye-button');
+
+  Array.from(eyeButtons).forEach(function (button) {
     button.addEventListener('click', function () {
       togglePasswordVisibility(this);
     });
