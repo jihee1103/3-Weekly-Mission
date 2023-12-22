@@ -111,7 +111,7 @@ async function signTry(url, userValue) {
     if (postResult.ok) {
       const response = await postResult.json();
       const accessToken = response.data.accessToken;
-      successSignin(accessToken);
+      successSign(accessToken);
     } else {
       failSignin();
     }
@@ -121,7 +121,7 @@ async function signTry(url, userValue) {
 }
 
 //sign 성공
-function successSignin(accessToken) {
+function successSign(accessToken) {
   localStorage.setItem('accessToken', accessToken);
   controller.abort();
   location.href = '../pages/forder.html';
