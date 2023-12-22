@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  emailInput.addEventListener('focusout', function () {
+  emailInput.addEventListener('blur', function () {
     validateEmail(emailInput, emailError);
   });
 
-  passwordInput.addEventListener('focusout', function () {
+  passwordInput.addEventListener('blur', function () {
     validatePassword(passwordInput, passwordError);
   });
 

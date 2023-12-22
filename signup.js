@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const emailError = document.getElementById('email-error');
   const passwordError = document.getElementById('password-error');
   const confirmPasswordError = document.getElementById('confirm-password-error');
+
   const eyeButtons = document.querySelectorAll('.eye-button');
 
   eyeButtons.forEach(function (button) {
@@ -15,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  emailInput.addEventListener('focusout', function () {
+  emailInput.addEventListener('blur', function () {
     validateEmail(emailInput, emailError);
   });
 
-  passwordInput.addEventListener('focusout', function () {
+  passwordInput.addEventListener('blur', function () {
     validatePassword(passwordInput, passwordError);
   });
 
