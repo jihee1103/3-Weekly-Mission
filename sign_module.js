@@ -4,14 +4,18 @@ export function validateEmail(emailInput, emailError) {
     emailError.textContent = '이메일을 입력해주세요.';
     emailError.style.display = 'block';
     emailInput.classList.add('input-error');
-  } else if (!email.includes('@')) {
+    return;
+  }
+
+  if (!email.includes('@')) {
     emailError.textContent = '올바른 이메일 주소가 아닙니다.';
     emailError.style.display = 'block';
     emailInput.classList.add('input-error');
-  } else {
-    emailError.style.display = 'none';
-    emailInput.classList.remove('input-error');
+    return;
   }
+
+  emailError.style.display = 'none';
+  emailInput.classList.remove('input-error');
 }
 
 export function validatePassword(passwordInput, passwordError) {
