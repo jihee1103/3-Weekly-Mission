@@ -1,4 +1,5 @@
 import { addStyles, deleteStyles } from "./input-style.js";
+import { handleEyeBtnPw } from "./eyeicon.js";
 
 const signForm = document.querySelector(".sign-form");
 const signInputEmail = document.querySelector(".email");
@@ -6,6 +7,7 @@ const signInputPw = document.querySelector(".sign-input-pw");
 const emailErrMsg = document.querySelector(".emailErrMsg");
 const pwErrMsg = document.querySelector(".pwErrMsg");
 const eyeBtn = document.querySelector(".eye-button-off");
+const eyeBtnOnPw = document.querySelector(".eye-button-on");
 
 // 이메일 유효성 검사 함수
 function handleValidationEmail() {
@@ -53,3 +55,5 @@ function handleSumbmit(e) {
 signInputPw.addEventListener("focusout", handleValidationPw);
 signInputEmail.addEventListener("focusout", handleValidationEmail);
 signForm.addEventListener("submit", handleSumbmit);
+eyeBtn[0].addEventListener("click", handleEyeBtnPw);
+eyeBtnOnPw.addEventListener("click", handleEyeBtnPw);
