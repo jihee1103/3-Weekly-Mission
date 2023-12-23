@@ -1,56 +1,65 @@
 <!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>signup</title>
-        <link rel="stylesheet" href="./css/signup.css">
-    </head>
-<body>
-    <div class="main">
-        <div class="main-form">
-            <div class="title">
-                <a class="logo" href="./index.html"></a>
-                <div class="title-membership">
-                    <div class="areyoumember">이미 회원이신가요?</div>
-                    <div class="join">
-                        <a class="signin" href="./signin">로그인 하기</a>
-                        <div class="line"></div>
-                    </div>
-                </div>
-            </div>
-            <form class="id-password-check" name="signup-form" method="post">
-                <div class="id">
-                    <label for="id-input">이메일</label>
-                    <input class="id-input" type="email" name="username"></input>
-                </div>
-                <div class="password">
-                    <label for="password-input">비밀번호</label>
-                    <input class="password-input" type="password" name="password"></input>
-                </div>
-                <div class="password-check">
-                    <div class="password-include-checkcomment">
-                        <label for="password-check-input">비밀번호 확인</label>
-                        <input class="password-check-input" type="password" name="password"></input>
-                        <span class="password-fail">비밀번호가 다릅니다</span>
-                    </div>
-                </div>
-            </form>
-            <button class="signup" type="submit" value="회원가입" form="id-password-check">회원가입</button>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>회원가입</title>
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./src/sign.css" />
+  </head>
+  <body>
+    <header>
+      <a class="logo-link" href="index.html">
+        <img class="header-logo" src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
+      </a>
+      <p class="header-message">
+        이미 회원이신가요?<a class="header-link" href="signin.html">로그인 하기</a>
+      </p>
+    </header>
+    <div class="sign-box">
+      <form class="sign-form">
+        <div class="sign-inputs">
+          <div class="sign-input-box">
+            <label class="sign-input-label">이메일</label>
+            <input class="sign-input" id="email"/>
+          </div>
+          <div class="sign-input-box sign-password">
+            <label class="sign-input-label">비밀번호</label>
+            <input class="sign-input" id="password" type="password" />
+            <button class="eye-button" type="button">
+              <img src="./images/eye-off.svg" />
+            </button>
+          </div>
+          <div class="sign-input-box sign-password">
+            <label class="sign-input-label">비밀번호 확인</label>
+            <input class="sign-input" id="password-dup" type="password" />
+            <p id="password-err-msg" class="password-err-msg">비밀번호가 다릅니다</p>
+            <button class="eye-button" type="button">
+              <img src="./images/eye-off.svg" />
+            </button>
+          </div>
         </div>
-        <div class="bottom-form">
-            <p>다른 방식으로 가입하기</p>
-            <div class="sns">
-                <div class="google-background">
-                    <a class="google" href="https://google.com/" target="_blank"></a>
-                </div>
-                <div class="kakaotalk-background">
-                    <a  href="https://www.kakaocorp.com/page/" target="_blank">
-                        <img class="kakaotalk" src="./svgs/kakatalk.svg"/>
-                    </a>
-                </div>
-            </div>
+        <button class="cta" id="signupbtn" type="submit">회원가입</button>
+      </form>
+      <div class="sns-box">
+        <span class="sns-text">다른 방식으로 가입하기</span>
+        <div class="sns-links">
+          <a class="sns-link google-link" href="https://www.google.com/">
+            <img src="./images/google.png" />
+          </a>
+          <a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
+            <img src="./images/kakao.svg" />
+          </a>
         </div>
+      </div>
     </div>
-</body>
+    <script src="signup.js"></script>
+  </body>
 </html>
