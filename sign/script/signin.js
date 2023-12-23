@@ -11,6 +11,8 @@ import {
   handlePasswordVisibilityIconClick,
 } from './common.js';
 
+import { handleLoginAsync } from './api.js';
+
 // Email 유효성 검사
 function handleSignInEmailInputFocusout() {
   const input = this;
@@ -76,7 +78,7 @@ function handleSignInFormSubmit(e) {
     return;
   }
 
-  formElement.submit();
+  handleLoginAsync(emailInput.value, passwordInput.value);
 }
 
 emailInput.addEventListener('focusout', handleSignInEmailInputFocusout);
