@@ -10,6 +10,25 @@ const signupForm = document.querySelector("form");
 const inputPasswordIcon = document.querySelector("#inputPwIcon");
 const inputPasswordComfirmIcon = document.querySelector("#inputPwComfirmIcon");
 
+async function checkEmailConflict() {
+    const response = await fetch(
+        "https://bootcamp-api.codeit.kr/api/check-email",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: inputEmail.value,
+            }),
+        }
+    );
+    if (response.status === 409) {
+        emailError.textContent = "이미 사용 중인 이메일입니다.";
+        return false;
+    }
+}
+
 function checkEmail() {
     const EMAIL_REGEX =
         /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
@@ -23,10 +42,8 @@ function checkEmail() {
         inputEmail.className = "error-box";
         return false;
     }
-    if (inputEmail.value === userEmail) {
-        emailError.textContent = "이미 사용 중인 이메일입니다.";
-        return false;
-    }
+    checkEmailConflict();
+
     emailError.textContent = " ";
     inputEmail.className = "inputbox";
     return true;
@@ -67,7 +84,7 @@ function passwordConfirm() {
     return true;
 }
 
-function signUp(event) {
+async function signUp(event) {
     event.preventDefault();
 
     if (
@@ -75,19 +92,24 @@ function signUp(event) {
         checkPassword() === true &&
         passwordConfirm() === true
     ) {
-        signupForm.action = "/folder";
-        signupForm.method = "Get";
-
-        signupForm.submit();
-    } else if (checkEmail() !== true) {
-        emailError.textContent = "이메일을 확인해주세요.";
-        inputEmail.className = "error-box";
-    } else if (checkPassword() !== true) {
-        passwordError.textContent = "비밀번호를 확인해주세요.";
-        inputPassword.className = "error-box";
-    } else if (passwordConfirm() !== true) {
-        passwordConfirmError.textContent = "비밀번호를 확인해주세요.";
-        inputPasswordConfirm.className = "error-box";
+        const response = await fetch(
+            "https://bootcamp-api.codeit.kr/api/sign-up",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: inputEmail.value,
+                    password: inputPassword.value,
+                }),
+            }
+        );
+        if (response.status === 200) {
+            console.log("성공");
+            signupForm.action = "/folder";
+            signupForm.submit();
+        }
     }
 }
 
