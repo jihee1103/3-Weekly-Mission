@@ -28,7 +28,7 @@ body {
   text-decoration: underline;
 }
 
-.email-password-form {
+.signin-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -37,7 +37,7 @@ body {
   width: 25rem;
 }
 
-.email-password-form div {
+.signin-form div {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -48,7 +48,8 @@ body {
   position: relative;
 }
 
-.eye-off-icon {
+.eye-icon {
+  background-image: url(./svg/eye_off.svg);
   width: 1rem;
   position: absolute;
   top: 1.12rem;
@@ -61,7 +62,7 @@ label {
   font-size: 0.875rem;
 }
 
-input {
+.signin-input {
   width: 100%;
   padding: 1.125rem 0.9375rem;
   border-radius: 8px;
@@ -70,8 +71,15 @@ input {
   box-sizing: border-box;
 }
 
-input:focus {
+.signin-input:focus {
   border: 1px solid var(--linkbrary-primary-color);
+}
+
+.email-result,
+.password-result {
+  color: var(--linkbrary-red);
+  font-family: Pretendard;
+  font-size: 0.875rem;
 }
 
 .login-button-set {
@@ -92,9 +100,6 @@ input:focus {
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-}
-
-.login-button a {
   color: var(--grey-light);
   font-family: Pretendard;
   font-size: 1.125rem;
@@ -136,8 +141,8 @@ input:focus {
   position: absolute;
 }
 
-@media (max-width: 767px) { 
-  .email-password-form,
+@media (max-width: 768px) { 
+  .signin-form,
   .login-button-set {
     padding-left: 2rem;
     padding-right: 2rem;
