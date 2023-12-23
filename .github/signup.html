@@ -11,43 +11,54 @@
     <form>
      <div class="Linkbrary-login">
       <div class="signup-header">
-        <a href="/">
+        <a href="index.html">
           <img class="logo" src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고"/>
         </a>
         <div class="login-signup">
-          <span>이미 회원이신가요? </span> <a class="signup-longin-link" href="/signin.html">로그인 하기</a>
+          <span>이미 회원이신가요? </span> <a class="signup-longin-link" href="signin.html">로그인 하기</a>
         </div>
       </div>
 
       <div class="signup-input">
         <div class="signup-info email">
-          <label>이메일</label>
+          <label for="email">이메일</label>
           <input
+            id="email"
             name="email"
             type="email"
           />
+          </div>
+          <div id="email-error"></div>
         </div>
   
         <div class="signup-info pw">
-          <label>비밀번호</label>
+          <label for="password">비밀번호</label>
           <div class="pw-box">
             <input
+            id="password"
             name="password"
             type="password"
             />
-            <img class="eye-off" src="./images/eye-off.svg"/>
+            <div class="eye-box">
+              <img class="eye-off" src="./images/eye-off.svg"/>
+            </div>
           </div>
+          <div id="pw-error"></div>
         </div>
 
         <div class="signup-info pw">
-          <label>비밀번호 확인</label>
+          <label for="password2">비밀번호 확인</label>
           <div class="pw-box">
             <input
-            name="password" 
+            id="password2"
+            name="password2" 
             type="password"
             />
-            <img class="eye-off" src="./images/eye-off.svg"/>
+            <div class="eye-box">
+              <img class="eye-off" src="./images/eye-off.svg"/>
+            </div>
           </div>
+          <div id="pw2-error"></div>
         </div>
       </div>
       <button>회원가입</button>
@@ -73,5 +84,7 @@
         </div>
       </div>
     </form>
+    <script src="validation..js"></script>
+    <script src="signup.js"></script>
   </body>
 </html>
