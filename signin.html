@@ -22,21 +22,26 @@
       </div>
     </div>
     <div>
-      <form class="login-form" action="/submit_form" method="GET">
+      <form class="login-form" method="GET" onsubmit="submit(e)">
         <div class="input-box-container">
+
           <div class="input-box">
-            <label for="email">이메일</label>
-            <input id="email" type="email">
+            <div class="email-box">
+              <label for="email">이메일</label>
+              <input id="email" type="email">
+            </div>
           </div>
+
           <div class="input-box">
             <label for="password">비밀번호</label>
             <div class="password-box">
               <input id="password" type="password">
               <img src="images/signin-eye-off.svg" alt="icon-eyes">
             </div>
+
           </div>
         </div>
-        <button>로그인</button>
+        <button id="submit">로그인</button>
       </form>
     </div>
 
@@ -62,6 +67,8 @@
   </section>
 
 </main>
+
+<script type="module" src="signIn.js"></script>
 
 </body>
 </html>
