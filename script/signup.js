@@ -1,5 +1,3 @@
-import { userEmail } from "./userInfo.js";
-
 const inputEmail = document.querySelector("#inputEmail");
 const inputPassword = document.querySelector("#inputPw");
 const inputPasswordConfirm = document.querySelector("#inputPwConfirm");
