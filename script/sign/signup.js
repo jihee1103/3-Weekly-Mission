@@ -51,13 +51,10 @@ const signupRegisterBtnHandler = function (event) {
     if (signupPasswordConfirmInput.value !== signupPasswordInput.value) {
         return signupPasswordConfirmError.textContent = NOT_MATCH_PASSWORD;
     }
-
-    // async, await로 구현해보기
     let signUpData = {
         "email": signupEmailInput.value,
         "password": signupPasswordInput.value
     }
-    // 회원가입시 이메일 중복 확인 함수
     const checkEmailduplication = async function () {
         try {
             const response = await fetch(URL_CHECK_EMAIL, {
@@ -67,12 +64,10 @@ const signupRegisterBtnHandler = function (event) {
                 },
                 body: JSON.stringify({ "email": signUpData["email"] }),
             })
-            if (response.status === 409) signupEmailError.textContent = DUPLICATED_EMAIL;
-            // 중복되지 않은경우 signUpSuccess함수 실행
-            else signUpSuccess();
-        }
-        catch (error) {
-            console.log(error);
+            if (response.status === 200) { return signUpSuccess() }
+            else { throw new Error(`회원가입에 실패했습니다! : ${response.status}`) }
+        } catch (error) {
+            return signupEmailError.textContent = DUPLICATED_EMAIL;
         }
     }
     const signUpSuccess = async function () {
@@ -84,17 +79,16 @@ const signupRegisterBtnHandler = function (event) {
                 },
                 body: JSON.stringify(signUpData),
             })
-            // 요청이 성공한 경우
             if (response.status === 200) {
-                let result = await response.json();
-                let accessToken = await result.data.accessToken;
-                let refreshToken = await result.data.refreshToken;
+                const result = await response.json();
+                const accessToken = await result.data.accessToken;
+                const refreshToken = await result.data.refreshToken;
                 localStorage.setItem("accessToken", await accessToken);
                 localStorage.setItem("refreshToken", await refreshToken);
                 location.href = '/folder.html';
-            }
+            } else { throw new Error('회원가입에 실패했습니다') }
         } catch (error) {
-            console.log(error);
+            return alert(error);
         }
     }
     checkEmailduplication();

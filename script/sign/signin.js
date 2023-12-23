@@ -1,6 +1,6 @@
 import { eyeHandler } from './eyeHandler.js';
 import { signPasswordHandler } from './signPasswordHandler.js';
-import { EMPTY_EMAIL, INVALID_EMAIL, EMPTY_PASSWORD, CONFIRM_EMAIL } from './constant.js';
+import { EMPTY_EMAIL, INVALID_EMAIL, REQUIRE_CONFIRM_PASSWORD, EMPTY_PASSWORD, CONFIRM_EMAIL, REQUIRE_CONFIRM_EMAIL } from './constant.js';
 import { URL_SIGN_IN } from './apiUrl.js';
 
 // 데이터를 다루는 곳
@@ -32,34 +32,34 @@ const signinLoginBtnHandler = function () {
         return signinPasswordError.textContent = EMPTY_PASSWORD;
     }
 
-    // promise로만 구현해보기
-    // POST요청 보낼 데이터
     let signinData = {
         "email": signinEmailInput.value,
         "password": signinPasswordInput.value
     };
-
-    fetch(URL_SIGN_IN, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(signinData),
-    })
-        .then((response) => {
-            // 응답이 성공한경우 데이터를 가공하고 다음 then 메서드에 보내준다
+    const signinSuccess = async function () {
+        try {
+            const response = await fetch(URL_SIGN_IN, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(signinData),
+            })
             if (response.status === 200) {
-                return response.json()
-            }
-        })
-        .then((result) => {
-            let accessToken = result.data.accessToken;
-            let refreshToken = result.data.refreshToken;
-            localStorage.setItem("accessToken", accessToken);
-            localStorage.setItem("refreshToken", refreshToken);
-        })
-        .then(() => location.href = '/folder.html')
-        .catch((error) => { console.log(error) })
+                const data = await response.json();
+                let accessToken = data.data.accessToken;
+                let refreshToken = data.data.refreshToken;
+                localStorage.setItem("accessToken", accessToken);
+                localStorage.setItem("refreshToken", refreshToken);
+                location.href = '/folder.html'
+            } else { throw new Error('로그인에 실패했습니다.') }
+        } catch (error) {
+            signinEmailError.textContent = REQUIRE_CONFIRM_EMAIL;
+            signinPasswordError.textContent = REQUIRE_CONFIRM_PASSWORD;
+            return console.log(error);
+        }
+    }
+    signinSuccess();
 }
 
 signinEmailInput.addEventListener('focusout', signinEmailHandler);
