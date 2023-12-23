@@ -1,40 +1,60 @@
 import {
   inputEmail,
   inputPassword,
-  emailAlert,
-  passwordAlert,
+  emailErrorMessage,
+  passwordErrorMessage,
   inputSection,
 } from "./ingredient/tags.js";
 
-import errorEmailAlert from "./ingredient/error_alert.js";
+import emailError from "./ingredient/error_message.js";
 import showHidePassword from "./ingredient/show_hide.js";
 
 const signinButton = document.querySelector("#signin-button");
 
-function errorPasswordAlert() {
+const localStorage = window.localStorage;
+
+if (localStorage.getItem("signin")) location.href = "folder.html";
+
+function passwordError() {
   if (inputPassword.value) {
-    passwordAlert.style.display = "NONE";
-    inputPassword.classList.remove("alert-input");
+    passwordErrorMessage.style.display = "NONE";
+    inputPassword.classList.remove("error-input");
   } else {
-    passwordAlert.textContent = "비밀번호를 입력해 주세요.";
-    passwordAlert.style.display = "INLINE";
-    inputPassword.classList.add("alert-input");
+    passwordErrorMessage.textContent = "비밀번호를 입력해 주세요.";
+    passwordErrorMessage.style.display = "INLINE";
+    inputPassword.classList.add("error-input");
   }
 }
 
-function checkSignin() {
-  if (
-    inputEmail.value === "test@codeit.com" &&
-    inputPassword.value === "codeit101"
-  ) {
-    location.href = "folder.html";
-  } else {
-    emailAlert.textContent = "이메일을 확인해 주세요.";
-    passwordAlert.textContent = "비밀번호를 확인해 주세요.";
-    emailAlert.style.display = "INLINE";
-    passwordAlert.style.display = "INLINE";
-    inputEmail.classList.add("alert-input");
-    inputPassword.classList.add("alert-input");
+async function checkSignin() {
+  const user = {
+    email: inputEmail.value,
+    password: inputPassword.value,
+  };
+
+  try {
+    const post = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        accept: "*/*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    if (post.status === 200) {
+      localStorage.setItem("signin", post);
+      location.href = "folder.html";
+    } else if (post.status === 400) {
+      emailErrorMessage.textContent = "이메일을 확인해 주세요.";
+      passwordErrorMessage.textContent = "비밀번호를 확인해 주세요.";
+      emailErrorMessage.style.display = "INLINE";
+      passwordErrorMessage.style.display = "INLINE";
+      inputEmail.classList.add("error-input");
+      inputPassword.classList.add("error-input");
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 
@@ -44,8 +64,8 @@ function pressEnterSignin(e) {
   }
 }
 
-inputEmail.addEventListener("focusout", errorEmailAlert);
-inputPassword.addEventListener("focusout", errorPasswordAlert);
+inputEmail.addEventListener("focusout", emailError);
+inputPassword.addEventListener("focusout", passwordError);
 
 signinButton.addEventListener("click", checkSignin);
 inputSection.addEventListener("keypress", pressEnterSignin);
