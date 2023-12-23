@@ -1,32 +1,23 @@
-export async function handleLoginAsync(emailValue, passwordValue) {
-  const user = {
-    email: emailValue,
-    password: passwordValue,
-  };
+export async function Send registered email verification request() {
+  
+}
 
+export async function verifyDuplicateUser(emailValue) {
   try {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(emailValue),
     });
+    const deserializedResponseData = await response.json();
 
-    const responseData =
-      response ??
-      (function () {
-        alert('No Response');
-        throw new Error('No Response');
-      })();
-
-    const data = await responseData.json();
-    const token = data.token;
-    localStorage.setItem('token', token);
-
-    window.location.href = '/folder.html';
+    if (deserializedResponseData.duplicate) {
+      alert('중복된 이메일입니다.');
+    }
   } catch (error) {
-    console.error('로그인 에러:', error.message);
-    alert('로그인에 실패했습니다. 다시 시도해주세요.');
+    console.error('회원가입 에러:', error.message);
+    alert('회원가입에 실패했습니다. 다시 시도해주세요.');
   }
 }

@@ -3,16 +3,21 @@ import {
   emailInput,
   passwordInput,
   passwordRepeatInput,
+  emailErrorText,
+  passwordErrorText,
+  passwordRepeatErrorText,
   passwordVisibilityIcon,
   passwordRepeatVisibilityIcon,
   validateEmail,
   validatePassword,
   validatePasswordRepeat,
-  verifyRegisteredEmail,
   showError,
   removeError,
   handlePasswordVisibilityIconClick,
 } from './common.js';
+
+import { ERROR_MESSAGES } from './constants.js';
+const getErrorMessage = (errCode) => ERROR_MESSAGES[errCode] ?? '알 수 없는 에러가 발생했습니다.';
 
 // Email 유효성 검사
 function handleSignUpEmailInputFocusout() {
@@ -21,17 +26,12 @@ function handleSignUpEmailInputFocusout() {
   const errorText = document.getElementById('email-error');
 
   if (!value) {
-    showError(input, errorText, '이메일을 입력해주세요.');
+    showError(input, errorText, getErrorMessage('EMAIL_REQUIRED'));
     return false;
   }
 
   if (!validateEmail(value)) {
-    showError(input, errorText, '올바른 이메일 주소가 아닙니다.');
-    return false;
-  }
-
-  if (verifyRegisteredEmail(value)) {
-    showError(input, errorText, '이미 사용 중인 이메일입니다.');
+    showError(input, errorText, getErrorMessage('INVALID_EMAIL'));
     return false;
   }
 
@@ -52,12 +52,12 @@ function handleSignUpPasswordInputFocusout() {
   const errorText = document.getElementById('password-error');
 
   if (!value) {
-    showError(input, errorText, '비밀번호를 입력해주세요.');
+    showError(input, errorText, getErrorMessage('PASSWORD_REQUIRED'));
     return false;
   }
 
   if (!validatePassword(value)) {
-    showError(input, errorText, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
+    showError(input, errorText, getErrorMessage('INVALID_PASSWORD'));
     return false;
   }
 
@@ -78,12 +78,12 @@ function handlePasswordRepeatInputFocusout() {
   const errorText = document.getElementById('password-repeat-error');
 
   if (!value) {
-    showError(input, errorText, '비밀번호를 다시 한번 입력해주세요.');
+    showError(input, errorText, getErrorMessage('PASSWORD_REPEAT_CHECK_FAILED'));
     return false;
   }
 
   if (!validatePasswordRepeat(value)) {
-    showError(input, errorText, '비밀번호가 일치하지 않아요.');
+    showError(input, errorText, getErrorMessage('INVALID_PASSWORD_REPEAT'));
     return false;
   }
 
@@ -97,41 +97,68 @@ function handleSignUpPasswordRepeatInputKeydown(e) {
   }
 }
 
-// submit 에러 확인
-function handleSignUpFormSubmit(e) {
+// 회원가입 비동기 처리
+async function handleSignUpFormSubmit(e) {
   e.preventDefault();
+  const userEmail = {
+    email: emailInput.value,
+  };
+  const user = {
+    email: emailInput.value,
+    password: passwordInput.value,
+  };
 
-  const isEmailValid = handleSignUpEmailInputFocusout.call(emailInput);
-  const isPasswordValid = handleSignUpPasswordInputFocusout.call(passwordInput);
-  const isPasswordRepeatValid = handlePasswordRepeatInputFocusout.call(passwordRepeatInput);
+  try {
+    const checkEmailResponse = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userEmail),
+    });
 
-  if (!isEmailValid) {
-    const errorText = document.getElementById('email-error');
-    showError(emailInput, errorText, '이메일을 확인해주세요.');
-    return;
+    if (checkEmailResponse.status === 409) {
+      showError(emailInput, emailErrorText, getErrorMessage('DUPLICATE_EMAIL'));
+      return;
+    }
+
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    });
+
+    if (response.status === 200) {
+      formElement.action = '/folder.html';
+      formElement.submit();
+      return;
+    }
+
+    showError(emailInput, emailErrorText, getErrorMessage('EMAIL_CHECK_FAILED'));
+    showError(passwordInput, passwordErrorText, getErrorMessage('PASSWORD_CHECK_FAILED'));
+    showError(
+      passwordInput,
+      passwordRepeatErrorText,
+      getErrorMessage('PASSWORD_REPEAT_CHECK_FAILED'),
+    );
+  } catch (error) {
+    console.error('회원가입 에러:', error.message);
+    alert(getErrorMessage('SIGN_UP_FAILED'));
   }
-
-  if (!isPasswordValid) {
-    const errorText = document.getElementById('password-error');
-    showError(passwordInput, errorText, '비밀번호를 확인해주세요.');
-    return;
-  }
-
-  if (!isPasswordRepeatValid) {
-    const errorText = document.getElementById('password-repeat-error');
-    showError(passwordRepeatInput, errorText, '비밀번호를 다시 한번 확인해주세요.');
-    return;
-  }
-
-  formElement.submit();
 }
 
 emailInput.addEventListener('focusout', handleSignUpEmailInputFocusout);
 emailInput.addEventListener('keydown', handleSignUpEmailInputKeydown);
+
 passwordInput.addEventListener('focusout', handleSignUpPasswordInputFocusout);
 passwordInput.addEventListener('keydown', handleSignUpPasswordInputKeydown);
+
 passwordRepeatInput.addEventListener('focusout', handlePasswordRepeatInputFocusout);
 passwordRepeatInput.addEventListener('keydown', handleSignUpPasswordRepeatInputKeydown);
+
 formElement.addEventListener('submit', handleSignUpFormSubmit);
+
 passwordVisibilityIcon.addEventListener('click', handlePasswordVisibilityIconClick);
 passwordRepeatVisibilityIcon.addEventListener('click', handlePasswordVisibilityIconClick);

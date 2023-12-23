@@ -2,16 +2,17 @@ import {
   formElement,
   emailInput,
   passwordInput,
+  emailErrorText,
+  passwordErrorText,
   passwordVisibilityIcon,
   validateEmail,
-  verifyRegisteredEmail,
-  verifyRegisteredPassword,
   showError,
   removeError,
   handlePasswordVisibilityIconClick,
 } from './common.js';
 
-import { handleLoginAsync } from './api.js';
+import { ERROR_MESSAGES } from './constants.js';
+const getErrorMessage = (errCode) => ERROR_MESSAGES[errCode] ?? '알 수 없는 에러가 발생했습니다.';
 
 // Email 유효성 검사
 function handleSignInEmailInputFocusout() {
@@ -20,12 +21,12 @@ function handleSignInEmailInputFocusout() {
   const errorText = document.getElementById('email-error');
 
   if (!value) {
-    showError(input, errorText, '이메일을 입력해주세요.');
+    showError(input, errorText, getErrorMessage('EMAIL_REQUIRED'));
     return false;
   }
 
   if (!validateEmail(value)) {
-    showError(input, errorText, '올바른 이메일 주소가 아닙니다.');
+    showError(input, errorText, getErrorMessage('INVALID_EMAIL'));
     return false;
   }
 
@@ -46,7 +47,7 @@ function handleSignInPasswordInputFocusout() {
   const errorText = document.getElementById('password-error');
 
   if (!value) {
-    showError(input, errorText, '비밀번호를 입력해주세요.');
+    showError(input, errorText, getErrorMessage('PASSWORD_REQUIRED'));
     return false;
   }
 
@@ -59,31 +60,42 @@ function handleSignInPasswordInputKeydown(e) {
   }
 }
 
-// submit 에러 확인
-function handleSignInFormSubmit(e) {
+// submit 시 비동기 처리
+async function handleSignInFormSubmit(e) {
   e.preventDefault();
+  const user = {
+    email: emailInput.value,
+    password: passwordInput.value,
+  };
 
-  const isEmailValid = verifyRegisteredEmail(emailInput.value);
-  const isPasswordValid = verifyRegisteredPassword(passwordInput.value);
+  try {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    });
 
-  if (!isEmailValid) {
-    const emailErrorText = document.getElementById('email-error');
-    showError(emailInput, emailErrorText, '이메일을 확인해주세요.');
-    return;
+    if (response.status === 200) {
+      formElement.action = '/folder.html';
+      formElement.submit();
+      return;
+    }
+    showError(emailInput, emailErrorText, getErrorMessage('EMAIL_CHECK_FAILED'));
+    showError(passwordInput, passwordErrorText, getErrorMessage('PASSWORD_CHECK_FAILED'));
+  } catch (error) {
+    console.error('로그인 에러:', error.message);
+    alert(getErrorMessage('SIGN_IN_FAILED'));
   }
-
-  if (!isPasswordValid) {
-    const passwordErrorText = document.getElementById('password-error');
-    showError(passwordInput, passwordErrorText, '비밀번호를 확인해주세요.');
-    return;
-  }
-
-  handleLoginAsync(emailInput.value, passwordInput.value);
 }
 
 emailInput.addEventListener('focusout', handleSignInEmailInputFocusout);
 emailInput.addEventListener('keydown', handleSignInEmailInputKeydown);
+
 passwordInput.addEventListener('focusout', handleSignInPasswordInputFocusout);
 passwordInput.addEventListener('keydown', handleSignInPasswordInputKeydown);
+
 formElement.addEventListener('submit', handleSignInFormSubmit);
+
 passwordVisibilityIcon.addEventListener('click', handlePasswordVisibilityIconClick);
