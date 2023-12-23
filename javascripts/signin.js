@@ -2,7 +2,6 @@ import {
   loginElement,
   emailInputElement,
   passwdInputElement,
-  users,
   emailErrorMentionElement,
   passwdErrorMentionElement,
   formElement,
@@ -25,17 +24,23 @@ function checkAccount() {
 }
 
 // 계정이 맞다면 사이트 연결 아니라면 오류메시지 출력
-function signin() {
-  fetch("https://bootcamp-api.codeit.kr/docs/api/sign-in", {
+async function signin() {
+  const email = emailInputElement.value;
+  const passwd = passwdInputElement.value;
+
+  const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
     method: "POST",
-    body: JSON.stringify(users),
-  }).then((response) =>{
-    console.log(response.text());
-  })
-  // emailInputElement.value === users.email &&
-  // passwdInputElement.value === users.password
-  //   ? (location.href = "/folder")
-  //   : checkAccount();
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email: email, password: passwd }),
+  });
+
+  if (response.status === 200) {
+    const result = await response.json();
+    localStorage.setItem("accessToken", result.data.accessToken);
+    location.href = "/folder";
+  } else checkAccount();
 }
 
 // 클릭 및 엔터 시 signin
