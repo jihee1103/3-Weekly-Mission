@@ -10,6 +10,10 @@ body {
   row-gap: 3rem;
 }
 
+.hide {
+  display: none;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -94,6 +98,24 @@ header {
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
+}
+
+.eye-button-focusout {
+  position: absolute;
+  top: 5.2rem;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.sign-input-err {
+  border: 1px solid #ff5b56;
+}
+
+.sign-input-errMsg {
+  color: #ff5b56;
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .login-button {
