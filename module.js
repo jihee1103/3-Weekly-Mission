@@ -20,12 +20,12 @@ const remove_error = function(remove_border, remove_text){
 }
 
 //이메일 정규식 확인
-  function email_valid(email) {
-    return new RegExp(email_reg).test(email);
+  function email_valid(email_input) {
+    return new RegExp(email_reg).test(email_input);
   }
 //패스워드 정규식 확인
-  function password_valid(password){
-    return new RegExp(password_reg).test(password)
+  function password_valid(password_input){
+    return new RegExp(password_reg).test(password_input)
   }
 
   // 눈모양 바꾸기
