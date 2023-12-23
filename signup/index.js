@@ -14,7 +14,9 @@ import {
   eyeIconcheck,
   MOCK_EMAIL,
   MOCK_PASSWORD,
-} from '../common.js';
+} from '../javascript/common.js';
+
+import { checkDuplicateEmail, signUp } from '../javascript/api.js';
 
 function handleEmailInputFocusout() {
   const emailValue = emailInput.value;
@@ -26,6 +28,10 @@ function handleEmailInputFocusout() {
 
   if (!validateEmail(emailValue)) {
     handleEmailError('올바른 이메일 주소가 아닙니다.');
+    return;
+  }
+  if (emailValue === MOCK_EMAIL) {
+    handleEmailError('이미 사용 중인 이메일입니다.');
     return;
   }
 
@@ -65,24 +71,55 @@ function handlePasswordcheckInputFocusout() {
   handlePasswordcheckError('');
 }
 
-function handleFormSubmit(event) {
-  event.preventDefault();
-  const userEmail = emailInput.value;
-  const userPassword = passwordInput.value;
-  const userPasswordcheck = passwordcheckInput.value;
+async function sendSignUpRequest() {
+  const emailValue = emailInput.value;
+  const passwordValue = passwordInput.value;
+  const passwordcheckValue = passwordcheckInput.value;
+
+  try {
+    const checkEmailResponse = await checkDuplicateEmail(emailValue);
+
+    if (checkEmailResponse.status === 409) {
+      handleEmailError('이미 존재하는 이메일입니다.');
+      return;
+    }
+    if (checkEmailResponse.status !== 200) {
+      throw new Error('이메일 중복 확인 요청 실패');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    throw new Error('이메일 중복 확인 요청 실패');
+  }
 
   if (
-    userEmail === MOCK_EMAIL &&
-    userPassword === MOCK_PASSWORD &&
-    userPassword === userPasswordcheck
+    validateEmail(emailValue) &&
+    validatePassword(passwordValue) &&
+    validatePasswordcheck(passwordValue, passwordcheckValue)
   ) {
-    signupForm.action = '../etc/folder.html';
-    signupForm.submit();
-  } else {
-    handleEmailError('이메일을 확인해주세요.');
-    handlePasswordError('비밀번호를 확인해주세요.');
-    handlePasswordcheckError('비밀번호를 확인해주세요.');
+    try {
+      const response = await signUp(emailValue, passwordValue);
+
+      if (response.status === 200) {
+        signupForm.action = '../etc/folder.html';
+        signupForm.submit();
+        return;
+      }
+      if (response.status === 400) {
+        handleEmailError('이메일을 확인해주세요.');
+        handlePasswordError('비밀번호를 확인해주세요.');
+        handlePasswordcheckError('비밀번호를 확인해주세요.');
+        return;
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      throw new Error('회원가입 요청 실패');
+    }
   }
+}
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  sendSignUpRequest();
 }
 
 function togglePasswordVisibility() {

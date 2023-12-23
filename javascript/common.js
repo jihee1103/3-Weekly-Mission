@@ -5,14 +5,14 @@ const passwordInput = document.querySelector('.password-box');
 const errorPassword = document.querySelector('.error-password');
 const errorPasswordbox = document.querySelector('.box5');
 const errorPasswordcheckbox = document.querySelector('.box6');
-const passwordBtn = document.querySelector('.password-box'); // passwordBtn 변수 삭제
+const passwordBtn = document.querySelector('.password-box');
 const loginButton = document.getElementById('login-button');
 const signinForm = document.getElementById('signin-form');
 const eyeIcon = document.querySelector('.eye-icon');
 const passwordEye = document.querySelector('.password-box');
-const passwordcheckInput = document.querySelector('.password-check'); // passwordcheckInput 추가
-const signupForm = document.getElementById('signup-form'); // signupForm 추가
-const errorPasswordcheck = document.querySelector('.error-password-check'); // 변수명을 수정해야 할 수도 있음
+const passwordcheckInput = document.querySelector('.password-check');
+const signupForm = document.getElementById('signup-form');
+const errorPasswordcheck = document.querySelector('.error-password-check');
 const eyeIconcheck = document.querySelector('.eye-icon2');
 // 이메일 에러 처리 함수
 function handleEmailError(message) {

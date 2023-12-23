@@ -10,7 +10,9 @@ import {
   validatePassword,
   MOCK_EMAIL,
   MOCK_PASSWORD,
-} from '../common.js';
+} from '../javascript/common.js';
+
+import { signIn } from '../javascript/api.js';
 
 const signinForm = document.getElementById('signin-form');
 
@@ -46,18 +48,34 @@ function handlePasswordInputFocusout() {
   handlePasswordError('');
 }
 
+async function sendSignInRequest() {
+  const emailValue = emailInput.value;
+  const passwordValue = passwordInput.value;
+
+  try {
+    const response = await signIn(emailValue, passwordValue);
+
+    if (response.status === 200) {
+      const data = await response.json();
+      signinForm.action = '../etc/folder.html';
+      signinForm.submit();
+      return;
+    }
+
+    if (response.status === 400) {
+      handleEmailError('이메일을 확인해주세요.');
+      handlePasswordError('비밀번호를 확인해주세요.');
+    }
+    throw new Error('로그인 요청 실패');
+  } catch (error) {
+    console.error('Error:', error);
+    throw new Error('로그인 요청 실패');
+  }
+}
+
 function handleFormSubmit(event) {
   event.preventDefault();
-  const userEmail = emailInput.value;
-  const userPassword = passwordInput.value;
-
-  if (userEmail === MOCK_EMAIL && userPassword === MOCK_PASSWORD) {
-    signinForm.action = '../etc/folder.html';
-    signinForm.submit();
-  } else {
-    handleEmailError('이메일을 확인해주세요.');
-    handlePasswordError('비밀번호를 확인해주세요.');
-  }
+  sendSignInRequest();
 }
 
 function togglePasswordVisibility() {
