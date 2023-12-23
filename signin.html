@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>signin</title>
+        <link rel="stylesheet" href="./css/signin.css">
+    </head>
+<body>
+    <div class="main">
+        <div class="main-form">
+            <div class="title">
+                <a class="logo" href="./index.html"></a>
+                <div class="title-membership">
+                    <div class="areyoumember">회원이 아니신가요?</div>
+                    <div class="join">
+                        <a class="signup" href="./signup">회원 가입하기</a>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+            <form class="id-password" name="login-form" method="post">
+                <div class="id">
+                    <label for="id-input">이메일</label>
+                    <input class="id-input" type="email" name="username"></input>
+                </div>
+                <div class="password">
+                    <label for="password-input">비밀번호</label>
+                    <input class="password-input" type="password" name="password"></input>
+                </div>
+            </form>
+            <button class="login" type="submit" value="로그인" form="id-password">로그인</button>
+        </div>
+        <div class="bottom-form">
+            <p>소셜 로그인</p>
+            <div class="sns">
+                <div class="google-background">
+                    <a class="google" href="https://google.com/" target="_blank"></a>
+                </div>
+                <div class="kakaotalk-background">
+                    <a  href="https://www.kakaocorp.com/page/" target="_blank">
+                        <img class="kakaotalk" src="./svgs/kakatalk.svg"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

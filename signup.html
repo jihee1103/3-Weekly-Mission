@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>signup</title>
+        <link rel="stylesheet" href="./css/signup.css">
+    </head>
+<body>
+    <div class="main">
+        <div class="main-form">
+            <div class="title">
+                <a class="logo" href="./index.html"></a>
+                <div class="title-membership">
+                    <div class="areyoumember">이미 회원이신가요?</div>
+                    <div class="join">
+                        <a class="signin" href="./signin">로그인 하기</a>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+            <form class="id-password-check" name="signup-form" method="post">
+                <div class="id">
+                    <label for="id-input">이메일</label>
+                    <input class="id-input" type="email" name="username"></input>
+                </div>
+                <div class="password">
+                    <label for="password-input">비밀번호</label>
+                    <input class="password-input" type="password" name="password"></input>
+                </div>
+                <div class="password-check">
+                    <div class="password-include-checkcomment">
+                        <label for="password-check-input">비밀번호 확인</label>
+                        <input class="password-check-input" type="password" name="password"></input>
+                        <span class="password-fail">비밀번호가 다릅니다</span>
+                    </div>
+                </div>
+            </form>
+            <button class="signup" type="submit" value="회원가입" form="id-password-check">회원가입</button>
+        </div>
+        <div class="bottom-form">
+            <p>다른 방식으로 가입하기</p>
+            <div class="sns">
+                <div class="google-background">
+                    <a class="google" href="https://google.com/" target="_blank"></a>
+                </div>
+                <div class="kakaotalk-background">
+                    <a  href="https://www.kakaocorp.com/page/" target="_blank">
+                        <img class="kakaotalk" src="./svgs/kakatalk.svg"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
