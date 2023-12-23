@@ -1,5 +1,5 @@
 /* description, link 부분의 중복되는 속성들의 경우 나중에 SASS로 묶어버릴 것 */
-/* 로그인 페이지와 회원가입 페이지 */
+/* 로그인 페이지와 회원가입 페이지 import*/
 @import url(./sign.css);
 /* pretendard 폰트 */
 @import url(../static/pretendard.css);
@@ -163,7 +163,6 @@ section {
 .section__img {
     width: 55rem;
     grid-area: img;
-    /* margin-left: 15.7rem */
 }
 
 .section__img img {
@@ -244,7 +243,7 @@ footer {
 }
 
 
-@media (max-width: 1199px) {
+@media (max-width: 1199px) and (min-width:768px) {
 
     /* br태그로 만든 줄바꿈을 없앤다 */
     .br-pc {
@@ -303,6 +302,10 @@ footer {
         width: 100%;
     }
 
+    .br-pc {
+        display: none;
+    }
+
     .nav__logo {
         width: 88.667px;
         height: 16px;
@@ -352,6 +355,7 @@ footer {
     .section.search {
         padding: 40px 32px;
     }
+
     /* cascading 우선순위 문제로 .section--container.row-reverse도 지정해주기 */
     .section--container,
     .section--container.row-reverse {

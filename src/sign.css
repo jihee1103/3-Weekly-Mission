@@ -118,18 +118,19 @@
     position: relative;
 }
 
-.password__btn-eye-off {
+.password__btn-eye {
     display: flex;
     align-items: center;
     position: absolute;
     top: 33px;
     right: 18px;
-}
-
-.password__btn-eye-off img {
     width: 16px;
     height: 16px;
+    background: url(../img/eye-off.svg);
+}
 
+.password__btn-eye.on {
+    background: url(../img/eye-on.svg);
 }
 
 .form-sign__btn-sign {
