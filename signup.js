@@ -1,7 +1,10 @@
 const eInput = document.getElementById('email');
 const pInput = document.getElementById('password');
 const pDupInput = document.getElementById('password-dup');
+
+const emailErrMsg = document.getElementById('email-err-msg');
 const pwErrMsg = document.getElementById('password-err-msg');
+const pwDupMsg = document.getElementById('password-dup-msg');
 const signupbtn = document.querySelector('#signupbtn');
 
 const eChecker = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/; 
@@ -19,19 +22,17 @@ function emailCheck(email) {
 }
 
 function printEmailMsg(e){
+    emailErrMsg.textContent = '';
     if(eInput.value == ''){
-        eInput.placeholder = '이메일을 입력해주세요';
+        emailErrMsg.textContent = '이메일을 입력해주세요';
         return false;
     } else {
-        // console.log(emailCheck(input.value));
         if(emailCheck(eInput.value) == false) {
-            eInput.value = '';
-            eInput.placeholder = '올바른 이메일이 아닙니다.';
+            emailErrMsg.textContent = '올바른 이메일이 아닙니다.';
             return false;
         }
         if(eInput.value == 'test@codeit.com'){
-            eInput.value = '';
-            eInput.placeholder = '이미 사용 중인 이메일입니다.'
+            emailErrMsg.textContent = '이미 사용 중인 이메일입니다.'
             return false;
         }
     }
@@ -47,9 +48,9 @@ function passwordCheck(password){
 }
 
 function printPasswordMsg(e){
+    pwErrMsg.textContent = '';
     if(passwordCheck(pInput.value) == false ) {
-        pInput.value = '';
-        pInput.placeholder = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
+        pwErrMsg.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
         return false;
     }
     return true;
@@ -59,9 +60,11 @@ function pwDup() {
     const pwValue = pInput.value;
     const pwDup = pDupInput.value;
 
+    pwDupMsg.textContent = '';
     if (pwValue !== pwDup) {
         pwErrMsg.style.display = 'block';
         pDupInput.classList.add('focus-border-red');
+        pwDupMsg.textContent = '비밀번호가 다릅니다';
         return false;
     } else {
         pwErrMsg.style.display = 'none';

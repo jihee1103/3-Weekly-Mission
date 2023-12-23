@@ -20,7 +20,6 @@ function printEmailMsg(e){
         emailErrMsg.textContent = '이메일을 입력해주세요.';
         return false;
     } else {
-        // console.log(emailCheck(input.value));
         if(emailCheck(eInput.value) == false) {
             emailErrMsg.textContent = '올바른 이메일 주소가 아닙니다.';
             return false;
