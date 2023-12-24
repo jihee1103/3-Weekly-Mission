@@ -102,12 +102,11 @@ export default class SignUpController {
     }
   }
 
-  // 토큰 생성 및 submit 허용
-  async createAccessTokenAndAllowSubmit(response) {
+  // 토큰 생성
+  async createAccessToken(response) {
     const data = await response.json();
     const token = data.token;
     localStorage.setItem('accessToken', token);
-    location.href = '/folder.html';
   }
 
   // 회원가입 처리
@@ -116,7 +115,6 @@ export default class SignUpController {
 
     const emailValue = this.view.emailInput.value;
     const passwordValue = this.view.passwordInput.value;
-
     const userEmail = {
       email: emailValue,
     };
@@ -159,7 +157,9 @@ export default class SignUpController {
         );
         return;
       }
-      this.createAccessTokenAndAllowSubmit(response);
+
+      this.createAccessToken(response);
+      location.href = '/folder.html';
     } catch (error) {
       console.error('회원가입 에러:', error.message);
       alert(getErrorMessage('SIGN_UP_FAILED'));

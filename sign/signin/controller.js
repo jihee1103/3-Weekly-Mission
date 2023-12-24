@@ -65,12 +65,11 @@ export default class SignInController {
     }
   }
 
-  // 토큰 생성 및 submit 허용
-  async createAccessTokenAndAllowSubmit(response) {
+  // 토큰 생성
+  async createAccessToken(response) {
     const data = await response.json();
     const token = data.token;
     localStorage.setItem('accessToken', token);
-    location.href = '/folder.html';
   }
 
   // 로그인 처리
@@ -102,7 +101,9 @@ export default class SignInController {
         );
         return;
       }
+
       this.createAccessTokenAndAllowSubmit(response);
+      location.href = '/folder.html';
     } catch (error) {
       console.error('로그인 에러:', error.message);
       alert(getErrorMessage('SIGN_IN_FAILED'));
