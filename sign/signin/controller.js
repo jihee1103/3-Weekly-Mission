@@ -78,7 +78,6 @@ export default class SignInController {
 
     const emailValue = this.view.emailInput.value;
     const passwordValue = this.view.passwordInput.value;
-
     const user = {
       email: emailValue,
       password: passwordValue,
@@ -102,7 +101,7 @@ export default class SignInController {
         return;
       }
 
-      this.createAccessTokenAndAllowSubmit(response);
+      this.createAccessToken(response);
       location.href = '/folder.html';
     } catch (error) {
       console.error('로그인 에러:', error.message);
