@@ -1,12 +1,17 @@
+import { checkEmailDuplication, siginIn, signUp } from '../api/sign-api.js';
 import {
   EMAIL_ERROR_MSG_CLASSNAME,
   PASSWORD_CHECK_ERROR_MSG_CLASSNAME,
   PASSWORD_ERROR_MSG_CLASSNAME,
   removeInputError,
   setInputError,
-  isVaildEmail,
+  isValidEmail,
   isValidPassword,
 } from './utils.js';
+
+if (localStorage.getItem('accessToken') !== null && localStorage.getItem('accessToken') !== 'undefined') {
+  location.href = '/src/pages/folder';
+}
 
 const controller = new AbortController();
 const signal = controller.signal;
@@ -27,7 +32,8 @@ const $passwordCheckShowBtn = document.querySelector('.passwordcheck-input-box .
 const mockUserList = [
   {
     id: 'test@codeit.com',
-    ps: 'codeit101',
+    // ps: 'codeit101',
+    ps: 'sprint101',
   },
 ];
 
@@ -36,26 +42,32 @@ const mockUserList = [
  * @param {HTMLInputElement} $email
  * @param {HTMLDivElement} $emailBox
  * @param {typeof EMAIL_ERROR_MSG_CLASSNAME} emailErrorClassName
- * @param {typeof mockUserList} mockUserList
+ * @param {Event} event
  * @param {typeof formSignMode} formSignMode
- * @returns { boolean }
  */
-const validateEmailInput = ($email, $emailBox, emailErrorClassName, mockUserList, formSignMode) => {
+const validateEmailInput = async ($email, $emailBox, emailErrorClassName, event, formSignMode) => {
   if ($email.value === '') {
     setInputError($email, '이메일을 입력해주세요.', emailErrorClassName, $emailBox);
     return false;
   }
-  if (!isVaildEmail($email.value)) {
+  // if (!isValidEmail(reg => reg.test($email.value))) {
+  if (!isValidEmail($email.value)) {
     setInputError($email, '올바른 이메일 주소가 아닙니다.', emailErrorClassName, $emailBox);
     return false;
   }
-  if (formSignMode === 'signin' && mockUserList.some(user => user.id !== $email.value)) {
-    setInputError($email, '존재하지 않는 이메일입니다.', emailErrorClassName, $emailBox);
-    return false;
+  if (formSignMode === 'signup' && (event.type === 'focusout' || event.type === 'submit')) {
+    const res = await checkEmailDuplication($email.value);
+    if (res.status === 409) {
+      setInputError($email, '이미 사용 중인 이메일입니다.', emailErrorClassName, $emailBox);
+      return false;
+    }
   }
-  if (formSignMode === 'signup' && mockUserList.some(user => user.id === $email.value)) {
-    setInputError($email, '이미 사용 중인 이메일입니다.', emailErrorClassName, $emailBox);
-    return false;
+  if (formSignMode === 'signin' && event.type === 'submit') {
+    const res = await checkEmailDuplication($email.value);
+    if (res.status !== 409) {
+      setInputError($email, '존재하지 않는 이메일입니다.', emailErrorClassName, $emailBox);
+      return false;
+    }
   }
   removeInputError({ $inputelem: $email, $errorMsgBox: document.querySelector(`.${emailErrorClassName}`) });
   return true;
@@ -63,14 +75,14 @@ const validateEmailInput = ($email, $emailBox, emailErrorClassName, mockUserList
 
 $email.addEventListener(
   'input',
-  () => validateEmailInput($email, $emailBox, EMAIL_ERROR_MSG_CLASSNAME, mockUserList, formSignMode),
+  e => validateEmailInput($email, $emailBox, EMAIL_ERROR_MSG_CLASSNAME, e, formSignMode),
   {
     signal,
   },
 );
 $email.addEventListener(
   'focusout',
-  () => validateEmailInput($email, $emailBox, EMAIL_ERROR_MSG_CLASSNAME, mockUserList, formSignMode),
+  e => validateEmailInput($email, $emailBox, EMAIL_ERROR_MSG_CLASSNAME, e, formSignMode),
   {
     signal,
   },
@@ -90,6 +102,7 @@ const validatePasswordInput = ($password, $passwordBox, passwordErrorClassName, 
     setInputError($password, '비밀번호를 입력해주세요.', passwordErrorClassName, $passwordBox);
     return false;
   }
+  // if (!isValidPassword(reg => reg.test($password.value))) {
   if (!isValidPassword($password.value)) {
     setInputError(
       $password,
@@ -169,20 +182,47 @@ if (formSignMode === 'signup') {
   );
 }
 
-const onSubmitHandler = e => {
+/**
+ *
+ * @param {SubmitEvent} e
+ * @returns
+ */
+const onSubmitHandler = async e => {
   e.preventDefault();
-  if (
-    !validateEmailInput($email, $emailBox, EMAIL_ERROR_MSG_CLASSNAME, mockUserList, formSignMode) ||
-    !validatePasswordInput($password, $passwordBox, PASSWORD_ERROR_MSG_CLASSNAME, formSignMode, $email) ||
-    (formSignMode === 'signup' &&
-      !validatePasswordCheckInput($passwordCheck, $password, $passwordCheckBox, PASSWORD_CHECK_ERROR_MSG_CLASSNAME))
-  ) {
+  const emailValResult = !(await validateEmailInput($email, $emailBox, EMAIL_ERROR_MSG_CLASSNAME, e, formSignMode));
+  const pwValResult = !validatePasswordInput(
+    $password,
+    $passwordBox,
+    PASSWORD_ERROR_MSG_CLASSNAME,
+    formSignMode,
+    $email,
+  );
+  const pwcheckValResult =
+    formSignMode === 'signup' &&
+    !validatePasswordCheckInput($passwordCheck, $password, $passwordCheckBox, PASSWORD_CHECK_ERROR_MSG_CLASSNAME);
+  if (emailValResult || pwValResult || pwcheckValResult) {
     return;
   }
-  location.href = '/src/pages/folder';
-  controller.abort();
+  let res;
+  switch (formSignMode) {
+    case 'signup':
+      res = await signUp({ email: $email.value, password: $password.value });
+      break;
+    case 'signin':
+      res = await siginIn({ email: $email.value, password: $password.value });
+      break;
+    default:
+      break;
+  }
+  if (res.ok) {
+    const data = await res.json();
+    const accessToken = await data.data.accessToken;
+    localStorage.setItem('accessToken', JSON.stringify(accessToken));
+    location.href = '/src/pages/folder';
+    controller.abort();
+  }
 };
-$form.addEventListener('submit', onSubmitHandler, { signal });
+$form.addEventListener('submit', e => onSubmitHandler(e), { signal });
 
 /**
  *

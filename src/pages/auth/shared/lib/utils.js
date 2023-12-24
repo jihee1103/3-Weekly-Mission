@@ -3,16 +3,28 @@ export const EMAIL_ERROR_MSG_CLASSNAME = 'email-validation-message';
 export const PASSWORD_ERROR_MSG_CLASSNAME = 'password-validation-message';
 export const PASSWORD_CHECK_ERROR_MSG_CLASSNAME = 'passwordcheck-validation-message';
 
-const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-const PASSWORD_REGEX = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
-export const isVaildEmail = email => EMAIL_REGEX.test(email);
-export const isValidPassword = password => PASSWORD_REGEX.test(password);
+export const isValidEmail = email => {
+  const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  return EMAIL_REGEX.test(email);
+};
+export const isValidPassword = password => {
+  const PASSWORD_REGEX = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
+  return PASSWORD_REGEX.test(password);
+};
+// export const isValidEmail = fn => {
+//   const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+//   return fn(EMAIL_REGEX);
+// };
+// export const isValidPassword = fn => {
+//   const PASSWORD_REGEX = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
+//   return fn(PASSWORD_REGEX);
+// };
 
 /**
  * @param {string} errorMsgClassName
  * @param {HTMLDivElement} container
  */
-const createErrorMsgElem = (errorMsgClassName, container) => {
+const createErrorMsgTagNode = (errorMsgClassName, container) => {
   let $errorMsg = document.querySelector(`.${errorMsgClassName}`);
   if (!$errorMsg) {
     $errorMsg = document.createElement('p');
@@ -30,7 +42,7 @@ const createErrorMsgElem = (errorMsgClassName, container) => {
  */
 export const setInputError = ($input, errMsg, errClassName, container) => {
   $input.classList.add(SIGN_INPUT_ERROR_CLASSNAME);
-  const $errorMsg = createErrorMsgElem(errClassName, container);
+  const $errorMsg = createErrorMsgTagNode(errClassName, container);
   $errorMsg.classList.add(errClassName);
   $errorMsg.textContent = errMsg;
 };
