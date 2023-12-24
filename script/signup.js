@@ -8,6 +8,10 @@ const signupForm = document.querySelector("form");
 const inputPasswordIcon = document.querySelector("#inputPwIcon");
 const inputPasswordComfirmIcon = document.querySelector("#inputPwComfirmIcon");
 
+if (localStorage.accessToken) {
+    location.href = "/folder";
+}
+
 console.log(localStorage);
 async function checkEmailConflict() {
     const response = await fetch(

@@ -6,10 +6,9 @@ const signinForm = document.querySelector("form");
 
 const inputPwIcon = document.querySelector("#inputPwIcon");
 
-// if (localStorage.accessToken) {
-//     signinForm.action = "/folder";
-//     signinForm.submit();
-// }
+if (localStorage.accessToken) {
+    location.href = "/folder";
+}
 
 function checkEmail() {
     const EMAIL_REGEX =
@@ -62,8 +61,6 @@ async function signIn(event) {
     if (response.status === 200) {
         const result = await response.json();
         localStorage.setItem("accessToken", result.data.accessToken);
-        // signinForm.action = "/folder";
-        // signinForm.submit();
         location.href = "/folder";
     } else {
         emailError.textContent = "이메일을 확인해주세요.";
