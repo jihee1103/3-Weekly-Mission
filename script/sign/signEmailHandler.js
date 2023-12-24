@@ -1,4 +1,4 @@
-import { CONFIRM_EMAIL } from "./constant.js";
+import { CONFIRM_EMAIL } from './constant.js';
 
 const signEmailHandler = function (event, elementShowingError) {
     const emailAddress = event.target.value;
@@ -10,6 +10,6 @@ const signEmailHandler = function (event, elementShowingError) {
     } else {
         elementShowingError.textContent = '';
     }
-}
+};
 
 export { signEmailHandler };

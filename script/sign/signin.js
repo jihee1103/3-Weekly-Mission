@@ -16,46 +16,62 @@ const signinPasswordError = document.querySelector('.form-sign__input-error.pass
 
 const signinLoginBtnHandler = function () {
     if (signinEmailInput.value.trim() === '') {
-        return signinEmailError.textContent = EMPTY_EMAIL;
+        return (signinEmailError.textContent = EMPTY_EMAIL);
     }
     if (signinPasswordInput.value.trim() === '') {
-        return signinPasswordError.textContent = EMPTY_PASSWORD;
+        return (signinPasswordError.textContent = EMPTY_PASSWORD);
     }
 
     let signinData = {
-        "email": signinEmailInput.value.trim(),
-        "password": signinPasswordInput.value.trim()
+        email: signinEmailInput.value.trim(),
+        password: signinPasswordInput.value.trim(),
     };
     const signinSuccess = async function () {
         try {
             const response = await fetch(URL_SIGN_IN, {
-                method: "POST",
+                method: 'POST',
                 headers: {
-                    "Content-Type": "application/json",
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(signinData),
-            })
+            });
             if (response.status === 200) {
                 const data = await response.json();
                 let accessToken = data.data.accessToken;
                 let refreshToken = data.data.refreshToken;
-                localStorage.setItem("accessToken", accessToken);
-                localStorage.setItem("refreshToken", refreshToken);
-                location.href = '/folder.html'
-            } else { throw new Error('로그인에 실패했습니다.') }
+                localStorage.setItem('accessToken', accessToken);
+                localStorage.setItem('refreshToken', refreshToken);
+                location.href = '/folder.html';
+            } else {
+                throw new Error('로그인에 실패했습니다.');
+            }
         } catch (error) {
             signinEmailError.textContent = REQUIRE_CONFIRM_EMAIL;
             signinPasswordError.textContent = REQUIRE_CONFIRM_PASSWORD;
             return console.log(error);
         }
-    }
+    };
     signinSuccess();
-}
+};
 
-signinEmailInput.addEventListener('focusout', (event) => { signEmailHandler(event, signinEmailError) });
-signinPasswordInput.addEventListener('focusout', (event) => { signPasswordHandler(event, signinPasswordError) });
-signinLoginBtn.addEventListener('click', (event) => { signinLoginBtnHandler() });
-signinEmailInput.addEventListener('keyup', (event) => { if (event.key === 'Enter') signinLoginBtnHandler() });
-signinPasswordInput.addEventListener('keyup', (event) => { if (event.key === 'Enter') signinLoginBtnHandler() });
-signinEye.addEventListener('click', () => { eyeHandler(signinPasswordInput, signinEye) });
-window.addEventListener('DOMContentLoaded', () => { checkAccessToken() });
+signinEmailInput.addEventListener('focusout', event => {
+    signEmailHandler(event, signinEmailError);
+});
+signinPasswordInput.addEventListener('focusout', event => {
+    signPasswordHandler(event, signinPasswordError);
+});
+signinLoginBtn.addEventListener('click', event => {
+    signinLoginBtnHandler();
+});
+signinEmailInput.addEventListener('keyup', event => {
+    if (event.key === 'Enter') signinLoginBtnHandler();
+});
+signinPasswordInput.addEventListener('keyup', event => {
+    if (event.key === 'Enter') signinLoginBtnHandler();
+});
+signinEye.addEventListener('click', () => {
+    eyeHandler(signinPasswordInput, signinEye);
+});
+window.addEventListener('DOMContentLoaded', () => {
+    checkAccessToken();
+});

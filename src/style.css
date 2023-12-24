@@ -5,421 +5,424 @@
 @import url(../static/pretendard.css);
 
 :root {
-    font-size: 62.5%;
-    --primary: #6D6AFE;
-    --red: #FF5B56;
-    --black: #111322;
-    --white: #FFFFFF;
-    /* _number가 커질수록 진해짐  */
-    --gray_1: #F0F6FF;
-    --gray_2: #E7EFFB;
-    --gray_3: #CCD5E3;
-    --gray_4: #9FA6B2;
-    --gray_5: #3E3E43;
+	font-size: 62.5%;
+	--primary: #6d6afe;
+	--red: #ff5b56;
+	--black: #111322;
+	--white: #ffffff;
+	/* _number가 커질수록 진해짐  */
+	--gray_1: #f0f6ff;
+	--gray_2: #e7effb;
+	--gray_3: #ccd5e3;
+	--gray_4: #9fa6b2;
+	--gray_5: #3e3e43;
 }
 
 header {
-    box-sizing: border-box;
-    padding: 2rem 20rem;
-    background: var(--gray_1);
-    position: fixed;
-    top: 0rem;
-    left: 0rem;
-    right: 0rem;
-    z-index: 9999;
+	box-sizing: border-box;
+	padding: 2rem 20rem;
+	background: var(--gray_1);
+	position: fixed;
+	top: 0rem;
+	left: 0rem;
+	right: 0rem;
+	z-index: 9999;
 }
 
 nav {
-    max-width: 192rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
+	max-width: 192rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 auto;
 }
 
 .nav__login {
-    box-sizing: border-box;
-    width: 12.8rem;
-    border: none;
-    border-radius: 0.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1.6rem 2rem;
-    font-family: "Pretendard";
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 2.2rem;
-    letter-spacing: -0.03rem;
-    color: #F5F5F5;
-    background: linear-gradient(90.99deg, var(--primary) 0.12%, #6AE3FE 101.84%);
+	box-sizing: border-box;
+	width: 12.8rem;
+	border: none;
+	border-radius: 0.8rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1.6rem 2rem;
+	font-family: 'Pretendard';
+	font-size: 1.8rem;
+	font-weight: 600;
+	line-height: 2.2rem;
+	letter-spacing: -0.03rem;
+	color: #f5f5f5;
+	background: linear-gradient(90.99deg,
+			var(--primary) 0.12%,
+			#6ae3fe 101.84%);
 }
 
 section {
-    max-width: 192rem;
-    margin: 0 auto;
+	max-width: 192rem;
+	margin: 0 auto;
 }
 
 .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 7rem 36rem 0;
-    background: var(--gray_1);
-    margin-top: 9.4rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 7rem 36rem 0;
+	background: var(--gray_1);
+	margin-top: 9.4rem;
 }
 
 .hero__description {
-    color: #000000;
-    font-family: "Pretendard";
-    font-size: 6.4rem;
-    font-weight: 700;
-    line-height: 8rem;
-    text-align: center;
-    margin-bottom: 4rem;
-    white-space: nowrap;
+	color: #000000;
+	font-family: 'Pretendard';
+	font-size: 6.4rem;
+	font-weight: 700;
+	line-height: 8rem;
+	text-align: center;
+	margin-bottom: 4rem;
+	white-space: nowrap;
 }
 
 .br-tablet {
-    display: none;
+	display: none;
 }
 
 .hero__description--gradient {
-    background: linear-gradient(91deg, var(--primary) 17.28%, #FF9F9F 100%);
+	background: linear-gradient(91deg, var(--primary) 17.28%, #ff9f9f 100%);
 }
 
 .hero__add-link-box {
-    margin-bottom: 8.9rem;
+	margin-bottom: 8.9rem;
 }
 
 .hero__add-link {
-    box-sizing: border-box;
-    width: 35rem;
-    border-radius: 0.8rem;
-    display: flex;
-    justify-content: center;
-    padding: 1.6rem 2rem;
-    background: linear-gradient(91deg, var(--primary) 0.12%, #6AE3FE 101.84%);
-    color: #F5F5F5;
-    font-family: Pretendard;
-    font-size: 1.6rem;
-    font-weight: 600;
+	box-sizing: border-box;
+	width: 35rem;
+	border-radius: 0.8rem;
+	display: flex;
+	justify-content: center;
+	padding: 1.6rem 2rem;
+	background: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
+	color: #f5f5f5;
+	font-family: Pretendard;
+	font-size: 1.6rem;
+	font-weight: 600;
 }
 
 .hero__img {
-    width: 120rem;
-    overflow: hidden;
+	width: 120rem;
+	overflow: hidden;
 }
 
 .hero__img img {
-    width: 100%;
+	width: 100%;
 }
 
 .section {
-    display: flex;
-    justify-content: center;
-    padding: 5rem 0;
+	display: flex;
+	justify-content: center;
+	padding: 5rem 0;
 }
 
 .section--container {
-    width: 99.8rem;
-    height: 45rem;
-    display: grid;
-    grid-template-areas:
-        'header img'
-        'paragraph img';
-    gap: 0 15.7rem;
+	width: 99.8rem;
+	height: 45rem;
+	display: grid;
+	grid-template-areas:
+		'header img'
+		'paragraph img';
+	gap: 0 15.7rem;
 }
 
 .section--container.row-reverse {
-    grid-template-areas:
-        'img header'
-        'img paragraph';
+	grid-template-areas:
+		'img header'
+		'img paragraph';
 }
 
 .section__description--header-align {
-    display: flex;
-    align-items: flex-end;
+	display: flex;
+	align-items: flex-end;
 }
 
 .section__description--header {
-    font-family: Pretendard;
-    font-size: 4.8rem;
-    font-weight: 700;
-    letter-spacing: -0.03rem;
-    grid-area: header;
+	font-family: Pretendard;
+	font-size: 4.8rem;
+	font-weight: 700;
+	letter-spacing: -0.03rem;
+	grid-area: header;
 }
 
 .section__description--paragraph {
-    color: #6B6B6B;
-    font-family: Abel;
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 150%;
-    margin-top: 1rem;
-    grid-area: paragraph;
+	color: #6b6b6b;
+	font-family: Abel;
+	font-size: 1.6rem;
+	font-weight: 400;
+	line-height: 150%;
+	margin-top: 1rem;
+	grid-area: paragraph;
 }
 
 .section__img {
-    width: 55rem;
-    grid-area: img;
+	width: 55rem;
+	grid-area: img;
 }
 
 .section__img img {
-    width: 100%;
+	width: 100%;
 }
 
 .section.download {
-    padding: 12rem 0 5rem;
+	padding: 12rem 0 5rem;
 }
 
 .section-download__description--gradient {
-    background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+	background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
 }
 
 .section-manage__description--gradient {
-    background: linear-gradient(277deg, #6FBAFF 0%, #FFD88B 100%);
+	background: linear-gradient(277deg, #6fbaff 0%, #ffd88b 100%);
 }
 
 .section-share__description--gradient {
-    background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+	background: linear-gradient(99deg,
+			#6d7ccd 19.76%,
+			rgba(82, 136, 133, 0.22) 52.69%);
 }
 
 .section.search {
-    padding: 5rem 0 17rem;
+	padding: 5rem 0 17rem;
 }
 
 .section-search__description--gradient {
-    background: linear-gradient(271deg, #FE578F 0%, #68E8F9 100%);
+	background: linear-gradient(271deg, #fe578f 0%, #68e8f9 100%);
 }
 
 footer {
-    padding: 3.2rem 10.4rem 6.4rem;
-    background: var(--black);
+	padding: 3.2rem 10.4rem 6.4rem;
+	background: var(--black);
 }
 
 .font-footer {
-    text-align: center;
-    font-family: Abel;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 2rem;
+	text-align: center;
+	font-family: Abel;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 2rem;
 }
 
 .footer--container {
-    max-width: 192rem;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
+	max-width: 192rem;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
 }
 
 .footer--container-company {
-    color: #676767;
+	color: #676767;
 }
 
 .footer--container-privacy-and-faq {
-    display: flex;
+	display: flex;
 }
 
 .footer--container-privacy-and-faq a {
-    color: #CFCFCF;
+	color: #cfcfcf;
 }
 
 .footer--container-privacy-and-faq a:nth-of-type(1) {
-    margin-right: 3rem;
+	margin-right: 3rem;
 }
 
 .footer--container__links {
-    display: flex;
+	display: flex;
 }
 
 .footer--container__links>a {
-    width: 2rem;
-    height: 2rem;
+	width: 2rem;
+	height: 2rem;
 }
 
 .footer--container__links a:not(:first-child) {
-    margin-left: 1.2rem;
+	margin-left: 1.2rem;
 }
 
+@media (max-width: 1199px) and (min-width: 768px) {
 
-@media (max-width: 1199px) and (min-width:768px) {
+	/* br태그로 만든 줄바꿈을 없앤다 */
+	.br-pc {
+		display: none;
+	}
 
-    /* br태그로 만든 줄바꿈을 없앤다 */
-    .br-pc {
-        display: none;
-    }
+	.br-tablet {
+		display: inline;
+	}
 
-    .br-tablet {
-        display: inline;
-    }
+	header {
+		padding: 20px 32px;
+	}
 
-    header {
-        padding: 20px 32px;
-    }
+	nav {
+		width: 800px;
+	}
 
-    nav {
-        width: 800px;
-    }
+	.hero__description {
+		width: 472px;
+		white-space: wrap;
+	}
 
-    .hero__description {
-        width: 472px;
-        white-space: wrap;
-    }
+	.hero__img {
+		width: 698px;
+		height: 343px;
+	}
 
-    .hero__img {
-        width: 698px;
-        height: 343px;
-    }
+	.section {
+		padding: 80px auto;
+	}
 
-    .section {
-        padding: 80px auto;
-    }
+	.section--container {
+		width: 700px;
+		height: 315px;
+		gap: 51px;
+	}
 
-    .section--container {
-        width: 700px;
-        height: 315px;
-        gap: 51px;
-    }
-
-    .section__img {
-        width: 385px;
-    }
+	.section__img {
+		width: 385px;
+	}
 }
 
 @media (max-width: 864px) {
-    nav {
-        width: auto;
-    }
+	nav {
+		width: auto;
+	}
 }
 
 @media (max-width: 767px) {
-    header {
-        padding: 13px 32px;
-    }
+	header {
+		padding: 13px 32px;
+	}
 
-    nav {
-        width: 100%;
-    }
+	nav {
+		width: 100%;
+	}
 
-    .br-pc {
-        display: none;
-    }
+	.br-pc {
+		display: none;
+	}
 
-    .nav__logo {
-        width: 88.667px;
-        height: 16px;
-    }
+	.nav__logo {
+		width: 88.667px;
+		height: 16px;
+	}
 
-    .nav__login {
-        width: 80px;
-        font-size: 14px;
-        padding: 10px 16px;
-    }
+	.nav__login {
+		width: 80px;
+		font-size: 14px;
+		padding: 10px 16px;
+	}
 
-    .hero {
-        padding: 28px 32px 0;
-        margin-top: 68px;
-    }
+	.hero {
+		padding: 28px 32px 0;
+		margin-top: 68px;
+	}
 
-    .hero__description {
-        width: 236px;
-        font-size: 32px;
-        line-height: 42px;
-        margin-bottom: 24px;
-    }
+	.hero__description {
+		width: 236px;
+		font-size: 32px;
+		line-height: 42px;
+		margin-bottom: 24px;
+	}
 
-    .hero__add-link-box {
-        margin-bottom: 24px;
-    }
+	.hero__add-link-box {
+		margin-bottom: 24px;
+	}
 
-    .hero__add-link {
-        font-size: 14px;
-        width: 200px;
-        padding: 10px 16px;
-    }
+	.hero__add-link {
+		font-size: 14px;
+		width: 200px;
+		padding: 10px 16px;
+	}
 
-    .hero__img {
-        width: 100%;
-        height: auto;
-    }
+	.hero__img {
+		width: 100%;
+		height: auto;
+	}
 
-    .section {
-        box-sizing: border-box;
-        width: 100%;
-        padding: 40px 32px;
-    }
+	.section {
+		box-sizing: border-box;
+		width: 100%;
+		padding: 40px 32px;
+	}
 
-    /* cascading 우선순위 문제로 패딩 지정해줘야함 */
-    .section.download,
-    .section.search {
-        padding: 40px 32px;
-    }
+	/* cascading 우선순위 문제로 패딩 지정해줘야함 */
+	.section.download,
+	.section.search {
+		padding: 40px 32px;
+	}
 
-    /* cascading 우선순위 문제로 .section--container.row-reverse도 지정해주기 */
-    .section--container,
-    .section--container.row-reverse {
-        width: 100%;
-        height: auto;
-        display: grid;
-        grid-template-areas:
-            'header'
-            'img'
-            'paragraph';
-        gap: 0;
-    }
+	/* cascading 우선순위 문제로 .section--container.row-reverse도 지정해주기 */
+	.section--container,
+	.section--container.row-reverse {
+		width: 100%;
+		height: auto;
+		display: grid;
+		grid-template-areas:
+			'header'
+			'img'
+			'paragraph';
+		gap: 0;
+	}
 
-    .section__description--header {
-        font-size: 24px;
-    }
+	.section__description--header {
+		font-size: 24px;
+	}
 
-    .section__description--paragraph {
-        font-size: 15px;
-        margin-top: 16px;
-        letter-spacing: -1px;
-    }
+	.section__description--paragraph {
+		font-size: 15px;
+		margin-top: 16px;
+		letter-spacing: -1px;
+	}
 
-    .section__img {
-        width: 100%;
-        margin-top: 20px;
-    }
+	.section__img {
+		width: 100%;
+		margin-top: 20px;
+	}
 
-    .section__img img {
-        width: 100%;
-    }
+	.section__img img {
+		width: 100%;
+	}
 
-    footer {
-        padding: 32px 32px 64px;
-    }
+	footer {
+		padding: 32px 32px 64px;
+	}
 
-    .footer--container {
-        display: grid;
-        grid-template-areas:
-            'a b'
-            'c d';
-        gap: 60px auto;
-    }
+	.footer--container {
+		display: grid;
+		grid-template-areas:
+			'a b'
+			'c d';
+		gap: 60px auto;
+	}
 
-    .footer--container-company {
-        grid-area: c;
-        font-size: 16px;
-        text-align: left;
-    }
+	.footer--container-company {
+		grid-area: c;
+		font-size: 16px;
+		text-align: left;
+	}
 
-    .footer--container-privacy-and-faq {
-        grid-area: a;
-        font-size: 16px;
-        margin-bottom: 60px;
-    }
+	.footer--container-privacy-and-faq {
+		grid-area: a;
+		font-size: 16px;
+		margin-bottom: 60px;
+	}
 
-    .footer--container__links {
-        grid-area: b;
-    }
+	.footer--container__links {
+		grid-area: b;
+	}
 }
 
 /* 기본 그라디언트 작업(반드시 그라디언트 효과 이후에 놓아야한다!!) */
 .gradient {
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }

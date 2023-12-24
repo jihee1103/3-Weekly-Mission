@@ -5,6 +5,6 @@ const eyeHandler = function (input, eyeoff) {
         input.setAttribute('type', 'text');
     }
     eyeoff.classList.toggle('on');
-}
+};
 
 export { eyeHandler };
