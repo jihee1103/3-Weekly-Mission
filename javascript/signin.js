@@ -6,19 +6,31 @@ const emailErrorMessage = document.querySelector("#email-error-message");
 const passwordErrorMessage = document.querySelector("#password-error-message");
 const passwordOnOff = document.querySelector("#password-show-hide");
 
+function addErrorStyle(element) {
+  element.classList.add("inputbox-error");
+}
+
+function removeErrorStyle(element) {
+  element.classList.remove("inputbox-error");
+}
+
+function showErrorMessage(element, message) {
+  element.textContent = message;
+}
+
 function checkEmail() {
   const regEmail =
     /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 
   if (!inputEmail.value) {
-    emailErrorMessage.textContent = "이메일을 입력해주세요.";
-    inputEmail.classList.add("inputbox-error");
+    addErrorStyle(inputEmail);
+    showErrorMessage(emailErrorMessage, "이메일을 입력해주세요");
   } else if (!regEmail.test(inputEmail.value)) {
-    emailErrorMessage.textContent = "올바른 이메일 주소가 아닙니다.";
-    inputEmail.classList.add("inputbox-error");
+    addErrorStyle(inputEmail);
+    showErrorMessage(emailErrorMessage, "올바른 이메일 주소가 아닙니다.");
   } else {
-    emailErrorMessage.textContent = "";
-    inputEmail.classList.remove("inputbox-error");
+    removeErrorStyle(inputEmail);
+    showErrorMessage(emailErrorMessage, "");
   }
 }
 
@@ -26,15 +38,17 @@ function checkPassword() {
   const regPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}$/;
 
   if (!inputPassword.value) {
-    passwordErrorMessage.textContent = "비밀번호를 입력해주세요.";
-    inputPassword.classList.add("inputbox-error");
+    addErrorStyle(inputPassword);
+    showErrorMessage(passwordErrorMessage, "비밀번호를 입력해주세요.");
   } else if (!regPassword.test(inputPassword.value)) {
-    passwordErrorMessage.textContent =
-      "비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.";
-    inputPassword.classList.add("inputbox-error");
+    addErrorStyle(inputPassword);
+    showErrorMessage(
+      passwordErrorMessage,
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요."
+    );
   } else {
-    passwordErrorMessage.textContent = "";
-    inputPassword.classList.remove("inputbox-error");
+    removeErrorStyle(inputPassword);
+    showErrorMessage(passwordErrorMessage, "");
   }
 }
 
@@ -45,10 +59,10 @@ function signIn() {
   ) {
     location.href = "./folder.html";
   } else {
-    emailErrorMessage.textContent = "이메일을 확인해주세요.";
-    passwordErrorMessage.textContent = "비밀번호를 확인해주세요.";
-    inputEmail.classList.add("inputbox-error");
-    inputPassword.classList.add("inputbox-error");
+    showErrorMessage(emailErrorMessage, "이메일을 확인해주세요.");
+    showErrorMessage(passwordErrorMessage, "비밀번호를 확인해주세요.");
+    addErrorStyle(inputEmail);
+    addErrorStyle(inputPassword);
   }
 }
 
