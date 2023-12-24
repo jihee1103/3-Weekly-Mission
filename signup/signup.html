@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link</title>
+    <link rel="stylesheet" href="signup.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+</head>
+<body>
+    <div class="main_box">
+        <main> 
+            <div class="gap_box">
+              <a href="../main/main_page.html">
+                <img src="../images/logo.svg" class="logo">
+              </a>
+            </div>
+                <p class="member">
+                    이미 회원이신가요? 
+                    <a href="../signin/signin.html" class="member_color">
+                        <span class="text_color">로그인하기</span>
+                    </a>
+                </p>  
+            <form class="login_form">
+                 <label for="email">이메일</label> 
+                    <input type="email" id="email" name="email" type="email">
+                    <span class="email_error"></span>   
+                 <label for="password">비밀번호</label> 
+                <div class="password_box">
+                    <input id="password" name="password" type="text" >
+                    <img src="../images/eye-off.svg" class="eye_off">
+                </div>
+                <span class="password_error"></span>     
+                 <label for="password2">비밀번호 확인</label> 
+                <div class="password_box">
+                    <input id="password2" name="password2" type="password">
+                    <img src="../images/eye-off.svg" class="eye_off_2">
+                </div>
+                <span class="password_error2"></span>   
+            </form>
+            <button class="create_btn">회원가입</button>
+            <span class="sns">
+                다른 방식으로 가입하기
+                <ul class="icons">
+                  <li>
+                    <a href="https://www.google.com" target="_blank">
+                      <img src="../images/google.png" class="google">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.kakaocorp.com/page/" target="_blank">
+                      <img src="../images/kakao.svg" class="kakao">
+                    </a>
+                  </li>
+                </ul>
+            </span>
+        </main>
+    </div>  
+    <script type = 'module' src="signup.js"></script>  
+</body>
+</html>
