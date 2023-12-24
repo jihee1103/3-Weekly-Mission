@@ -36,6 +36,7 @@ async function signin() {
     body: JSON.stringify({ email: email, password: passwd }),
   });
 
+  // 이메일과 비밀번호가 존재한다면 로그인
   if (response.status === 200) {
     const result = await response.json();
     localStorage.setItem("accessToken", result.data.accessToken);

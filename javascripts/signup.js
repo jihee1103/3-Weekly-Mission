@@ -19,14 +19,14 @@ passwdCheckInputElement.parentElement.append(passwdCheckErrorMentionElement);
 // password 두개 같은지 검사 후 같다면 true return
 function checkPasswdIsEqual() {
   if (passwdInputElement.value !== passwdCheckInputElement.value) {
-    setErrorMentionElement(
+    return setErrorMentionElement(
       true,
       passwdCheckInputElement,
       passwdCheckErrorMentionElement,
       "비밀번호가 일치하지 않아요."
     );
   } else {
-    setErrorMentionElement(
+    return setErrorMentionElement(
       false,
       passwdCheckInputElement,
       passwdCheckErrorMentionElement
@@ -38,7 +38,6 @@ function checkPasswdIsEqual() {
 passwdCheckInputElement.addEventListener("blur", checkPasswdIsEqual);
 
 // 이미 계정이 존재하는지 검사후 존재하지 않는다면 email 검사 후 return
-// try catch 처리 해줘야 함
 async function checkEmail() {
   const email = emailInputElement.value;
 
@@ -53,6 +52,7 @@ async function checkEmail() {
     }
   );
 
+  // 계정 중복여부 체크 후 true false 반환
   const result =
     response.status === 409
       ? setErrorMentionElement(
@@ -78,7 +78,8 @@ async function signup() {
   const passwdInputOk = checkPasswdValidity();
   const equalOk = checkPasswdIsEqual();
 
-  if (equalOk && passwdInputOk && emailInputOk) {
+  // 세 조건이 모두 true라면 회원가입 진행
+  if (emailInputOk && passwdInputOk && equalOk) {
     const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
       method: "POST",
       headers: {
@@ -87,11 +88,9 @@ async function signup() {
       body: JSON.stringify({ email: email, password: passwd }),
     });
 
-    if (response.status === 200) {
-      const result = await response.json();
-      localStorage.setItem("accessToken", result.data.accessToken);
-      location.href = "/folder";
-    } else console.log("회원가입오류");
+    const result = await response.json();
+    localStorage.setItem("accessToken", result.data.accessToken);
+    location.href = "/folder";
   }
 }
 
