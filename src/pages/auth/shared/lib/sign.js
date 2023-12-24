@@ -50,8 +50,7 @@ const validateEmailInput = async ($email, $emailBox, emailErrorClassName, event,
     setInputError($email, '이메일을 입력해주세요.', emailErrorClassName, $emailBox);
     return false;
   }
-  // if (!isValidEmail(reg => reg.test($email.value))) {
-  if (!isValidEmail($email.value)) {
+  if (!isValidEmail(reg => reg.test($email.value))) {
     setInputError($email, '올바른 이메일 주소가 아닙니다.', emailErrorClassName, $emailBox);
     return false;
   }
@@ -102,8 +101,7 @@ const validatePasswordInput = ($password, $passwordBox, passwordErrorClassName, 
     setInputError($password, '비밀번호를 입력해주세요.', passwordErrorClassName, $passwordBox);
     return false;
   }
-  // if (!isValidPassword(reg => reg.test($password.value))) {
-  if (!isValidPassword($password.value)) {
+  if (!isValidPassword(reg => reg.test($password.value))) {
     setInputError(
       $password,
       '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
@@ -148,7 +146,7 @@ const validatePasswordCheckInput = ($passwordCheck, $password, $passwordCheckBox
     setInputError($passwordCheck, '비밀번호를 입력해주세요.', passwordCheckErrorClassName, $passwordCheckBox);
     return false;
   }
-  if (!isValidPassword($passwordCheck.value)) {
+  if (!isValidPassword(reg => reg.test($passwordCheck.value))) {
     setInputError(
       $passwordCheck,
       '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
