@@ -8,7 +8,7 @@ export default class SignUpController {
     this.model = model;
     this.view = view;
 
-    this.checkAccessTokenAndRedirect();
+    this.validateUser();
     this.view.emailInput.addEventListener('focusout', () => this.handleEmailInputFocusout());
     this.view.emailInput.addEventListener('keydown', () => this.handleEmailInputKeydown());
     this.view.passwordInput.addEventListener('focusout', () => this.handlePasswordInputFocusout());
@@ -99,20 +99,31 @@ export default class SignUpController {
     }
   }
 
-  // access token 저장
-  async saveAccessTokenToLoaclStorage(response) {
-    const accessData = await response.json();
-    const accessToken = accessData.token;
-    localStorage.setItem('accessToken', accessToken);
+  // 쿠키 저장, 유효기간 설정
+  setAccessTokenCookie(token, days) {
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + days);
+    const cookieValue = `accessToken=${token}; expires=${expirationDate.toUTCString()}; path=/`;
+    document.cookie = cookieValue;
   }
 
-  // accessToken 보유 확인
-  checkAccessTokenAndRedirect() {
-    const accessToken = localStorage.getItem('accessToken');
-    if (accessToken) {
-      location.href = '/folder.html';
-      return;
-    }
+  // access token 쿠키에 저장
+  async saveAccessTokenToCookie(response) {
+    const accessData = await response.json();
+    const accessToken = accessData.token;
+    this.setAccessTokenCookie(accessToken, 1);
+  }
+
+  validateUser() {
+    const cookies = document.cookie.split(';');
+
+    cookies.forEach((cookie) => {
+      const trimmedCookie = cookie.trim();
+      if (trimmedCookie.startsWith('accessToken=')) {
+        location.href = '/folder.html';
+        return;
+      }
+    });
   }
 
   // 회원가입 처리
@@ -164,7 +175,7 @@ export default class SignUpController {
         return;
       }
 
-      this.saveAccessTokenToLoaclStorage(response);
+      this.saveAccessTokenToCookie(response);
       location.href = '/folder.html';
     } catch (error) {
       console.error('회원가입 에러:', error.message);

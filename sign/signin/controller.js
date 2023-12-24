@@ -8,7 +8,7 @@ export default class SignInController {
     this.model = model;
     this.view = view;
 
-    this.checkAccessTokenAndRedirect();
+    this.validateUser();
     this.view.emailInput.addEventListener('focusout', () => this.handleEmailInputFocusout());
     this.view.emailInput.addEventListener('keydown', () => this.handleEmailInputKeydown());
     this.view.passwordInput.addEventListener('focusout', () => this.handlePasswordInputFocusout());
@@ -62,20 +62,29 @@ export default class SignInController {
     }
   }
 
-  // access token 저장
-  async saveAccessTokenToLocalStorage(response) {
-    const accessData = await response.json();
-    const accessToken = accessData.token;
-    localStorage.setItem('accessToken', accessToken);
+  setAccessTokenCookie(token, days) {
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + days);
+    const cookieValue = `accessToken=${token}; expires=${expirationDate.toUTCString()}; path=/`;
+    document.cookie = cookieValue;
   }
 
-  // accessToken 보유 확인
-  checkAccessTokenAndRedirect() {
-    const accessToken = localStorage.getItem('accessToken');
-    if (accessToken) {
-      location.href = '/folder.html';
-      return;
-    }
+  async saveAccessTokenToCookie(response) {
+    const accessData = await response.json();
+    const accessToken = accessData.token;
+    this.setAccessTokenCookie(accessToken, 1);
+  }
+
+  validateUser() {
+    const cookies = document.cookie.split(';');
+
+    cookies.forEach((cookie) => {
+      const trimmedCookie = cookie.trim();
+      if (trimmedCookie.startsWith('accessToken=')) {
+        location.href = '/folder.html';
+        return;
+      }
+    });
   }
 
   // 로그인 처리
@@ -107,7 +116,7 @@ export default class SignInController {
         return;
       }
 
-      this.saveAccessTokenToLocalStorage(response);
+      this.saveAccessTokenToCookie(response);
       location.href = '/folder.html';
     } catch (error) {
       console.error('로그인 에러:', error.message);
