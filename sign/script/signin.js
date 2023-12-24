@@ -78,6 +78,9 @@ async function handleSignInFormSubmit(e) {
     });
 
     if (response.status === 200) {
+      const data = await response.json();
+      const token = data.token;
+      localStorage.setItem('accessToken', token);
       formElement.action = '/folder.html';
       formElement.submit();
       return;
