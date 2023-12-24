@@ -83,12 +83,6 @@ function signUp() {
   }
 }
 
-function sendEnter(e) {
-  if (e.key === "Enter") {
-    signUp();
-  }
-}
-
 function showAndHidePassword(elementbutton, elementInput) {
   if (elementInput.type == "password") {
     elementInput.type = "text";
@@ -107,10 +101,25 @@ confirmPasswordOnOff.addEventListener("click", () => {
   showAndHidePassword(confirmPasswordOnOff, inputConfirmPassword);
 });
 
-inputEmail.addEventListener("keypress", sendEnter);
-inputPassword.addEventListener("keypress", sendEnter);
-inputConfirmPassword.addEventListener("keypress", sendEnter);
-inputEmail.addEventListener("focusout", checkEmail);
-inputPassword.addEventListener("focusout", checkPassword);
-inputConfirmPassword.addEventListener("focusout", checkConfirmPassword);
+document.addEventListener("keypress", (event) => {
+  if (
+    (event.target === inputEmail ||
+      event.target === inputPassword ||
+      event.target === inputConfirmPassword) &&
+    event.key === "Enter"
+  ) {
+    signUp();
+  }
+});
+
+document.addEventListener("focusout", (event) => {
+  if (event.target === inputEmail) {
+    checkEmail();
+  } else if (event.target === inputPassword) {
+    checkPassword();
+  } else if (event.target === inputConfirmPassword) {
+    checkConfirmPassword();
+  }
+});
+
 signupButton.addEventListener("click", signUp);

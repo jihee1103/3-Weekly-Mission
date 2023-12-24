@@ -52,12 +52,6 @@ function signIn() {
   }
 }
 
-function sendEnter(e) {
-  if (e.key === "Enter") {
-    signIn();
-  }
-}
-
 function showAndHidePassword(elementbutton, elementInput) {
   if (elementInput.type == "password") {
     elementInput.type = "text";
@@ -72,8 +66,21 @@ passwordOnOff.addEventListener("click", () => {
   showAndHidePassword(passwordOnOff, inputPassword);
 });
 
-inputEmail.addEventListener("keypress", sendEnter);
-inputPassword.addEventListener("keypress", sendEnter);
-inputEmail.addEventListener("focusout", checkEmail);
-inputPassword.addEventListener("focusout", checkPassword);
+document.addEventListener("keypress", (event) => {
+  if (
+    (event.target === inputEmail || event.target === inputPassword) &&
+    event.key === "Enter"
+  ) {
+    signIn();
+  }
+});
+
+document.addEventListener("focusout", (event) => {
+  if (event.target === inputEmail) {
+    checkEmail();
+  } else if (event.target === inputPassword) {
+    checkPassword();
+  }
+});
+
 signinButton.addEventListener("click", signIn);
