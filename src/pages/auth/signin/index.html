@@ -11,7 +11,7 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
     <link rel="stylesheet" href="../shared/style/style.css" />
-    <script type="text/javascript" defer src="../shared/lib/formValidation.js"></script>
+    <script type="module" src="../shared/lib/sign.js"></script>
   </head>
   <body>
     <div id="wrap">
@@ -22,13 +22,13 @@
         <p class="header-message">회원이 아니신가요?<a class="header-link" href="../signup/">회원 가입하기</a></p>
       </header>
       <section class="container">
-        <form name="signForm" action="#" method="post" data-sign-mode="signin">
+        <form action="#" method="post" data-sign-mode="signin">
           <div class="input-area">
             <div class="form-input-box">
               <label for="email" class="form-input-label">이메일</label>
               <div class="input-box-wrapper">
                 <div class="email-input-box">
-                  <input id="email" class="sign-input" type="email" name="userId" data-sign-mode="signin" />
+                  <input id="email" class="sign-input" type="email" name="userId" />
                 </div>
               </div>
             </div>
@@ -36,7 +36,7 @@
               <label for="password" class="form-input-label">비밀번호</label>
               <div class="input-box-wrapper">
                 <div class="password-input-box">
-                  <input id="password" class="sign-input" type="password" name="userPassword" data-sign-mode="signin" />
+                  <input id="password" class="sign-input" type="password" name="userPassword" />
                   <button type="button" class="password-eye-controller" tabindex="-1">
                     <img src="/public/images/icons/password-eye-off.svg" />
                   </button>

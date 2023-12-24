@@ -120,7 +120,8 @@ form {
 }
 
 .email-input-box,
-.password-input-box {
+.password-input-box,
+.passwordcheck-input-box {
   position: relative;
 
   display: flex;
@@ -132,7 +133,9 @@ form {
   border-color: var(--Linkbrary-red, #ff5b56);
 }
 
-.form-validation-message {
+.email-validation-message,
+.password-validation-message,
+.passwordcheck-validation-message {
   color: var(--Linkbrary-red, #ff5b56);
   font-size: 1.4rem;
   font-weight: 400;
