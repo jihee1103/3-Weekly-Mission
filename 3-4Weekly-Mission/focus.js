@@ -69,7 +69,7 @@ document
     const password = document.getElementById("pw").value;
 
     if (email === "test@codeit.com" && password === "codeit101") {
-      window.location.href = "/3-4Weekly-Mission/folder.html"; //상위폴더를 입력하지않고 index를 기준으로 잡을방법이 있을까요
+      window.location.href = "./folder.html";
     } else {
       emu.append(checkem);
       pwu.append(checkpw);
