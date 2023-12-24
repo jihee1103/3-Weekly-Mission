@@ -1,7 +1,9 @@
 import { eyeHandler } from './eyeHandler.js';
 import { signPasswordHandler } from './signPasswordHandler.js';
-import { EMPTY_EMAIL, INVALID_EMAIL, EMPTY_PASSWORD, NOT_MATCH_PASSWORD, CONFIRM_EMAIL, DUPLICATED_EMAIL } from './constant.js';
+import { signEmailHandler } from './signEmailHandler.js';
+import { EMPTY_EMAIL, EMPTY_PASSWORD, NOT_MATCH_PASSWORD, DUPLICATED_EMAIL } from './constant.js';
 import { URL_CHECK_EMAIL, URL_SIGN_UP } from './apiUrl.js';
+import { checkAccessToken } from './checkAccessToken.js';
 
 // 데이터를 다루는 곳
 const signupEmailInput = document.querySelector('#signup_email_input');
@@ -15,23 +17,11 @@ const signupEmailError = document.querySelector('.form-sign__input-error.email')
 const signupPasswordError = document.querySelector('.form-sign__input-error.password');
 const signupPasswordConfirmError = document.querySelector('.form-sign__input-error.password.confirm');
 
-const signupEmailHandler = function (event) {
-    const emailAddress = event.target.value;
-    const confirmEmail = new RegExp(CONFIRM_EMAIL);
-    if (!emailAddress) {
-        signupEmailError.textContent = EMPTY_EMAIL;
-    } else if (!confirmEmail.test(emailAddress)) {
-        signupEmailError.textContent = INVALID_EMAIL;
-    } else {
-        signupEmailError.textContent = '';
-    }
-}
-
 const signupPasswordConfirmHandler = function (event) {
-    const password = event.target.value;
-    if (!password) {
+    const ConfirmingPassword = event.target.value;
+    if (ConfirmingPassword.trim() === '') {
         signupPasswordConfirmError.textContent = EMPTY_PASSWORD;
-    } else if (signupPasswordConfirmInput.value !== signupPasswordInput.value) {
+    } else if (ConfirmingPassword !== signupPasswordInput.value) {
         signupPasswordConfirmError.textContent = NOT_MATCH_PASSWORD;
     } else {
         signupPasswordConfirmError.textContent = '';
@@ -39,21 +29,21 @@ const signupPasswordConfirmHandler = function (event) {
 }
 
 const signupRegisterBtnHandler = function (event) {
-    if (!signupEmailInput.value) {
+    if (signupEmailInput.value.trim() === '') {
         return signupEmailError.textContent = EMPTY_EMAIL;
     }
-    if (!signupPasswordInput.value) {
+    if (signupPasswordInput.value.trim() === '') {
         return signupPasswordError.textContent = EMPTY_PASSWORD;
     }
-    if (!signupPasswordConfirmInput.value) {
+    if (signupPasswordConfirmInput.value.trim() === '') {
         return signupPasswordConfirmError.textContent = EMPTY_PASSWORD;
     }
-    if (signupPasswordConfirmInput.value !== signupPasswordInput.value) {
+    if (signupPasswordConfirmInput.value.trim() !== signupPasswordInput.value.trim()) {
         return signupPasswordConfirmError.textContent = NOT_MATCH_PASSWORD;
     }
     let signUpData = {
-        "email": signupEmailInput.value,
-        "password": signupPasswordInput.value
+        "email": signupEmailInput.value.trim(),
+        "password": signupPasswordInput.value.trim()
     }
     const checkEmailduplication = async function () {
         try {
@@ -81,10 +71,10 @@ const signupRegisterBtnHandler = function (event) {
             })
             if (response.status === 200) {
                 const result = await response.json();
-                const accessToken = await result.data.accessToken;
-                const refreshToken = await result.data.refreshToken;
-                localStorage.setItem("accessToken", await accessToken);
-                localStorage.setItem("refreshToken", await refreshToken);
+                const accessToken = result.data.accessToken;
+                const refreshToken = result.data.refreshToken;
+                localStorage.setItem("accessToken", accessToken);
+                localStorage.setItem("refreshToken", refreshToken);
                 location.href = '/folder.html';
             } else { throw new Error('회원가입에 실패했습니다') }
         } catch (error) {
@@ -94,16 +84,15 @@ const signupRegisterBtnHandler = function (event) {
     checkEmailduplication();
 }
 
-signupEmailInput.addEventListener('focusout', signupEmailHandler);
+signupEmailInput.addEventListener('focusout', (event) => { signEmailHandler(event, signupPasswordError) });
 signupPasswordInput.addEventListener('focusout', (event) => { signPasswordHandler(event, signupPasswordError) });
-signupPasswordConfirmInput.addEventListener('focusout', signupPasswordConfirmHandler);
-signupRegisterBtn.addEventListener('click', signupRegisterBtnHandler);
-
-signupEmailInput.addEventListener('keyup', (event) => { if (event.key === 'Enter') signupRegisterBtnHandler() });
-signupPasswordInput.addEventListener('keyup', (event) => { if (event.key === 'Enter') signupRegisterBtnHandler() });
-signupPasswordConfirmInput.addEventListener('keyup', (event) => { if (event.key === 'Enter') signupRegisterBtnHandler() });
+signupPasswordConfirmInput.addEventListener('focusout', (event) => { signupPasswordConfirmHandler(event) });
+signupRegisterBtn.addEventListener('click', (event) => { signupRegisterBtnHandler(event) });
+signupEmailInput.addEventListener('keyup', (event) => { if (event.key === 'Enter') signupRegisterBtnHandler(event) });
+signupPasswordInput.addEventListener('keyup', (event) => { if (event.key === 'Enter') signupRegisterBtnHandler(event) });
+signupPasswordConfirmInput.addEventListener('keyup', (event) => { if (event.key === 'Enter') signupRegisterBtnHandler(event) });
 
 signupPasswordEye.addEventListener('click', () => { eyeHandler(signupPasswordInput, signupPasswordEye) });
 signupPasswordConfirmEye.addEventListener('click', () => { eyeHandler(signupPasswordConfirmInput, signupPasswordConfirmEye) });
 
-window.addEventListener('DOMContentLoaded', (e) => { if (localStorage.getItem("accessToken")) location.href = './folder.html' });
+window.addEventListener('DOMContentLoaded', () => { checkAccessToken() });

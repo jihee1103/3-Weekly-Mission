@@ -1,7 +1,9 @@
 import { eyeHandler } from './eyeHandler.js';
 import { signPasswordHandler } from './signPasswordHandler.js';
-import { EMPTY_EMAIL, INVALID_EMAIL, REQUIRE_CONFIRM_PASSWORD, EMPTY_PASSWORD, CONFIRM_EMAIL, REQUIRE_CONFIRM_EMAIL } from './constant.js';
+import { signEmailHandler } from './signEmailHandler.js';
+import { EMPTY_EMAIL, REQUIRE_CONFIRM_PASSWORD, EMPTY_PASSWORD, REQUIRE_CONFIRM_EMAIL } from './constant.js';
 import { URL_SIGN_IN } from './apiUrl.js';
+import { checkAccessToken } from './checkAccessToken.js';
 
 // 데이터를 다루는 곳
 const signinEmailInput = document.querySelector('#signin_email_input');
@@ -12,29 +14,17 @@ const signinEye = document.querySelector('.password__btn-eye');
 const signinEmailError = document.querySelector('.form-sign__input-error.email');
 const signinPasswordError = document.querySelector('.form-sign__input-error.password');
 
-const signinEmailHandler = function (event) {
-    const emailAddress = event.target.value;
-    const confirmEmail = new RegExp(CONFIRM_EMAIL);
-    if (!emailAddress) {
-        signinEmailError.textContent = EMPTY_EMAIL;
-    } else if (!confirmEmail.test(emailAddress)) {
-        signinEmailError.textContent = INVALID_EMAIL;
-    } else {
-        signinEmailError.textContent = '';
-    }
-}
-
 const signinLoginBtnHandler = function () {
-    if (!signinEmailInput.value) {
+    if (signinEmailInput.value.trim() === '') {
         return signinEmailError.textContent = EMPTY_EMAIL;
     }
-    if (!signinPasswordInput.value) {
+    if (signinPasswordInput.value.trim() === '') {
         return signinPasswordError.textContent = EMPTY_PASSWORD;
     }
 
     let signinData = {
-        "email": signinEmailInput.value,
-        "password": signinPasswordInput.value
+        "email": signinEmailInput.value.trim(),
+        "password": signinPasswordInput.value.trim()
     };
     const signinSuccess = async function () {
         try {
@@ -62,13 +52,10 @@ const signinLoginBtnHandler = function () {
     signinSuccess();
 }
 
-signinEmailInput.addEventListener('focusout', signinEmailHandler);
+signinEmailInput.addEventListener('focusout', (event) => { signEmailHandler(event, signinEmailError) });
 signinPasswordInput.addEventListener('focusout', (event) => { signPasswordHandler(event, signinPasswordError) });
-signinLoginBtn.addEventListener('click', signinLoginBtnHandler);
-
+signinLoginBtn.addEventListener('click', (event) => { signinLoginBtnHandler() });
 signinEmailInput.addEventListener('keyup', (event) => { if (event.key === 'Enter') signinLoginBtnHandler() });
 signinPasswordInput.addEventListener('keyup', (event) => { if (event.key === 'Enter') signinLoginBtnHandler() });
-
 signinEye.addEventListener('click', () => { eyeHandler(signinPasswordInput, signinEye) });
-
-window.addEventListener('DOMContentLoaded', (e) => { if (localStorage.getItem("accessToken")) location.href = './folder.html' });
+window.addEventListener('DOMContentLoaded', () => { checkAccessToken() });
