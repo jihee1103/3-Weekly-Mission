@@ -19,7 +19,6 @@ emailInput.addEventListener('focusout', emailErrorMessage);
 
 /*비밀번호 오류*/
 
-
 const pw2Input = document.querySelector('#password2');
 const pw2Error = document.querySelector('#pw2-error')
 
@@ -53,3 +52,24 @@ function hidePassword2Error() {
 
 pwInput.addEventListener('focusout', pwErrorMessage);
 pw2Input.addEventListener('focusout', pwErrorMessage);
+
+const signupForm = document.querySelector('#signupForm');
+
+function signupCheck(e) {
+  const inputEmail = emailInput.value;
+  const inputPw = pwInput.value;
+  const input2Pw = pw2Input.value;
+
+  if(
+    isValidEmail(inputEmail) &&
+    isValidPw(inputPw) &&
+    inputPw === input2Pw
+  ) {
+    e.preventDefault();
+    location.href = "folder.html";
+  } else {
+    e.preventDefault();
+  }
+}
+
+signupForm.addEventListener('submit', signupCheck);
