@@ -30,25 +30,34 @@ function handleValidationPw() {
 }
 
 // 로그인 유효성 검사 함수
-function handleSumbmit(e) {
-  if (
-    signInputEmail.value === "test@codeit.com" &&
-    signInputPw.value === "codeit101"
-  ) {
+async function handleSumbmit(e) {
+  try {
     e.preventDefault();
-    location.href = "folder.html";
-  } else if (
-    signInputEmail.value !== "test@codeit.com" &&
-    signInputPw.value !== "codeit101"
-  ) {
-    e.preventDefault();
-    addStyles(signInputPw, pwErrMsg, `비밀번호를 확인해주세요.`);
-    eyeBtn[0].classList.add("eye-button-focusout");
-    addStyles(signInputEmail, emailErrMsg, `이메일을 확인해주세요.`);
-  } else {
-    deleteStyles(signInputPw, pwErrMsg);
-    eyeBtn[0].classList.remove("eye-button-focusout");
-    deleteStyles(signInputEmail, emailErrMsg);
+    let loginData = {
+      email: signInputEmail.value,
+      password: signInputPw.value,
+    };
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    });
+    if (response.status === 200) {
+      console.log("ok");
+      location.href = "folder.html";
+    } else if (response.status === 400) {
+      addStyles(signInputPw, pwErrMsg, `비밀번호를 확인해주세요.`);
+      eyeBtn[0].classList.add("eye-button-focusout");
+      addStyles(signInputEmail, emailErrMsg, `이메일을 확인해주세요.`);
+    } else {
+      deleteStyles(signInputPw, pwErrMsg);
+      eyeBtn[0].classList.remove("eye-button-focusout");
+      deleteStyles(signInputEmail, emailErrMsg);
+    }
+  } catch (err) {
+    // 어떤 처리를 해줘야하지?
   }
 }
 
