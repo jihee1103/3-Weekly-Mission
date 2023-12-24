@@ -63,15 +63,15 @@ export default class SignInController {
   }
 
   // access token 저장
-  async saveAccessTokenToModel(response) {
+  async saveAccessTokenToLocalStorage(response) {
     const accessData = await response.json();
     const accessToken = accessData.token;
-    this.model.setAccessToken(accessToken);
+    localStorage.setItem('accessToken', accessToken);
   }
 
   // accessToken 보유 확인
   checkAccessTokenAndRedirect() {
-    const accessToken = this.model.getAccessToken();
+    const accessToken = localStorage.getItem('accessToken');
     if (accessToken) {
       location.href = '/folder.html';
       return;
@@ -107,7 +107,7 @@ export default class SignInController {
         return;
       }
 
-      this.saveAccessTokenToModel(response);
+      this.saveAccessTokenToLocalStorage(response);
       location.href = '/folder.html';
     } catch (error) {
       console.error('로그인 에러:', error.message);
