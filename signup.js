@@ -1,3 +1,7 @@
+if (localStorage.getItem("accessToken")) {
+    location.replace("/folder");
+}
+
 const eInput = document.getElementById('email');
 const pInput = document.getElementById('password');
 const pDupInput = document.getElementById('password-dup');
@@ -31,10 +35,6 @@ function printEmailMsg(e){
             emailErrMsg.textContent = '올바른 이메일이 아닙니다.';
             return false;
         }
-        if(eInput.value == 'test@codeit.com'){
-            emailErrMsg.textContent = '이미 사용 중인 이메일입니다.'
-            return false;
-        }
     }
     return true;
 }
@@ -60,6 +60,7 @@ function pwDup() {
     const pwValue = pInput.value;
     const pwDup = pDupInput.value;
 
+
     pwDupMsg.textContent = '';
     if (pwValue !== pwDup) {
         pwErrMsg.style.display = 'block';
@@ -76,26 +77,35 @@ function pwDup() {
 signupbtn.addEventListener('click', vaildSubmit);
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
-        vaildSubmit();
+        vaildSubmit(e);
     }
 });
 function vaildSubmit(e) {
-    if (e) {
-        e.preventDefault();
-    }
+    e.preventDefault();
 
     const isEmailValid = printEmailMsg();
     const isPasswordValid = printPasswordMsg();
     const isPasswordDupValid = pwDup();
-    console.log(isEmailValid+' '+isPasswordValid+' '+isPasswordDupValid);
 
     if (isEmailValid && isPasswordValid && isPasswordDupValid) {
-        console.log('들어오니~~?2');
-        window.location.href = "/folder";
+        signup(eInput.value);
     }
 }
 
-
+function signup(email) {
+    axios
+        .post("https://bootcamp-api.codeit.kr/api/check-email", { email })
+        .then((response) => {
+            if(response.status === 200){
+                location.href = "/folder";
+            }
+        })
+        .catch((err) => {
+            if(err.response.status === 409){
+                emailErrMsg.textContent = '이미 사용 중인 이메일입니다.';
+            }
+        });
+}
 
 eInput.addEventListener('focusout', printEmailMsg);
 pInput.addEventListener('focusout', printPasswordMsg);

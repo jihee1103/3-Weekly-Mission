@@ -1,3 +1,7 @@
+if (localStorage.getItem("accessToken")) {
+    location.replace("/folder");
+}
+
 const eInput = document.getElementById('email');
 const pInput = document.getElementById('password');
 const emailErrMsg = document.getElementById('email-err-msg');
@@ -38,25 +42,37 @@ function printPasswordMsg(e){
 signinbtn.addEventListener('click', vaildSubmit);
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
-        vaildSubmit();
+        vaildSubmit(e);
     }
 });
+
+function errMsg(){
+    emailErrMsg.textContent = '';
+    emailErrMsg.textContent = '이메일을 확인해주세요.';
+    passwordErrMsg.textContent = '';
+    passwordErrMsg.textContent = '비밀번호를 확인해주세요.';
+}
+
 function vaildSubmit(e) {
-    if (e) {
-        e.preventDefault();
-    }
-    
-    if(eInput.value === 'test@codeit.com' && pInput.value === 'codeit101'){
-        window.location.href = "/folder";
+    e.preventDefault();
+    if(eInput.value === 'test@codeit.com' && pInput.value === 'sprint101'){
+        signin(eInput.value, pInput.value);
     } else {
-        emailErrMsg.textContent = '';
-        emailErrMsg.textContent = '이메일을 확인해주세요.';
-        passwordErrMsg.textContent = '';
-        passwordErrMsg.textContent = '비밀번호를 확인해주세요.';
+        errMsg();
     }
 }
 
-
+function signin(email, password) {
+    axios
+        .post("https://bootcamp-api.codeit.kr/api/sign-in", { email, password })
+        .then((response) => {
+            let { data } = response.data;
+            localStorage.setItem("accessToken", data.accessToken);
+            location.href = "/folder";
+        })
+        .catch(errMsg);
+}
+    
 
 
 eInput.addEventListener('focusout', printEmailMsg);
