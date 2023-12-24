@@ -27,14 +27,29 @@ function makeFormError() {
   }
 };
 
-function checkSignin() {
-  if (emailInput.value === "test@codeit.com" && passwordInput.value === "codeit101") {
-    location.href = "folder.html";
-  } else {
-    emailInput.style.border = "1px solid var(--linkbrary-red)";
-    emailResult.innerHTML = "이메일을 확인해주세요.";
-    passwordInput.style.border = "1px solid var(--linkbrary-red)";
-    passwordResult.innerHTML = "비밀번호를 확인해주세요.";
+async function signinData() {
+  try {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: emailInput.value,
+        password: passwordInput.value,
+      }),
+    });
+
+    if (response.status === 200) {
+      location.href = 'folder.html';
+    } else if (response.status === 400) {
+      emailInput.style.border = "1px solid var(--linkbrary-red)";
+      emailResult.innerHTML = "이메일을 확인해주세요.";
+      passwordInput.style.border = "1px solid var(--linkbrary-red)";
+      passwordResult.innerHTML = "비밀번호를 확인해주세요.";
+    }
+  } catch (error) {
+    console.error('오류 발생', error);
   }
 }
 
@@ -52,10 +67,10 @@ icon.addEventListener("click", function () {
 
 function enterSignin(e) {
   if (e.key === "Enter") {
-    checkSignin();
+    signinData();
   }
 }
 
 document.addEventListener("click", makeFormError);
-loginButton.addEventListener("click", checkSignin);
+loginButton.addEventListener("click", signinData);
 signinForm.addEventListener("keypress", enterSignin);
