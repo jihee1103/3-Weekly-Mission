@@ -8,6 +8,7 @@ const signupForm = document.querySelector("form");
 const inputPasswordIcon = document.querySelector("#inputPwIcon");
 const inputPasswordComfirmIcon = document.querySelector("#inputPwComfirmIcon");
 
+console.log(localStorage);
 async function checkEmailConflict() {
     const response = await fetch(
         "https://bootcamp-api.codeit.kr/api/check-email",
@@ -104,9 +105,9 @@ async function signUp(event) {
             }
         );
         if (response.status === 200) {
-            console.log("성공");
-            signupForm.action = "/folder";
-            signupForm.submit();
+            const result = await response.json();
+            localStorage.setItem("accessToken", result.data.accessToken);
+            location.href = "/folder";
         }
     }
 }

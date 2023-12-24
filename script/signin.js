@@ -6,6 +6,11 @@ const signinForm = document.querySelector("form");
 
 const inputPwIcon = document.querySelector("#inputPwIcon");
 
+// if (localStorage.accessToken) {
+//     signinForm.action = "/folder";
+//     signinForm.submit();
+// }
+
 function checkEmail() {
     const EMAIL_REGEX =
         /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
@@ -57,8 +62,9 @@ async function signIn(event) {
     if (response.status === 200) {
         const result = await response.json();
         localStorage.setItem("accessToken", result.data.accessToken);
-        signinForm.action = "/folder";
-        signinForm.submit();
+        // signinForm.action = "/folder";
+        // signinForm.submit();
+        location.href = "/folder";
     } else {
         emailError.textContent = "이메일을 확인해주세요.";
         passwordError.textContent = "비밀번호를 확인해주세요.";
