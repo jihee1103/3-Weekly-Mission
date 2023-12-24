@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  margin: 0;
+  margin: 0; /* todo: 🚨 h1, h2, p 등 마진 있는 거 찾아서 별도로 0값 주기 */
   font-family: 'Pretendard';
 }
 
