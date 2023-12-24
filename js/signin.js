@@ -45,7 +45,6 @@ async function handleSumbmit(e) {
       body: JSON.stringify(loginData),
     });
     if (response.status === 200) {
-      console.log("ok");
       location.href = "folder.html";
     } else if (response.status === 400) {
       addStyles(signInputPw, pwErrMsg, `비밀번호를 확인해주세요.`);

@@ -11,15 +11,16 @@ const pwCheckErrMsg = document.querySelector(".pwCheckErrMsg");
 const eyeBtn = document.querySelectorAll(".eye-button-off");
 const eyeBtnOnPw = document.querySelector(".eye-button-on");
 const eyeBtnOnPwCheck = document.querySelector(".eye-button-on-pwcheck");
+
 // 이메일 유효성 검사
 function handleValidationEmail() {
   if (signInputEmail.value === "") {
     addStyles(signInputEmail, emailErrMsg, `이메일을 입력해주세요.`);
   } else if (!signInputEmail.value.includes("@")) {
     addStyles(signInputEmail, emailErrMsg, `올바른 이메일 주소가 아닙니다.`);
-  } else if (inputValue === "test@codeit.com") {
-    addStyles(signInputEmail, emailErrMsg, `이미 사용 중인 이메일입니다.`);
-  } else if (inputValue !== "") {
+  } else if (!signInputEmail.value.includes(".com")) {
+    addStyles(signInputEmail, emailErrMsg, `올바른 이메일 주소가 아닙니다.`);
+  } else if (signInputEmail !== "") {
     deleteStyles(signInputEmail, emailErrMsg);
   }
 }
@@ -56,14 +57,41 @@ function handeleCheckPw() {
 }
 
 // 회원가입 유효성 검사 함수
-function handleSumbmit(e) {
-  if (
-    signInputEmail.value !== "test@codeit.com" &&
-    signInputPw.value === signInputPwCheck.value
-  ) {
+async function handleSumbmit(e) {
+  try {
     e.preventDefault();
-    location.href = "folder.html";
-  }
+    let loginData = {
+      email: signInputEmail.value,
+      password: signInputPw.value,
+    };
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    });
+    if (
+      loginData.email !== "test@codeit.com" &&
+      loginData.password === signInputPwCheck.value &&
+      response.status === 200
+    ) {
+      location.href = "folder.html";
+    } else if (
+      loginData.email === "test@codeit.com" &&
+      response.status === 400
+    ) {
+      addStyles(signInputEmail, emailErrMsg, `이미 사용 중인 이메일입니다.`);
+    }
+  } catch (error) {}
+
+  // if (
+  //   signInputEmail.value !== "test@codeit.com" &&
+  //   signInputPw.value === signInputPwCheck.value
+  // ) {
+  //   e.preventDefault();
+  //   location.href = "folder.html";
+  // }
 }
 
 signInputEmail.addEventListener("focusout", handleValidationEmail);
