@@ -1,13 +1,37 @@
 const signupEmail = document.getElementById("signup-email");
 const errEmail = document.getElementById("err-email");
 
+async function checkDuplicatedEmail() {
+  const response = await fetch(
+    "https://bootcamp-api.codeit.kr/api/check-email",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: signupEmail.value }),
+    }
+  );
+
+  if (response.status === 409) {
+    console.log(response);
+    validateInput(signupEmail, errEmail, "이미 사용중인 이메일입니다.");
+    console.log(response.status, "사용중");
+    return false;
+  } else {
+    console.log(response);
+    validateInput(signupEmail, errEmail, "");
+    return true;
+  }
+}
+signupEmail.addEventListener("focusout", checkDuplicatedEmail);
+
 function validateEmail(emailInput) {
   if (!emailInput.value) {
     // 빈칸일 때
     return validateInput(emailInput, errEmail, "이메일을 입력해주세요.");
   }
-
-  if (!emailRegex.test(signupEmail.value)) {
+  if (!emailRegex.test(emailInput.value)) {
     // 이메일 형식 오류일 때
     return validateInput(
       emailInput,
@@ -16,9 +40,11 @@ function validateEmail(emailInput) {
     );
   }
 
-  if (emailInput.value === "test@codeit.com") {
-    return validateInput(emailInput, errEmail, "이미 사용중인 이메일입니다.");
-  }
+  // 4번째줄 checkDuplicatedEmail() 함수 처리를 여기서 하려고 했는데 안돼서
+  // addEventListener에 추가함.. 왜 안되는건지 이유가 궁금합니다
+  // if (!isDuplicatedEmail()) {
+  //   return validateInput(emailInput, errEmail, "이미 사용중인 이메일입니다.");
+  // }
 
   return validateInput(emailInput, errEmail, "");
 }
@@ -91,18 +117,33 @@ signupRepassword.addEventListener("focusout", function () {
   validateRepassword(this);
 });
 
-function submit() {
+async function submit() {
   if (
     validateEmail(signupEmail) &&
     validatePassword(signupPassword) &&
-    validateRepassword(signupRepassword)
+    validateRepassword(signupRepassword) &&
+    checkDuplicatedEmail()
   ) {
-    alert("회원가입 성공");
-    const link = "folder.html";
-    window.location.href = link;
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: signupEmail.value,
+        password: signupPassword.value,
+      }),
+    });
+
+    if (response.status === 200) {
+      alert("회원가입 성공");
+      const result = response.json();
+      localStorage.setItem("accessToken", result.ACCESS_TOKEN);
+      const link = "folder.html";
+      window.location.href = link;
+    }
   }
 }
-
 const button = document.getElementById("signup-btn");
 button.addEventListener("click", submit);
 

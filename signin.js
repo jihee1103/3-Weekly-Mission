@@ -1,5 +1,5 @@
 const TEST_EMAIL = "test@codeit.com";
-const TEST_PWD = "codeit101";
+const TEST_PWD = "sprint101";
 
 const signinEmail = document.getElementById("signin-email");
 const errEmail = document.getElementById("err-email");
@@ -36,16 +36,28 @@ function validatePassword(passwordInput) {
       "비밀번호를 입력해주세요."
     );
   }
-
   return validateInput(passwordInput, errPassword, "");
 }
 signinPassword.addEventListener("focusout", function () {
   validatePassword(this);
 });
 
-function submit() {
-  if (signinEmail.value === TEST_EMAIL && signinPassword.value === TEST_PWD) {
+async function submit() {
+  const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: signinEmail.value,
+      password: signinPassword.value,
+    }),
+  });
+
+  if (response.status === 200) {
     alert("로그인 성공");
+    const result = response.json();
+    localStorage.setItem("accessToken", result.ACCESS_TOKEN);
     const link = "folder.html";
     window.location.href = link;
   } else {
