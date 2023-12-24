@@ -45,6 +45,9 @@ async function handleSumbmit(e) {
       body: JSON.stringify(loginData),
     });
     if (response.status === 200) {
+      const parseData = await response.json();
+      let accessToken = parseData.data.accessToken;
+      localStorage.setItem("accessToken", accessToken);
       location.href = "folder.html";
     } else if (response.status === 400) {
       addStyles(signInputPw, pwErrMsg, `비밀번호를 확인해주세요.`);
@@ -58,6 +61,11 @@ async function handleSumbmit(e) {
   } catch (err) {
     // 어떤 처리를 해줘야하지?
   }
+}
+
+const getAccessToken = localStorage.getItem("accessToken");
+if (getAccessToken !== null) {
+  location.href = "folder.html";
 }
 
 signInputPw.addEventListener("focusout", handleValidationPw);

@@ -76,6 +76,9 @@ async function handleSumbmit(e) {
       loginData.password === signInputPwCheck.value &&
       response.status === 200
     ) {
+      const parseData = await response.json();
+      let accessToken = parseData.data.accessToken;
+      localStorage.setItem("accessToken", accessToken);
       location.href = "folder.html";
     } else if (
       loginData.email === "test@codeit.com" &&
@@ -84,14 +87,11 @@ async function handleSumbmit(e) {
       addStyles(signInputEmail, emailErrMsg, `이미 사용 중인 이메일입니다.`);
     }
   } catch (error) {}
+}
 
-  // if (
-  //   signInputEmail.value !== "test@codeit.com" &&
-  //   signInputPw.value === signInputPwCheck.value
-  // ) {
-  //   e.preventDefault();
-  //   location.href = "folder.html";
-  // }
+const getAccessToken = localStorage.getItem("accessToken");
+if (getAccessToken !== null) {
+  location.href = "folder.html";
 }
 
 signInputEmail.addEventListener("focusout", handleValidationEmail);
