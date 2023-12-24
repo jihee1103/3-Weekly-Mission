@@ -14,25 +14,28 @@
     </head>
 
     <body>
-        <main class="sign">
+        <main class="sign" >
             <article>
                 <section class="signin-container">
                     <div class="flex-logo-gap-1">
                         <a href="/index.html">
-                            <img src="/images/logo.svg" class="big-logo">
+                            <img src="/images/logo.svg" class="big-logo" alt="홈으로 이동하는 로고">
                         </a>
                         <span>회원이 아니신가요? <a href="signup.html">회원가입</a></span>
                     </div>
-                    <form class="sign-form">
+                    <form class="sign-form" action="../forder.html" >
                         <div class="sign-inputs">
                             <div class="label-input">
                                 <label for="email">이메일</label>
                                 <input id="email" name="email" type="email">
+                                <span class="error-message"></span>
                             </div>
                             <div class="label-input">
                                 <label for="password">비밀번호</label>
                                 <input id="password" name="password" type="password">
-                                <img class="eye on" src="/images/signin-eye-off.svg">
+                                <span class="error-message"></span>
+                                <img class="eye off none" src="../images/eye-off.svg" alt="비밀번호 표시된 아이콘">
+                                
                             </div>
                             
                         </div>
@@ -45,14 +48,14 @@
                     <ul class="social-icons">
                         <li class="social-icon">
                             <a href="https://www.google.com/">
-                                <img src="/images/google.svg">
-                                <img src="/images/google.png" class="icon">
+                                <img src="/images/google.svg" alt="구글 로그인 배경이미지">
+                                <img src="/images/google.png" class="icon" alt="구글 로그인 아이콘">
                             </a>
                         </li>
                         <li class="social-icon">
                             <a href="https://www.kakaocorp.com/page/">
-                                <img src="/images/kakao.svg">
-                                <img src="/images/99FE484C5C3451F2181.svg" class="icon kakao">
+                                <img src="/images/kakao.svg" alt="카카오 로그인 배경이미지">
+                                <img src="/images/99FE484C5C3451F2181.svg" class="icon kakao" alt="카카오 로그인 아이콘">
                             </a>
                         </li>
                     </ul>
@@ -61,6 +64,7 @@
             </article>
 
         </main>
+        <script src="../js/sign.js"></script>
     </body>
 
 </html>
