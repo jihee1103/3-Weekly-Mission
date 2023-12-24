@@ -1,5 +1,5 @@
-@import '/shared/reset.css';
-@import '/shared/color.css';
+@import '/styles/reset.css';
+@import '/styles/color.css';
 
 body {
   background-color: var(--Linkbrary-bg);
