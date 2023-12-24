@@ -45,7 +45,7 @@ export default class SignUpController {
 
   handleEmailInputKeydown(e) {
     if (e.key === 'Enter') {
-      this.handleSignInEmailInputFocusout();
+      this.handleEmailInputFocusout();
     }
   }
 
@@ -100,15 +100,15 @@ export default class SignUpController {
   }
 
   // access token 생성
-  async createAccessToken(response) {
-    const data = await response.json();
-    const token = data.token;
-    localStorage.setItem('accessToken', token);
+  async saveAccessTokenToModel(response) {
+    const accessData = await response.json();
+    const accessToken = accessData.token;
+    this.model.setAccessToken(accessToken);
   }
 
   // accessToken 보유 확인
   checkAccessTokenAndRedirect() {
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = this.model.getAccessToken();
     if (accessToken) {
       location.href = '/folder.html';
       return;
@@ -164,7 +164,7 @@ export default class SignUpController {
         return;
       }
 
-      this.createAccessToken(response);
+      this.saveAccessTokenToModel(response);
       location.href = '/folder.html';
     } catch (error) {
       console.error('회원가입 에러:', error.message);

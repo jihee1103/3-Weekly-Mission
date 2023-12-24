@@ -1,6 +1,6 @@
 export default class SignModel {
   constructor() {
-    this.accessToken = null;
+    this.accessToken;
   }
 
   setAccessToken(token) {
