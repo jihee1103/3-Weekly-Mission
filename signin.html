@@ -18,20 +18,20 @@
     </header>
     <!-- main -->
     <div class="sign-box">
-      <form class="sign-form">
+      <form id="form" class="sign-form">
         <div class="sign-inputs">
           <div class="sign-input-box">
-            <label class="sign-input-label" for="email">이메일</label>
-            <input class="sign-input" type="text" name="email" id="email"/>
-            <span id="email-error"></span>
+            <label class="sign-input-label">이메일</label>
+            <input class="sign-input" id="email"/>
+            <p id="email-error-message" class="error-message"></p>
           </div>
           <div class="sign-input-box sign-password">
-            <label class="sign-input-label" for="password">비밀번호</label>
-            <input class="sign-input" type="password" name="password" id="password"/>
-            <button class="eye-button" type="button">
+            <label class="sign-input-label">비밀번호</label>
+            <input class="sign-input" type="password" id="password"/>
+            <p id="password-error-message" class="error-message"></p>
+            <button class="eye-button" id="password-toggle" type="button">
               <img src="./images/eye-off.svg" />
             </button>
-            <span id="password-error"></span>
           </div>
         </div>
         <button class="link" type="submit" id="signin-btn">로그인</button>

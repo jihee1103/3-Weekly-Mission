@@ -2,12 +2,20 @@
 @import "./reset.css";
 
 body {
-  padding-top: 23.8rem;
   background-color: var(--mainbg);
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 3rem;
+  padding: 12rem 3.2rem 0;
+
+  @media (min-width: 768px) {
+    padding: 20rem 0 0;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 23.8rem 0 0;
+  }
 }
 
 /* -------------------------- */
@@ -23,7 +31,6 @@ header {
 }
 
 .header-logo {
-  width: 210.583px;
   height: 3.8rem;
 }
 
@@ -50,7 +57,12 @@ header {
   flex-direction: column;
   align-items: center;
   row-gap: 3.2rem;
-  width: 40rem;
+  width: 100%;
+  max-width: 40rem;
+
+  @media (min-width: 768px) {
+    width: 40rem;
+  }
 }
 
 .sign-form {
@@ -93,9 +105,29 @@ header {
   border-color: var(--purple1);
 }
 
+.sign-input.sign-input-error {
+  border-color: var(--red1);
+}
+
+.sign-input.sign-input-error:focus {
+  border-color: var(--red1);
+}
+
+.error-message {
+  display: none;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-top: -0.4rem;
+  color: var(--red1);
+}
+
+.error-message.error-message-on {
+  display: inline-block;
+}
+
 .eye-button {
   position: absolute;
-  bottom: 2.2rem;
+  top: 5.1rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -109,7 +141,7 @@ header {
   height: 5.4rem;
   background-image: linear-gradient(135deg, var(--purple1) 0%, var(--skyblue1) 100%);
   border-radius: 0.8rem;
-  color: #f5f5f5;
+  color: var(--white2);
   font-size: 1.8rem;
   font-weight: 600;
 }
@@ -153,26 +185,4 @@ header {
 .kakao-link {
   padding-top: 0.2rem;
   background-color: var(--yellow2);
-}
-
-.error-box {
-  border: 1px solid var(--orange1);
-}
-
-#email-error,
-#password-error,
-#password-double-error {
-  color: var(--red1);
-  font-family: Pretendard;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-@media (max-width: 767px) {
-  body {
-    background-color: var(--mainbg);
-    display: flex;
-    flex-direction: column;
-    padding: 12rem 3.2rem 11.9rem 3.3rem; 
-  }
 }

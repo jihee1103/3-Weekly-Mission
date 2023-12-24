@@ -1,79 +1,77 @@
 import {
-  inputEmail,
-  emailError,
-  inputPassword,
-  passwordError,
-  SigninButton,
-  eyeButton,
-} from './tags.js';
+  setInputError,
+  removeInputError,
+  isEmailValid,
+  togglePassword,
+  TEST_USER,
+} from "./utils.js";
 
-// 유효성 검사
-const emailRegex = /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+const emailInput = document.querySelector("#email");
+const emailErrorMessage = document.querySelector("#email-error-message");
+emailInput.addEventListener("focusout", (event) => validateEmailInput(event.target.value));
 
-// 이메일
-function checkEmail() {
-  if (inputEmail.value === "") {
-    inputEmail.classList.add("error-box");
-    emailError.textContent = "이메일을 입력해주세요";
-    return false;
-  } else if (emailRegex.test(inputEmail.value) === false) {
-    inputEmail.classList.add('error-box');
-    emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-    return false;
-  } else {
-    inputEmail.classList.remove('error-box');
-    emailError.textContent = "";
-    return true;
-  };
-};
+// 로그인(이메일) 검사
+function validateEmailInput(email) {
+  if (email === "") {
+    setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 입력해주세요.");
+    return;
+  }
+  if (!isEmailValid(email)) {
+    setInputError(
+      { input: emailInput, errorMessage: emailErrorMessage },
+      "올바른 이메일 주소가 아닙니다."
+    );
+    return;
+  }
+  removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
+}
 
-// 비밀번호 없을 때
-function checkPassword() {
-  if (inputPassword.value === "") {
-    inputPassword.classList.add('error-box');
-    passwordError.textContent = "비밀번호를 입력해주세요";
-    return false;
-  } else {
-    inputPassword.classList.remove('error-box');
-    passwordError.textContent = "";
-    return true;
-  };
-};
+const passwordInput = document.querySelector("#password");
+const passwordErrorMessage = document.querySelector("#password-error-message");
+passwordInput.addEventListener("focusout", (event) => validatePasswordInput(event.target.value));
 
-// 로그인
-function checkSignin() {
-  if (inputEmail.value === "" && inputPassword.value === "") {
-    emailError.textContent = "이메일을 확인해주세요";
-    passwordError.textContent = "비밀번호를 확인해주세요";
-  } else {
-    emailError.textContent = "";
-    passwordError.textContent = "";
-  };
-};
+// 로그인(비밀번호) 검사
+function validatePasswordInput(password) {
+  if (password === "") {
+    setInputError(
+      { input: passwordInput, errorMessage: passwordErrorMessage },
+      "비밀번호를 입력해주세요."
+    );
+    return;
+  }
+  removeInputError({ input: passwordInput, errorMessage: passwordErrorMessage });
+}
 
-// folder.html
-function goToFolder() {
-  if (inputEmail.value === "test@codeit.com" && inputPassword.value === "codeit01") {
-    window.location.href = './folder.html';
-  };
-};
+const passwordToggleButton = document.querySelector("#password-toggle");
+passwordToggleButton.addEventListener("click", () =>
+  togglePassword(passwordInput, passwordToggleButton)
+);
 
-function enterSignin(e) {
-  if (e.target.tagName === "INPUT" && e.key === "Enter") {
-    goToFolder();
-  };
-};
+const signForm = document.querySelector("#form");
+signForm.addEventListener("submit", submitForm);
 
-// 눈 버튼
-function openPassword(e) {
-  const turn = inputPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-  inputPassword.setAttribute('type', turn);
-  e. target.src = turn === 'password' ? './images/eye-off.svg' : './images/eye-on.svg';
-};
+// 로그인 성공 시 이동
+async function submitForm(event) {
+  event.preventDefault();
 
-inputEmail.addEventListener('focusout', checkEmail);
-inputPassword.addEventListener('focusout', checkPassword);
-SigninButton.addEventListener('click', goToFolder);
-SigninButton.addEventListener('click', checkSignin);
-SigninButton.addEventListener('click', enterSignin);
-eyeButton.addEventListener('click', openPassword);
+  const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: emailInput.value,
+      password: passwordInput.value,
+    }),
+  });
+  if (response.status === 200) {
+    const result = await response.json();
+    localStorage.setItem("accessToken", result.data.accessToken);
+    signForm.action = "./folder.html";
+  }
+  setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
+  setInputError(
+    { input: passwordInput, errorMessage: passwordErrorMessage },
+    "비밀번호를 확인해주세요."
+  );
+}

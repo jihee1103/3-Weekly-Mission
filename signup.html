@@ -18,31 +18,31 @@
     </header>
     <!-- main -->
     <div class="sign-box">
-      <form class="sign-form">
+      <form class="sign-form" id="form">
         <div class="sign-inputs">
           <div class="sign-input-box">
-            <label class="sign-input-label" for="email">이메일</label>
-            <input class="sign-input" type="text" name="email" id="email"/>
-            <span id="email-error"></span>
+            <label class="sign-input-label">이메일</label>
+            <input class="sign-input" id="email"/>
+            <p id="email-error" class="error-message"></p>
           </div>
           <div class="sign-input-box sign-password">
-            <label class="sign-input-label" for="password">비밀번호</label>
-            <input class="sign-input" type="password" name="password" id="password"/>
-            <button class="eye-button" type="button">
+            <label class="sign-input-label">비밀번호</label>
+            <input class="sign-input" type="password" id="password"/>
+            <p id="password-error-message" class="error-message"></p>
+            <button class="eye-button" id="password-toggle" type="button">
               <img src="./images/eye-off.svg" />
             </button>
-            <span id="password-error"></span>
           </div>
           <div class="sign-input-box sign-password">
-            <label class="sign-input-label" for="password-double">비밀번호 확인</label>
-            <input class="sign-input" type="password" name="password-double" id="password-double"/>
-            <button class="eye-button" type="button" id="eye-button-double">
+            <label class="sign-input-label">비밀번호 확인</label>
+            <input class="sign-input" type="password" id="confirm-password"/>
+            <p id="confirm-password-error-message" class="error-message"></p>
+            <button class="eye-button" type="button" id="confirm-password-toggle">
               <img src="./images/eye-off.svg" />
             </button>
-            <span id="password-double-error"></span>
           </div>
         </div>
-        <button class="link" type="submit" id="signup-btn">회원가입</button>
+        <button class="link" type="submit">회원가입</button>
       </form>
       <div class="sns-box">
         <span class="sns-text">다른 방식으로 가입하기</span>
