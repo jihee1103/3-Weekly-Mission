@@ -52,18 +52,18 @@ function signIn() {
   }
 }
 
-function showAndHidePassword(elementbutton, elementInput) {
-  if (elementInput.type == "password") {
-    elementInput.type = "text";
-    elementbutton.src = "./image/eye-on.svg";
-  } else if (elementInput.type == "text") {
-    elementInput.type = "password";
-    elementbutton.src = "./image/eye-off.svg";
+function showOrHidePassword(passwordToggleButton, passwordInputField) {
+  if (passwordInputField.type == "password") {
+    passwordInputField.type = "text";
+    passwordToggleButton.src = "./image/eye-on.svg";
+  } else if (passwordInputField.type == "text") {
+    passwordInputField.type = "password";
+    passwordToggleButton.src = "./image/eye-off.svg";
   }
 }
 
 passwordOnOff.addEventListener("click", () => {
-  showAndHidePassword(passwordOnOff, inputPassword);
+  showOrHidePassword(passwordOnOff, inputPassword);
 });
 
 document.addEventListener("keypress", (event) => {
