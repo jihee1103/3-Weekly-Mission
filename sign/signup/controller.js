@@ -8,6 +8,7 @@ export default class SignUpController {
     this.model = model;
     this.view = view;
 
+    this.checkAccessTokenAndRedirect();
     this.view.emailInput.addEventListener('focusout', () => this.handleSignInEmailInputFocusout());
     this.view.emailInput.addEventListener('keydown', () => this.handleSignInEmailInputKeydown());
     this.view.passwordInput.addEventListener('focusout', () =>
@@ -102,11 +103,20 @@ export default class SignUpController {
     }
   }
 
-  // 토큰 생성
+  // access token 생성
   async createAccessToken(response) {
     const data = await response.json();
     const token = data.token;
     localStorage.setItem('accessToken', token);
+  }
+
+  // accessToken 보유 확인
+  checkAccessTokenAndRedirect() {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      location.href = '/folder.html';
+      return;
+    }
   }
 
   // 회원가입 처리
