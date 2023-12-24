@@ -9,22 +9,18 @@ export default class SignInController {
     this.view = view;
 
     this.checkAccessTokenAndRedirect();
-    this.view.emailInput.addEventListener('focusout', () => this.handleSignInEmailInputFocusout());
-    this.view.emailInput.addEventListener('keydown', () => this.handleSignInEmailInputKeydown());
-    this.view.passwordInput.addEventListener('focusout', () =>
-      this.handleSignInPasswordInputFocusout(),
-    );
-    this.view.passwordInput.addEventListener('keydown', () =>
-      this.handleSignInPasswordInputKeydown(),
-    );
+    this.view.emailInput.addEventListener('focusout', () => this.handleEmailInputFocusout());
+    this.view.emailInput.addEventListener('keydown', () => this.handleEmailInputKeydown());
+    this.view.passwordInput.addEventListener('focusout', () => this.handlePasswordInputFocusout());
+    this.view.passwordInput.addEventListener('keydown', () => this.handlePasswordInputKeydown());
     this.view.eyeIcons.forEach((button) => {
       button.addEventListener('click', (e) => this.view.handleVisibilityIconClick(e));
     });
-    this.view.formElement.addEventListener('submit', (e) => this.handleSignInFormSubmit(e));
+    this.view.formElement.addEventListener('submit', (e) => this.handleFormSubmit(e));
   }
 
   // 이메일 이벤트 핸들링
-  handleSignInEmailInputFocusout() {
+  handleEmailInputFocusout() {
     const emailValue = this.view.emailInput.value;
 
     if (!emailValue) {
@@ -41,14 +37,14 @@ export default class SignInController {
     return true;
   }
 
-  handleSignInEmailInputKeydown(e) {
+  handleEmailInputKeydown(e) {
     if (e.key === 'Enter') {
-      this.handleSignInEmailInputFocusout();
+      this.handleEmailInputFocusout();
     }
   }
 
   // 비밀번호 이벤트 핸들링
-  handleSignInPasswordInputFocusout() {
+  handlePasswordInputFocusout() {
     const passwordValue = this.view.passwordInput.value;
 
     if (passwordValue.length === 0) {
@@ -60,22 +56,22 @@ export default class SignInController {
     return true;
   }
 
-  handleSignInPasswordInputKeydown(e) {
+  handlePasswordInputKeydown(e) {
     if (e.key === 'Enter') {
-      this.handleSignInPasswordInputFocusout();
+      this.handlePasswordInputFocusout();
     }
   }
 
-  // access token 생성
-  async createAccessToken(response) {
-    const data = await response.json();
-    const token = data.token;
-    localStorage.setItem('accessToken', token);
+  // access token 저장
+  async saveAccessTokenToModel(response) {
+    const accessData = await response.json();
+    const accessToken = accessData.token;
+    this.model.setAccessToken(accessToken);
   }
 
   // accessToken 보유 확인
   checkAccessTokenAndRedirect() {
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = this.model.getAccessToken();
     if (accessToken) {
       location.href = '/folder.html';
       return;
@@ -83,7 +79,7 @@ export default class SignInController {
   }
 
   // 로그인 처리
-  async handleSignInFormSubmit(e) {
+  async handleFormSubmit(e) {
     e.preventDefault();
 
     const emailValue = this.view.emailInput.value;
@@ -111,7 +107,7 @@ export default class SignInController {
         return;
       }
 
-      this.createAccessToken(response);
+      this.saveAccessTokenToModel(response);
       location.href = '/folder.html';
     } catch (error) {
       console.error('로그인 에러:', error.message);

@@ -1,4 +1,4 @@
-import SignModel from './model.js';
+import SignModel from '../model.js';
 import SignView from '../view.js';
 import SignInController from './controller.js';
 

@@ -9,28 +9,24 @@ export default class SignUpController {
     this.view = view;
 
     this.checkAccessTokenAndRedirect();
-    this.view.emailInput.addEventListener('focusout', () => this.handleSignInEmailInputFocusout());
-    this.view.emailInput.addEventListener('keydown', () => this.handleSignInEmailInputKeydown());
-    this.view.passwordInput.addEventListener('focusout', () =>
-      this.handleSignInPasswordInputFocusout(),
-    );
-    this.view.passwordInput.addEventListener('keydown', () =>
-      this.handleSignInPasswordInputKeydown(),
-    );
+    this.view.emailInput.addEventListener('focusout', () => this.handleEmailInputFocusout());
+    this.view.emailInput.addEventListener('keydown', () => this.handleEmailInputKeydown());
+    this.view.passwordInput.addEventListener('focusout', () => this.handlePasswordInputFocusout());
+    this.view.passwordInput.addEventListener('keydown', () => this.handlePasswordInputKeydown());
     this.view.passwordRepeatInput.addEventListener('focusout', () =>
       this.handlePasswordRepeatInputFocusout(),
     );
     this.view.passwordRepeatInput.addEventListener('keydown', () =>
-      this.handleSignInPasswordRepeatInputKeydown(),
+      this.handlePasswordRepeatInputKeydown(),
     );
     this.view.eyeIcons.forEach((button) => {
       button.addEventListener('click', (e) => this.view.handleVisibilityIconClick(e));
     });
-    this.view.formElement.addEventListener('submit', (e) => this.handleSignUpFormSubmit(e));
+    this.view.formElement.addEventListener('submit', (e) => this.handleFormSubmit(e));
   }
 
   // 이메일 이벤트 핸들링
-  handleSignInEmailInputFocusout() {
+  handleEmailInputFocusout() {
     const emailValue = this.view.emailInput.value;
 
     if (!emailValue) {
@@ -47,14 +43,14 @@ export default class SignUpController {
     return true;
   }
 
-  handleSignInEmailInputKeydown(e) {
+  handleEmailInputKeydown(e) {
     if (e.key === 'Enter') {
       this.handleSignInEmailInputFocusout();
     }
   }
 
   // 비밀번호 이벤트 핸들링
-  handleSignInPasswordInputFocusout() {
+  handlePasswordInputFocusout() {
     const passwordValue = this.view.passwordInput.value;
 
     if (!passwordValue) {
@@ -67,9 +63,9 @@ export default class SignUpController {
     return true;
   }
 
-  handleSignInPasswordInputKeydown(e) {
+  handlePasswordInputKeydown(e) {
     if (e.key === 'Enter') {
-      this.handleSignInPasswordInputFocusout();
+      this.handleInPasswordInputFocusout();
     }
   }
 
@@ -97,9 +93,9 @@ export default class SignUpController {
     return true;
   }
 
-  handleSignInPasswordRepeatInputKeydown(e) {
+  handlPasswordRepeatInputKeydown(e) {
     if (e.key === 'Enter') {
-      this.handleSignInPasswordRepeatInputFocusout();
+      this.handlePasswordRepeatInputFocusout();
     }
   }
 
@@ -120,7 +116,7 @@ export default class SignUpController {
   }
 
   // 회원가입 처리
-  async handleSignUpFormSubmit(e) {
+  async handleFormSubmit(e) {
     e.preventDefault();
 
     const emailValue = this.view.emailInput.value;
