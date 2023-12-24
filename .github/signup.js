@@ -1,15 +1,17 @@
+import {testEmail, emailInput, pwInput, isValidEmail, isValidPw} from './validation.js'; 
+import {errManager} from './validation.js';
 
 function emailErrorMessage() {
   const inputValue = emailInput.value;
 
   if (inputValue === '') {
-    showEmailError('이메일을 입력해주세요.');
+    errManager.showEmail('이메일을 입력해주세요.');
   } else if (inputValue === testEmail) {
-    showEmailError('이미 사용 중인 이메일입니다.');
+    errManager.showEmail('이미 사용 중인 이메일입니다.');
   } else if (!isValidEmail(inputValue)) {
-    showEmailError('올바른 이메일 주소가 아닙니다.');
+    errManager.showEmail('올바른 이메일 주소가 아닙니다.');
   } else {
-    hideEmailError();
+    errManager.hideEmail();
   }
 }
 
@@ -25,13 +27,13 @@ function pwErrorMessage() {
   const inputValue = pwInput.value;
   const targetValue = pw2Input.value;
 
-  hidePasswordError();
+  errManager.hidePassword();
   hidePassword2Error();
 
   if (inputValue === '') {
-    showPasswordError('비밀번호를 입력해주세요.');
+    errManager.showPassword('비밀번호를 입력해주세요.');
   } else if (!isValidPw(inputValue)) {
-    showPasswordError('비밀번호는 영문,숫자 조합 8자 이상 입력해 주세요.');
+    errManager.showPassword('비밀번호는 영문,숫자 조합 8자 이상 입력해 주세요.');
   } else if (inputValue !== targetValue) {
     showNotMatchError('비밀번호가 일치하지 않아요.');
   }
