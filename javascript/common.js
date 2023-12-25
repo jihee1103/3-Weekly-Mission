@@ -15,14 +15,14 @@ const signupForm = document.getElementById('signup-form');
 const errorPasswordcheck = document.querySelector('.error-password-check');
 const eyeIconcheck = document.querySelector('.eye-icon2');
 // 이메일 에러 처리 함수
-function handleEmailError(message) {
+function showEmailError(message) {
   errorEmail.textContent = message;
   errorEmail.classList.toggle('error', !!message);
   errorEmailbox.classList.toggle('error-box', !!message);
 }
 
 // 패스워드 에러 처리 함수
-function handlePasswordError(message) {
+function showPasswordError(message) {
   errorPassword.textContent = message;
   errorPassword.classList.toggle('error', !!message);
   errorPasswordbox.classList.toggle('error-box', !!message);
@@ -43,7 +43,7 @@ function validatePassword(password) {
 }
 
 // 패스워드 확인 에러 처리 함수
-function handlePasswordcheckError(message) {
+function showPasswordcheckError(message) {
   errorPasswordcheck.textContent = message;
   errorPasswordcheck.classList.toggle('error', !!message);
   errorPasswordcheckbox.classList.toggle('error-box', !!message);
@@ -71,9 +71,9 @@ export {
   eyeIconcheck,
   passwordEye,
   passwordcheckInput,
-  handleEmailError,
-  handlePasswordError,
-  handlePasswordcheckError,
+  showEmailError,
+  showPasswordError,
+  showPasswordcheckError,
   validateEmail,
   validatePassword,
   validatePasswordcheck,

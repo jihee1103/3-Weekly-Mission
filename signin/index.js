@@ -4,8 +4,8 @@ import {
   loginButton,
   eyeIcon,
   passwordEye,
-  handleEmailError,
-  handlePasswordError,
+  showEmailError,
+  showPasswordError,
   validateEmail,
   validatePassword,
   MOCK_EMAIL,
@@ -16,36 +16,36 @@ import { signIn } from '../javascript/api.js';
 
 const signinForm = document.getElementById('signin-form');
 
-function handleEmailInputFocusout() {
+function showEmailInputFocusout() {
   const emailValue = emailInput.value;
 
   if (!emailValue) {
-    handleEmailError('이메일을 입력해주세요.');
+    showEmailError('이메일을 입력해주세요.');
     return;
   }
 
   if (!validateEmail(emailValue)) {
-    handleEmailError('올바른 이메일 주소가 아닙니다.');
+    showEmailError('올바른 이메일 주소가 아닙니다.');
     return;
   }
 
-  handleEmailError('');
+  showEmailError('');
 }
 
-function handlePasswordInputFocusout() {
+function showPasswordInputFocusout() {
   const passwordValue = passwordInput.value;
 
   if (!passwordValue) {
-    handlePasswordError('비밀번호를 입력해주세요.');
+    showPasswordError('비밀번호를 입력해주세요.');
     return;
   }
 
   if (!validatePassword(passwordValue)) {
-    handlePasswordError('비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.');
+    showPasswordError('비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.');
     return;
   }
 
-  handlePasswordError('');
+  showPasswordError('');
 }
 
 async function sendSignInRequest() {
@@ -55,16 +55,14 @@ async function sendSignInRequest() {
   try {
     const response = await signIn(emailValue, passwordValue);
 
-    if (response.status === 200) {
-      const data = await response.json();
-      signinForm.action = '../etc/folder.html';
-      signinForm.submit();
+    if (response.ok) {
+      window.location.href = '../etc/folder.html';
       return;
     }
 
     if (response.status === 400) {
-      handleEmailError('이메일을 확인해주세요.');
-      handlePasswordError('비밀번호를 확인해주세요.');
+      showEmailError('이메일을 확인해주세요.');
+      showPasswordError('비밀번호를 확인해주세요.');
     }
     throw new Error('로그인 요청 실패');
   } catch (error) {
@@ -73,7 +71,7 @@ async function sendSignInRequest() {
   }
 }
 
-function handleFormSubmit(event) {
+function showFormSubmit(event) {
   event.preventDefault();
   sendSignInRequest();
 }
@@ -88,7 +86,7 @@ function togglePasswordVisibility() {
   }
 }
 
-emailInput.addEventListener('focusout', handleEmailInputFocusout);
-passwordInput.addEventListener('focusout', handlePasswordInputFocusout);
-loginButton.addEventListener('click', handleFormSubmit);
+emailInput.addEventListener('focusout', showEmailInputFocusout);
+passwordInput.addEventListener('focusout', showPasswordInputFocusout);
+loginButton.addEventListener('click', showFormSubmit);
 eyeIcon.addEventListener('click', togglePasswordVisibility);
