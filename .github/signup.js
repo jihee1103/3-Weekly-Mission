@@ -2,16 +2,14 @@ import {testEmail, emailInput, pwInput, isValidEmail, isValidPw} from './validat
 import {errManager} from './validation.js';
 
 function emailErrorMessage() {
-  const inputValue = emailInput.value;
+const inputValue = emailInput.value;
 
   if (inputValue === '') {
     errManager.showEmail('이메일을 입력해주세요.');
-  } else if (inputValue === testEmail) {
-    errManager.showEmail('이미 사용 중인 이메일입니다.');
   } else if (!isValidEmail(inputValue)) {
     errManager.showEmail('올바른 이메일 주소가 아닙니다.');
   } else {
-    errManager.hideEmail();
+    errManager.hideEmail();  
   }
 }
 
@@ -55,6 +53,38 @@ pw2Input.addEventListener('focusout', pwErrorMessage);
 
 const signupForm = document.querySelector('#signupForm');
 
+async function checkEmailDuplicate(email) {
+  const emailCheckUrl = 'https://bootcamp-api.codeit.kr/api/check-email';
+  const data = {
+    email,
+  };
+
+  try {
+    const response = await fetch(emailCheckUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.status === 200) {
+      alert("회원가입 완료");
+      location.href = "folder.html"
+      return false;
+    } else if (response.status === 409) {
+      alert("이메일 중복");
+      return true;
+    } else {
+      alert("이메일 중복 확인 실패");
+      return false;
+    }
+  } catch (err) {
+    console.error('에러 발생:', err);
+    return false;
+  }
+}
+
 function signupCheck(e) {
   const inputEmail = emailInput.value;
   const inputPw = pwInput.value;
@@ -66,9 +96,9 @@ function signupCheck(e) {
     inputPw === input2Pw
   ) {
     e.preventDefault();
-    location.href = "folder.html";
+    checkEmailDuplicate(inputEmail);
   } else {
-    e.preventDefault();
+    errManager
   }
 }
 
