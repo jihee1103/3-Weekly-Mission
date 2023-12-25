@@ -72,9 +72,8 @@ const signupRegisterBtnHandler = function (event) {
                 body: JSON.stringify(signUpData),
             });
             if (response.status === 200) {
-                const result = await response.json();
-                const accessToken = result.data.accessToken;
-                const refreshToken = result.data.refreshToken;
+                const data = await response.json();
+                const { accessToken, refreshToken } = data.data;
                 localStorage.setItem('accessToken', accessToken);
                 localStorage.setItem('refreshToken', refreshToken);
                 location.href = '/folder.html';
@@ -89,7 +88,7 @@ const signupRegisterBtnHandler = function (event) {
 };
 
 signupEmailInput.addEventListener('focusout', event => {
-    signEmailHandler(event, signupPasswordError);
+    signEmailHandler(event, signupEmailError);
 });
 signupPasswordInput.addEventListener('focusout', event => {
     signPasswordHandler(event, signupPasswordError);

@@ -1,4 +1,5 @@
 import { CONFIRM_EMAIL } from './constant.js';
+import { EMPTY_EMAIL, INVALID_EMAIL } from './constant.js';
 
 const signEmailHandler = function (event, elementShowingError) {
     const emailAddress = event.target.value;

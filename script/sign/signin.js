@@ -37,8 +37,7 @@ const signinLoginBtnHandler = function () {
             });
             if (response.status === 200) {
                 const data = await response.json();
-                let accessToken = data.data.accessToken;
-                let refreshToken = data.data.refreshToken;
+                const { accessToken, refreshToken } = data.data;
                 localStorage.setItem('accessToken', accessToken);
                 localStorage.setItem('refreshToken', refreshToken);
                 location.href = '/folder.html';
