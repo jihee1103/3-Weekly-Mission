@@ -41,8 +41,7 @@ export const TEST_USER = {
 export const link = "/folder.html";
 
 //이메일 확인
-export function validEmail(event) {
-  const email = event.target.value;
+export function validEmail(email) {
   if (email.length === 0) {
     setInputError(
       { input: emailInput, errorMessage: emailErrorMessage },
@@ -62,8 +61,7 @@ export function validEmail(event) {
 }
 
 //비밀번호 확인
-export function passChecker(event) {
-  const pass = event.target.value;
+export function passChecker(pass) {
   const isEightLettersOrMore = pass.length >= 8;
   const hasNumberAndCharacter =
     pass.match(/[0-9]/g) && pass.match(/[a-zA-Z]/gi);

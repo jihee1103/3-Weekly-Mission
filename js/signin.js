@@ -46,6 +46,10 @@ function signinConfirm(event) {
   }
 }
 
-emailInput.addEventListener("focusout", validEmail);
-passInput.addEventListener("focusout", passChecker);
+emailInput.addEventListener("focusout", (event) =>
+  validEmail(event.target.value)
+);
+passInput.addEventListener("focusout", (event) =>
+  passChecker(event.target.value)
+);
 signinBtn.addEventListener("click", signinConfirm);

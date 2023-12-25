@@ -33,8 +33,8 @@ function passMatchChecker() {
 }
 
 //기존 이메일 중복 확인
-function usingEmailChecker(event) {
-  if (event.target.value === TEST_USER.email) {
+function usingEmailChecker(email) {
+  if (email === TEST_USER.email) {
     setInputError(
       { input: emailInput, errorMessage: emailErrorMessage },
       usingEmail
@@ -63,8 +63,14 @@ function signupConfirm(event) {
   }
 }
 
-emailInput.addEventListener("focusout", validEmail);
-emailInput.addEventListener("focusout", usingEmailChecker);
-passInput.addEventListener("focusout", passChecker);
+emailInput.addEventListener("focusout", (event) =>
+  validEmail(event.target.value)
+);
+emailInput.addEventListener("focusout", (event) =>
+  usingEmailChecker(event.target.value)
+);
+passInput.addEventListener("focusout", (event) =>
+  passChecker(event.target.value)
+);
 checkPassInput.addEventListener("focusout", passMatchChecker);
 signupBtn.addEventListener("click", signupConfirm);
