@@ -1,7 +1,25 @@
 import { validateEmail, validatePassword, togglePasswordVisibility } from './sign_module.js';
 
-const CORRECT_EMAIL = 'test@codeit.com';
-const CORRECT_PASSWORD = 'codeit101';
+const fetchSignIn = async (email, password) => {
+  let myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  let raw = JSON.stringify({
+    email,
+    password,
+  });
+
+  let requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
+  const res = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", requestOptions)
+
+  return res;
+}
 
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
@@ -26,13 +44,17 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   const loginButton = document.querySelector('.cta');
-  loginButton.addEventListener('click', function (event) {
+  loginButton.addEventListener('click', async function (event) {
     event.preventDefault();
     validateEmail(emailInput, emailError);
     validatePassword(passwordInput, passwordError);
 
-    if (emailInput.value === CORRECT_EMAIL && passwordInput.value === CORRECT_PASSWORD) {
-      window.location.href = '/folder';
+    const response = await fetchSignIn(emailInput.value, passwordInput.value);
+
+    if (response.ok) {
+      window.location.href = "/folder";
+    } else {
+      alert("이메일 또는 비밀번호가 일치하지 않습니다.");
     }
   });
 });
