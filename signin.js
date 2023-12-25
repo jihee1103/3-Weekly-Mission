@@ -29,6 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const eyeButtons = document.getElementsByClassName('eye-button');
 
+  const accessTokenFromLocalStorage = localStorage.getItem("accessToken");
+
+  if (accessTokenFromLocalStorage) {
+    window.location.href = "/folder";
+  }
+
   Array.from(eyeButtons).forEach(function (button) {
     button.addEventListener('click', function () {
       togglePasswordVisibility(this);
@@ -52,6 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const response = await fetchSignIn(emailInput.value, passwordInput.value);
 
     if (response.ok) {
+      const res = JSON.parse(await response.text());
+      localStorage.setItem("accessToken", res.data.accessToken);
       window.location.href = "/folder";
     } else {
       alert("이메일 또는 비밀번호가 일치하지 않습니다.");
