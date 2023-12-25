@@ -6,7 +6,7 @@ import {
   pleaseCheckPassword,
 } from "./message.js";
 
-import { setInputError, removeInputError } from "./utils.js";
+import { setInputError, removeInputError, TEST_USER } from "./utils.js";
 
 //데이터
 const emailInput = document.querySelector("#signup-email");
@@ -50,12 +50,15 @@ function passChecker(e) {
 }
 
 //로그인 확인
-function signinConfirm(e) {
+function signinConfirm(event) {
+  event.preventDefault();
+
   if (
-    emailInput.value === "test@codeit.com" &&
-    passInput.value === "codeit101"
+    emailInput.value === TEST_USER.email &&
+    passInput.value === TEST_USER.password
   ) {
     location.href = link;
+    return;
   } else {
     setInputError(
       { input: emailInput, errorMessage: emailErrorMessage },

@@ -8,3 +8,8 @@ export const removeInputError = function (elements) {
   elements.input.classList.remove("error-border");
   elements.errorMessage.remove();
 };
+
+export const TEST_USER = {
+  email: "test@codeit.com",
+  password: "codeit101",
+};
