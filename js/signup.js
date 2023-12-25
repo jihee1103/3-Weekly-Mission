@@ -50,7 +50,7 @@ function signupConfirm(event) {
 
   const isEmailInputValid = validEmail(emailInput.value);
   const isNotUsingEmail = usingEmailChecker(emailInput.value);
-  const isPasswordInputValid = passChecker(passwordInput.value);
+  const isPasswordInputValid = passChecker(passInput.value);
   const isCheckPasswordInputValid = passMatchChecker(checkPassInput.value);
 
   if (
