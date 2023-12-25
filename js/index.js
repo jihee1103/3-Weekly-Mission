@@ -9,10 +9,13 @@ import {
   pleaseCheckPassword,
 } from "./message.js";
 
+import { setInputError, removeInputError } from "./utils.js";
+
 //데이터
 const emailInput = document.querySelector("#signup-email");
 const passInput = document.querySelector("#password");
 const inputs = document.querySelectorAll(".input");
+
 const emailErrorMessage = document.querySelector(".email-message");
 const passwordErrorMessage = document.querySelector(".password-message");
 const checkPasswordErrorMessage = document.querySelector(
@@ -27,16 +30,17 @@ const link = "/folder.html";
 function validEmail(e) {
   const email = e.target.value;
   if (email.length === 0) {
-    emailErrorMessage.textContent = pleaseInputEmail;
-    emailErrorMessage.classList.add("error");
-    emailInput.classList.add("error-border");
+    setInputError(
+      { input: emailInput, errorMessage: emailErrorMessage },
+      pleaseInputEmail
+    );
   } else if (!email.includes("@")) {
-    emailErrorMessage.textContent = notCorrectEmail;
-    emailInput.classList.add("error-border");
-    inputs[0].lastElementChild.classList.add("error-font");
+    setInputError(
+      { input: emailInput, errorMessage: emailErrorMessage },
+      notCorrectEmail
+    );
   } else {
-    emailInput.classList.remove("error-border");
-    emailErrorMessage.remove();
+    removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
   }
 }
 
@@ -44,24 +48,27 @@ function validEmail(e) {
 function passChecker(e) {
   const pass = e.target.value;
   if (pass.length === 0) {
-    passwordErrorMessage.textContent = pleaseInputPassword;
-    passwordErrorMessage.classList.add("error");
-    passInput.classList.add("error-border");
+    setInputError(
+      { input: passInput, errorMessage: passwordErrorMessage },
+      pleaseInputPassword
+    );
   } else {
-    passInput.classList.remove("error-border");
-    passwordErrorMessage.remove();
+    removeInputError({ input: passInput, errorMessage: passwordErrorMessage });
   }
 }
 
 //비밀번호 일치 확인
 function passMatchChecker(e) {
   if (passInput.value !== checkPassInput.value) {
-    checkPasswordErrorMessage.textContent = passwordNotMatch;
-    checkPasswordErrorMessage.classList.add("error");
-    checkPassInput.classList.add("error-border");
+    setInputError(
+      { input: checkPassInput, errorMessage: checkPasswordErrorMessage },
+      passwordNotMatch
+    );
   } else {
-    checkPassInput.classList.remove("error-border");
-    checkPasswordErrorMessage.remove();
+    removeInputError({
+      input: checkPassInput,
+      errorMessage: checkPasswordErrorMessage,
+    });
   }
 }
 
@@ -73,17 +80,22 @@ function signinConfirm(e) {
   ) {
     location.href = link;
   } else {
-    emailErrorMessage.textContent = pleaseCheckEmail;
-    emailErrorMessage.classList.add("error");
-    emailInput.classList.add("error-border");
-
-    passwordErrorMessage.textContent = pleaseCheckPassword;
-    passwordErrorMessage.classList.add("error");
-    passInput.classList.add("error-border");
+    setInputError(
+      { input: emailInput, errorMessage: emailErrorMessage },
+      pleaseCheckEmail
+    );
+    setInputError(
+      { input: passInput, errorMessage: passwordErrorMessage },
+      pleaseCheckPassword
+    );
   }
 }
 
-emailInput.addEventListener("change", validEmail);
-passInput.addEventListener("change", passChecker);
-checkPassInput.addEventListener("change", passMatchChecker);
+//회원가입 확인
+function signupConfirm(e) {}
+
+emailInput.addEventListener("focusout", validEmail);
+passInput.addEventListener("focusout", passChecker);
+checkPassInput.addEventListener("focusout", passMatchChecker);
 signinBtn.addEventListener("click", signinConfirm);
+signupBtn.addEventListener("click", signupConfirm);
