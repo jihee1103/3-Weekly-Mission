@@ -76,47 +76,32 @@ async function sendSignUpRequest() {
   const passwordValue = passwordInput.value;
   const passwordcheckValue = passwordcheckInput.value;
 
-  try {
-    const checkEmailResponse = await checkDuplicateEmail(emailValue);
+  const checkEmailResponse = await checkDuplicateEmail(emailValue);
 
-    if (checkEmailResponse.status === 409) {
-      showEmailError('이미 존재하는 이메일입니다.');
-      return;
-    }
-    if (checkEmailResponse.status !== 200) {
-      throw new Error('이메일 중복 확인 요청 실패');
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    throw new Error('이메일 중복 확인 요청 실패');
+  if (!checkEmailResponse.ok) {
+    handleEmailError('이미 존재하는 이메일입니다.');
+    return;
   }
 
   if (
-    validateEmail(emailValue) &&
-    validatePassword(passwordValue) &&
-    validatePasswordcheck(passwordValue, passwordcheckValue)
+    !validateEmail(emailValue) ||
+    !validatePassword(passwordValue) ||
+    !validatePasswordcheck(passwordValue, passwordcheckValue)
   ) {
-    try {
-      const response = await signUp(emailValue, passwordValue);
-
-      if (response.status === 200) {
-        signupForm.action = '../etc/folder.html';
-        signupForm.submit();
-        return;
-      }
-      if (response.status === 400) {
-        showEmailError('이메일을 확인해주세요.');
-        showPasswordError('비밀번호를 확인해주세요.');
-        showPasswordcheckError('비밀번호를 확인해주세요.');
-        return;
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      throw new Error('회원가입 요청 실패');
-    }
+    return;
   }
-}
 
+  const signUpResponse = await signUp(emailValue, passwordValue);
+
+  if (!signUpResponse.ok) {
+    handleEmailError('이메일을 확인해주세요.');
+    handlePasswordError('비밀번호를 확인해주세요.');
+    handlePasswordcheckError('비밀번호를 확인해주세요.');
+    return;
+  }
+
+  window.location.href = '../etc/folder.html';
+}
 function showFormSubmit(event) {
   event.preventDefault();
   sendSignUpRequest();
