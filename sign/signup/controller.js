@@ -14,14 +14,9 @@ export default class SignUpController {
     }
 
     this.view.emailInput.addEventListener('focusout', () => this.handleEmailInputFocusout());
-    this.view.emailInput.addEventListener('keydown', () => this.handleEmailInputKeydown());
     this.view.passwordInput.addEventListener('focusout', () => this.handlePasswordInputFocusout());
-    this.view.passwordInput.addEventListener('keydown', () => this.handlePasswordInputKeydown());
     this.view.passwordConfirmInput.addEventListener('focusout', () =>
       this.handlePasswordConfirmInputFocusout(),
-    );
-    this.view.passwordConfirmInput.addEventListener('keydown', () =>
-      this.handlePasswordConfirmInputKeydown(),
     );
     this.view.eyeIcons.forEach((button) => {
       button.addEventListener('click', (e) => this.view.handleEyeIconClick(e));
@@ -29,7 +24,6 @@ export default class SignUpController {
     this.view.formElement.addEventListener('submit', (e) => this.handleFormSubmit(e));
   }
 
-  // 이메일 이벤트 핸들링
   handleEmailInputFocusout() {
     const emailValue = this.view.emailInput.value;
 
@@ -47,13 +41,6 @@ export default class SignUpController {
     return true;
   }
 
-  handleEmailInputKeydown(e) {
-    if (e.key === 'Enter') {
-      this.handleEmailInputFocusout();
-    }
-  }
-
-  // 비밀번호 이벤트 핸들링
   handlePasswordInputFocusout() {
     const passwordValue = this.view.passwordInput.value;
 
@@ -70,13 +57,6 @@ export default class SignUpController {
     return true;
   }
 
-  handlePasswordInputKeydown(e) {
-    if (e.key === 'Enter') {
-      this.handlePasswordInputFocusout();
-    }
-  }
-
-  // 비밀번호 확인 이벤트 핸들링
   handlePasswordConfirmInputFocusout() {
     const passwordConfirmValue = this.view.passwordConfirmInput.value;
 
@@ -100,37 +80,6 @@ export default class SignUpController {
     return true;
   }
 
-  handlPasswordConfirmInputKeydown(e) {
-    if (e.key === 'Enter') {
-      this.handlePasswordConfirmInputFocusout();
-    }
-  }
-
-  setAccessTokenCookie(token, days) {
-    const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + days);
-    const cookieValue = `accessToken=${token}; expires=${expirationDate.toUTCString()}; path=/`;
-    document.cookie = cookieValue;
-  }
-
-  async saveAccessTokenToCookie(response) {
-    const accessData = await response.json();
-    const accessToken = accessData.token;
-    this.setAccessTokenCookie(accessToken, 1);
-  }
-
-  hasAccessToken() {
-    const cookies = document.cookie.split(';');
-    cookies.forEach((cookie) => {
-      const trimmedCookie = cookie.trim();
-      if (trimmedCookie.startsWith('accessToken=')) {
-        return true;
-      }
-    });
-    return false;
-  }
-
-  // 회원가입 처리
   async handleFormSubmit(e) {
     e.preventDefault();
 
@@ -179,11 +128,35 @@ export default class SignUpController {
         return;
       }
 
-      this.saveTokenToCookie(signUpResponse);
+      this.saveAccessTokenToCookie(signUpResponse);
       location.href = '/folder.html';
     } catch (error) {
       console.error('회원가입 에러:', error.message);
       alert(getErrorMessage('SIGN_UP_FAILED'));
     }
+  }
+
+  setAccessTokenCookie(token, days) {
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + days);
+    const cookieValue = `accessToken=${token}; expires=${expirationDate.toUTCString()}; path=/`;
+    document.cookie = cookieValue;
+  }
+
+  async saveAccessTokenToCookie(response) {
+    const accessData = await response.json();
+    const accessToken = accessData.token;
+    this.setAccessTokenCookie(accessToken, 1);
+  }
+
+  hasAccessToken() {
+    const cookies = document.cookie.split(';');
+    cookies.forEach((cookie) => {
+      const trimmedCookie = cookie.trim();
+      if (trimmedCookie.startsWith('accessToken=')) {
+        return true;
+      }
+    });
+    return false;
   }
 }

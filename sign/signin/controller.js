@@ -14,16 +14,13 @@ export default class SignInController {
     }
 
     this.view.emailInput.addEventListener('focusout', () => this.handleEmailInputFocusout());
-    this.view.emailInput.addEventListener('keydown', () => this.handleEmailInputKeydown());
     this.view.passwordInput.addEventListener('focusout', () => this.handlePasswordInputFocusout());
-    this.view.passwordInput.addEventListener('keydown', () => this.handlePasswordInputKeydown());
     this.view.eyeIcons.forEach((icon) => {
       icon.addEventListener('click', (e) => this.view.handleEyeIconClick(e));
     });
     this.view.formElement.addEventListener('submit', (e) => this.handleFormSubmit(e));
   }
 
-  // 이메일 이벤트 핸들링
   handleEmailInputFocusout() {
     const emailValue = this.view.emailInput.value;
 
@@ -41,13 +38,6 @@ export default class SignInController {
     return true;
   }
 
-  handleEmailInputKeydown(e) {
-    if (e.key === 'Enter') {
-      this.handleEmailInputFocusout();
-    }
-  }
-
-  // 비밀번호 이벤트 핸들링
   handlePasswordInputFocusout() {
     const passwordValue = this.view.passwordInput.value;
 
@@ -60,37 +50,6 @@ export default class SignInController {
     return true;
   }
 
-  handlePasswordInputKeydown(e) {
-    if (e.key === 'Enter') {
-      this.handlePasswordInputFocusout();
-    }
-  }
-
-  setAccessTokenCookie(token, days) {
-    const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + days);
-    const cookieValue = `accessToken=${token}; expires=${expirationDate.toUTCString()}; path=/`;
-    document.cookie = cookieValue;
-  }
-
-  async saveAccessTokenToCookie(response) {
-    const accessData = await response.json();
-    const accessToken = accessData.token;
-    this.setAccessTokenCookie(accessToken, 1);
-  }
-
-  hasAccessToken() {
-    const cookies = document.cookie.split(';');
-    cookies.forEach((cookie) => {
-      const trimmedCookie = cookie.trim();
-      if (trimmedCookie.startsWith('accessToken=')) {
-        return true;
-      }
-    });
-    return false;
-  }
-
-  // 로그인 처리
   async handleFormSubmit(e) {
     e.preventDefault();
 
@@ -119,11 +78,35 @@ export default class SignInController {
         return;
       }
 
-      this.saveTokenToCookie(signInResponse);
+      this.saveAccessTokenToCookie(signInResponse);
       location.href = '/folder.html';
     } catch (error) {
       console.error('로그인 에러:', error.message);
       alert(getErrorMessage('SIGN_IN_FAILED'));
     }
+  }
+
+  setAccessTokenCookie(token, days) {
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + days);
+    const cookieValue = `accessToken=${token}; expires=${expirationDate.toUTCString()}; path=/`;
+    document.cookie = cookieValue;
+  }
+
+  async saveAccessTokenToCookie(response) {
+    const accessData = await response.json();
+    const accessToken = accessData.token;
+    this.setAccessTokenCookie(accessToken, 1);
+  }
+
+  hasAccessToken() {
+    const cookies = document.cookie.split(';');
+    cookies.forEach((cookie) => {
+      const trimmedCookie = cookie.trim();
+      if (trimmedCookie.startsWith('accessToken=')) {
+        return true;
+      }
+    });
+    return false;
   }
 }
