@@ -68,15 +68,10 @@ async function checkEmailDuplicate(email) {
       body: JSON.stringify(data),
     });
 
-    if (response.status === 200) {
-      alert("회원가입 완료");
-      location.href = "folder.html"
-      return false;
-    } else if (response.status === 409) {
+    if (response.status === 409) {
       alert("이메일 중복");
       return true;
     } else {
-      alert("이메일 중복 확인 실패");
       return false;
     }
   } catch (err) {
@@ -85,7 +80,34 @@ async function checkEmailDuplicate(email) {
   }
 }
 
-function signupCheck(e) {
+async function signup(email, password) {
+  const signupUrl = 'https://bootcamp-api.codeit.kr/api/sign-up';
+  const signupData = {
+    email,
+    password,
+  };
+
+  try {
+    const signupResponse = await fetch(signupUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(signupData),
+    });
+
+    if (signupResponse.status === 200) {
+      alert("회원가입 완료");
+      location.href = "folder.html";
+    } else {
+      alert("회원가입 실패");
+    }
+  } catch (err) {
+    console.error('회원가입 에러 발생:', err);
+  }
+}
+
+async function signupCheck(e) {
   const inputEmail = emailInput.value;
   const inputPw = pwInput.value;
   const input2Pw = pw2Input.value;
@@ -96,10 +118,14 @@ function signupCheck(e) {
     inputPw === input2Pw
   ) {
     e.preventDefault();
-    checkEmailDuplicate(inputEmail);
-  } else {
-    errManager
+    const isEmailDuplicate = await checkEmailDuplicate(inputEmail);
+
+    if(!isEmailDuplicate) {
+      await signup(inputEmail, inputPw);
+    }
   }
+
+  e.preventDefault();
 }
 
 signupForm.addEventListener('submit', signupCheck);
