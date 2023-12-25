@@ -32,7 +32,6 @@ const $passwordCheckShowBtn = document.querySelector('.passwordcheck-input-box .
 const mockUserList = [
   {
     id: 'test@codeit.com',
-    // ps: 'codeit101',
     ps: 'sprint101',
   },
 ];
@@ -250,7 +249,6 @@ $form.addEventListener('submit', e => onSubmitHandler(e), { signal });
 function togglePasswordShow($passwordInput) {
   let isShow = false;
   return function (e) {
-    // console.log(e.target); // img
     $passwordInput.setAttribute('type', isShow ? 'password' : 'text');
     e.target.setAttribute(
       'src',
