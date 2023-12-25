@@ -1,16 +1,4 @@
-import {
-  emailInput,
-  passwordInput,
-  loginButton,
-  eyeIcon,
-  passwordEye,
-  showEmailError,
-  showPasswordError,
-  validateEmail,
-  validatePassword,
-  MOCK_EMAIL,
-  MOCK_PASSWORD,
-} from '../javascript/common.js';
+import { email, password, loginButton, eyeIcon } from '../javascript/common.js';
 
 import {
   signIn,
@@ -21,40 +9,40 @@ import {
 const signinForm = document.getElementById('signin-form');
 
 function showEmailInputFocusout() {
-  const emailValue = emailInput.value;
+  const emailValue = email.input.value;
 
   if (!emailValue) {
-    showEmailError('이메일을 입력해주세요.');
+    email.showError('이메일을 입력해주세요.');
     return;
   }
 
-  if (!validateEmail(emailValue)) {
-    showEmailError('올바른 이메일 주소가 아닙니다.');
+  if (!email.validate(emailValue)) {
+    email.showError('올바른 이메일 주소가 아닙니다.');
     return;
   }
 
-  showEmailError('');
+  email.showError('');
 }
 
 function showPasswordInputFocusout() {
-  const passwordValue = passwordInput.value;
+  const passwordValue = password.input.value;
 
   if (!passwordValue) {
-    showPasswordError('비밀번호를 입력해주세요.');
+    password.showError('비밀번호를 입력해주세요.');
     return;
   }
 
-  if (!validatePassword(passwordValue)) {
-    showPasswordError('비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.');
+  if (!password.validate(passwordValue)) {
+    password.showError('비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.');
     return;
   }
 
-  showPasswordError('');
+  password.showError('');
 }
 
 async function sendSignInRequest() {
-  const emailValue = emailInput.value;
-  const passwordValue = passwordInput.value;
+  const emailValue = email.input.value;
+  const passwordValue = password.input.value;
   const response = await signIn(emailValue, passwordValue);
 
   if (response.ok) {
@@ -63,8 +51,8 @@ async function sendSignInRequest() {
     storeAccessToken(accessToken);
     checkAndRedirect();
   } else if (response.status === 400) {
-    showEmailError('이메일을 확인해주세요.');
-    showPasswordError('비밀번호를 확인해주세요.');
+    email.showError('이메일을 확인해주세요.');
+    password.showError('비밀번호를 확인해주세요.');
   }
 }
 
@@ -74,18 +62,18 @@ function showFormSubmit(event) {
 }
 
 function togglePasswordVisibility() {
-  if (passwordEye.type === 'password') {
-    passwordEye.type = 'text';
+  if (password.eye.type === 'password') {
+    password.eye.type = 'text';
     eyeIcon.src = '../image/eye-on.png';
   } else {
-    passwordEye.type = 'password';
+    password.eye.type = 'password';
     eyeIcon.src = '../image/eye-off.png';
   }
 }
 
 checkAndRedirect();
 
-emailInput.addEventListener('focusout', showEmailInputFocusout);
-passwordInput.addEventListener('focusout', showPasswordInputFocusout);
+email.input.addEventListener('focusout', showEmailInputFocusout);
+password.input.addEventListener('focusout', showPasswordInputFocusout);
 loginButton.addEventListener('click', showFormSubmit);
 eyeIcon.addEventListener('click', togglePasswordVisibility);
