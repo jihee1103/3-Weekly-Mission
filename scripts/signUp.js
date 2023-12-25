@@ -1,5 +1,5 @@
 import {default as common, signUpModule as signUp} from "./signModule.js";
-import {ERRORS} from "../utils/constants.js";
+import {ERRORS, END_POINTS} from '../utils/constants.js';
 
 const {passwordConfirmInput, passwordConfirmFocusout} = signUp;
 const IMAGE_EYE_ON = "./images/signin-eye-on.svg";
@@ -10,6 +10,7 @@ const {
   emailInput,
   passwordInput,
   eyeIcons,
+  checkToken,
   emailValidation,
   emailFocusin,
   emailFocusout,
@@ -28,21 +29,82 @@ const passwordValidation = function (value) {
   return !(value.length < 8 || value.length > 20);
 }
 //submit 이벤트 핸들러
-const submit = function (e) {
+const submit = async function (e) {
   e.preventDefault();
   if (!emailValidation(emailInput.value)) {
-    alert(ERRORS.MAPPER.emailInvalidError);
+    alert(ERRORS.MAPPER.EMAIL_INVALID);
     return
   }
   if (!passwordValidation(passwordInput.value)) {
-    alert(ERRORS.MAPPER.passwordLengthError)
+    alert(ERRORS.MAPPER.PASSWORD_LENGTH)
     return;
   }
   if (!checkSamePassword()) {
-    alert(ERRORS.MAPPER.passwordNotMatchError);
+    alert(ERRORS.MAPPER.PASSWORD_NOT_MATCH);
     return;
   }
-  window.location.href = "../temp-success.html";
+  if (!await checkEmailDuplication()) {
+    alert(ERRORS.MAPPER.EMAIL_DUPLICATED);
+    return;
+  }
+
+  const result = await trySignUp()
+
+  //페이지 이동
+  if (result) {
+    localStorage.setItem('accessToken', result.accessToken);
+    localStorage.setItem('refreshToken', result.refreshToken);
+    location.href = '../temp-success.html';
+    return;
+  }
+
+  alert(ERRORS.MAPPER.SIGN_UP_FAILED);
+}
+
+async function trySignUp() {
+  try {
+    const response = await fetch(END_POINTS.SIGN_UP, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: emailInput.value,
+        password: passwordInput.value,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (response.status !== 200) {
+      alert(result.error.message);
+      return
+    }
+
+    const accessToken = await result.data.accessToken;
+    const refreshToken = await result.data.refreshToken;
+    return {accessToken, refreshToken};
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+//이메일 중복 체크
+async function checkEmailDuplication() {
+  try {
+    const response = await fetch(END_POINTS.CHECK_EMAIL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: emailInput.value,
+      }),
+    });
+    return response.status === 200;
+
+  } catch (err) {
+  }
 }
 
 function toggleEyeIcons() {
@@ -59,6 +121,7 @@ function toggleEyeIcons() {
 }
 
 //addEventListeners
+document.addEventListener('DOMContentLoaded', checkToken);
 emailInput.addEventListener('focusout', emailFocusout.bind(common));
 emailInput.addEventListener('focusin', emailFocusin.bind(common));
 passwordInput.addEventListener('focusout', passwordFocusout.bind(common));

@@ -1,4 +1,4 @@
-import {CONSTANTS, ERRORS} from '../utils/constants.js';
+import {ERRORS, END_POINTS, REGEX} from '../utils/constants.js';
 
 const defaultSignModule = {
   submitButton: document.querySelector('#submit'),
@@ -25,8 +25,7 @@ const defaultSignModule = {
   },
   //이메일 유효성 검사
   emailValidation: (email) => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
+    return REGEX.EMAIL.test(email);
   },
 
 //이메일 focusin 핸들러
@@ -38,13 +37,13 @@ const defaultSignModule = {
   emailFocusout: function () {
     const value = this.emailInput.value;
     if (value === "") {
-      this.alertFunction.create(".email-box", ERRORS.MAPPER.emailVoidError,
+      this.alertFunction.create(".email-box", ERRORS.MAPPER.EMAIL_VOID,
           this.emailInput);
       return;
     }
     if (!this.emailValidation(value)) {
       this.alertFunction.create(".email-box",
-          ERRORS.MAPPER.emailInvalidError,
+          ERRORS.MAPPER.EMAIL_INVALID,
           this.emailInput);
     }
   },
@@ -58,31 +57,37 @@ const defaultSignModule = {
   passwordFocusout: function () {
     if (this.passwordInput.value === "") {
       this.alertFunction.create(".password-box",
-          ERRORS.MAPPER.passwordVoidError,
+          ERRORS.MAPPER.PASSWORD_VOID,
           this.passwordInput);
     }
   },
 
 //submit 핸들러
-  submit: function (e) {
+  submit: async function (e) {
     e.preventDefault();
     const emailValue = this.emailInput.value;
     const passwordValue = this.passwordInput.value;
 
-    if (emailValue === CONSTANTS.DEV.TEST_EMAIL && passwordValue
-        === CONSTANTS.DEV.TEST_PASSWORD) {
-      window.location.href = "../folder.html";
-      return;
-    }
-    if (emailValue !== CONSTANTS.DEV.TEST_EMAIL) {
-      this.alertFunction.create(".email-box", ERRORS.MAPPER.emailWrongError,
-          this.emailInput)
-      return;
-    }
-    if (passwordValue !== CONSTANTS.DEV.TEST_EMAIL) {
-      this.alertFunction.create(".password-box",
-          ERRORS.MAPPER.passwordWrongError,
-          this.passwordInput)
+    try {
+      const response = await fetch(END_POINTS.SIGN_IN, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          emailValue,
+          passwordValue,
+        }),
+      });
+
+      if (response.status === 200) {
+        window.location.href = "../folder.html";
+        return;
+      }
+
+      alert(ERRORS.MAPPER.SIGN_IN_FAILED);
+    } catch (e) {
+      alert("로그인 요청중 에러 발생.", e.message);
     }
   },
 
@@ -97,6 +102,12 @@ const defaultSignModule = {
     this.passwordInput.type = 'password';
     defaultSignModule.eyeIcons.forEach(
         (icon) => icon.src = "./images/signin-eye-off.svg");
+  },
+  checkToken: async function () {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      location.href = '../temp-success.html';
+    }
   }
 }
 
@@ -106,7 +117,7 @@ const signUpModule = {
     if (this.passwordConfirmInput.value
         !== defaultSignModule.passwordInput.value) {
       defaultSignModule.alertFunction.create(".password-box",
-          ERRORS.MAPPER.passwordNotMatchError,
+          ERRORS.MAPPER.PASSWORD_NOT_MATCH,
           this.passwordConfirmInput);
     }
   }
