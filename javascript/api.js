@@ -37,3 +37,15 @@ export function signIn(emailValue, passwordValue) {
     }),
   });
 }
+
+export function storeAccessToken(accessToken) {
+  localStorage.setItem('accessToken', accessToken);
+}
+
+// 페이지 로드 시 로컬 스토리지에 accessToken이 있는 경우 바로 페이지 이동
+export function checkAndRedirect() {
+  const storedAccessToken = localStorage.getItem('accessToken');
+  if (storedAccessToken) {
+    window.location.href = '../etc/folder.html';
+  }
+}

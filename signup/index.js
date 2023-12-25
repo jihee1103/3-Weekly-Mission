@@ -16,7 +16,12 @@ import {
   MOCK_PASSWORD,
 } from '../javascript/common.js';
 
-import { checkDuplicateEmail, signUp } from '../javascript/api.js';
+import {
+  checkDuplicateEmail,
+  signUp,
+  storeAccessToken,
+  checkAndRedirect,
+} from '../javascript/api.js';
 
 function showEmailInputFocusout() {
   const emailValue = emailInput.value;
@@ -79,7 +84,7 @@ async function sendSignUpRequest() {
   const checkEmailResponse = await checkDuplicateEmail(emailValue);
 
   if (!checkEmailResponse.ok) {
-    handleEmailError('이미 존재하는 이메일입니다.');
+    showEmailError('이미 존재하는 이메일입니다.');
     return;
   }
 
@@ -93,15 +98,21 @@ async function sendSignUpRequest() {
 
   const signUpResponse = await signUp(emailValue, passwordValue);
 
-  if (!signUpResponse.ok) {
-    handleEmailError('이메일을 확인해주세요.');
-    handlePasswordError('비밀번호를 확인해주세요.');
-    handlePasswordcheckError('비밀번호를 확인해주세요.');
+  if (signUpResponse.ok) {
+    const data = await signUpResponse.json();
+    const accessToken = data.data.accessToken;
+    storeAccessToken(accessToken);
+    checkAndRedirect();
+
+    return;
+  } else {
+    showEmailError('이메일을 확인해주세요.');
+    showPasswordError('비밀번호를 확인해주세요.');
+    showPasswordcheckError('비밀번호를 확인해주세요.');
     return;
   }
-
-  window.location.href = '../etc/folder.html';
 }
+
 function showFormSubmit(event) {
   event.preventDefault();
   sendSignUpRequest();
@@ -125,6 +136,8 @@ function togglePasswordcheckVisibility() {
     eyeIconcheck.src = '../image/eye-off.png';
   }
 }
+
+checkAndRedirect();
 
 emailInput.addEventListener('focusout', showEmailInputFocusout);
 passwordInput.addEventListener('focusout', showPasswordInputFocusout);

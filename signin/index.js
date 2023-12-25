@@ -12,7 +12,11 @@ import {
   MOCK_PASSWORD,
 } from '../javascript/common.js';
 
-import { signIn } from '../javascript/api.js';
+import {
+  signIn,
+  storeAccessToken,
+  checkAndRedirect,
+} from '../javascript/api.js';
 
 const signinForm = document.getElementById('signin-form');
 
@@ -51,13 +55,13 @@ function showPasswordInputFocusout() {
 async function sendSignInRequest() {
   const emailValue = emailInput.value;
   const passwordValue = passwordInput.value;
-
   const response = await signIn(emailValue, passwordValue);
 
   if (response.ok) {
     const data = await response.json();
-    localStorage.setItem('accessToken', data.accessToken);
-    window.location.href = '../etc/folder.html';
+    const accessToken = data.data.accessToken;
+    storeAccessToken(accessToken);
+    checkAndRedirect();
   } else if (response.status === 400) {
     showEmailError('이메일을 확인해주세요.');
     showPasswordError('비밀번호를 확인해주세요.');
@@ -78,6 +82,8 @@ function togglePasswordVisibility() {
     eyeIcon.src = '../image/eye-off.png';
   }
 }
+
+checkAndRedirect();
 
 emailInput.addEventListener('focusout', showEmailInputFocusout);
 passwordInput.addEventListener('focusout', showPasswordInputFocusout);
