@@ -21,9 +21,9 @@ const $form = document.querySelector('form');
  */
 const formSignMode = $form.dataset.signMode;
 const $email = document.querySelector('#email');
+const $emailBox = document.querySelector('.input-box-wrapper:has(#email)');
 const $password = document.querySelector('#password');
 const $passwordCheck = document.querySelector('#password-check');
-const $emailBox = document.querySelector('.input-box-wrapper:has(#email)');
 const $passwordBox = document.querySelector('.input-box-wrapper:has(#password)');
 const $passwordCheckBox = document.querySelector('.input-box-wrapper:has(#password-check)');
 const $passwordShowBtn = document.querySelector('.password-input-box .password-eye-controller');
