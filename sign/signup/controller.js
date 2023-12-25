@@ -143,20 +143,17 @@ export default class SignUpController {
     document.cookie = cookieValue;
   }
 
-  async saveAccessTokenToCookie(response) {
-    const accessData = await response.json();
+  saveAccessTokenToCookie(response) {
+    const accessData = response.json();
     const accessToken = accessData.token;
     this.setAccessTokenCookie(accessToken, 1);
   }
 
   hasAccessToken() {
     const cookies = document.cookie.split(';');
-    cookies.forEach((cookie) => {
+    return cookies.some((cookie) => {
       const trimmedCookie = cookie.trim();
-      if (trimmedCookie.startsWith('accessToken=')) {
-        return true;
-      }
+      return trimmedCookie.startsWith('accessToken=');
     });
-    return false;
   }
 }
