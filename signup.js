@@ -1,5 +1,25 @@
 import { validateEmail, validatePassword, togglePasswordVisibility } from './sign_module.js';
 
+const fetchCheckEmail = async (email) => {
+  let myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  let raw = JSON.stringify({
+    email,
+  });
+
+  let requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
+  const res = await fetch("https://bootcamp-api.codeit.kr/api/check-email", requestOptions)
+
+  return res;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
@@ -36,9 +56,18 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   const signupButton = document.querySelector('.cta');
-  signupButton.addEventListener('click', function (event) {
+  signupButton.addEventListener('click', async function (event) {
     event.preventDefault();
     validateEmail(emailInput, emailError);
     validatePassword(passwordInput, passwordError);
+
+    const response = await fetchCheckEmail(emailInput.value)
+
+    if (response.ok) {
+      window.location.href = "/folder";
+    } else {
+      alert("이미 존재하는 이메일 입니다.");
+    }
+
   });
 });
