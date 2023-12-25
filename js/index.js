@@ -18,7 +18,7 @@ const passwordErrorMessage = document.querySelector(".password-message");
 const checkPasswordErrorMessage = document.querySelector(
   ".check-password-message"
 );
-const secondPassInput = document.querySelector("#check-password");
+const checkPassInput = document.querySelector("#check-password");
 const signinBtn = document.querySelector(".signin-confirm");
 const signupBtn = document.querySelector(".signup-confirm");
 const link = "/folder.html";
@@ -40,6 +40,7 @@ function validEmail(e) {
   }
 }
 
+//비밀번호 에러
 function passChecker(e) {
   const pass = e.target.value;
   if (pass.length === 0) {
@@ -52,17 +53,19 @@ function passChecker(e) {
   }
 }
 
-function signupPassChecker(e) {
-  if (passInput.value !== secondPassInput.value) {
+//비밀번호 일치 확인
+function passMatchChecker(e) {
+  if (passInput.value !== checkPassInput.value) {
     checkPasswordErrorMessage.textContent = passwordNotMatch;
     checkPasswordErrorMessage.classList.add("error");
-    secondPassInput.classList.add("error-border");
+    checkPassInput.classList.add("error-border");
   } else {
-    secondPassInput.classList.remove("error-border");
+    checkPassInput.classList.remove("error-border");
     checkPasswordErrorMessage.remove();
   }
 }
 
+//로그인 확인
 function signinConfirm(e) {
   if (
     emailInput.value === "test@codeit.com" &&
@@ -80,7 +83,7 @@ function signinConfirm(e) {
   }
 }
 
-emailInput.addEventListener("focusout", validEmail);
-passInput.addEventListener("focusout", passChecker);
-secondPassInput.addEventListener("focusout", signupPassChecker);
+emailInput.addEventListener("change", validEmail);
+passInput.addEventListener("change", passChecker);
+checkPassInput.addEventListener("change", passMatchChecker);
 signinBtn.addEventListener("click", signinConfirm);
