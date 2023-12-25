@@ -2,18 +2,18 @@
   padding-bottom: 24px;
 }
 
-.password-form__visibility-icon {
+.password-form__eye-icon {
   position: absolute;
   right: 15px;
   top: 52px;
 }
 
-.password-repeat-form {
+.password-confirm-form {
   position: relative;
   padding-bottom: 30px;
 }
 
-.password-repeat-form__visibility-icon {
+.password-confirm-form__eye-icon {
   position: absolute;
   right: 15px;
   top: 51px;

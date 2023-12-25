@@ -8,19 +8,23 @@ export default class SignUpController {
     this.model = model;
     this.view = view;
 
-    this.validateUser();
+    if (this.hasAccessToken()) {
+      location.href = '/folder.html';
+      return;
+    }
+
     this.view.emailInput.addEventListener('focusout', () => this.handleEmailInputFocusout());
     this.view.emailInput.addEventListener('keydown', () => this.handleEmailInputKeydown());
     this.view.passwordInput.addEventListener('focusout', () => this.handlePasswordInputFocusout());
     this.view.passwordInput.addEventListener('keydown', () => this.handlePasswordInputKeydown());
-    this.view.passwordRepeatInput.addEventListener('focusout', () =>
-      this.handlePasswordRepeatInputFocusout(),
+    this.view.passwordConfirmInput.addEventListener('focusout', () =>
+      this.handlePasswordConfirmInputFocusout(),
     );
-    this.view.passwordRepeatInput.addEventListener('keydown', () =>
-      this.handlePasswordRepeatInputKeydown(),
+    this.view.passwordConfirmInput.addEventListener('keydown', () =>
+      this.handlePasswordConfirmInputKeydown(),
     );
     this.view.eyeIcons.forEach((button) => {
-      button.addEventListener('click', (e) => this.view.handleVisibilityIconClick(e));
+      button.addEventListener('click', (e) => this.view.handleEyeIconClick(e));
     });
     this.view.formElement.addEventListener('submit', (e) => this.handleFormSubmit(e));
   }
@@ -68,37 +72,37 @@ export default class SignUpController {
 
   handlePasswordInputKeydown(e) {
     if (e.key === 'Enter') {
-      this.handleInPasswordInputFocusout();
+      this.handlePasswordInputFocusout();
     }
   }
 
   // 비밀번호 확인 이벤트 핸들링
-  handlePasswordRepeatInputFocusout() {
-    const passwordRepeatValue = this.view.passwordRepeatInput.value;
+  handlePasswordConfirmInputFocusout() {
+    const passwordConfirmValue = this.view.passwordConfirmInput.value;
 
-    if (!passwordRepeatValue) {
+    if (!passwordConfirmValue) {
       this.view.showErrorMessage(
-        this.view.passwordRepeatInput,
-        getErrorMessage('PASSWORD_REPEAT_REQUIRED'),
+        this.view.passwordConfirmInput,
+        getErrorMessage('PASSWORD_CONFIRM_REQUIRED'),
       );
       return false;
     }
 
-    if (passwordRepeatValue !== this.view.passwordInput.value) {
+    if (passwordConfirmValue !== this.view.passwordInput.value) {
       this.view.showErrorMessage(
-        this.view.passwordRepeatInput,
-        getErrorMessage('INVALID_PASSWORD_REPEAT'),
+        this.view.passwordConfirmInput,
+        getErrorMessage('INVALID_PASSWORD_CONFIRM'),
       );
       return false;
     }
 
-    this.view.removeErrorMessage(this.view.passwordRepeatInput);
+    this.view.removeErrorMessage(this.view.passwordConfirmInput);
     return true;
   }
 
-  handlPasswordRepeatInputKeydown(e) {
+  handlPasswordConfirmInputKeydown(e) {
     if (e.key === 'Enter') {
-      this.handlePasswordRepeatInputFocusout();
+      this.handlePasswordConfirmInputFocusout();
     }
   }
 
@@ -115,15 +119,15 @@ export default class SignUpController {
     this.setAccessTokenCookie(accessToken, 1);
   }
 
-  validateUser() {
+  hasAccessToken() {
     const cookies = document.cookie.split(';');
     cookies.forEach((cookie) => {
       const trimmedCookie = cookie.trim();
       if (trimmedCookie.startsWith('accessToken=')) {
-        location.href = '/folder.html';
-        return;
+        return true;
       }
     });
+    return false;
   }
 
   // 회원가입 처리
@@ -141,7 +145,7 @@ export default class SignUpController {
     };
 
     try {
-      const checkEmailResponse = await fetch(getAPI('CHECK_REGISTERED_EMAIL_API'), {
+      const checkRegisteredEmailResponse = await fetch(getAPI('CHECK_REGISTERED_EMAIL_API'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -149,12 +153,12 @@ export default class SignUpController {
         body: JSON.stringify(userEmail),
       });
 
-      if (checkEmailResponse.status === 409) {
+      if (checkRegisteredEmailResponse.status === 409) {
         this.view.showErrorMessage(this.view.emailInput, getErrorMessage('DUPLICATE_EMAIL'));
         return;
       }
 
-      const response = await fetch(getAPI('SIGN_UP_API'), {
+      const signUpResponse = await fetch(getAPI('SIGN_UP_API'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -162,20 +166,20 @@ export default class SignUpController {
         body: JSON.stringify(user),
       });
 
-      if (!response.ok) {
+      if (!signUpResponse.ok) {
         this.view.showErrorMessage(this.view.emailInput, getErrorMessage('EMAIL_CHECK_FAILED'));
         this.view.showErrorMessage(
           this.view.passwordInput,
           getErrorMessage('PASSWORD_CHECK_FAILED'),
         );
         this.view.showErrorMessage(
-          this.view.passwordRepeatInput,
-          getErrorMessage('PASSWORD_REPEAT_CHECK_FAILED'),
+          this.view.passwordConfirmInput,
+          getErrorMessage('PASSWORD_CONFIRM_CHECK_FAILED'),
         );
         return;
       }
 
-      this.saveAccessTokenToCookie(response);
+      this.saveTokenToCookie(signUpResponse);
       location.href = '/folder.html';
     } catch (error) {
       console.error('회원가입 에러:', error.message);

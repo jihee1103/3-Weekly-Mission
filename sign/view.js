@@ -3,12 +3,12 @@ export default class SignView {
     this.formElement = document.getElementById('form-list');
     this.emailInput = document.getElementById('email-input');
     this.passwordInput = document.getElementById('password-input');
-    this.passwordRepeatInput = document.getElementById('password-repeat-input');
-    this.eyeIcons = document.querySelectorAll('.visibility-icon');
+    this.passwordConfirmInput = document.getElementById('password-confirm-input');
+    this.eyeIcons = document.querySelectorAll('.eye-icon');
   }
 
   showErrorMessage(tag, errorMessage) {
-    const target = tag.parentElement.querySelector('.error-text');
+    const target = tag.parentElement.querySelector('.error-message');
     const inputBorder = target.parentElement.querySelector('.input');
 
     inputBorder.classList.add('error-border');
@@ -16,14 +16,14 @@ export default class SignView {
   }
 
   removeErrorMessage(tag) {
-    const target = tag.parentElement.querySelector('.error-text');
+    const target = tag.parentElement.querySelector('.error-message');
     const inputBorder = target.parentElement.querySelector('.input');
 
     inputBorder.classList.remove('error-border');
     target.textContent = '';
   }
 
-  handleVisibilityIconClick(e) {
+  handleEyeIconClick(e) {
     const eyeIcon = e.target;
     const input = eyeIcon.parentElement.querySelector('.input');
 

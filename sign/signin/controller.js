@@ -8,13 +8,17 @@ export default class SignInController {
     this.model = model;
     this.view = view;
 
-    this.validateUser();
+    if (this.hasAccessToken()) {
+      location.href = '/folder.html';
+      return;
+    }
+
     this.view.emailInput.addEventListener('focusout', () => this.handleEmailInputFocusout());
     this.view.emailInput.addEventListener('keydown', () => this.handleEmailInputKeydown());
     this.view.passwordInput.addEventListener('focusout', () => this.handlePasswordInputFocusout());
     this.view.passwordInput.addEventListener('keydown', () => this.handlePasswordInputKeydown());
-    this.view.eyeIcons.forEach((button) => {
-      button.addEventListener('click', (e) => this.view.handleVisibilityIconClick(e));
+    this.view.eyeIcons.forEach((icon) => {
+      icon.addEventListener('click', (e) => this.view.handleEyeIconClick(e));
     });
     this.view.formElement.addEventListener('submit', (e) => this.handleFormSubmit(e));
   }
@@ -75,15 +79,15 @@ export default class SignInController {
     this.setAccessTokenCookie(accessToken, 1);
   }
 
-  validateUser() {
+  hasAccessToken() {
     const cookies = document.cookie.split(';');
     cookies.forEach((cookie) => {
       const trimmedCookie = cookie.trim();
       if (trimmedCookie.startsWith('accessToken=')) {
-        location.href = '/folder.html';
-        return;
+        return true;
       }
     });
+    return false;
   }
 
   // 로그인 처리
@@ -98,7 +102,7 @@ export default class SignInController {
     };
 
     try {
-      const response = await fetch(getAPI('SIGN_IN_API'), {
+      const signInResponse = await fetch(getAPI('SIGN_IN_API'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -106,7 +110,7 @@ export default class SignInController {
         body: JSON.stringify(user),
       });
 
-      if (!response.ok) {
+      if (!signInResponse.ok) {
         this.view.showErrorMessage(this.view.emailInput, getErrorMessage('EMAIL_CHECK_FAILED'));
         this.view.showErrorMessage(
           this.view.passwordInput,
@@ -115,7 +119,7 @@ export default class SignInController {
         return;
       }
 
-      this.saveAccessTokenToCookie(response);
+      this.saveTokenToCookie(signInResponse);
       location.href = '/folder.html';
     } catch (error) {
       console.error('로그인 에러:', error.message);
