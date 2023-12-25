@@ -75,12 +75,16 @@ const defaultSignModule = {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          emailValue,
-          passwordValue,
+          "email": emailValue,
+          "password": passwordValue,
         }),
       });
+      const data = await response.json();
+      const {accessToken, refreshToken} = await data;
 
       if (response.status === 200) {
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('refreshToken', refreshToken);
         window.location.href = "../folder.html";
         return;
       }
