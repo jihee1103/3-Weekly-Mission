@@ -21,7 +21,7 @@ export const isValidPassword = fn => {
 };
 
 /**
- * @param {string} errorMsgClassName
+ * @param {typeof EMAIL_ERROR_MSG_CLASSNAME | typeof PASSWORD_ERROR_MSG_CLASSNAME | typeof PASSWORD_CHECK_ERROR_MSG_CLASSNAME} errorMsgClassName
  * @param {HTMLDivElement} container
  */
 const createErrorMsgTagNode = (errorMsgClassName, container) => {
@@ -37,7 +37,7 @@ const createErrorMsgTagNode = (errorMsgClassName, container) => {
  *
  * @param {HTMLInputElement} $input
  * @param {string} errMsg
- * @param {string} errClassName
+ * @param {typeof EMAIL_ERROR_MSG_CLASSNAME | typeof PASSWORD_ERROR_MSG_CLASSNAME | typeof PASSWORD_CHECK_ERROR_MSG_CLASSNAME} errClassName
  * @param {HTMLDivElement} container
  */
 export const setInputError = ($input, errMsg, errClassName, container) => {
