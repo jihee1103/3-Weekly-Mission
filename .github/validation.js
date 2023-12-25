@@ -1,5 +1,5 @@
 const testEmail = "test@codeit.com";
-const testPassword = "codeit101";
+const testPassword = "sprint101";
 const emailInput = document.querySelector('#email');
 const emailError = document.querySelector('#email-error');
 const pwInput = document.querySelector('#password');
