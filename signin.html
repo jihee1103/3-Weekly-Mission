@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>signin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="signin.css" />
+    <link rel="stylesheet" href="/src/signin.css" />
   </head>
   <body>
     <main>
@@ -17,21 +17,14 @@
           </div>
           <div class="signup-msg">
             회원이 아니신가요?
-            <a class="sign-up-link" href="/signup/signup.html">회원 가입하기</a>
+            <a class="sign-up-link" href="/signup.html">회원 가입하기</a>
           </div>
         </div>
         <div>
           <label class="sign-input-label">이메일</label>
-          <input
-            class="sign-input-email"
-            type="email"
-            value=""
-            placeholder="이메일"
-          />
+          <input class="sign-input-email" type="email" placeholder="이메일" />
         </div>
-        <span class="email-empty hidden">이메일을 입력해주세요.</span>
-        <span class="email-wrong hidden">올바른 이메일 주소가 아닙니다.</span>
-        <span class="not-valid-email hidden">이메일을 확인해주세요.</span>
+        <span class="email-error-msg"></span>
         <div class="sign-password">
           <label class="sign-input-label">비밀번호</label>
           <input
@@ -43,8 +36,7 @@
             <img src="/images/eye-off.svg" />
           </button>
         </div>
-        <span class="password-empty hidden">비밀번호를 입력해주세요.</span>
-        <span class="not-valid-password hidden">비밀번호를 확인해주세요.</span>
+        <span class="password-error-msg"></span>
         <div>
           <button class="signin-btn">로그인</button>
         </div>
@@ -65,6 +57,6 @@
         </div>
       </div>
     </main>
-    <script src="./signin.js"></script>
+    <script type="module" src="/script/signin.js"></script>
   </body>
 </html>

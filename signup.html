@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>signup</title>
-    <link rel="stylesheet" href="signup.css" />
+    <link rel="stylesheet" href="/src/signup.css" />
   </head>
   <body>
     <main>
@@ -16,27 +16,38 @@
           </div>
           <div class="signip-msg">
             이미 회원이신가요?
-            <a class="sign-up-link" href="/signin/signin.html">로그인 하기</a>
+            <a class="sign-up-link" href="/signin.html">로그인 하기</a>
           </div>
         </div>
         <div>
           <label class="sign-input-label">이메일</label>
-          <input class="sign-input" type="text" placeholder="이메일" />
+          <input class="sign-input-email" type="email" placeholder="이메일" />
         </div>
+        <span class="email-error-msg"></span>
         <div class="sign-password">
           <label class="sign-input-label">비밀번호</label>
-          <input class="sign-input" type="password" placeholder="비밀번호" />
+          <input
+            class="sign-input-password"
+            type="password"
+            placeholder="비밀번호"
+          />
           <button class="eye-button" type="button">
             <img src="/images/eye-off.svg" />
           </button>
         </div>
+        <span class="password-error-msg"></span>
         <div class="sign-password">
           <label class="sign-input-label">비밀번호 확인</label>
-          <input class="sign-input" type="password" placeholder="비밀번호" />
+          <input
+            class="sign-input-passwordcheck"
+            type="password"
+            placeholder="비밀번호"
+          />
           <button class="eye-button" type="button">
             <img src="/images/eye-off.svg" />
           </button>
         </div>
+        <span class="passwordcheck-error-msg"></span>
         <div>
           <button class="signup-btn">회원가입</button>
         </div>
@@ -57,5 +68,6 @@
         </div>
       </div>
     </main>
+    <script type="module" src="/script/signup.js"></script>
   </body>
 </html>
