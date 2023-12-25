@@ -22,11 +22,13 @@ function passMatchChecker() {
       { input: checkPassInput, errorMessage: checkPasswordErrorMessage },
       passwordNotMatch
     );
+    return false;
   } else {
     removeInputError({
       input: checkPassInput,
       errorMessage: checkPasswordErrorMessage,
     });
+    return true;
   }
 }
 
@@ -37,11 +39,29 @@ function usingEmailChecker(event) {
       { input: emailInput, errorMessage: emailErrorMessage },
       usingEmail
     );
+    return false;
   }
+  return true;
 }
 
 //회원가입 확인
-function signupConfirm(e) {}
+function signupConfirm(event) {
+  event.preventDefault();
+
+  const isEmailInputValid = validEmail(emailInput.value);
+  const isNotUsingEmail = usingEmailChecker(emailInput.value);
+  const isPasswordInputValid = passChecker(passwordInput.value);
+  const isCheckPasswordInputValid = passMatchChecker(checkPassInput.value);
+
+  if (
+    isEmailInputValid &&
+    isNotUsingEmail &&
+    isPasswordInputValid &&
+    isCheckPasswordInputValid
+  ) {
+    location.href = link;
+  }
+}
 
 emailInput.addEventListener("focusout", validEmail);
 emailInput.addEventListener("focusout", usingEmailChecker);

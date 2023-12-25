@@ -48,13 +48,16 @@ export function validEmail(event) {
       { input: emailInput, errorMessage: emailErrorMessage },
       pleaseInputEmail
     );
+    return false;
   } else if (!email.includes("@")) {
     setInputError(
       { input: emailInput, errorMessage: emailErrorMessage },
       notCorrectEmail
     );
+    return false;
   } else {
     removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
+    return true;
   }
 }
 
@@ -70,12 +73,15 @@ export function passChecker(event) {
       { input: passInput, errorMessage: passwordErrorMessage },
       pleaseInputPassword
     );
+    return false;
   } else if (!isEightLettersOrMore && !hasNumberAndCharacter) {
     setInputError(
       { input: passInput, errorMessage: passwordErrorMessage },
       unavailablePassword
     );
+    return false;
   } else {
     removeInputError({ input: passInput, errorMessage: passwordErrorMessage });
+    return true;
   }
 }
