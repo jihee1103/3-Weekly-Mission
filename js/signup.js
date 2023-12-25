@@ -1,12 +1,10 @@
 import {
   pleaseInputEmail,
-  pleaseCheckEmail,
   notCorrectEmail,
   usingEmail,
   pleaseInputPassword,
   unavailablePassword,
   passwordNotMatch,
-  pleaseCheckPassword,
 } from "./message.js";
 
 import { setInputError, removeInputError } from "./utils.js";
@@ -22,7 +20,6 @@ const checkPasswordErrorMessage = document.querySelector(
   ".check-password-message"
 );
 const checkPassInput = document.querySelector("#check-password");
-const signinBtn = document.querySelector(".signin-confirm");
 const signupBtn = document.querySelector(".signup-confirm");
 const link = "/folder.html";
 
@@ -72,30 +69,10 @@ function passMatchChecker(e) {
   }
 }
 
-//로그인 확인
-function signinConfirm(e) {
-  if (
-    emailInput.value === "test@codeit.com" &&
-    passInput.value === "codeit101"
-  ) {
-    location.href = link;
-  } else {
-    setInputError(
-      { input: emailInput, errorMessage: emailErrorMessage },
-      pleaseCheckEmail
-    );
-    setInputError(
-      { input: passInput, errorMessage: passwordErrorMessage },
-      pleaseCheckPassword
-    );
-  }
-}
-
 //회원가입 확인
 function signupConfirm(e) {}
 
 emailInput.addEventListener("focusout", validEmail);
 passInput.addEventListener("focusout", passChecker);
 checkPassInput.addEventListener("focusout", passMatchChecker);
-signinBtn.addEventListener("click", signinConfirm);
 signupBtn.addEventListener("click", signupConfirm);

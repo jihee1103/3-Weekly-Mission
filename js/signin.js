@@ -2,10 +2,7 @@ import {
   pleaseInputEmail,
   pleaseCheckEmail,
   notCorrectEmail,
-  usingEmail,
   pleaseInputPassword,
-  unavailablePassword,
-  passwordNotMatch,
   pleaseCheckPassword,
 } from "./message.js";
 
@@ -18,12 +15,7 @@ const inputs = document.querySelectorAll(".input");
 
 const emailErrorMessage = document.querySelector(".email-message");
 const passwordErrorMessage = document.querySelector(".password-message");
-const checkPasswordErrorMessage = document.querySelector(
-  ".check-password-message"
-);
-const checkPassInput = document.querySelector("#check-password");
 const signinBtn = document.querySelector(".signin-confirm");
-const signupBtn = document.querySelector(".signup-confirm");
 const link = "/folder.html";
 
 //이메일 에러
@@ -57,21 +49,6 @@ function passChecker(e) {
   }
 }
 
-//비밀번호 일치 확인
-function passMatchChecker(e) {
-  if (passInput.value !== checkPassInput.value) {
-    setInputError(
-      { input: checkPassInput, errorMessage: checkPasswordErrorMessage },
-      passwordNotMatch
-    );
-  } else {
-    removeInputError({
-      input: checkPassInput,
-      errorMessage: checkPasswordErrorMessage,
-    });
-  }
-}
-
 //로그인 확인
 function signinConfirm(e) {
   if (
@@ -91,11 +68,6 @@ function signinConfirm(e) {
   }
 }
 
-//회원가입 확인
-function signupConfirm(e) {}
-
 emailInput.addEventListener("focusout", validEmail);
 passInput.addEventListener("focusout", passChecker);
-checkPassInput.addEventListener("focusout", passMatchChecker);
 signinBtn.addEventListener("click", signinConfirm);
-signupBtn.addEventListener("click", signupConfirm);
