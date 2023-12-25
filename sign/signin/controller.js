@@ -77,7 +77,6 @@ export default class SignInController {
 
   validateUser() {
     const cookies = document.cookie.split(';');
-
     cookies.forEach((cookie) => {
       const trimmedCookie = cookie.trim();
       if (trimmedCookie.startsWith('accessToken=')) {

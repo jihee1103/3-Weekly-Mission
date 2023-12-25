@@ -99,7 +99,6 @@ export default class SignUpController {
     }
   }
 
-  // 쿠키 저장, 유효기간 설정
   setAccessTokenCookie(token, days) {
     const expirationDate = new Date();
     expirationDate.setDate(expirationDate.getDate() + days);
@@ -107,7 +106,6 @@ export default class SignUpController {
     document.cookie = cookieValue;
   }
 
-  // access token 쿠키에 저장
   async saveAccessTokenToCookie(response) {
     const accessData = await response.json();
     const accessToken = accessData.token;
@@ -116,7 +114,6 @@ export default class SignUpController {
 
   validateUser() {
     const cookies = document.cookie.split(';');
-
     cookies.forEach((cookie) => {
       const trimmedCookie = cookie.trim();
       if (trimmedCookie.startsWith('accessToken=')) {
