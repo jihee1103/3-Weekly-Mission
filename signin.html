@@ -20,15 +20,17 @@
     <form class="form">
       <div class="login">
           <label for="email">이메일</label>
-        <input class="email" id="email" name="email" placeholder="이메일을 입력하세요.">
+        <input class="email" id="email" name="email" type="email">
       </div>
+      <p class = "error-mail"></p>
       <div class="login">
           <label for="password">비밀번호</label>
         <div class="passinput">
-          <input class="password" id="password" name="password" type="password" placeholder="비밀번호를 입력하세요.">
+          <input class="password" id="password" name="password" type="password">
+          <p class = "error-pass"></p>
         </div>
-        <div class="eye">
-          <img src="img/eye.png" alt="눈 모양 이미지">
+        <div class="eyeImagePass" onclick="togglePasswordVisibility()">
+          <img id = "eyeImagePass" src="img/eye.png" alt="눈 모양 이미지">
         </div>
       </div>
       <div>
@@ -47,5 +49,6 @@
       </div>
     </div>
   </footer>
+  <script src = "JavaScript/sign-script.js"></script>
 </body>
 </html>

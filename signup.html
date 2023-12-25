@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>signin</title>
+  <title>signup</title>
   <link rel="stylesheet" href="css/signup-style.css">
 </head>
 <body>
@@ -21,25 +20,27 @@
     <form class="form">
       <div class="sign-up">
           <label for="email">이메일</label>
-        <input class="email" id="email" name="email" placeholder="이메일을 입력하세요.">
+        <input class="email" id="email" name="email">
       </div>
+      <p class = "error-mail"></p>
       <div class="sign-up">
           <label for="password">비밀번호</label>
         <div class="passinput">
-          <input class="password" id="password" name="password"  type="password" placeholder="비밀번호를 입력하세요.">
+          <input class="password" id="password" name="password"  type="password">
+          <p class = "error-pass"></p>
         </div>
-          <div class="eye">
-          <img src="img/eye.png" alt="눈 모양 이미지">
-
+        <div class="eyeImagePass" onclick="togglePasswordVisibility()">   
+          <img id = "eyeImagePass" src="img/eye.png" alt="눈 모양 이미지">
         </div>
       </div>
       <div class="sign-up">
           <label for="password-confirm">비밀번호 확인</label>
         <div class="passinput">
-          <input class="password-confirm" id="password-confirm" name="password-confirm" placeholder="비밀번호를 다시 입력하세요.">
+          <input class="password-confirm" id="password-confirm" name="password-confirm" type="password">
+        <p class = "error-passconfirm"></p>
         </div>
-          <div class="eye">
-          <img src="img/eye.png" alt="눈 모양 이미지">
+        <div class="eyeImageConfirm" onclick="togglePasswordVisibilityConfirm()">
+          <img id = "eyeImageConfirm" src="img/eye.png" alt="눈 모양 이미지">
         </div>
         <button type="submit">회원가입</button>
     </form>
@@ -55,5 +56,6 @@
       </div>
     </div>
   </footer>
+  <script src = "JavaScript/sign-script.js"></script>
 </body>
 </html>

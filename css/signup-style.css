@@ -8,7 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: Pretendard;
-  margin: 7rem auto 8rem;
+  margin: 112px auto 128px;
   justify-content: center;
   align-items: center;
 }
@@ -22,10 +22,10 @@ body {
 }
 
 .sign-in {  
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   text-align: left;
-  margin : 1rem auto;
+  margin : 16px auto;
 }
 
 .sign-in a{
@@ -37,60 +37,69 @@ body {
 .sign-up {
   display: flex;
   flex-direction: column;
-  font-size: 0.9rem;
+  font-size: 14px;
   font-weight: 400;
-  gap: 0.8rem;
-  margin-top: 1.5rem;
+  gap: 13px;
+  margin-top: 24px;
   font-family: Pretendard;
 }
 
 .email, .password, .password-confirm{
-  width: 25rem;
-  height: 3.8rem;
-  padding: 1.1rem 0.9rem;
-  border-radius: 0.5rem;
+  width: 400px;
+  height: 61px;
+  padding: 18px 14px;
+  border-radius: 8px;
   border: 1px solid rgba(204, 213, 227, 1);
+}
+
+.error-mail, .error-pass, .error-passconfirm {
+  font-size: 14px;
+  color : rgba(255, 91, 86, 1);
+}
+
+.email.error, .password.error, .password-confirm.error{
+  outline: 1px solid rgba(255, 91, 86, 1);
 }
 
 input:focus {outline: 1px solid rgba(109, 106, 254, 1);}
 
 button {
   border:none;
-  font-size: 1.1rem;
+  font-size: 18px;
   font-weight: 600;
   cursor: pointer;
   display: inline-block;
-  padding: 1rem 1.3rem;
-  border-radius: 0.5rem;
+  padding: 16px 21px;
+  border-radius: 8px;
   background-image: linear-gradient(90.99deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
   color:rgba(245, 245, 245, 1);
   text-align: center;
-  width: 25rem;
-  height: 3rem;
-  padding: 1rem 1.3rem;
-  border-radius: 0.5rem;
-  margin-top: 3.3rem;
+  width: 400px;
+  height: 48px;
+  padding: 16px 21px;
+  border-radius: 8px;
+  margin-top: 53px;
 }
 
 .login-sns {
   display: flex;
-  font-size: 0.9rem;
+  font-size: 14px;
   font-weight: 400;
-  width: 25rem;
-  height: 4.1rem;
-  padding: 0.8rem 1.5rem;
-  border-radius: 0.5rem;
+  width: 400px;
+  height: 65px;
+  padding: 13px 24px;
+  border-radius: 8px;
   border: 1px solid rgba(204, 213, 227, 1);
   background-image: linear-gradient(0deg, #E7EFFB, #E7EFFB),
                     linear-gradient(0deg, #CCD5E3, #CCD5E3);
   justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 32px;
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
   .email, .password, .password-confirm, button, .login-sns {
-    width: 22rem; /* 또는 다른 상대적인 값 사용 */
+    width: 352px;
     max-width: 400px;
   }
 }
@@ -99,14 +108,14 @@ button {
   position: relative;
 }
 
-.eye {
+.eyeImageConfirm, .eyeImagePass {
   position: absolute;
-  margin: 3.125rem 23.125rem 0.313rem;
+  margin: 50px 370px 5px;
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
-  .eye {
+  .eyeImageConfirm, .eyeImagePass {
     position: absolute;
-    margin: 3.3rem 20rem 0.313rem;
+    margin: 53px 320px 5px;
   }
 }
