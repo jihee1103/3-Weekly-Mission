@@ -1,88 +1,99 @@
-const MYEMAIL = 'test@codeit.com';
-const MYPASSWORD = 'Codeit101';
-const $login = document.querySelector('.login');
-const $email = document.querySelector('#email');
-const $password = document.querySelector('#pw');
-const $email_input = document.querySelector('.email');
-const $password_input = document.querySelector('.password');
-const $eye = document.querySelector('.eye');
-const $form = document.querySelector('#login_form');
+import { userInfo, $eye_on, $eye_off, $form, $login_btn, $content_email, $content_password, $email_input, $password_input, outline, createMsg, $mv_login, $mv_signup, $content_rePassword, $rePassword_input, $re_eye_on, $re_eye_off } from '../js/common.js'
 
-// 로그인이 완료되면 홈으로 이동
-function checkInfo(){
-  if( $email.value === MYEMAIL && $password.value === MYPASSWORD ){
-    alert('로그인 성공!');
-    window.location.href = "/";
-  } else if( $email.value !== MYEMAIL || $password.value !== MYPASSWORD ){
-    alert('이메일 또는 비밀번호를 확인해주세요.');
+
+
+function outlineWriting(e){
+  if (e.target === $email_input){
+    outline($email_input, 'writing');  
+  } else if (e.target === $password_input) {
+    outline($password_input, 'writing');
   }
 }
 
-// 이메일 형식이 안 맞으면('@'가 포함되지않을때) 에러 메세지 출력
-// 이메일 값이 비어있으면 에러 메세지 출력 
-function isValidEmail(e) {  
-  const $message_email = document.createElement("div");
-  $message_email.classList.add('errorComment');
-  if ((!$email.value.includes('@') && e.target.value !== "") && e.target.value !== MYEMAIL) {
-    $message_email.textContent = "올바른 이메일 주소가 아닙니다.";
-    e.target.classList.remove('writing');
-    e.target.classList.add('error');
-    if($email_input.lastElementChild == $email){
-      $email_input.append($message_email)
-    } 
-  } else if (e.target.value == "") {
-    $message_email.textContent = "이메일을 입력해주세요";
-    e.target.classList.remove('writing');
-    e.target.classList.add('error');
-    if($email_input.lastElementChild == $email){
-      $email_input.append($message_email)
-    } 
-  } 
-  
+function emailIsValid() {
+  const emailErrMsg = document.getElementById('emailErrMsg');
+  emailErrMsg?.remove();
 
+  if (!$email_input.value){
+    createMsg($content_email, 'emailErrMsg', 'errorComment', '이메일을 입력하세요.');
+    outline($email_input, 'error')
+    return false 
+  } else if ($email_input.value !== userInfo['email']){
+    createMsg($content_email, 'emailErrMsg', 'errorComment', '이메일을 확인해주세요.');
+    outline($email_input, 'error')
+    return false 
+  }
+  return true
 }
 
-// 비밀번호 형식이 안맞으면(대문자가 포함되지 않을때) 에러 메세지 출력
-function isValidPassword(e){
-  const $message_pw = document.createElement("div");
-  $message_pw.classList.add('errorComment');
-  if ((!$password.value.includes('C') && e.target.value !== "") || e.target.value !== MYPASSWORD) {
-    $message_pw.textContent = "비밀번호를 확인해주세요.";
-    e.target.classList.remove('writing');
-    e.target.classList.add('error');
-    console.log('1');
-    if($password_input.lastElementChild == $eye){
-      $password_input.append($message_pw);
-    } 
-  } else if (e.target.value == "") {
-    $message_pw.textContent = "비밀번호를 입력해주세요.";
-    e.target.classList.remove('writing');
-    e.target.classList.add('error');
-    if($password_input.lastElementChild == $eye){
-      $password_input.append($message_pw);
-    } 
+function passwordIsValid(){
+  const passwordErrMsg = document.getElementById('passwordErrMsg');
+  passwordErrMsg?.remove();
+
+  if (!$password_input.value){
+    createMsg($content_password, 'passwordErrMsg', 'errorComment', '비밀번호를 입력하세요.');
+    outline($password_input, 'error')
+    return false
+  } else if ($password_input.value !== userInfo['password']){
+    createMsg($content_password, 'passwordErrMsg', 'errorComment', '비밀번호를 확인해주세요.');
+    outline($password_input, 'error')
+    return false
+  }
+  return true
+}
+
+function infoIsVaild(){
+  if(passwordIsValid() && emailIsValid()) {
+    
+      fetch('https://bootcamp-api.codeit.kr/api/sign-in',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userInfo),
+      })
+      .then((response)=> {
+        if(response.status === 200) {
+          return response.json();
+        }
+      })
+      .then((result)=>{
+        localStorage.setItem('accessToken', result.data.accessToken)
+        window.location.href = "/folder.html";      
+      })
   } else {
-    $password.className = 'writing';
-    e.target.className = 'writing';
-    $password_input.removeChild($password_input.lastElementChild);
+    alert('회원정보가 일치하지 않습니다.')
   }
 }
 
-function addEffect(e) {
-  e.target.classList.remove('normal');
-  e.target.classList.add('writing');
-}
+$email_input.addEventListener('focusin', outlineWriting);
+$password_input.addEventListener('focusin', outlineWriting);
 
-$login.addEventListener('click',checkInfo);
+$email_input.addEventListener('focusout', emailIsValid);
+$password_input.addEventListener('focusout', passwordIsValid);
 
-$email.addEventListener('focusout',isValidEmail);
-$password.addEventListener('focusout',isValidPassword);
-
-$email.addEventListener('focusin',addEffect);
-$password.addEventListener('focusin',addEffect);
-
-$form.addEventListener('keypress', function(e){
-  if(e.keyCode === 13){
-    checkInfo();
+$login_btn.addEventListener('click', infoIsVaild)
+$form.addEventListener('keypress', function(e) {
+  if (e.key === "Enter") {
+    infoIsVaild();
   }
+});
+$mv_signup.addEventListener('click', function(){
+  const tokenIsValid = localStorage.getItem('accessToken')
+  if(tokenIsValid){
+    window.location.href = "/folder.html";
+  } else {
+    window.location.href = "/signup.html";
+  }
+});
+
+$eye_on.addEventListener('click', function(e){
+  e.target.classList.toggle('none');
+  $eye_off.classList.toggle('none');
+  $password_input.type = 'password';
+})
+$eye_off.addEventListener('click', function(e){
+  e.target.classList.toggle('none');
+  $eye_on.classList.toggle('none');
+  $password_input.type = 'text';
 })

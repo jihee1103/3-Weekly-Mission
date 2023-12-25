@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인</title>
     <link rel="stylesheet" href="css/signup-style.css" />
-    <script src="./js/signup.js" defer></script>
+    <script type="module" src="./js/signup.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -15,7 +15,7 @@
           <a href="/"><img src="img/Linkbrary.svg" alt="" /></a>
           <div class="txt-container">
             <div class="txt">이미 회원이신가요?</div>
-            <div><a href="login.html">로그인 하기</a></div>
+            <div class="mv-login">로그인 하기</div>
           </div>
         </div>
         <form id="login_form">
@@ -31,8 +31,9 @@
               class="input normal"
               placeholder="비밀번호 입력"
             />
-            <div class="eye">
-              <img src="img/eye-off.svg" alt="" />
+            <div class="password-eye">
+              <img id="eye-off" src="img/eye-off.svg" alt="" />
+              <img id="eye-on"  class="none" src="img/eye-on.svg" alt="" />
             </div>
           </div>
           <div class="re-password">
@@ -44,8 +45,9 @@
               class="input normal"
               placeholder="비밀번호 입력"
             />
-            <div class="eye">
-              <img src="img/eye-off.svg" alt="" />
+            <div class="re-password-eye">
+              <img id="re-eye-off" src="img/eye-off.svg" alt="" />
+              <img id="re-eye-on"  class="none" src="img/eye-on.svg" alt="" />
             </div>
           </div>
         </form>

@@ -4,6 +4,9 @@ body {
   padding-bottom: 252px;
   background: var(--linkbrary-bg, #F0F6FF);
 }
+.none {
+  display: none;
+}
 
 .container {
   display: flex;
@@ -36,6 +39,13 @@ body {
   display: flex;
   flex-direction: flex-start;
   gap: 8px  ;
+}
+.logo .txt-container .mv-signup {
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--Linkbrary-primary-color, #6D6AFE);
+  font-size: 1rem;
+  font-weight: 600;
 }
 .container .contents > form {
   display: flex;
@@ -99,13 +109,25 @@ body {
 .container .contents > form .password {
   position: relative;
 }
-.container .contents > form .eye {
+.container .contents > form #eye-on {
   position: absolute;
+  width: 1rem;
+  height: 1rem;
   top: 0;
   bottom: 0;
   right: 0;
-  margin: 46px 15px 0 0 ;
-  height: 30px;
+  margin: 50px 15px 0 0 ;
+  font-size: 22px;
+  cursor: pointer;
+}
+.container .contents > form #eye-off {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: 50px 15px 0 0 ;
   font-size: 22px;
   cursor: pointer;
 }
