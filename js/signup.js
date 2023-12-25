@@ -1,61 +1,22 @@
+import { usingEmail, passwordNotMatch } from "./message.js";
+
 import {
-  pleaseInputEmail,
-  notCorrectEmail,
-  usingEmail,
-  pleaseInputPassword,
-  unavailablePassword,
-  passwordNotMatch,
-} from "./message.js";
-
-import { setInputError, removeInputError } from "./utils.js";
-
-//데이터
-const emailInput = document.querySelector("#signup-email");
-const passInput = document.querySelector("#password");
-const inputs = document.querySelectorAll(".input");
-
-const emailErrorMessage = document.querySelector(".email-message");
-const passwordErrorMessage = document.querySelector(".password-message");
-const checkPasswordErrorMessage = document.querySelector(
-  ".check-password-message"
-);
-const checkPassInput = document.querySelector("#check-password");
-const signupBtn = document.querySelector(".signup-confirm");
-const link = "/folder.html";
-
-//이메일 에러
-function validEmail(e) {
-  const email = e.target.value;
-  if (email.length === 0) {
-    setInputError(
-      { input: emailInput, errorMessage: emailErrorMessage },
-      pleaseInputEmail
-    );
-  } else if (!email.includes("@")) {
-    setInputError(
-      { input: emailInput, errorMessage: emailErrorMessage },
-      notCorrectEmail
-    );
-  } else {
-    removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
-  }
-}
-
-//비밀번호 에러
-function passChecker(e) {
-  const pass = e.target.value;
-  if (pass.length === 0) {
-    setInputError(
-      { input: passInput, errorMessage: passwordErrorMessage },
-      pleaseInputPassword
-    );
-  } else {
-    removeInputError({ input: passInput, errorMessage: passwordErrorMessage });
-  }
-}
+  setInputError,
+  removeInputError,
+  validEmail,
+  passChecker,
+  link,
+  TEST_USER,
+  passInput,
+  checkPassInput,
+  checkPasswordErrorMessage,
+  emailInput,
+  emailErrorMessage,
+  signupBtn,
+} from "./utils.js";
 
 //비밀번호 일치 확인
-function passMatchChecker(e) {
+function passMatchChecker() {
   if (passInput.value !== checkPassInput.value) {
     setInputError(
       { input: checkPassInput, errorMessage: checkPasswordErrorMessage },
@@ -69,10 +30,21 @@ function passMatchChecker(e) {
   }
 }
 
+//기존 이메일 중복 확인
+function usingEmailChecker(event) {
+  if (event.target.value === TEST_USER.email) {
+    setInputError(
+      { input: emailInput, errorMessage: emailErrorMessage },
+      usingEmail
+    );
+  }
+}
+
 //회원가입 확인
 function signupConfirm(e) {}
 
 emailInput.addEventListener("focusout", validEmail);
+emailInput.addEventListener("focusout", usingEmailChecker);
 passInput.addEventListener("focusout", passChecker);
 checkPassInput.addEventListener("focusout", passMatchChecker);
 signupBtn.addEventListener("click", signupConfirm);
