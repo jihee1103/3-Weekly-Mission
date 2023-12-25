@@ -58,8 +58,11 @@ export default class SignUpController {
       return false;
     }
 
-    if (PASSWORD_REGEX.test(passwordValue) && passwordValue.length >= 8)
-      this.view.removeErrorMessage(this.view.passwordInput);
+    if (PASSWORD_REGEX.test(passwordValue) && passwordValue.length >= 8) {
+      this.view.showErrorMessage(this.view.passwordInput, getErrorMessage('INVALID_PASSWORD'));
+    }
+
+    this.view.removeErrorMessage(this.view.passwordInput);
     return true;
   }
 
