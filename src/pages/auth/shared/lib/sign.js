@@ -183,11 +183,8 @@ if (formSignMode === 'signup') {
 /**
  *
  * @param {SubmitEvent} e
- * @returns
  */
-const onSubmitHandler = async e => {
-  e.preventDefault();
-  const emailValResult = !(await validateEmailInput($email, $emailBox, EMAIL_ERROR_MSG_CLASSNAME, e, formSignMode));
+const getValidationResults = async e => {
   const pwValResult = !validatePasswordInput(
     $password,
     $passwordBox,
@@ -198,9 +195,17 @@ const onSubmitHandler = async e => {
   const pwcheckValResult =
     formSignMode === 'signup' &&
     !validatePasswordCheckInput($passwordCheck, $password, $passwordCheckBox, PASSWORD_CHECK_ERROR_MSG_CLASSNAME);
-  if (emailValResult || pwValResult || pwcheckValResult) {
-    return;
-  }
+  const emailValResult = !(await validateEmailInput($email, $emailBox, EMAIL_ERROR_MSG_CLASSNAME, e, formSignMode));
+  return [emailValResult, pwValResult, pwcheckValResult];
+};
+
+/**
+ *
+ * @param {typeof formSignMode} formSignMode
+ * @param {HTMLInputElement} $email
+ * @param {HTMLInputElement} $password
+ */
+const getResponse = async (formSignMode, $email, $password) => {
   let res;
   switch (formSignMode) {
     case 'signup':
@@ -212,6 +217,21 @@ const onSubmitHandler = async e => {
     default:
       break;
   }
+  return res;
+};
+
+/**
+ *
+ * @param {SubmitEvent} e
+ * @returns
+ */
+const onSubmitHandler = async e => {
+  e.preventDefault();
+  const [isInvalidEmail, isInvalidPassword, isInvalidPasswordCheck] = await getValidationResults(e);
+  if (isInvalidEmail || isInvalidPassword || isInvalidPasswordCheck) {
+    return;
+  }
+  const res = await getResponse(formSignMode, $email, $password);
   if (res.ok) {
     const data = await res.json();
     const accessToken = await data.data.accessToken;

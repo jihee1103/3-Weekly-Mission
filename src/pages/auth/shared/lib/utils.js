@@ -3,10 +3,18 @@ export const EMAIL_ERROR_MSG_CLASSNAME = 'email-validation-message';
 export const PASSWORD_ERROR_MSG_CLASSNAME = 'password-validation-message';
 export const PASSWORD_CHECK_ERROR_MSG_CLASSNAME = 'passwordcheck-validation-message';
 
+/**
+ *
+ * @param {(reg: RegExp) => boolean} fn
+ */
 export const isValidEmail = fn => {
   const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   return fn(EMAIL_REGEX);
 };
+/**
+ *
+ * @param {(reg: RegExp) => boolean} fn
+ */
 export const isValidPassword = fn => {
   const PASSWORD_REGEX = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
   return fn(PASSWORD_REGEX);
