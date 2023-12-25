@@ -1,0 +1,40 @@
+/* 모바일 */
+@media (min-width: 375px) {
+  body {
+    padding: 32px;
+    width: 375px ;
+  }
+  .header-box {
+    /* display: flex; */ 
+    flex-basis: 100%;
+    padding: 20px 32px ;
+  }
+
+  .logo {
+    font-size: 16px;
+    font-weight: 800;
+    color: #6D6AFE;
+    flex-grow: 1;
+    width: auto;
+  }
+
+  .section {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    /* background-color: #ffffff; */
+    /* letter-spacing: -0.3px; */
+    /* width: 100%; */
+  }
+
+  .section-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 50px 0;
+  }
+}
