@@ -52,22 +52,15 @@ async function sendSignInRequest() {
   const emailValue = emailInput.value;
   const passwordValue = passwordInput.value;
 
-  try {
-    const response = await signIn(emailValue, passwordValue);
+  const response = await signIn(emailValue, passwordValue);
 
-    if (response.ok) {
-      window.location.href = '../etc/folder.html';
-      return;
-    }
-
-    if (response.status === 400) {
-      showEmailError('이메일을 확인해주세요.');
-      showPasswordError('비밀번호를 확인해주세요.');
-    }
-    throw new Error('로그인 요청 실패');
-  } catch (error) {
-    console.error('Error:', error);
-    throw new Error('로그인 요청 실패');
+  if (response.ok) {
+    const data = await response.json();
+    localStorage.setItem('accessToken', data.accessToken);
+    window.location.href = '../etc/folder.html';
+  } else if (response.status === 400) {
+    showEmailError('이메일을 확인해주세요.');
+    showPasswordError('비밀번호를 확인해주세요.');
   }
 }
 
