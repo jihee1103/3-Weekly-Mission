@@ -6,6 +6,10 @@ const emailErrorMessage = document.querySelector("#email-error-message");
 const passwordErrorMessage = document.querySelector("#password-error-message");
 const passwordOnOff = document.querySelector("#password-show-hide");
 
+if (localStorage.accessToken) {
+  location.href = "./folder.html";
+}
+
 function addErrorStyle(element) {
   element.classList.add("inputbox-error");
 }
@@ -52,17 +56,30 @@ function checkPassword() {
   }
 }
 
-function signIn() {
-  if (
-    inputEmail.value === "test@codeit.com" &&
-    inputPassword.value === "codeit101"
-  ) {
+async function signIn() {
+  const response = await fetch(
+    "https://bootcamp-api.codeit.kr/docs/api/sign-in",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: inputEmail.value,
+        password: inputPassword.value,
+      }),
+    }
+  );
+
+  if (response.status === 200) {
     location.href = "./folder.html";
+
+    const result = await response.json();
+    const { accessToken } = result.data;
+    localStorage.setItem("accessToken", accessToken);
   } else {
     showErrorMessage(emailErrorMessage, "이메일을 확인해주세요.");
     showErrorMessage(passwordErrorMessage, "비밀번호를 확인해주세요.");
-    addErrorStyle(inputEmail);
-    addErrorStyle(inputPassword);
   }
 }
 
