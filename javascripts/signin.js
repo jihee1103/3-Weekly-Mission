@@ -2,27 +2,46 @@ import {
   loginElement,
   emailInputElement,
   passwdInputElement,
-  users,
   emailErrorMentionElement,
   passwdErrorMentionElement,
   formElement,
+  setErrorMentionElement,
 } from "./signcommon.js";
 
 function checkAccount() {
-  emailInputElement.classList.add("error-border");
-  emailErrorMentionElement.innerText = "이메일을 확인해주세요.";
-  emailErrorMentionElement.style.display = "block";
-  passwdInputElement.classList.add("error-border");
-  passwdErrorMentionElement.innerText = "비밀번호를 확인해주세요.";
-  passwdErrorMentionElement.style.display = "block";
+  setErrorMentionElement(
+    true,
+    emailInputElement,
+    emailErrorMentionElement,
+    "이메일을 확인해주세요."
+  );
+  setErrorMentionElement(
+    true,
+    passwdInputElement,
+    passwdErrorMentionElement,
+    "비밀번호를 확인해주세요."
+  );
 }
 
 // 계정이 맞다면 사이트 연결 아니라면 오류메시지 출력
-function signin() {
-  emailInputElement.value === users.email &&
-  passwdInputElement.value === users.passwd
-    ? (location.href = "/folder")
-    : checkAccount();
+async function signin() {
+  const email = emailInputElement.value;
+  const passwd = passwdInputElement.value;
+
+  const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email: email, password: passwd }),
+  });
+
+  // 이메일과 비밀번호가 존재한다면 로그인
+  if (response.status === 200) {
+    const result = await response.json();
+    localStorage.setItem("accessToken", result.data.accessToken);
+    location.href = "/folder";
+  } else checkAccount();
 }
 
 // 클릭 및 엔터 시 signin
