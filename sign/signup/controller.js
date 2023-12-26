@@ -1,4 +1,4 @@
-import { ERROR_MESSAGES, EMAIL_REGEX, PASSWORD_REGEX, API } from '../constants.js';
+import { ERROR_MESSAGES, API, EMAIL_REGEX, PASSWORD_REGEX } from '../constants.js';
 
 const getErrorMessage = (errCode) => ERROR_MESSAGES[errCode] ?? '알 수 없는 에러가 발생했습니다.';
 const getAPI = (apiCode) => API[apiCode];
@@ -8,7 +8,7 @@ export default class SignUpController {
     this.model = model;
     this.view = view;
 
-    if (this.hasAccessToken()) {
+    if (this.model.hasToken()) {
       location.href = '/folder.html';
       return;
     }
@@ -94,7 +94,7 @@ export default class SignUpController {
     };
 
     try {
-      const checkRegisteredEmailResponse = await fetch(getAPI('CHECK_REGISTERED_EMAIL_API'), {
+      const emailDuplicateCheckResponse = await fetch(getAPI('EMAIL_DUPLICATE_CHECK_API'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ export default class SignUpController {
         body: JSON.stringify(userEmail),
       });
 
-      if (checkRegisteredEmailResponse.status === 409) {
+      if (emailDuplicateCheckResponse.status === 409) {
         this.view.showErrorMessage(this.view.emailInput, getErrorMessage('DUPLICATE_EMAIL'));
         return;
       }
@@ -128,32 +128,11 @@ export default class SignUpController {
         return;
       }
 
-      this.saveAccessTokenToCookie(signUpResponse);
+      this.model.saveTokenInCookie(signUpResponse);
       location.href = '/folder.html';
     } catch (error) {
-      console.error('회원가입 에러:', error.message);
+      console.error('SIGN_UP_ERROR:', error.message);
       alert(getErrorMessage('SIGN_UP_FAILED'));
     }
-  }
-
-  setAccessTokenCookie(token, days) {
-    const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + days);
-    const cookieValue = `accessToken=${token}; expires=${expirationDate.toUTCString()}; path=/`;
-    document.cookie = cookieValue;
-  }
-
-  saveAccessTokenToCookie(response) {
-    const accessData = response.json();
-    const accessToken = accessData.token;
-    this.setAccessTokenCookie(accessToken, 1);
-  }
-
-  hasAccessToken() {
-    const cookies = document.cookie.split(';');
-    return cookies.some((cookie) => {
-      const trimmedCookie = cookie.trim();
-      return trimmedCookie.startsWith('accessToken=');
-    });
   }
 }

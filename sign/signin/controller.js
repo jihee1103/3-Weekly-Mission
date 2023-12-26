@@ -1,4 +1,4 @@
-import { ERROR_MESSAGES, EMAIL_REGEX, API } from '../constants.js';
+import { ERROR_MESSAGES, API, EMAIL_REGEX } from '../constants.js';
 
 const getErrorMessage = (errCode) => ERROR_MESSAGES[errCode] ?? '알 수 없는 에러가 발생했습니다.';
 const getAPI = (apiCode) => API[apiCode];
@@ -8,7 +8,7 @@ export default class SignInController {
     this.model = model;
     this.view = view;
 
-    if (this.hasAccessToken()) {
+    if (this.model.hasToken()) {
       location.href = '/folder.html';
       return;
     }
@@ -78,32 +78,11 @@ export default class SignInController {
         return;
       }
 
-      this.saveAccessTokenToCookie(signInResponse);
+      this.model.saveTokenInCookie(signInResponse);
       location.href = '/folder.html';
     } catch (error) {
-      console.error('로그인 에러:', error.message);
+      console.error('SIGN_IN_ERROR:', error.message);
       alert(getErrorMessage('SIGN_IN_FAILED'));
     }
-  }
-
-  setAccessTokenCookie(token, days) {
-    const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + days);
-    const cookieValue = `accessToken=${token}; expires=${expirationDate.toUTCString()}; path=/`;
-    document.cookie = cookieValue;
-  }
-
-  saveAccessTokenToCookie(response) {
-    const accessData = response.json();
-    const accessToken = accessData.token;
-    this.setAccessTokenCookie(accessToken, 1);
-  }
-
-  hasAccessToken() {
-    const cookies = document.cookie.split(';');
-    return cookies.some((cookie) => {
-      const trimmedCookie = cookie.trim();
-      return trimmedCookie.startsWith('accessToken=');
-    });
   }
 }
