@@ -4,7 +4,7 @@ const formElement = document.querySelector(".email-passwd-wrapper");
 const loginElement = document.querySelector(".login");
 
 // accessToken 있으면 페이지 이동
-if(localStorage.getItem("accessToken")){
+if (localStorage.getItem("accessToken")) {
   location.href = "/folder";
 }
 
@@ -32,57 +32,61 @@ function setErrorMentionElement(
     inputType.classList.add("error-border");
     errorType.innerText = errorMention;
     errorType.style.display = "block";
-    return false;
   } else {
     inputType.classList.remove("error-border");
     errorType.style.display = "none";
-    return true;
   }
 }
 
 // email input값 검사
 function checkEmailValidity() {
   if (emailInputElement.value.trim() === "") {
-    return setErrorMentionElement(
+    setErrorMentionElement(
       true,
       emailInputElement,
       emailErrorMentionElement,
       "이메일을 입력해주세요."
     );
+    return false;
   } else if (!EMAILPATTERN.test(emailInputElement.value)) {
-    return setErrorMentionElement(
+    setErrorMentionElement(
       true,
       emailInputElement,
       emailErrorMentionElement,
       "올바른 이메일 주소가 아닙니다."
     );
+    return false;
   } else {
-    return setErrorMentionElement(false, emailInputElement, emailErrorMentionElement);
+    setErrorMentionElement(false, emailInputElement, emailErrorMentionElement);
+    return true;
   }
 }
 
 // password input값 검사
 function checkPasswdValidity() {
   if (passwdInputElement.value === "") {
-    return setErrorMentionElement(
+    setErrorMentionElement(
       true,
       passwdInputElement,
       passwdErrorMentionElement,
       "비밀번호를 입력해주세요."
     );
+    return false;
   } else if (!PASSWDPATTERN.test(passwdInputElement.value)) {
-    return setErrorMentionElement(
+    setErrorMentionElement(
       true,
       passwdInputElement,
       passwdErrorMentionElement,
       "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
     );
+    return false;
   } else {
-    return setErrorMentionElement(
+    setErrorMentionElement(
       false,
       passwdInputElement,
       passwdErrorMentionElement
     );
+    return true;
   }
 }
 
