@@ -1,3 +1,5 @@
+import { storeAccessToken, checkAccessToken } from "./common.js";
+
 const inputEmail = document.querySelector("#inputEmail");
 const inputPassword = document.querySelector("#inputPw");
 const inputPasswordConfirm = document.querySelector("#inputPwConfirm");
@@ -8,9 +10,7 @@ const signupForm = document.querySelector("form");
 const inputPasswordIcon = document.querySelector("#inputPwIcon");
 const inputPasswordComfirmIcon = document.querySelector("#inputPwComfirmIcon");
 
-if (localStorage.accessToken) {
-    location.href = "/folder";
-}
+checkAccessToken();
 
 async function checkDuplicateEmail() {
     const response = await fetch(
@@ -105,7 +105,7 @@ async function signUp(event) {
 
     if (response.ok === true) {
         const result = await response.json();
-        localStorage.setItem("accessToken", result.data.accessToken);
+        storeAccessToken(result);
         location.href = "/folder";
     }
 }

@@ -1,3 +1,4 @@
+import { storeAccessToken, checkAccessToken } from "./common.js";
 const inputEmail = document.querySelector("#inputEmail");
 const inputPassword = document.querySelector("#inputPw");
 const emailError = document.querySelector("#email_err");
@@ -6,9 +7,7 @@ const signinForm = document.querySelector("form");
 
 const inputPwIcon = document.querySelector("#inputPwIcon");
 
-if (localStorage.accessToken) {
-    location.href = "/folder";
-}
+checkAccessToken();
 
 function checkEmail() {
     const EMAIL_REGEX =
@@ -60,7 +59,8 @@ async function signIn(event) {
     });
     if (response.ok === true) {
         const result = await response.json();
-        localStorage.setItem("accessToken", result.data.accessToken);
+        // localStorage.setItem("accessToken", result.data.accessToken);
+        storeAccessToken(result);
         location.href = "/folder";
     } else {
         emailError.textContent = "이메일을 확인해주세요.";
