@@ -9,7 +9,7 @@ export default class SignUpController {
     this.view = view;
 
     if (this.model.hasToken()) {
-      location.href = '/folder.html';
+      location.replace('/folder.html');
       return;
     }
 
@@ -129,7 +129,7 @@ export default class SignUpController {
       }
 
       this.model.saveTokenInCookie(signUpResponse);
-      location.href = '/folder.html';
+      location.replace('/folder.html');
     } catch (error) {
       console.error('회원가입 에러:', error.message);
       alert(getErrorMessage('SIGN_UP_FAILED'));

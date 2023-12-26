@@ -9,7 +9,7 @@ export default class SignInController {
     this.view = view;
 
     if (this.model.hasToken()) {
-      location.href = '/folder.html';
+      location.replace('/folder.html');
       return;
     }
 
@@ -79,7 +79,7 @@ export default class SignInController {
       }
 
       this.model.saveTokenInCookie(signInResponse);
-      location.href = '/folder.html';
+      location.replace('/folder.html');
     } catch (error) {
       console.error('로그인 에러:', error.message);
       alert(getErrorMessage('SIGN_IN_FAILED'));
