@@ -18,8 +18,8 @@ export default class SignUpController {
     this.view.passwordConfirmInput.addEventListener('focusout', () =>
       this.handlePasswordConfirmInputFocusout(),
     );
-    this.view.eyeIcons.forEach((button) => {
-      button.addEventListener('click', (e) => this.view.handleEyeIconClick(e));
+    this.view.eyeIcons.forEach((icon) => {
+      icon.addEventListener('click', (e) => this.view.handleEyeIconClick(e));
     });
     this.view.formElement.addEventListener('submit', (e) => this.handleFormSubmit(e));
   }
