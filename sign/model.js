@@ -10,7 +10,7 @@ export default class SignModel {
   saveTokenInCookie(response) {
     const accessData = response.json();
     const token = accessData.token;
-    this.setAccessTokenCookie(token, COOKIE_EXPIRATION_DATE);
+    this.setTokenCookie(token, COOKIE_EXPIRATION_DATE);
   }
 
   hasToken() {
