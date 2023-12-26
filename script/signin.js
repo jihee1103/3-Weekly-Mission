@@ -1,11 +1,13 @@
-import { userEmail, userPassword } from "./userInfo.js";
-
+import { storeAccessToken, checkAccessToken } from "./common.js";
 const inputEmail = document.querySelector("#inputEmail");
 const inputPassword = document.querySelector("#inputPw");
 const emailError = document.querySelector("#email_err");
 const passwordError = document.querySelector("#pw_err");
 const signinForm = document.querySelector("form");
+
 const inputPwIcon = document.querySelector("#inputPwIcon");
+
+checkAccessToken();
 
 function checkEmail() {
     const EMAIL_REGEX =
@@ -42,21 +44,27 @@ function checkPassword() {
     return true;
 }
 
-function signIn(event) {
+async function signIn(event) {
     event.preventDefault();
-    if (
-        inputEmail.value === userEmail &&
-        inputPassword.value === userPassword
-    ) {
-        signinForm.action = "/folder";
-        signinForm.method = "Get";
 
-        signinForm.submit();
-        return true;
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            email: inputEmail.value,
+            password: inputPassword.value,
+        }),
+    });
+    if (response.ok === true) {
+        const result = await response.json();
+        storeAccessToken(result);
+        location.href = "/folder";
+    } else {
+        emailError.textContent = "이메일을 확인해주세요.";
+        passwordError.textContent = "비밀번호를 확인해주세요.";
     }
-    emailError.textContent = "이메일을 확인해주세요.";
-    passwordError.textContent = "비밀번호를 확인해주세요.";
-    return false;
 }
 
 function showPasswordToggle(elementIcon, elementInput) {

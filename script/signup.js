@@ -1,4 +1,4 @@
-import { userEmail } from "./userInfo.js";
+import { storeAccessToken, checkAccessToken } from "./common.js";
 
 const inputEmail = document.querySelector("#inputEmail");
 const inputPassword = document.querySelector("#inputPw");
@@ -9,6 +9,27 @@ const passwordConfirmError = document.querySelector("#pwConfirm_err");
 const signupForm = document.querySelector("form");
 const inputPasswordIcon = document.querySelector("#inputPwIcon");
 const inputPasswordComfirmIcon = document.querySelector("#inputPwComfirmIcon");
+
+checkAccessToken();
+
+async function checkDuplicateEmail() {
+    const response = await fetch(
+        "https://bootcamp-api.codeit.kr/api/check-email",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: inputEmail.value,
+            }),
+        }
+    );
+    if (response.ok === false) {
+        emailError.textContent = "이미 사용 중인 이메일입니다.";
+        return false;
+    }
+}
 
 function checkEmail() {
     const EMAIL_REGEX =
@@ -23,10 +44,8 @@ function checkEmail() {
         inputEmail.className = "error-box";
         return false;
     }
-    if (inputEmail.value === userEmail) {
-        emailError.textContent = "이미 사용 중인 이메일입니다.";
-        return false;
-    }
+    checkDuplicateEmail();
+
     emailError.textContent = " ";
     inputEmail.className = "inputbox";
     return true;
@@ -67,27 +86,27 @@ function passwordConfirm() {
     return true;
 }
 
-function signUp(event) {
+async function signUp(event) {
     event.preventDefault();
+    if (!checkEmail() || !checkPassword() || !passwordConfirm()) {
+        return;
+    }
 
-    if (
-        checkEmail() === true &&
-        checkPassword() === true &&
-        passwordConfirm() === true
-    ) {
-        signupForm.action = "/folder";
-        signupForm.method = "Get";
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            email: inputEmail.value,
+            password: inputPassword.value,
+        }),
+    });
 
-        signupForm.submit();
-    } else if (checkEmail() !== true) {
-        emailError.textContent = "이메일을 확인해주세요.";
-        inputEmail.className = "error-box";
-    } else if (checkPassword() !== true) {
-        passwordError.textContent = "비밀번호를 확인해주세요.";
-        inputPassword.className = "error-box";
-    } else if (passwordConfirm() !== true) {
-        passwordConfirmError.textContent = "비밀번호를 확인해주세요.";
-        inputPasswordConfirm.className = "error-box";
+    if (response.ok === true) {
+        const result = await response.json();
+        storeAccessToken(result);
+        location.href = "/folder";
     }
 }
 
