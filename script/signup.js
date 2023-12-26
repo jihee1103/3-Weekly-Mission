@@ -12,7 +12,7 @@ if (localStorage.accessToken) {
     location.href = "/folder";
 }
 
-async function checkEmailConflict() {
+async function checkDuplicateEmail() {
     const response = await fetch(
         "https://bootcamp-api.codeit.kr/api/check-email",
         {
@@ -44,7 +44,7 @@ function checkEmail() {
         inputEmail.className = "error-box";
         return false;
     }
-    checkEmailConflict();
+    checkDuplicateEmail();
 
     emailError.textContent = " ";
     inputEmail.className = "inputbox";
