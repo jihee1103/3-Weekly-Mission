@@ -1,21 +1,21 @@
 import {
-  passwordInp,
-  passwordEye,
-  rePasswordInp,
-  rePasswordEye,
+  $passwordInput,
+  $passwordEye,
+  $repasswordInput,
+  $rePasswordEye,
 } from "./tags.js";
 export { togglePasswordView };
 
 function togglePasswordView() {
-  if (passwordInp.type === "password") {
-    passwordInp.type = "text";
-    passwordEye.src = "source/eye-on.png";
+  if ($passwordInput.type === "password") {
+    $passwordInput.type = "text";
+    $passwordEye.src = "source/eye-on.png";
   } else {
-    passwordInp.type = "password";
-    passwordEye.src = "source/eye-off.png";
+    $passwordInput.type = "password";
+    $passwordEye.src = "source/eye-off.png";
   }
-  if (rePasswordInp) {
-    rePasswordInp.type = passwordInp.type;
-    rePasswordEye.src = passwordEye.src;
+  if ($repasswordInput) {
+    $repasswordInput.type = $passwordInput.type;
+    $rePasswordEye.src = $passwordEye.src;
   }
 }
