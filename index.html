@@ -1,141 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- open graph-->
-    <meta property="og:title" content="Linkbrary" />
-    <meta property="og:description" content="세상의 모든 정보를 쉽게 저장하고 관리해보세요" />
-    <meta property="og:image" content="./img/library.jpg" />
-    <meta property="og:url" content="giho-linkbrary.netlify.app" />
-    <meta name="twitter:card" content="summary" />
-    <title>Linkbrary</title>
-    <link rel="stylesheet" href="./src/style.css">
-    <link rel="stylesheet" href="./src/reset.css">
-</head>
-
-<body>
-
-    <header>
-        <nav>
-            <a href="/">
-                <img src="./img/logo.svg" class="nav__logo">
-            </a>
-            <a href="/signin.html" class="nav__login">로그인</a>
-        </nav>
-    </header>
-    <main>
-        <section class="hero">
-            <h1 class="hero__description">
-                <span class="gradient hero__description--gradient">세상의 모든 정보</span>를
-                <!-- pc버전과 tablet버전 줄바꿈 다르게 주기 -->
-                <br class="br-pc"><br class="br-tablet">
-                쉽게 저장하고<br class="br-tablet"> 관리해 보세요
-            </h1>
-            <div class="hero__add-link-box">
-                <a href="/signup.html" class="hero__add-link">링크 추가하기</a>
-            </div>
-            <figure class="hero__img">
-                <img src="./img/hero_img.png" alt="hero_img">
-            </figure>
-        </section>
-
-        <section class="section download">
-            <div class="section--container">
-                <div class="section__description--header-align">
-                    <h1 class="section__description--header">
-                        <span class="gradient section-download__description--gradient">원하는 링크</span>를<br class="br-pc">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="Linkbrary" />
+        <meta property="og:description" content="세상의 모든 정보를 쉽게 저장하고 관리해보세요" />
+        <meta property="og:image" content="./img/library.jpg" />
+        <meta property="og:url" content="giho-linkbrary.netlify.app" />
+        <meta name="twitter:card" content="summary" />
+        <title>Linkbrary</title>
+        <link rel="stylesheet" href="./src/style.css" />
+        <link rel="stylesheet" href="./src/reset.css" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="/">
+                    <img src="./img/logo.svg" class="nav__logo" alt="사이트 로고" />
+                </a>
+                <a href="/signin.html" class="nav__login">로그인</a>
+            </nav>
+        </header>
+        <main>
+            <section class="hero">
+                <h1 class="hero__description">
+                    <span class="gradient hero__description--gradient">세상의 모든 정보</span>를
+                    <!-- pc버전과 tablet버전 줄바꿈 다르게 주기 -->
+                    <br class="br-pc" /><br class="br-tablet" />
+                    쉽게 저장하고<br class="br-tablet" />
+                    관리해 보세요
+                </h1>
+                <div class="hero__add-link-box">
+                    <a href="/signup.html" class="hero__add-link">링크 추가하기</a>
+                </div>
+                <figure class="hero__img">
+                    <img src="./img/hero_img.png" alt="최상단 이미지" />
+                </figure>
+            </section>
+            <section class="section download">
+                <div class="section--container">
+                    <div class="section__description--header-align">
+                        <h1 class="section__description--header">
+                            <span class="gradient section-download__description--gradient">원하는 링크</span>를<br
+                                class="br-pc"
+                            />
+                            저장하세요
+                        </h1>
+                    </div>
+                    <p class="section__description--paragraph">
+                        나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고 싶은 모든 것을 한 공간에
                         저장하세요
-                    </h1>
+                    </p>
+                    <figure class="section__img">
+                        <img src="./img/window_img.png" alt="섹션 이미지" />
+                    </figure>
                 </div>
-                <p class="section__description--paragraph">
-                    나중에 읽고 싶은 글, 다시 보고 싶은 영상,
-                    사고 싶은 옷, 기억하고 싶은 모든 것을
-                    한 공간에 저장하세요
-                </p>
-                <figure class="section__img">
-                    <img src="./img/window_img.png" alt="img_window">
-                </figure>
-            </div>
-        </section>
-        <section class="section manage">
-            <div class="section--container row-reverse">
-                <figure class="section__img">
-                    <img src="./img/manage_img.png" alt="manage_img">
-                </figure>
-                <div class="section__description--header-align">
-                    <h1 class="section__description--header">
-                        링크를 폴더로<br class="br-pc">
-                        <span class="gradient section-manage__description--gradient">관리</span>하세요
-                    </h1>
+            </section>
+            <section class="section manage">
+                <div class="section--container row-reverse">
+                    <figure class="section__img">
+                        <img src="./img/manage_img.png" alt="섹션 이미지" />
+                    </figure>
+                    <div class="section__description--header-align">
+                        <h1 class="section__description--header">
+                            링크를 폴더로<br class="br-pc" />
+                            <span class="gradient section-manage__description--gradient">관리</span>하세요
+                        </h1>
+                    </div>
+                    <p class="section__description--paragraph">
+                        나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다
+                    </p>
                 </div>
-                <p class="section__description--paragraph">
-                    나만의 폴더를 무제한으로 만들고
-                    다양하게 활용할 수 있습니다
-                </p>
-
-            </div>
-        </section>
-        <section class="section share">
-            <div class="section--container">
-                <div class="section__description--header-align">
-                    <h1 class="section__description--header">
-                        저장한 링크를<br class="br-pc">
-                        <span class="gradient section-share__description--gradient">공유</span>해 보세요
-                    </h1>
+            </section>
+            <section class="section share">
+                <div class="section--container">
+                    <div class="section__description--header-align">
+                        <h1 class="section__description--header">
+                            저장한 링크를<br class="br-pc" />
+                            <span class="gradient section-share__description--gradient">공유</span>해 보세요
+                        </h1>
+                    </div>
+                    <p class="section__description--paragraph">
+                        여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고 빠르게 링크를 공유해
+                        보세요
+                    </p>
+                    <figure class="section__img">
+                        <img src="./img/share_img.png" alt="섹션 이미지" />
+                    </figure>
                 </div>
-                <p class="section__description--paragraph">
-                    여러 링크를 폴더에 담고 공유할 수 있습니다.
-                    가족, 친구, 동료들에게 쉽고 빠르게 링크를
-                    공유해 보세요
-                </p>
-                <figure class="section__img">
-                    <img src="./img/share_img.png" alt="share_img">
-                </figure>
-            </div>
-        </section>
-        <section class="section search">
-            <div class="section--container row-reverse">
-                <figure class="section__img">
-                    <img src="./img/search_img.png" alt="search_img">
-                </figure>
-                <div class="section__description--header-align">
-                    <h1 class="section__description--header">
-                        저장한 링크를<br class="br-pc">
-                        <span class="gradient section-search__description--gradient">검색</span>해 보세요
-                    </h1>
+            </section>
+            <section class="section search">
+                <div class="section--container row-reverse">
+                    <figure class="section__img">
+                        <img src="./img/search_img.png" alt="섹션 이미지" />
+                    </figure>
+                    <div class="section__description--header-align">
+                        <h1 class="section__description--header">
+                            저장한 링크를<br class="br-pc" />
+                            <span class="gradient section-search__description--gradient">검색</span>해 보세요
+                        </h1>
+                    </div>
+                    <p class="section__description--paragraph">중요한 정보들을 검색으로 쉽게 찾아보세요</p>
                 </div>
-                <p class="section__description--paragraph">
-                    중요한 정보들을 검색으로 쉽게 찾아보세요
-                </p>
+            </section>
+        </main>
+        <footer>
+            <div class="footer--container font-footer">
+                <div class="footer--container-company">©codeit - 2023</div>
+                <div class="footer--container-privacy-and-faq">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/faq">FAQ</a>
+                </div>
+                <div class="footer--container__links">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="./img/footer__facebook-icon.svg" alt="페이스북 아이콘" />
+                    </a>
+                    <a href="https://twitter.com" target="_blank">
+                        <img src="./img/footer__twitter-icon.svg" alt="트위터 아이콘" />
+                    </a>
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="./img/footer__youtube-icon.svg" alt="유튜브 아이콘" />
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="./img/footer__instagram-icon.svg" alt="인스타그램 아이콘" />
+                    </a>
+                </div>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer--container font-footer">
-            <div class="footer--container-company">©codeit - 2023</div>
-            <div class="footer--container-privacy-and-faq">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/faq">FAQ</a>
-            </div>
-            <div class="footer--container__links">
-                <a href="https://www.facebook.com" target="_blank">
-                    <img src="./img/footer__facebook-icon.svg" alt="footer__facebook-icon">
-                </a>
-                <a href="https://twitter.com" target="_blank">
-                    <img src="./img/footer__twitter-icon.svg" alt="footer__twitter-icon">
-                </a>
-                <a href="https://www.youtube.com" target="_blank">
-                    <img src="./img/footer__youtube-icon.svg" alt="footer__youtube-icon">
-                </a>
-                <a href="https://www.instagram.com" target="_blank">
-                    <img src="./img/footer__instagram-icon.svg" alt="footer__instagram-icon">
-                </a>
-            </div>
-        </div>
-    </footer>
-</body>
-
+        </footer>
+    </body>
 </html>

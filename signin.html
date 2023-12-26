@@ -1,65 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linkbrary</title>
-    <link rel="stylesheet" href="./src/style.css">
-    <link rel="stylesheet" href="./src/reset.css">
-</head>
-
-<body>
-
-    <main class="sign--wrap">
-        <div class="sign">
-            <div class="sign__header">
-                <div class="sign__header--container">
-                    <a href="/" class="sign__header--container-logo">
-                        <img src="img/signin__logo.svg">
-                    </a>
-                    <div class="sign__header--container-register">
-                        <span>회원이 아니신가요?</span><a href="/signup.html">회원 가입하기</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Linkbrary</title>
+        <link rel="stylesheet" href="./src/style.css" />
+        <link rel="stylesheet" href="./src/reset.css" />
+        <script defer type="module" src="./script/sign/signin.js"></script>
+    </head>
+    <body>
+        <main class="sign--wrap">
+            <div class="sign">
+                <div class="sign__header">
+                    <div class="sign__header--container">
+                        <a href="/" class="sign__header--container-logo">
+                            <img src="img/signin__logo.svg" alt="사이트 로고" />
+                        </a>
+                        <div class="sign__header--container-register">
+                            <span>회원이 아니신가요?</span><a href="/signup.html">회원 가입하기</a>
+                        </div>
                     </div>
                 </div>
+                <form id="signin_form" class="form-sign">
+                    <div class="form-sign__input-email">
+                        <label>이메일</label>
+                        <input type="email" id="signin_email_input" name="email" />
+                        <div class="form-sign__input-error email" id="email"></div>
+                    </div>
+                    <div class="form-sign__input-password">
+                        <label>비밀번호</label>
+                        <div class="password__box">
+                            <input type="password" id="signin_password_input" name="password" />
+                            <button type="button" class="password__btn-eye"></button>
+                        </div>
+                        <div class="form-sign__input-error password"></div>
+                    </div>
+                    <button type="button" class="form-sign__btn-sign" id="signin_login_btn">
+                        <div>로그인</div>
+                    </button>
+                    <div class="form-sign__social-sign">
+                        <span>소셜로그인</span>
+                        <div class="link-social-sign">
+                            <a href="https://www.google.com/" class="link-social-sign-google">
+                                <img src="./img/google-icon.png" alt="구글 아이콘" width="24px" height="24px" />
+                            </a>
+                            <a href="https://www.kakaocorp.com/page/" class="link-social-sign-kakao">
+                                <img src="./img/kakao-icon.svg" alt="카카오 아이콘" width="26px" height="24px" />
+                            </a>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <!-- 만약 올바른 이메일, 비밀번호면 /folder로 post요청 -->
-            <form id="signin_form" class="form-sign" action="/folder" method="post">
-                <div class="form-sign__input-email">
-                    <label>이메일</label>
-                    <input type="email" id="signin_email_input" name="email">
-                    <!-- div와 스타일 미리주고 textContent만 바꾸게하기 -->
-                    <div class="form-sign__input-error email" id="email"></div>
-                </div>
-                <div class="form-sign__input-password">
-                    <label>비밀번호</label>
-                    <div class="password__box">
-                        <input type="password" id="signin_password_input" name="password">
-                        <!-- type을 button으로 안주면 자동으로 submit이 돼서 form의 action으로 이동해버림 -->
-                        <button type="button" class="password__btn-eye-off">
-                            <img src="img/eye-off.svg" alt="eye-off">
-                        </button>
-                    </div>
-                    <div class="form-sign__input-error password"></div>
-                </div>
-                <button type="submit" class="form-sign__btn-sign" id="signin_login_btn">
-                    <div>로그인</div>
-                </button>
-                <div class="form-sign__social-sign">
-                    <span>소셜로그인</span>
-                    <div class="link-social-sign">
-                        <a href="https://www.google.com/" class="link-social-sign-google">
-                            <img src="./img/google-icon.png" alt="google-icon" width="24px" height="24px">
-                        </a>
-                        <a href="https://www.kakaocorp.com/page/" class="link-social-sign-kakao">
-                            <img src="./img/kakao-icon.svg" alt="kakao-icon" width="26px" height="24px">
-                        </a>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </main>
-    <script type="module" src="./script/signin.js"></script>
-</body>
-
+        </main>
+    </body>
 </html>
