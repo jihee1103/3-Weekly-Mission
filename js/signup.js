@@ -1,14 +1,16 @@
 import { addStyles, deleteStyles } from "./input-style.js";
+import { handleEyeBtnPw, handleEyeBtnPwCheck } from "./eyeicon.js";
 
 const signForm = document.querySelector(".sign-form");
 const signInputEmail = document.querySelector(".email");
-const signInputPw = document.querySelector(".password1");
-const signInputPwCheck = document.querySelector(".password2");
+const signInputPw = document.querySelector(".sign-input-pw");
+const signInputPwCheck = document.querySelector(".sign-input-pw-check");
 const emailErrMsg = document.querySelector(".emailErrMsg");
 const pwErrMsg = document.querySelector(".pwErrMsg");
 const pwCheckErrMsg = document.querySelector(".pwCheckErrMsg");
-const eyeBtn1 = document.querySelector(".pw1");
-const eyeBtn2 = document.querySelector(".pw2");
+const eyeBtn = document.querySelectorAll(".eye-button-off");
+const eyeBtnOnPw = document.querySelector(".eye-button-on");
+const eyeBtnOnPwCheck = document.querySelector(".eye-button-on-pwcheck");
 
 // 이메일 유효성 검사
 function handleValidationEmail() {
@@ -16,9 +18,9 @@ function handleValidationEmail() {
     addStyles(signInputEmail, emailErrMsg, `이메일을 입력해주세요.`);
   } else if (!signInputEmail.value.includes("@")) {
     addStyles(signInputEmail, emailErrMsg, `올바른 이메일 주소가 아닙니다.`);
-  } else if (inputValue === "test@codeit.com") {
-    addStyles(signInputEmail, emailErrMsg, `이미 사용 중인 이메일입니다.`);
-  } else if (inputValue !== "") {
+  } else if (!signInputEmail.value.includes(".com")) {
+    addStyles(signInputEmail, emailErrMsg, `올바른 이메일 주소가 아닙니다.`);
+  } else if (signInputEmail !== "") {
     deleteStyles(signInputEmail, emailErrMsg);
   }
 }
@@ -34,10 +36,10 @@ function handleValidationPw(e) {
       pwErrMsg,
       `비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.`
     );
-    eyeBtn1.classList.add("eye-button-focusout");
+    eyeBtn[0].classList.add("eye-button-focusout");
   } else {
     deleteStyles(signInputPw, pwErrMsg);
-    eyeBtn1.classList.remove("eye-button-focusout");
+    eyeBtn[0].classList.remove("eye-button-focusout");
   }
 }
 
@@ -47,25 +49,56 @@ function handeleCheckPw() {
   let pw2 = signInputPwCheck.value;
   if (pw1 !== pw2) {
     addStyles(signInputPwCheck, pwCheckErrMsg, `비밀번호가 일치하지 않아요.`);
-    eyeBtn2.classList.add("eye-button-focusout");
+    eyeBtn[1].classList.add("eye-button-focusout");
   } else {
     deleteStyles(signInputPwCheck, pwCheckErrMsg);
-    eyeBtn2.classList.remove("eye-button-focusout");
+    eyeBtn[1].classList.remove("eye-button-focusout");
   }
 }
 
 // 회원가입 유효성 검사 함수
-function handleSumbmit(e) {
-  if (
-    signInputEmail.value !== "test@codeit.com" &&
-    signInputPw.value === signInputPwCheck.value
-  ) {
+async function handleSumbmit(e) {
+  try {
     e.preventDefault();
-    location.href = "folder.html";
-  }
+    let loginData = {
+      email: signInputEmail.value,
+      password: signInputPw.value,
+    };
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    });
+    if (
+      loginData.email !== "test@codeit.com" &&
+      loginData.password === signInputPwCheck.value &&
+      response.status === 200
+    ) {
+      const parseData = await response.json();
+      let accessToken = parseData.data.accessToken;
+      localStorage.setItem("accessToken", accessToken);
+      location.href = "folder.html";
+    } else if (
+      loginData.email === "test@codeit.com" &&
+      response.status === 400
+    ) {
+      addStyles(signInputEmail, emailErrMsg, `이미 사용 중인 이메일입니다.`);
+    }
+  } catch (error) {}
+}
+
+const getAccessToken = localStorage.getItem("accessToken");
+if (getAccessToken !== null) {
+  location.href = "folder.html";
 }
 
 signInputEmail.addEventListener("focusout", handleValidationEmail);
 signInputPw.addEventListener("focusout", handleValidationPw);
 signInputPwCheck.addEventListener("input", handeleCheckPw);
 signForm.addEventListener("submit", handleSumbmit);
+eyeBtn[0].addEventListener("click", handleEyeBtnPw);
+eyeBtnOnPw.addEventListener("click", handleEyeBtnPw);
+eyeBtn[1].addEventListener("click", handleEyeBtnPwCheck);
+eyeBtnOnPwCheck.addEventListener("click", handleEyeBtnPwCheck);
