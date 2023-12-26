@@ -88,30 +88,25 @@ function passwordConfirm() {
 
 async function signUp(event) {
     event.preventDefault();
+    if (!checkEmail() || !checkPassword() || !passwordConfirm()) {
+        return;
+    }
 
-    if (
-        checkEmail() === true &&
-        checkPassword() === true &&
-        passwordConfirm() === true
-    ) {
-        const response = await fetch(
-            "https://bootcamp-api.codeit.kr/api/sign-up",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email: inputEmail.value,
-                    password: inputPassword.value,
-                }),
-            }
-        );
-        if (response.ok === true) {
-            const result = await response.json();
-            localStorage.setItem("accessToken", result.data.accessToken);
-            location.href = "/folder";
-        }
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            email: inputEmail.value,
+            password: inputPassword.value,
+        }),
+    });
+
+    if (response.ok === true) {
+        const result = await response.json();
+        localStorage.setItem("accessToken", result.data.accessToken);
+        location.href = "/folder";
     }
 }
 
