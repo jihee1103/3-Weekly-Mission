@@ -1,21 +1,51 @@
-import convertEmailErrorMessage from "./functions/email.js";
-import convertPasswordErrorMessage from "./functions/password.js";
+import { URL, TEST_USER, validateEmail, validatePassword, togglePassword } from "./utils.js";
+import { signForm, emailInputBox, emailInput, passwordInputBox, passwordInput, passwordToggleButton } from "./tags.js";
 
-import { emailInput, passwordInput, signForm, signInBtn } from "./tags.js";
+if (localStorage.getItem("accessToken")) {
+  location.href = "./folder.html";
+}
 
-const signin = () => {
-  const userEmail = "test@codeit.com";
-  const userPassword = "codeit101";
+const signin = async (e) => {
+  e.preventDefault();
 
-  if (userEmail === emailInput.value && userPassword === passwordInput.value) {
-    signForm.setAttribute("onsubmit", "return true");
+  if (TEST_USER.email === emailInput.value && TEST_USER.password === passwordInput.value) {
+    location.href = "./folder.html";
   } else {
-    convertEmailErrorMessage(emailInput.value, "signIn");
-    convertPasswordErrorMessage(passwordInput.value, "signIn");
+    validateEmail(emailInput.value, "signin");
+    validatePassword(passwordInput.value, "signin");
+  }
+
+  const user = {
+    email: emailInput.value,
+    password: passwordInput.value,
+  };
+
+  try {
+    const response = await fetch(`${URL}/api/sign-in`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    if (response.status === 200) {
+      location.href = "./folder.html";
+
+      const result = await response.json();
+      const { accessToken } = result.data;
+      localStorage.setItem("accessToken", accessToken);
+    }
+  } catch (error) {
+    alert(error.message);
   }
 };
 
-signForm.setAttribute("onsubmit", "return false");
-signInBtn.addEventListener("click", signin);
+emailInputBox.addEventListener("focusout", validateEmail);
+passwordInputBox.addEventListener("focusout", validatePassword);
+
+passwordToggleButton.addEventListener("click", () => togglePassword(passwordInput, passwordToggleButton));
+
+signForm.addEventListener("submit", signin);
 
 export default signin;

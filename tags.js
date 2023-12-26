@@ -1,24 +1,25 @@
-const emailInput = document.querySelector("#email");
-const emailInputBox = document.querySelector(".sign-input-box");
-
-const passwordInput = document.querySelector("#password");
-const passwordInputBox = document.querySelector(".sign-input-box.sign-password");
-
-const passwordCheckInput = document.querySelector("#password-check");
-const passwordCheckInputBox = document.querySelectorAll(".sign-input-box.sign-password")[1];
-
 const signForm = document.querySelector(".sign-form");
-const signInBtn = document.querySelector(".sumbit-button");
-const signUpBtn = document.querySelector(".sumbit-button");
+
+const emailInputBox = document.querySelector(".sign-input-box");
+const emailInput = document.querySelector("#email");
+
+const passwordInputBox = document.querySelector(".sign-input-box.sign-password");
+const passwordInput = document.querySelector("#password");
+
+const passwordConfirmInputBox = document.querySelectorAll(".sign-input-box.sign-password")[1];
+const passwordConfirmInput = document.querySelector("#confirm-password");
+
+const passwordToggleButton = document.querySelector("#password-toggle");
+const confirmPasswordToggleButton = document.querySelector("#confirm-password-toggle");
 
 export {
-  emailInput,
-  emailInputBox,
-  passwordInput,
-  passwordInputBox,
-  passwordCheckInput,
-  passwordCheckInputBox,
   signForm,
-  signInBtn,
-  signUpBtn,
+  emailInputBox,
+  emailInput,
+  passwordInputBox,
+  passwordInput,
+  passwordConfirmInputBox,
+  passwordConfirmInput,
+  passwordToggleButton,
+  confirmPasswordToggleButton,
 };
