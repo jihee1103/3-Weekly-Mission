@@ -16,9 +16,9 @@ export const ERROR_MESSAGES = {
 };
 
 export const API = {
-  SIGN_IN_API: 'https://bootcamp-api.codeit.kr/api/sign-in',
-  SIGN_UP_API: 'https://bootcamp-api.codeit.kr/api/sign-up',
-  EMAIL_DUPLICATE_CHECK_API: 'https://bootcamp-api.codeit.kr/api/check-email',
+  SIGN_IN: 'https://bootcamp-api.codeit.kr/api/sign-in',
+  SIGN_UP: 'https://bootcamp-api.codeit.kr/api/sign-up',
+  EMAIL_DUPLICATE_CHECK: 'https://bootcamp-api.codeit.kr/api/check-email',
 };
 
 export const EMAIL_REGEX =

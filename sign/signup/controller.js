@@ -1,8 +1,5 @@
 import { ERROR_MESSAGES, API, EMAIL_REGEX, PASSWORD_REGEX } from '../constants.js';
 
-const getErrorMessage = (errCode) => ERROR_MESSAGES[errCode] ?? '알 수 없는 에러가 발생했습니다.';
-const getAPI = (apiCode) => API[apiCode];
-
 export default class SignUpController {
   constructor(model, view) {
     this.model = model;
@@ -28,16 +25,16 @@ export default class SignUpController {
     const emailValue = this.view.emailInput.value;
 
     if (!emailValue) {
-      this.view.showErrorMessage(this.view.emailInput, getErrorMessage('EMAIL_REQUIRED'));
+      this.view.showEmailErrorMessage(ERROR_MESSAGES.EMAIL_REQUIRED);
       return false;
     }
 
     if (!EMAIL_REGEX.test(emailValue)) {
-      this.view.showErrorMessage(this.view.emailInput, getErrorMessage('INVALID_EMAIL'));
+      this.view.showEmailErrorMessage(ERROR_MESSAGES.INVALID_EMAIL);
       return false;
     }
 
-    this.view.removeErrorMessage(this.view.emailInput);
+    this.view.removeEmailErrorMessage();
     return true;
   }
 
@@ -45,15 +42,15 @@ export default class SignUpController {
     const passwordValue = this.view.passwordInput.value;
 
     if (!passwordValue) {
-      this.view.showErrorMessage(this.view.passwordInput, getErrorMessage('PASSWORD_REQUIRED'));
+      this.view.showPasswordErrorMessage(ERROR_MESSAGES.PASSWORD_REQUIRED);
       return false;
     }
 
     if (PASSWORD_REGEX.test(passwordValue) && passwordValue.length >= 8) {
-      this.view.showErrorMessage(this.view.passwordInput, getErrorMessage('INVALID_PASSWORD'));
+      this.view.showPasswordErrorMessage(ERROR_MESSAGES.INVALID_PASSWORD);
     }
 
-    this.view.removeErrorMessage(this.view.passwordInput);
+    this.view.removePasswordErrorMessage();
     return true;
   }
 
@@ -61,22 +58,16 @@ export default class SignUpController {
     const passwordConfirmValue = this.view.passwordConfirmInput.value;
 
     if (!passwordConfirmValue) {
-      this.view.showErrorMessage(
-        this.view.passwordConfirmInput,
-        getErrorMessage('PASSWORD_CONFIRM_REQUIRED'),
-      );
+      this.view.showPasswordConfirmErrorMessage(ERROR_MESSAGES.PASSWORD_CONFIRM_REQUIRED);
       return false;
     }
 
     if (passwordConfirmValue !== this.view.passwordInput.value) {
-      this.view.showErrorMessage(
-        this.view.passwordConfirmInput,
-        getErrorMessage('INVALID_PASSWORD_CONFIRM'),
-      );
+      this.view.showPasswordConfirmErrorMessage(ERROR_MESSAGES.INVALID_PASSWORD_CONFIRM);
       return false;
     }
 
-    this.view.removeErrorMessage(this.view.passwordConfirmInput);
+    this.view.removePasswordConfirmErrorMessage();
     return true;
   }
 
@@ -94,7 +85,7 @@ export default class SignUpController {
     };
 
     try {
-      const emailDuplicateCheckResponse = await fetch(getAPI('EMAIL_DUPLICATE_CHECK_API'), {
+      const emailDuplicateCheckResponse = await fetch(API.EMAIL_DUPLICATE_CHECK, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -103,11 +94,11 @@ export default class SignUpController {
       });
 
       if (emailDuplicateCheckResponse.status === 409) {
-        this.view.showErrorMessage(this.view.emailInput, getErrorMessage('DUPLICATE_EMAIL'));
+        this.view.showEmailErrorMessage(ERROR_MESSAGES.DUPLICATE_EMAIL);
         return;
       }
 
-      const signUpResponse = await fetch(getAPI('SIGN_UP_API'), {
+      const signUpResponse = await fetch(API.SIGN_UP, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -116,15 +107,9 @@ export default class SignUpController {
       });
 
       if (!signUpResponse.ok) {
-        this.view.showErrorMessage(this.view.emailInput, getErrorMessage('EMAIL_CHECK_FAILED'));
-        this.view.showErrorMessage(
-          this.view.passwordInput,
-          getErrorMessage('PASSWORD_CHECK_FAILED'),
-        );
-        this.view.showErrorMessage(
-          this.view.passwordConfirmInput,
-          getErrorMessage('PASSWORD_CONFIRM_CHECK_FAILED'),
-        );
+        this.view.showEmailErrorMessage(ERROR_MESSAGES.EMAIL_CHECK_FAILED);
+        this.view.showPasswordErrorMessage(ERROR_MESSAGES.PASSWORD_CHECK_FAILED);
+        this.view.showPasswordConfirmErrorMessage(ERROR_MESSAGES.PASSWORD_CONFIRM_CHECK_FAILED);
         return;
       }
 
@@ -132,7 +117,7 @@ export default class SignUpController {
       location.replace('/folder.html');
     } catch (error) {
       console.error('회원가입 에러:', error.message);
-      alert(getErrorMessage('SIGN_UP_FAILED'));
+      alert(ERROR_MESSAGES.SIGN_UP_FAILED);
     }
   }
 }

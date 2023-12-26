@@ -1,8 +1,5 @@
 import { ERROR_MESSAGES, API, EMAIL_REGEX } from '../constants.js';
 
-const getErrorMessage = (errCode) => ERROR_MESSAGES[errCode] ?? '알 수 없는 에러가 발생했습니다.';
-const getAPI = (apiCode) => API[apiCode];
-
 export default class SignInController {
   constructor(model, view) {
     this.model = model;
@@ -25,28 +22,28 @@ export default class SignInController {
     const emailValue = this.view.emailInput.value;
 
     if (!emailValue) {
-      this.view.showErrorMessage(this.view.emailInput, getErrorMessage('EMAIL_REQUIRED'));
+      this.view.showEmailErrorMessage(ERROR_MESSAGES.EMAIL_REQUIRED);
       return false;
     }
 
     if (!EMAIL_REGEX.test(emailValue)) {
-      this.view.showErrorMessage(this.view.emailInput, getErrorMessage('INVALID_EMAIL'));
+      this.view.showEmailErrorMessage(ERROR_MESSAGES.INVALID_EMAIL);
       return false;
     }
 
-    this.view.removeErrorMessage(this.view.emailInput);
+    this.view.removeEmailErrorMessage();
     return true;
   }
 
   handlePasswordInputFocusout() {
     const passwordValue = this.view.passwordInput.value;
 
-    if (passwordValue.length === 0) {
-      this.view.showErrorMessage(this.view.passwordInput, getErrorMessage('PASSWORD_REQUIRED'));
+    if (!passwordValue) {
+      this.view.showPasswordErrorMessage(ERROR_MESSAGES.PASSWORD_REQUIRED);
       return false;
     }
 
-    this.view.removeErrorMessage(this.view.passwordInput);
+    this.view.removePasswordErrorMessage();
     return true;
   }
 
@@ -61,7 +58,7 @@ export default class SignInController {
     };
 
     try {
-      const signInResponse = await fetch(getAPI('SIGN_IN_API'), {
+      const signInResponse = await fetch(API.SIGN_IN, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,11 +67,8 @@ export default class SignInController {
       });
 
       if (!signInResponse.ok) {
-        this.view.showErrorMessage(this.view.emailInput, getErrorMessage('EMAIL_CHECK_FAILED'));
-        this.view.showErrorMessage(
-          this.view.passwordInput,
-          getErrorMessage('PASSWORD_CHECK_FAILED'),
-        );
+        this.view.showEmailErrorMessage(ERROR_MESSAGES.EMAIL_CHECK_FAILED);
+        this.view.showPasswordErrorMessage(ERROR_MESSAGES.PASSWORD_CHECK_FAILED);
         return;
       }
 
@@ -82,7 +76,7 @@ export default class SignInController {
       location.replace('/folder.html');
     } catch (error) {
       console.error('로그인 에러:', error.message);
-      alert(getErrorMessage('SIGN_IN_FAILED'));
+      alert(ERROR_MESSAGES.SIGN_IN_FAILED);
     }
   }
 }

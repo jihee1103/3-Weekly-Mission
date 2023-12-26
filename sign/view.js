@@ -7,16 +7,48 @@ export default class SignView {
     this.eyeIcons = document.querySelectorAll('.eye-icon');
   }
 
-  showErrorMessage(tag, errorMessage) {
-    const target = tag.parentElement.querySelector('.error-message');
+  showEmailErrorMessage(errorMessage) {
+    const target = this.emailInput.parentElement.querySelector('.error-message');
     const inputBorder = target.parentElement.querySelector('.input');
 
     inputBorder.classList.add('error-border');
     target.textContent = errorMessage;
   }
 
-  removeErrorMessage(tag) {
-    const target = tag.parentElement.querySelector('.error-message');
+  showPasswordErrorMessage(errorMessage) {
+    const target = this.passwordInput.parentElement.querySelector('.error-message');
+    const inputBorder = target.parentElement.querySelector('.input');
+
+    inputBorder.classList.add('error-border');
+    target.textContent = errorMessage;
+  }
+
+  showPasswordConfirmErrorMessage(errorMessage) {
+    const target = this.passwordConfirmInput.parentElement.querySelector('.error-message');
+    const inputBorder = target.parentElement.querySelector('.input');
+
+    inputBorder.classList.add('error-border');
+    target.textContent = errorMessage;
+  }
+
+  removeEmailErrorMessage() {
+    const target = this.emailInput.parentElement.querySelector('.error-message');
+    const inputBorder = target.parentElement.querySelector('.input');
+
+    inputBorder.classList.remove('error-border');
+    target.textContent = '';
+  }
+
+  removePasswordErrorMessage() {
+    const target = this.passwordInput.parentElement.querySelector('.error-message');
+    const inputBorder = target.parentElement.querySelector('.input');
+
+    inputBorder.classList.remove('error-border');
+    target.textContent = '';
+  }
+
+  removePasswordConfirmErrorMessage() {
+    const target = this.passwordConfirmInput.parentElement.querySelector('.error-message');
     const inputBorder = target.parentElement.querySelector('.input');
 
     inputBorder.classList.remove('error-border');
