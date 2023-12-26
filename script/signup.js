@@ -12,7 +12,6 @@ if (localStorage.accessToken) {
     location.href = "/folder";
 }
 
-console.log(localStorage);
 async function checkEmailConflict() {
     const response = await fetch(
         "https://bootcamp-api.codeit.kr/api/check-email",
