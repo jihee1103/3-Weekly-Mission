@@ -58,7 +58,7 @@ async function signIn(event) {
             password: inputPassword.value,
         }),
     });
-    if (response.status === 200) {
+    if (response.ok === true) {
         const result = await response.json();
         localStorage.setItem("accessToken", result.data.accessToken);
         location.href = "/folder";

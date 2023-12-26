@@ -25,7 +25,7 @@ async function checkDuplicateEmail() {
             }),
         }
     );
-    if (response.status === 409) {
+    if (response.ok === false) {
         emailError.textContent = "이미 사용 중인 이메일입니다.";
         return false;
     }
@@ -107,7 +107,7 @@ async function signUp(event) {
                 }),
             }
         );
-        if (response.status === 200) {
+        if (response.ok === true) {
             const result = await response.json();
             localStorage.setItem("accessToken", result.data.accessToken);
             location.href = "/folder";
