@@ -59,7 +59,6 @@ async function signIn(event) {
     });
     if (response.ok === true) {
         const result = await response.json();
-        // localStorage.setItem("accessToken", result.data.accessToken);
         storeAccessToken(result);
         location.href = "/folder";
     } else {
