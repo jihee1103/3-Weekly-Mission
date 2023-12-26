@@ -13,104 +13,168 @@ const confirmPasswordOnOff = document.querySelector(
   "#confirm-password-show-hide"
 );
 
-let verifyEmail = false;
-let verifyPassword = false;
-let verifyConfirmPassword = false;
+function addErrorStyle(element) {
+  element.classList.add("inputbox-error");
+}
+
+function removeErrorStyle(element) {
+  element.classList.remove("inputbox-error");
+}
+
+function showErrorMessage(element, message) {
+  element.textContent = message;
+}
+
+if (localStorage.accessToken) {
+  location.href = "./folder.html";
+}
+
+async function checkEmailConfilct() {
+  const response = await fetch(
+    "https://bootcamp-api.codeit.kr/api/check-email",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: inputEmail.value,
+      }),
+    }
+  );
+  if (response.status === 409) {
+    emailError.textContent = "이미 사용 중인 이메일입니다.";
+    return false;
+  }
+}
 
 function checkEmail() {
   const regEmail =
     /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 
   if (!inputEmail.value) {
-    emailErrorMessage.textContent = "이메일을 입력해주세요.";
-    inputEmail.classList.add("inputbox-error");
-  } else if (!regEmail.test(inputEmail.value)) {
-    emailErrorMessage.textContent = "올바른 이메일 주소가 아닙니다.";
-    inputEmail.classList.add("inputbox-error");
-  } else if (inputEmail.value === "test@codeit.com") {
-    emailErrorMessage.textContent = "이미 사용 중인 이메일입니다";
-    inputEmail.classList.add("inputbox-error");
-  } else {
-    emailErrorMessage.textContent = "";
-    inputEmail.classList.remove("inputbox-error");
-    verifyEmail = true;
+    addErrorStyle(inputEmail);
+    showErrorMessage(emailErrorMessage, "이메일을 입력해주세요.");
+    return false;
   }
+  if (!regEmail.test(inputEmail.value)) {
+    addErrorStyle(inputEmail);
+    showErrorMessage(emailErrorMessage, "올바른 이메일 주소가 아닙니다.");
+    return false;
+  }
+  if (inputEmail.value === "test@codeit.com") {
+    addErrorStyle(inputEmail);
+    showErrorMessage(emailErrorMessage, "이미 사용 중인 이메일입니다.");
+    return false;
+  }
+  checkEmailConfilct();
+  removeErrorStyle(inputEmail);
+  showErrorMessage(emailErrorMessage, "");
+  return true;
 }
 
 function checkPassword() {
   const regPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}$/;
 
   if (!inputPassword.value) {
-    passwordErrorMessage.textContent = "비밀번호를 입력해주세요.";
-    inputPassword.classList.add("inputbox-error");
-  } else if (!regPassword.test(inputPassword.value)) {
-    passwordErrorMessage.textContent =
-      "비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.";
-    inputPassword.classList.add("inputbox-error");
-  } else {
-    passwordErrorMessage.textContent = "";
-    inputPassword.classList.remove("inputbox-error");
-    verifyPassword = true;
+    addErrorStyle(inputPassword);
+    showErrorMessage(passwordErrorMessage, "비밀번호를 입력해주세요.");
+    return false;
+  }
+  if (!regPassword.test(inputPassword.value)) {
+    addErrorStyle(inputPassword);
+    showErrorMessage(
+      passwordErrorMessage,
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요."
+    );
+    return false;
+  }
+  if (inputPassword.value && regPassword.test(inputPassword.value)) {
+    removeErrorStyle(inputPassword);
+    showErrorMessage(passwordErrorMessage, "");
+    return true;
   }
 }
 
 function checkConfirmPassword() {
   if (!inputConfirmPassword.value) {
-    confirmPasswordErrorMessage.textContent = "비밀번호를 입력해주세요.";
-    inputConfirmPassword.classList.add("inputbox-error");
-  } else if (inputConfirmPassword.value !== inputPassword.value) {
-    confirmPasswordErrorMessage.textContent = "비밀번호가 다릅니다";
-    inputConfirmPassword.classList.add("inputbox-error");
-  } else {
-    confirmPasswordErrorMessage.textContent = "";
-    inputConfirmPassword.classList.remove("inputbox-error");
-    verifyConfirmPassword = true;
+    addErrorStyle(inputConfirmPassword);
+    showErrorMessage(confirmPasswordErrorMessage, "비밀번호를 입력해주세요.");
+    return false;
+  }
+  if (inputConfirmPassword.value !== inputPassword.value) {
+    addErrorStyle(inputConfirmPassword);
+    showErrorMessage(confirmPasswordErrorMessage, "비밀번호가 다릅니다.");
+    return false;
+  }
+  removeErrorStyle(inputConfirmPassword);
+  showErrorMessage(confirmPasswordErrorMessage, "");
+  return true;
+}
+
+async function signUp() {
+  if (
+    checkEmail() === true &&
+    checkPassword() === true &&
+    checkConfirmPassword() === true
+  ) {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: inputEmail.value,
+        password: inputPassword.value,
+      }),
+    });
+    if (response.status === 200) {
+      location.href = "./folder.html";
+
+      const result = await response.json();
+      const { accessToken } = result.data;
+      localStorage.setItem("accessToken", accessToken);
+    }
   }
 }
 
-function signUp() {
-  if (verifyEmail && verifyPassword && verifyConfirmPassword) {
-    location.href = "../folder.html";
-  } else if (verifyEmail === false) {
-    emailErrorMessage.textContent = "이메일을 확인해주세요.";
-    inputEmail.classList.add("inputbox-error");
-  } else if (verifyPassword === false) {
-    passwordErrorMessage.textContent = "비밀번호를 확인해주세요.";
-    inputPassword.classList.add("inputbox-error");
-  } else if (verifyConfirmPassword === false) {
-    confirmPasswordErrorMessage.textContent = "비밀번호를 확인해주세요";
-    inputConfirmPassword.classList.add("inputbox-error");
-  }
-}
-
-function sendEnter(e) {
-  if (e.key === "Enter") {
-    signUp();
-  }
-}
-
-function showAndHidePassword(elementbutton, elementInput) {
-  if (elementInput.type == "password") {
-    elementInput.type = "text";
-    elementbutton.src = "./image/eye-on.svg";
-  } else if (elementInput.type == "text") {
-    elementInput.type = "password";
-    elementbutton.src = "./image/eye-off.svg";
+function showOrHidePassword(passwordToggleButton, passwordInputField) {
+  if (passwordInputField.type == "password") {
+    passwordInputField.type = "text";
+    passwordToggleButton.src = "./image/eye-on.svg";
+  } else if (passwordInputField.type == "text") {
+    passwordInputField.type = "password";
+    passwordToggleButton.src = "./image/eye-off.svg";
   }
 }
 
 passwordOnOff.addEventListener("click", () => {
-  showAndHidePassword(passwordOnOff, inputPassword);
+  showOrHidePassword(passwordOnOff, inputPassword);
 });
 
 confirmPasswordOnOff.addEventListener("click", () => {
-  showAndHidePassword(confirmPasswordOnOff, inputConfirmPassword);
+  showOrHidePassword(confirmPasswordOnOff, inputConfirmPassword);
 });
 
-inputEmail.addEventListener("keypress", sendEnter);
-inputPassword.addEventListener("keypress", sendEnter);
-inputConfirmPassword.addEventListener("keypress", sendEnter);
-inputEmail.addEventListener("focusout", checkEmail);
-inputPassword.addEventListener("focusout", checkPassword);
-inputConfirmPassword.addEventListener("focusout", checkConfirmPassword);
+document.addEventListener("keypress", (event) => {
+  if (
+    (event.target === inputEmail ||
+      event.target === inputPassword ||
+      event.target === inputConfirmPassword) &&
+    event.key === "Enter"
+  ) {
+    signUp();
+  }
+});
+
+document.addEventListener("focusout", (event) => {
+  if (event.target === inputEmail) {
+    checkEmail();
+  } else if (event.target === inputPassword) {
+    checkPassword();
+  } else if (event.target === inputConfirmPassword) {
+    checkConfirmPassword();
+  }
+});
+
 signupButton.addEventListener("click", signUp);

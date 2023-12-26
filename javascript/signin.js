@@ -6,19 +6,35 @@ const emailErrorMessage = document.querySelector("#email-error-message");
 const passwordErrorMessage = document.querySelector("#password-error-message");
 const passwordOnOff = document.querySelector("#password-show-hide");
 
+if (localStorage.accessToken) {
+  location.href = "./folder.html";
+}
+
+function addErrorStyle(element) {
+  element.classList.add("inputbox-error");
+}
+
+function removeErrorStyle(element) {
+  element.classList.remove("inputbox-error");
+}
+
+function showErrorMessage(element, message) {
+  element.textContent = message;
+}
+
 function checkEmail() {
   const regEmail =
     /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 
   if (!inputEmail.value) {
-    emailErrorMessage.textContent = "이메일을 입력해주세요.";
-    inputEmail.classList.add("inputbox-error");
+    addErrorStyle(inputEmail);
+    showErrorMessage(emailErrorMessage, "이메일을 입력해주세요");
   } else if (!regEmail.test(inputEmail.value)) {
-    emailErrorMessage.textContent = "올바른 이메일 주소가 아닙니다.";
-    inputEmail.classList.add("inputbox-error");
+    addErrorStyle(inputEmail);
+    showErrorMessage(emailErrorMessage, "올바른 이메일 주소가 아닙니다.");
   } else {
-    emailErrorMessage.textContent = "";
-    inputEmail.classList.remove("inputbox-error");
+    removeErrorStyle(inputEmail);
+    showErrorMessage(emailErrorMessage, "");
   }
 }
 
@@ -26,54 +42,76 @@ function checkPassword() {
   const regPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}$/;
 
   if (!inputPassword.value) {
-    passwordErrorMessage.textContent = "비밀번호를 입력해주세요.";
-    inputPassword.classList.add("inputbox-error");
+    addErrorStyle(inputPassword);
+    showErrorMessage(passwordErrorMessage, "비밀번호를 입력해주세요.");
   } else if (!regPassword.test(inputPassword.value)) {
-    passwordErrorMessage.textContent =
-      "비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.";
-    inputPassword.classList.add("inputbox-error");
+    addErrorStyle(inputPassword);
+    showErrorMessage(
+      passwordErrorMessage,
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요."
+    );
   } else {
-    passwordErrorMessage.textContent = "";
-    inputPassword.classList.remove("inputbox-error");
+    removeErrorStyle(inputPassword);
+    showErrorMessage(passwordErrorMessage, "");
   }
 }
 
-function signIn() {
-  if (
-    inputEmail.value === "test@codeit.com" &&
-    inputPassword.value === "codeit101"
-  ) {
+async function signIn() {
+  const response = await fetch(
+    "https://bootcamp-api.codeit.kr/docs/api/sign-in",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: inputEmail.value,
+        password: inputPassword.value,
+      }),
+    }
+  );
+
+  if (response.status === 200) {
     location.href = "./folder.html";
+
+    const result = await response.json();
+    const { accessToken } = result.data;
+    localStorage.setItem("accessToken", accessToken);
   } else {
-    emailErrorMessage.textContent = "이메일을 확인해주세요.";
-    passwordErrorMessage.textContent = "비밀번호를 확인해주세요.";
-    inputEmail.classList.add("inputbox-error");
-    inputPassword.classList.add("inputbox-error");
+    showErrorMessage(emailErrorMessage, "이메일을 확인해주세요.");
+    showErrorMessage(passwordErrorMessage, "비밀번호를 확인해주세요.");
   }
 }
 
-function sendEnter(e) {
-  if (e.key === "Enter") {
-    signIn();
-  }
-}
-
-function showAndHidePassword(elementbutton, elementInput) {
-  if (elementInput.type == "password") {
-    elementInput.type = "text";
-    elementbutton.src = "./image/eye-on.svg";
-  } else if (elementInput.type == "text") {
-    elementInput.type = "password";
-    elementbutton.src = "./image/eye-off.svg";
+function showOrHidePassword(passwordToggleButton, passwordInputField) {
+  if (passwordInputField.type == "password") {
+    passwordInputField.type = "text";
+    passwordToggleButton.src = "./image/eye-on.svg";
+  } else if (passwordInputField.type == "text") {
+    passwordInputField.type = "password";
+    passwordToggleButton.src = "./image/eye-off.svg";
   }
 }
 
 passwordOnOff.addEventListener("click", () => {
-  showAndHidePassword(passwordOnOff, inputPassword);
+  showOrHidePassword(passwordOnOff, inputPassword);
 });
 
-inputEmail.addEventListener("keypress", sendEnter);
-inputPassword.addEventListener("keypress", sendEnter);
-inputEmail.addEventListener("focusout", checkEmail);
-inputPassword.addEventListener("focusout", checkPassword);
+document.addEventListener("keypress", (event) => {
+  if (
+    (event.target === inputEmail || event.target === inputPassword) &&
+    event.key === "Enter"
+  ) {
+    signIn();
+  }
+});
+
+document.addEventListener("focusout", (event) => {
+  if (event.target === inputEmail) {
+    checkEmail();
+  } else if (event.target === inputPassword) {
+    checkPassword();
+  }
+});
+
 signinButton.addEventListener("click", signIn);
