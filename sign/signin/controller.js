@@ -81,7 +81,7 @@ export default class SignInController {
       this.model.saveTokenInCookie(signInResponse);
       location.href = '/folder.html';
     } catch (error) {
-      console.error('SIGN_IN_ERROR:', error.message);
+      console.error('로그인 에러:', error.message);
       alert(getErrorMessage('SIGN_IN_FAILED'));
     }
   }

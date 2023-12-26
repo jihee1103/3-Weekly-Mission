@@ -131,7 +131,7 @@ export default class SignUpController {
       this.model.saveTokenInCookie(signUpResponse);
       location.href = '/folder.html';
     } catch (error) {
-      console.error('SIGN_UP_ERROR:', error.message);
+      console.error('회원가입 에러:', error.message);
       alert(getErrorMessage('SIGN_UP_FAILED'));
     }
   }
