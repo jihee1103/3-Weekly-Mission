@@ -1,115 +1,138 @@
 import {
-  emailInput,
-  passwordInput,
-  passwordcheckInput,
+  email,
+  password,
+  confirmPassword,
   signupForm,
-  handleEmailError,
-  handlePasswordError,
-  handlePasswordcheckError,
-  validateEmail,
-  validatePassword,
-  validatePasswordcheck,
-  passwordEye,
   eyeIcon,
   eyeIconcheck,
-  MOCK_EMAIL,
-  MOCK_PASSWORD,
-} from '../common.js';
+} from '../javascript/common.js';
 
-function handleEmailInputFocusout() {
-  const emailValue = emailInput.value;
+import {
+  checkDuplicateEmail,
+  signUp,
+  storeAccessToken,
+  checkAndRedirect,
+} from '../javascript/api.js';
+
+function showEmailInputFocusout() {
+  const emailValue = email.input.value;
 
   if (!emailValue) {
-    handleEmailError('이메일을 입력해주세요.');
+    email.showError('이메일을 입력해주세요.');
     return;
   }
 
-  if (!validateEmail(emailValue)) {
-    handleEmailError('올바른 이메일 주소가 아닙니다.');
+  if (!email.validate(emailValue)) {
+    email.showError('올바른 이메일 주소가 아닙니다.');
     return;
   }
 
-  handleEmailError('');
+  email.showError('');
 }
 
-function handlePasswordInputFocusout() {
-  const passwordValue = passwordInput.value;
+function showPasswordInputFocusout() {
+  const passwordValue = password.input.value;
 
   if (!passwordValue) {
-    handlePasswordError('비밀번호를 입력해주세요.');
+    password.showError('비밀번호를 입력해주세요.');
     return;
   }
 
-  if (!validatePassword(passwordValue)) {
-    handlePasswordError('비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.');
+  if (!password.validate(passwordValue)) {
+    password.showError('비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.');
     return;
   }
 
-  handlePasswordError('');
+  password.showError('');
 }
 
-function handlePasswordcheckInputFocusout() {
-  const passwordValue = passwordInput.value;
-  const passwordcheckValue = passwordcheckInput.value;
+function showPasswordCheckInputFocusout() {
+  const passwordCheckValue = confirmPassword.input.value;
 
-  if (!passwordcheckValue) {
-    handlePasswordcheckError('비밀번호를 입력해주세요.');
+  if (!passwordCheckValue) {
+    confirmPassword.showError('비밀번호 확인을 입력해주세요.');
     return;
   }
 
-  if (!validatePasswordcheck(passwordValue, passwordcheckValue)) {
-    handlePasswordcheckError('비밀번호가 일치하지 않습니다.');
+  if (!confirmPassword.validate(passwordCheckValue)) {
+    confirmPassword.showError('비밀번호가 일치하지 않습니다.');
     return;
   }
 
-  handlePasswordcheckError('');
+  confirmPassword.showError('');
 }
 
-function handleFormSubmit(event) {
-  event.preventDefault();
-  const userEmail = emailInput.value;
-  const userPassword = passwordInput.value;
-  const userPasswordcheck = passwordcheckInput.value;
+async function sendSignUpRequest() {
+  const emailValue = email.input.value;
+  const passwordValue = password.input.value;
+  const passwordCheckValue = confirmPassword.input.value;
+
+  const checkEmailResponse = await checkDuplicateEmail(emailValue);
+  const response = await signUp(emailValue, passwordValue);
+  if (!checkEmailResponse.ok) {
+    email.showError('이미 존재하는 이메일입니다.');
+    return;
+  }
 
   if (
-    userEmail === MOCK_EMAIL &&
-    userPassword === MOCK_PASSWORD &&
-    userPassword === userPasswordcheck
+    !email.validate(emailValue) ||
+    !password.validate(passwordValue) ||
+    !confirmPassword.validate(passwordCheckValue)
   ) {
-    signupForm.action = '../etc/folder.html';
-    signupForm.submit();
-  } else {
-    handleEmailError('이메일을 확인해주세요.');
-    handlePasswordError('비밀번호를 확인해주세요.');
-    handlePasswordcheckError('비밀번호를 확인해주세요.');
+    return;
   }
+
+  const signUpResponse = await signUp(emailValue, passwordValue);
+
+  if (response.ok) {
+    const data = await response.json();
+    const accessToken = data.data.accessToken;
+    storeAccessToken(accessToken);
+    checkAndRedirect();
+  } else if (response.status === 400) {
+    email.showError('이메일을 확인해주세요.');
+    password.showError('비밀번호를 확인해주세요.');
+    confirmPassword.showError('비밀번호를 확인해주세요.');
+  }
+}
+
+function showFormSubmit(event) {
+  event.preventDefault();
+  sendSignUpRequest();
 }
 
 function togglePasswordVisibility() {
-  if (passwordInput.type === 'password') {
-    passwordInput.type = 'text';
-    eyeIcon.src = '../image/eye-on.png';
+  const passwordType = password.input.type;
+
+  if (passwordType === 'password') {
+    password.input.type = 'text';
+    eyeIcon.src = '../image/eye-on.png'; // 비밀번호가 보이는 상태의 아이콘
   } else {
-    passwordInput.type = 'password';
-    eyeIcon.src = '../image/eye-off.png';
-  }
-}
-function togglePasswordcheckVisibility() {
-  if (passwordcheckInput.type === 'password') {
-    passwordcheckInput.type = 'text';
-    eyeIconcheck.src = '../image/eye-on.png';
-  } else {
-    passwordcheckInput.type = 'password';
-    eyeIconcheck.src = '../image/eye-off.png';
+    password.input.type = 'password';
+    eyeIcon.src = '../image/eye-off.png'; // 비밀번호가 숨겨진 상태의 아이콘
   }
 }
 
-emailInput.addEventListener('focusout', handleEmailInputFocusout);
-passwordInput.addEventListener('focusout', handlePasswordInputFocusout);
-passwordcheckInput.addEventListener(
+function togglePasswordCheckVisibility() {
+  const passwordCheckType = confirmPassword.input.type;
+
+  if (passwordCheckType === 'password') {
+    confirmPassword.input.type = 'text';
+    eyeIconcheck.src = '../image/eye-on.png'; // 비밀번호 확인이 보이는 상태의 아이콘
+  } else {
+    confirmPassword.input.type = 'password';
+    eyeIconcheck.src = '../image/eye-off.png'; // 비밀번호 확인이 숨겨진 상태의 아이콘
+  }
+}
+
+checkAndRedirect();
+
+signupForm.addEventListener('submit', showFormSubmit);
+email.input.addEventListener('focusout', showEmailInputFocusout);
+password.input.addEventListener('focusout', showPasswordInputFocusout);
+confirmPassword.input.addEventListener(
   'focusout',
-  handlePasswordcheckInputFocusout,
+  showPasswordCheckInputFocusout,
 );
-signupForm.addEventListener('submit', handleFormSubmit);
 eyeIcon.addEventListener('click', togglePasswordVisibility);
-eyeIconcheck.addEventListener('click', togglePasswordcheckVisibility);
+eyeIconcheck.addEventListener('click', togglePasswordCheckVisibility);
