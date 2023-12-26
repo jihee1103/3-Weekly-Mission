@@ -1,36 +1,39 @@
 import {
   $inputEmail,
   $inputPassword,
-  $inputEmailBox,
-  $inputPasswordBox,
   $loginButton,
   $eyeIcon,
-  displayLoginError,
-  removeLoginError,
   checkInputEmail,
   checkInputPassword,
-  users,
   toggleDisplayPassword,
+  requestSign,
+  displayCheckEmailPassword,
+  saveAccessToken,
 } from "./sign.js";
 
-// 로그인 실패시 에러 메세지
-function pleaseCheckEmailPassword() {
-  removeLoginError($inputEmail, ".error-message-email");
-  removeLoginError($inputPassword, ".error-message-password");
-  displayLoginError($inputEmail, $inputEmailBox, "이메일을 확인해주세요.");
-  displayLoginError($inputPassword, $inputPasswordBox, "비밀번호를 확인해주세요.");
-}
-
 // 로그인 할 때, 이메일, 비밀번호 검사
-function checkLogin(e) {
-  for (let user of users) {
-    if (user.id === $inputEmail.value && user.password === $inputPassword.value) {
-      return;
-    } else {
-      pleaseCheckEmailPassword();
-      e.preventDefault();
-      return;
-    }
+async function checkLogin(e) {
+  e.preventDefault();
+  try {
+    const inputEmailPassword = {
+      email: $inputEmail.value,
+      password: $inputPassword.value,
+    };
+    // request 요청
+    const response = await requestSign(
+      "https://bootcamp-api.codeit.kr/api/sign-in",
+      inputEmailPassword
+    );
+    // 리퀘스트 성공 시
+    if (response.status === 200) {
+      // 로컬 스토리지에 accessToken 저장
+      saveAccessToken(response);
+      // folder page로 이동
+      location.href = "folder.html";
+      // 리퀘스트 실패 시
+    } else if (response.status === 400) displayCheckEmailPassword();
+  } catch (error) {
+    alert("오류가 발생했습니다.");
   }
 }
 

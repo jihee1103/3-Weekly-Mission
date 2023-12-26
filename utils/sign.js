@@ -20,7 +20,6 @@ export function displayLoginError(input, inputBox, message) {
   if (input === $inputEmail) {
     $loginErrorMessage.classList.add("error-message-email");
     input.classList.add("error-box-email");
-    console.log(input);
   } else if (input === $inputPassword) {
     $loginErrorMessage.classList.add("error-message-password");
     input.classList.add("error-box-password");
@@ -29,7 +28,6 @@ export function displayLoginError(input, inputBox, message) {
     input.classList.add("error-box-password-repeat");
   }
   $loginErrorMessage.textContent = message;
-  console.log($loginErrorMessage);
   inputBox.append($loginErrorMessage);
 }
 
@@ -83,4 +81,47 @@ export function toggleDisplayPassword(e) {
   passwordInputBox.type = currentType === "password" ? "text" : "password";
   e.target.style.backgroundImage =
     currentType === "password" ? "url(/asset/eye-on.svg)" : "url(/asset/eye-off.svg)";
+}
+
+// 로그인 실패시 에러 메세지
+export function displayCheckEmailPassword() {
+  removeLoginError($inputEmail, ".error-message-email");
+  removeLoginError($inputPassword, ".error-message-password");
+  displayLoginError($inputEmail, $inputEmailBox, "이메일을 확인해주세요.");
+  displayLoginError($inputPassword, $inputPasswordBox, "비밀번호를 확인해주세요.");
+}
+
+// 로그인, 회원가입 시 POST request 요청
+export async function requestSign(url, bodyContent) {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(bodyContent),
+  });
+
+  return response;
+}
+
+export function saveAccessToken(response) {
+  // 로컬 스토리지에 accessToken 저장
+  const result = response.json();
+  result.then((res) => {
+    const accessToken = res.data.accessToken;
+    localStorage.setItem("accessToken", accessToken);
+  });
+}
+
+// localStorage에 accessToken 있는지 검사
+function checkAccessToken() {
+  const storedAccessToken = localStorage.getItem("accessToken");
+  // 있다면 folder.html로 이동
+  if (storedAccessToken) {
+    location.href = "folder.html";
+  }
+}
+// /pages/signin 또는 signup 페이지에 있으면 accessToken 있는지 검사
+if (location.pathname === "/pages/signin" || location.pathname === "/pages/signup") {
+  checkAccessToken();
 }
