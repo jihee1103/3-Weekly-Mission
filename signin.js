@@ -4,12 +4,12 @@ const fetchSignIn = async (email, password) => {
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  let raw = JSON.stringify({
+  const raw = JSON.stringify({
     email,
     password,
   });
 
-  let requestOptions = {
+  const requestOptions = {
     method: 'POST',
     headers: myHeaders,
     body: raw,

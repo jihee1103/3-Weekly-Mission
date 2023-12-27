@@ -4,11 +4,11 @@ const fetchCheckEmail = async (email) => {
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  let raw = JSON.stringify({
+  const raw = JSON.stringify({
     email,
   });
 
-  let requestOptions = {
+  const requestOptions = {
     method: 'POST',
     headers: myHeaders,
     body: raw,
