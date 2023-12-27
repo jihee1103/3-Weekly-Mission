@@ -28,10 +28,7 @@ const signinBtn = document.querySelector(".signin-confirm");
 function signinConfirm(event) {
   event.preventDefault();
 
-  if (
-    emailInput.value === TEST_USER.email &&
-    passInput.value === TEST_USER.password
-  ) {
+  if (trySignin) {
     location.href = link;
     return;
   } else {
@@ -53,3 +50,29 @@ passInput.addEventListener("focusout", (event) =>
   passChecker(event.target.value)
 );
 signinBtn.addEventListener("click", signinConfirm);
+
+//로그인 체크
+const trySignin = async function () {
+  try {
+    const response = await fetch(
+      "https://bootcamp-api.codeit.kr/docs/api/sign-in",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: emailInput.value,
+          password: passInput.value,
+        }),
+      }
+    );
+    if (response.status === 200) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
