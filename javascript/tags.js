@@ -1,6 +1,6 @@
-let emailInput = document.querySelector('.email-input');
-let emailResult = document.querySelector('.email-result');
-let passwordInput = document.querySelector('.password-input');
-let passwordResult = document.querySelector('.password-result');
+const emailInput = document.querySelector('.email-input');
+const emailResult = document.querySelector('.email-result');
+const passwordInput = document.querySelector('.password-input');
+const passwordResult = document.querySelector('.password-result');
 
 export { emailInput, emailResult, passwordInput, passwordResult };
