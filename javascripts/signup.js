@@ -16,28 +16,30 @@ const passwdCheckErrorMentionElement = document.createElement("div");
 passwdCheckErrorMentionElement.classList.add("error-mention");
 passwdCheckInputElement.parentElement.append(passwdCheckErrorMentionElement);
 
-// password 두개 같은지 검사 후 같다면 true return
+// password 두개 같은지 검사 후 결과 반환
 function checkPasswdIsEqual() {
   if (passwdInputElement.value !== passwdCheckInputElement.value) {
-    return setErrorMentionElement(
+    setErrorMentionElement(
       true,
       passwdCheckInputElement,
       passwdCheckErrorMentionElement,
       "비밀번호가 일치하지 않아요."
     );
+    return false;
   } else {
-    return setErrorMentionElement(
+    setErrorMentionElement(
       false,
       passwdCheckInputElement,
       passwdCheckErrorMentionElement
     );
+    return true;
   }
 }
 
 // password input 이벤트 추가
 passwdCheckInputElement.addEventListener("blur", checkPasswdIsEqual);
 
-// 이미 계정이 존재하는지 검사후 존재하지 않는다면 email 검사 후 return
+// 이미 계정이 존재하는지 검사후 존재하지 않는다면 email 검사 후 결과 반환
 async function checkEmail() {
   const email = emailInputElement.value;
 
@@ -48,31 +50,31 @@ async function checkEmail() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: email }),
+      body: JSON.stringify({ email }),
     }
   );
 
-  // 계정 중복여부 체크 후 true false 반환
-  const result =
-    response.status === 409
-      ? setErrorMentionElement(
-          true,
-          emailInputElement,
-          emailErrorMentionElement,
-          "이미 사용중인 이메일입니다."
-        )
-      : checkEmailValidity();
-
-  return result;
+  // 계정 중복여부 체크 후 결과 반환
+  if(response.status === 409){
+    setErrorMentionElement(
+      true,
+      emailInputElement,
+      emailErrorMentionElement,
+      "이미 사용중인 이메일입니다."
+    )
+    return false;
+  } else {
+    return checkEmailValidity();
+  }
 }
 
 // email input 이벤트 추가
 emailInputElement.addEventListener("blur", checkEmail);
 
-// 계정 존재 유무, input 유효성 검사, password 같은지 검사 후 모두 true라면 사이트 연결
+// 계정 존재 유무, input 유효성 검사, password 일치 검사 후 모두 true라면 사이트 연결
 async function signup() {
   const email = emailInputElement.value;
-  const passwd = passwdInputElement.value;
+  const password = passwdInputElement.value;
 
   const emailInputOk = await checkEmail();
   const passwdInputOk = checkPasswdValidity();
@@ -85,7 +87,7 @@ async function signup() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: email, password: passwd }),
+      body: JSON.stringify({ email, password }),
     });
 
     const result = await response.json();

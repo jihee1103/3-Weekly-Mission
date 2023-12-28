@@ -8,7 +8,7 @@ import {
   setErrorMentionElement,
 } from "./signcommon.js";
 
-function checkAccount() {
+function setLoginErrorMention() {
   setErrorMentionElement(
     true,
     emailInputElement,
@@ -26,14 +26,14 @@ function checkAccount() {
 // 계정이 맞다면 사이트 연결 아니라면 오류메시지 출력
 async function signin() {
   const email = emailInputElement.value;
-  const passwd = passwdInputElement.value;
+  const password = passwdInputElement.value;
 
   const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email: email, password: passwd }),
+    body: JSON.stringify({ email, password}),
   });
 
   // 이메일과 비밀번호가 존재한다면 로그인
@@ -41,7 +41,7 @@ async function signin() {
     const result = await response.json();
     localStorage.setItem("accessToken", result.data.accessToken);
     location.href = "/folder";
-  } else checkAccount();
+  } else setLoginErrorMention();
 }
 
 // 클릭 및 엔터 시 signin
