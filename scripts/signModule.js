@@ -1,17 +1,10 @@
+import {ERRORS, END_POINTS, REGEX} from '../utils/constants.js';
+
 const defaultSignModule = {
   submitButton: document.querySelector('#submit'),
   emailInput: document.querySelector('#email'),
   passwordInput: document.querySelector('#password'),
   eyeIcons: document.querySelectorAll('img[alt=icon-eyes]'),
-  errorMapper: {
-    emailVoidError: "이메일을 입력해주세요.",
-    emailInvalidError: "올바른 이메일 주소가 아닙니다.",
-    passwordVoidError: "비밀번호를 입력해주세요.",
-    emailWrongError: "이메일을 확인해주세요.",
-    passwordWrongError: "비밀번호를 확인해주세요.",
-    passwordNotMatchError: "비밀번호가 일치하지 않습니다.",
-    passwordLengthError: "비밀번호는 8자 이상 20자 이하여야 합니다."
-  },
   alertFunction: {
     init: function (target) {
       const initTargetString = target + " .alert"
@@ -32,8 +25,7 @@ const defaultSignModule = {
   },
   //이메일 유효성 검사
   emailValidation: (email) => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
+    return REGEX.EMAIL.test(email);
   },
 
 //이메일 focusin 핸들러
@@ -45,11 +37,13 @@ const defaultSignModule = {
   emailFocusout: function () {
     const value = this.emailInput.value;
     if (value === "") {
-      this.alertFunction.create(".email-box", this.errorMapper.emailVoidError,
+      this.alertFunction.create(".email-box", ERRORS.MAPPER.EMAIL_VOID,
           this.emailInput);
-    } else if (!this.emailValidation(value)) {
+      return;
+    }
+    if (!this.emailValidation(value)) {
       this.alertFunction.create(".email-box",
-          this.errorMapper.emailInvalidError,
+          ERRORS.MAPPER.EMAIL_INVALID,
           this.emailInput);
     }
   },
@@ -63,27 +57,41 @@ const defaultSignModule = {
   passwordFocusout: function () {
     if (this.passwordInput.value === "") {
       this.alertFunction.create(".password-box",
-          this.errorMapper.passwordVoidError,
+          ERRORS.MAPPER.PASSWORD_VOID,
           this.passwordInput);
     }
   },
 
 //submit 핸들러
-  submit: function (e) {
+  submit: async function (e) {
     e.preventDefault();
     const emailValue = this.emailInput.value;
     const passwordValue = this.passwordInput.value;
 
-    if (emailValue === signInModule.TEST_EMAIL && passwordValue
-        === signInModule.TEST_PASSWORD) {
-      window.location.href = "./folder.html";
-    } else if (emailValue !== signInModule.TEST_EMAIL) {
-      this.alertFunction.create(".email-box", this.errorMapper.emailWrongError,
-          this.emailInput)
-    } else if (passwordValue !== signInModule.TEST_PASSWORD) {
-      this.alertFunction.create(".password-box",
-          this.errorMapper.passwordWrongError,
-          this.passwordInput)
+    try {
+      const response = await fetch(END_POINTS.SIGN_IN, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          "email": emailValue,
+          "password": passwordValue,
+        }),
+      });
+      const data = await response.json();
+      const {accessToken, refreshToken} = await data;
+
+      if (response.status === 200) {
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('refreshToken', refreshToken);
+        window.location.href = "../folder.html";
+        return;
+      }
+
+      alert(ERRORS.MAPPER.SIGN_IN_FAILED);
+    } catch (e) {
+      alert("로그인 요청중 에러 발생.", e.message);
     }
   },
 
@@ -91,29 +99,33 @@ const defaultSignModule = {
   toggleEyeIcons: function () {
     if (this.passwordInput.type === 'password') {
       this.passwordInput.type = 'text';
-      defaultSignModule.eyeIcons.forEach((icon) => icon.src = "./images/signin-eye-on.svg");
-    } else {
-      this.passwordInput.type = 'password';
-      defaultSignModule.eyeIcons.forEach((icon) => icon.src = "./images/signin-eye-off.svg");
+      defaultSignModule.eyeIcons.forEach(
+          (icon) => icon.src = "./images/signin-eye-on.svg");
+      return;
     }
+    this.passwordInput.type = 'password';
+    defaultSignModule.eyeIcons.forEach(
+        (icon) => icon.src = "./images/signin-eye-off.svg");
   },
+  checkToken: async function () {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      location.href = '../temp-success.html';
+    }
+  }
 }
 
-const signInModule = {
-  TEST_EMAIL: "test@codeit.com",
-  TEST_PASSWORD: "codeit101",
-}
 const signUpModule = {
   passwordConfirmInput: document.querySelector('#password-confirmation'),
   passwordConfirmFocusout: function () {
     if (this.passwordConfirmInput.value
         !== defaultSignModule.passwordInput.value) {
       defaultSignModule.alertFunction.create(".password-box",
-          defaultSignModule.errorMapper.passwordNotMatchError,
+          ERRORS.MAPPER.PASSWORD_NOT_MATCH,
           this.passwordConfirmInput);
     }
   }
 }
 
 export default defaultSignModule;
-export {signInModule, signUpModule};
+export {signUpModule};

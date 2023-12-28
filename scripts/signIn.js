@@ -5,6 +5,7 @@ const {
   emailInput,
   passwordInput,
   eyeIcons,
+  checkToken,
   emailFocusin,
   emailFocusout,
   passwordFocusin,
@@ -14,6 +15,7 @@ const {
 } = common;
 
 //addEventListeners
+document.addEventListener('DOMContentLoaded', checkToken);
 emailInput.addEventListener('focusout', emailFocusout.bind(common));
 emailInput.addEventListener('focusin', emailFocusin.bind(common));
 passwordInput.addEventListener('focusout', passwordFocusout.bind(common));
