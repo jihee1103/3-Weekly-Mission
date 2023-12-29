@@ -10,10 +10,12 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    font-family: Pretendard, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-style: normal;
+    font-family: Pretendard;
     font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
     line-height: normal;
+  
   }
   a {
     text-decoration: none;

@@ -6,7 +6,7 @@ export default function NavProfile({ userEmail, userProfileImg }) {
         alt="profile"
         className="header-profile-img"
       />
-      <span>{userEmail}</span>
+      <span className="header-profile-email">{userEmail}</span>
     </div>
   );
 }

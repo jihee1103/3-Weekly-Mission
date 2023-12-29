@@ -56,6 +56,10 @@
   border-radius: 50%;
 }
 
+.header-profile-email {
+  font-size: 14px;
+}
+
 @media (max-width: 1199px) {
   .header {
     padding: 20px max(32px, calc((100vw - 800px) / 2));

@@ -11,14 +11,15 @@ export default function Navbar() {
     const getUserInfo = async () => {
       try {
         const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/user");
-        const userInfo = await response.json();
-        setUserEmail(userInfo.email);
-        setUserProfileImg(userInfo.profileImageSource);
+        if (response.status === 200) {
+          const userInfo = await response.json();
+          setUserEmail(userInfo.email);
+          setUserProfileImg(userInfo.profileImageSource);
+        } else throw new Error("fetch error");
       } catch (error) {
         console.log(error);
       }
     };
-
     getUserInfo();
   }, []);
 
