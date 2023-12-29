@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const GlobalStyles = createGlobalStyle`
   ${reset};
@@ -22,6 +23,7 @@ export default function App() {
     <>
       <GlobalStyles />
       <Navbar />
+      <Footer />
     </>
   );
 }
