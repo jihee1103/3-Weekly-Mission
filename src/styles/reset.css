@@ -14,3 +14,17 @@ body {
 a {
   text-decoration: none;
 }
+
+p {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 0;
+  margin: 0;
+}

@@ -14,6 +14,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: var(--linkbrary-bg, #f0f6ff);
 }
 .header-logo-img {
   height: 2.4rem;
