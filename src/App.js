@@ -1,5 +1,6 @@
-function App() {
-  return <div>링크브러리</div>;
-}
+import "./css/App.css";
+import Navbar from "./components/Navbar";
 
-export default App;
+export default function App() {
+  return <Navbar />;
+}
