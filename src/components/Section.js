@@ -34,7 +34,14 @@ function FoderContentCard() {
         const timeAgo = getTimeDifference(item.createdAt);
         const createdAt = formatCreatedAt(item.createdAt);
         return (
-          <li key={item.id}>
+          <li
+            onClick={() =>
+              openNewWindow(
+                "https://app.gather.town/app/kV7DdQiqGBlwli28/codeit"
+              )
+            }
+            key={item.id}
+          >
             <div className="card-img-div">
               <img
                 className="card-img"
@@ -52,4 +59,8 @@ function FoderContentCard() {
       })}
     </ul>
   );
+}
+
+function openNewWindow(url) {
+  window.open(url, "_blank");
 }
