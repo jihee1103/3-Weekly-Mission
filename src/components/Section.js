@@ -45,7 +45,10 @@ function FoderContentCard() {
             <div className="card-img-div">
               <img
                 className="card-img"
-                src={item.imageSource}
+                src={
+                  item.imageSource ||
+                  "/imgs/01_모코코콘1_16_백색모코코_물음표.png"
+                }
                 alt="카드사진"
               ></img>
             </div>
