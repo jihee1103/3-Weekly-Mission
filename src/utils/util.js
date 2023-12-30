@@ -5,7 +5,7 @@ export const getTimeDifference = (createdTime) => {
 
   if (timeDifference < 2) {
     return "1 minute ago";
-  } else if (timeDifference <= 59) {
+  } else if (timeDifference < 59) {
     return `${timeDifference} minutes ago`;
   } else if (timeDifference < 60 * 24) {
     const hours = Math.floor(timeDifference / 60);
