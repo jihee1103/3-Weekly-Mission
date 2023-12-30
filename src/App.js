@@ -31,7 +31,7 @@ function App() {
         }
     }, []);
 
-    // 폴더 관련 데이터
+    // 링크 관련 데이터
     const [linkData, setLinkData] = useState({});
 
     useEffect(() => {

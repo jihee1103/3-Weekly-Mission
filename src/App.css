@@ -1,6 +1,16 @@
+:root {
+    --privary: #6D6AFE;
+    --red: #FF5B56;
+    --black: #111322;
+    --white: #FFFFFF;
+    --gray1: #3E3E43;
+    --gray2: #9FA6B2;
+    --gray3: #CCD5E3;
+    --gray4: #E7EFFB;
+    --gray5: #F0F6FF;
+}
+
 @import url('/src/assets/pretendard.css');
-
-
 @import url('./reset.css');
 @import url('./components/Header/Header.css');
 @import url('./components/Folder/Folder.css');
