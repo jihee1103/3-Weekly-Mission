@@ -6,19 +6,9 @@ import Footer from "./components/Footer/Footer";
 import { useState, useEffect } from "react";
 
 function App() {
-    // 로그인, 유저 데이터 관련
     const [login, setLogin] = useState(false);
     const [userData, setUserData] = useState({});
-
-    const loadUserData = async () => {
-        const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/user");
-        if (response.ok) {
-            const body = await response.json();
-            return body;
-        } else {
-            throw new Error("사용자 정보를 불러오지 못함");
-        }
-    };
+    const [linkData, setLinkData] = useState({});
 
     useEffect(() => {
         try {
@@ -31,19 +21,34 @@ function App() {
         }
     }, []);
 
-    // 링크 관련 데이터
-    const [linkData, setLinkData] = useState({});
+    const loadUserData = async () => {
+        const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/user");
+        if (response.ok) {
+            const body = await response.json();
+            return body;
+        } else {
+            throw new Error("유저 정보를 불러오지 못함");
+        }
+    };
 
     useEffect(() => {
-        loadData().then((data) => {
-            setLinkData(() => data.folder);
-        });
+        try {
+            loadCardData().then((data) => {
+                setLinkData(() => data.folder);
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }, []);
 
-    const loadData = async () => {
+    const loadCardData = async () => {
         const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/folder");
-        const body = await response.json();
-        return body;
+        if (response.ok) {
+            const body = await response.json();
+            return body;
+        } else {
+            throw new Error("카드 정보를 불러오지 못함");
+        }
     };
 
     return (

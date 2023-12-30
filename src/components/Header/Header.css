@@ -1,15 +1,14 @@
 .header {
     box-sizing: border-box;
-    padding: 32px 200px;
     width: 100%;
-    background: var(--Linkbrary-bg, #F0F6FF);
+    padding: 32px 200px;
+    background: var(--gray5);
     position: fixed;
     z-index: 9999;
 }
 
 .header--container {
     max-width: 1920px;
-    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
@@ -36,26 +35,20 @@
     color: var(--Linkbrary-gray100, #373740);
     font-family: Pretendard;
     font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
 .header__btn-login {
-
+    width: 128px;
+    border-radius: 8px;
+    padding: 16px 20px;
     color: var(--Grey-Light, #F5F5F5);
     font-family: Pretendard;
     font-size: 18px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
     display: flex;
-    width: 128px;
-    padding: 16px 20px;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    border-radius: 8px;
     background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
 }
 
