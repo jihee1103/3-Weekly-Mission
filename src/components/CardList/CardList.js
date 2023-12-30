@@ -1,5 +1,5 @@
-import Card from "./Card/Card.js";
-import Search from "./Search/Search.js";
+import Card from './Card/Card';
+import Search from './Search/Search';
 
 const CardList = ({ linkData }) => {
     return (
