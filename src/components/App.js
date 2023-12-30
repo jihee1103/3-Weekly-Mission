@@ -3,15 +3,39 @@ import twitter from "../images/twitter.svg";
 import instagram from "../images/instagram.svg";
 import youtube from "../images/youtube.svg";
 import { useState, useEffect } from "react";
+import { getFolder } from "../api";
 import Nav from "./Nav";
+import Folder from "./Folder";
+import Search from "./Search";
+import Card from "./Card";
 
 function App() {
+  const [pages, setPages] = useState([]);
+
+  const handleGetLinks = async () => {
+    const { folder } = await getFolder();
+    const { links } = folder;
+    setPages(links);
+  };
+
+  useEffect(() => {
+    handleGetLinks();
+  }, []);
+
   return (
     <>
       <header>
         <Nav className="nav" />
+        <Folder />
       </header>
-      <article></article>
+      <article>
+        <Search />
+        <div className="pages">
+          {pages.map((element) => {
+            return <Card key={element.id} page={element} />;
+          })}
+        </div>
+      </article>
       <footer>
         <div className="footer-box">
           <span className="copyright">©codeit - 2023</span>

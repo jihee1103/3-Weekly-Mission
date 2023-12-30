@@ -1,6 +1,6 @@
 import logo from "../images/logo.svg";
 import { useState, useEffect } from "react";
-import { getSampleUser } from "../api";
+import { getUser } from "../api";
 import "../Nav.css";
 
 function Nav() {
@@ -8,8 +8,8 @@ function Nav() {
   const [sampleEmail, setSampleEmail] = useState("");
   const [sampleProfile, setSampleProfile] = useState();
 
-  const handleGetSampleUser = async () => {
-    const { id, email, profileImageSource } = await getSampleUser();
+  const handleGetUser = async () => {
+    const { id, email, profileImageSource } = await getUser();
 
     setSampleId(id);
     setSampleEmail(email);
@@ -17,13 +17,13 @@ function Nav() {
   };
 
   useEffect(() => {
-    handleGetSampleUser();
+    handleGetUser();
   }, []);
 
   return (
     <nav>
       <a href="index.html">
-        <img className="logo" src={logo} alt="홈으로 연결된 Linkbrary 로고" />
+        <img className="logo" src={logo} alt="Linkbrary 로고" />
       </a>
       {sampleId ? (
         <div className="user">

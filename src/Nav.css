@@ -11,6 +11,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
 }
 
 nav .logo {
@@ -28,7 +29,7 @@ nav .profile {
   align-items: center;
   gap: 6px;
 
-  color: var(--Linkbrary-gray100, #373740);
+  color: var(--Linkbrary-gray100);
   font-size: 14px;
 }
 
@@ -47,4 +48,71 @@ nav .profile {
 
 .cta-short {
   width: 12.8rem;
+}
+
+@media (max-width: 767px) {
+  nav {
+    height: 6.3rem;
+    padding: 0 3.2rem;
+  }
+
+  nav img {
+    width: 8.8667rem;
+    height: 1.6rem;
+  }
+
+  .cta {
+    height: 3.7rem;
+    font-size: 1.4rem;
+  }
+
+  .cta-short {
+    width: 8rem;
+  }
+
+  article {
+    padding: 0 3.2rem 4rem;
+  }
+
+  .footer-box {
+    display: grid;
+    grid-template-areas:
+      "links sns"
+      "copyright .";
+    row-gap: 6rem;
+    padding: 0 3.2rem;
+  }
+
+  .copyright {
+    grid-area: copyright;
+    font-weight: 400;
+  }
+
+  .footer-links {
+    grid-area: links;
+  }
+
+  .footer-link {
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+}
+
+/* 태블릿 크기 */
+@media (min-width: 768px) {
+  article {
+    padding-top: 3rem;
+  }
+}
+
+/* nav바 반응형 여백 */
+@media (max-width: 1199px) {
+  nav {
+    padding: 0 calc((100% - 78.32rem) / 2);
+  }
+}
+@media (max-width: 864px) {
+  nav {
+    padding: 0 3.2rem;
+  }
 }
