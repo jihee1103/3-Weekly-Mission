@@ -6,6 +6,7 @@ export default function Card({ link }) {
   const [formattedCreatedAt, setFormattedCreatedAt] = useState("");
   const [elapsedTime, setElapsedTime] = useState("");
   const [cardImgUrl, setCardImgUrl] = useState("");
+  const [linkUrl, setLinkUrl] = useState("");
 
   useEffect(() => {
     const carculateTime = (createdAt) => {
@@ -39,12 +40,20 @@ export default function Card({ link }) {
       setFormattedCreatedAt(`${year}. ${month}. ${day}`);
     };
 
+    setLinkUrl(link.url);
     setCardImgUrl(link.imageSource);
     carculateTime(link.createdAt);
   }, [link]);
 
+  const handleCardClick = (link) => {
+    window.open(linkUrl, "_blank");
+  };
+
   return (
-    <div className="card-container">
+    <div
+      className="card-container"
+      onClick={handleCardClick}
+    >
       <div className="card-img-area">
         <img
           src={cardImgUrl ? cardImgUrl : noImg}
