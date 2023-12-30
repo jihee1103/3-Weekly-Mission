@@ -1,0 +1,81 @@
+*{
+  box-sizing: border-box;
+}
+.mainArea{
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formBox{
+  position: relative;
+}
+
+.formBox input{
+  width: 100%;
+  padding: 15px 16px;
+  text-indent: 20px;
+}
+
+.formBox img{
+  position: absolute;
+  left: 15px;
+  top: 16px;
+}
+
+.linkImgBox{
+  width: 1100px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 25px;
+  column-gap: 20px;
+  margin: 40px 0;
+}
+
+.cardBox{
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  
+}
+
+.linkImg{
+  width: 100%;
+  transition: width 0.3s ease;
+  height: 200px;
+  border-radius: 15px 15px 0 0;
+  object-fit:contain;
+  overflow: hidden;
+  
+  
+}
+
+.textBox{
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+  gap: 10px;
+}
+
+.description{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.linkImg:hover {
+  transform: scale(1.3);
+  transition: all 0.2s ;
+  overflow: hidden;
+}

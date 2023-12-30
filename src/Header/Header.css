@@ -1,0 +1,56 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+}
+
+.headerArea{
+  width: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #edf7ff;
+  z-index: 1;
+}
+
+.nav{
+  padding: 30px 200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #edf7ff;
+}
+
+.profileBox{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.BookmarkArea{
+  margin-top: 20px;
+  text-align: center;
+  font-family: Pretendard;
+}
+
+.codeitLogo {
+  height: 60px;
+}
+
+.nameText{
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.bookmarkText{
+  margin-top: 0;
+  font-size: 40px;
+  font-weight: 600;
+}
+
