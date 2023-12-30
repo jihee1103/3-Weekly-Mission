@@ -30,32 +30,25 @@ function FoderContentCard() {
 
   return (
     <ul>
-      {items.map((item) => {
-        const timeAgo = getTimeDifference(item.createdAt);
-        const createdAt = formatCreatedAt(item.createdAt);
+      {items.map(({ createdAt, url, id, description, imageSource }) => {
+        const timeAgo = getTimeDifference(createdAt);
+        const formatAt = formatCreatedAt(createdAt);
+        const openLink = () => openNewWindow(url);
         return (
-          <li
-            onClick={() =>
-              openNewWindow(
-                "https://app.gather.town/app/kV7DdQiqGBlwli28/codeit"
-              )
-            }
-            key={item.id}
-          >
+          <li onClick={openLink} key={id}>
             <div className="card-img-div">
               <img
                 className="card-img"
                 src={
-                  item.imageSource ||
-                  "/imgs/01_모코코콘1_16_백색모코코_물음표.png"
+                  imageSource || "/imgs/01_모코코콘1_16_백색모코코_물음표.png"
                 }
                 alt="카드사진"
               ></img>
             </div>
             <div className="card-contents">
               <p className="card-time-ago">{timeAgo}</p>
-              <p className="card-description">{item.description}</p>
-              <p className="card-createdat">{createdAt}</p>
+              <p className="card-description">{description}</p>
+              <p className="card-createdat">{formatAt}</p>
             </div>
           </li>
         );
@@ -64,6 +57,6 @@ function FoderContentCard() {
   );
 }
 
-function openNewWindow(url) {
+const openNewWindow = (url) => {
   window.open(url, "_blank");
-}
+};

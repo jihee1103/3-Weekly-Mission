@@ -11,11 +11,15 @@ nav {
   z-index: 1;
   width: 100%;
   padding: 3.3rem 20rem 3.2rem;
+  background: var(--linkbrary-bg, #f0f6ff);
+}
+
+.nav-contents {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--linkbrary-bg, #f0f6ff);
 }
+
 .header-logo-img {
   height: 2.4rem;
 }
@@ -63,4 +67,24 @@ nav {
   font-family: Pretendard;
   font-size: 4rem;
   font-weight: 600;
+}
+
+@media screen and (max-width: 1199px) {
+  nav {
+    display: grid;
+    grid-template-columns: minmax(32px, auto) minmax(32px, 800px) minmax(
+        32px,
+        auto
+      );
+    padding: 33px 0;
+  }
+  .nav-contents {
+    grid-column: 2/3;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .user-profile-login-email {
+    display: none;
+  }
 }

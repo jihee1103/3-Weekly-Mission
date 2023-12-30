@@ -6,14 +6,16 @@ function Header() {
   return (
     <header>
       <nav>
-        <a href="./folder">
-          <img
-            className="header-logo-img"
-            src="/imgs/logo.png"
-            alt="코드잇로고"
-          ></img>
-        </a>
-        <UserProfileInHeader />
+        <div className="nav-contents">
+          <a href="./folder">
+            <img
+              className="header-logo-img"
+              src="/imgs/logo.png"
+              alt="코드잇로고"
+            ></img>
+          </a>
+          <UserProfileInHeader />
+        </div>
       </nav>
       <UserFolderProfile />
     </header>
