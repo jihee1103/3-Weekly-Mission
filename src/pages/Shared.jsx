@@ -3,37 +3,45 @@ import "../styles/Shared.css";
 import codeitLogo from "../assets/images/shared-white.svg";
 import CardList from "../Components/CardList";
 import { getShredCardList } from "../apis/api";
+import searchIcon from "../assets/images/shared-search.svg";
 
 export default function Shared({ user }) {
-  const [cardList, setCardList] = useState([]);
-
+  const [cardListItem, setCardListItem] = useState(null);
+  const [folderName, setFolderName] = useState("");
   const handleGetCardList = async () => {
+    let result;
     try {
-      const result = await getShredCardList();
-      setCardList(result);
-      console.log(cardList);
+      result = await getShredCardList();
     } catch (error) {
       console.log(error);
+      return;
     }
+    const { folder } = result;
+    const { links, name } = folder;
+    setCardListItem(links);
+    setFolderName(name);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    handleGetCardList();
+  }, []);
 
   return (
-    <div>
-      {user ? <SharedHeader user={user} /> : ""}
+    <main>
+      {user ? <SharedHeader user={user} folderName={folderName} /> : ""}
 
-      <div>
+      <div className="shared-card-board">
         <form className="shared-search-form">
-          <input name="search" />
+          <img src={searchIcon} alt="돋보기 아이콘" />
+          <input name="search" placeholder="링크를 검색해보세요." />
         </form>
-        <CardList cardList={cardList} />
+        {cardListItem ? <CardList itemList={cardListItem} /> : ""}
       </div>
-    </div>
+    </main>
   );
 }
 
-function SharedHeader({ user }) {
+function SharedHeader({ user, folderName }) {
   const userName = user ? user.name : null;
   const source = user ? user.profileImageSource : null;
   return (
@@ -47,7 +55,7 @@ function SharedHeader({ user }) {
       )}
 
       <span>{userName}</span>
-      <h2>⭐ 즐겨찾기</h2>
+      <h2>{folderName}</h2>
     </div>
   );
 }
