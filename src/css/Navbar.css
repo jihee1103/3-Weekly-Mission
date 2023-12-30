@@ -4,9 +4,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 200px;
+  padding: 33px 200px 32px;
   gap: 8px;
   background: var(--linkbrary-bg, #f0f6ff);
+  z-index: 1;
 }
 
 .header-box {
@@ -62,12 +63,12 @@
 
 @media (max-width: 1199px) {
   .header {
-    padding: 20px max(32px, calc((100vw - 800px) / 2));
+    padding: 33px max(32px, calc((100vw - 800px) / 2)) 32px;
   }
 }
 
 @media (max-width: 767px) {
   .header {
-    padding: 13px 32px;
+    padding: 18px 32px 17px;
   }
 }

@@ -1,3 +1,6 @@
+.search-form {
+  width: 100%;
+}
 .search-input-wrapper {
   display: flex;
   align-items: center;

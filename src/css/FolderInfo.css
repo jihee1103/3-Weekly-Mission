@@ -37,11 +37,18 @@
 }
 
 @media (max-width: 767px) {
+  .folderinfo-container {
+    padding: 10px 0 40px;
+  }
   .folder-owner-name {
     font-size: 14px;
     line-height: normal;
   }
   .folder-name {
     font-size: 32px;
+  }
+  .avatar {
+    width: 40px;
+    height: 40px;
   }
 }

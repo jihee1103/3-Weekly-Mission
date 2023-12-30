@@ -20,6 +20,9 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
+  p {
+    padding: 0;
+  }
 `;
 
 export default function App() {

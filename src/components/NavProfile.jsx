@@ -1,3 +1,4 @@
+import "../css/NavProfile.css";
 export default function NavProfile({ userEmail, userProfileImg }) {
   return (
     <div className="header-profile">
