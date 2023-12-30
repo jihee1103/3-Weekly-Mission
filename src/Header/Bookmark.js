@@ -24,8 +24,8 @@ export default function Bookmark() {
   },[]);
   return (
     <div className='BookmarkArea'>
-      {/* <img className='codeitLogo' src={folderData.folder.owner.profileImageSource} alt='codeit' />
-      <p className='nametText'>@{folderData.folder.owner.name}</p> */}
+      <img className='codeitLogo' src={folderData.folder.owner.profileImageSource} alt='codeit' />
+      <p className='nametText'>@{folderData.folder.owner.name}</p>
       <p className='bookmarkText'>⭐️ 즐겨찾기</p>
     </div>
   )
