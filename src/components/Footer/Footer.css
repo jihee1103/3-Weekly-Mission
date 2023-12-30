@@ -1,0 +1,36 @@
+footer {
+    width: 100%;
+    padding: 32px 104px 64px;
+    background: #111322;
+    display: grid;
+    grid-template-areas: 'codeit privacy-policy-and-faq link';
+}
+
+.footer-font {
+    color: #676767;
+    font-family: Abel;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.footer-codeit {
+    grid-area: codeit;
+}
+
+.footer-privacy-policy-and-faq {
+    grid-area: privacy-policy-and-faq;
+    display: flex;
+    gap: 30px;
+}
+
+.footer-link {
+    grid-area: link;
+    display: flex;
+    align-items: center;
+}
+
+.footer-link img:not(:first-of-type) {
+    margin-left: 12px;
+}
