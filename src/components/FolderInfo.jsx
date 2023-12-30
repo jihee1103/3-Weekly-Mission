@@ -24,7 +24,7 @@ export default function FolderInfo() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="folderinfo-container">
       <div className="folderinfo-box">
         <div className="folder-owner">
           <img

@@ -3,6 +3,7 @@ import reset from "styled-reset";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FolderInfo from "./components/FolderInfo";
+import FolderArea from "./components/FolderArea";
 
 const GlobalStyle = createGlobalStyle`
   ${reset};
@@ -15,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-style: normal;
     line-height: normal;
-  
   }
   a {
     text-decoration: none;
@@ -28,6 +28,7 @@ export default function App() {
       <GlobalStyle />
       <Navbar />
       <FolderInfo />
+      <FolderArea />
       <Footer />
     </>
   );
