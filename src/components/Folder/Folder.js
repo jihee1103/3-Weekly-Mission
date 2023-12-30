@@ -1,12 +1,12 @@
 import "./Folder.css";
 
-const Folder = ({ folderData }) => {
+const Folder = ({ linkData }) => {
     return (
         <div className="codeit">
             <div className="codeit--container">
-                <img src={folderData.owner.profileImageSource} alt="코드잇 마크" />
-                <span>{folderData.owner.name}</span>
-                <div className="favorites">{folderData.name}</div>
+                <img src={linkData?.owner?.profileImageSource} alt="코드잇 마크" />
+                <span>{linkData?.owner?.name}</span>
+                <div className="favorites">{linkData?.name}</div>
             </div>
         </div>
     );

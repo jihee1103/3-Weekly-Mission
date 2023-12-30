@@ -1,0 +1,7 @@
+@import url('./Search/Search.css');
+@import url('./Card/Card.css');
+
+.links {
+    padding: 40px 190px;
+    margin-bottom: 60px;
+}

@@ -1,29 +1,4 @@
-.cards {
-    padding: 40px 190px;
-    margin-bottom: 60px;
-}
-
-.cards__search-bar {
-    padding: 15px 16px;
-    border-radius: 10px;
-    background: #F5F5F5;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.cards__search-bar img {
-    width: 16px;
-    height: 16px;
-}
-
-.cards__search-bar>input {
-    width: 100%;
-    background-color: #F5F5F5;
-}
-
-.card-list {
+.link-list {
     width: 100%;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
@@ -31,7 +6,7 @@
     gap: 20px;
 }
 
-.card {
+.link {
     box-sizing: border-box;
     box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
     border-radius: 15PX;
@@ -39,12 +14,12 @@
     position: relative;
 }
 
-.card__img img {
+.link__img img {
     width: 100%;
     height: 100%;
 }
 
-.card__content {
+.link__content {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -56,7 +31,7 @@
     background: #FFF;
 }
 
-.card__content--time-passed {
+.link__content--time-passed {
     color: #666;
     font-family: Pretendard;
     font-size: 13px;
@@ -65,7 +40,7 @@
     line-height: normal;
 }
 
-.card__content--description {
+.link__content--description {
     overflow: hidden;
     color: #000;
     text-overflow: ellipsis;
@@ -78,7 +53,7 @@
     /* 150% */
 }
 
-.card__content--createdAt {
+.link__content--createdAt {
     overflow: hidden;
     color: #333;
     text-overflow: ellipsis;

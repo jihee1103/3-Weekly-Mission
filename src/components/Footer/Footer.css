@@ -31,6 +31,6 @@ footer {
     align-items: center;
 }
 
-.footer-link img:not(:first-of-type) {
+.footer-link a:not(:first-of-type) {
     margin-left: 12px;
 }

@@ -1,0 +1,19 @@
+.cards__search-bar {
+    padding: 15px 16px;
+    border-radius: 10px;
+    background: #F5F5F5;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.cards__search-bar img {
+    width: 16px;
+    height: 16px;
+}
+
+.cards__search-bar>input {
+    width: 100%;
+    background-color: #F5F5F5;
+}

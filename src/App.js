@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import Folder from "./components/Folder/Folder";
-import Cards from "./components/Cards/Cards";
+import CardList from "./components/CardList/CardList";
 import Footer from "./components/Footer/Footer";
 import { useState, useEffect } from "react";
 
@@ -32,11 +32,11 @@ function App() {
     }, []);
 
     // 폴더 관련 데이터
-    const [folderData, setFolderData] = useState({});
+    const [linkData, setLinkData] = useState({});
 
     useEffect(() => {
         loadData().then((data) => {
-            setFolderData(() => data.folder);
+            setLinkData(() => data.folder);
         });
     }, []);
 
@@ -45,10 +45,6 @@ function App() {
         const body = await response.json();
         return body;
     };
-
-    useEffect(() => {
-        console.log("데이터 불러오기 완료", folderData);
-    }, [folderData]);
 
     return (
         <div className="App">
@@ -59,8 +55,8 @@ function App() {
                 setUserData={setUserData}
                 loadUserData={loadUserData}
             />
-            <Folder folderData={folderData} />
-            <Cards folderData={folderData} />
+            <Folder linkData={linkData} />
+            <CardList linkData={linkData} />
             <Footer />
         </div>
     );

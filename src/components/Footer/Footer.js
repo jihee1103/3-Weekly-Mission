@@ -8,14 +8,26 @@ const Footer = () => {
         <footer>
             <div className="footer-font footer-codeit">©codeit - 2023</div>
             <div className="footer-privacy-policy-and-faq">
-                <div className="footer-font footer-privacy-policy">Privacy Policy</div>
-                <div className="footer-font footer-faq">FAQ</div>
+                <a href="/privacy" className="footer-font footer-privacy-policy">
+                    Privacy Policy
+                </a>
+                <a href="/faq" className="footer-font footer-faq">
+                    FAQ
+                </a>
             </div>
             <div className="footer-font footer-link">
-                <img src={facebook} alt="아이콘" />
-                <img src={twitter} alt="아이콘" />
-                <img src={youtube} alt="아이콘" />
-                <img src={instagram} alt="아이콘" />
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src={facebook} alt="페이스북 링크 아이콘" />
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src={twitter} alt="트위터 링크 아이콘" />
+                </a>
+                <a href="https://www.youtube.com" target="_blank">
+                    <img src={youtube} alt="유튜브 링크 아이콘" />
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src={instagram} alt="인스타그램 링크아이콘" />
+                </a>
             </div>
         </footer>
     );
