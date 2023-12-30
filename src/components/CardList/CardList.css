@@ -2,6 +2,23 @@
 @import url('./Card/Card.css');
 
 .links {
-    padding: 40px 190px;
+    padding: 40px 32px;
     margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+/* tablet */
+@media (max-width:1199px) {
+    .links__search {
+        margin: 0 32px;
+    }
+
+    .links__card {
+        margin: 0 32px;
+    }
+}
+
+/* smartPhone */
+@media (max-width:767px) {}

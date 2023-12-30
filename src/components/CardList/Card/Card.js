@@ -1,3 +1,5 @@
+import noImageSource from "../../../assets/images/no_image_source.svg";
+
 const Card = ({ linkData }) => {
     const passedTimeCalculator = (link) => {
         let nowTime = Date.now();
@@ -32,7 +34,11 @@ const Card = ({ linkData }) => {
                       return (
                           <a href={link.url} className="link" key={link.id}>
                               <div className="link__img">
-                                  <img src={link.imageSource} alt="카드 이미지" />
+                                  {link.imageSource ? (
+                                      <img src={link.imageSource} alt="카드 이미지" />
+                                  ) : (
+                                      <img src={noImageSource} alt="이미지가 없음" />
+                                  )}
                               </div>
                               <div className="link__content">
                                   <div className="link__content--time-passed">{passedTimeCalculator(link)}</div>

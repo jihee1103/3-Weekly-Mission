@@ -1,4 +1,6 @@
 .cards__search-bar {
+    box-sizing: border-box;
+    width: 1060px;
     padding: 15px 16px;
     border-radius: 10px;
     background: #F5F5F5;
@@ -16,4 +18,19 @@
 .cards__search-bar>input {
     width: 100%;
     background-color: #F5F5F5;
+}
+
+
+/* tablet */
+@media (max-width:1199px) {
+    .cards__search-bar {
+        width: 704px;
+    }
+}
+
+/* smartPhone */
+@media (max-width:767px) {
+    .cards__search-bar {
+        width: 100%;
+    }
 }
