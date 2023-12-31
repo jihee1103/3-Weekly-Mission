@@ -1,0 +1,26 @@
+@import '../App.css';
+
+.folder {
+  background-color: var(--Linkbrary-bg);
+}
+
+.folder-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
+.owner-name {
+  font-size: 1.6rem;
+  line-height: 24px;
+  padding-top: 12px;
+  padding-bottom: 20px;
+}
+
+.folder-name {
+  font-size: 4rem;
+  font-weight: 600;
+}
