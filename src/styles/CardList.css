@@ -6,11 +6,10 @@
 }
 
 .card img {
-  position: relative;
   object-fit: cover;
   width: 100%;
-  height: 25.3746rem;
-  border-radius: 20px;
+  height: 20rem;
+  border-radius: 20px 20px 0 0;
 }
 
 .card img:hover {
@@ -27,7 +26,6 @@
 
 .card-info {
   position: relative;
-  top: -40px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -73,7 +71,7 @@
 @media screen and (max-width: 765px) {
   .card-list {
     display: grid;
-    grid-template-columns: repeat(1, 340px);
+    grid-template-columns: repeat(1, 325px);
     row-gap: 20px;
   }
   .card {
@@ -82,7 +80,6 @@
   }
 
   .card img {
-    width: 32.5rem;
-    height: 24.3597rem;
+    height: 192px;
   }
 }
