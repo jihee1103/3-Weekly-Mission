@@ -17,6 +17,7 @@ article {
   align-items: center;
   padding: 4rem 19rem;
   max-width: 192rem;
+  margin: 0 auto;
 }
 
 .pages {
@@ -117,5 +118,11 @@ footer {
 @media (max-width: 864px) {
   article {
     padding: 4rem 3.2rem;
+  }
+}
+
+@media (max-width: 1123px) {
+  .pages {
+    grid-template-columns: repeat(2, 34rem);
   }
 }
