@@ -1,6 +1,10 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import App from "./components/App";
+import { staticCard } from "../components/cards";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<h1>week6</h1>);
+root.render(
+  <>
+    <APP />
+  </>
+);
