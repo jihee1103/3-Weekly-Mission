@@ -1,0 +1,56 @@
+footer {
+  width: 100%;
+  height: 16rem;
+  padding: 3.2rem 10.4rem 6.4rem;
+  background-color: var(--color-black);
+  display: flex;
+  justify-content: space-between;
+}
+
+.brand-year {
+  font-family: "Abel", sans-serif;
+  font-weight: 400;
+  color: #676767;
+}
+
+.policy-and-faq a {
+  font-family: "Abel", sans-serif;
+  font-weight: 400;
+  color: #676767;
+}
+
+.policy-and-faq {
+  font-family: "Abel", sans-serif;
+  text-decoration: none;
+  display: flex;
+  gap: 3rem;
+}
+
+.sns-link {
+  display: flex;
+  gap: 1.2rem;
+}
+
+@media(max-width: 767px){
+  footer{
+    padding: 3.2rem 3.2rem 3.2rem;
+    display: grid;
+    grid-template-areas: 
+    "policy-and-faq sns-link"
+    "brand-year sns-link";
+    row-gap: 6rem;
+  }
+
+  .brand-year{
+    grid-area: brand-year;
+  }
+
+  .policy-and-faq {
+    grid-area: policy-and-faq;
+    
+  }
+  
+  .sns-link {
+    grid-area: sns-link;
+  }
+}
