@@ -1,9 +1,9 @@
 import { BASE_URL } from './instance/instance-api';
-const GET_PROFILE_DATA_API = '/api/sample/user';
+const GET_USER_FOLDERS_API = '/api/sample/folder';
 
-const getProFileDataApi = async () => {
+const getUserFolders = async () => {
   try {
-    const response = await fetch(`${BASE_URL}${GET_PROFILE_DATA_API}`, {
+    const response = await fetch(`${BASE_URL}${GET_USER_FOLDERS_API}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -16,8 +16,8 @@ const getProFileDataApi = async () => {
     console.dir(data);
     return data;
   } catch (error) {
-    console.log('🚀 ~ file: getProfileData.js:11 ~ getProFileData ~ error:', error);
+    console.log('🚀 ~ file: getUserFolders.js:18 ~ getUserFolders ~ error:', error);
   }
 };
 
-export { getProFileDataApi };
+export { getUserFolders };
