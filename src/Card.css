@@ -1,6 +1,6 @@
 .card {
-  width: 340px;
-  height: 334px;
+  width: 34rem;
+  height: 33.4rem;
   flex-shrink: 0;
   overflow: hidden;
 
@@ -12,6 +12,14 @@
   width: 34rem;
   height: 20rem;
   overflow: hidden;
+}
+
+.card .image.default {
+  background: #dddfff;
+}
+
+.card .default-image {
+  object-fit: none;
 }
 
 .card img {
@@ -34,6 +42,7 @@
 .card-info {
   display: flex;
   width: 34rem;
+  height: 13.4rem;
   padding: 1.5rem 2rem;
   flex-direction: column;
 

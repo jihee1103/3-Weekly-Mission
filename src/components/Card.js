@@ -11,7 +11,6 @@ function Card({ page }) {
   const [uploadDate, setUploadDate] = useState("");
 
   const upload = new Date(page.createdAt);
-  const { id, createdAt, url, title, imageSource } = page;
 
   useEffect(() => {
     const nextTimeDiff = timeDifferenceCalculate(upload);
@@ -24,10 +23,16 @@ function Card({ page }) {
   }, [timeDiff, uploadDate]);
 
   return (
-    <a href={link} className="card">
-      <div className="image">
-        <img src={image || logo} alt="페이지 미리보기" />
-      </div>
+    <a href={link} target="_blank" className="card">
+      {image ? (
+        <div className="image">
+          <img src={image || logo} alt="페이지 미리보기" />
+        </div>
+      ) : (
+        <div className="image default">
+          <img className="default-image" src={logo} alt="페이지 미리보기" />
+        </div>
+      )}
       <div className="card-info">
         <span className="upload">{timeDiff} ago</span>
         <span className="description">{description}</span>
