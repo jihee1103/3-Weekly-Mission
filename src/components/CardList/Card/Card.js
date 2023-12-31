@@ -1,7 +1,6 @@
 import noImageSource from '../../../assets/images/no_image_source.svg';
 
 const Card = ({ linkData }) => {
-  console.log(linkData);
   const passedTimeCalculator = link => {
     const nowTime = Date.now();
     const uploadedTime = new Date(link.createdAt).getTime();
@@ -12,20 +11,17 @@ const Card = ({ linkData }) => {
     const passedMonth = passedDay / 30;
     const passedYear = passedMonth / 12;
     // 큰 단위부터 하나씩 컷하기
-    if (passedYear >= 1) {
-      return `${Math.floor(passedYear)} years ago`;
-    }
-    if (passedMonth >= 1) {
+    if (passedYear >= 1) `${Math.floor(passedYear)} years ago`;
+    else if (passedMonth >= 1) {
       return `${Math.floor(passedMonth)} months ago`;
-    }
-    if (passedDay >= 1) {
+    } else if (passedDay >= 1) {
       return `${Math.floor(passedDay)} days ago`;
-    }
-    if (passedHours >= 1) {
+    } else if (passedHours >= 1) {
       return `${Math.floor(passedHours)} hours ago`;
-    }
-    if (passedMinutes >= 1) {
+    } else if (passedMinutes >= 1) {
       return `${Math.floor(passedMinutes)}minutes ago`;
+    } else if (passedMinutes < 1) {
+      return '1minutes ago';
     }
   };
 
@@ -34,9 +30,9 @@ const Card = ({ linkData }) => {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
-    console.log(year, month, day);
     return `${year}. ${month}. ${day}`;
   };
+
   return (
     <ul className="link-list">
       {Array.isArray(linkData.links)
