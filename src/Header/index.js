@@ -27,7 +27,7 @@ const Header = () => {
             <div className="user-email">{user.email}</div>
           </div>
         ) : (
-          <a className="header__btn-login" href="/signin">
+          <a className="btn header__btn-login" href="/signin">
             로그인
           </a>
         )}

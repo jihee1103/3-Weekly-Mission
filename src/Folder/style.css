@@ -24,3 +24,26 @@
   font-size: 4rem;
   font-weight: 600;
 }
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .folder-container {
+    padding-top: 10px;
+    padding-bottom: 40px;
+  }
+
+  .owner-image {
+    width: 40px;
+  }
+
+  .owner-name {
+    font-size: 1.4rem;
+    line-height: normal;
+    padding-top: 6px;
+    padding-bottom: 10px;
+  }
+
+  .folder-name {
+    font-size: 3.2rem;
+    font-weight: 600;
+  }
+}

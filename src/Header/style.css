@@ -17,7 +17,13 @@
   position: sticky;
   width: 100%;
   max-width: 192rem;
-  padding: 20px 200px;
+  padding: 33px 200px;
+}
+
+.linkbrary-icon img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header__profile {
@@ -45,4 +51,39 @@
   padding: 16px 20px;
   flex-shrink: 0;
   width: 12.8rem;
+}
+
+@media (max-width: 1199px) {
+  .nav {
+    width: calc(100vw - 64px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .nav {
+    max-width: 80rem;
+    padding: 33px 0;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .nav {
+    padding: 18px 0;
+  }
+
+  .btn {
+    padding: 10px 16px;
+  }
+
+  .header__btn-login {
+    width: 80px;
+  }
+
+  .linkbrary-icon img {
+    height: 16px;
+  }
+
+  .user-email {
+    display: none;
+  }
 }

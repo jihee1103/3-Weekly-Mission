@@ -25,3 +25,9 @@
   top: 59px;
   left: 16px;
 }
+
+@media (max-width: 1124px) {
+  .form {
+    width: calc(100vw - 64px);
+  }
+}

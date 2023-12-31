@@ -23,7 +23,7 @@ function Folder() {
   return (
     <div className="folder">
       <div className="folder-container">
-        <img src={owner.profileImageSource} width="60" />
+        <img className="owner-image" src={owner.profileImageSource} width="60" />
         <p className="owner-name">{owner.name}</p>
         <p className="folder-name">{folder.name}</p>
       </div>
