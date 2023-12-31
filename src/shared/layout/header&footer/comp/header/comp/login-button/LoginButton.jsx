@@ -1,9 +1,9 @@
 import Button from '../../../../../../../components/ui/button/Button';
 
-const LoginButton = () => {
+const LoginButton = ({ children }) => {
   return (
     <Button width='short' href={'/src/pages/auth/signin/'}>
-      로그인
+      {children}
     </Button>
   );
 };
