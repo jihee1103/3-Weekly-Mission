@@ -19,7 +19,6 @@ export default function Shared() {
     }
     const { folder } = result;
     const { links, owner, name } = folder;
-    console.log(folder);
     setCardListItem(links);
     setFolderOwner(owner);
     setFolderName(name);
