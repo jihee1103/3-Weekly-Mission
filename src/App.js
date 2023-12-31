@@ -24,7 +24,7 @@ export default function App() {
   return (
     <>
       <Navbar user={user} />
-      <Shared user={user} />
+      <Shared />
       <Footer />
     </>
   );

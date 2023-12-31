@@ -5,8 +5,9 @@ import CardList from "../Components/CardList";
 import { getShredCardList } from "../apis/api";
 import searchIcon from "../assets/images/shared-search.svg";
 
-export default function Shared({ user }) {
+export default function Shared() {
   const [cardListItem, setCardListItem] = useState(null);
+  const [folderOwner, setFolderOwner] = useState(null);
   const [folderName, setFolderName] = useState("");
   const handleGetCardList = async () => {
     let result;
@@ -17,8 +18,10 @@ export default function Shared({ user }) {
       return;
     }
     const { folder } = result;
-    const { links, name } = folder;
+    const { links, owner, name } = folder;
+    console.log(folder);
     setCardListItem(links);
+    setFolderOwner(owner);
     setFolderName(name);
   };
 
@@ -28,7 +31,11 @@ export default function Shared({ user }) {
 
   return (
     <main>
-      {user ? <SharedHeader user={user} folderName={folderName} /> : ""}
+      {folderOwner ? (
+        <SharedHeader folderName={folderName} folderOwner={folderOwner} />
+      ) : (
+        ""
+      )}
 
       <div className="shared-card-board">
         <form className="shared-search-form">
@@ -41,9 +48,11 @@ export default function Shared({ user }) {
   );
 }
 
-function SharedHeader({ user, folderName }) {
-  const userName = user ? user.name : null;
-  const source = user ? user.profileImageSource : null;
+function SharedHeader({ folderOwner, folderName }) {
+  const ownerName = folderOwner.name ? folderOwner.name : null;
+  const source = folderOwner.profileImageSource
+    ? folderOwner.profileImageSource
+    : null;
   return (
     <div className="shared-header">
       {source ? (
@@ -54,7 +63,7 @@ function SharedHeader({ user, folderName }) {
         </div>
       )}
 
-      <span>{userName}</span>
+      <span>{ownerName}</span>
       <h2>{folderName}</h2>
     </div>
   );
