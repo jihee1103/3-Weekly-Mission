@@ -1,5 +1,6 @@
 import noImage from '../images/no-image.svg';
 import './style.css';
+import { TIMES } from '../../constant';
 import React, { useState, useEffect } from 'react';
 
 function Card() {
@@ -18,41 +19,41 @@ function Card() {
     const diffInYears = Math.floor(diffInMonths / 12);
 
     if (diffInMinutes < 2) {
-      return '1 minute ago';
+      return TIMES.ONE_MINUTE_AGO;
     }
 
     if (diffInMinutes <= 59) {
-      return `${diffInMinutes} minutes ago`;
+      return diffInMinutes + TIMES.MINUTES_AGO;
     }
 
     if (diffInHours < 1) {
-      return '1 hour ago';
+      return TIMES.ONE_HOUR_AGO;
     }
 
     if (diffInHours <= 23) {
-      return `${diffInHours} hours ago`;
+      return diffInHours + TIMES.HOURS_AGO;
     }
 
     if (diffInDays < 1) {
-      return '1 day ago';
+      return TIMES.ONE_DAY_AGO;
     }
 
     if (diffInDays <= 30) {
-      return `${diffInDays} days ago`;
+      return diffInDays + TIMES.DAYS_AGO;
     }
 
     if (diffInMonths < 1) {
-      return '1 month ago';
+      return TIMES.ONE_MONTH_AGO;
     }
 
     if (diffInMonths <= 11) {
-      return `${diffInMonths} months ago`;
+      return diffInMonths + TIMES.MINUTES_AGO;
     }
 
     if (diffInYears < 1) {
-      return '1 year ago';
+      return TIMES.ONE_YEAR_AGO;
     }
-    return `${Math.floor(diffInYears)} years ago`;
+    return Math.floor(diffInYears) + TIMES.YEARS_AGO;
   };
 
   useEffect(() => {

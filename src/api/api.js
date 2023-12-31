@@ -1,6 +1,8 @@
+import { API } from '../constant';
+
 export const getUserData = async () => {
   try {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/user');
+    const response = await fetch(API.USER);
     const result = await response.json();
     return result;
   } catch (error) {
@@ -10,7 +12,7 @@ export const getUserData = async () => {
 
 export const getFolderData = async () => {
   try {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/folder');
+    const response = await fetch(API.FOLDER);
     const result = await response.json();
     return result;
   } catch (error) {
