@@ -1,0 +1,15 @@
+.frame {
+  width: 1440px;
+  padding: 20px 624px 60px 624px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--linkbrary-bg);
+}
+
+.inner-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
