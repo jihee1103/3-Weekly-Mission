@@ -1,5 +1,6 @@
 @import url('./style/reset.css');
 @import url('./style/color.css');
+@import url('./style/animation.css');
 
 #root {
   width: 100%;
