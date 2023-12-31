@@ -1,18 +1,26 @@
 import './style.css';
 import Card from './Card/index';
+import { getFolderData } from '../api/api';
+import { useState, useEffect } from 'react';
 
 function CardList() {
+  const [links, setLink] = useState([]);
+
+  const folderData = async () => {
+    const data = await getFolderData();
+
+    setLink(data['folder'].links);
+  };
+
+  useEffect(() => {
+    folderData();
+  }, []);
+
   return (
     <div className="card-list">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {links.map((link) => {
+        return <Card key={link.id} link={link} />;
+      })}
     </div>
   );
 }

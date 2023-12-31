@@ -9,11 +9,8 @@ function Folder() {
   const folderData = async () => {
     const data = await getFolderData();
 
-    const folderData = data['folder'];
-    const ownerData = data['folder'].owner;
-
-    setFolder(folderData);
-    setOwner(ownerData);
+    setFolder(data['folder']);
+    setOwner(data['folder'].owner);
   };
 
   useEffect(() => {

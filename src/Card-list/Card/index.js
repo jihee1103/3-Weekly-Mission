@@ -3,14 +3,13 @@ import './style.css';
 import { TIMES } from '../../constant';
 import React, { useState, useEffect } from 'react';
 
-function Card() {
-  const [createdAt, setCreatedAt] = useState(null);
-  const [formattedDate, setFormattedDate] = useState('');
-  const [currentDate, setCurrentDate] = useState('');
+function Card({ link }) {
+  const [cardImageUrl, setCardImgUrl] = useState('');
+  const [linkUrl, setLinkUrl] = useState('');
 
-  const formatDate = (createdAt) => {
+  const formatDate = (link) => {
     const now = new Date();
-    const created = new Date(createdAt);
+    const created = new Date(link.createdAt).getTime();
     const diffInMilliseconds = now - created;
     const diffInMinutes = Math.floor(diffInMilliseconds / (1000 * 60));
     const diffInHours = Math.floor(diffInMinutes / 60);
@@ -26,7 +25,7 @@ function Card() {
       return diffInMinutes + TIMES.MINUTES_AGO;
     }
 
-    if (diffInHours < 1) {
+    if (diffInHours < 2) {
       return TIMES.ONE_HOUR_AGO;
     }
 
@@ -34,7 +33,7 @@ function Card() {
       return diffInHours + TIMES.HOURS_AGO;
     }
 
-    if (diffInDays < 1) {
+    if (diffInDays < 2) {
       return TIMES.ONE_DAY_AGO;
     }
 
@@ -42,7 +41,7 @@ function Card() {
       return diffInDays + TIMES.DAYS_AGO;
     }
 
-    if (diffInMonths < 1) {
+    if (diffInMonths < 2) {
       return TIMES.ONE_MONTH_AGO;
     }
 
@@ -50,49 +49,35 @@ function Card() {
       return diffInMonths + TIMES.MINUTES_AGO;
     }
 
-    if (diffInYears < 1) {
+    if (diffInYears < 2) {
       return TIMES.ONE_YEAR_AGO;
     }
-    return Math.floor(diffInYears) + TIMES.YEARS_AGO;
+
+    return diffInYears + TIMES.YEARS_AGO;
+  };
+
+  const returnUploadDate = (link) => {
+    const now = new Date(link.createdAt);
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const day = now.getDate();
+    return `${year}. ${month}. ${day}`;
   };
 
   useEffect(() => {
-    const currentDate = new Date();
-    setCreatedAt(currentDate);
-  }, []);
-
-  useEffect(() => {
-    if (createdAt) {
-      const formatted = formatDate(createdAt);
-      setFormattedDate(formatted);
-
-      const now = new Date().toLocaleDateString('ko-KR', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      });
-      setCurrentDate(now);
-    }
-  }, [createdAt]);
-
-  const url = '';
-  const imageUrl = '';
+    setLinkUrl(link.url);
+    setCardImgUrl(link.imageSource);
+  }, [link]);
 
   return (
-    <a className="card" href={url} target="_blank">
+    <a className="card" href={linkUrl} target="_blank">
       <div className="card-link">
-        {imageUrl ? (
-          <img className="card-image" src={imageUrl} alt="No Image" />
-        ) : (
-          <img className="card-image" src={noImage} alt="No Image" />
-        )}
+        <img className="card-image" src={cardImageUrl ? cardImageUrl : noImage} alt={link.title} />
       </div>
       <div className="container-text">
-        <p className="formatted-date">{formattedDate}</p>
-        <p className="description">
-          Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Tldkd
-        </p>
-        <p className="current-date">{currentDate}</p>
+        <p className="formatted-date">{formatDate(link)}</p>
+        <p className="description">{link.description}</p>
+        <p className="current-date">{returnUploadDate(link)}</p>
       </div>
     </a>
   );
