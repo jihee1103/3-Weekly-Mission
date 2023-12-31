@@ -1,4 +1,4 @@
-import noImag from '../images/no-image.svg';
+import noImage from '../images/no-image.svg';
 import './style.css';
 import React, { useState, useEffect } from 'react';
 
@@ -75,11 +75,16 @@ function Card() {
   }, [createdAt]);
 
   const url = '';
+  const imageUrl = '';
 
   return (
     <a className="card" href={url} target="_blank">
       <div className="card-link">
-        <img className="card-image" src={noImag} alt="No Image" />
+        {imageUrl ? (
+          <img className="card-image" src={imageUrl} alt="No Image" />
+        ) : (
+          <img className="card-image" src={noImage} alt="No Image" />
+        )}
       </div>
       <div className="container-text">
         <p className="formatted-date">{formattedDate}</p>
