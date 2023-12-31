@@ -22,7 +22,8 @@ article {
 
 .pages {
   display: grid;
-  grid-template-columns: repeat(3, 34rem);
+  grid-template-columns: repeat(2, 34rem);
+
   grid-auto-rows: 33.4rem;
   justify-content: space-between;
   width: 100%;
@@ -78,6 +79,11 @@ footer {
     padding: 0 3.2rem 4rem;
   }
 
+  .pages {
+    grid-template-columns: 32.5rem;
+    grid-auto-rows: 32.7rem;
+  }
+
   .footer-box {
     display: grid;
     grid-template-areas:
@@ -121,8 +127,8 @@ footer {
   }
 }
 
-@media (max-width: 1123px) {
+@media (min-width: 1124px) {
   .pages {
-    grid-template-columns: repeat(2, 34rem);
+    grid-template-columns: repeat(3, 34rem);
   }
 }
