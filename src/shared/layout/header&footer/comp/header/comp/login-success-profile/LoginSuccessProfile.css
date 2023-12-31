@@ -1,0 +1,30 @@
+/* 1200 이상 */
+/* 768 이상 1199 이하 */
+/* 375 이상 767 이하 */
+
+.account-profile {
+  width: 2.8rem;
+  height: auto;
+
+  border-radius: 9999px;
+}
+
+.account-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 0.6rem;
+}
+
+.account-text {
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: normal;
+
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: initial;
+  }
+}

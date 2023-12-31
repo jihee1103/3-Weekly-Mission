@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Pretendard';
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+address {
+  display: inline-block;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+  cursor: pointer;
+}
+
+input,
+textarea {
+  resize: none;
+  outline: none;
+}
