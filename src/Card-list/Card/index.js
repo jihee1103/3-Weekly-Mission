@@ -74,8 +74,12 @@ function Card() {
     }
   }, [createdAt]);
 
+  const handleCardClick = () => {
+    location.href('./CardLink');
+  };
+
   return (
-    <div className="card">
+    <a className="card" href={url} target="_blank">
       <div className="card-link">
         <img className="card-image" src={noImag} alt="No Image" />
       </div>
@@ -86,7 +90,7 @@ function Card() {
         </p>
         <p className="current-date">{currentDate}</p>
       </div>
-    </div>
+    </a>
   );
 }
 
