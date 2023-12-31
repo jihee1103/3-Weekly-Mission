@@ -74,9 +74,7 @@ function Card() {
     }
   }, [createdAt]);
 
-  const handleCardClick = () => {
-    location.href('./CardLink');
-  };
+  const url = '';
 
   return (
     <a className="card" href={url} target="_blank">

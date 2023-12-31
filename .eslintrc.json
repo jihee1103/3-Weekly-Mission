@@ -6,9 +6,11 @@
   "extends": ["eslint:recommended", "plugin:prettier/recommended"],
   "overrides": [],
   "parserOptions": {
-    "ecmaVersion": 2023,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "plugins": ["prettier"],
+  "parser": "babel-eslint",
   "rules": {
     "prettier/prettier": [
       "error",
@@ -17,5 +19,5 @@
       }
     ]
   },
-  "parser": "babel-parser"
+  "eslint.workingDirectories": [{ "mode": "auto" }]
 }
