@@ -9,6 +9,7 @@ header {
   padding: 0 3.2rem;
 
   position: fixed;
+  z-index: 2;
   backdrop-filter: blur(10px);
 
   inset-inline: 0;

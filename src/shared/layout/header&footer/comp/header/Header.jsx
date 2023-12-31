@@ -18,7 +18,6 @@ const useGetProfileData = () => {
 
 const Header = () => {
   const profileData = useGetProfileData();
-  console.log('in Header >>> ', profileData);
   return (
     <header id='header' role='heading' aria-level={1}>
       <nav className='gnb' role='navigation'>
