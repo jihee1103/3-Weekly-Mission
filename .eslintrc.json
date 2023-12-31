@@ -17,6 +17,5 @@
       }
     ]
   },
-  "parser": "babel-parser",
-  "eslint.workingDirectories": ["./frontend"]
+  "parser": "babel-parser"
 }
