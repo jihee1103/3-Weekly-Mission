@@ -1,5 +1,6 @@
 import "./style.css";
 import { formatDate, writtenDate } from "../../utils";
+import noImage from "../../assets/no-image.png";
 
 const handleLinkClick = (event, url) => {
   event.preventDefault();
@@ -13,15 +14,15 @@ const FolderLinks = ({ links, className = "" }) => {
     <ul className={classNames}>
       {links.map((link) => (
         <li key={link.id}>
-          <FolderLink link={link} />
+          <FolderLinkCard link={link} />
         </li>
       ))}
     </ul>
   );
 };
 
-const FolderLink = ({ link }) => {
-  const { createdAt, url, title, description, imageSource } = link;
+const FolderLinkCard = ({ link }) => {
+  const { createdAt, url, title, description, imageSource = noImage } = link;
   return (
     <>
       <div className="folder-link-box" onClick={(event) => handleLinkClick(event, url)}>
