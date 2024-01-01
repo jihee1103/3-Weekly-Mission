@@ -1,4 +1,10 @@
 import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./styles/global.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<>링크 공유 페이지</>);
+root.render(
+  <>
+    <App />
+  </>
+);
