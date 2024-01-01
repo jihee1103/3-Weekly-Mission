@@ -5,12 +5,17 @@ const btnWidth = {
   long: 'cta-long',
 };
 
-const Button = ({ children, width = 'short', href }) => {
+const Slot = ({ children, ...rest }) => {
+  return <a {...rest}>{children}</a>;
+};
+
+const Button = ({ children, width = 'short', href, asAnchor = false, ...rest }) => {
   const w = btnWidth[width];
+  const Comp = asAnchor ? Slot : 'button';
   return (
-    <a className={`cta ${w}`} href={href} rel='nofollow'>
+    <Comp className={`cta ${w}`} href={href} {...rest}>
       {children}
-    </a>
+    </Comp>
   );
 };
 export default Button;

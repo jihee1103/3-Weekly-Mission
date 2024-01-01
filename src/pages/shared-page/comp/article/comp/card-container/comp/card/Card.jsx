@@ -6,7 +6,7 @@ const Card = ({ link }) => {
 
   return (
     <CardWrapper createdAt={createdAt} imageSource={imageSource} description={description} url={url}>
-      <CardWrapper.CardCover className='link-card'>
+      <CardWrapper.CardCover asAnchor className='link-card'>
         <div className='card-image-box'>
           <CardWrapper.CardImage className='link-image' alt={'카드 링크 이미지'} />
         </div>
