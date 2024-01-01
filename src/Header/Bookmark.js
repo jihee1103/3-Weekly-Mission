@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import './Header.css';
 
+export default function Bookmark(){
+  const [folderData, setfolderData] = useState('');
 
-
-
-
-export default function Bookmark() {
-  const [folderData, setFolderData] = useState('');
-  useEffect(()=>
-  {
-    async function bookmark (){
+  useEffect(()=>{
+    async function folderDatas(){
       try{
         const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/folder');
         const data = await response.json();
-        const result = data
-        setFolderData(result)
+        const folder = data.folder; // response 안에 있는 folder 데이터
+        setfolderData(folder) // folder 데이터를 folderData에 저장
       }
       catch(error){
         console.log('Error')
       }
     }
-    bookmark();
-  },[]);
+    folderDatas()
+  })
   return (
     <div className='BookmarkArea'>
-      <img className='codeitLogo' src={folderData.folder.owner.profileImageSource} alt='codeit' />
-      <p className='nametText'>@{folderData.folder.owner.name}</p>
-      <p className='bookmarkText'>⭐️ 즐겨찾기</p>
-    </div>
+    {folderData && folderData.owner && ( // folderData가 있고, folderData 안에 owner가 있으면
+      <>
+        <img className='codeitLogo' src={folderData.owner.profileImageSource} alt='codeit' />
+        <p className='nametText'>@{folderData.owner.name}</p>
+        <p className='bookmarkText'>{folderData.name}</p>
+      </>
+    )}
+  </div>
   )
 }

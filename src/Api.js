@@ -12,3 +12,5 @@ async function UserFolderData() {
   return data;
 }
 export{UserFolderData, UserIdData}
+
+//api 분리해서 해보기
