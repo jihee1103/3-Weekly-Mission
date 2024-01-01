@@ -63,17 +63,17 @@ footer > div > div {
       "3 .";
   }
 
-  .foot-left {
+  .footer-left {
     grid-row: 2;
-    width: 105px;
+    width: 110px;
   }
 
-  .foot-center {
+  .footer-center {
     margin-bottom: 60px;
     grid-column: 1;
   }
 
-  .foot-right {
+  .footer-right {
     grid-column: 2;
   }
 }
