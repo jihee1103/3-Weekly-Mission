@@ -3,7 +3,7 @@ import { fetchFolderData } from "../apis/api";
 import "../styles/Header.css";
 
 function Header() {
-  const [folderData, setFolderData] = useState();
+  const [folderData, setFolderData] = useState({ folder: { owner: {} } });
 
   //폴더 데이터 가져오기
   const handleLoadFolder = async () => {

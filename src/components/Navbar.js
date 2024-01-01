@@ -3,7 +3,8 @@ import { fetchUserData } from "../apis/api";
 import "../styles/Navbar.css";
 import logo from "../assets/logo.svg";
 
-function Account() {
+function Account({ innerWidth }) {
+  // console.log("?", innerWidth);
   const [userData, setUserData] = useState("");
 
   //유저 데이터 가져오기
@@ -26,7 +27,11 @@ function Account() {
             src={userData.profileImageSource}
             alt="profile-img"
           />
-          <span className="email">{userData.email}</span>
+          {innerWidth >= 767 ? (
+            <span className="email">{userData.email}</span>
+          ) : (
+            <></>
+          )}
         </div>
       ) : (
         <a className="login" href="/signin">
@@ -37,14 +42,14 @@ function Account() {
   );
 }
 
-function Navbar() {
+function Navbar({ innerWidth }) {
   return (
     <nav>
       <div className="gnb">
         <a href="/">
           <img className="logo" src={logo} alt="linkbrary-logo" />
         </a>
-        <Account />
+        <Account innerWidth={innerWidth} />
       </div>
     </nav>
   );

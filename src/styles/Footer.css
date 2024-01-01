@@ -1,14 +1,19 @@
 footer {
   display: flex;
-  padding-top: 40px;
+  padding-top: 4rem;
   flex-direction: column;
   align-items: center;
   align-self: stretch;
+  height: 16rem;
+
+  @media (min-width: 768px) {
+    padding-top: 6rem;
+  }
 }
 
 .footer-frame {
   display: flex;
-  height: 160px;
+  height: 16rem;
   padding: 32px 32px 64px 32px;
   flex-direction: column;
   align-items: center;
@@ -28,19 +33,19 @@ footer {
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-start;
-  gap: 60px;
+  gap: 6rem;
 }
 
 .footer-right {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .footer-policy {
   display: flex;
   align-items: flex-start;
-  gap: 30px;
+  gap: 3rem;
 }
 
 .footer-text,
@@ -61,15 +66,15 @@ footer {
 }
 
 .sns-icon {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   cursor: pointer;
 }
 
 /*tablet*/
 @media (min-width: 768px) {
   .footer-frame {
-    height: 160px;
+    height: 16rem;
     padding: 32px 104px 64px 104px;
   }
 
@@ -92,13 +97,5 @@ footer {
   }
   .footer-right {
     justify-content: flex-end;
-  }
-}
-
-/*pc*/
-@media (min-width: 1200px) {
-  footer {
-    height: 280px;
-    padding-top: 120px;
   }
 }
