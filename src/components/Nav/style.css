@@ -61,7 +61,3 @@ a {
     grid-column: 2 / span 1;
   }
 }
-
-/* 모바일 */
-@media (max-width: 767px) {
-}
