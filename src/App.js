@@ -1,10 +1,14 @@
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
+import Footer from "./components/footer/Footer";
+import Navbar from "./components/navbar/Navbar";
+import Header from "./components/header/Header";
+import Section from "./components/section/Section";
 
 function App() {
   return (
     <>
-      <Nav />
+      <Navbar />
+      <Header />
+      <Section />
       <Footer />
     </>
   );
