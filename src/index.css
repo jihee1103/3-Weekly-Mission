@@ -73,16 +73,29 @@ footer {
   height: 2rem;
 }
 
+/* aticle 반응형 */
+@media (max-width: 1199px) {
+  article {
+    padding: 4rem calc((100% - 78.32rem) / 2);
+  }
+}
+@media (max-width: 864px) {
+  article {
+    padding: 4rem 3.2rem;
+  }
+}
+
 /* 모바일 크기 */
 @media (max-width: 767px) {
   article {
-    padding: 2rem 3.2rem;
+    padding: 2rem 3.2rem 4rem;
   }
 
   .pages {
     grid-template-columns: 32.5rem;
     grid-auto-rows: 32.7rem;
     justify-content: center;
+    row-gap: 2rem;
   }
 
   .footer-box {
@@ -106,25 +119,6 @@ footer {
   .footer-link {
     font-size: 1.6rem;
     font-weight: 400;
-  }
-}
-
-/* 태블릿 크기 */
-@media (min-width: 768px) {
-  article {
-    padding-top: 3rem;
-  }
-}
-
-/* aticle 반응형 */
-@media (max-width: 1199px) {
-  article {
-    padding: 4rem calc((100% - 78.32rem) / 2);
-  }
-}
-@media (max-width: 864px) {
-  article {
-    padding: 4rem 3.2rem;
   }
 }
 

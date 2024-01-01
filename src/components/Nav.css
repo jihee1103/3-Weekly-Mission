@@ -79,10 +79,6 @@ nav .logo {
     width: 8rem;
   }
 
-  article {
-    padding: 0 3.2rem 4rem;
-  }
-
   .footer-box {
     display: grid;
     grid-template-areas:
@@ -104,13 +100,6 @@ nav .logo {
   .footer-link {
     font-size: 1.6rem;
     font-weight: 400;
-  }
-}
-
-/* 태블릿 크기 */
-@media (min-width: 768px) {
-  article {
-    padding-top: 3rem;
   }
 }
 
