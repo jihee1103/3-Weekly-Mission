@@ -55,6 +55,7 @@ const FolderLink = ({ link }) => {
       <div onClick={(event) => handleLinkClick(event, url)}>
         <img src={imageSource} alt={title} />
         <div>{title}</div>
+        <div>{description}</div>
         <div>{formatDate(createdAt)}</div>
       </div>
     </>
