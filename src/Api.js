@@ -11,6 +11,7 @@ async function UserFolderData() {
   const data = await response.json();
   return data;
 }
+
 export{UserFolderData, UserIdData}
 
-//api 분리해서 해보기
+//api 분리해서 해보기(해야될것)

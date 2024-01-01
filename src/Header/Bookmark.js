@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import './Header.css';
 
 export default function Bookmark(){
   const [folderData, setfolderData] = useState('');
@@ -19,13 +18,13 @@ export default function Bookmark(){
     folderDatas()
   })
   return (
-    <div className='BookmarkArea'>
+    <div className='headerUnder'>
     {folderData && folderData.owner && ( // folderData가 있고, folderData 안에 owner가 있으면
-      <>
-        <img className='codeitLogo' src={folderData.owner.profileImageSource} alt='codeit' />
-        <p className='nametText'>@{folderData.owner.name}</p>
+      <div className='bookmarkArea'>
+        <img className='userLogo' src={folderData.owner.profileImageSource} alt='codeit' />
+        <p className='userName'>@{folderData.owner.name}</p>
         <p className='bookmarkText'>{folderData.name}</p>
-      </>
+      </div>
     )}
   </div>
   )

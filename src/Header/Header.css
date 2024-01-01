@@ -8,20 +8,16 @@ body{
 
 .headerArea{
   width: 100%;
-  top: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: #edf7ff;
-  z-index: 1;
 }
 
 .nav{
-  padding: 30px 200px;
   width: 100%;
+  padding: 30px 200px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   background-color: #edf7ff;
 }
 
@@ -31,19 +27,27 @@ body{
   gap: 10px;
 }
 
-.BookmarkArea{
-  margin-top: 20px;
-  text-align: center;
-  font-family: Pretendard;
+.profileImage{
+  background-color:#6D6AFE ;
+  width: 30px;
+  padding: 8px;
+  border-radius: 50%;
 }
 
-.codeitLogo {
+.headerUnder{
+  margin-top: 20px;
+  }
+
+.bookmarkArea{
+  text-align: center;
+  gap: 20px;
+}
+
+.userLogo {
   height: 60px;
 }
 
-.nameText{
-  display: flex;
-  align-items: center;
+.userName{
   font-size: 16px;
   font-weight: 400;
 }

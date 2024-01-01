@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 function createDay(createAt){
   const date = new Date(createAt);
   const year = date.getFullYear();
@@ -36,6 +34,5 @@ function beforeTime(createdTime) {
     const years = Math.floor(timeDifference / (60 * 24 * 30 * 12));
     return `${years} years ago`;
 };
-
 
 export {createDay, beforeTime};

@@ -1,17 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import myprofile from '../image/myprofile.svg';
 
-
-const profileImage={
-  backgroundColor: '#6D6AFE',
-  width : '30px',
-  padding : '8px',
-  borderRadius : '50%',
-}
-
-
-
-
 export default function Profile() {
  const [profileData, setProfileData] = useState('');
  useEffect(()=>{
@@ -26,12 +15,12 @@ export default function Profile() {
     }
   }
   profileData();
-},[]); 
+},); 
   return (
     <div>
-      {profileData ? (
+      {profileData ? ( 
         <div className='profileBox'>
-          <img style={profileImage} src={myprofile} alt='myprofile' />
+          <img className='profileImage' src={myprofile} alt='myprofile' />
           <span>{profileData.email}</span>
         </div>
       ) : (
@@ -40,4 +29,3 @@ export default function Profile() {
     </div>
   )
 }
-//데이터 있으면 계정, 없으면 로그인 버튼

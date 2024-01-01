@@ -1,9 +1,7 @@
 import React from 'react'
 import glass from '../image/glass.svg'
-import './Main.css'
 
 export default function Search() {
-
 
   return (
   <div> 

@@ -4,7 +4,6 @@ import Bookmark from './Bookmark'
 import logo from '../image/logo.svg';
 import './Header.css';
 
-
 export default function Header() {
   
   return (
@@ -13,9 +12,16 @@ export default function Header() {
         <img src={logo} alt='logo' />
         <Profile/>
       </div>
-      <div>
-        <Bookmark/>
-      </div>
+      <Bookmark/>
     </div>
   )
 }
+{/* <>
+<div className='nav'>
+<Profile/>
+</div>
+<div className='headerArea'>
+<Bookmark/>
+</div>
+</>
+//이런식으로 nav와 headerArea를 분리 */}

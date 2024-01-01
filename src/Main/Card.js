@@ -1,7 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { createDay, beforeTime } from '../shared';
-import './Main.css'
 import star from '../image/star.jpg';
 
 export default function Card() {
