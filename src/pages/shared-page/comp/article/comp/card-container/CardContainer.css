@@ -4,7 +4,6 @@
 
   display: grid;
   grid-template-columns: minmax(32.5rem, 100%);
-  /* grid-auto-rows: minmax(32.7rem, 100%); */
   grid-auto-rows: 32.7rem;
   justify-content: center;
   row-gap: 2rem;
@@ -18,11 +17,6 @@
 
   @media screen and (min-width: 1124px) {
     gap: 2.5rem 2rem;
-    /* grid-template-columns: repeat(3, 1fr); */
-    /* grid-template-columns: repeat(3, 34rem);
-    grid-auto-rows: minmax(33.4rem, 1fr); */
-
-    /* grid-template-columns: repeat(3, 34rem); */
     grid-template-columns: repeat(3, 34rem);
     grid-auto-rows: 33.4rem;
   }
