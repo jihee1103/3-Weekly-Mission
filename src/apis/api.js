@@ -13,6 +13,6 @@ export async function fetchFolderData() {
   );
   const result = await response.json();
   // console.log(result);
-  // console.log(result.folder.owner.profileImageSource);
+  console.log(result.folder.owner.profileImageSource);
   return result;
 }
