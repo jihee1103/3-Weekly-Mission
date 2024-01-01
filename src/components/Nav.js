@@ -1,7 +1,7 @@
 import logo from "../images/logo.svg";
 import { useState, useEffect } from "react";
 import { getUser } from "../api";
-import "../Nav.css";
+import "./Nav.css";
 
 function Nav() {
   const [sampleId, setSampleId] = useState("");
@@ -28,7 +28,7 @@ function Nav() {
       {sampleId ? (
         <div className="user">
           <img className="profile" src={sampleProfile} alt="프로필 사진" />
-          <span>{sampleEmail}</span>
+          <span className="email">{sampleEmail}</span>
         </div>
       ) : (
         <a className="cta cta-short" href="signin.html">

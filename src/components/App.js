@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <header>
-        <Nav className="nav" />
+        <Nav />
         <Folder />
       </header>
       <article>

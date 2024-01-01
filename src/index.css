@@ -76,12 +76,13 @@ footer {
 /* 모바일 크기 */
 @media (max-width: 767px) {
   article {
-    padding: 0 3.2rem 4rem;
+    padding: 2rem 3.2rem;
   }
 
   .pages {
     grid-template-columns: 32.5rem;
     grid-auto-rows: 32.7rem;
+    justify-content: center;
   }
 
   .footer-box {
@@ -129,6 +130,7 @@ footer {
 
 @media (min-width: 1124px) {
   .pages {
-    grid-template-columns: repeat(3, 34rem);
+    grid-template-columns: repeat(3, minmax(22.87rem, 34rem));
+    column-gap: 2rem;
   }
 }

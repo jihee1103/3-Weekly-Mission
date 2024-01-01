@@ -71,13 +71,3 @@
     height: 19.2rem;
   }
 }
-
-/* 태블릿 크기 */
-@media (min-width: 768px) {
-}
-
-/* nav바 반응형 여백 */
-@media (max-width: 1199px) {
-}
-@media (max-width: 864px) {
-}

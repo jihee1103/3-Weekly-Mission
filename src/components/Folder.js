@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFolder } from "../api";
-import "../Folder.css";
+import "./Folder.css";
 
 function Folder() {
   const [ownerProfile, setOwnerProfile] = useState();
@@ -29,7 +29,7 @@ function Folder() {
             src={ownerProfile}
             alt="소유자 프로필"
           />
-          <span>{ownerName}</span>
+          <span className="owner-name">{ownerName}</span>
         </div>
         <div id="folder-name">{folderName}</div>
       </div>

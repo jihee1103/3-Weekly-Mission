@@ -19,11 +19,6 @@ nav .logo {
   height: 2.4rem;
 }
 
-nav .profile {
-  width: 2.8rem;
-  height: 2.8rem;
-}
-
 .user {
   display: flex;
   align-items: center;
@@ -31,6 +26,16 @@ nav .profile {
 
   color: var(--Linkbrary-gray100);
   font-size: 14px;
+}
+
+.user .profile {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+.user .email {
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 1.4rem;
 }
 
 .cta {
@@ -56,9 +61,13 @@ nav .profile {
     padding: 0 3.2rem;
   }
 
-  nav img {
+  nav .logo {
     width: 8.8667rem;
     height: 1.6rem;
+  }
+
+  .user .email {
+    display: none;
   }
 
   .cta {

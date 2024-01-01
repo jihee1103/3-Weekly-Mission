@@ -1,7 +1,7 @@
 import logo from "../images/logo.svg";
 import { useState, useEffect } from "react";
 import timeDifferenceCalculate from "../timeDifferenceCalculate";
-import "../Card.css";
+import "./Card.css";
 
 function Card({ page }) {
   const [link, setLink] = useState(page.url);
