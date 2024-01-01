@@ -6,12 +6,12 @@ import Section from "./Section/Section.js";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <Main />
       <Section />
       <Footer />
-    </div>
+    </>
   );
 }
 
