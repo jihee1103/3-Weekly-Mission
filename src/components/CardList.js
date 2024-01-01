@@ -22,8 +22,6 @@ function CardList() {
   const handleLoadCardList = async () => {
     const reponse = await fetchFolderData();
     setCardListData(reponse);
-    console.log(reponse);
-    console.log(reponse.folder.links[0].createdAt);
   };
 
   useEffect(() => {

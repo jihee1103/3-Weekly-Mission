@@ -58,7 +58,11 @@ function Card({ cardList }) {
   return (
     <>
       {cardList.map((item) => (
-        <div className="card-box" onClick={() => window.open(item.url)}>
+        <div
+          key={item.id}
+          className="card-box"
+          onClick={() => window.open(item.url)}
+        >
           <div className="card-img-wrap">
             <img
               className="card-img"
