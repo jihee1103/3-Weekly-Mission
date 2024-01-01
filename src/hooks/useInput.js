@@ -6,10 +6,10 @@ export const useInput = initial => {
   const onChange = e => {
     const { name, value } = e.target;
     setInput(prev => {
+      if (typeof initial !== 'object') return value;
       if (prev) {
         return { ...prev, [name]: value };
       }
-      return null;
     });
   };
 

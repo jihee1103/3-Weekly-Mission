@@ -2,11 +2,11 @@ import { useInput } from '../../../../../../hooks/useInput';
 import './SearchBar.css';
 
 const SearchBar = () => {
-  const [, onChange] = useInput({ search: '' });
+  const [input, onChange] = useInput('');
   return (
     <div className='searchbar-box'>
       <i className='searchbar-icon'></i>
-      <input name='search' className='searchbar' type='text' placeholder='링크를 검색해보세요.' onChange={onChange} />
+      <input className='searchbar' type='text' placeholder='링크를 검색해보세요.' value={input} onChange={onChange} />
     </div>
   );
 };
