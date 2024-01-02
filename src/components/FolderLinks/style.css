@@ -20,7 +20,7 @@
   transition: all 0.4s;
 }
 
-.link-image:hover {
+.folder-link-box:hover .link-image {
   transform: scale(1.3);
 }
 
