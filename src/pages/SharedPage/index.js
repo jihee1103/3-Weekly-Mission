@@ -4,7 +4,7 @@ import Footer from "../../components/Footer";
 import "./style.css";
 import search from "../../assets/search.svg";
 
-const SharedPage = ({ user, folderObj }) => {
+const SharedPage = ({ user, folderObj, loadingError }) => {
   const { folder = {} } = folderObj;
   const { owner = {}, links = [] } = folder;
 
@@ -13,6 +13,7 @@ const SharedPage = ({ user, folderObj }) => {
       <Nav user={user} />
       <main>
         <section className="folder-info">
+          {loadingError && <div className="loading-error-message">{loadingError.message}</div>}
           <img className="folder-profile-image" src={owner.profileImageSource} alt={owner.name} />
           <div className="folder-profile-name">@{owner.name}</div>
           <div className="folder-name">{folder.name}</div>

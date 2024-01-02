@@ -30,8 +30,7 @@ const App = () => {
 
   return (
     <>
-      <SharedPage user={user} folderObj={folderObj} />
-      {loadingError && <p>{loadingError.message}</p>}
+      <SharedPage user={user} folderObj={folderObj} loadingError={loadingError} />
     </>
   );
 };
