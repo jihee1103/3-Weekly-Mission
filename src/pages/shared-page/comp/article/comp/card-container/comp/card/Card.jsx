@@ -2,10 +2,8 @@ import CardWrapper from '../../../../../../../../components/ui/molecules/card/li
 import './Card.css';
 
 const Card = ({ link }) => {
-  const { imageSource, createdAt, description, url } = link;
-
   return (
-    <CardWrapper createdAt={createdAt} imageSource={imageSource} description={description} url={url}>
+    <CardWrapper {...link}>
       <CardWrapper.CardCover asAnchor className='link-card'>
         <div className='card-image-box'>
           <CardWrapper.CardImage className='link-image' alt={'카드 링크 이미지'} />
