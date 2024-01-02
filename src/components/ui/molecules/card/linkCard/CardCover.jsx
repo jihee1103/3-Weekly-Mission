@@ -1,8 +1,8 @@
 import { useCardProvider } from './context/card-provider';
 
-const Slot = ({ children, ...rest }) => {
+const Slot = ({ children, url, ...rest }) => {
   return (
-    <a rel='noopener noreferrer' {...rest}>
+    <a rel='noopener noreferrer' {...rest} target='_blank' href={url}>
       {children}
     </a>
   );
@@ -10,13 +10,10 @@ const Slot = ({ children, ...rest }) => {
 
 const CardCover = ({ children, asAnchor = false, ...rest }) => {
   const { url } = useCardProvider();
-  const onClickHandler = () => {
-    window.open(url, '_blank');
-  };
-  const Comp = asAnchor ? Slot : 'div';
+  const Comp = asAnchor ? Slot : 'section';
 
   return (
-    <Comp {...rest} onClick={onClickHandler}>
+    <Comp {...rest} url={url}>
       {children}
     </Comp>
   );
