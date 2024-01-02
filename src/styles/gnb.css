@@ -1,0 +1,32 @@
+@import url('color.css');
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.logo {
+  width: 133px;
+  height: 24px;
+}
+
+
+nav .button {
+  display: flex;
+  width: 128px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue);
+
+  color: #F5F5F5;
+  font-family: Pretendard, serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
