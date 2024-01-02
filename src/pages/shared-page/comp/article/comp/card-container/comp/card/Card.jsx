@@ -1,4 +1,4 @@
-import CardWrapper from '../../../../../../../../components/ui/card';
+import CardWrapper from '../../../../../../../../components/ui/molecules/card/linkCard';
 import './Card.css';
 
 const Card = ({ link }) => {

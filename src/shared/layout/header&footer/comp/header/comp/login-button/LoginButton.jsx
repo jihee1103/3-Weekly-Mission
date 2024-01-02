@@ -1,4 +1,4 @@
-import Button from '../../../../../../../components/ui/button/Button';
+import Button from '../../../../../../../components/ui/atoms/button/Button';
 
 const LoginButton = ({ children }) => {
   return (

@@ -1,9 +1,9 @@
-import CardImage from './CardImage';
-import CreatedAt from './CreatedAt';
 import Description from './Description';
+import CreatedAt from './CreatedAt';
+import CardImage from './CardImage';
+import CardCover from './CardCover';
 import CardProvider from './context/card-provider';
 import TimeElapsed from './TimeElapsed';
-import CardCover from './CardCover';
 
 const CardWrapper = Object.assign(CardProvider, {
   Description,
