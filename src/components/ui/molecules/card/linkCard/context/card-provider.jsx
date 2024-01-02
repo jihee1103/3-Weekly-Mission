@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo } from 'react';
+import { createContext, useContext } from 'react';
 
 const initialState = {
   createdAt: '',
@@ -9,18 +9,8 @@ const initialState = {
 
 const CardProviderContext = createContext(initialState);
 
-const CardProvider = ({ children, createdAt, description, imageSource, url }) => {
-  const providerValue = useMemo(
-    () => ({
-      createdAt,
-      description,
-      imageSource,
-      url,
-    }),
-    [createdAt, description, imageSource, url],
-  );
-
-  return <CardProviderContext.Provider value={providerValue}>{children}</CardProviderContext.Provider>;
+const CardProvider = ({ children, ...rest }) => {
+  return <CardProviderContext.Provider value={rest}>{children}</CardProviderContext.Provider>;
 };
 
 export const useCardProvider = () => {
