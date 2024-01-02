@@ -5,11 +5,11 @@ import Banner from './comp/banner/Banner';
 import { getUserFolders } from '../../api/getUserFolders';
 import './Shared.css';
 
-const useGetUserFolderLinks = () => {
+const useGetUserFolders = () => {
   const [links, setLinks] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
   useEffect(() => {
-    const getProfileData = async () => {
+    (async () => {
       const data = await getUserFolders();
       if (data) {
         const { folder } = data;
@@ -17,14 +17,13 @@ const useGetUserFolderLinks = () => {
         setLinks(links);
         setUserInfo(rest);
       }
-    };
-    getProfileData();
+    })();
   }, []);
   return { links, userInfo };
 };
 
 const Shared = () => {
-  const { links, userInfo } = useGetUserFolderLinks();
+  const { links, userInfo } = useGetUserFolders();
   return (
     <HeaderAndFooter>
       <Banner userInfo={userInfo} />

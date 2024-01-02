@@ -1,7 +1,7 @@
 import { BASE_URL } from './instance/instance-api';
 const GET_PROFILE_DATA_API = '/api/sample/user';
 
-const getProFileDataApi = async () => {
+const getProFileData = async () => {
   try {
     const response = await fetch(`${BASE_URL}${GET_PROFILE_DATA_API}`, {
       method: 'GET',
@@ -20,4 +20,4 @@ const getProFileDataApi = async () => {
   }
 };
 
-export { getProFileDataApi };
+export { getProFileData };
