@@ -7,7 +7,7 @@ section {
   gap: 4rem;
 }
 
-input {
+.foder-search-input {
   border: none;
   border-radius: 1rem;
   background: #f5f5f5;
@@ -15,14 +15,14 @@ input {
   padding: 15px 16px;
 }
 
-ul {
+.cards {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
 }
 
-li {
+.card {
   display: flex;
   flex-direction: column;
   list-style-type: none;
@@ -34,12 +34,12 @@ li {
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
-li:hover .card-img {
+.card:hover .card-img {
   transform: scale(1.3);
   transition: transform 0.3s ease;
 }
 
-li:hover .card-contents {
+.card:hover .card-contents {
   background-color: #f0f6ff;
 }
 

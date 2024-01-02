@@ -6,7 +6,7 @@ import "./Section.css";
 export default function Section() {
   return (
     <section>
-      <input></input>
+      <input className="foder-search-input"></input>
       <div className="foder-contents">
         <FoderContentCard />
       </div>
@@ -27,13 +27,13 @@ function FoderContentCard() {
   }, []);
 
   return (
-    <ul>
+    <ul className="cards">
       {items.map(({ createdAt, url, id, description, imageSource }) => {
         const timeAgo = getTimeDifference(createdAt);
         const formatAt = formatCreatedAt(createdAt);
         const openLink = () => openNewWindow(url);
         return (
-          <li onClick={openLink} key={id}>
+          <li className="card" onClick={openLink} key={id}>
             <div className="card-img-div">
               <img
                 className="card-img"
