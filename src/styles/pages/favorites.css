@@ -1,0 +1,57 @@
+@import url('../color.css');
+
+.favorites {
+
+}
+
+.favorites .top {
+  display: flex;
+  padding: 20px 624px 60px 624px;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 8px;
+  background: var(--linkbrary-bg, #F0F6FF);
+}
+
+.top-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-wrapper img {
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-wrapper p {
+  color: var(--text-color-light-mode);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  margin: 0;
+}
+.top-box .top-title {
+  width: auto;
+  height: auto;
+  color: #000;
+  text-align: center;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+}
