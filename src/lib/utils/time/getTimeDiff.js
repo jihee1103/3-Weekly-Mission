@@ -22,11 +22,4 @@ const getTimeDiff = time => {
   return `${timeDiffInYear.toString().padStart(2, '0')} years ago`;
 };
 
-const formatDate = time => {
-  const createdAt = new Date(time);
-
-  const formatted = new Intl.DateTimeFormat('ko').format(createdAt);
-  return formatted;
-};
-
-export { getTimeDiff, formatDate };
+export { getTimeDiff };
