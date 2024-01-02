@@ -1,5 +1,5 @@
 import "./style.css";
-import { handleLinkClick, formatDate, writtenDate } from "../../utils";
+import { handleLinkClick, formatDate, afterTimeDate } from "../../utils";
 import noImage from "../../assets/no-image.png";
 
 const FolderLinks = ({ links, className = "" }) => {
@@ -24,7 +24,7 @@ const FolderLinkCard = ({ link }) => {
         <img className="link-image" src={imageSource} alt={title} />
       </div>
       <div className="link-description-box">
-        <div className="written-date">{writtenDate(createdAt)}</div>
+        <div className="written-date">{afterTimeDate(createdAt)}</div>
         <div className="description">{description}</div>
         <div className="format-date">{formatDate(createdAt)}</div>
       </div>
