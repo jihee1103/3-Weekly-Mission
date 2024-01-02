@@ -11,7 +11,7 @@ header {
   color: transparent;
 }
 
-article {
+section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,39 +55,21 @@ footer {
   font-size: 1.6rem;
 }
 
-.footer-links {
-  display: flex;
-  column-gap: 3rem;
-  padding-right: 1.8rem;
-}
-
-.footer-link {
-  color: #cfcfcf;
-  font-family: Arial;
-  font-size: 1.6rem;
-}
-
-.sns {
-  display: flex;
-  column-gap: 1.2rem;
-  height: 2rem;
-}
-
-/* aticle 반응형 */
+/* section 반응형 */
 @media (max-width: 1199px) {
-  article {
+  section {
     padding: 4rem calc((100% - 78.32rem) / 2);
   }
 }
 @media (max-width: 864px) {
-  article {
+  section {
     padding: 4rem 3.2rem;
   }
 }
 
 /* 모바일 크기 */
 @media (max-width: 767px) {
-  article {
+  section {
     padding: 2rem 3.2rem 4rem;
   }
 
