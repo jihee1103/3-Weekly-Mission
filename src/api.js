@@ -8,8 +8,8 @@ export async function getUserId() {
       },
     }
   );
-  const body = await response.json();
-  return body;
+
+  return await response.json();
 }
 
 export async function getUserFolder() {
@@ -22,6 +22,6 @@ export async function getUserFolder() {
       },
     }
   );
-  const body = await response.json();
-  return body;
+
+  return await response.json();
 }
