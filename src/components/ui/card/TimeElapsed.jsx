@@ -1,4 +1,4 @@
-import { getTimeDiff } from '../../../lib/utils/getTimeDIff';
+import { getTimeDiff } from '../../../lib/utils/timer';
 import { useCardProvider } from './context/card-provider';
 
 const TimeElapsed = ({ children, ...rest }) => {

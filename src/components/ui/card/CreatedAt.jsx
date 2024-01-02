@@ -1,4 +1,4 @@
-import { formatDate } from '../../../lib/utils/getTimeDIff';
+import { formatDate } from '../../../lib/utils/timer';
 import { useCardProvider } from './context/card-provider';
 
 const CreatedAt = ({ children, ...rest }) => {
