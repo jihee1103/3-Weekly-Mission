@@ -9,13 +9,10 @@ const App = () => {
   const [loadingError, setLoadingError] = useState(null);
 
   const handleLoad = async () => {
-    let userBody;
-    let folderBody;
-
     try {
       setLoadingError(null);
-      userBody = await getSampleUser();
-      folderBody = await getSampleFolder();
+      const userBody = await getSampleUser();
+      const folderBody = await getSampleFolder();
       setUser(userBody);
       setFolderObj(folderBody);
     } catch (error) {
