@@ -1,7 +1,6 @@
 import "./Footer.css";
-export default Footer;
 
-function Footer() {
+export default function Footer() {
   return (
     <footer>
       <div className="footer-bar">

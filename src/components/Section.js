@@ -3,9 +3,7 @@ import { getUserFolder } from "../api";
 import { getTimeDifference, formatCreatedAt } from "./DateUtils";
 import "./Section.css";
 
-export default Section;
-
-function Section() {
+export default function Section() {
   return (
     <section>
       <input></input>

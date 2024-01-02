@@ -1,5 +1,4 @@
-export { getTimeDifference, formatCreatedAt };
-function getTimeDifference(createdAt) {
+export function getTimeDifference(createdAt) {
   const createdDate = new Date(createdAt);
   const currentDate = new Date();
 
@@ -31,7 +30,7 @@ function getTimeDifference(createdAt) {
   }
 }
 
-function formatCreatedAt(createdAt) {
+export function formatCreatedAt(createdAt) {
   const createdDate = new Date(createdAt);
 
   const year = createdDate.getFullYear();

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getUserFolder, getUserId } from "../api.js";
 import "./Header.css";
-export default Header;
-function Header() {
+
+export default function Header() {
   return (
     <header>
       <nav>
