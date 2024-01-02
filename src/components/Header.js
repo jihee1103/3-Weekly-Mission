@@ -60,7 +60,7 @@ function UserFolderProfile() {
   }, []);
   return (
     <div className="userfolder-content">
-      {userFolder ? (
+      {userFolder && (
         <>
           <img
             className={"userfolder-content-img"}
@@ -74,8 +74,6 @@ function UserFolderProfile() {
             {userFolder.folder.name}
           </span>
         </>
-      ) : (
-        <span></span>
       )}
     </div>
   );
