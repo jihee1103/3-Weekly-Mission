@@ -1,4 +1,3 @@
-import './App.css';
 import Shared from './pages/shared-page/Shared.page';
 
 function App() {
