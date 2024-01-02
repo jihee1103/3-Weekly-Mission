@@ -30,3 +30,21 @@ nav .button {
   font-weight: 600;
   line-height: normal;
 }
+
+nav .login-success{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.login-success img{
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
