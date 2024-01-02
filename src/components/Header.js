@@ -24,7 +24,6 @@ function Header() {
 
 function UserProfileInHeader() {
   const [user, setUser] = useState(null);
-  const loginImg = <img src="/imgs/로그인.png" alt="로그인"></img>;
   useEffect(() => {
     async function handleLoginProfile() {
       const user = await getUserId();
@@ -44,7 +43,7 @@ function UserProfileInHeader() {
           <span className="user-profile-login-email">{user.email}</span>
         </>
       ) : (
-        loginImg
+        <img src="/imgs/로그인.png" alt="로그인" />
       )}
     </a>
   );
