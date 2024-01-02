@@ -5,7 +5,11 @@ const CreatedAt = ({ children, ...rest }) => {
   const { createdAt } = useCardProvider();
   const formattedTime = formatDate(createdAt);
 
-  return <span {...rest}>{formattedTime}</span>;
+  return (
+    <time dateTime={createdAt} {...rest}>
+      {formattedTime}
+    </time>
+  );
 };
 
 export default CreatedAt;
