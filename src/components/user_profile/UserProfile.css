@@ -1,0 +1,10 @@
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.user-profile img {
+  width: 1.8rem;
+  border-radius: 50%;
+}
