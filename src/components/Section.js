@@ -16,7 +16,9 @@ export default function Section() {
 
 function FoderContentCard() {
   const [items, setItems] = useState([]);
-
+  const openNewWindow = (url) => {
+    window.open(url, "_blank");
+  };
   useEffect(() => {
     async function handleload() {
       const body = await getUserFolder();
@@ -54,7 +56,3 @@ function FoderContentCard() {
     </ul>
   );
 }
-
-const openNewWindow = (url) => {
-  window.open(url, "_blank");
-};
