@@ -1,11 +1,9 @@
-import logo from '../../assets/images/logo.svg';
-
 const Header = ({ login, userData }) => {
   return (
     <div className="header">
       <div className="header--container">
         <a href="/" className="header__img">
-          <img src={logo} alt="로고 이미지"></img>
+          <img src={`${process.env.PUBLIC_URL}/images/logo.svg`} alt="로고 이미지" />
         </a>
         {login ? (
           <div className="header__profile">
@@ -13,7 +11,7 @@ const Header = ({ login, userData }) => {
             <div>{userData.email}</div>
           </div>
         ) : (
-          <button className="header__btn-login">
+          <button type="button" className="header__btn-login">
             <a href="/signin">로그인</a>
           </button>
         )}

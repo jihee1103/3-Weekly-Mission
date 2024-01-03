@@ -5,7 +5,7 @@ import Folder from './components/Folder/Folder';
 import CardList from './components/CardList/CardList';
 import Footer from './components/Footer/Footer';
 
-function App() {
+const App = () => {
   const [login, setLogin] = useState(false);
   const [userData, setUserData] = useState({});
   const [linkData, setLinkData] = useState({});
@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     try {
-      loadUserData().then(data => {
+      loadUserData().then((data) => {
         setUserData({ ...data });
         setLogin(true);
       });
@@ -41,7 +41,7 @@ function App() {
 
   useEffect(() => {
     try {
-      loadCardData().then(data => {
+      loadCardData().then((data) => {
         setLinkData(() => data.folder);
       });
     } catch (error) {
@@ -51,18 +51,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header
-        login={login}
-        setLogin={setLogin}
-        userData={userData}
-        setUserData={setUserData}
-        loadUserData={loadUserData}
-      />
+      <Header login={login} userData={userData} />
       <Folder linkData={linkData} />
       <CardList linkData={linkData} />
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

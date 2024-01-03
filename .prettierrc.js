@@ -13,7 +13,7 @@ module.exports = {
   bracketSameLine: false, // 마지막 '>'를 다음줄로 내릴지 여부
   embeddedLanguageFormatting: 'auto', // 파일 안에 또다른 형식의 코드에도 Prettier를 적용할지 여부
   htmlWhitespaceSensitivity: 'css', // html의 공백을 처리하는 방법
-  arrowParens: 'avoid', // 화살표 함수 단일 인자 시, 괄호 생략
+  arrowParens: 'always', // 화살표 함수 단일 인자 시, 괄호 생략
   proseWrap: 'never', // 마크다운 포매팅 제외
   endOfLine: 'auto', // 개행문자 유지 (혼합일 경우, 첫 줄 개행문자로 통일)
 };
