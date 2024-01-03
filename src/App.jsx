@@ -1,9 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import FolderInfo from "./components/FolderInfo";
-import FolderArea from "./components/FolderArea";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import FolderInfo from "./components/Folder/FolderInfo";
+import FolderArea from "./components/Folder/FolderArea";
 
 const GlobalStyle = createGlobalStyle`
   ${reset};

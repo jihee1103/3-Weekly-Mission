@@ -1,8 +1,8 @@
-import facebookImg from "../asset/akar-icons_facebook-fill.svg";
-import twetterImg from "../asset/akar-icons_twitter-fill.svg";
-import youtubeImg from "../asset/akar-icons_youtube-fill.svg";
-import instagramImg from "../asset/ant-design_instagram-filled.svg";
-import "../css/Footer.css";
+import facebookImg from "../../asset/akar-icons_facebook-fill.svg";
+import twitterImg from "../../asset/akar-icons_twitter-fill.svg";
+import youtubeImg from "../../asset/akar-icons_youtube-fill.svg";
+import instagramImg from "../../asset/ant-design_instagram-filled.svg";
+import "./Footer.css";
 
 export default function Footer() {
   return (
@@ -38,7 +38,7 @@ export default function Footer() {
                 rel="noreferrer"
               >
                 <img
-                  src={twetterImg}
+                  src={twitterImg}
                   alt="twitter"
                 />
               </a>

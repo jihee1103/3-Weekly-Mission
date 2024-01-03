@@ -1,7 +1,7 @@
-import "../css/Card.css";
-import defaultImage from "../asset/default-image.svg";
+import "./Card.css";
+import defaultImage from "../../asset/default-image.svg";
 import { useEffect, useState } from "react";
-import calculateTime from "../utils/calculateTime";
+import calculateTime from "../../utils/calculateTime";
 
 export default function Card({ link }) {
   const [formattedCreatedAt, setFormattedCreatedAt] = useState("");

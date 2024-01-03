@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import "../css/FolderInfo.css";
-import getFetchRequest from "../utils/getFetchRequest";
-import { API_FOLDER, BASE_API_HOST } from "../constants/api";
+import "./FolderInfo.css";
+import getFetchRequest from "../../utils/getFetchRequest";
+import { API_FOLDER, BASE_API_HOST } from "../../constants/api";
 
 export default function FolderInfo() {
   const [avatar, setAvatar] = useState(null);

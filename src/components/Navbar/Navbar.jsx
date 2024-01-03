@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import logoImg from "../asset/logo.svg";
-import "../css/Navbar.css";
+import logoImg from "../../asset/logo.svg";
+import "./Navbar.css";
 import NavProfile from "./NavProfile";
-import getFetchRequest from "../utils/getFetchRequest";
-import { API_USER, BASE_API_HOST } from "../constants/api";
+import getFetchRequest from "../../utils/getFetchRequest";
+import { API_USER, BASE_API_HOST } from "../../constants/api";
 
 export default function Navbar() {
   const [userEmail, setUserEmail] = useState(null);

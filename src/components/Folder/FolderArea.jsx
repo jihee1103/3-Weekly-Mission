@@ -1,9 +1,9 @@
-import Card from "./Card";
-import SearchBar from "./SearchBar";
-import "../css/FolderArea.css";
+import Card from "../Card/Card";
+import SearchBar from "../SearchBar/SearchBar";
+import "./FolderArea.css";
 import { useEffect, useState } from "react";
-import getFetchRequest from "../utils/getFetchRequest";
-import { API_FOLDER, BASE_API_HOST } from "../constants/api";
+import getFetchRequest from "../../utils/getFetchRequest";
+import { API_FOLDER, BASE_API_HOST } from "../../constants/api";
 
 export default function FolderArea() {
   const [links, setLink] = useState([]);
