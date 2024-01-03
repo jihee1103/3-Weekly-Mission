@@ -37,14 +37,14 @@ const CardList = ({ cardList }) => {
 
   return (
     <div className="cardList">
-      {cardList.map((it) => (
-        <div className="card" onClick={() => window.open(it.url)}>
-          <img className="cardImg" src={it.imageSource}></img>
+      {cardList.map((item) => (
+        <div className="card" onClick={() => window.open(item.url)}>
+          <img className="cardImg" src={item.imageSource}></img>
           <div className="cardBottom">
             <div>
-              <h1 className="time">{passedTime(it.createdAt)}</h1>
-              <h2 className="cardText">{it.description}</h2>
-              <h1 className="createdDate">{createDate(it.createdAt)}</h1>
+              <h1 className="time">{passedTime(item.createdAt)}</h1>
+              <h2 className="cardText">{item.description}</h2>
+              <h1 className="createdDate">{createDate(item.createdAt)}</h1>
             </div>
           </div>
         </div>
