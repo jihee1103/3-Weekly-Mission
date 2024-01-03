@@ -6,10 +6,12 @@ import instagramIcon from "../../assets/images/ant-design_instagram-filled.svg";
 import "./Footer.css";
 
 export default function Footer() {
-  const youtubeUrl = "https://www.youtube.com/";
-  const facebookUrl = "https://facebook.com/";
-  const twitterurl = "https://twitter.com/";
-  const instagramUrl = "https://www.instagram.com/";
+  const SNS_URL = {
+    YOUTUBE: "https://www.youtube.com/",
+    FACEBOOK: "https://facebook.com/",
+    TWITTER: "https://twitter.com/",
+    INSTAGRAM: "https://www.instagram.com/",
+  };
 
   return (
     <footer className="footer">
@@ -24,22 +26,22 @@ export default function Footer() {
       </ul>
       <ul className="sns">
         <li>
-          <a href={facebookUrl} rel="noreferrer noopener" target="_blank">
+          <a href={SNS_URL.FACEBOOK} rel="noreferrer noopener" target="_blank">
             <img src={facebookIcon} alt="페이스북 이동 아이콘" />
           </a>
         </li>
         <li>
-          <a href={twitterurl} rel="noreferrer noopener" target="_blank">
+          <a href={SNS_URL.TWITTER} rel="noreferrer noopener" target="_blank">
             <img src={twitterIcon} alt="트위터 이동 아이콘" />
           </a>
         </li>
         <li>
-          <a href={youtubeUrl} rel="noreferrer noopener" target="_blank">
+          <a href={SNS_URL.YOUTUBE} rel="noreferrer noopener" target="_blank">
             <img src={youtubeIcon} alt="유튜브 이동 아이콘" />
           </a>
         </li>
         <li>
-          <a href={instagramUrl} rel="noreferrer noopener" target="_blank">
+          <a href={SNS_URL.INSTAGRAM} rel="noreferrer noopener" target="_blank">
             <img src={instagramIcon} alt="인스타그램 이동 아이콘" />
           </a>
         </li>
