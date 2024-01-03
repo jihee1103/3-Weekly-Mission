@@ -11,8 +11,6 @@ const CardContainer = () => {
   const handleOneCardData = async () => {
     const card = await getFolderData();
     setCardData(card);
-    console.log(card);
-    console.log(card.folder.links[0].createdAt);
   };
 
   useEffect(() => {
