@@ -1,17 +1,15 @@
-import React, {useContext} from "react";
-import userImg from  '../../assets/icons/icon-smile.png';
-import {LoginContext} from "../../App";
+import React from "react";
 
-const UserWrapper = () => {
-    const{userName} = useContext(LoginContext);
-    return (
-        <div className="user-wrapper">
-            <img src={userImg} alt={userImg}/>
-            <p>
-                @{userName}
-            </p>
-        </div>
-    );
+const UserWrapper = ({data}) => {
+  const {profileImageSource, name} = data;
+  return (
+      <div className="user-wrapper">
+        <img src={profileImageSource} alt="profileImage"/>
+        <p>
+            @{name}
+        </p>
+      </div>
+  );
 }
 
 export default UserWrapper;

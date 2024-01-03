@@ -1,12 +1,14 @@
 import React from 'react';
 import UserWrapper from "./UserWrapper";
 
-const Top = () => {
+const Top = ({data}) => {
+  const {owner, name} = data;
+
   return (
       <div className="top">
         <div className="top-box">
-          <UserWrapper/>
-          <p className="top-title">⭐️ 즐겨찾기</p>
+          <UserWrapper data={owner}/>
+          <p className="top-title">️ {name}</p>
         </div>
       </div>
   );
