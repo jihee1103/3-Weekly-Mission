@@ -8,14 +8,20 @@ export default function Card({ link }) {
   const [cardImgUrl, setCardImgUrl] = useState("");
   const [linkUrl, setLinkUrl] = useState("");
 
+  const updateFormattedCreatedAt = (createdAt) => {
+    const createdTime = new Date(createdAt);
+
+    const year = createdTime.getFullYear();
+    const month = createdTime.getMonth() + 1;
+    const day = createdTime.getDate();
+
+    setFormattedCreatedAt(`${year}. ${month}. ${day}`);
+  };
+
   useEffect(() => {
     const calculateTime = (createdAt) => {
       const createdTime = new Date(createdAt);
       const now = new Date();
-
-      const year = createdTime.getFullYear();
-      const month = createdTime.getMonth() + 1;
-      const day = createdTime.getDate();
 
       const timeDifferenceSeconds = Math.floor((now.getTime() - createdTime.getTime()) / 1000);
       const timeDifferenceMinutes = Math.floor(timeDifferenceSeconds / 60);
@@ -36,12 +42,11 @@ export default function Card({ link }) {
       else if (timeDifferenceMonths <= 11) setElapsedTime(`${timeDifferenceMonths} months ago`);
       else if (timeDifferenceMonths >= 12 && timeDifferenceYears < 2) setElapsedTime(`1 year ago`);
       else setElapsedTime(`${timeDifferenceYears} years ago`);
-
-      setFormattedCreatedAt(`${year}. ${month}. ${day}`);
     };
 
     setLinkUrl(link.url);
     setCardImgUrl(link.imageSource);
+    updateFormattedCreatedAt(link.createdAt);
     calculateTime(link.createdAt);
   }, [link]);
 
