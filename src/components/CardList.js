@@ -6,22 +6,13 @@ import "../styles/CardList.css";
 function CardList() {
   const [cardListData, setCardListData] = useState({
     folder: {
-      links: [
-        {
-          id: "",
-          createdAt: "",
-          url: "",
-          title: "",
-          description: "",
-          imageSource: "",
-        },
-      ],
+      links: [],
     },
   });
 
   const handleLoadCardList = async () => {
-    const reponse = await fetchFolderData();
-    setCardListData(reponse);
+    const cards = await fetchFolderData();
+    setCardListData(cards);
   };
 
   useEffect(() => {
@@ -29,11 +20,9 @@ function CardList() {
   }, []);
 
   return (
-    <>
-      <div className="card-list">
-        <Card cardList={cardListData.folder.links}></Card>
-      </div>
-    </>
+    <div className="card-list">
+      <Card cardList={cardListData.folder.links}></Card>
+    </div>
   );
 }
 export default CardList;

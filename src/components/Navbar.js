@@ -9,8 +9,8 @@ function Account({ innerWidth }) {
 
   //유저 데이터 가져오기
   const handleLoadUser = async () => {
-    const response = await fetchUserData();
-    setUserData(response);
+    const users = await fetchUserData();
+    setUserData(users);
   };
 
   //초기데이터 설정
@@ -27,11 +27,7 @@ function Account({ innerWidth }) {
             src={userData.profileImageSource}
             alt="profile-img"
           />
-          {innerWidth >= 767 ? (
-            <span className="email">{userData.email}</span>
-          ) : (
-            <></>
-          )}
+          {innerWidth >= 767 && <span className="email">{userData.email}</span>}
         </div>
       ) : (
         <a className="login" href="/signin">

@@ -18,9 +18,9 @@ function App() {
   return (
     <div>
       <Navbar innerWidth={innerWidth}></Navbar>
-      <Header></Header>
-      <Content></Content>
-      <Footer></Footer>
+      <Header />
+      <Content />
+      <Footer />
     </div>
   );
 }
