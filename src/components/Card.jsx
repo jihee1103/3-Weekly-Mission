@@ -1,5 +1,5 @@
 import "../css/Card.css";
-import noImg from "../asset/noimage.svg";
+import defaultImage from "../asset/default-image.svg";
 import { useEffect, useState } from "react";
 
 export default function Card({ link }) {
@@ -56,8 +56,8 @@ export default function Card({ link }) {
     >
       <div className="card-img-area">
         <img
-          src={cardImgUrl ? cardImgUrl : noImg}
-          alt="noimg"
+          src={cardImgUrl ? cardImgUrl : defaultImage}
+          alt="카드 미리보기 이미지"
         />
       </div>
       <div className="card-info-area">
