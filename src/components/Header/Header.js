@@ -1,12 +1,12 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
-import { getUserData } from "../api/api";
+import { getUserData } from "../../api/api";
 
 const Header = () => {
   const [userData, setUserData] = useState();
 
   const handleUserData = async () => {
-    const user = await getUserData();
+    const user = await getUserData;
     setUserData(user);
   };
 

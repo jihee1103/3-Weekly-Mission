@@ -1,5 +1,5 @@
 import "./CardContainer.css";
-import CardList from "../CardList/CardList";
+import CardList from "../components/CardList/CardList";
 import { useEffect, useState } from "react";
 import { getFolderData } from "../api/api";
 
