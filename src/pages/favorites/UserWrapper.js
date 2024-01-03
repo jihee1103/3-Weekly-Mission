@@ -6,7 +6,7 @@ const UserWrapper = ({data}) => {
       <div className="user-wrapper">
         <img src={profileImageSource} alt="profileImage"/>
         <p>
-            @{name}
+          @{name}
         </p>
       </div>
   );

@@ -15,7 +15,6 @@ const App = () => {
   const signIn = async () => {
     try {
       const result = await logIn();
-      console.log(result);
       setIsLogin(true);
       setUserName(result.name);
       setUserMail(result.email);

@@ -2,8 +2,6 @@ import React from 'react';
 import FooterIcon from "../../forms/FooterIcon";
 import '../../../styles/footer.css'
 
-
-
 function Footer() {
   return <footer>
     <div className="footer-area">
