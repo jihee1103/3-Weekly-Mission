@@ -41,7 +41,7 @@ export default function Shared() {
           <img src={searchIcon} alt="돋보기 아이콘" />
           <input name="search" placeholder="링크를 검색해보세요." />
         </form>
-        {cardListItem ? <CardList itemList={cardListItem} /> : ""}
+        {cardListItem ? <CardList itemList={cardListItem} /> : null}
       </div>
     </main>
   );

@@ -13,7 +13,7 @@ export default function CardList({ itemList }) {
               </li>
             );
           })
-        : ""}
+        : null}
     </ul>
   );
 }
