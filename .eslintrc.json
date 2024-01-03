@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true // document, window 등의 브라우저 내장 객체 조회 가능하도록 설정
+  },
+  "extends": [
+    "prettier", // eslint-config-prettier 라이브러리 적용하여 Prettier에 관련된 규칙을 사용합니다.
+    "airbnb"
+  ], // eslint-config-airbnb 라이브러리 적용하여 Airbnb 스타일 가이드에 따라 규칙을 설정합니다.
+  "plugins": ["prettier"], // Prettier와 관련된 플러그인을 사용합니다.
+  "rules": {
+    "linebreak-style": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "endOfLine": "auto"
+      }
+    ], // Prettier에 대한 규칙을 활성화하고, 코드 스타일이 Prettier와 일치하지 않으면 에러를 발생시킵니다.
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off" // react 17 이후면 불필요한 규칙이므로 off
+  }
+}

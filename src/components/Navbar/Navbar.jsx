@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import logoImg from "../../asset/logo.svg";
-import "./Navbar.css";
-import NavProfile from "./NavProfile";
-import getFetchRequest from "../../utils/getFetchRequest";
-import { API_USER, BASE_API_HOST } from "../../constants/api";
+import { useEffect, useState } from 'react';
+import logoImg from '../../asset/logo.svg';
+import './Navbar.css';
+import NavProfile from './NavProfile';
+import getFetchRequest from '../../utils/getFetchRequest';
+import { API_USER, BASE_API_HOST } from '../../constants/api';
 
 export default function Navbar() {
   const [userEmail, setUserEmail] = useState(null);
@@ -26,17 +26,10 @@ export default function Navbar() {
     <header className="header">
       <section className="header-box">
         <a href="/">
-          <img
-            src={logoImg}
-            alt="logo"
-            className="header-logo"
-          />
+          <img src={logoImg} alt="logo" className="header-logo" />
         </a>
         {userEmail ? (
-          <NavProfile
-            userEmail={userEmail}
-            userProfileImg={userProfileImg}
-          />
+          <NavProfile userEmail={userEmail} userProfileImg={userProfileImg} />
         ) : (
           <a href="/">
             <div className="header-login">

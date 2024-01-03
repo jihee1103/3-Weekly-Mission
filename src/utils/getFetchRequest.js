@@ -2,9 +2,9 @@ export default async function getFetchRequest(host, path, body, headers = {}) {
   const url = `https://${host}/${path}`;
 
   const options = {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       ...headers,
     },
     body: JSON.stringify(body),
@@ -15,7 +15,6 @@ export default async function getFetchRequest(host, path, body, headers = {}) {
 
   if (response.ok) {
     return data;
-  } else {
-    throw new Error(data);
   }
+  throw new Error(data);
 }

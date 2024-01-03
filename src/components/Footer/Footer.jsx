@@ -1,8 +1,8 @@
-import facebookImg from "../../asset/akar-icons_facebook-fill.svg";
-import twitterImg from "../../asset/akar-icons_twitter-fill.svg";
-import youtubeImg from "../../asset/akar-icons_youtube-fill.svg";
-import instagramImg from "../../asset/ant-design_instagram-filled.svg";
-import "./Footer.css";
+import facebookImg from '../../asset/akar-icons_facebook-fill.svg';
+import twitterImg from '../../asset/akar-icons_twitter-fill.svg';
+import youtubeImg from '../../asset/akar-icons_youtube-fill.svg';
+import instagramImg from '../../asset/ant-design_instagram-filled.svg';
+import './Footer.css';
 
 export default function Footer() {
   return (
@@ -27,40 +27,24 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img
-                  src={facebookImg}
-                  alt="facebook"
-                />
+                <img src={facebookImg} alt="facebook" />
               </a>
-              <a
-                href="https://twitter.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src={twitterImg}
-                  alt="twitter"
-                />
+              <a href="https://twitter.com/" target="_blank" rel="noreferrer">
+                <img src={twitterImg} alt="twitter" />
               </a>
               <a
                 href="https://www.youtube.com/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img
-                  src={youtubeImg}
-                  alt="youtube"
-                />
+                <img src={youtubeImg} alt="youtube" />
               </a>
               <a
                 href="https://www.instagram.com/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img
-                  src={instagramImg}
-                  alt="instagram"
-                />
+                <img src={instagramImg} alt="instagram" />
               </a>
             </div>
           </div>

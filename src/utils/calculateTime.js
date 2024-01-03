@@ -2,7 +2,9 @@ const calculateTime = (dateTimeString) => {
   const formattedDateTime = new Date(dateTimeString);
   const now = new Date();
 
-  const timeDifferenceSeconds = Math.floor((now.getTime() - formattedDateTime.getTime()) / 1000);
+  const timeDifferenceSeconds = Math.floor(
+    (now.getTime() - formattedDateTime.getTime()) / 1000,
+  );
   const timeDifferenceMinutes = Math.floor(timeDifferenceSeconds / 60);
   const timeDifferenceHours = Math.floor(timeDifferenceMinutes / 60);
   const timeDifferenceDays = Math.floor(timeDifferenceHours / 24);
@@ -11,31 +13,31 @@ const calculateTime = (dateTimeString) => {
 
   // 경과 시간 설정
   if (timeDifferenceMinutes < 2) {
-    return `1 minute ago`;
+    return '1 minute ago';
   }
   if (timeDifferenceHours < 1) {
     return `${timeDifferenceMinutes} minutes ago`;
   }
   if (timeDifferenceHours < 2) {
-    return `1 hour ago`;
+    return '1 hour ago';
   }
   if (timeDifferenceDays < 1) {
     return `${timeDifferenceHours} hours ago`;
   }
   if (timeDifferenceDays < 2) {
-    return `1 day ago`;
+    return '1 day ago';
   }
   if (timeDifferenceMonths < 1) {
     return `${timeDifferenceDays} days ago`;
   }
   if (timeDifferenceMonths < 2) {
-    return `1 month ago`;
+    return '1 month ago';
   }
   if (timeDifferenceYears < 1) {
     return `${timeDifferenceMonths} months ago`;
   }
   if (timeDifferenceYears < 2) {
-    return `1 year ago`;
+    return '1 year ago';
   }
 
   return `${timeDifferenceYears} years ago`;

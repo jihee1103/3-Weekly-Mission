@@ -1,13 +1,13 @@
-import "./Card.css";
-import defaultImage from "../../asset/default-image.svg";
-import { useEffect, useState } from "react";
-import calculateTime from "../../utils/calculateTime";
+import './Card.css';
+import { useEffect, useState } from 'react';
+import defaultImage from '../../asset/default-image.svg';
+import calculateTime from '../../utils/calculateTime';
 
 export default function Card({ link }) {
-  const [formattedCreatedAt, setFormattedCreatedAt] = useState("");
-  const [elapsedTime, setElapsedTime] = useState("");
-  const [cardImgUrl, setCardImgUrl] = useState("");
-  const [linkUrl, setLinkUrl] = useState("");
+  const [formattedCreatedAt, setFormattedCreatedAt] = useState('');
+  const [elapsedTime, setElapsedTime] = useState('');
+  const [cardImgUrl, setCardImgUrl] = useState('');
+  const [linkUrl, setLinkUrl] = useState('');
 
   const updateFormattedCreatedAt = (dateTimeString) => {
     const formattedDateTime = new Date(dateTimeString);
@@ -36,10 +36,7 @@ export default function Card({ link }) {
       className="card-container"
     >
       <div className="card-img-area">
-        <img
-          src={cardImgUrl ? cardImgUrl : defaultImage}
-          alt="카드 미리보기 이미지"
-        />
+        <img src={cardImgUrl || defaultImage} alt="카드 미리보기 이미지" />
       </div>
       <div className="card-info-area">
         <p className="card-info-time">{elapsedTime}</p>
