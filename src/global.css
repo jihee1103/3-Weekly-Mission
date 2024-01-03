@@ -20,7 +20,6 @@
 .background-clip-text {
   -webkit-background-clip: text;
   -moz-background-clip: text;
-  /* -webkit-text-fill-color: transparent; */
   background-clip: text;
   color: transparent;
 }
