@@ -9,12 +9,12 @@ export default function Card({ link }) {
   const [cardImgUrl, setCardImgUrl] = useState("");
   const [linkUrl, setLinkUrl] = useState("");
 
-  const updateFormattedCreatedAt = (createdAt) => {
-    const createdTime = new Date(createdAt);
+  const updateFormattedCreatedAt = (dateTimeString) => {
+    const formattedDateTime = new Date(dateTimeString);
 
-    const year = createdTime.getFullYear();
-    const month = createdTime.getMonth() + 1;
-    const day = createdTime.getDate();
+    const year = formattedDateTime.getFullYear();
+    const month = formattedDateTime.getMonth() + 1;
+    const day = formattedDateTime.getDate();
 
     setFormattedCreatedAt(`${year}. ${month}. ${day}`);
   };

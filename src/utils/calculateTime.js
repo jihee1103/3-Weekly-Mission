@@ -1,8 +1,8 @@
-const calculateTime = (createdAt) => {
-  const createdTime = new Date(createdAt);
+const calculateTime = (dateTimeString) => {
+  const formattedDateTime = new Date(dateTimeString);
   const now = new Date();
 
-  const timeDifferenceSeconds = Math.floor((now.getTime() - createdTime.getTime()) / 1000);
+  const timeDifferenceSeconds = Math.floor((now.getTime() - formattedDateTime.getTime()) / 1000);
   const timeDifferenceMinutes = Math.floor(timeDifferenceSeconds / 60);
   const timeDifferenceHours = Math.floor(timeDifferenceMinutes / 60);
   const timeDifferenceDays = Math.floor(timeDifferenceHours / 24);
