@@ -1,0 +1,39 @@
+section {
+  padding: 40px 0;
+}
+
+.div-searchbar {
+  height: 54px;
+  margin-bottom: 40px;
+}
+
+.div-card {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1123px) {
+  .div-card {
+    padding: 0 32px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+  }
+}
+
+@media (max-width: 779px) {
+  section {
+    padding: 20px 0;
+  }
+
+  .div-searchbar {
+    margin-bottom: 32px;
+  }
+
+  .div-card {
+    grid-template-columns: 1fr;
+  }
+}
