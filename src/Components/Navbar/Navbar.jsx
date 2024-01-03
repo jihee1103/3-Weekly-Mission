@@ -25,7 +25,6 @@ export default function Navbar({ user }) {
 }
 
 function NavProfile({ user }) {
-  //   const userName = user.name;
   const userEmail = user.email;
   const source = user.profileImageSource;
 
