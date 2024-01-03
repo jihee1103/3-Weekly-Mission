@@ -9,7 +9,7 @@ export default function Card({ link }) {
   const [linkUrl, setLinkUrl] = useState("");
 
   useEffect(() => {
-    const carculateTime = (createdAt) => {
+    const calculateTime = (createdAt) => {
       const createdTime = new Date(createdAt);
       const now = new Date();
 
@@ -42,7 +42,7 @@ export default function Card({ link }) {
 
     setLinkUrl(link.url);
     setCardImgUrl(link.imageSource);
-    carculateTime(link.createdAt);
+    calculateTime(link.createdAt);
   }, [link]);
 
   const handleCardClick = (link) => {
