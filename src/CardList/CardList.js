@@ -42,9 +42,9 @@ const CardList = ({ cardList }) => {
           <img className="cardImg" src={item.imageSource}></img>
           <div className="cardBottom">
             <div>
-              <h1 className="time">{passedTime(item.createdAt)}</h1>
-              <h2 className="cardText">{item.description}</h2>
-              <h1 className="createdDate">{createDate(item.createdAt)}</h1>
+              <p className="time">{passedTime(item.createdAt)}</p>
+              <p className="cardText">{item.description}</p>
+              <p className="createdDate">{createDate(item.createdAt)}</p>
             </div>
           </div>
         </div>
