@@ -1,8 +1,6 @@
 import "./CardList.css";
 
 const CardList = ({ cardList }) => {
-  console.log(cardList);
-
   function createDate(createdAt) {
     const date = new Date(createdAt);
     const year = date.getFullYear();
