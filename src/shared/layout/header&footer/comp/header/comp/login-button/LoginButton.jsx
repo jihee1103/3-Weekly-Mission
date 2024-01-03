@@ -1,10 +1,10 @@
-import Button from '../../../../../../../components/ui/atoms/button/Button';
+import AnchorButton from '../../../../../../../components/ui/atoms/button/AnchorButton';
 
 const LoginButton = ({ children }) => {
   return (
-    <Button asAnchor rel='nofollow' width='short' href={'/src/pages/auth/signin/'}>
+    <AnchorButton rel='nofollow' width='short' href={'/src/pages/auth/signin/'}>
       {children}
-    </Button>
+    </AnchorButton>
   );
 };
 export default LoginButton;

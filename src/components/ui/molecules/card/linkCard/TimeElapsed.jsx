@@ -1,5 +1,5 @@
 import { getTimeDiff } from '../../../../../lib/utils/time/getTimeDiff';
-import { useCardProvider } from './context/card-provider';
+import { useCardProvider } from './context/CardProvider';
 
 const TimeElapsed = ({ children, ...rest }) => {
   const { createdAt } = useCardProvider();

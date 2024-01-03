@@ -15,7 +15,7 @@ const CardProvider = ({ children, ...rest }) => {
 
 export const useCardProvider = () => {
   const context = useContext(CardProviderContext);
-  if (context === undefined) throw new Error('useCardProvider must be used within a CardProvider');
+  if (context === undefined) throw new Error('useCardProvider must be used within a CardWrapper');
   return context;
 };
 

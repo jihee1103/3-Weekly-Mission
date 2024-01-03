@@ -1,4 +1,4 @@
-import { useCardProvider } from './context/card-provider';
+import { useCardProvider } from './context/CardProvider';
 
 const CardImage = ({ children, alt, ...rest }) => {
   const { imageSource } = useCardProvider();

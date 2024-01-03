@@ -1,4 +1,4 @@
-import { useCardProvider } from './context/card-provider';
+import { useCardProvider } from './context/CardProvider';
 
 const Description = ({ children, ...rest }) => {
   const { description } = useCardProvider();

@@ -1,4 +1,4 @@
-import { useCardProvider } from './context/card-provider';
+import { useCardProvider } from './context/CardProvider';
 
 const Slot = ({ children, url, ...rest }) => {
   return (

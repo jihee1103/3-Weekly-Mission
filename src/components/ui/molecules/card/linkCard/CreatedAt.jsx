@@ -1,5 +1,5 @@
 import { formatDate } from '../../../../../lib/utils/time/formatDate';
-import { useCardProvider } from './context/card-provider';
+import { useCardProvider } from './context/CardProvider';
 
 const CreatedAt = ({ children, ...rest }) => {
   const { createdAt } = useCardProvider();
