@@ -1,0 +1,15 @@
+import { formatDate } from '../../../../../lib/utils/time/formatDate';
+import { useCardProvider } from './context/card-provider';
+
+const CreatedAt = ({ children, ...rest }) => {
+  const { createdAt } = useCardProvider();
+  const formattedTime = formatDate(createdAt);
+
+  return (
+    <time dateTime={createdAt} {...rest}>
+      {formattedTime}
+    </time>
+  );
+};
+
+export default CreatedAt;

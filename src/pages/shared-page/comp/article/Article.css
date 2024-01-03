@@ -1,0 +1,21 @@
+.contents {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-wrapper {
+  padding-block: 2rem 6rem;
+  padding-inline: 3.2rem;
+
+  @media screen and (min-width: 768px) {
+    padding-block: 4rem 10rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-inline: 0;
+  }
+}
