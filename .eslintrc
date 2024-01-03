@@ -1,0 +1,19 @@
+{
+  // eslint용 바벨 파서 사용하기
+  "parser": "@babel/eslint-parser",
+  // airbnb 스타일 가이드 사용, esLint에서 prettier규칙을 사용하도록함 (충돌 방지)
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "plugins": ["react", "jsx-a11y", "import"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    // 들여쓰기 off해서 prettier로 설정하기
+    "indent": "off",
+    "react/react-in-jsx-scope": "off",
+    // .jsx 확장자만 허용
+    "react/jsx-filename-extension": [2, { "extensions": [".jsx"] }],
+    // 함수 선언 방식
+    "react/function-component-definition": [2, { "namedComponents": ["arrow-function", "function-expression"] }],
+    // PropType 강제하기
+    "react/prop-types": "off"
+  }
+}
