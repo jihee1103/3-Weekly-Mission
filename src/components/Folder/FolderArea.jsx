@@ -1,9 +1,9 @@
-import Card from "../Card/Card";
-import SearchBar from "../SearchBar/SearchBar";
-import "./FolderArea.css";
-import { useEffect, useState } from "react";
-import getFetchRequest from "../../utils/getFetchRequest";
-import { API_FOLDER, BASE_API_HOST } from "../../constants/api";
+import { useEffect, useState } from 'react';
+import Card from '../Card/Card';
+import SearchBar from '../SearchBar/SearchBar';
+import './FolderArea.css';
+import getFetchRequest from '../../utils/getFetchRequest';
+import { API_FOLDER, BASE_API_HOST } from '../../constants/api';
 
 export default function FolderArea() {
   const [links, setLink] = useState([]);
@@ -26,14 +26,9 @@ export default function FolderArea() {
       <div className="contents-box">
         <SearchBar />
         <div className="card-box">
-          {links.map((link) => {
-            return (
-              <Card
-                key={link.id}
-                link={link}
-              />
-            );
-          })}
+          {links.map((link) => (
+            <Card key={link.id} link={link} />
+          ))}
         </div>
       </div>
     </div>
