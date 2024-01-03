@@ -1,9 +1,9 @@
 import React from "react";
-import facebookIcon from "../assets/images/akar-icons_facebook-fill.svg";
-import twitterIcon from "../assets/images/akar-icons_twitter-fill.svg";
-import youtubeIcon from "../assets/images/akar-icons_youtube-fill.svg";
-import instagramIcon from "../assets/images/ant-design_instagram-filled.svg";
-import "../styles/Footer.css";
+import facebookIcon from "../../assets/images/akar-icons_facebook-fill.svg";
+import twitterIcon from "../../assets/images/akar-icons_twitter-fill.svg";
+import youtubeIcon from "../../assets/images/akar-icons_youtube-fill.svg";
+import instagramIcon from "../../assets/images/ant-design_instagram-filled.svg";
+import "./Footer.css";
 
 export default function Footer() {
   const youtubeUrl = "https://www.youtube.com/";

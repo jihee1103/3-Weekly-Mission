@@ -1,6 +1,6 @@
-import "../styles/Navbar.css";
-import logoImg from "../assets/images/logo.svg";
-import defaultProfileImg from "../assets/images/shared-myprofile.svg";
+import "./Navbar.css";
+import logoImg from "../../assets/images/logo.svg";
+import defaultProfileImg from "../../assets/images/shared-myprofile.svg";
 
 export default function Navbar({ user }) {
   return (

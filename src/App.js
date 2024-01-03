@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Components/Navbar";
 import Shared from "./pages/Shared";
-import Footer from "./Components/Footer";
 import { getUser } from "./apis/api";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 export default function App() {
   const [user, setUser] = useState(null);

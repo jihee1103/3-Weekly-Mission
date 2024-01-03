@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Shared.css";
 import codeitLogo from "../assets/images/shared-white.svg";
-import CardList from "../Components/CardList";
+import CardList from "../components/CardList/CardList";
 import { getShredCardList } from "../apis/api";
 import searchIcon from "../assets/images/shared-search.svg";
 
