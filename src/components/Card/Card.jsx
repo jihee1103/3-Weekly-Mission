@@ -28,14 +28,12 @@ export default function Card({ link }) {
     updateFormattedCreatedAt(link.createdAt);
   }, [link]);
 
-  const handleCardClick = (link) => {
-    window.open(linkUrl, "_blank");
-  };
-
   return (
-    <div
+    <a
+      href={linkUrl}
+      target="_blank"
+      rel="noreferrer"
       className="card-container"
-      onClick={handleCardClick}
     >
       <div className="card-img-area">
         <img
@@ -48,6 +46,6 @@ export default function Card({ link }) {
         <p className="card-info-body">{link.description}</p>
         <p className="card-info-date">{formattedCreatedAt}</p>
       </div>
-    </div>
+    </a>
   );
 }
