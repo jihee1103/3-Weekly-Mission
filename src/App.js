@@ -6,19 +6,19 @@ import Footer from "./components/Footer/Footer";
 
 export default function App() {
   const [user, setUser] = useState(null);
-  const userCheck = async () => {
-    let userInfo;
+  const checkUser = async () => {
     try {
-      userInfo = await getUser();
-      if (userInfo) {
-        setUser(userInfo);
+      const userInfo = await getUser();
+      if (!userInfo) {
+        throw new Error("유저 정보가 없습니다!");
       }
+      setUser(userInfo);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    userCheck();
+    checkUser();
   }, []);
 
   return (
