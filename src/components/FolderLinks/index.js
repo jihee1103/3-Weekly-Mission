@@ -1,5 +1,5 @@
 import "./style.css";
-import { handleLinkClick, formatDate, afterTimeDate } from "../../utils";
+import { formatDate, afterTimeDate } from "../../utils";
 import noImage from "../../assets/no-image.png";
 
 const FolderLinks = ({ links, className = "" }) => {
@@ -18,8 +18,14 @@ const FolderLinks = ({ links, className = "" }) => {
 
 const FolderLinkCard = ({ link }) => {
   const { createdAt, url, title, description, imageSource = noImage } = link;
+
+  const handleLinkClick = (event) => {
+    event.preventDefault();
+    window.open(url);
+  };
+
   return (
-    <div className="folder-link-box" onClick={(event) => handleLinkClick(event, url)}>
+    <a href={url} className="folder-link-box" onClick={handleLinkClick}>
       <div className="link-image-box">
         <img className="link-image" src={imageSource} alt={title} />
       </div>
@@ -28,7 +34,7 @@ const FolderLinkCard = ({ link }) => {
         <div className="description">{description}</div>
         <div className="format-date">{formatDate(createdAt)}</div>
       </div>
-    </div>
+    </a>
   );
 };
 

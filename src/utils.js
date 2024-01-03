@@ -1,8 +1,3 @@
-export const handleLinkClick = (event, url) => {
-  event.preventDefault();
-  window.open(url);
-};
-
 export const formatDate = (value) => {
   const date = new Date(value);
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
