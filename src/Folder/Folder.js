@@ -16,6 +16,7 @@ const Folder = () => {
       <img
         className="userProfile"
         src={folderInfo.folder.owner.profileImageSource}
+        alt="폴더 프로필 이미지"
       />
       <h2 className="userName">@{folderInfo.folder.owner.name}</h2>
       <h2 className="folderName">{folderInfo.folder.name}</h2>

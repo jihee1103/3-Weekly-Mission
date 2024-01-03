@@ -6,7 +6,7 @@ const Header = () => {
   const [userData, setUserData] = useState();
 
   const handleUserData = async () => {
-    const user = await getUserData;
+    const user = await getUserData();
     setUserData(user);
   };
 
@@ -19,12 +19,16 @@ const Header = () => {
       <header>
         <nav>
           <a href="/">
-            <img src={process.env.PUBLIC_URL + `/assets/logo.png`} />
+            <img src={process.env.PUBLIC_URL + `/assets/logo.png`} alt="로고" />
           </a>
 
           {userData ? (
             <div className="userInfo">
-              <img className="userImg" src={userData.profileImageSource}></img>
+              <img
+                className="userImg"
+                src={userData.profileImageSource}
+                alt="프로필 이미지"
+              ></img>
               <h2 className="userEmail">{userData.email}</h2>
             </div>
           ) : (

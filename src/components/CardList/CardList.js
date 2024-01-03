@@ -39,7 +39,11 @@ const CardList = ({ cardList }) => {
     <div className="cardList">
       {cardList.map((item) => (
         <div className="card" onClick={() => window.open(item.url)}>
-          <img className="cardImg" src={item.imageSource}></img>
+          <img
+            className="cardImg"
+            src={item.imageSource}
+            alt="카드 이미지"
+          ></img>
           <div className="cardBottom">
             <div>
               <p className="time">{passedTime(item.createdAt)}</p>

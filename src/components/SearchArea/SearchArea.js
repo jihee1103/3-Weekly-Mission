@@ -7,6 +7,7 @@ const SearchArea = () => {
       <img
         className="searchIcon"
         src={process.env.PUBLIC_URL + `/assets/Search.png`}
+        alt="검색 아이콘"
       />
     </div>
   );
