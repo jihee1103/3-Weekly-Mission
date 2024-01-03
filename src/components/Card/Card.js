@@ -7,6 +7,8 @@ function Card({ page }) {
   const description = page.description;
 
   const logo = "./images/logo.svg";
+  const divClass = image ? "image" : "image default";
+  const imgClass = image ? "preview" : "preview default-image";
 
   const upload = new Date(page.createdAt);
   const timeDiff = timeDifferenceCalculate(upload);
@@ -16,17 +18,17 @@ function Card({ page }) {
 
   return (
     <a href={link} target="_blank" rel="noreferrer" className="card">
-      {image ? (
-        <div className="image">
-          <img src={image || logo} alt="페이지 미리보기" />
-        </div>
-      ) : (
-        <div className="image default">
-          <img className="default-image" src={logo} alt="페이지 미리보기" />
-        </div>
-      )}
+      <div className={divClass}>
+        <img className={imgClass} src={image || logo} alt="페이지 미리보기" />
+        <button>
+          <img className="star" src="./images/star.png" alt="별 모양 아이콘" />
+        </button>
+      </div>
       <div className="card-info">
-        <span className="upload">{timeDiff} ago</span>
+        <div className="time-difference">
+          <span className="upload-ago">{timeDiff} ago</span>
+          <button className="kebab">···</button>
+        </div>
         <span className="description">{description}</span>
         <span className="upload-date">{uploadDate}</span>
       </div>
