@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { getFolder } from "./api";
-import Nav from "./components/Nav/Nav";
-import Folder from "./components/Folder/Folder";
-import Search from "./components/Search/Search";
-import Card from "./components/Card/Card";
-import Links from "./components/Links/Links";
+import { getFolder } from "../api";
+import Nav from "../components/Nav/Nav";
+import Folder from "../components/Folder/Folder";
+import Search from "../components/Search/Search";
+import Card from "../components/Card/Card";
+import Links from "../components/Links/Links";
 
 function App() {
   const [pages, setPages] = useState([]);

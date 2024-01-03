@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { getUser } from "../../api";
+import { getUser, getUserById } from "../../api";
+import Profile from "../Profile/Profile";
 import "./Nav.css";
 
-function Nav() {
+function Nav({ className, id = undefined }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -12,23 +13,23 @@ function Nav() {
       setUser(nextUser);
     }
 
-    applyGetUser();
-  }, []);
+    async function apllyGetUserById(id) {
+      const nextUser = await getUserById(id);
+      if (!nextUser) return;
+      setUser(nextUser.data[0]);
+    }
+
+    if (id) apllyGetUserById(id);
+    else applyGetUser();
+  }, [id]);
 
   return (
-    <nav>
+    <nav className={className}>
       <a href="index.html">
         <img className="logo" src="./images/logo.svg" alt="Linkbrary 로고" />
       </a>
       {user ? (
-        <div className="user">
-          <img
-            className="profile"
-            src={user.profileImageSource}
-            alt="프로필 사진"
-          />
-          <span className="email">{user.email}</span>
-        </div>
+        <Profile id={id} user={user} />
       ) : (
         <a className="cta cta-short" href="signin.html">
           <span>로그인</span>
