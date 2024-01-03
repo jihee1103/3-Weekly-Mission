@@ -1,11 +1,13 @@
 import React from 'react';
+import SearchBar from "../../components/forms/SearchBar";
+import FolderContainer from "./FolderContainer";
 
-
-const Contents = () => {
-    return (
-        <div>
-            <h1>Contents</h1>
-        </div>
-    );
+const Contents = ({data}) => {
+  return (
+      <div className="contents-folder">
+        <SearchBar/>
+        <FolderContainer data={data}/>
+      </div>
+  );
 }
 export default Contents;
