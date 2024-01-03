@@ -11,7 +11,7 @@ export default function Card({ item }) {
   const imgSource = imageSource ? imageSource : defaultImg;
 
   return (
-    <a href={url} rel="noreferrer noopener" target="_brank">
+    <a href={url} rel="noreferrer noopener" target="_blank">
       <img src={imgSource} alt={imgAlt} />
       <div className="card-info">
         <span className="time-ago">{timeAgo}</span>
