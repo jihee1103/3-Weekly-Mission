@@ -1,31 +1,39 @@
-export const getTimeDifference = (createdTime) => {
+export const getTimeDifference = (dateTimeString) => {
   const now = new Date();
-  const createdDate = new Date(createdTime);
+  const createdDate = new Date(dateTimeString);
   const timeDifference = Math.floor((now - createdDate) / (60 * 1000)); // 분 단위
+  const MINUTE = 1;
+  const HOUR = 60 * MINUTE;
+  const DAY = 24 * HOUR;
+  const MONTH = 30 * DAY;
+  const YEAR = 12 * MONTH;
 
-  if (timeDifference < 2) {
+  if (timeDifference < MINUTE + 1) {
     return "1 minute ago";
-  } else if (timeDifference < 59) {
-    return `${timeDifference} minutes ago`;
-  } else if (timeDifference < 60 * 24) {
-    const hours = Math.floor(timeDifference / 60);
-    return `${hours} hours ago`;
-  } else if (timeDifference < 60 * 24 * 30) {
-    const days = Math.floor(timeDifference / (60 * 24));
-    return `${days} days ago`;
-  } else if (timeDifference < 60 * 24 * 30 * 12) {
-    const months = Math.floor(timeDifference / (60 * 24 * 30));
-    return `${months} months ago`;
-  } else {
-    const years = Math.floor(timeDifference / (60 * 24 * 30 * 12));
-    return `${years} years ago`;
   }
+  if (timeDifference < HOUR) {
+    return `${timeDifference} minutes ago`;
+  }
+  if (timeDifference < DAY) {
+    const hours = Math.floor(timeDifference / HOUR);
+    return `${hours} hours ago`;
+  }
+  if (timeDifference < MONTH) {
+    const days = Math.floor(timeDifference / DAY);
+    return `${days} days ago`;
+  }
+  if (timeDifference < YEAR) {
+    const months = Math.floor(timeDifference / MONTH);
+    return `${months} months ago`;
+  }
+  const years = Math.floor(timeDifference / YEAR);
+  return `${years} years ago`;
 };
 
 export function getCreateDay(createAt) {
   const date = new Date(createAt);
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
-  const day = date.getDay();
+  const day = date.getDate();
   return `${year}.${month}.${day}`;
 }
