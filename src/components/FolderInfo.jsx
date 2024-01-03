@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "../css/FolderInfo.css";
+import getFetchRequest from "../utils/getFetchRequest";
+import { API_FOLDER, BASE_API_HOST } from "../constants/api";
 
 export default function FolderInfo() {
   const [avatar, setAvatar] = useState(null);
@@ -9,13 +11,10 @@ export default function FolderInfo() {
   useEffect(() => {
     const getFolderInfo = async () => {
       try {
-        const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/folder");
-        if (response.status === 200) {
-          const folderInfo = await response.json();
-          setAvatar(folderInfo.folder.owner.profileImageSource);
-          setOwner(folderInfo.folder.owner.name);
-          setFolderName(folderInfo.folder.name);
-        } else throw new Error("fetch error");
+        const result = await getFetchRequest(BASE_API_HOST, API_FOLDER);
+        setAvatar(result.folder.owner.profileImageSource);
+        setOwner(result.folder.owner.name);
+        setFolderName(result.folder.name);
       } catch (error) {
         console.log(error);
       }

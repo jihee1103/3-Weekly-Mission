@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import logoImg from "../asset/logo.svg";
 import "../css/Navbar.css";
 import NavProfile from "./NavProfile";
+import getFetchRequest from "../utils/getFetchRequest";
+import { API_USER, BASE_API_HOST } from "../constants/api";
 
 export default function Navbar() {
   const [userEmail, setUserEmail] = useState(null);
@@ -10,12 +12,9 @@ export default function Navbar() {
   useEffect(() => {
     const getUserInfo = async () => {
       try {
-        const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/user");
-        if (response.status === 200) {
-          const userInfo = await response.json();
-          setUserEmail(userInfo.email);
-          setUserProfileImg(userInfo.profileImageSource);
-        } else throw new Error("fetch error");
+        const result = await getFetchRequest(BASE_API_HOST, API_USER);
+        setUserEmail(result.email);
+        setUserProfileImg(result.profileImageSource);
       } catch (error) {
         console.log(error);
       }

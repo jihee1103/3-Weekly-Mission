@@ -2,17 +2,16 @@ import Card from "./Card";
 import SearchBar from "./SearchBar";
 import "../css/FolderArea.css";
 import { useEffect, useState } from "react";
+import getFetchRequest from "../utils/getFetchRequest";
+import { API_FOLDER, BASE_API_HOST } from "../constants/api";
 
 export default function FolderArea() {
   const [links, setLink] = useState([]);
 
   const getLinks = async () => {
     try {
-      const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/folder");
-      if (response.status === 200) {
-        const folderInfo = await response.json();
-        setLink(folderInfo.folder.links);
-      } else throw new Error("fetch error");
+      const result = await getFetchRequest(BASE_API_HOST, API_FOLDER);
+      setLink(result.folder.links);
     } catch (error) {
       console.log(error);
     }
