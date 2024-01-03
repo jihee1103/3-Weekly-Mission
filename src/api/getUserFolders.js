@@ -10,13 +10,11 @@ const getUserFolders = async () => {
       },
     });
     if (!response.ok) {
-      throw new Error('no profile data');
+      throw new Error(`${response.status} ${response.statusText}`);
     }
-    const data = await response.json();
-    console.dir(data);
-    return data;
+    return await response.json();
   } catch (error) {
-    console.log('🚀 ~ file: getUserFolders.js:18 ~ getUserFolders ~ error:', error);
+    console.error('🚀 ~ file: getUserFolders.js:18 ~ getUserFolders ~ error:', error);
   }
 };
 
