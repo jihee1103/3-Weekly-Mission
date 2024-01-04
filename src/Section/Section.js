@@ -48,88 +48,19 @@ function Section() {
         <Search />
       </div>
       <div className="card-box">
-        <a rel="noreferrer" href={cardInfo[0].url} target={"_blank"}>
-          <Card
-            style={cardInfo[0].imageSource !== undefined ? style : logoStyle}
-            image={cardInfo[0].imageSource}
-            createdAt={getTimeDifference(timeDiffs[0])}
-            description={cardInfo[0].description}
-            uploadDate={todayIs()}
-            className="card"
-          />
-        </a>
-        <a rel="noreferrer" href={cardInfo[1].url} target={"_blank"}>
-          <Card
-            style={cardInfo[1].imageSource !== undefined ? style : logoStyle}
-            image={cardInfo[1].imageSource}
-            createdAt={getTimeDifference(timeDiffs[1])}
-            description={cardInfo[1].description}
-            uploadDate={todayIs()}
-          />
-        </a>
-        <a rel="noreferrer" href={cardInfo[2].url} target={"_blank"}>
-          <Card
-            style={cardInfo[2].imageSource !== undefined ? style : logoStyle}
-            image={cardInfo[2].imageSource}
-            createdAt={getTimeDifference(timeDiffs[2])}
-            description={cardInfo[2].description}
-            uploadDate={todayIs()}
-          />
-        </a>
-        <a rel="noreferrer" href={cardInfo[3].url} target={"_blank"}>
-          <Card
-            style={cardInfo[3].imageSource !== undefined ? style : logoStyle}
-            image={cardInfo[3].imageSource}
-            createdAt={getTimeDifference(timeDiffs[3])}
-            description={cardInfo[3].description}
-            uploadDate={todayIs()}
-          />
-        </a>
-        <a rel="noreferrer" href={cardInfo[4].url} target={"_blank"}>
-          <Card
-            style={cardInfo[4].imageSource !== undefined ? style : logoStyle}
-            image={cardInfo[4].imageSource}
-            createdAt={getTimeDifference(timeDiffs[4])}
-            description={cardInfo[4].description}
-            uploadDate={todayIs()}
-          />
-        </a>
-        <a rel="noreferrer" href={cardInfo[5].url} target={"_blank"}>
-          <Card
-            style={cardInfo[5].imageSource !== undefined ? style : logoStyle}
-            image={cardInfo[5].imageSource}
-            createdAt={getTimeDifference(timeDiffs[5])}
-            description={cardInfo[5].description}
-            uploadDate={todayIs()}
-          />
-        </a>
-        <a rel="noreferrer" href={cardInfo[6].url} target={"_blank"}>
-          <Card
-            style={cardInfo[6].imageSource !== undefined ? style : logoStyle}
-            image={cardInfo[6].imageSource}
-            createdAt={getTimeDifference(timeDiffs[6])}
-            description={cardInfo[6].description}
-            uploadDate={todayIs()}
-          />
-        </a>
-        <a rel="noreferrer" href={cardInfo[7].url} target={"_blank"}>
-          <Card
-            style={cardInfo[7].imageSource !== undefined ? style : logoStyle}
-            image={cardInfo[7].imageSource}
-            createdAt={getTimeDifference(timeDiffs[7])}
-            description={cardInfo[7].description}
-            uploadDate={todayIs()}
-          />
-        </a>
-        <a rel="noreferrer" href={cardInfo[8].url} target={"_blank"}>
-          <Card
-            style={cardInfo[8].imageSource !== undefined ? style : logoStyle}
-            image={cardInfo[8].imageSource}
-            createdAt={getTimeDifference(timeDiffs[8])}
-            description={cardInfo[8].description}
-            uploadDate={todayIs()}
-          />
-        </a>
+        {cardInfo
+          .filter((card, index) => index < 9)
+          .map((card, index) => (
+            <a key={index} rel="noreferrer" href={card.url} target="_blank">
+              <Card
+                style={card.imageSource !== undefined ? style : logoStyle}
+                image={card.imageSource}
+                createdAt={getTimeDifference(timeDiffs[index])}
+                description={card.description}
+                uploadDate={todayIs()}
+              />
+            </a>
+          ))}
       </div>
     </section>
   );
