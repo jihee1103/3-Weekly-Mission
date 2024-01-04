@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import Favorites from "./pages/favorites/Favorites";
+import React, {useEffect, useState} from "react";
+import {logIn} from "./utils/api";
+import BasicLayout from "./components/layout/BasicLayout";
 
-function App() {
+export const LoginContext = React.createContext();
+
+const App = () => {
+
+  const [isLogin, setIsLogin] = useState(false);
+  const [userName, setUserName] = useState('');
+  const [userMail, setUserMail] = useState('');
+
+  const signIn = async () => {
+    try {
+      const result = await logIn();
+      setIsLogin(true);
+      setUserName(result.name);
+      setUserMail(result.email);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    signIn();
+  }, []);
+
+  const data = {
+    isLogin,
+    userName,
+    userMail,
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <LoginContext.Provider value={data}>
+        <div className="App">
+          {/*라우터 사용시 수정 필요*/}
+
+          <BasicLayout>
+            <Favorites/>
+          </BasicLayout>
+        </div>
+      </LoginContext.Provider>
   );
 }
 

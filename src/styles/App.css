@@ -1,0 +1,23 @@
+@import url('color.css');
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+a[href] {
+  text-decoration: none;
+}
+
+.app {
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FFF;
+  margin-left: auto;
+  margin-right: auto;
+}
