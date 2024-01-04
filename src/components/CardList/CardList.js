@@ -1,3 +1,4 @@
+import setPassedTime from "../../utils/setPassedTime";
 import "./CardList.css";
 
 const CardList = ({ cardList }) => {
@@ -8,32 +9,6 @@ const CardList = ({ cardList }) => {
     const day = date.getDate();
     return `${year}.${month}.${day}`;
   }
-
-  const passedTime = (createdTime) => {
-    const currentDate = new Date();
-    const createdDate = new Date(createdTime);
-    const timeDifference = Math.floor(
-      (currentDate - createdDate) / (60 * 1000)
-    );
-
-    if (timeDifference < 2) {
-      return "1 minute ago";
-    } else if (timeDifference < 59) {
-      return `${timeDifference} minutes ago`;
-    } else if (timeDifference < 60 * 24) {
-      const hours = Math.floor(timeDifference / 60);
-      return `${hours} hours ago`;
-    } else if (timeDifference < 60 * 24 * 30) {
-      const days = Math.floor(timeDifference / (60 * 24));
-      return `${days} days ago`;
-    } else if (timeDifference < 60 * 24 * 30 * 12) {
-      const months = Math.floor(timeDifference / (60 * 24 * 30));
-      return `${months} months ago`;
-    } else {
-      const years = Math.floor(timeDifference / (60 * 24 * 30 * 12));
-      return `${years} years ago`;
-    }
-  };
 
   return (
     <div className="cardList">
@@ -46,7 +21,7 @@ const CardList = ({ cardList }) => {
           ></img>
           <div className="cardBottom">
             <div>
-              <p className="time">{passedTime(item.createdAt)}</p>
+              <p className="time">{setPassedTime(item.createdAt)}</p>
               <p className="cardText">{item.description}</p>
               <p className="createdDate">{createDate(item.createdAt)}</p>
             </div>
