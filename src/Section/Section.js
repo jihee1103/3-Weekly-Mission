@@ -2,7 +2,7 @@ import "./Section.css";
 import Search from "./Search/Search";
 import Card from "./Card/Card.js";
 import { useEffect, useState } from "react";
-import timeDiffChecker from "./TimeDiffChecker/TImeDiffChecker.js";
+import getTimeDifference from "./TimeDiffChecker/TImeDiffChecker.js";
 
 function Section() {
   let today = new Date();
@@ -52,7 +52,7 @@ function Section() {
           <Card
             style={cardInfo[0].imageSource !== undefined ? style : logoStyle}
             image={cardInfo[0].imageSource}
-            createdAt={timeDiffChecker(timeDiffs[0])}
+            createdAt={getTimeDifference(timeDiffs[0])}
             description={cardInfo[0].description}
             uploadDate={todayIs()}
             className="card"
@@ -62,7 +62,7 @@ function Section() {
           <Card
             style={cardInfo[1].imageSource !== undefined ? style : logoStyle}
             image={cardInfo[1].imageSource}
-            createdAt={timeDiffChecker(timeDiffs[1])}
+            createdAt={getTimeDifference(timeDiffs[1])}
             description={cardInfo[1].description}
             uploadDate={todayIs()}
           />
@@ -71,7 +71,7 @@ function Section() {
           <Card
             style={cardInfo[2].imageSource !== undefined ? style : logoStyle}
             image={cardInfo[2].imageSource}
-            createdAt={timeDiffChecker(timeDiffs[2])}
+            createdAt={getTimeDifference(timeDiffs[2])}
             description={cardInfo[2].description}
             uploadDate={todayIs()}
           />
@@ -80,7 +80,7 @@ function Section() {
           <Card
             style={cardInfo[3].imageSource !== undefined ? style : logoStyle}
             image={cardInfo[3].imageSource}
-            createdAt={timeDiffChecker(timeDiffs[3])}
+            createdAt={getTimeDifference(timeDiffs[3])}
             description={cardInfo[3].description}
             uploadDate={todayIs()}
           />
@@ -89,7 +89,7 @@ function Section() {
           <Card
             style={cardInfo[4].imageSource !== undefined ? style : logoStyle}
             image={cardInfo[4].imageSource}
-            createdAt={timeDiffChecker(timeDiffs[4])}
+            createdAt={getTimeDifference(timeDiffs[4])}
             description={cardInfo[4].description}
             uploadDate={todayIs()}
           />
@@ -98,7 +98,7 @@ function Section() {
           <Card
             style={cardInfo[5].imageSource !== undefined ? style : logoStyle}
             image={cardInfo[5].imageSource}
-            createdAt={timeDiffChecker(timeDiffs[5])}
+            createdAt={getTimeDifference(timeDiffs[5])}
             description={cardInfo[5].description}
             uploadDate={todayIs()}
           />
@@ -107,7 +107,7 @@ function Section() {
           <Card
             style={cardInfo[6].imageSource !== undefined ? style : logoStyle}
             image={cardInfo[6].imageSource}
-            createdAt={timeDiffChecker(timeDiffs[6])}
+            createdAt={getTimeDifference(timeDiffs[6])}
             description={cardInfo[6].description}
             uploadDate={todayIs()}
           />
@@ -116,7 +116,7 @@ function Section() {
           <Card
             style={cardInfo[7].imageSource !== undefined ? style : logoStyle}
             image={cardInfo[7].imageSource}
-            createdAt={timeDiffChecker(timeDiffs[7])}
+            createdAt={getTimeDifference(timeDiffs[7])}
             description={cardInfo[7].description}
             uploadDate={todayIs()}
           />
@@ -125,7 +125,7 @@ function Section() {
           <Card
             style={cardInfo[8].imageSource !== undefined ? style : logoStyle}
             image={cardInfo[8].imageSource}
-            createdAt={timeDiffChecker(timeDiffs[8])}
+            createdAt={getTimeDifference(timeDiffs[8])}
             description={cardInfo[8].description}
             uploadDate={todayIs()}
           />
