@@ -26,7 +26,6 @@ function Card({ image = logo, createdAt = DEFAULT_CARD_VALUE.createdAt, descript
         <h5>{createdAt}</h5>
       </div>
       <div className="text-box">
-        <h5>{createdAt}</h5>
         <p>{description}</p>
         <h6>{uploadDate}</h6>
       </div>
