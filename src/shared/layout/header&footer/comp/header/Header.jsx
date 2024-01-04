@@ -1,19 +1,7 @@
-import { useEffect, useState } from 'react';
-import { getProFileData } from '../../../../../api/getProfileData';
-import LoginSuccessProfile from './comp/login-success-profile/LoginSuccessProfile';
-import LoginButton from './comp/login-button/LoginButton';
 import './Header.css';
-
-const useGetProfileData = () => {
-  const [profileData, setProfileData] = useState(null);
-  useEffect(() => {
-    (async () => {
-      const data = await getProFileData();
-      setProfileData(data);
-    })();
-  }, []);
-  return profileData;
-};
+import LoginButton from './comp/login-button/LoginButton';
+import LoginSuccessProfile from './comp/login-success-profile/LoginSuccessProfile';
+import { useGetProfileData } from './hooks/useGetProfileData';
 
 const Header = () => {
   const profileData = useGetProfileData();

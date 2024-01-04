@@ -1,20 +1,20 @@
-import CardWrapper from '../../../../../../../../components/ui/molecules/card/linkCard';
+import LinkCard from '../../../../../../../../components/ui/molecules/card/link-card';
 import './Card.css';
 
 const Card = ({ link }) => {
   return (
-    <CardWrapper {...link}>
-      <CardWrapper.CardCover asAnchor className='link-card'>
+    <LinkCard {...link}>
+      <LinkCard.CardCover asAnchor className='link-card'>
         <div className='card-image-box'>
-          <CardWrapper.CardImage className='link-image' alt={'카드 링크 이미지'} />
+          <LinkCard.CardImage className='link-image' alt={'카드 링크 이미지'} />
         </div>
         <div className='link-text-box'>
-          <CardWrapper.TimeElapsed className='link-timeAgo' />
-          <CardWrapper.Description className='link-description' />
-          <CardWrapper.CreatedAt className='link-createdAt' />
+          <LinkCard.TimeElapsed className='link-elapsed' />
+          <LinkCard.Description className='link-description' />
+          <LinkCard.CreatedAt className='link-createdAt' />
         </div>
-      </CardWrapper.CardCover>
-    </CardWrapper>
+      </LinkCard.CardCover>
+    </LinkCard>
   );
 };
 export default Card;
