@@ -1,5 +1,5 @@
 
-function createDay(createAt){
+export function createDay(createAt){
   const date = new Date(createAt);
   const year = date.getFullYear();
   const month = date.getMonth()+1;
@@ -7,7 +7,7 @@ function createDay(createAt){
   return `${year}.${month}.${day}`;
 }
 
-function beforeTime(createdTime) {
+export function beforeTime(createdTime) {
   const currentDate = new Date();
   const createdDate = new Date(createdTime);
   const timeDifference = Math.floor((currentDate - createdDate) / (60 * 1000)); // 분 단위
@@ -34,4 +34,3 @@ function beforeTime(createdTime) {
     return `${years} years ago`;
 };
 
-export {createDay, beforeTime};

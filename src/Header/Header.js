@@ -15,6 +15,7 @@ export default function Header() {
     </div>
   )
 }
+
 {/* <>
 <div className='nav'>
 <Profile/>
