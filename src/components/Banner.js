@@ -3,15 +3,11 @@ import { useEffect, useState } from "react";
 import { getFolders } from "../api";
 
 export default function Banner() {
-  const [folder, setFolder] = useState([]);
-  const [owner, setOwner] = useState([]);
+  const [folder, setFolder] = useState(null); // 옵셔널 체이닝 사용하여 변수값 사용
 
   const getFolder = async () => {
     const { folder } = await getFolders();
-    const { owner } = folder;
-    
     setFolder(folder);
-    setOwner(owner);
   };
 
   useEffect(() => {
@@ -23,12 +19,12 @@ export default function Banner() {
       <div className="banner-wrapper">
         <img
           className="banner-img"
-          src={owner.profileImageSource}
+          src={folder?.owner?.profileImageSource}
           alt="banner-img"
         ></img>
-        <span className="banner-user-name">{owner.name}</span>
+        <span className="banner-user-name">@{folder?.owner?.name}</span>
       </div>
-      <div className="banner-title">{folder.name}</div>
+      <div className="banner-title">{folder?.name}</div>
     </section>
   );
 }

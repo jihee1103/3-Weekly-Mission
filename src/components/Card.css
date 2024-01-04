@@ -25,6 +25,10 @@
   height: 100%;
 }
 
+.no-img{
+  object-fit: none;
+}
+
 .mention-wrapper {
   padding: 1.5rem 2rem;
   display: flex;
