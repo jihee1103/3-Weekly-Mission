@@ -29,7 +29,7 @@ function Nav({ className, id = undefined }) {
         <img className="logo" src="./images/logo.svg" alt="Linkbrary 로고" />
       </a>
       {user ? (
-        <Profile id={id} user={user} />
+        <Profile user={user} />
       ) : (
         <a className="cta cta-short" href="signin.html">
           <span>로그인</span>

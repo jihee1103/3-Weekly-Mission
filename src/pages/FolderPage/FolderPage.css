@@ -25,16 +25,42 @@ section {
 .folders {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   width: 100%;
   gap: 2.4rem;
 }
 
-.filter-title {
+.list-info {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-name {
+  height: auto;
   color: #000;
   font-size: 2.4rem;
   font-weight: 600;
   letter-spacing: -0.2px;
+}
+
+.list-edit {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.no-link {
+  display: flex;
+  width: 100%;
+  height: 10rem;
+  justify-content: center;
+  align-items: center;
+
+  color: #000;
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 2.4rem; /* 150% */
 }
 
 footer {
@@ -77,6 +103,12 @@ footer {
 @media (max-width: 767px) {
   section {
     padding: 2rem 3.2rem 4rem;
+  }
+
+  .list-info {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 1.2rem;
   }
 
   .pages {

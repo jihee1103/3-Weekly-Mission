@@ -3,14 +3,14 @@ import "./Card.css";
 
 function Card({ page }) {
   const link = page.url;
-  const image = page.imageSource;
+  const image = page.imageSource || page["image_source"];
   const description = page.description;
 
   const logo = "./images/logo.svg";
   const divClass = image ? "image" : "image default";
   const imgClass = image ? "preview" : "preview default-image";
 
-  const upload = new Date(page.createdAt);
+  const upload = new Date(page.createdAt || page["created_at"]);
   const timeDiff = timeDifferenceCalculate(upload);
 
   const temp = upload.toLocaleDateString();

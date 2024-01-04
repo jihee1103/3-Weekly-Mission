@@ -21,9 +21,3 @@
   font-size: 1.6rem;
   line-height: 2.4rem; /* 150% */
 }
-
-@media (max-width: 767px) {
-  .search {
-    margin-bottom: 3.2rem;
-  }
-}
