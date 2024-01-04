@@ -1,0 +1,95 @@
+/* Section() */
+section {
+  display: flex;
+  flex-direction: column;
+  max-width: 112.5rem;
+  margin: 4rem auto;
+  padding: 0 32.5px;
+  gap: 4rem;
+}
+
+input {
+  display: flex;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.5rem 1.6rem;
+  background: #f5f5f5;
+}
+
+/* SectionCard() */
+ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  width: 34rem;
+  height: 33.4rem;
+  list-style-type: none;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+li:hover .card-box-image {
+  transform: scale(1.3);
+  transition: transform 0.3s ease;
+}
+
+li:hover .card-box-contents {
+  background-color: #f0f6ff;
+}
+
+.card-box {
+  width: 34rem;
+  height: 20rem;
+  overflow: hidden;
+}
+
+.card-box-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-box-contents {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem;
+}
+
+.current-to-created {
+  font-size: 1.3rem;
+  font-weight: 400;
+  height: 1.6rem;
+  margin-bottom: 1.1rem;
+  color: #666;
+}
+
+.descriptions {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 24px;
+  width: 100%;
+  height: 4.9rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.show-date {
+  font-size: 1.4rem;
+  font-weight: 400;
+  height: 1.9rem;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
