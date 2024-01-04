@@ -59,13 +59,7 @@ function Section() {
           .filter((card, index) => index < 9)
           .map((card, index) => (
             <a key={index} rel="noreferrer" href={card.url} target="_blank">
-              <Card
-                style={card.imageSource !== undefined ? style : logoStyle}
-                image={card.imageSource}
-                createdAt={getTimeDifference(timeDiffs[index])}
-                description={card.description}
-                uploadDate={todayIs()}
-              />
+              <Card image={card.imageSource} createdAt={getTimeDifference(timeDiffs[index])} description={card.description} uploadDate={todayIs()} />
             </a>
           ))}
       </div>

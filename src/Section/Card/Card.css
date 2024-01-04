@@ -22,11 +22,8 @@
   object-fit: fill;
 }
 
-.text-box {
-  padding: 15px 20px;
-}
-
 .text-box h5 {
+  margin: 15px 20px 10px;
   color: #666;
   font-family: Pretendard;
   font-size: 13px;
@@ -37,11 +34,12 @@
 }
 
 .text-box p {
+  margin: 10px 20px;
   height: 49px;
   overflow: hidden;
   color: #000;
   text-overflow: ellipsis;
-  white-space: nowrap;
+
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
@@ -51,6 +49,7 @@
 }
 
 .text-box h6 {
+  margin: 10px 20px 15px;
   overflow: hidden;
   color: #333;
   text-overflow: ellipsis;
