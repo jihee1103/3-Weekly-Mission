@@ -30,7 +30,7 @@ function Header() {
           로그인
         </a>
         <div className="user-info" style={userInfo.id === 1 ? visible : invisible}>
-          <img src={userInfo["profileImageSource"]} alt="prifile" />
+          <img src={userInfo["profileImageSource"]} alt="profile" />
           <h6>{userInfo["email"]}</h6>
         </div>
       </div>

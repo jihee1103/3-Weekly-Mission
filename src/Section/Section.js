@@ -19,9 +19,16 @@ function Section() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/folder");
-      const data = await response.json();
-      setCardInfo(data["folder"]["links"]);
+      try {
+        const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/folder");
+        if (!response.ok) {
+          throw new Error("데이터를 불러올 수 없습니다.");
+        }
+        const data = await response.json();
+        setCardInfo(data["folder"]["links"]);
+      } catch (error) {
+        console.log(error); //후에 에러 처리를 위한 코드 넣기
+      }
     };
 
     fetchData();
