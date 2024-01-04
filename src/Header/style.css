@@ -42,7 +42,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(91deg, var(--Linkbrary-primary-color) 0%, #6ae3fe 100%);
+  background: linear-gradient(
+    91deg,
+    var(--Linkbrary-primary-color) 0%,
+    #6ae3fe 100%
+  );
   color: #f5f5f5;
   cursor: pointer;
   border-radius: 8px;

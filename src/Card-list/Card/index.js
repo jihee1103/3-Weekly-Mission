@@ -1,13 +1,13 @@
 import noImage from '../images/no-image.svg';
 import './style.css';
 import { TIMES } from '../../constant';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function Card({ link }) {
   const [cardImageUrl, setCardImgUrl] = useState('');
   const [linkUrl, setLinkUrl] = useState('');
 
-  const formatDate = (link) => {
+  const formatDate = link => {
     const now = new Date();
     const created = new Date(link.createdAt).getTime();
     const diffInMilliseconds = now - created;
@@ -56,7 +56,7 @@ function Card({ link }) {
     return diffInYears + TIMES.YEARS_AGO;
   };
 
-  const returnUploadDate = (link) => {
+  const returnUploadDate = link => {
     const now = new Date(link.createdAt);
     const year = now.getFullYear();
     const month = now.getMonth() + 1;
@@ -72,7 +72,11 @@ function Card({ link }) {
   return (
     <a className="card" href={linkUrl} target="_blank">
       <div className="card-link">
-        <img className="card-image" src={cardImageUrl ? cardImageUrl : noImage} alt={link.title} />
+        <img
+          className="card-image"
+          src={cardImageUrl ? cardImageUrl : noImage}
+          alt={link.title}
+        />
       </div>
       <div className="container-text">
         <p className="formatted-date">{formatDate(link)}</p>

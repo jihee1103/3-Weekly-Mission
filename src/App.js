@@ -1,9 +1,9 @@
 import './App.css';
-import Header from './Header/index';
-import Folder from './Folder/index';
-import Search from './Search/index';
-import CardList from './Card-list/index';
-import Footer from './Footer/index';
+import Header from './header/index';
+import Folder from './folder/index';
+import Search from './search/index';
+import CardList from './card-list/index';
+import Footer from './footer/index';
 
 function App() {
   return (
