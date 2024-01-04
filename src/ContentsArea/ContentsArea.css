@@ -1,0 +1,15 @@
+.contentsArea {
+  text-align: center;
+  padding: 40px 240px;
+}
+@media screen and (min-width: 768px) and (max-width: 1124px) {
+  .contentsArea {
+    padding: 40px 32px;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .contentsArea {
+    padding: 40px 32px;
+  }
+}
