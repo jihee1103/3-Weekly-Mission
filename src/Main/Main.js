@@ -1,4 +1,3 @@
-import React from 'react'
 import Search from './Search'
 import Card from './Card'
 import './Main.css'

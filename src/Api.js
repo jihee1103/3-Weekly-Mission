@@ -1,5 +1,3 @@
-import React from 'react'
-
 async function UserFolderData() {
   const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/folder" );
   const data = await response.json();

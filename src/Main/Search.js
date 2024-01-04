@@ -1,4 +1,3 @@
-import React from 'react'
 import glass from '../image/glass.svg'
 
 export default function Search() {

@@ -1,4 +1,3 @@
-import React from 'react'
 
 function createDay(createAt){
   const date = new Date(createAt);

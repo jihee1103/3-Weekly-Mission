@@ -1,4 +1,3 @@
-import React from 'react'
 import './Footer.css'
 import facebook from '../image/facebook.svg'
 import twitter from '../image/twitter.svg'
@@ -49,3 +48,4 @@ export default function Footer() {
   </footer>
   )
 }
+

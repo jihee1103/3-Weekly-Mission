@@ -1,4 +1,3 @@
-import React from 'react'
 import { useEffect, useState } from 'react';
 import { createDay, beforeTime } from '../shared';
 import star from '../image/star.jpg';

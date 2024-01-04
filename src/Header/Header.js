@@ -1,4 +1,3 @@
-import React from 'react'
 import Profile from './Profile'
 import Bookmark from './Bookmark'
 import logo from '../image/logo.svg';
