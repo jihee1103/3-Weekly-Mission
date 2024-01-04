@@ -1,0 +1,92 @@
+*{
+  box-sizing: border-box;
+}
+.mainArea{
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formBox{
+  position: relative;
+}
+
+.formBox input{
+  width: 100%;
+  padding: 15px 16px;
+  text-indent: 20px;
+}
+
+.formBox img{
+  position: absolute;
+  left: 15px;
+  top: 16px;
+}
+
+.linkImgBox{
+  width: 1100px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 25px;
+  column-gap: 20px;
+  margin: 40px 0;;
+}
+
+.cardBox{
+  width: 353px;
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.linkImg{
+  width: 100%;
+  height: 200px;
+  border-radius: 15px 15px 0 0;
+  object-fit:cover;
+}
+
+.textBox{
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+  gap: 10px;
+}
+
+.description{
+  margin: 0;
+  height: 49px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.linkImg:hover  {
+  transform: scale(1.3);
+  transition: all 0.5s ;
+}
+
+.date{
+  color: #333;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.time{
+  color: #666;
+  font-family: Pretendard;
+  font-size: 13px;
+  font-weight: 400;
+}
