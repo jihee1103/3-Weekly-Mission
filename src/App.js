@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import SharedPage from "./pages/SharedPage";
+import { getSampleUser, getSampleFolder } from "./api";
+import "./styles/global.css";
 
-function App() {
+const App = () => {
+  const [user, setUser] = useState({});
+  const [folderObj, setFolderObj] = useState({});
+  const [loadingError, setLoadingError] = useState(null);
+
+  const handleLoad = async () => {
+    try {
+      setLoadingError(null);
+      const userBody = await getSampleUser();
+      const folderBody = await getSampleFolder();
+      setUser(userBody);
+      setFolderObj(folderBody);
+    } catch (error) {
+      setLoadingError(error);
+      return;
+    }
+  };
+
+  useEffect(() => {
+    handleLoad();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SharedPage user={user} folderObj={folderObj} loadingError={loadingError} />
+    </>
   );
-}
+};
 
 export default App;
