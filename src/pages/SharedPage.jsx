@@ -3,7 +3,7 @@ import "../styles/Shared.css";
 import codeitLogo from "../assets/images/shared-white.svg";
 import CardList from "../components/CardList/CardList";
 import { getShredCardList } from "../apis/api";
-import searchIcon from "../assets/images/shared-search.svg";
+import LinkSearchForm from "../components/LinkSearchForm/LinkSearchForm";
 
 export default function SharedPage() {
   const [cardListItem, setCardListItem] = useState(null);
@@ -37,10 +37,7 @@ export default function SharedPage() {
       )}
 
       <div className="shared-card-board">
-        <form className="shared-search-form">
-          <img src={searchIcon} alt="돋보기 아이콘" />
-          <input name="search" placeholder="링크를 검색해보세요." />
-        </form>
+        <LinkSearchForm />
         {cardListItem ? <CardList itemList={cardListItem} /> : null}
       </div>
     </main>

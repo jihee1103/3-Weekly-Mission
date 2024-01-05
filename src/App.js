@@ -33,7 +33,6 @@ export default function App() {
           <Route path="folder" element={<FolderPage />} />
         </Route>
       </Routes>
-
       <Footer />
     </BrowserRouter>
   );
