@@ -1,4 +1,4 @@
-import LinkCard from '../../../../../../../../components/ui/molecules/card/link-card';
+import LinkCard from '@components/ui/molecules/card/link-card';
 import './Card.css';
 
 const Card = ({ link }) => {

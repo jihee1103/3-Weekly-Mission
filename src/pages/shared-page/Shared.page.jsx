@@ -1,5 +1,5 @@
-import Footer from '../../shared/layout/header&footer/comp/footer/Footer';
-import Header from '../../shared/layout/header&footer/comp/header/Header';
+import Header from '@layout/header&footer/comp/header/Header';
+import Footer from '@layout/header&footer/comp/footer/Footer';
 import './Shared.css';
 import Article from './comp/article/Article';
 import Banner from './comp/banner/Banner';

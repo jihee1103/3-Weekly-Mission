@@ -1,4 +1,4 @@
-import AnchorButton from '../../../../../../../components/ui/atoms/button/AnchorButton';
+import AnchorButton from '@components/ui/atoms/button/AnchorButton';
 
 const LoginButton = ({ children }) => {
   return (
