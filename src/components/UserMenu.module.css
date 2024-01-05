@@ -1,0 +1,19 @@
+.userMenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.iconButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.iconButton,
+.iconButton img {
+  width: 30px;
+  height: 30px;
+}
