@@ -1,7 +1,9 @@
+import './reset.css';
+import './assets/pretendard.css';
 import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
 import getFetch from './utils/getFetch';
-import './App.css';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import CardList from './components/CardList/CardList';
@@ -11,6 +13,21 @@ import LinkCreator from './components/Hero/LinkCreator.jsx/LinkCreator';
 import Search from './components/CardList/Search/Search';
 import Card from './components/CardList/Card/Card';
 import Folder from './components/Folder/Folder';
+
+const GlobalStyle = createGlobalStyle`
+  :root {
+  --privary: #6d6afe;
+  --red: #ff5b56;
+  --black: #111322;
+  --white: #ffffff;
+  --gray1: #3e3e43;
+  --gray2: #9fa6b2;
+  --gray3: #ccd5e3;
+  --gray4: #e7effb;
+  --gray5: #f0f6ff;
+}
+
+`;
 
 const App = () => {
   const [login, setLogin] = useState(false);
@@ -92,6 +109,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <GlobalStyle />
       <Header login={login} userData={userData} />
       <Routes>
         <Route
