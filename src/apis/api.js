@@ -32,3 +32,9 @@ export async function getLinkList() {
   const response = await fetchJson(url);
   return response;
 }
+
+export async function getFolderData(id) {
+  const url = `${BASE_URL}users/1/links?folderId=${id}`;
+  const response = await fetchJson(url);
+  return response;
+}

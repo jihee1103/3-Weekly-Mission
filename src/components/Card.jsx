@@ -4,12 +4,25 @@ import defaultImg from "../assets/images/1.png";
 import { Link } from "react-router-dom";
 
 export default function Card({ item }) {
-  const { createdAt, description, imageSource, url, title } = item;
+  const {
+    created_at,
+    createdAt,
+    description,
+    imageSource,
+    image_source,
+    url,
+    title,
+  } = item;
 
-  const timeAgo = getTimeDifference(createdAt);
-  const createdDay = getCreateDay(createdAt);
+  const dateTimeString = created_at ? created_at : createdAt;
+  const timeAgo = getTimeDifference(dateTimeString);
+  const createdDay = getCreateDay(dateTimeString);
   const imgAlt = `${title} 새창으로 바로가기 이미지`;
-  const imgSource = imageSource ? imageSource : defaultImg;
+  const imgSource = imageSource
+    ? imageSource
+    : image_source
+    ? image_source
+    : defaultImg;
 
   return (
     <Link to={url} rel="noreferrer noopener" target="_blank">

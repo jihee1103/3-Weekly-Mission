@@ -3,6 +3,7 @@ import Card from "../Card";
 import "./CardList.css";
 
 export default function CardList({ itemList }) {
+  console.log(itemList);
   return (
     <ul className="card-list">
       {itemList
