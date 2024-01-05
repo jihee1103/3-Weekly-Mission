@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import logoImg from '../../asset/logo.svg';
 import './Navbar.css';
@@ -6,6 +7,10 @@ import getFetchRequest from '../../utils/getFetchRequest';
 import { API_USER, BASE_API_HOST } from '../../constants/api';
 
 export default function Navbar() {
+  const location = useLocation();
+  const isFolderPage = location.pathname === '/folder';
+  const relativeStyle = isFolderPage && 'relative';
+
   const [userEmail, setUserEmail] = useState(null);
   const [userProfileImg, setUserProfileImg] = useState(null);
 
@@ -13,8 +18,8 @@ export default function Navbar() {
     const getUserInfo = async () => {
       try {
         const result = await getFetchRequest(BASE_API_HOST, API_USER);
-        setUserEmail(result.email);
-        setUserProfileImg(result.profileImageSource);
+        setUserEmail(result.data[0].email);
+        setUserProfileImg(result.data[0].image_source);
       } catch (error) {
         console.log(error);
       }
@@ -23,7 +28,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="header">
+    <header className={`header ${relativeStyle}`}>
       <section className="header-box">
         <a href="/">
           <img src={logoImg} alt="logo" className="header-logo" />

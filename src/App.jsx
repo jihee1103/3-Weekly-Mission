@@ -1,9 +1,25 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-import Navbar from './components/Navbar/Navbar';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
-import FolderInfo from './components/Folder/FolderInfo';
-import FolderArea from './components/Folder/FolderArea';
+import Shared from './components/Shared/Shared';
+import Home from './components/Home/Home';
+import Folder from './components/Folder/Folder';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/shared',
+    element: <Shared />,
+  },
+  {
+    path: '/folder',
+    element: <Folder />,
+  },
+]);
 
 const GlobalStyle = createGlobalStyle`
   ${reset};
@@ -29,9 +45,7 @@ export default function App() {
   return (
     <>
       <GlobalStyle />
-      <Navbar />
-      <FolderInfo />
-      <FolderArea />
+      <RouterProvider router={router} />
       <Footer />
     </>
   );
