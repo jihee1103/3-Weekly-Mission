@@ -46,9 +46,9 @@ const App = () => {
 
   useEffect(() => {
     try {
-      getFetch('bootcamp-api.codeit.kr', 'api/sample/user').then((data) => {
-        setUserData({ ...data });
-        setLogin(true);
+      getFetch('bootcamp-api.codeit.kr', 'api/sample/folder').then((data) => {
+        setLinkData(() => data.folder.links);
+        setHeroLinkData(() => data.folder);
       });
     } catch (error) {
       console.error(error);
@@ -57,9 +57,9 @@ const App = () => {
 
   useEffect(() => {
     try {
-      getFetch('bootcamp-api.codeit.kr', 'api/sample/folder').then((data) => {
-        setLinkData(() => data.folder.links);
-        setHeroLinkData(() => data.folder);
+      getFetch('bootcamp-api.codeit.kr', 'api/users/1').then((user) => {
+        setUserData({ ...user.data[0] });
+        setLogin(true);
       });
     } catch (error) {
       console.error(error);

@@ -7,7 +7,7 @@ const Header = ({ login, userData }) => {
         </a>
         {login ? (
           <div className="header__profile">
-            <img src={userData.profileImageSource} alt="프로필 이미지" />
+            <img src={userData.image_source} alt="프로필 이미지" />
             <div>{userData.email}</div>
           </div>
         ) : (
