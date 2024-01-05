@@ -1,18 +1,9 @@
+import useGetFolderAsync from "../hooks/useGetFolderAsync";
 import "./Banner.css";
-import { useEffect, useState } from "react";
-import { getFolders } from "../api";
+import { getFolder } from "../api";
 
 export default function Banner() {
-  const [folder, setFolder] = useState(null); // 옵셔널 체이닝 사용하여 변수값 사용
-
-  const getFolder = async () => {
-    const { folder } = await getFolders();
-    setFolder(folder);
-  };
-
-  useEffect(() => {
-    getFolder();
-  }, []);
+  const folder = useGetFolderAsync(getFolder);
 
   return (
     <section className="banner">

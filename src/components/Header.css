@@ -24,18 +24,9 @@
 }
 
 .profile-img {
-  width: 1rem;
-  height: 1rem;
-  margin: 0.9rem;
-}
-
-.profile-bg {
   width: 2.8rem;
   height: 2.8rem;
-  background-image: url("../assets/myprofile_bg.svg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  border-radius: 2rem;
 }
 
 .profile-email {
@@ -46,6 +37,7 @@
 
 @media(max-width: 1123px){
   .nav{
+    margin: 0 auto;
     max-width: 78rem;
     padding: 3.3rem 3.25rem 3.2rem;
   }
