@@ -25,13 +25,13 @@ const GlobalStyle = createGlobalStyle`
   ${reset};
   * {
     box-sizing: border-box;
-  }
-  body {
-    font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
     font-style: normal;
     line-height: normal;
+  }
+  body {
+    font-family: Pretendard;
   }
   a {
     text-decoration: none;
