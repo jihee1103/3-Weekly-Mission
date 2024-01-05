@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import getFetch from './utils/GetFetch';
 import './App.css';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
@@ -19,18 +20,9 @@ const App = () => {
   const [folderData, setFolderData] = useState([]);
   const [folderCardData, setFolderCardData] = useState([]);
 
-  const getUserData = async () => {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/user');
-    if (response.ok) {
-      const body = await response.json();
-      return body;
-    }
-    throw new Error('유저 정보를 불러오지 못함');
-  };
-
   useEffect(() => {
     try {
-      getUserData().then((data) => {
+      getFetch('bootcamp-api.codeit.kr', 'api/sample/user').then((data) => {
         setUserData({ ...data });
         setLogin(true);
       });
@@ -39,65 +31,38 @@ const App = () => {
     }
   }, []);
 
-  const getCardData = async () => {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/folder');
-    if (response.ok) {
-      const body = await response.json();
-      return body.folder;
-    }
-    throw new Error('카드 정보를 불러오지 못함');
-  };
-
   useEffect(() => {
     try {
-      getCardData().then((data) => {
-        setLinkData(() => data.links);
-        setHeroLinkData(() => data);
+      getFetch('bootcamp-api.codeit.kr', 'api/sample/folder').then((data) => {
+        setLinkData(() => data.folder.links);
+        setHeroLinkData(() => data.folder);
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, []);
 
-  const getFolderData = async () => {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/users/1/folders');
-    if (response.ok) {
-      const body = await response.json();
-      return body.data;
-    }
-    throw new Error('카드 정보를 불러오지 못함');
-  };
-
   useEffect(() => {
     try {
-      getFolderData().then((FolderData) => {
+      getFetch('bootcamp-api.codeit.kr', 'api/users/1/folders').then((FolderData) => {
         setFolderData(() => {
-          return [...FolderData];
+          return [...FolderData.data];
         });
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, []);
 
-  const getFolderCardData = async () => {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/users/1/links');
-    if (response.ok) {
-      const body = await response.json();
-      return body.data;
-    }
-    throw new Error('카드 정보를 불러오지 못함');
-  };
-
   useEffect(() => {
     try {
-      getFolderCardData().then((FolderData) => {
+      getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((FolderData) => {
         setFolderCardData(() => {
-          return [...FolderData];
+          return [...FolderData.data];
         });
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, []);
 
