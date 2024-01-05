@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUserId } from "../api.js";
+import { getUserProfile } from "../api.js";
 import "./Nav.css";
 
 export default function Nav() {
@@ -38,21 +38,23 @@ export default function Nav() {
 }
 
 function UserProfileInHeader() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
   useEffect(() => {
     async function handleLoginProfile() {
-      const user = await getUserId();
-      setUser(user);
+      const { data } = await getUserProfile(1);
+      const [userProfile] = data;
+      setUser(userProfile);
     }
     handleLoginProfile();
   }, []);
+  console.log(user);
   return (
     <a href="./folder" className="user-profile-login">
       {user ? (
         <>
           <img
             className="user-profile-login-img"
-            src={user.profileImageSource}
+            src={user.image_source}
             alt="사용자 이미지"
           ></img>
           <span className="user-profile-login-email">{user.email}</span>
