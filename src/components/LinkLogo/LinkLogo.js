@@ -8,7 +8,7 @@ function LinkLogo({ href, target, rel, logo }) {
 
   return (
     <a href={href} target={target} rel={rel}>
-      <img src={LOGOS[logo]} alt="facebook 홈페이지로 연결된 facebook 로고" />
+      <img src={LOGOS[logo]} alt={`${logo} 홈페이지로 연결된 ${logo} 로고`} />
     </a>
   );
 }
