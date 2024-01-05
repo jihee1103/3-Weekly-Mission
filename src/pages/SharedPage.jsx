@@ -5,7 +5,7 @@ import CardList from "../components/CardList/CardList";
 import { getShredCardList } from "../apis/api";
 import searchIcon from "../assets/images/shared-search.svg";
 
-export default function Shared() {
+export default function SharedPage() {
   const [cardListItem, setCardListItem] = useState(null);
   const [folderOwner, setFolderOwner] = useState(null);
   const [folderName, setFolderName] = useState("");
