@@ -21,12 +21,12 @@
   overflow: hidden;
 }
 
-.card-img-area img {
+.card-preview-img {
   max-height: 100%;
   margin: auto;
 }
 
-.card-img-area:hover img {
+.card-preview-img:hover {
   transition: all 0.3s;
   transform: scale(1.3);
 }

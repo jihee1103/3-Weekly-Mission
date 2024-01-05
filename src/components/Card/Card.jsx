@@ -38,7 +38,11 @@ export default function Card({ link }) {
       className="card-container"
     >
       <div className="card-img-area">
-        <img src={cardImgUrl || defaultImage} alt="카드 미리보기 이미지" />
+        <img
+          src={cardImgUrl || defaultImage}
+          className="card-preview-img"
+          alt="카드 미리보기 이미지"
+        />
         <img src={starIcon} alt="즐겨찾기 버튼" className="star-Icon" />
       </div>
       <div className="card-info-area">
