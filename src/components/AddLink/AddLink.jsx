@@ -5,8 +5,7 @@ const AddLinkForm = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: 800px;
+  width: 800px;
   text-align: center;
   background-color: #fff;
   padding: 16px 20px;

@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   align-items: baseline;
   justify-content: space-between;
   width: 100%;
+  margin-top: 16px;
   @media (max-width: 1199px) {
     & {
       width: 704px;
@@ -18,6 +19,7 @@ const Wrapper = styled.div`
   @media (max-width: 767px) {
     & {
       width: 325px;
+      margin-top: 8px;
     }
   }
 `;
