@@ -1,4 +1,4 @@
-const Card = ({ linkData }) => {
+const Card = ({ cardData, folderCardData }) => {
   const calculatePassedTime = (createdAt) => {
     const nowTime = Date.now();
     const uploadedTime = new Date(createdAt).getTime();
@@ -37,8 +37,17 @@ const Card = ({ linkData }) => {
 
   return (
     <ul className="link-list">
-      {Array.isArray(linkData.links)
-        ? linkData.links.map((link) => {
+      <button
+        type="button"
+        onClick={() => {
+          console.log('폴더데이터 : ' + folderCardData);
+          console.log('링크 데이터 : ' + cardData);
+        }}
+      >
+        데이터보기
+      </button>
+      {Array.isArray(cardData)
+        ? cardData.map((link) => {
             return (
               <a href={link.url} target="_blank" className="link" key={link.id} rel="noreferrer">
                 <div>
