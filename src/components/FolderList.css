@@ -20,6 +20,7 @@
 .folder-list {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .folder-add-box {
@@ -28,4 +29,10 @@
 
 .folder-add-box input {
   border: none;
+}
+
+@media screen and (max-width: 767px) {
+  .folder-add-box {
+    display: none;
+  }
 }
