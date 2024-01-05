@@ -27,12 +27,12 @@ const ShareDescriptionContainer = styled.div`
   }
 `;
 
-const ShareDescription = ({ linkData }) => {
+const ShareDescription = ({ heroLinkData }) => {
   return (
     <ShareDescriptionContainer>
-      <img src={linkData.owner?.profileImageSource} alt="코드잇 마크" />
-      <span>{linkData.owner?.name}</span>
-      <div className="favorites">{linkData?.name}</div>
+      <img src={heroLinkData.owner?.profileImageSource} alt="코드잇 마크" />
+      <span>{heroLinkData.owner?.name}</span>
+      <div className="favorites">{heroLinkData?.name}</div>
     </ShareDescriptionContainer>
   );
 };

@@ -15,6 +15,7 @@ const App = () => {
   const [login, setLogin] = useState(false);
   const [userData, setUserData] = useState([]);
   const [linkData, setLinkData] = useState([]);
+  const [heroLinkData, setHeroLinkData] = useState({});
   const [folderData, setFolderData] = useState([]);
   const [folderCardData, setFolderCardData] = useState([]);
 
@@ -42,7 +43,7 @@ const App = () => {
     const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/folder');
     if (response.ok) {
       const body = await response.json();
-      return body.folder.links;
+      return body.folder;
     }
     throw new Error('카드 정보를 불러오지 못함');
   };
@@ -50,7 +51,8 @@ const App = () => {
   useEffect(() => {
     try {
       getCardData().then((data) => {
-        setLinkData(() => data);
+        setLinkData(() => data.links);
+        setHeroLinkData(() => data);
       });
     } catch (error) {
       console.log(error);
@@ -108,7 +110,7 @@ const App = () => {
           element={
             <>
               <Hero>
-                <ShareDescription linkData={linkData} />
+                <ShareDescription heroLinkData={heroLinkData} />
               </Hero>
               <CardList linkData={linkData}>
                 <Search className="links__search" />
