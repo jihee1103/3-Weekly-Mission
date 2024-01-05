@@ -1,6 +1,6 @@
-import SearchBar from "./SearchBar";
-import CardList from "./CardList";
-import "../styles/Content.css";
+import SearchBar from "../SearchBar/SearchBar";
+import CardList from "../CardList/CardList";
+import "./Content.css";
 
 function Content() {
   return (
