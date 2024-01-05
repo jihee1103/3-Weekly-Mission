@@ -1,0 +1,20 @@
+.Footer {
+  background-color: #111322;
+  width: 100%;
+  height: 8rem;
+}
+.Footer .box{
+ display: flex;
+ justify-content: space-between;
+}
+.Footer .box .item01 {
+ color: #676767;
+}
+.Footer .box .item02 {
+  display: flex;
+  color: #676767;
+}
+.Footer .box .item03 {
+  display: flex;
+  color: #676767;
+}
