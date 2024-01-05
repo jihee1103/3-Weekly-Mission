@@ -1,6 +1,7 @@
 import React from "react";
 import { getCreateDay, getTimeDifference } from "../utils/util";
 import defaultImg from "../assets/images/1.png";
+import { Link } from "react-router-dom";
 
 export default function Card({ item }) {
   const { createdAt, description, imageSource, url, title } = item;
@@ -11,13 +12,13 @@ export default function Card({ item }) {
   const imgSource = imageSource ? imageSource : defaultImg;
 
   return (
-    <a href={url} rel="noreferrer noopener" target="_blank">
+    <Link to={url} rel="noreferrer noopener" target="_blank">
       <img src={imgSource} alt={imgAlt} />
       <div className="card-info">
         <span className="time-ago">{timeAgo}</span>
         <p className="description">{description}</p>
         <span className="created-day">{createdDay}</span>
       </div>
-    </a>
+    </Link>
   );
 }
