@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import AddLink from '../AddLink/AddLink';
 import Navbar from '../Navbar/Navbar';
+import FolderBody from './FolderBody';
 
 const AddLinkArea = styled.div`
   display: flex;
@@ -20,6 +21,12 @@ const AddLinkArea = styled.div`
     }
   }
 `;
+const FolderBodyArea = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+`;
 
 export default function Folder() {
   return (
@@ -28,6 +35,9 @@ export default function Folder() {
       <AddLinkArea>
         <AddLink />
       </AddLinkArea>
+      <FolderBodyArea>
+        <FolderBody />
+      </FolderBodyArea>
     </>
   );
 }

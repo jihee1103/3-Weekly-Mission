@@ -6,15 +6,22 @@ const AddLinkForm = styled.form`
   align-items: center;
   justify-content: center;
   width: 100%;
+  max-width: 800px;
   text-align: center;
   background-color: #fff;
   padding: 16px 20px;
   border-radius: 15px;
   border: 1px solid #6d6afe;
   position: relative;
+  @media (max-width: 1199px) {
+    & {
+      width: 704px;
+    }
+  }
   @media (max-width: 767px) {
     & {
       padding: 8px 10px;
+      width: 325px;
     }
   }
 `;
@@ -34,13 +41,21 @@ const LinkIcon = styled.img`
   width: 20px;
   height: 20px;
   margin-right: 12px;
+  @media (max-width: 767px) {
+    & {
+      margin-right: 8px;
+    }
+  }
 `;
 const AddLinkInput = styled.input`
   border: none;
   outline: none;
   width: 100%;
   padding: 0;
-  line-height: 24px;
+  &::placeholder {
+    color: #9fa6b2;
+    line-height: 24px;
+  }
   @media (max-width: 767px) {
     & {
       font-size: 14px;

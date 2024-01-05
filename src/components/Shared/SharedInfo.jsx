@@ -9,7 +9,7 @@ export default function SharedInfo() {
   const [folderName, setFolderName] = useState('');
 
   useEffect(() => {
-    const getFolderInfo = async () => {
+    const getSharedInfo = async () => {
       try {
         const result = await getFetchRequest(BASE_API_HOST, API_FOLDER);
         setAvatar(result.folder.owner.profileImageSource);
@@ -19,7 +19,7 @@ export default function SharedInfo() {
         console.log(error);
       }
     };
-    getFolderInfo();
+    getSharedInfo();
   }, []);
 
   return (

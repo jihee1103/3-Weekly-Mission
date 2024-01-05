@@ -10,3 +10,9 @@
     gap: 25px 24px;
   }
 }
+@media (max-width: 767px) {
+  .card-box {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+}

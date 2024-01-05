@@ -1,5 +1,5 @@
 .search-form {
-  width: 100%;
+  width: 1060px;
 }
 .search-input-wrapper {
   display: flex;
@@ -28,8 +28,16 @@
   line-height: 24px;
   outline: none;
 }
+@media (max-width: 1199px) {
+  .search-form {
+    width: 704px;
+  }
+}
 
 @media (max-width: 767px) {
+  .search-form {
+    width: 325px;
+  }
   .search-input-wrapper {
     height: 43px;
     padding: 13px 16px;

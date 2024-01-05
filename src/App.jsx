@@ -29,8 +29,11 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-style: normal;
     line-height: normal;
+    font-family: Pretendard;
   }
   body {
+    font-size: 16px;
+    font-weight: 400;
     font-family: Pretendard;
   }
   a {
