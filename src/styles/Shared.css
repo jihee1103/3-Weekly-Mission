@@ -39,6 +39,7 @@
 .shared-card-board {
   position: relative;
   margin: 0 auto;
+  padding-top: 4rem;
   padding-bottom: 10rem;
   background: #fff;
   display: flex;
