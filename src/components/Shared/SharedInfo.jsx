@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import './FolderInfo.css';
+import './SharedInfo.css';
 import getFetchRequest from '../../utils/getFetchRequest';
 import { API_FOLDER, BASE_API_HOST } from '../../constants/api';
 
-export default function FolderInfo() {
+export default function SharedInfo() {
   const [avatar, setAvatar] = useState(null);
   const [owner, setOwner] = useState('');
   const [folderName, setFolderName] = useState('');
@@ -23,13 +23,13 @@ export default function FolderInfo() {
   }, []);
 
   return (
-    <div className="folderinfo-container">
-      <div className="folderinfo-box">
-        <div className="folder-owner">
+    <div className="shared-info-container">
+      <div className="shared-info-box">
+        <div className="shared-owner">
           <img src={avatar} alt="avatar" className="avatar" />
-          <span className="folder-owner-name">{owner}</span>
+          <span className="shared-owner-name">{owner}</span>
         </div>
-        <div className="folder-name">{folderName}</div>
+        <div className="shared-name">{folderName}</div>
       </div>
     </div>
   );

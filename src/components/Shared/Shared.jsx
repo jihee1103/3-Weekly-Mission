@@ -1,13 +1,13 @@
-import FolderArea from '../Folder/FolderArea';
-import FolderInfo from '../Folder/FolderInfo';
+import SharedBody from './SharedBody';
+import SharedInfo from './SharedInfo';
 import Navbar from '../Navbar/Navbar';
 
 export default function Shared() {
   return (
     <>
       <Navbar />
-      <FolderInfo />
-      <FolderArea />
+      <SharedInfo />
+      <SharedBody />
     </>
   );
 }

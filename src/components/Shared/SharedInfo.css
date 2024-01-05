@@ -1,4 +1,4 @@
-.folderinfo-container {
+.shared-info-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,7 +6,7 @@
   background: var(--linkbrary-bg, #f0f6ff);
 }
 
-.folderinfo-box {
+.shared-info-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,32 +19,32 @@
   height: 47px;
 }
 
-.folder-owner {
+.shared-owner {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.folder-owner-name {
+.shared-owner-name {
   line-height: 24px;
 }
 
-.folder-name {
+.shared-name {
   text-align: center;
   font-size: 40px;
   font-weight: 600;
 }
 
 @media (max-width: 767px) {
-  .folderinfo-container {
+  .shared-info-container {
     padding: 10px 0 40px;
   }
-  .folder-owner-name {
+  .shared-owner-name {
     font-size: 14px;
     line-height: normal;
   }
-  .folder-name {
+  .shared-name {
     font-size: 32px;
   }
   .avatar {

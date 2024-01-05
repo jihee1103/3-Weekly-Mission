@@ -1,4 +1,4 @@
-.folder-area-container {
+.shared-body-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,24 +13,14 @@
   gap: 40px;
 }
 
-.card-box {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px 20px;
-}
-
 @media (max-width: 1199px) {
-  .folder-area-container {
+  .shared-body-container {
     padding: 40px 32px;
-  }
-  .card-box {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px 24px;
   }
 }
 
 @media (max-width: 767px) {
-  .folder-area-container {
+  .shared-body-container {
     padding: 20px 32px;
   }
   .contents-box {
