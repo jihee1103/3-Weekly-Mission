@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import getFetch from './utils/GetFetch';
+import getFetch from './utils/getFetch';
 import './App.css';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
@@ -19,6 +19,30 @@ const App = () => {
   const [heroLinkData, setHeroLinkData] = useState({});
   const [folderData, setFolderData] = useState([]);
   const [folderCardData, setFolderCardData] = useState([]);
+
+  const HandleOverViewFolderCardData = () => {
+    try {
+      getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((FolderData) => {
+        setFolderCardData(() => {
+          return [...FolderData.data];
+        });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const HandleFolderCardData = (id) => {
+    try {
+      getFetch('bootcamp-api.codeit.kr', `api/users/1/links?folderId=${id}`).then((FolderData) => {
+        setFolderCardData(() => {
+          return [...FolderData.data];
+        });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     try {
@@ -93,7 +117,11 @@ const App = () => {
               </Hero>
               <CardList linkData={linkData}>
                 <Search className="links__search" />
-                <Folder folderData={folderData} />
+                <Folder
+                  folderData={folderData}
+                  HandleOverViewFolderCardData={HandleOverViewFolderCardData}
+                  HandleFolderCardData={HandleFolderCardData}
+                />
                 <Card cardData={folderCardData} className="links__card" />
               </CardList>
             </>

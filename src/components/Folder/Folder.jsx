@@ -23,6 +23,18 @@ const FolderButton = styled.button`
   background: #fff;
   color: #000;
   font-family: Pretendard;
+
+  &:focus {
+    color: #fff;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 5px;
+    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+    background: var(--Linkbrary-primary-color, #6d6afe);
+  }
 `;
 
 const FolderMoreButton = styled.button`
@@ -34,8 +46,8 @@ const FolderMoreButton = styled.button`
   }
 `;
 
-const Folder = ({ folderData }) => {
-  const [currentFolder, setCurrentFolder] = useState('');
+const Folder = ({ folderData, HandleOverViewFolderCardData, HandleFolderCardData }) => {
+  const [currentFolder, setCurrentFolder] = useState('전체');
 
   const handleCurrentFolder = (name) => {
     setCurrentFolder(name);
@@ -46,6 +58,15 @@ const Folder = ({ folderData }) => {
       <FolderContainer>
         <div>
           <div>
+            <FolderButton
+              type="button"
+              onClick={() => {
+                handleCurrentFolder('전체');
+                HandleOverViewFolderCardData();
+              }}
+            >
+              전체
+            </FolderButton>
             {folderData.map((folder) => {
               return (
                 <FolderButton
@@ -53,6 +74,7 @@ const Folder = ({ folderData }) => {
                   key={folder.id}
                   onClick={() => {
                     handleCurrentFolder(folder.name);
+                    HandleFolderCardData(folder.id);
                   }}
                 >
                   {folder.name}
