@@ -2,6 +2,8 @@ import './Card.css';
 import { useEffect, useState } from 'react';
 import defaultImage from '../../asset/default-image.svg';
 import calculateTime from '../../utils/calculateTime';
+import starIcon from '../../asset/star.svg';
+import kebabIcon from '../../asset/kebab.svg';
 
 export default function Card({ link }) {
   const [formattedCreatedAt, setFormattedCreatedAt] = useState('');
@@ -37,9 +39,13 @@ export default function Card({ link }) {
     >
       <div className="card-img-area">
         <img src={cardImgUrl || defaultImage} alt="카드 미리보기 이미지" />
+        <img src={starIcon} alt="즐겨찾기 버튼" className="star-Icon" />
       </div>
       <div className="card-info-area">
-        <p className="card-info-time">{elapsedTime}</p>
+        <div className="card-info-top">
+          <p className="card-info-time">{elapsedTime}</p>
+          <img src={kebabIcon} alt="더보기 아이콘" className="kebab-Icon" />
+        </div>
         <p className="card-info-body">{link.description}</p>
         <p className="card-info-date">{formattedCreatedAt}</p>
       </div>
