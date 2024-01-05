@@ -5,7 +5,7 @@ export default function FolderName({ selectedFolder }) {
       <div className="folder-name">
         {selectedFolder ? selectedFolder.name : "전체"}
       </div>
-      {selectedFolder ? (
+      {selectedFolder && (
         <div className="folder-edit-box">
           <div>
             <img src="/imgs/share.png" alt="공유하기" />
@@ -20,8 +20,6 @@ export default function FolderName({ selectedFolder }) {
             <span>삭제</span>
           </div>
         </div>
-      ) : (
-        <div></div>
       )}
     </div>
   );
