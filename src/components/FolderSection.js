@@ -6,7 +6,7 @@ import FolderName from "./FolderName";
 import FolderContentCard from "./FolderContentCard";
 
 export default function FolderSection() {
-  const [selectedFolder, setSelectedFolder] = useState();
+  const [selectedFolder, setSelectedFolder] = useState("$1");
   const handleSelectFolder = (folder) => {
     setSelectedFolder(folder);
   };
@@ -15,7 +15,10 @@ export default function FolderSection() {
     <section>
       <ForderSearchInput />
       <div className="foder-contents">
-        <FolderList onSelectFolder={handleSelectFolder} />
+        <FolderList
+          onSelectFolder={handleSelectFolder}
+          selectedFolder={selectedFolder}
+        />
         <FolderName selectedFolder={selectedFolder} />
         <FolderContentCard selectedFolder={selectedFolder} />
       </div>

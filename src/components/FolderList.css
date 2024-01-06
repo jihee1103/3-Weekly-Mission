@@ -17,6 +17,11 @@
   background: #fff;
 }
 
+.folderSelected {
+  color: #fff;
+  background: var(--Linkbrary-primary-color, #6d6afe);
+}
+
 .folder-list {
   display: flex;
   gap: 8px;

@@ -9,18 +9,18 @@ export default function FolderContentCard({ selectedFolder }) {
   };
   useEffect(() => {
     async function handleload() {
-      if (selectedFolder) {
-        const { id } = selectedFolder;
-        const { data } = await getUserLinks(1, id);
+      if (selectedFolder === "$1") {
+        const { data } = await getUserLinks(1);
         setItems(data);
       } else {
-        const { data } = await getUserLinks(1);
+        const { id } = selectedFolder;
+        const { data } = await getUserLinks(1, id);
         setItems(data);
       }
     }
     handleload();
   }, [selectedFolder]);
-
+  console.log(items);
   return (
     <ul className="cards">
       {items.length > 0 ? (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getUserFolders } from "../api";
 import "./FolderList.css";
-export default function FolderList({ onSelectFolder }) {
+export default function FolderList({ onSelectFolder, selectedFolder }) {
   const [folderNames, setFolderNames] = useState([]);
   const handleFolderClick = (folder) => {
     onSelectFolder(folder);
@@ -13,16 +13,24 @@ export default function FolderList({ onSelectFolder }) {
     }
     handleload();
   }, []);
+  console.log(selectedFolder);
+
   return (
     <div className="folder-list-box">
       <ul className="folder-list">
-        <li className="folder">
-          <div onClick={() => handleFolderClick()}>전체</div>
+        <li
+          className={`folder ${
+            selectedFolder === "$1" ? "folderSelected" : ""
+          }`}
+        >
+          <div onClick={() => handleFolderClick("$1")}>전체</div>
         </li>
         {folderNames.map((folder) => {
           return (
             <li
-              className="folder"
+              className={`folder ${
+                selectedFolder.id === folder.id ? "folderSelected" : ""
+              }`}
               key={folder.id}
               onClick={() => handleFolderClick(folder)}
             >
