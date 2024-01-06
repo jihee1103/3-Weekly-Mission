@@ -1,4 +1,3 @@
-import logo from './images/logo.svg';
 import { getUserData } from '../api/api';
 import './style.css';
 import { useState, useEffect } from 'react';
@@ -19,7 +18,7 @@ const Header = () => {
     <header className="header">
       <nav className="nav">
         <a href="/" className="linkbrary-icon">
-          <img src={logo} alt="홈으로 연결된 Linkbrary 로고"></img>
+          <img src="/logo.svg" alt="홈으로 연결된 Linkbrary 로고"></img>
         </a>
         {user.email ? (
           <div className="header__profile">

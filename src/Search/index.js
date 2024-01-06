@@ -1,10 +1,9 @@
-import search from './images/Search.svg';
 import './style.css';
 
 function Search() {
   return (
     <form className="form">
-      <img className="search-icon" width="16" src={search} />
+      <img className="search-icon" width="16" src="/Search.svg" />
       <label htmlFor="input-search" />
       <input
         className="input"

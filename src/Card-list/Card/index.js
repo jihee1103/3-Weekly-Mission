@@ -1,4 +1,3 @@
-import noImage from '../images/no-image.svg';
 import './style.css';
 import { formatDate, returnUploadDate } from '../../utils';
 
@@ -8,7 +7,7 @@ function Card({ link }) {
       <div className="card-link">
         <img
           className="card-image"
-          src={link.imageSource ? link.imageSource : noImage}
+          src={link.imageSource ? link.imageSource : '/no-image.svg'}
           alt={link.title}
         />
       </div>
