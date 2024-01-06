@@ -38,7 +38,7 @@ const FolderButton = styled.button`
   background: #fff;
   color: #000;
   font-family: Pretendard;
-  margin-right: 8px;
+  margin: 0 8px 8px 0;
 
   &:focus {
     color: #fff;
@@ -59,17 +59,51 @@ const FolderButton = styled.button`
   }
 `;
 
-const FolderMoreButton = styled.button`
-  width: 16px;
-  height: 16px;
+const AddFolderButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+
+  span {
+    color: #6d6afe;
+    text-align: center;
+    font-family: Abel;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+  }
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 16px;
+    height: 16px;
+    content: url('${process.env.PUBLIC_URL}/images/add.svg');
   }
 
   @media (max-width: 767px) {
-    display: none;
+    display: flex;
+    padding: 8px 24px;
+    gap: 20px;
+    border-radius: 20px;
+    border: 1px solid var(--Linkbrary-white, #fff);
+    background: var(--Linkbrary-primary-color, #6d6afe);
+    position: fixed;
+    bottom: 101px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+
+    span {
+      color: var(--Linkbrary-gray10, #e7effb);
+      text-align: center;
+      font-family: Abel;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    img {
+      content: url('${process.env.PUBLIC_URL}/images/mobile_add.svg');
+    }
   }
 `;
 
@@ -109,9 +143,10 @@ const Folder = ({ folderData, HandleOverViewFolderCardData, HandleFolderCardData
               );
             })}
           </FolderButtonContainer>
-          <FolderMoreButton>
-            <img src={`${process.env.PUBLIC_URL}/images/add.svg`} alt="폴더 더보기 사진" />
-          </FolderMoreButton>
+          <AddFolderButton>
+            <span>폴더추가</span>
+            <img alt="폴더 더보기 사진" />
+          </AddFolderButton>
         </div>
       </FolderContainer>
       <FolderTitle currentFolder={currentFolder} />
