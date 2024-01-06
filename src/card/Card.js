@@ -15,15 +15,14 @@ const Card = function () {
   const imageSource = "/img/catImage.png";
 
   const description =
-    "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Tldkd";
+    "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. TldkdLorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Tldkd";
   const elapsedTime = "10minutes ago";
 
   return (
     <div
       className={isHovered ? "Card Hovered" : "Card"}
       onMouseOver={handleMouseOver}
-      onMouseLeave={handleMouseLeave}
-    >
+      onMouseLeave={handleMouseLeave}>
       <CardImage isHovered={isHovered} imageSource={imageSource} />
       <CardContent
         elapsedTime={elapsedTime}
