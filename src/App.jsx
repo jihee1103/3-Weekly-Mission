@@ -1,23 +1,29 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Footer from './components/Footer/Footer';
 import Shared from './components/Shared/Shared';
 import Home from './components/Home/Home';
 import Folder from './components/Folder/Folder';
+import Layout from './components/Layout/Layout';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/shared',
-    element: <Shared />,
-  },
-  {
-    path: '/folder',
-    element: <Folder />,
+    element: <Layout />,
+    children: [
+      {
+        path: '',
+        element: <Home />,
+      },
+      {
+        path: 'shared',
+        element: <Shared />,
+      },
+      {
+        path: 'folder',
+        element: <Folder />,
+      },
+    ],
   },
 ]);
 
@@ -43,13 +49,17 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 `;
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`;
 
 export default function App() {
   return (
-    <>
+    <Wrapper>
       <GlobalStyle />
       <RouterProvider router={router} />
-      <Footer />
-    </>
+    </Wrapper>
   );
 }

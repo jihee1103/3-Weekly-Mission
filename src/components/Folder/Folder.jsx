@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import AddLink from '../AddLink/AddLink';
-import Navbar from '../Navbar/Navbar';
 import FolderBody from './FolderBody';
 
 const AddLinkArea = styled.div`
@@ -32,7 +31,6 @@ const FolderBodyArea = styled.div`
 export default function Folder() {
   return (
     <>
-      <Navbar />
       <AddLinkArea>
         <AddLink />
       </AddLinkArea>
