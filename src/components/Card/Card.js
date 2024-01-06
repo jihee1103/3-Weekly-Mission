@@ -9,7 +9,7 @@ function Card({ link }) {
         {link.imageSource ? (
           <img className="card-img" src={link.imageSource} alt="img" />
         ) : (
-          <img className="card-img" src="./assets/no-img.svg" alt="img" />
+          <img className="card-img" src="/assets/no-img.svg" alt="img" />
         )}
       </div>
 
