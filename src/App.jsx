@@ -2,7 +2,6 @@ import './reset.css';
 import './assets/pretendard.css';
 import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { createGlobalStyle } from 'styled-components';
 import getFetch from './utils/getFetch';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
@@ -13,21 +12,9 @@ import LinkCreator from './components/Hero/LinkCreator.jsx/LinkCreator';
 import Search from './components/CardList/Search/Search';
 import Card from './components/CardList/Card/Card';
 import Folder from './components/Folder/Folder';
-
-const GlobalStyle = createGlobalStyle`
-  :root {
-  --privary: #6d6afe;
-  --red: #ff5b56;
-  --black: #111322;
-  --white: #ffffff;
-  --gray1: #3e3e43;
-  --gray2: #9fa6b2;
-  --gray3: #ccd5e3;
-  --gray4: #e7effb;
-  --gray5: #f0f6ff;
-}
-
-`;
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
+import getFormattingCardData from './utils/getFormattingCardData';
+import GlobalStyle from './GlobalStyle';
 
 const App = () => {
   const [login, setLogin] = useState(false);
@@ -37,41 +24,25 @@ const App = () => {
   const [folderData, setFolderData] = useState([]);
   const [folderCardData, setFolderCardData] = useState([]);
 
-  const HandleOverViewFolderCardData = () => {
-    try {
-      getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((FolderData) => {
-        setFolderCardData(() => {
-          return [...FolderData.data];
-        });
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const HandleFolderCardData = (id) => {
-    try {
-      getFetch('bootcamp-api.codeit.kr', `api/users/1/links?folderId=${id}`).then((FolderData) => {
-        setFolderCardData(() => {
-          return [...FolderData.data];
-        });
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
+  // shared의 Hero 컴포넌트 데이터
   useEffect(() => {
     try {
-      getFetch('bootcamp-api.codeit.kr', 'api/sample/folder').then((data) => {
-        setLinkData(() => data.folder.links);
-        setHeroLinkData(() => data.folder);
-      });
+      getFetch('bootcamp-api.codeit.kr', 'api/sample/folder')
+        .then((data) => {
+          // sampe 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
+          const formattedData = getFormattingCardData(data);
+          return formattedData;
+        })
+        .then((data) => {
+          setLinkData(() => data.folder.links);
+          setHeroLinkData(() => data.folder);
+        });
     } catch (error) {
       console.error(error);
     }
   }, []);
 
+  // Header의 유저 프로필 데이터
   useEffect(() => {
     try {
       getFetch('bootcamp-api.codeit.kr', 'api/users/1').then((user) => {
@@ -83,6 +54,7 @@ const App = () => {
     }
   }, []);
 
+  // 폴더 버튼들을 가지고 있는 데이터
   useEffect(() => {
     try {
       getFetch('bootcamp-api.codeit.kr', 'api/users/1/folders').then((FolderData) => {
@@ -95,6 +67,33 @@ const App = () => {
     }
   }, []);
 
+  // 폴더의 전체 버튼을 클릭했을 때 가져올 데이터
+  const HandleOverViewFolderCardData = () => {
+    try {
+      getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((FolderData) => {
+        setFolderCardData(() => {
+          return [...FolderData.data];
+        });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // 폴더의 전체 버튼이 아닌 버튼을 클릭했을 때 가져올 데이터
+  const HandleFolderCardData = (id) => {
+    try {
+      getFetch('bootcamp-api.codeit.kr', `api/users/1/links?folderId=${id}`).then((FolderData) => {
+        setFolderCardData(() => {
+          return [...FolderData.data];
+        });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // 폴더 카드 정보를 가지고 있는 데이터
   useEffect(() => {
     try {
       getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((FolderData) => {
@@ -119,9 +118,9 @@ const App = () => {
               <Hero>
                 <ShareDescription heroLinkData={heroLinkData} />
               </Hero>
-              <CardList linkData={linkData}>
-                <Search className="links__search" />
-                <Card cardData={linkData} className="links__card" />
+              <CardList>
+                <Search />
+                <Card cardData={linkData} />
               </CardList>
             </>
           }
@@ -133,18 +132,19 @@ const App = () => {
               <Hero>
                 <LinkCreator />
               </Hero>
-              <CardList linkData={linkData}>
-                <Search className="links__search" />
+              <CardList>
+                <Search />
                 <Folder
                   folderData={folderData}
                   HandleOverViewFolderCardData={HandleOverViewFolderCardData}
                   HandleFolderCardData={HandleFolderCardData}
                 />
-                <Card cardData={folderCardData} className="links__card" />
+                <Card cardData={folderCardData} />
               </CardList>
             </>
           }
         />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </div>

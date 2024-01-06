@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import calculatePassedTime from '../../../../utils/calculatePassedTime';
+import getFormattedDate from '../../../../utils/getFormattedDate';
 
 export const CardContentContainer = styled.div`
   box-sizing: border-box;
@@ -101,42 +103,6 @@ const KebabMenuAddFolderBtn = styled.button`
   line-height: normal;
 `;
 
-const calculatePassedTime = (createdAt) => {
-  const nowTime = Date.now();
-  const uploadedTime = new Date(createdAt).getTime();
-  const passedSeconds = Math.floor((nowTime - uploadedTime) / 1000);
-  const passedMinutes = passedSeconds / 60;
-  const passedHours = passedMinutes / 60;
-  const passedDay = passedHours / 24;
-  const passedMonth = passedDay / 30;
-  const passedYear = passedMonth / 12;
-  // 큰 단위부터 하나씩 컷하기
-  if (passedYear >= 1) {
-    return `${Math.floor(passedYear)} years ago`;
-  }
-  if (passedMonth >= 1) {
-    return `${Math.floor(passedMonth)} months ago`;
-  }
-  if (passedDay >= 1) {
-    return `${Math.floor(passedDay)} days ago`;
-  }
-  if (passedHours >= 1) {
-    return `${Math.floor(passedHours)} hours ago`;
-  }
-  if (passedMinutes >= 1) {
-    return `${Math.floor(passedMinutes)}minutes ago`;
-  }
-  return '1minutes ago';
-};
-
-const getFormattedDate = (createdAt) => {
-  const date = new Date(createdAt);
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-  return `${year}. ${month}. ${day}`;
-};
-
 const CardDescription = ({ link }) => {
   const [kebabToggle, setKebabToggle] = useState(false);
 
@@ -147,7 +113,7 @@ const CardDescription = ({ link }) => {
   return (
     <CardContentContainer>
       <CardContentTimePassed>
-        {calculatePassedTime(link.created_at ?? link.createdAt)}
+        {calculatePassedTime(link.created_at)}
         <KebabBtn
           onClick={(e) => {
             e.preventDefault();
@@ -168,7 +134,7 @@ const CardDescription = ({ link }) => {
         ) : null}
       </CardContentTimePassed>
       <CardContentDescription>{link.description}</CardContentDescription>
-      <CardContentCreatedAt>{getFormattedDate(link.created_at ?? link.createdAt)}</CardContentCreatedAt>
+      <CardContentCreatedAt>{getFormattedDate(link.created_at)}</CardContentCreatedAt>
     </CardContentContainer>
   );
 };
