@@ -15,7 +15,7 @@ const HeaderWrap = styled.div`
   }
 
   @media (max-width: 767px) {
-    padding: 13px 32px;
+    padding: 18px 32px 17px;
   }
 `;
 

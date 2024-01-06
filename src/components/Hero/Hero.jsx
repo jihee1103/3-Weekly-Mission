@@ -8,6 +8,10 @@ const HeroContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 767px) {
+    padding: 87px 32px 40px;
+  }
 `;
 
 const Hero = ({ children }) => {

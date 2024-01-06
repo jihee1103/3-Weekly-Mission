@@ -6,6 +6,11 @@ const CardListContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 767px) {
+    padding: 20px 32px;
+    margin-bottom: 40px;
+  }
 `;
 
 const CardList = ({ children }) => {
