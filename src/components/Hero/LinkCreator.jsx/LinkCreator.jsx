@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const LinkCreatorContainer = styled.div`
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,6 +15,10 @@ const LinkCreatorContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 16px;
+  }
+
+  @media (max-width: 864px) {
+    width: 100%;
   }
 `;
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import FolderTitle from './FolderTitle';
+import FolderTitle from './FolderTitle/FolderTitle';
 
 const FolderContainer = styled.div`
   width: 1060px;
@@ -10,6 +10,14 @@ const FolderContainer = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 8px;
+  }
+
+  @media (max-width: 1123px) {
+    width: 704px;
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
   }
 `;
 

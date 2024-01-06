@@ -14,6 +14,14 @@ const FolderTitleContainer = styled.div`
     font-weight: 600;
     letter-spacing: -0.2px;
   }
+
+  @media (max-width: 1123px) {
+    width: 704px;
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const FolderToolbar = styled.div`

@@ -23,6 +23,18 @@ const CardListContainer = styled.ul`
   grid-template-rows: repeat(3, 340px);
   grid-template-columns: repeat(3, 340px);
   gap: 20px;
+
+  @media (max-width: 1123px) {
+    display: grid;
+    grid-template-columns: repeat(2, 340px);
+    gap: 24px;
+  }
+
+  @media (max-width: 767px) {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 24px;
+  }
 `;
 
 const CardLink = styled(Link)`
@@ -37,18 +49,6 @@ const CardLink = styled(Link)`
 
   &:hover ${CardContentContainer} {
     background: var(--gray5);
-  }
-
-  @media (max-width: 1123px) {
-    display: grid;
-    grid-template-columns: repeat(2, 340px);
-    gap: 24px;
-  }
-
-  @media (max-width: 767px) {
-    display: grid;
-    grid-template-columns: 100%;
-    gap: 24px;
   }
 `;
 

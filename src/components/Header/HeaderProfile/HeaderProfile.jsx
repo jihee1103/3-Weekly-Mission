@@ -15,6 +15,10 @@ const HeaderProfileContainer = styled.div`
     color: var(--Linkbrary-gray100, #373740);
     font-family: Pretendard;
     font-size: 14px;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 `;
 

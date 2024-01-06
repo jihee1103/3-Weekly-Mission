@@ -23,6 +23,7 @@ const HeaderContainer = styled.div`
   max-width: 1920px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
 
   @media (max-width: 1123px) and (min-width: 768px) {
@@ -38,18 +39,28 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const LogoImg = styled.img`
-  width: 100%;
-  height: 100%;
+const LogoImg = styled(Link)`
+  width: 133px;
+  height: 24px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    width: 88px;
+    height: 16px;
+  }
 `;
 
 const Header = ({ login, userData }) => {
   return (
     <HeaderWrap>
       <HeaderContainer>
-        <Link to="/" className="header__img">
-          <LogoImg src={`${process.env.PUBLIC_URL}/images/logo.svg`} alt="로고 이미지" />
-        </Link>
+        <LogoImg to="/" className="header__img">
+          <img src={`${process.env.PUBLIC_URL}/images/logo.svg`} alt="로고 이미지" />
+        </LogoImg>
         <HeaderProfile login={login} userData={userData} />
       </HeaderContainer>
     </HeaderWrap>
