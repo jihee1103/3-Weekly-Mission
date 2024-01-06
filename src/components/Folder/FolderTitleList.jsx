@@ -40,19 +40,34 @@ const AddFolderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 767px) {
+    & {
+      cursor: pointer;
+      position: fixed;
+      bottom: 101px;
+      right: 50%;
+      transform: translateX(50%);
+      padding: 8px 24px;
+      border-radius: 20px;
+      border: 1px solid #fff;
+      background: #6d6afe;
+      z-index: 1;
+    }
+  }
 `;
 
 export default function FolderTitleList({ folderList, folderId, onClick }) {
+  const allFolder = { id: 0, name: '전체' };
   return (
     <Wrapper>
       <FolderListContainer>
-        <FolderItemAll onClick={() => onClick(0)}>전체</FolderItemAll>
+        <FolderItemAll onClick={() => onClick(allFolder)}>전체</FolderItemAll>
         {folderList.map((item) => (
           <FolderTitle
             key={item.id}
             item={item}
             folderId={folderId}
-            onClick={() => onClick(item.id)}
+            onClick={() => onClick(item)}
           />
         ))}
       </FolderListContainer>

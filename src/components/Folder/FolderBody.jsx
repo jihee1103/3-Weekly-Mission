@@ -16,9 +16,11 @@ const Wrapper = styled.div`
 
 export default function FolderBody() {
   const [folderId, setFolderId] = useState(0);
+  const [folderName, setFolderName] = useState('전체');
 
-  const handleTitleClick = (id) => {
-    setFolderId(id);
+  const handleTitleClick = (item) => {
+    setFolderId(item.id);
+    setFolderName(item.name);
   };
 
   const links = useFolderLinks(BASE_API_HOST, `${API_LINKS}`, folderId);
@@ -35,6 +37,7 @@ export default function FolderBody() {
           links={links}
           folderId={folderId}
           onClick={handleTitleClick}
+          folderName={folderName}
         />
       )}
       {links.length === 0 && folderList.length !== 0 && <NoLinkCard />}

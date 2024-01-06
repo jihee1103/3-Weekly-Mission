@@ -43,24 +43,26 @@ const FolderEditButton = styled.div`
   cursor: pointer;
 `;
 
-export default function FolderCardHeader() {
+export default function FolderCardHeader({ folderName, folderId }) {
   return (
     <Wrapper>
-      <FolderTitle>전체</FolderTitle>
-      <FolderManageContainer>
-        <FolderEditButton>
-          <EditIcon src={shareIcon} />
-          공유
-        </FolderEditButton>
-        <FolderEditButton>
-          <EditIcon src={editIcon} />
-          이름 변경
-        </FolderEditButton>
-        <FolderEditButton>
-          <DeleteIcon src={deleteIcon} />
-          삭제
-        </FolderEditButton>
-      </FolderManageContainer>
+      <FolderTitle>{folderName}</FolderTitle>
+      {folderId !== 0 && (
+        <FolderManageContainer>
+          <FolderEditButton>
+            <EditIcon src={shareIcon} />
+            공유
+          </FolderEditButton>
+          <FolderEditButton>
+            <EditIcon src={editIcon} />
+            이름 변경
+          </FolderEditButton>
+          <FolderEditButton>
+            <DeleteIcon src={deleteIcon} />
+            삭제
+          </FolderEditButton>
+        </FolderManageContainer>
+      )}
     </Wrapper>
   );
 }

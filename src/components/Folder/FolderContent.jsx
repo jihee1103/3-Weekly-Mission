@@ -17,6 +17,7 @@ export default function FolderContent({
   links,
   folderId,
   onClick,
+  folderName,
 }) {
   return (
     <>
@@ -26,7 +27,7 @@ export default function FolderContent({
         onClick={onClick}
       />
       <FolderCardArea>
-        <FolderCardHeader />
+        <FolderCardHeader folderName={folderName} folderId={folderId} />
         <FolderCardList links={links} />
       </FolderCardArea>
     </>
