@@ -1,28 +1,8 @@
-import { useEffect, useState } from "react";
-import { getUserData } from "../../apis/api";
+import { useUserData } from "../../hooks/useUserData";
 import "./Navbar.css";
-import useAsync from "../../hooks/useAsync";
 
 function Account() {
-  const [userData, setUserData] = useState("");
-  const [isLoading, loadingError, getUserAsync] = useAsync(getUserData);
-
-  //초기데이터 설정
-  useEffect(() => {
-    //유저 데이터 가져오기-> custom Hook으로 수정
-    const handleLoadUser = async () => {
-      // const users = await getUserData();
-      // setUserData(users);
-      let result = await getUserAsync();
-      if (!result) return;
-
-      setUserData(result);
-    };
-
-    handleLoadUser();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { userData, loadingError } = useUserData();
 
   return (
     <>
@@ -30,16 +10,17 @@ function Account() {
         <div className="account-frame">
           <img
             className="profile"
-            src={userData.profileImageSource}
+            src={userData?.profileImageSource}
             alt="profile-img"
           />
-          <span className="email">{userData.email}</span>
+          <span className="email">{userData?.email}</span>
         </div>
       ) : (
         <a className="login" href="/signin">
           로그인
         </a>
       )}
+      {loadingError?.message && <span>{loadingError.message}</span>}
     </>
   );
 }

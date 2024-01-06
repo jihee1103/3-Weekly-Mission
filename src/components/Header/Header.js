@@ -1,25 +1,8 @@
-import { useState, useEffect } from "react";
-import useAsync from "../../hooks/useAsync";
-import { getFolderData } from "../../apis/api";
-// import { useFolderData } from "../../hooks/useFolderData";
+import { useFolderData } from "../../hooks/useFolderData";
 import "./Header.css";
 
 function Header() {
-  const [folderData, setFolderData] = useState(null);
-  const [isLoading, loadingError, getFolderAsync] = useAsync(getFolderData);
-
-  //초기데이터 설정
-  useEffect(() => {
-    //폴더 데이터 가져오기
-    const handleLoadFolder = async () => {
-      const result = await getFolderAsync();
-      if (!result) return;
-
-      setFolderData(result);
-    };
-
-    handleLoadFolder();
-  }, []);
+  const { folderData, loadingError } = useFolderData();
 
   return (
     <header>
