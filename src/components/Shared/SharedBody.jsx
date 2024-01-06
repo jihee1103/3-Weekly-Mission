@@ -6,7 +6,7 @@ import { BASE_API_HOST } from '../../constants/api';
 import CardList from '../Card/CardList';
 
 export default function SharedBody() {
-  const API_FOLDER = 'api/sample/folder';
+  const API_FOLDER = 'sample/folder';
   const [links, setLink] = useState([]);
 
   const getLinks = async () => {

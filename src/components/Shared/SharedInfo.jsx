@@ -4,7 +4,7 @@ import getFetchRequest from '../../utils/getFetchRequest';
 import { BASE_API_HOST } from '../../constants/api';
 
 export default function SharedInfo() {
-  const API_FOLDER = 'api/sample/folder';
+  const API_FOLDER = 'sample/folder';
   const [avatar, setAvatar] = useState(null);
   const [owner, setOwner] = useState('');
   const [folderName, setFolderName] = useState('');
