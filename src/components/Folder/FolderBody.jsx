@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import FolderContent from './FolderContent';
-import getFetchRequest from '../../utils/getFetchRequest';
-import BASE_API_HOST from '../../constants/api';
+import { API_FOLDERS, API_LINKS, BASE_API_HOST } from '../../constants/api';
+import useFolderLinks from '../../Hooks/useFolderLinks';
+import NoLinkCard from '../Card/NoLinkCard';
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,21 +15,28 @@ const Wrapper = styled.div`
 `;
 
 export default function FolderBody() {
-  const API_USER = 'api/users/1';
-  const [links, setLinks] = useState([]);
+  const [folderId, setFolderId] = useState(0);
 
-  useEffect(() => {
-    const getUserLinks = async () => {
-      const result = await getFetchRequest(BASE_API_HOST, `${API_USER}/links`);
-      setLinks(result.data);
-    };
-    getUserLinks();
-  }, []);
+  const handleTitleClick = (id) => {
+    setFolderId(id);
+  };
+
+  const links = useFolderLinks(BASE_API_HOST, `${API_LINKS}`, folderId);
+  const folderList = useFolderLinks(BASE_API_HOST, `${API_FOLDERS}`);
 
   return (
     <Wrapper>
       <SearchBar />
-      <FolderContent links={links} />
+      {links.length ? (
+        <FolderContent
+          folderList={folderList}
+          links={links}
+          folderId={folderId}
+          onClick={handleTitleClick}
+        />
+      ) : (
+        <NoLinkCard />
+      )}
     </Wrapper>
   );
 }

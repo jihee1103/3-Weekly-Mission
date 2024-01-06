@@ -1,9 +1,6 @@
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import FolderList from './FolderList';
+import FolderTitle from './FolderTitle';
 import AddFolder from './AddFolder';
-import getFetchRequest from '../../utils/getFetchRequest';
-import BASE_API_HOST from '../../constants/api';
 
 const Wrapper = styled.div`
   display: flex;
@@ -45,31 +42,18 @@ const AddFolderWrapper = styled.div`
   justify-content: center;
 `;
 
-export default function FolderListArea() {
-  const API_USER = 'api/users/1';
-  const [folderLists, setFolderList] = useState([]);
-
-  useEffect(() => {
-    const getFolderList = async () => {
-      try {
-        const result = await getFetchRequest(
-          BASE_API_HOST,
-          `${API_USER}/folders`,
-        );
-        setFolderList(result.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getFolderList();
-  }, []);
-
+export default function FolderTitleList({ folderList, folderId, onClick }) {
   return (
     <Wrapper>
       <FolderListContainer>
-        <FolderItemAll>전체</FolderItemAll>
-        {folderLists.map((item) => (
-          <FolderList key={item.id} item={item} />
+        <FolderItemAll onClick={() => onClick(0)}>전체</FolderItemAll>
+        {folderList.map((item) => (
+          <FolderTitle
+            key={item.id}
+            item={item}
+            folderId={folderId}
+            onClick={() => onClick(item.id)}
+          />
         ))}
       </FolderListContainer>
       <AddFolderWrapper>

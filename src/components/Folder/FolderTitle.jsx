@@ -10,10 +10,16 @@ const FolderItem = styled.div`
   border: 1px solid #6d6afe;
   cursor: pointer;
 `;
-export default function FolderList({ item }) {
+export default function FolderTitle({ item, onClick }) {
   const [folderName, setFolderName] = useState('');
+
   useEffect(() => {
     setFolderName(item.name);
-  }, []);
-  return <FolderItem>{folderName}</FolderItem>;
+  }, [item.name]);
+
+  const handleClick = () => {
+    onClick();
+  };
+
+  return <FolderItem onClick={handleClick}>{folderName}</FolderItem>;
 }

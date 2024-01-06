@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import './SharedBody.css';
 import getFetchRequest from '../../utils/getFetchRequest';
-import BASE_API_HOST from '../../constants/api';
+import { BASE_API_HOST } from '../../constants/api';
 import CardList from '../Card/CardList';
 
 export default function SharedBody() {

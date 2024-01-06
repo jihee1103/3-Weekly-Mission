@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './SharedInfo.css';
 import getFetchRequest from '../../utils/getFetchRequest';
-import BASE_API_HOST from '../../constants/api';
+import { BASE_API_HOST } from '../../constants/api';
 
 export default function SharedInfo() {
   const API_FOLDER = 'api/sample/folder';

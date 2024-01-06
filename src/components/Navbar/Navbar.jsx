@@ -4,10 +4,9 @@ import logoImg from '../../asset/logo.svg';
 import './Navbar.css';
 import NavProfile from './NavProfile';
 import getFetchRequest from '../../utils/getFetchRequest';
-import BASE_API_HOST from '../../constants/api';
+import { API_USERS, BASE_API_HOST } from '../../constants/api';
 
 export default function Navbar() {
-  const API_USER = 'api/users/1';
   const location = useLocation();
   const isFolderPage = location.pathname === '/folder';
   const relativeStyle = isFolderPage && 'relative';
@@ -18,7 +17,7 @@ export default function Navbar() {
   useEffect(() => {
     const getUserInfo = async () => {
       try {
-        const result = await getFetchRequest(BASE_API_HOST, API_USER);
+        const result = await getFetchRequest(BASE_API_HOST, `${API_USERS}/1`);
         setUserEmail(result.data[0].email);
         setUserProfileImg(result.data[0].image_source);
       } catch (error) {

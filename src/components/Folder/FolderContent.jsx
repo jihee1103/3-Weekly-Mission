@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import FolderTitleList from './FolderTitleList';
 import FolderCardHeader from './FolderCardHeader';
 import FolderCardList from './FolderCardList';
-import FolderListArea from './FolderListArea';
 
 const FolderCardArea = styled.div`
   display: flex;
@@ -12,10 +12,19 @@ const FolderCardArea = styled.div`
   width: 100%;
 `;
 
-export default function FolderContent({ links }) {
+export default function FolderContent({
+  folderList,
+  links,
+  folderId,
+  onClick,
+}) {
   return (
     <>
-      <FolderListArea />
+      <FolderTitleList
+        folderList={folderList}
+        folderId={folderId}
+        onClick={onClick}
+      />
       <FolderCardArea>
         <FolderCardHeader />
         <FolderCardList links={links} />
