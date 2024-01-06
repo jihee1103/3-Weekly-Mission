@@ -32,8 +32,8 @@ const CardContentDescription = styled.div`
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  overflow: hidden;
   -webkit-line-clamp: 2;
+  overflow: hidden;
 `;
 
 const CardContentCreatedAt = styled.div`
@@ -47,15 +47,10 @@ const CardContentCreatedAt = styled.div`
 const KebabBtn = styled.button`
   width: 21px;
   height: 17px;
+
   img {
     width: 100%;
     height: 100%;
-  }
-
-  &:hover {
-    border-radius: 2px;
-    background-color: #313131;
-    color: white;
   }
 `;
 
@@ -74,15 +69,10 @@ const KebabMenuDeleteBtn = styled.button`
   display: flex;
   padding: 7px 12px;
   justify-content: center;
-  align-items: flex-start;
   gap: 10px;
   align-self: stretch;
   color: var(--gray-light-gray-100, #333236);
   font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   background: var(--gray-light-gray-00, #fff);
   box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
 `;
@@ -91,16 +81,12 @@ const KebabMenuAddFolderBtn = styled.button`
   display: flex;
   padding: 7px 12px;
   justify-content: center;
-  align-items: flex-start;
+
   gap: 10px;
   align-self: stretch;
   background: var(--Linkbrary-gray10, #e7effb);
   color: var(--Linkbrary-primary-color, #6d6afe);
   font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 `;
 
 const CardDescription = ({ link }) => {
