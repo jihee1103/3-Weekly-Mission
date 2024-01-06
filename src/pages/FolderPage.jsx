@@ -33,6 +33,7 @@ export default function FolderPage() {
               setFolderName={setFolderName}
               handleEntireData={handleEntireData}
               handleIdData={handleIdData}
+              folderName={folderName}
             />
             <h2 className={styled.folder_name}>{folderName}</h2>
             {cardListItem ? (
