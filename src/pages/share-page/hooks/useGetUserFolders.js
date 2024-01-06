@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { getUserFolders } from '@/api/getUserFolders';
+import { getUserFolders } from '@api/getUserFolders';
 
 const useGetUserFolders = () => {
   const [userFolders, setUserFolders] = useState({

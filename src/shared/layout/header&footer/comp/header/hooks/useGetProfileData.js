@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { getProFileData } from '@/api/getProfileData';
+import { getProFileData } from '@api/getProfileData';
 
 const useGetProfileData = () => {
   const [profileData, setProfileData] = useState(null);

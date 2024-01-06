@@ -1,4 +1,5 @@
 import { BASE_URL } from './instance/instance-api';
+
 const GET_PROFILE_DATA_API = '/api/sample/user';
 
 const getProFileData = async () => {

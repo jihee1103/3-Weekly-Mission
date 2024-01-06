@@ -1,4 +1,5 @@
 import { BASE_URL } from './instance/instance-api';
+
 const GET_USER_FOLDERS_API = '/api/sample/folder';
 
 const getUserFolders = async () => {

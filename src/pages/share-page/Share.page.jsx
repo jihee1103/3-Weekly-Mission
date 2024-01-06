@@ -1,11 +1,11 @@
 import Header from '@layout/header&footer/comp/header/Header';
 import Footer from '@layout/header&footer/comp/footer/Footer';
-import './Shared.css';
 import Article from './comp/article/Article';
 import Banner from './comp/banner/Banner';
 import { useGetUserFolders } from './hooks/useGetUserFolders';
+import './Share.css';
 
-const Shared = () => {
+const Share = () => {
   const { links, userInfo } = useGetUserFolders();
 
   return (
@@ -17,4 +17,4 @@ const Shared = () => {
     </>
   );
 };
-export default Shared;
+export default Share;
