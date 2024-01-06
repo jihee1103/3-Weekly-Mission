@@ -46,7 +46,7 @@ const FolderEditButton = styled.div`
 export default function FolderCardHeader() {
   return (
     <Wrapper>
-      <FolderTitle>유용한 글</FolderTitle>
+      <FolderTitle>전체</FolderTitle>
       <FolderManageContainer>
         <FolderEditButton>
           <EditIcon src={shareIcon} />

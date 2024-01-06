@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import './SharedInfo.css';
 import getFetchRequest from '../../utils/getFetchRequest';
-import { API_FOLDER, BASE_API_HOST } from '../../constants/api';
+import BASE_API_HOST from '../../constants/api';
 
 export default function SharedInfo() {
+  const API_FOLDER = 'api/sample/folder';
   const [avatar, setAvatar] = useState(null);
   const [owner, setOwner] = useState('');
   const [folderName, setFolderName] = useState('');

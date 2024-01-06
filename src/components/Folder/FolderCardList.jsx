@@ -1,7 +1,5 @@
-export default function FolderCardList() {
-  return (
-    <div>
-      <div>카드 리스트</div>
-    </div>
-  );
+import CardList from '../Card/CardList';
+
+export default function FolderCardList({ links }) {
+  return <CardList links={links} />;
 }

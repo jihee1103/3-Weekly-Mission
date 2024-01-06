@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import FolderList from './FolderList';
 import AddFolder from './AddFolder';
 import getFetchRequest from '../../utils/getFetchRequest';
-import { API_USER, BASE_API_HOST } from '../../constants/api';
+import BASE_API_HOST from '../../constants/api';
 
 const Wrapper = styled.div`
   display: flex;
@@ -46,6 +46,7 @@ const AddFolderWrapper = styled.div`
 `;
 
 export default function FolderListArea() {
+  const API_USER = 'api/users/1';
   const [folderLists, setFolderList] = useState([]);
 
   useEffect(() => {

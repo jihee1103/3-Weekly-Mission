@@ -4,9 +4,10 @@ import logoImg from '../../asset/logo.svg';
 import './Navbar.css';
 import NavProfile from './NavProfile';
 import getFetchRequest from '../../utils/getFetchRequest';
-import { API_USER, BASE_API_HOST } from '../../constants/api';
+import BASE_API_HOST from '../../constants/api';
 
 export default function Navbar() {
+  const API_USER = 'api/users/1';
   const location = useLocation();
   const isFolderPage = location.pathname === '/folder';
   const relativeStyle = isFolderPage && 'relative';

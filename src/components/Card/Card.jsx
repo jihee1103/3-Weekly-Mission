@@ -50,7 +50,9 @@ export default function Card({ link }) {
           <p className="card-info-time">{elapsedTime}</p>
           <img src={kebabIcon} alt="더보기 아이콘" className="kebab-Icon" />
         </div>
-        <p className="card-info-body">{link.description}</p>
+        <p className="card-info-body">
+          {link.description || '설명이 없습니다.'}
+        </p>
         <p className="card-info-date">{formattedCreatedAt}</p>
       </div>
     </a>

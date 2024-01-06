@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import FolderListArea from './FolderListArea';
+import { useEffect, useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
-import FolderCardHeader from './FolderCardHeader';
-import FolderCardList from './FolderCardList';
+import FolderContent from './FolderContent';
+import getFetchRequest from '../../utils/getFetchRequest';
+import BASE_API_HOST from '../../constants/api';
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,24 +12,23 @@ const Wrapper = styled.div`
   justify-content: center;
   gap: 24px;
 `;
-const FolderCardArea = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 24px;
-  width: 100%;
-`;
 
 export default function FolderBody() {
+  const API_USER = 'api/users/1';
+  const [links, setLinks] = useState([]);
+
+  useEffect(() => {
+    const getUserLinks = async () => {
+      const result = await getFetchRequest(BASE_API_HOST, `${API_USER}/links`);
+      setLinks(result.data);
+    };
+    getUserLinks();
+  }, []);
+
   return (
     <Wrapper>
       <SearchBar />
-      <FolderListArea />
-      <FolderCardArea>
-        <FolderCardHeader />
-        <FolderCardList />
-      </FolderCardArea>
+      <FolderContent links={links} />
     </Wrapper>
   );
 }
