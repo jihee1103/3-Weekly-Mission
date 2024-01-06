@@ -1,9 +1,12 @@
 import React from "react";
 import { getCreateDay, getTimeDifference } from "../../utils/util";
 import defaultImg from "../../assets/images/1.png";
+import starIcon from "../../assets/images/star.svg";
 import { Link } from "react-router-dom";
+import styled from "./Card.module.css";
+import Kebab from "../Kebab/Kebab";
 
-export default function Card({ item }) {
+export default function Card({ item, toggle }) {
   const {
     created_at,
     createdAt,
@@ -25,13 +28,19 @@ export default function Card({ item }) {
     : defaultImg;
 
   return (
-    <Link to={url} rel="noreferrer noopener" target="_blank">
-      <img src={imgSource} alt={imgAlt} />
-      <div className="card-info">
-        <span className="time-ago">{timeAgo}</span>
-        <p className="description">{description}</p>
-        <span className="created-day">{createdDay}</span>
+    <>
+      <Link to={url} rel="noreferrer noopener" target="_blank">
+        <img className={styled["main-img"]} src={imgSource} alt={imgAlt} />
+      </Link>
+      {toggle && (
+        <img className={styled.star} src={starIcon} alt="별모양 아이콘" />
+      )}
+      <div className={styled["card-info"]}>
+        {toggle && <Kebab />}
+        <span className={styled["time-ago"]}>{timeAgo}</span>
+        <p className={styled.description}>{description}</p>
+        <span className={styled["created-day"]}>{createdDay}</span>
       </div>
-    </Link>
+    </>
   );
 }

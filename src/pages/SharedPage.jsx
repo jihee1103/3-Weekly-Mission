@@ -32,13 +32,13 @@ export default function SharedPage() {
     <main>
       {folderOwner ? (
         <SharedHeader folderName={folderName} folderOwner={folderOwner} />
-      ) : (
-        ""
-      )}
+      ) : null}
 
       <div className="shared-card-board">
         <LinkSearchForm />
-        {cardListItem ? <CardList itemList={cardListItem} /> : null}
+        {cardListItem ? (
+          <CardList itemList={cardListItem} toggle={false} />
+        ) : null}
       </div>
     </main>
   );

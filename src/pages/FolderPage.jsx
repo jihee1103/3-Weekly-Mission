@@ -36,7 +36,7 @@ export default function FolderPage() {
             />
             <h2 className={styled.folder_name}>{folderName}</h2>
             {cardListItem ? (
-              <CardList itemList={cardListItem} />
+              <CardList itemList={cardListItem} toggle={true} />
             ) : (
               noLinkElement
             )}
