@@ -6,10 +6,10 @@ const FolderContainer = styled.div`
   width: 1060px;
   margin-bottom: 24px;
 
-  div {
+  & > div {
     display: flex;
     justify-content: space-between;
-    gap: 8px;
+    align-items: center;
   }
 
   @media (max-width: 1123px) {
@@ -18,7 +18,14 @@ const FolderContainer = styled.div`
 
   @media (max-width: 767px) {
     width: 100%;
+    margin-bottom: 8px;
   }
+`;
+
+const FolderButtonContainer = styled.div`
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
 `;
 
 const FolderButton = styled.button`
@@ -31,6 +38,7 @@ const FolderButton = styled.button`
   background: #fff;
   color: #000;
   font-family: Pretendard;
+  margin-right: 8px;
 
   &:focus {
     color: #fff;
@@ -43,14 +51,25 @@ const FolderButton = styled.button`
     border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
     background: var(--Linkbrary-primary-color, #6d6afe);
   }
+
+  @media (max-width: 767px) {
+    padding: 6px 10px;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
 `;
 
 const FolderMoreButton = styled.button`
   width: 16px;
   height: 16px;
+
   img {
     width: 100%;
     height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    display: none;
   }
 `;
 
@@ -65,7 +84,7 @@ const Folder = ({ folderData, HandleOverViewFolderCardData, HandleFolderCardData
     <>
       <FolderContainer>
         <div>
-          <div>
+          <FolderButtonContainer>
             <FolderButton
               type="button"
               onClick={() => {
@@ -89,7 +108,7 @@ const Folder = ({ folderData, HandleOverViewFolderCardData, HandleFolderCardData
                 </FolderButton>
               );
             })}
-          </div>
+          </FolderButtonContainer>
           <FolderMoreButton>
             <img src={`${process.env.PUBLIC_URL}/images/add.svg`} alt="폴더 더보기 사진" />
           </FolderMoreButton>

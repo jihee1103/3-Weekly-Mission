@@ -27,6 +27,8 @@ const CardListSearchBar = styled.div`
 
   @media (max-width: 767px) {
     width: 100%;
+    padding: 13px 16px;
+    font-size: 14px;
   }
 `;
 

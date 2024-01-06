@@ -3,7 +3,6 @@ import { styled, css } from 'styled-components';
 
 const FooterWrap = styled.footer`
   box-sizing: border-box;
-  width: 100vw;
   padding: 32px 104px 64px;
   background: #111322;
 

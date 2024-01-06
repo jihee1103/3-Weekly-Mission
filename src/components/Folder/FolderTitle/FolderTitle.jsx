@@ -21,6 +21,8 @@ const FolderTitleContainer = styled.div`
 
   @media (max-width: 767px) {
     width: 100%;
+    flex-direction: column;
+    gap: 12px;
   }
 `;
 

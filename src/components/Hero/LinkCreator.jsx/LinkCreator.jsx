@@ -20,11 +20,24 @@ const LinkCreatorContainer = styled.div`
   @media (max-width: 864px) {
     width: 100%;
   }
+
+  @media (max-width: 767px) {
+    padding: 8px 10px;
+
+    div {
+      gap: 8px;
+    }
+  }
 `;
 
 const LinkCreatorImg = styled.img`
   width: 20px;
   height: 20px;
+
+  @media (max-width: 767px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 const LinkCreatorInput = styled.input`
@@ -32,6 +45,11 @@ const LinkCreatorInput = styled.input`
   font-family: Pretendard;
   font-size: 16px;
   line-height: 24px;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    line-height: normal;
+  }
 `;
 
 const CreateLinkButton = styled.button`
