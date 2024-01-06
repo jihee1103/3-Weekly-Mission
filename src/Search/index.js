@@ -5,7 +5,7 @@ function Search() {
   return (
     <form className="form">
       <img className="search-icon" width="16" src={search} />
-      <label for="input-search" />
+      <label htmlFor="input-search" />
       <input
         className="input"
         id="input-search"

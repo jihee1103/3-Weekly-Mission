@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Card from './card/index';
 
 function CardList() {
-  const [links, setLink] = useState([]);
+  const [link, setLink] = useState([]);
 
   const folderData = async () => {
     const data = await getFolderData();
@@ -18,9 +18,13 @@ function CardList() {
 
   return (
     <div className="card-list">
-      {links.map(link => {
-        return <Card key={link.id} link={link} />;
-      })}
+      {link ? (
+        link.map(link => {
+          return <Card key={link.id} link={link} />;
+        })
+      ) : (
+        <p className="no-link">저장된 링크가 없습니다.</p>
+      )}
     </div>
   );
 }

@@ -18,16 +18,16 @@ function Footer() {
           </a>
         </div>
         <div className="footer__sns">
-          <a href="https://www.facebook.com/" target="_blank">
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
             <img src={facebook} alt="페이스북 아이콘" />
           </a>
-          <a href="https://twitter.com/" target="_blank">
+          <a href="https://twitter.com/" target="_blank" rel="noreferrer">
             <img src={twitter} alt="트위터 아이콘" />
           </a>
-          <a href="https://www.youtube.com/" target="_blank">
+          <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
             <img src={youtube} alt="유튜브 아이콘" />
           </a>
-          <a href="https://www.instagram.com/" target="_blank">
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
             <img src={instagram} alt="인스타그램 아이콘" />
           </a>
         </div>
