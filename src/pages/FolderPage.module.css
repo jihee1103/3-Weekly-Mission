@@ -27,8 +27,6 @@
 }
 
 .folder_name {
-  width: 100%;
-  margin: 0 auto;
   font-size: 24px;
   font-weight: 600;
 }
@@ -42,13 +40,70 @@
   gap: 24px;
 }
 
+.icon-container {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-container img {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-container span {
+  font-weight: 600;
+  font-size: 14px;
+  color: #9fa6b2;
+}
+
+.folderNameLine {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.floating {
+  display: none;
+}
+
 @media screen and (max-width: 1124px) {
   .container {
     max-width: 70.4rem;
+  }
+  .floating {
+    display: none;
   }
 }
 @media screen and (max-width: 756px) {
   .container {
     max-width: 32.5rem;
+  }
+  .folderNameLine {
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+  }
+  .floating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 61px auto 0;
+    padding: 8px 24px;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    background: #6d6afe;
+    color: #e7effb;
+    gap: 4px;
+  }
+  .floating span {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .floating img {
+    width: 16px;
+    height: 16px;
   }
 }

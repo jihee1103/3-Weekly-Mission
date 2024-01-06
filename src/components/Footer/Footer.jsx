@@ -1,8 +1,5 @@
 import React from "react";
-import facebookIcon from "../../assets/images/akar-icons_facebook-fill.svg";
-import twitterIcon from "../../assets/images/akar-icons_twitter-fill.svg";
-import youtubeIcon from "../../assets/images/akar-icons_youtube-fill.svg";
-import instagramIcon from "../../assets/images/ant-design_instagram-filled.svg";
+import imageData from "../../utils/imageData";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 
@@ -28,17 +25,17 @@ export default function Footer() {
       <ul className="sns">
         <li>
           <Link to={SNS_URL.FACEBOOK} rel="noreferrer noopener" target="_blank">
-            <img src={facebookIcon} alt="페이스북 이동 아이콘" />
+            <img src={imageData.facebookIcon} alt="페이스북 이동 아이콘" />
           </Link>
         </li>
         <li>
           <Link to={SNS_URL.TWITTER} rel="noreferrer noopener" target="_blank">
-            <img src={twitterIcon} alt="트위터 이동 아이콘" />
+            <img src={imageData.twitterIcon} alt="트위터 이동 아이콘" />
           </Link>
         </li>
         <li>
           <Link to={SNS_URL.YOUTUBE} rel="noreferrer noopener" target="_blank">
-            <img src={youtubeIcon} alt="유튜브 이동 아이콘" />
+            <img src={imageData.youtubeIcon} alt="유튜브 이동 아이콘" />
           </Link>
         </li>
         <li>
@@ -47,7 +44,7 @@ export default function Footer() {
             rel="noreferrer noopener"
             target="_blank"
           >
-            <img src={instagramIcon} alt="인스타그램 이동 아이콘" />
+            <img src={imageData.instagramIcon} alt="인스타그램 이동 아이콘" />
           </Link>
         </li>
       </ul>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "./FolderListButton.module.css";
 import { getFolderData } from "../../apis/api";
+import imageData from "../../utils/imageData";
 
 export default function FolderListButton({
   itemList,
@@ -42,6 +43,11 @@ export default function FolderListButton({
           </button>
         );
       })}
+      <img
+        className={styled.icon}
+        src={imageData.plusIcon}
+        alt="더하기 아이콘"
+      />
     </div>
   );
 }

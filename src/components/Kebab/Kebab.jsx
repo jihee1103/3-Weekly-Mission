@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import kebabIcon from "../../assets/images/kebab.svg";
+import imageData from "../../utils/imageData";
 import styled from "./Kebab.module.css";
 
 export default function Kebab() {
@@ -19,7 +19,11 @@ export default function Kebab() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <img className={styled.Kebab} src={kebabIcon} alt="케밥모양 아이콘" />
+      <img
+        className={styled.Kebab}
+        src={imageData.kebabIcon}
+        alt="케밥모양 아이콘"
+      />
       {isHovered && (
         <div className={styled["hover-container"]}>
           <button className={styled.button}>삭제하기</button>

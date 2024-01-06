@@ -1,7 +1,6 @@
 import React from "react";
 import { getCreateDay, getTimeDifference } from "../../utils/util";
-import defaultImg from "../../assets/images/1.png";
-import starIcon from "../../assets/images/star.svg";
+import imageData from "../../utils/imageData";
 import { Link } from "react-router-dom";
 import styled from "./Card.module.css";
 import Kebab from "../Kebab/Kebab";
@@ -25,7 +24,7 @@ export default function Card({ item, toggle }) {
     ? imageSource
     : image_source
     ? image_source
-    : defaultImg;
+    : imageData.defaultImg;
 
   return (
     <>
@@ -33,7 +32,11 @@ export default function Card({ item, toggle }) {
         <img className={styled["main-img"]} src={imgSource} alt={imgAlt} />
       </Link>
       {toggle && (
-        <img className={styled.star} src={starIcon} alt="별모양 아이콘" />
+        <img
+          className={styled.star}
+          src={imageData.starIcon}
+          alt="별모양 아이콘"
+        />
       )}
       <div className={styled["card-info"]}>
         {toggle && <Kebab />}

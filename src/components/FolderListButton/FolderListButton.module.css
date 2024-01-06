@@ -3,6 +3,7 @@
   margin: 0 auto;
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .container .button {
@@ -28,10 +29,11 @@
   background: var(--Linkbrary-primary-color, #6d6afe);
 }
 
+.icon {
+  margin-left: auto;
+}
+
 @media screen and (max-width: 756px) {
-  .container {
-    flex-wrap: wrap;
-  }
   .container .button {
     padding: 6px 10px;
     font-size: 14px;
@@ -42,5 +44,8 @@
     padding: 6px 10px;
     font-size: 14px;
     font-weight: 400;
+  }
+  .icon {
+    display: none;
   }
 }

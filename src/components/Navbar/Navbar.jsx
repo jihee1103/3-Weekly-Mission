@@ -1,6 +1,5 @@
 import "./Navbar.css";
-import logoImg from "../../assets/images/logo.svg";
-import defaultProfileImg from "../../assets/images/shared-myprofile.svg";
+import imageData from "../../utils/imageData";
 import { Link } from "react-router-dom";
 
 export default function Navbar({ user }) {
@@ -8,7 +7,11 @@ export default function Navbar({ user }) {
     <nav className="navbar">
       <div className="navbar-content">
         <Link to={"/"}>
-          <img src={logoImg} className="logo" alt="홈으로 이동하는 로고" />
+          <img
+            src={imageData.logoImg}
+            className="logo"
+            alt="홈으로 이동하는 로고"
+          />
         </Link>
 
         {user ? (
@@ -35,7 +38,7 @@ function NavProfile({ user }) {
         <img className="profile-img" src={source} alt="프로필 사진" />
       ) : (
         <div className="profile-default-img">
-          <img src={defaultProfileImg} alt="프로필 사진" />
+          <img src={imageData.defaultProfileImg} alt="프로필 사진" />
         </div>
       )}
 
