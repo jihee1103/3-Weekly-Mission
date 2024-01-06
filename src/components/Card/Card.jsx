@@ -29,6 +29,9 @@ export default function Card({ link }) {
     setCardImgUrl(link.imageSource);
     updateFormattedCreatedAt(link.createdAt);
   }, [link]);
+  const handleImageError = (e) => {
+    e.target.src = defaultImage;
+  };
 
   return (
     <a
@@ -42,6 +45,7 @@ export default function Card({ link }) {
           src={cardImgUrl || defaultImage}
           alt="카드 미리보기 이미지"
           className="card-preview-img"
+          onError={handleImageError}
         />
         <img src={starIcon} alt="즐겨찾기 버튼" className="star-Icon" />
       </div>

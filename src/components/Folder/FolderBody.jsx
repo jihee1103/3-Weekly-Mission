@@ -27,16 +27,17 @@ export default function FolderBody() {
   return (
     <Wrapper>
       <SearchBar />
-      {links.length ? (
+      {links.length === 0 && folderList.length === 0 ? (
+        <NoLinkCard />
+      ) : (
         <FolderContent
           folderList={folderList}
           links={links}
           folderId={folderId}
           onClick={handleTitleClick}
         />
-      ) : (
-        <NoLinkCard />
       )}
+      {links.length === 0 && folderList.length !== 0 && <NoLinkCard />}
     </Wrapper>
   );
 }
