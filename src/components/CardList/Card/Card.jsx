@@ -3,24 +3,8 @@ import styled from 'styled-components';
 import CardImg, { CardMainImg } from './CardImg/CardImg';
 import CardContent, { CardContentContainer } from './CardContent/CardContent';
 
-const AlertNotStoredLink = styled.div`
-  display: flex;
-  width: 1060px;
-  height: 100px;
-  padding: 41px 0px 35px;
-  justify-content: center;
-  align-items: center;
-  color: #000;
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 24px; /* 150% */
-`;
-
 const CardListContainer = styled.ul`
   display: grid;
-  grid-template-rows: repeat(3, 340px);
   grid-template-columns: repeat(3, 340px);
   gap: 20px;
 
@@ -49,6 +33,25 @@ const CardLink = styled(Link)`
 
   &:hover ${CardContentContainer} {
     background: var(--gray5);
+  }
+`;
+
+const AlertNotStoredLink = styled.div`
+  display: flex;
+  width: 1060px;
+  height: 100px;
+  padding: 41px 0px 35px;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 24px;
+
+  @media (max-width: 1123px) {
+    width: 704px;
   }
 `;
 
