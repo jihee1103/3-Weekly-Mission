@@ -27,6 +27,7 @@
 }
 
 .card-img-div {
+  position: relative;
   overflow: hidden;
   width: 34rem;
   height: 20rem;
@@ -38,15 +39,26 @@
   object-fit: contain;
 }
 
+.star-img {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
 .card-contents {
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
 }
 
-.card-time-ago {
+.card-time-ago-box {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 1.1rem;
   height: 1.6rem;
+}
+
+.card-time-ago {
   color: #666;
   font-size: 13px;
   font-style: normal;

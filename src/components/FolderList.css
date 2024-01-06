@@ -33,6 +33,20 @@
 
 @media screen and (max-width: 767px) {
   .folder-add-box {
-    display: none;
+    padding: 8px 24px;
+    position: fixed;
+    z-index: 1;
+    bottom: 101px;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 20px;
+    border: 1px solid var(--Linkbrary-white, #fff);
+    background: var(--Linkbrary-primary-color, #6d6afe);
+  }
+  .folder-add-box input {
+    background: var(--Linkbrary-primary-color, #6d6afe);
+  }
+  .folder-add-box img {
+    filter: brightness(0%);
   }
 }

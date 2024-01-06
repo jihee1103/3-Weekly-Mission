@@ -38,10 +38,18 @@ export default function FolderContentCard({ selectedFolder }) {
                     "/imgs/01_모코코콘1_16_백색모코코_물음표.png"
                   }
                   alt="카드사진"
-                ></img>
+                />
+                <img
+                  className="star-img"
+                  src="/imgs/star.png"
+                  alt="즐겨찾기 등록"
+                />
               </div>
               <div className="card-contents">
-                <p className="card-time-ago">{timeAgo}</p>
+                <div className="card-time-ago-box">
+                  <p className="card-time-ago">{timeAgo}</p>
+                  <img src="/imgs/kebab.png" alt="파일수정" />
+                </div>
                 <p className="card-description">{description}</p>
                 <p className="card-createdat">{formatAt}</p>
               </div>

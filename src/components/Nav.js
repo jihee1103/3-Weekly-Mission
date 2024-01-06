@@ -47,7 +47,6 @@ function UserProfileInHeader() {
     }
     handleLoginProfile();
   }, []);
-  console.log(user);
   return (
     <a href="./folder" className="user-profile-login">
       {user ? (
