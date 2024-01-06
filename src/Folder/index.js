@@ -3,14 +3,11 @@ import './style.css';
 import { useState, useEffect } from 'react';
 
 function Folder() {
-  const [folder, setFolder] = useState({});
-  const [owner, setOwner] = useState({});
+  const [folder, setFolder] = useState();
 
   const folderData = async () => {
     const data = await getFolderData();
-
     setFolder(data['folder']);
-    setOwner(data['folder'].owner);
   };
 
   useEffect(() => {
@@ -22,11 +19,11 @@ function Folder() {
       <div className="folder-container">
         <img
           className="owner-image"
-          src={owner.profileImageSource}
+          src={folder?.owner.profileImageSource}
           width="60"
         />
-        <p className="owner-name">{owner.name}</p>
-        <p className="folder-name">{folder.name}</p>
+        <p className="owner-name">{folder?.owner.name}</p>
+        <p className="folder-name">{folder?.name}</p>
       </div>
     </div>
   );
