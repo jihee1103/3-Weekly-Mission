@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Header from './header/index';
 import Folder from './folder/index';

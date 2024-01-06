@@ -20,35 +20,27 @@ function Card({ link }) {
     if (diffInMinutes < 2) {
       return TIMES.ONE_MINUTE_AGO;
     }
-
     if (diffInMinutes <= 59) {
       return diffInMinutes + TIMES.MINUTES_AGO;
     }
-
     if (diffInHours < 2) {
       return TIMES.ONE_HOUR_AGO;
     }
-
     if (diffInHours <= 23) {
       return diffInHours + TIMES.HOURS_AGO;
     }
-
     if (diffInDays < 2) {
       return TIMES.ONE_DAY_AGO;
     }
-
     if (diffInDays <= 30) {
       return diffInDays + TIMES.DAYS_AGO;
     }
-
     if (diffInMonths < 2) {
       return TIMES.ONE_MONTH_AGO;
     }
-
     if (diffInMonths <= 11) {
       return diffInMonths + TIMES.MINUTES_AGO;
     }
-
     if (diffInYears < 2) {
       return TIMES.ONE_YEAR_AGO;
     }
@@ -70,7 +62,7 @@ function Card({ link }) {
   }, [link]);
 
   return (
-    <a className="card" href={linkUrl} target="_blank">
+    <a className="card" href={linkUrl} target="_blank" rel="noreferrer">
       <div className="card-link">
         <img
           className="card-image"
