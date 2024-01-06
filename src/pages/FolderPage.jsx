@@ -1,42 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import LinkSearchForm from "../components/LinkSearchForm/LinkSearchForm";
 import styled from "./FolderPage.module.css";
 import LinkAddForm from "../components/LinkAddForm/LinkAddForm";
 import { getFolderList, getLinkList } from "../apis/api";
 import FolderListButton from "../components/FolderListButton/FolderListButton";
 import CardList from "../components/CardList/CardList";
+import useFetchData from "../hooks/useFetchData";
 
 export default function FolderPage() {
-  const [cardListItem, setCardListItem] = useState(null);
-  const [folderNameList, setFolderNameList] = useState(null);
+  const [cardListItem, setCardListItem] = useFetchData(getLinkList);
+  const [folderNameList] = useFetchData(getFolderList);
   const [folderName, setFolderName] = useState("전체");
 
-  const handleGetFolderList = async () => {
-    try {
-      const result = await getFolderList();
-      if (!result) throw new Error("없습니다!");
-      const { data } = result;
-      setFolderNameList(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleGetLinkList = async () => {
-    try {
-      const result = await getLinkList();
-      if (!result) throw new Error("없습니다!");
-      const { data } = result;
-      setCardListItem(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    handleGetFolderList();
-    handleGetLinkList();
-  }, []);
+  const noLinkElement = (
+    <div className={styled.noLink}>
+      <span>저장된 링크가 없습니다.</span>
+    </div>
+  );
 
   return (
     <main className={styled.main}>
@@ -56,15 +36,11 @@ export default function FolderPage() {
             {cardListItem ? (
               <CardList itemList={cardListItem} />
             ) : (
-              <div className={styled.noLink}>
-                <span>저장된 링크가 없습니다.</span>
-              </div>
+              noLinkElement
             )}
           </div>
         ) : (
-          <div className={styled.noLink}>
-            <span>저장된 링크가 없습니다.</span>
-          </div>
+          noLinkElement
         )}
       </section>
     </main>

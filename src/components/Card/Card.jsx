@@ -1,6 +1,6 @@
 import React from "react";
-import { getCreateDay, getTimeDifference } from "../utils/util";
-import defaultImg from "../assets/images/1.png";
+import { getCreateDay, getTimeDifference } from "../../utils/util";
+import defaultImg from "../../assets/images/1.png";
 import { Link } from "react-router-dom";
 
 export default function Card({ item }) {
