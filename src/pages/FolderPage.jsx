@@ -8,7 +8,8 @@ import CardList from "../components/CardList/CardList";
 import useFetchData from "../hooks/useFetchData";
 
 export default function FolderPage() {
-  const [cardListItem, setCardListItem] = useFetchData(getLinkList);
+  const [cardListItem, handleEntireData, handleIdData] =
+    useFetchData(getLinkList);
   const [folderNameList] = useFetchData(getFolderList);
   const [folderName, setFolderName] = useState("전체");
 
@@ -29,8 +30,9 @@ export default function FolderPage() {
           <div className={styled.container}>
             <FolderListButton
               itemList={folderNameList}
-              setItemList={setCardListItem}
               setFolderName={setFolderName}
+              handleEntireData={handleEntireData}
+              handleIdData={handleIdData}
             />
             <h2 className={styled.folder_name}>{folderName}</h2>
             {cardListItem ? (
