@@ -1,6 +1,6 @@
 import noImage from '../images/no-image.svg';
 import './style.css';
-import { formatDate, returnUploadDate } from '../../utils/dateUtils';
+import { formatDate, returnUploadDate } from '../../utils';
 
 function Card({ link }) {
   return (
