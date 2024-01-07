@@ -12,4 +12,10 @@ const getFolderData = async () => {
   return result;
 };
 
-export { getUserData, getFolderData };
+const getFolderList = async () => {
+  const res = await fetch(`${API_BASE_URL}/api/users/1/folders`);
+  const result = await res.json();
+  return result;
+};
+
+export { getUserData, getFolderData, getFolderList };
