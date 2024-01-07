@@ -3,7 +3,17 @@
 
 .header {
   width: 100%;
-  position: relative;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  background-color: var(--Linkbrary-bg);
+  z-index: 1;
+}
+
+.header__folder {
+  width: 100%;
+  position: static;
   top: 0;
   display: flex;
   justify-content: center;
@@ -14,7 +24,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
   width: 100%;
   max-width: 192rem;
   padding: 33px 200px;

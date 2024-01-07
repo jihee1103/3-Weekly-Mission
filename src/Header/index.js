@@ -4,6 +4,8 @@ import './style.css';
 
 const Header = () => {
   const [user, setUser] = useState({});
+  const headerClass =
+    location.pathname === '/folder' ? 'header__folder' : 'header';
 
   useEffect(() => {
     if (location.pathname === '/shared') {
@@ -21,7 +23,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="header">
+    <header className={headerClass}>
       <nav className="nav">
         <a href="/" className="linkbrary-icon">
           <img src="/logo.svg" alt="홈으로 연결된 Linkbrary 로고"></img>
