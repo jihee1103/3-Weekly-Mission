@@ -1,7 +1,11 @@
+import AddLinkArea from "../../components/AddLinkArea/AddLinkArea";
+import Header from "../../components/Header/Header";
+
 const Folder = () => {
   return (
-    <div>
-      <h1>Folder</h1>
+    <div className="Folder">
+      <Header />
+      <AddLinkArea />
     </div>
   );
 };

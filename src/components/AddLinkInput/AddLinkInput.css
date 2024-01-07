@@ -1,0 +1,32 @@
+.addLinkInput {
+  background-color: #ffffff;
+  border: solid;
+  border-color: #6d6afe;
+  border-radius: 15px;
+  width: 100%;
+  height: 68px;
+  padding: 16px 20px 16px 52px;
+}
+.addLink {
+  display: flex;
+
+  position: relative;
+}
+.LinkIcon {
+  position: absolute;
+  bottom: 23px;
+  left: 20px;
+}
+.addButton {
+  background: linear-gradient(91deg, #6d6afe, #6ae3fe);
+  border-radius: 8px;
+  height: 37px;
+  width: 80px;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  border: none;
+}
