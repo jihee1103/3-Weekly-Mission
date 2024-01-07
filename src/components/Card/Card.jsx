@@ -6,25 +6,13 @@ import styled from "./Card.module.css";
 import Kebab from "../Kebab/Kebab";
 
 export default function Card({ item, toggle }) {
-  const {
-    created_at,
-    createdAt,
-    description,
-    imageSource,
-    image_source,
-    url,
-    title,
-  } = item;
+  const { createdAt, description, imageSource, url, title } = item;
 
-  const dateTimeString = created_at ? created_at : createdAt;
+  const dateTimeString = createdAt;
   const timeAgo = getTimeDifference(dateTimeString);
   const createdDay = getCreateDay(dateTimeString);
   const imgAlt = `${title} 새창으로 바로가기 이미지`;
-  const imgSource = imageSource
-    ? imageSource
-    : image_source
-    ? image_source
-    : imageData.defaultImg;
+  const imgSource = imageSource ? imageSource : imageData.defaultImg;
 
   return (
     <>

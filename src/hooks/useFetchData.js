@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import convertKeysToCamelCase from "../utils/camelCaseUtil";
 
 export default function useFetchData(apiFunction) {
   const [data, setData] = useState(null);
@@ -8,7 +9,9 @@ export default function useFetchData(apiFunction) {
       const result = await apiFunction();
       if (!result) throw new Error("없습니다!");
       const { data } = result;
-      setData(data);
+      const camelData = convertKeysToCamelCase(data);
+      console.log(camelData);
+      setData(camelData);
     } catch (error) {
       console.log(error);
     }
@@ -29,23 +32,15 @@ export default function useFetchData(apiFunction) {
         setData(null);
         return;
       }
-      setData(data);
+      const camelData = convertKeysToCamelCase(data);
+      setData(camelData);
     } catch (error) {
       console.log(error);
     }
   };
 
   const handleEntireData = async () => {
-    try {
-      const result = await apiFunction();
-      if (!result) {
-        throw new Error("데이터를 가져올 수 없습니다!");
-      }
-      const { data } = result;
-      setData(data);
-    } catch (error) {
-      console.log(error);
-    }
+    await fetchData();
   };
 
   return [data, handleEntireData, handleIdData];
