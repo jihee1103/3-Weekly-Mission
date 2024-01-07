@@ -1,0 +1,31 @@
+.floating {
+  display: none;
+}
+
+@media screen and (max-width: 1124px) {
+  .floating {
+    display: none;
+  }
+}
+@media screen and (max-width: 756px) {
+  .floating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 61px auto 0;
+    padding: 8px 24px;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    background: #6d6afe;
+    color: #e7effb;
+    gap: 4px;
+  }
+  .floating span {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .floating img {
+    width: 16px;
+    height: 16px;
+  }
+}

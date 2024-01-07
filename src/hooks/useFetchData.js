@@ -10,7 +10,6 @@ export default function useFetchData(apiFunction) {
       if (!result) throw new Error("없습니다!");
       const { data } = result;
       const camelData = convertKeysToCamelCase(data);
-      console.log(camelData);
       setData(camelData);
     } catch (error) {
       console.log(error);

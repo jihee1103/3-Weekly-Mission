@@ -6,7 +6,8 @@ import { getFolderList, getLinkList } from "../apis/api";
 import FolderListButton from "../components/FolderListButton/FolderListButton";
 import CardList from "../components/CardList/CardList";
 import useFetchData from "../hooks/useFetchData";
-import imageData from "../utils/imageData";
+import FolderNameLine from "../components/FolderNameLine/FolderNameLine";
+import FloatingActionButton from "../components/FloatingActionButton/FloatingActionButton";
 
 export default function FolderPage() {
   const [cardListItem, handleEntireData, handleIdData] =
@@ -19,30 +20,6 @@ export default function FolderPage() {
       <span>저장된 링크가 없습니다.</span>
     </div>
   );
-
-  const folderNameLine = (
-    <div className={styled.folderNameLine}>
-      <h2 className={styled.folder_name}>{folderName}</h2>
-      {folderName !== "전체" && (
-        <div className={styled["icon-container"]}>
-          <img src={imageData.shareIcon} alt="공유아이콘" />
-          <span>공유</span>
-          <img src={imageData.penIcon} alt="이름 변경아이콘" />
-          <span>이름 변경</span>
-          <img src={imageData.deleteIcon} alt="삭제아이콘" />
-          <span>삭제</span>
-        </div>
-      )}
-    </div>
-  );
-
-  const FloatingActionButton = (
-    <div className={styled.floating}>
-      <span>폴더추가</span>
-      <img src={imageData.folderPulsIcon} alt="폴더추가하기 아이콘" />
-    </div>
-  );
-
   return (
     <main className={styled.main}>
       <section className={styled.header}>
@@ -59,7 +36,7 @@ export default function FolderPage() {
               handleIdData={handleIdData}
               folderName={folderName}
             />
-            {folderNameLine}
+            <FolderNameLine folderName={folderName} />
             {cardListItem ? (
               <CardList itemList={cardListItem} toggle={true} />
             ) : (
@@ -69,7 +46,7 @@ export default function FolderPage() {
         ) : (
           noLinkElement
         )}
-        {FloatingActionButton}
+        <FloatingActionButton />
       </section>
     </main>
   );

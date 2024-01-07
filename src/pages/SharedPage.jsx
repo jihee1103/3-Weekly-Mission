@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/Shared.css";
+import "./SharedPage.css";
 import imageData from "../utils/imageData";
 import CardList from "../components/CardList/CardList";
 import { getShredCardList } from "../apis/api";
