@@ -13,13 +13,15 @@ function CardList() {
   const [link, setLink] = useState();
   const [filter, setFilter] = useState([]);
   const [selectedFolderName, setSelectedFolderName] = useState('');
+  const [selectedFolderId, setSelectedFolderId] = useState(null);
   const location = useLocation();
 
   const handleClick = async (folderId, folderName) => {
     setSelectedFolderName(folderName);
+    setSelectedFolderId(folderId);
     try {
       const data = await getFolderByFolderId(folderId);
-      setLink(data?.data || []);
+      setLink(data?.data);
     } catch (error) {
       console.error(`Error: ${error}`);
       setLink([]);
@@ -28,27 +30,22 @@ function CardList() {
 
   useEffect(() => {
     if (location.pathname === '/folder') {
-      const folderData = async () => {
+      (async () => {
         const data = await getFolder();
         setLink(data);
-      };
-
-      const filterData = async () => {
+      })();
+      (async () => {
         const data = await getFilter();
         setFilter(data?.data);
-      };
-      folderData();
-      filterData();
+      })();
       return;
     }
 
     if (location.pathname === '/shared') {
-      const sampleFolderData = async () => {
+      (async () => {
         const data = await getSampleFolder();
         setLink(data);
-      };
-
-      sampleFolderData();
+      })();
       return;
     }
   }, []);
@@ -60,7 +57,9 @@ function CardList() {
           <div className="folder-menu">
             <div className="folder-filter">
               <button
-                className="filter-btn"
+                className={`filter-btn ${
+                  selectedFolderId === 'all' ? 'filter-btn__selected' : ''
+                }`}
                 onClick={() => handleClick('all', '전체')}
                 key={filter.id}
                 name={filter.name}
@@ -70,7 +69,11 @@ function CardList() {
               {filter.map(filter => {
                 return (
                   <button
-                    className="filter-btn"
+                    className={`filter-btn ${
+                      selectedFolderId === filter.id
+                        ? 'filter-btn__selected'
+                        : ''
+                    }`}
                     onClick={() => handleClick(filter.id, filter.name)}
                     key={filter.id}
                     name={filter.name}

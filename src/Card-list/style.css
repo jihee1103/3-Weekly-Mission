@@ -10,6 +10,7 @@
   align-items: center;
   gap: 8px;
   font-size: 1.6rem;
+  flex-wrap: wrap;
 }
 
 .filter-btn {
@@ -17,6 +18,17 @@
   justify-content: center;
   align-items: center;
   border: 1px solid var(--Linkbrary-primary-color);
+  border-radius: 5px;
+  padding: 8px 12px;
+}
+
+.filter-btn__selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  border: 1px solid var(--Linkbrary-primary-color);
+  background-color: var(--Linkbrary-primary-color);
   border-radius: 5px;
   padding: 8px 12px;
 }
@@ -85,6 +97,8 @@
 }
 
 @media (max-width: 1124px) {
+  .folder-menu,
+  .selected-folder,
   .card-list {
     width: calc(100vw - 64px);
   }

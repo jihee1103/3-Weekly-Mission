@@ -53,3 +53,9 @@
   flex-shrink: 0;
   border-radius: 8px;
 }
+
+@media (max-width: 1124px) {
+  .input-container {
+    width: calc(100vw - 64px);
+  }
+}
