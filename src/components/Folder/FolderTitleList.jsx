@@ -25,7 +25,7 @@ const FolderListContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 8px 12px;
+  gap: 12px 8px;
   flex-wrap: wrap;
 `;
 const FolderItemAll = styled.div`

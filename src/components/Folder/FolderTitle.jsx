@@ -5,7 +5,7 @@ const FolderItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 8px;
+  padding: 8px 12px;
   border-radius: 5px;
   border: 1px solid #6d6afe;
   background-color: ${(prop) => (prop.$isSelected ? '#6D6AFE' : '#FFFFFF')};
