@@ -1,17 +1,15 @@
-import { getSampleFolder } from '../../api/api';
+import { getSampleFolder } from '../../api';
 import { useState, useEffect } from 'react';
 import './style.css';
 
 function Favorites() {
   const [favorites, setFavorites] = useState();
 
-  const folderData = async () => {
-    const data = await getSampleFolder();
-    setFavorites(data);
-  };
-
   useEffect(() => {
-    folderData();
+    (async () => {
+      const data = await getSampleFolder();
+      setFavorites(data);
+    })();
   }, []);
 
   return (

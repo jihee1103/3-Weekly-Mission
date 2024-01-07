@@ -1,4 +1,4 @@
-import { API } from '../constant';
+import { API } from './constant';
 
 export const getUser = async () => {
   try {
