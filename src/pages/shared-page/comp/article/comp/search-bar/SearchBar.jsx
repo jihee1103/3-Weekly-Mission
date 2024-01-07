@@ -7,7 +7,7 @@ const SearchBar = () => {
     <div className='search-bar-box'>
       <img
         alt='검색창 돋보기 아이콘'
-        src={`${process.env.PUBLIC_URL}/images/share/magnifier.svg`}
+        src={`${process.env.PUBLIC_URL}/images/shared/magnifier.svg`}
         className='search-bar-icon'
       />
       <input

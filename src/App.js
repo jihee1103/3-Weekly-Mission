@@ -1,7 +1,7 @@
-import Share from '@pages/share-page/Share.page';
+import Shared from '@pages/shared-page/Shared.page';
 
 function App() {
-  return <Share />;
+  return <Shared />;
 }
 
 export default App;
