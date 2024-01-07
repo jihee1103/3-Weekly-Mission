@@ -1,7 +1,7 @@
 const getUser = async function () {
   try {
     const response = await fetch(
-      "https://bootcamp-api.codeit.kr/docs/api/sample/user"
+      "https://bootcamp-api.codeit.kr/api/sample/user"
     );
     const userData = await response.json();
     return userData;

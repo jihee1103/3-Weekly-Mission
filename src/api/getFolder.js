@@ -1,7 +1,7 @@
 const getFolder = async function () {
   try {
     const response = await fetch(
-      "https://bootcamp-api.codeit.kr/docs/api/sample/folder"
+      "https://bootcamp-api.codeit.kr/api/sample/folder"
     );
     const folderData = await response.json();
     return folderData;
