@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-function Profile() {
+function FolderProfile() {
     const [profileData, setProfileData] = useState(null);
 
     useEffect(() => {
-        fetch("https://bootcamp-api.codeit.kr/api/sample/user")
+        fetch("https://bootcamp-api.codeit.kr/api/users/1")
             .then((response) => response.json())
             .then((data) => {
-                setProfileData(data);
+                setProfileData(data.data[0]);
             })
             .catch((error) => {
                 console.error("Error fetching profile data:", error);
@@ -22,7 +22,7 @@ function Profile() {
         <div className="profile-items">
             <img
                 className="profile-image"
-                src={profileData.profileImageSource}
+                src={profileData.image_source}
                 alt="Profile"
             />
             <p className="profile-email">{profileData.email}</p>
@@ -30,4 +30,4 @@ function Profile() {
     );
 }
 
-export default Profile;
+export default FolderProfile;
