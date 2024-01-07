@@ -1,15 +1,16 @@
-import { useState } from 'react';
 import { formatDate, returnUploadDate } from '../../utils';
 import Kebab from '../../folder/kebab/index';
 import './style.css';
+import { useState } from 'react';
 
-function Card({ link }) {
+function Card({ link, isActive, onKebabToggle }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleClick = e => {
     e.preventDefault();
     e.stopPropagation();
     setIsVisible(!isVisible);
+    onKebabToggle();
   };
 
   return (
@@ -29,7 +30,7 @@ function Card({ link }) {
             <button className="kebab" onClick={handleClick}>
               <img src="/kebab.svg" width="21px" alt="케밥 아이콘" />
             </button>
-            {isVisible && <Kebab />}
+            {isActive && isVisible && <Kebab />}
           </div>
           <p className="description">{link.description}</p>
           <p className="current-date">{returnUploadDate(link)}</p>

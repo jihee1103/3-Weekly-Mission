@@ -14,6 +14,7 @@ function CardList() {
   const [filter, setFilter] = useState([]);
   const [selectedFolderName, setSelectedFolderName] = useState('');
   const [selectedFolderId, setSelectedFolderId] = useState(null);
+  const [activeKebab, setActiveKebab] = useState(null);
   const location = useLocation();
 
   const handleClick = async (folderId, folderName) => {
@@ -109,29 +110,44 @@ function CardList() {
           <div className="card-list">
             {link && link.length > 0 ? (
               link.map(link => {
-                return <Card key={link.id} link={link} />;
+                return (
+                  <Card
+                    key={link.id}
+                    link={link}
+                    isActive={activeKebab === link.id}
+                    onKebabToggle={() => setActiveKebab(link.id)}
+                  />
+                );
               })
             ) : (
               <p className="no-link">저장된 링크가 없습니다.</p>
             )}
           </div>
+          <button className="add-folder-btn">
+            <p>폴더 추가</p>
+            <img src="/add-white.svg" alt="+ 아이콘" />
+          </button>
         </>
       )}
+
       {location.pathname === '/shared' && (
         <div className="card-list">
           {link ? (
             link.links.map(link => {
-              return <Card key={link.id} link={link} />;
+              return (
+                <Card
+                  key={link.id}
+                  link={link}
+                  isActive={activeKebab === link.id}
+                  onKebabToggle={() => setActiveKebab(link.id)}
+                />
+              );
             })
           ) : (
             <p className="no-link">저장된 링크가 없습니다.</p>
           )}
         </div>
       )}
-      <button className="add-folder-btn">
-        <p>폴더 추가</p>
-        <img src="/add-white.svg" alt="+ 아이콘" />
-      </button>
     </>
   );
 }
