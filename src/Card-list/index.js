@@ -83,7 +83,7 @@ function CardList() {
                 );
               })}
             </div>
-            <img src="/add.svg" alt="추가하기 로고" />
+            <img src="/add.svg" alt="+ 아이콘" />
           </div>
 
           <div className="selected-folder">
@@ -128,6 +128,10 @@ function CardList() {
           )}
         </div>
       )}
+      <button className="add-folder-btn">
+        <p>폴더 추가</p>
+        <img src="/add-white.svg" alt="+ 아이콘" />
+      </button>
     </>
   );
 }

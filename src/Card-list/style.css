@@ -1,3 +1,5 @@
+@import '../color.css';
+
 .folder-menu {
   width: 1060px;
   display: flex;
@@ -26,7 +28,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: var(--Linkbrary-white);
   border: 1px solid var(--Linkbrary-primary-color);
   background-color: var(--Linkbrary-primary-color);
   border-radius: 5px;
@@ -96,10 +98,33 @@
   padding: 41px 0 35px 0;
 }
 
+.add-folder-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 24px;
+  border: 1px solid var(--Linkbrary-white);
+  border-radius: 20px;
+  font-size: 1.6rem;
+  letter-spacing: -0.3px;
+  background-color: var(--Linkbrary-primary-color);
+  color: #ffffff;
+  position: fixed;
+  bottom: 101px;
+  opacity: 0;
+}
+
 @media (max-width: 1124px) {
   .folder-menu,
   .selected-folder,
   .card-list {
     width: calc(100vw - 64px);
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .add-folder-btn {
+    opacity: 1;
   }
 }
