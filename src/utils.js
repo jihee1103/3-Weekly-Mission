@@ -2,7 +2,7 @@ import { TIMES } from './constant';
 
 export const formatDate = link => {
   const now = new Date();
-  const created = new Date(link.createdAt).getTime();
+  const created = new Date(link.created_at).getTime();
   const diffInMilliseconds = now - created;
   const diffInMinutes = Math.floor(diffInMilliseconds / (1000 * 60));
   const diffInHours = Math.floor(diffInMinutes / 60);
@@ -42,7 +42,7 @@ export const formatDate = link => {
 };
 
 export const returnUploadDate = link => {
-  const now = new Date(link.createdAt);
+  const now = new Date(link.created_at);
   const year = now.getFullYear();
   const month = now.getMonth() + 1;
   const day = now.getDate();

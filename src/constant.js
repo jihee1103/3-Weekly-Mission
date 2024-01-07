@@ -13,5 +13,8 @@ export const TIMES = {
 
 export const API = {
   USER: 'https://bootcamp-api.codeit.kr/api/sample/user',
-  FOLDER: 'https://bootcamp-api.codeit.kr/api/sample/folder',
+  FOLDER_SAMPLE: 'https://bootcamp-api.codeit.kr/api/sample/folder',
+  PROFILE: 'https://bootcamp-api.codeit.kr/api/users/1',
+  FOLDER: 'https://bootcamp-api.codeit.kr/api/users/1/links',
+  FILTER: 'https://bootcamp-api.codeit.kr/api/users/1/folders',
 };

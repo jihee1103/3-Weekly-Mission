@@ -1,17 +1,23 @@
-import { getUserData } from '../api/api';
-import './style.css';
 import { useState, useEffect } from 'react';
+import { getUser, getProfile } from '../api/api';
+import './style.css';
 
 const Header = () => {
   const [user, setUser] = useState({});
 
-  const setUserData = async () => {
-    const userData = await getUserData();
-    setUser(userData);
-  };
-
   useEffect(() => {
-    setUserData();
+    if (location.pathname === '/shared') {
+      (async () => {
+        const userData = await getUser();
+        setUser(userData);
+      })();
+    }
+    if (location.pathname === '/folder') {
+      (async () => {
+        const userData = await getProfile();
+        setUser(userData?.data[0]);
+      })();
+    }
   }, []);
 
   return (
@@ -22,7 +28,7 @@ const Header = () => {
         </a>
         {user.email ? (
           <div className="header__profile">
-            <img src={user.profileImageSource} width="28" alt="프로필 이미지" />
+            <img src={user.image_source} width="28" alt="프로필 이미지" />
             <div className="user-email">{user.email}</div>
           </div>
         ) : (
