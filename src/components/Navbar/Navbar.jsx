@@ -5,6 +5,7 @@ import logoImg from '../../asset/logo.svg';
 import NavProfile from './NavProfile';
 import getFetchRequest from '../../utils/getFetchRequest';
 import { API_USERS, BASE_API_HOST } from '../../constants/api';
+import Loading from '../Loading/Loading';
 
 const NavHeader = styled.header`
   position: sticky;
@@ -45,7 +46,7 @@ const HeaderLogo = styled.img`
   height: 24px;
   cursor: pointer;
 `;
-const HeaderLogin = styled.div`
+const HeaderLogin = styled(Link)`
   display: flex;
   width: 128px;
   padding: 16px 20px;
@@ -53,10 +54,7 @@ const HeaderLogin = styled.div`
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: var(
-    --gra-purpleblue-to-skyblue,
-    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
-  );
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   cursor: pointer;
 `;
 const HeaderLoginSpan = styled.span`
@@ -67,20 +65,23 @@ const HeaderLoginSpan = styled.span`
 
 export default function Navbar() {
   const location = useLocation();
-
+  const isFolderPage = location.pathname === '/folder';
   const [userEmail, setUserEmail] = useState(null);
   const [userProfileImg, setUserProfileImg] = useState(null);
-
-  const isFolderPage = location.pathname === '/folder';
+  const [condition, setCondition] = useState('noData');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
+    setCondition('loading');
     const getUserInfo = async () => {
       try {
         const result = await getFetchRequest(BASE_API_HOST, `${API_USERS}/1`);
         setUserEmail(result.data[0].email);
         setUserProfileImg(result.data[0].image_source);
-      } catch (error) {
-        console.log(error);
+        setCondition('getInfoSuccess');
+      } catch (e) {
+        setErrorMessage(e.message);
+        setCondition('error');
       }
     };
     getUserInfo();
@@ -92,15 +93,23 @@ export default function Navbar() {
         <Link to="/">
           <HeaderLogo src={logoImg} alt="logo" />
         </Link>
-        {userEmail ? (
-          <NavProfile userEmail={userEmail} userProfileImg={userProfileImg} />
-        ) : (
-          <Link to="/">
-            <HeaderLogin>
-              <HeaderLoginSpan>로그인</HeaderLoginSpan>
-            </HeaderLogin>
-          </Link>
-        )}
+        {
+          {
+            loading: <Loading />,
+            getInfoSuccess: (
+              <NavProfile
+                userEmail={userEmail}
+                userProfileImg={userProfileImg}
+              />
+            ),
+            error: errorMessage,
+            noData: (
+              <HeaderLogin to="/">
+                <HeaderLoginSpan>로그인</HeaderLoginSpan>
+              </HeaderLogin>
+            ),
+          }[condition]
+        }
       </HeaderBox>
     </NavHeader>
   );

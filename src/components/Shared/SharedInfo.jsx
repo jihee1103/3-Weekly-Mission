@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import getFetchRequest from '../../utils/getFetchRequest';
 import { BASE_API_HOST } from '../../constants/api';
+import Loading from '../Loading/Loading';
 
 const SharedInfoContainer = styled.div`
   display: flex;
@@ -63,16 +64,21 @@ export default function SharedInfo() {
   const [avatar, setAvatar] = useState(null);
   const [owner, setOwner] = useState('');
   const [folderName, setFolderName] = useState('');
+  const [condition, setCondition] = useState('noData');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
+    setCondition('loading');
     const getSharedInfo = async () => {
       try {
         const result = await getFetchRequest(BASE_API_HOST, API_FOLDER);
         setAvatar(result.folder.owner.profileImageSource);
         setOwner(result.folder.owner.name);
         setFolderName(result.folder.name);
-      } catch (error) {
-        console.log(error);
+        setCondition('getInfoSuccess');
+      } catch (e) {
+        setErrorMessage(e.message);
+        setCondition('error');
       }
     };
     getSharedInfo();
@@ -80,15 +86,24 @@ export default function SharedInfo() {
 
   return (
     <SharedInfoContainer>
-      <SharedInfoBox>
-        <SharedOwner>
-          <Avatar src={avatar} alt="유저 아바타 이미지" />
-          <SharedOwnerName>{owner}</SharedOwnerName>
-        </SharedOwner>
-        <SharedFolderName className="shared-name">
-          {folderName}
-        </SharedFolderName>
-      </SharedInfoBox>
+      {
+        {
+          loading: <Loading />,
+          getInfoSuccess: (
+            <SharedInfoBox>
+              <SharedOwner>
+                <Avatar src={avatar} alt="유저 아바타 이미지" />
+                <SharedOwnerName>{owner}</SharedOwnerName>
+              </SharedOwner>
+              <SharedFolderName className="shared-name">
+                {folderName}
+              </SharedFolderName>
+            </SharedInfoBox>
+          ),
+          error: errorMessage,
+          noData: '데이터가 없습니다.',
+        }[condition]
+      }
     </SharedInfoContainer>
   );
 }
