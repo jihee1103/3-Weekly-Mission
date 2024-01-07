@@ -12,12 +12,13 @@ export const TIMES = {
 };
 
 const BASE_URL = 'https://bootcamp-api.codeit.kr';
+const SAMPLE_URL = `${BASE_URL}/api/sample`;
 const USER_URL = `${BASE_URL}/api/users/1`;
 
 export const API = {
   ROOT: `${BASE_URL}`,
-  USER_SAMPLE: `${BASE_URL}/api/sample/user`,
-  FOLDER_SAMPLE: `${BASE_URL}/api/sample/folder`,
+  USER_SAMPLE: `${SAMPLE_URL}/user`,
+  FOLDER_SAMPLE: `${SAMPLE_URL}/folder`,
   USER: USER_URL,
   USER_LINKS: `${USER_URL}/links`,
   USER_FOLDERS: `${USER_URL}/folders`,
