@@ -1,5 +1,5 @@
-import { formatDate, returnUploadDate } from '../../utils';
-import Kebab from '../../folder/kebab/index';
+import { formatDate, returnUploadDate } from '../../../utils';
+import Kebab from '../../kebab/index';
 import './style.css';
 import { useState } from 'react';
 

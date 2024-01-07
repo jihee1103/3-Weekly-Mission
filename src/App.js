@@ -2,36 +2,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import React from 'react';
 import './App.css';
-import Header from './header/index';
-import Favorites from './shared/favorites/index';
-import Search from './search/index';
-import CardList from './card-list/index';
-import AddLink from './folder/addLink/index';
-import Footer from './footer/index';
-
-function Shared() {
-  return (
-    <>
-      <Favorites />
-      <div className="section">
-        <Search />
-        <CardList />
-      </div>
-    </>
-  );
-}
-
-function Folder() {
-  return (
-    <>
-      <AddLink />
-      <div className="section">
-        <Search />
-        <CardList />
-      </div>
-    </>
-  );
-}
+import Header from './components/header/index';
+import Shared from './pages/shared/index';
+import Folder from './pages/folder/index';
+import Footer from './components/footer/index';
 
 function App() {
   return (

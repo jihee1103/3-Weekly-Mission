@@ -5,7 +5,7 @@ import {
   getFilter,
   getFolder,
   getFolderByFolderId,
-} from '../api/api';
+} from '../../api/api';
 import Card from './card';
 import './style.css';
 

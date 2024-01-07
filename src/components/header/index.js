@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getUser, getProfile } from '../api/api';
+import { getUser, getProfile } from '../../api/api';
 import './style.css';
 
 const Header = () => {
