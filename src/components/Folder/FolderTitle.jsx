@@ -8,10 +8,20 @@ const FolderItem = styled.div`
   padding: 8px 12px;
   border-radius: 5px;
   border: 1px solid #6d6afe;
+  background-color: ${(prop) => (prop.$isSelected ? '#6D6AFE' : '#FFFFFF')};
+  color: ${(prop) => (prop.$isSelected ? '#FFFFFF' : '#000000')};
   cursor: pointer;
 `;
-export default function FolderTitle({ item, onClick }) {
+export default function FolderTitle({ item, onClick, folderId }) {
   const [folderName, setFolderName] = useState('');
+  const [isSelected, setIsSelected] = useState(false);
+
+  useEffect(() => {
+    setIsSelected(false);
+    if (item.id === folderId) {
+      setIsSelected(true);
+    }
+  }, [folderId]);
 
   useEffect(() => {
     setFolderName(item.name);
@@ -21,5 +31,9 @@ export default function FolderTitle({ item, onClick }) {
     onClick();
   };
 
-  return <FolderItem onClick={handleClick}>{folderName}</FolderItem>;
+  return (
+    <FolderItem $isSelected={isSelected} onClick={handleClick}>
+      {folderName}
+    </FolderItem>
+  );
 }
