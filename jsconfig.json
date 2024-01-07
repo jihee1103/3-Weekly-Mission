@@ -1,16 +1,15 @@
 {
-  "extends": "./jsconfig.paths.json",
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"],
-      "@components/*": ["./components/*"],
-      "@pages/*": ["./pages/*"],
-      "@utils/*": ["./lib/utils/*"],
-      "@hooks/*": ["./hooks/*"],
-      "@api/*": ["./api/*"],
-      "@layout/*": ["./shared/layout/*"],
-      "@routes/*": ["./shared/routes/*"]
+      "@/*": ["/*"],
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"],
+      "@utils/*": ["lib/utils/*"],
+      "@hooks/*": ["hooks/*"],
+      "@api/*": ["api/*"],
+      "@layout/*": ["shared/layout/*"],
+      "@routes/*": ["shared/routes/*"]
     }
   }
 }
