@@ -2,7 +2,7 @@ import { API } from './constant';
 
 export const getUser = async () => {
   try {
-    const response = await fetch(API.USER);
+    const response = await fetch(API.USER_SAMPLE);
     const result = await response.json();
 
     const formattedData = {
@@ -11,16 +11,6 @@ export const getUser = async () => {
     };
 
     return formattedData;
-  } catch (error) {
-    return `Error: ${error}`;
-  }
-};
-
-export const getProfile = async () => {
-  try {
-    const response = await fetch(API.PROFILE);
-    const result = await response.json();
-    return result;
   } catch (error) {
     return `Error: ${error}`;
   }
@@ -47,9 +37,9 @@ export const getSampleFolder = async () => {
   }
 };
 
-export const getFolder = async () => {
+export const getProfile = async () => {
   try {
-    const response = await fetch(API.FOLDER);
+    const response = await fetch(API.USER);
     const result = await response.json();
     return result;
   } catch (error) {
@@ -57,10 +47,12 @@ export const getFolder = async () => {
   }
 };
 
-export const getFolderByFolderId = async folderId => {
+export const getFolder = async folderId => {
   try {
     const response = await fetch(
-      folderId === 'all' ? API.FOLDER : API.FOLDER + `?folderId=${folderId}`,
+      folderId === 'all'
+        ? API.USER_LINKS
+        : API.USER_LINKS + `?folderId=${folderId}`,
     );
     const result = await response.json();
     return result;
@@ -72,7 +64,7 @@ export const getFolderByFolderId = async folderId => {
 
 export const getFilter = async () => {
   try {
-    const response = await fetch(API.FILTER);
+    const response = await fetch(API.USER_FOLDERS);
     const result = await response.json();
     return result;
   } catch (error) {

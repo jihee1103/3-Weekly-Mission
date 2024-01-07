@@ -1,19 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import {
-  getSampleFolder,
-  getFilter,
-  getFolder,
-  getFolderByFolderId,
-} from '../../api';
+import { getSampleFolder, getFilter, getFolder } from '../../api';
 import Card from './card';
 import './style.css';
 
 function CardList() {
   const [link, setLink] = useState();
   const [filter, setFilter] = useState([]);
-  const [selectedFolderName, setSelectedFolderName] = useState('');
-  const [selectedFolderId, setSelectedFolderId] = useState(null);
+  const [selectedFolderName, setSelectedFolderName] = useState('전체');
+  const [selectedFolderId, setSelectedFolderId] = useState('all');
   const [activeKebab, setActiveKebab] = useState(null);
   const location = useLocation();
 
@@ -21,7 +16,7 @@ function CardList() {
     setSelectedFolderName(folderName);
     setSelectedFolderId(folderId);
     try {
-      const data = await getFolderByFolderId(folderId);
+      const data = await getFolder(folderId);
       setLink(data?.data);
     } catch (error) {
       console.error(`Error: ${error}`);
@@ -29,27 +24,29 @@ function CardList() {
     }
   };
 
-  useEffect(() => {
-    if (location.pathname === '/folder') {
+  if (location.pathname === '/folder') {
+    useEffect(() => {
       (async () => {
-        const data = await getFolder();
-        setLink(data);
+        const data = await getFolder(selectedFolderId);
+        setLink(data?.data);
       })();
       (async () => {
         const data = await getFilter();
         setFilter(data?.data);
       })();
       return;
-    }
+    }, []);
+  }
 
-    if (location.pathname === '/shared') {
+  if (location.pathname === '/shared') {
+    useEffect(() => {
       (async () => {
         const data = await getSampleFolder();
         setLink(data);
       })();
       return;
-    }
-  }, []);
+    }, []);
+  }
 
   return (
     <>
