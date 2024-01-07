@@ -1,17 +1,19 @@
 import "./App.css";
-import ContentsArea from "./ContentsArea/ContentsArea";
-import Folder from "./Folder/Folder";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import LinkShared from "./pages/LinkShared/LinkShared";
+import Folder from "./pages/Folder/Folder";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Folder />
-      <ContentsArea />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/shared" element={<LinkShared />} />
+          <Route path="/folder" element={<Folder />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

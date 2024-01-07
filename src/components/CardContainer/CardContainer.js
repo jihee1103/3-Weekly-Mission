@@ -1,7 +1,7 @@
 import "./CardContainer.css";
-import CardList from "../components/CardList/CardList";
+import CardList from "../CardList/CardList";
 import { useEffect, useState } from "react";
-import { getFolderData } from "../api/api";
+import { getFolderData } from "../../api/api";
 
 const CardContainer = () => {
   const [cardData, setCardData] = useState({
