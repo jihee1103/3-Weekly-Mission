@@ -1,7 +1,62 @@
 import { useEffect, useState } from 'react';
-import './SharedInfo.css';
+import styled from 'styled-components';
 import getFetchRequest from '../../utils/getFetchRequest';
 import { BASE_API_HOST } from '../../constants/api';
+
+const SharedInfoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 60px;
+  background: #f0f6ff;
+  @media (max-width: 767px) {
+    & {
+      padding: 10px 0 40px;
+    }
+  }
+`;
+const SharedInfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+`;
+const SharedOwner = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const Avatar = styled.img`
+  width: 47px;
+  height: 47px;
+  @media (max-width: 767px) {
+    & {
+      width: 40px;
+      height: 40px;
+    }
+  }
+`;
+const SharedOwnerName = styled.span`
+  line-height: 24px;
+  @media (max-width: 767px) {
+    & {
+      font-size: 14px;
+      line-height: normal;
+    }
+  }
+`;
+const SharedFolderName = styled.div`
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+  @media (max-width: 767px) {
+    & {
+      font-size: 32px;
+    }
+  }
+`;
 
 export default function SharedInfo() {
   const API_FOLDER = 'sample/folder';
@@ -24,14 +79,16 @@ export default function SharedInfo() {
   }, []);
 
   return (
-    <div className="shared-info-container">
-      <div className="shared-info-box">
-        <div className="shared-owner">
-          <img src={avatar} alt="avatar" className="avatar" />
-          <span className="shared-owner-name">{owner}</span>
-        </div>
-        <div className="shared-name">{folderName}</div>
-      </div>
-    </div>
+    <SharedInfoContainer>
+      <SharedInfoBox>
+        <SharedOwner>
+          <Avatar src={avatar} alt="유저 아바타 이미지" />
+          <SharedOwnerName>{owner}</SharedOwnerName>
+        </SharedOwner>
+        <SharedFolderName className="shared-name">
+          {folderName}
+        </SharedFolderName>
+      </SharedInfoBox>
+    </SharedInfoContainer>
   );
 }

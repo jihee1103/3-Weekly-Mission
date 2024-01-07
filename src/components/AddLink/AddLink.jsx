@@ -85,7 +85,7 @@ export default function AddLink() {
       <Wrapper>
         <IconInputWrapper>
           <LinkIcon src={linkIcon} />
-          <AddLinkInput placeholder="링크를 추가해 보세요." />
+          <AddLinkInput id="linkInput" placeholder="링크를 추가해 보세요." />
         </IconInputWrapper>
         <AddButton>
           <Addtext>추가하기</Addtext>
