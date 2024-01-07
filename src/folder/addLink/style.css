@@ -60,3 +60,27 @@
     width: calc(100vw - 64px);
   }
 }
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .add-link__form {
+    padding: 24px 0 40px 0;
+  }
+
+  .add-link__input {
+    height: 53px;
+    font-size: 1.4rem;
+    padding: 8px 10px 8px 34px;
+  }
+
+  .addLink__btn-add {
+    right: 10px;
+    top: 8.5px;
+    font-size: 1.4rem;
+  }
+
+  .link-icon {
+    width: 16px;
+    left: 10px;
+    top: 18px;
+  }
+}

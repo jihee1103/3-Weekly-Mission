@@ -84,7 +84,7 @@ function CardList() {
                 );
               })}
             </div>
-            <img src="/add.svg" alt="+ 아이콘" />
+            <img className="add-icon" src="/add.svg" alt="+ 아이콘" />
           </div>
 
           <div className="selected-folder">

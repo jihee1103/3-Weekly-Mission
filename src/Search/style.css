@@ -36,4 +36,13 @@
   .search__form {
     padding: 40px 0 32px 0;
   }
+
+  .search__input {
+    font-size: 1.4rem;
+    padding: 13px 16px 13px 42px;
+  }
+
+  .search-icon {
+    top: 56px;
+  }
 }

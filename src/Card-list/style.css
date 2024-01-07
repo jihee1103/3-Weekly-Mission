@@ -45,6 +45,8 @@
 
 .selected-folder-name {
   font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
 }
 
 .selecter-folder-menu {
@@ -124,6 +126,30 @@
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
+  .folder-filter {
+    font-size: 1.4rem;
+  }
+
+  .filter-btn {
+    padding: 6px 10px;
+  }
+
+  .selected-folder-name {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+  }
+
+  .add-icon {
+    opacity: 0;
+  }
+
+  .selected-folder {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
   .add-folder-btn {
     opacity: 1;
   }
