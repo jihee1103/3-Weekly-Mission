@@ -52,7 +52,7 @@ export const getFolder = async folderId => {
     const response = await fetch(
       folderId === 'all'
         ? API.USER_LINKS
-        : API.USER_LINKS + `?folderId=${folderId}`,
+        : `${API.USER_LINKS}?folderId=${folderId}`,
     );
     const result = await response.json();
     return result;
