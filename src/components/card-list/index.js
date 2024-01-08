@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getSampleFolder, getFilter, getFolder } from '../../api';
+import { getFolderSample, getFilter, getFolder } from '../../api';
 import Card from './card';
 import './style.css';
 
 function CardList() {
   const [link, setLink] = useState();
   const [filter, setFilter] = useState([]);
-  const [selectedFolderName, setSelectedFolderName] = useState('전체');
-  const [selectedFolderId, setSelectedFolderId] = useState('all');
+  const [selectedFilterName, setSelectedFilterName] = useState('전체');
+  const [selectedFilterId, setSelectedFilterId] = useState('all');
   const [activeKebab, setActiveKebab] = useState(null);
   const location = useLocation();
 
-  const handleClick = async (folderId, folderName) => {
-    setSelectedFolderName(folderName);
-    setSelectedFolderId(folderId);
+  const handleClick = async (filterId, filterName) => {
+    setSelectedFilterName(filterName);
+    setSelectedFilterId(filterId);
     try {
-      const data = await getFolder(folderId);
+      const data = await getFolder(filterId);
       setLink(data?.data);
     } catch (error) {
       console.error(`Error: ${error}`);
@@ -27,7 +27,7 @@ function CardList() {
   if (location.pathname === '/folder') {
     useEffect(() => {
       (async () => {
-        const data = await getFolder(selectedFolderId);
+        const data = await getFolder(selectedFilterId);
         setLink(data?.data);
       })();
       (async () => {
@@ -41,7 +41,7 @@ function CardList() {
   if (location.pathname === '/shared') {
     useEffect(() => {
       (async () => {
-        const data = await getSampleFolder();
+        const data = await getFolderSample();
         setLink(data);
       })();
       return;
@@ -56,7 +56,7 @@ function CardList() {
             <div className="folder-filter">
               <button
                 className={`filter-btn ${
-                  selectedFolderId === 'all' ? 'filter-btn__selected' : ''
+                  selectedFilterId === 'all' ? 'filter-btn__selected' : ''
                 }`}
                 onClick={() => handleClick('all', '전체')}
                 key={filter.id}
@@ -68,7 +68,7 @@ function CardList() {
                 return (
                   <button
                     className={`filter-btn ${
-                      selectedFolderId === filter.id
+                      selectedFilterId === filter.id
                         ? 'filter-btn__selected'
                         : ''
                     }`}
@@ -85,8 +85,8 @@ function CardList() {
           </div>
 
           <div className="selected-folder">
-            <p className="selected-folder-name">{selectedFolderName}</p>
-            {selectedFolderName !== '전체' ? (
+            <p className="selected-folder-name">{selectedFilterName}</p>
+            {selectedFilterName !== '전체' ? (
               <div className="selecter-folder-menu">
                 <button className="shared-btn">
                   <img src="/share.svg" width="18" alt="공유 아이콘" />

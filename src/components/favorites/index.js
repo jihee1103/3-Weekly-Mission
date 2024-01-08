@@ -1,4 +1,4 @@
-import { getSampleFolder } from '../../api';
+import { getFolderSample } from '../../api';
 import { useState, useEffect } from 'react';
 import './style.css';
 
@@ -7,7 +7,7 @@ function Favorites() {
 
   useEffect(() => {
     (async () => {
-      const data = await getSampleFolder();
+      const data = await getFolderSample();
       setFavorites(data);
     })();
   }, []);

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getUser, getProfile } from '../../api';
+import { getUserSample, getUser } from '../../api';
 import './style.css';
 
 const Header = () => {
@@ -10,13 +10,13 @@ const Header = () => {
   useEffect(() => {
     if (location.pathname === '/shared') {
       (async () => {
-        const userData = await getUser();
+        const userData = await getUserSample();
         setUser(userData);
       })();
     }
     if (location.pathname === '/folder') {
       (async () => {
-        const userData = await getProfile();
+        const userData = await getUser();
         setUser(userData?.data[0]);
       })();
     }

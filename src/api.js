@@ -1,6 +1,6 @@
 import { API } from './constant';
 
-export const getUser = async () => {
+export const getUserSample = async () => {
   try {
     const response = await fetch(API.USER_SAMPLE);
     const result = await response.json();
@@ -16,7 +16,7 @@ export const getUser = async () => {
   }
 };
 
-export const getSampleFolder = async () => {
+export const getFolderSample = async () => {
   try {
     const response = await fetch(API.FOLDER_SAMPLE);
     const result = await response.json();
@@ -37,7 +37,7 @@ export const getSampleFolder = async () => {
   }
 };
 
-export const getProfile = async () => {
+export const getUser = async () => {
   try {
     const response = await fetch(API.USER);
     const result = await response.json();
