@@ -1,29 +1,30 @@
 import { useEffect, useState } from "react";
-import { getFolderData } from "../apis/api";
+import { getLinkData } from "../apis/api";
 
-export function useFolderData() {
+export function useFolderLink() {
   const userId = 1;
-  const [folderData, setFolderData] = useState(null);
+  const [linkData, setLinkData] = useState(null);
   const [loadingError, setLoadingError] = useState(null);
 
   //초기데이터 설정
   useEffect(() => {
     //폴더 데이터 가져오기
     const handleLoadFolder = async () => {
-      let folder;
       try {
-        folder = await getFolderData(userId);
+        const { data } = await getLinkData(userId);
+        setLinkData(data);
         setLoadingError(null);
       } catch (e) {
         setLoadingError(e);
         return;
       } finally {
       }
-      setFolderData(folder);
+
+      console.log(linkData);
     };
 
     handleLoadFolder();
   }, []);
 
-  return { folderData, loadingError };
+  return { linkData, loadingError };
 }
