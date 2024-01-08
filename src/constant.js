@@ -11,7 +11,15 @@ export const TIMES = {
   YEARS_AGO: ' years ago',
 };
 
+const BASE_URL = 'https://bootcamp-api.codeit.kr';
+const SAMPLE_URL = `${BASE_URL}/api/sample`;
+const USER_URL = `${BASE_URL}/api/users/1`;
+
 export const API = {
-  USER: 'https://bootcamp-api.codeit.kr/api/sample/user',
-  FOLDER: 'https://bootcamp-api.codeit.kr/api/sample/folder',
+  ROOT: `${BASE_URL}`,
+  USER_SAMPLE: `${SAMPLE_URL}/user`,
+  FOLDER_SAMPLE: `${SAMPLE_URL}/folder`,
+  USER: USER_URL,
+  USER_LINKS: `${USER_URL}/links`,
+  USER_FOLDERS: `${USER_URL}/folders`,
 };

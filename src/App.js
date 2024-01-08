@@ -1,21 +1,25 @@
+import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import React from 'react';
 import './App.css';
-import Header from './Header/index';
-import Folder from './Folder/index';
-import Search from './Search/index';
-import CardList from './Card-list/index';
-import Footer from './Footer/index';
+import Header from './components/header/index';
+import Shared from './pages/shared/index';
+import Folder from './pages/folder/index';
+import Footer from './components/footer/index';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <Folder />
-      <div className="section">
-        <Search />
-        <CardList />
-      </div>
+      <Routes>
+        <Route path="/">
+          <Route index />
+          <Route path="shared" element={<Shared />} />
+          <Route path="folder" element={<Folder />} />
+        </Route>
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
