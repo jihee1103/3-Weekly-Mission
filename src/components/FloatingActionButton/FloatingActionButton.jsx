@@ -4,9 +4,9 @@ import styled from "./FloatingActionButton.module.css";
 
 export default function FloatingActionButton() {
   return (
-    <div className={styled.floating}>
+    <button className={styled.floating}>
       <span>폴더추가</span>
       <img src={imageData.folderPulsIcon} alt="폴더추가하기 아이콘" />
-    </div>
+    </button>
   );
 }

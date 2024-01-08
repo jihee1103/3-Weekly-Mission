@@ -9,10 +9,13 @@
 }
 @media screen and (max-width: 756px) {
   .floating {
+    position: fixed;
+    bottom: 101px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 61px auto 0;
     padding: 8px 24px;
     border-radius: 20px;
     border: 1px solid #fff;
