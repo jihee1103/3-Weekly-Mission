@@ -1,16 +1,14 @@
 import "./Cards.css";
 import Card from "./Card";
-
 import { getFolder } from "../api";
 import useGetFolderAsync from "../hooks/useGetFolderAsync";
 
 export default function Cards() {
-  const folder = useGetFolderAsync(getFolder);
-
+  const data = useGetFolderAsync(getFolder);
   return (
     <div className="card-container">
-      {folder?.links.map((link) => (
-        <Card key={link.id} link={link}></Card>
+      {data?.links?.map((data) => (
+        <Card key={data.id} data={data} />
       ))}
     </div>
   );

@@ -5,10 +5,9 @@ export default function useGetUserAsync(asyncFunction) {
 
   useEffect(() => {
     (async () => {
-      const data = await asyncFunction();
-      const { profileImageSource, email } = data;
-      setData([profileImageSource, email]);
-      console.log('1');
+      const {data} = await asyncFunction();
+      const { image_source, email } = data[0];
+      setData([image_source, email]);
     })();
   }, [asyncFunction]);
 
