@@ -1,5 +1,6 @@
 import SearchBar from "../SearchBar/SearchBar";
 import CardList from "../CardList/CardList";
+import FolderList from "../Folder/FolderList";
 import "./Content.css";
 
 function Content() {
@@ -7,6 +8,7 @@ function Content() {
     <div className="wrap">
       <div className="spacing">
         <SearchBar></SearchBar>
+        <FolderList />
         <CardList></CardList>
       </div>
     </div>

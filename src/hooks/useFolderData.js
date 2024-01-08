@@ -10,16 +10,15 @@ export function useFolderData() {
   useEffect(() => {
     //폴더 데이터 가져오기
     const handleLoadFolder = async () => {
-      let folder;
       try {
-        folder = await getFolderData(userId);
+        const { data } = await getFolderData(userId);
+        setFolderData(data);
         setLoadingError(null);
       } catch (e) {
         setLoadingError(e);
         return;
       } finally {
       }
-      setFolderData(folder);
     };
 
     handleLoadFolder();

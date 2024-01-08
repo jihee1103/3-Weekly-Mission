@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar/Navbar";
-import AddLink from "../components/AddLink/AddLink";
+import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 
 function SharedLinkPage() {
@@ -7,7 +7,7 @@ function SharedLinkPage() {
   return (
     <>
       <Navbar isShared={isShared} />
-      <AddLink />
+      <Header></Header>
       <SearchBar />
     </>
   );

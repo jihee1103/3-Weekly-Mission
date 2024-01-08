@@ -10,7 +10,7 @@ function CardList() {
   useEffect(() => {
     const handleLoadCardList = async () => {
       const { data } = await getLinkData(userId);
-      console.log("data", data);
+      // console.log("data", data);
 
       setCardList(data);
     };

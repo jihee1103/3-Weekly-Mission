@@ -1,6 +1,5 @@
 import { useFolderData } from "../../hooks/useFolderData";
 import "./Header.css";
-import styled from "styled-components";
 
 function Header() {
   const { folderData, loadingError } = useFolderData();

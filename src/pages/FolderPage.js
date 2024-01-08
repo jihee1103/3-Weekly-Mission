@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar/Navbar";
-import Header from "../components/Header/Header";
+import AddLink from "../components/AddLink/AddLink";
 import Content from "../components/Content/Content";
 
 function FolderPage() {
@@ -7,7 +7,7 @@ function FolderPage() {
   return (
     <>
       <Navbar isShared={isShared} />
-      <Header />
+      <AddLink />
       <Content />
     </>
   );
