@@ -13,17 +13,17 @@ export default function FolderList({ onSelectFolder, selectedFolder }) {
     }
     handleload();
   }, []);
-  console.log(selectedFolder);
 
   return (
     <div className="folder-list-box">
       <ul className="folder-list">
         <li
+          onClick={() => handleFolderClick("$1")}
           className={`folder ${
             selectedFolder === "$1" ? "folderSelected" : ""
           }`}
         >
-          <div onClick={() => handleFolderClick("$1")}>전체</div>
+          <div>전체</div>
         </li>
         {folderNames.map((folder) => {
           return (
