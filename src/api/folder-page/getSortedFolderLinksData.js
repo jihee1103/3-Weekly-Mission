@@ -4,7 +4,6 @@ const GET_FOLDER_LINKS_DATA_API = '/api/users/1/links';
 
 const getSortedFolderLinksData = async folderId => {
   try {
-    console.log('🚀 ~ file: getSortedFolderLinksData.js:6 ~ getSortedFolderLinksData ~ folderId:', folderId);
     const queryStrings = folderId === 'total' ? '' : `?folderId=${folderId}`;
     const response = await fetch(`${BASE_URL}${GET_FOLDER_LINKS_DATA_API}${queryStrings}`, {
       method: 'GET',

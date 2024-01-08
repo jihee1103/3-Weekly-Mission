@@ -19,8 +19,7 @@ const useGetProfileData = () => {
 
   const fetchAndSetProfileData = useCallback(async () => {
     const { data } = await getProfileData();
-    console.log(data);
-    setProfileData(data[0]);
+    setProfileData(data[0]); // 로그인 유저 정보가 대체 왜 배열로 오는 거 🤔❓❓❓❓?
   }, []);
 
   useEffect(() => {
