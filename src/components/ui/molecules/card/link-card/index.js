@@ -4,6 +4,7 @@ import CardImage from './CardImage';
 import CardCover from './CardCover';
 import CardProvider from './context/CardProvider';
 import TimeElapsed from './TimeElapsed';
+import Bookmark from './Bookmark';
 
 const CardWrapper = Object.assign(CardProvider, {
   Description,
@@ -11,6 +12,7 @@ const CardWrapper = Object.assign(CardProvider, {
   CardImage,
   TimeElapsed,
   CardCover,
+  Bookmark,
 });
 
 export default CardWrapper;

@@ -5,12 +5,20 @@ const initialState = {
   description: '',
   imageSource: '',
   url: '',
+  folderId: '',
 };
 
 const CardProviderContext = createContext(initialState);
 
 const CardProvider = ({ children, ...rest }) => {
-  return <CardProviderContext.Provider value={rest}>{children}</CardProviderContext.Provider>;
+  const { createdAt, created_at, imageSource, image_source, folder_id, ...r } = rest;
+  const value = {
+    createdAt: createdAt || created_at,
+    imageSource: imageSource || image_source,
+    folderId: folder_id,
+    ...r,
+  };
+  return <CardProviderContext.Provider value={value}>{children}</CardProviderContext.Provider>;
 };
 
 export const useCardProvider = () => {
