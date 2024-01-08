@@ -25,4 +25,8 @@
     /* padding-block: 4rem 10rem; */ /* footer margin-top 6rem */
     padding-block: 4rem 4rem;
   }
+
+  @media screen and (min-width: 1200px) {
+    padding-inline: 0;
+  }
 }

@@ -15,9 +15,8 @@ const getSortedFolderLinksData = async folderId => {
     if (!response.ok) {
       throw new Error(`${response.status} ${response.statusText}`);
     }
-    const data = await response.json();
-    console.dir(data);
-    return data;
+
+    return await response.json();
   } catch (error) {
     console.error('🚀 ~ file: getSortedFolderLinksData.js:11 ~ getSortedFolderLinksData ~ error:', error);
   }
