@@ -74,13 +74,13 @@ export default function Content() {
         {title === "전체" || (
           <div>
             <span>
-              <img src={shareIcon} />
+              <img src={shareIcon} alt="shareIcon"/>
             </span>
             <span>
-              <img src={penIcon} />
+              <img src={penIcon} alt="penIcon"/>
             </span>
             <span>
-              <img src={deleteIcon} />
+              <img src={deleteIcon} alt="deleteIcon"/>
             </span>
           </div>
         )}

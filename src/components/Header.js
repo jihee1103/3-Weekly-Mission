@@ -3,13 +3,13 @@ import "./Header.css";
 import { getUser } from "../api";
 import useGetUserAsync from "../hooks/useGetUserAsync";
 
-export default function Header() {
+export default function Header({page}) {
   const [profileImageSource, email] = useGetUserAsync(getUser);
   
   return (
     <>
-      <div className="nav-bg"></div>
-      <header className="nav">
+      <div className={page==="folder" ? "nav-folder-bg": "nav-bg"}></div>
+      <header className={page==="folder" ? "nav-folder" : "nav"} >
         <img src={logo} className="logo" alt="logo" />
         <div className="profile-wrapper">
           <img

@@ -22,6 +22,22 @@
   top: 0;
 }
 
+.nav-folder {
+  width: 100%;
+  position: absolute;
+  margin: -9.3rem auto;
+  background-color: var(--Linkbrary-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.3rem 20rem 3.2rem;
+  z-index: 1;
+}
+
+.nav-folder-bg{
+  display:none;
+}
+
 .logo {
   height: 2.4rem;
 }
