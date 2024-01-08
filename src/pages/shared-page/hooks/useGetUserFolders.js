@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { getUserFolders } from '@api/getUserFolders';
+import { getSampleUserFolders } from '@api/shared-page/getSampleUserFolders';
 
 const useGetUserFolders = () => {
   const [userFolders, setUserFolders] = useState({
@@ -10,7 +10,7 @@ const useGetUserFolders = () => {
   const fetchAndSetFolders = useCallback(async () => {
     const {
       folder: { links, ...rest },
-    } = await getUserFolders();
+    } = await getSampleUserFolders();
     setUserFolders({ links, userInfo: rest });
   }, []);
 
