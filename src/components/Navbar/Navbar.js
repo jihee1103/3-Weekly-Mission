@@ -10,7 +10,7 @@ function Account() {
         <div className="account-frame">
           <img
             className="profile"
-            src={userData?.profileImageSource}
+            src={userData?.image_source}
             alt="profile-img"
           />
           <span className="email">{userData?.email}</span>
@@ -25,9 +25,9 @@ function Account() {
   );
 }
 
-function Navbar() {
+function Navbar({ isShared }) {
   return (
-    <nav>
+    <nav className={`nav ${isShared ? "shared" : ""}`}>
       <div className="gnb">
         <a href="/">
           <img className="logo" src="/assets/logo.svg" alt="linkbrary-logo" />

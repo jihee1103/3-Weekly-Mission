@@ -1,10 +1,14 @@
-nav {
+.nav {
   display: flex;
   justify-content: center;
   position: sticky;
   top: 0;
   width: 100%;
   background: var(--linkbrary-bg);
+}
+
+.nav.shared {
+  position: relative;
 }
 
 .gnb {
