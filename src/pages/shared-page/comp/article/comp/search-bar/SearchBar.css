@@ -1,9 +1,9 @@
-.searchbar-box {
+.search-bar-box {
   position: relative;
   width: 100%;
 }
 
-.searchbar {
+.search-bar-input {
   width: 100%;
   padding: 1.3rem 3.8rem 1.3rem 4.2rem;
 
@@ -16,8 +16,7 @@
   }
 }
 
-.searchbar-icon {
-  content: url('/public/images/shared/magnifier.svg');
+.search-bar-icon {
   width: 1.6rem;
   height: 1.6rem;
 

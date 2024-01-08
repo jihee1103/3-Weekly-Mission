@@ -1,34 +1,22 @@
-import { useEffect, useState } from 'react';
-import HeaderAndFooter from '../../shared/layout/header&footer/HeaderAndFooter';
+import Header from './comp/header/Header';
+import Footer from './comp/footer/Footer';
 import Article from './comp/article/Article';
 import Banner from './comp/banner/Banner';
-import { getUserFolders } from '../../api/getUserFolders';
+import { useGetUserFolders } from './hooks/useGetUserFolders';
 import './Shared.css';
-
-const useGetUserFolders = () => {
-  const [links, setLinks] = useState([]);
-  const [userInfo, setUserInfo] = useState(null);
-  useEffect(() => {
-    (async () => {
-      const data = await getUserFolders();
-      if (data) {
-        const { folder } = data;
-        const { links, ...rest } = folder;
-        setLinks(links);
-        setUserInfo(rest);
-      }
-    })();
-  }, []);
-  return { links, userInfo };
-};
+import DocumentTitle from '@layout/document-title/DocumentTitle';
 
 const Shared = () => {
   const { links, userInfo } = useGetUserFolders();
+
   return (
-    <HeaderAndFooter>
+    <>
+      <DocumentTitle title='Shared' />
+      <Header />
       <Banner userInfo={userInfo} />
       <Article links={links} />
-    </HeaderAndFooter>
+      <Footer />
+    </>
   );
 };
 export default Shared;

@@ -1,7 +1,8 @@
-import Shared from './pages/shared-page/Shared.page';
+import { router } from '@routes/Router';
+import { RouterProvider } from 'react-router-dom';
 
 function App() {
-  return <Shared />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
