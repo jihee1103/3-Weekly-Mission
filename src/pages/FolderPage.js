@@ -3,10 +3,10 @@ import AddLink from "../components/AddLink/AddLink";
 import Content from "../components/Content/Content";
 
 function FolderPage() {
-  const isShared = false;
+  const isFolder = true;
   return (
     <>
-      <Navbar isShared={isShared} />
+      <Navbar isFolder={isFolder} />
       <AddLink />
       <Content />
     </>

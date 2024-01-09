@@ -25,9 +25,9 @@ function Account() {
   );
 }
 
-function Navbar({ isShared }) {
+function Navbar({ isFolder }) {
   return (
-    <nav className={`nav ${isShared ? "shared" : ""}`}>
+    <nav className={`nav ${isFolder ? "folder" : ""}`}>
       <div className="gnb">
         <a href="/">
           <img className="logo" src="/assets/logo.svg" alt="linkbrary-logo" />

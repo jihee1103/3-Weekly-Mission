@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
-import { getLinkData } from "../../apis/api";
+import { getLinkDataByFolderId } from "../../apis/api";
 import Card from "../Card/Card";
 import "./CardList.css";
 
-function CardList() {
-  const userId = 1;
+function CardList({ selectedFolderId }) {
   const [cardList, setCardList] = useState(null);
 
   useEffect(() => {
     const handleLoadCardList = async () => {
-      const { data } = await getLinkData(userId);
+      // console.log("selectedFolderId", selectedFolderId);
+      const { data } = await getLinkDataByFolderId(selectedFolderId);
       // console.log("data", data);
 
       setCardList(data);
     };
 
     handleLoadCardList();
-  }, []);
+  }, [selectedFolderId]);
 
   return (
     <div className="card-list">

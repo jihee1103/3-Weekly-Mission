@@ -17,10 +17,6 @@ const Container = styled.div`
   background: var(--Linkbrary-white, #fff);
 `;
 
-const Icon = styled.img`
-  width: 20px;
-  height: 20px;
-`;
 const Button = styled.button`
   border: 0px;
   border-radius: 8px;
@@ -46,13 +42,18 @@ const Input = styled.input`
   font-weight: 400;
   line-height: 24px; /* 150% */
   border: none;
+
+  background-image: url("/assets/link-icon.svg");
+  background-position: 12px 50%;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-left: 40px;
 `;
 function AddLink() {
   return (
     <Wrapper>
       <Container>
         <div>
-          <Icon src="/assets/link-icon.svg" alt="link" />
           <Input type="text" placeholder="링크를 추가해 보세요"></Input>
         </div>
         <Button>추가하기</Button>

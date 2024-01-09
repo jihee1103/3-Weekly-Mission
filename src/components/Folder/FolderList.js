@@ -1,6 +1,7 @@
-import Folder from "./Folder";
+import { useState } from "react";
+import FolderButton from "./FolderButton";
+import CardList from "../CardList/CardList";
 import styled from "styled-components";
-import { useFolderData } from "../../hooks/useFolderData";
 
 const FolderListBar = styled.div`
   display: flex;
@@ -8,7 +9,7 @@ const FolderListBar = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-const FolderItems = styled.div`
+const FolderButtons = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 8px;
@@ -25,18 +26,32 @@ const Text = styled.span`
   letter-spacing: -0.3px;
 `;
 const Img = styled.img``;
-function FolderList() {
-  const { folderData, loadingError } = useFolderData();
+function FolderList({ folderData, folderId }) {
+  const [selectedFolderId, setSelectedFolderId] = useState(folderId);
+
+  const handleFolderClick = (folderId) => {
+    setSelectedFolderId(folderId);
+  };
 
   return (
-    <FolderListBar>
-      <FolderItems>
-        {folderData &&
-          folderData.map((item) => <Folder key={item.id} item={item} />)}
-      </FolderItems>
-      <Text>폴더추가</Text>
-      <Img src="/assets/add-icon.svg" />
-    </FolderListBar>
+    <>
+      <FolderListBar>
+        <FolderButtons>
+          {folderData &&
+            folderData.map((item) => (
+              <FolderButton
+                key={item.id}
+                item={item}
+                onClick={() => handleFolderClick(item.id)}
+                isSelected={item.id === selectedFolderId}
+              />
+            ))}
+        </FolderButtons>
+        {/* <Text>폴더추가</Text> */}
+        <Img src="/assets/add-icon.svg" />
+      </FolderListBar>
+      <CardList selectedFolderId={selectedFolderId}></CardList>
+    </>
   );
 }
 
