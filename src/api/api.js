@@ -18,4 +18,22 @@ const getFolderList = async () => {
   return result;
 };
 
-export { getUserData, getFolderData, getFolderList };
+const getAllCardData = async () => {
+  const res = await fetch(`${API_BASE_URL}/api/users/1/links`);
+  const result = await res.json();
+  return result;
+};
+
+const getCardDataById = async (id) => {
+  const res = await fetch(`${API_BASE_URL}/api/users/1/links?folderId=${id}`);
+  const result = await res.json();
+  return result;
+};
+
+export {
+  getUserData,
+  getFolderData,
+  getFolderList,
+  getAllCardData,
+  getCardDataById,
+};
