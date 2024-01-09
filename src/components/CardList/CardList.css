@@ -23,3 +23,37 @@
     /* padding: 0 20rem; */
   }
 }
+
+.option-bar {
+  display: flex;
+  /* width: 1060px; */
+  justify-content: space-between;
+  align-items: center;
+
+  color: #000;
+
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.options {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  color: var(--Linkbrary-gray60, #9fa6b2);
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

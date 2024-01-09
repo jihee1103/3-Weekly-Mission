@@ -28,11 +28,14 @@ const Text = styled.span`
   letter-spacing: -0.3px;
 `;
 const Img = styled.img``;
-function FolderList({ folderData, folderId }) {
-  const [selectedFolderId, setSelectedFolderId] = useState(folderId);
 
-  const handleFolderClick = (folderId) => {
+function FolderList({ folderData, folderId, folderName }) {
+  const [selectedFolderId, setSelectedFolderId] = useState(folderId);
+  const [selectedFolderName, setSelectedFolderName] = useState(folderName);
+
+  const handleFolderClick = (folderId, folderName) => {
     setSelectedFolderId(folderId);
+    setSelectedFolderName(folderName);
   };
 
   return (
@@ -42,7 +45,7 @@ function FolderList({ folderData, folderId }) {
           <FolderButton
             key={ALL_LINKS_ID}
             name={ALL_LINKS_NAME}
-            onClick={() => handleFolderClick(ALL_LINKS_ID)}
+            onClick={() => handleFolderClick(ALL_LINKS_ID, ALL_LINKS_NAME)}
             isSelected={ALL_LINKS_ID === selectedFolderId}
           >
             전체
@@ -52,7 +55,7 @@ function FolderList({ folderData, folderId }) {
               <FolderButton
                 key={item.id}
                 name={item.name}
-                onClick={() => handleFolderClick(item.id)}
+                onClick={() => handleFolderClick(item.id, item.name)}
                 isSelected={item.id === selectedFolderId}
               />
             ))}
@@ -60,7 +63,10 @@ function FolderList({ folderData, folderId }) {
         {/* <Text>폴더추가</Text> */}
         <Img src="/assets/add-icon.svg" />
       </FolderListBar>
-      <CardList selectedFolderId={selectedFolderId}></CardList>
+      <CardList
+        selectedFolderId={selectedFolderId}
+        selectedFolderName={selectedFolderName}
+      ></CardList>
     </>
   );
 }
