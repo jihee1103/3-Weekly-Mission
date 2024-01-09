@@ -32,13 +32,21 @@ function NavBar() {
   );
 }
 
-function Header() {
+function Header({ folder }) {
   return (
     <header className="header-section">
       <NavBar />
-      <div>프로필</div>
-      <div>이름</div>
-      <div>폴더 이름</div>
+      <div className="header-info">
+        <img
+          src={folder.owner.profileImageSource}
+          className="header-profile"
+        ></img>
+        <div className="header-user">
+          {"@"}
+          {folder.owner.name}
+        </div>
+        <div className="header-title">{folder.name}</div>
+      </div>
     </header>
   );
 }
@@ -114,13 +122,13 @@ export default function App() {
       });
     });
   }, []);
+  console.log(folder);
 
   return (
     <div>
-      <Header />
+      {folder !== null ? <Header folder={folder} /> : undefined}
       {folder !== null
         ? folder.links.map((e) => {
-            console.log(e);
             return (
               <div key={e.id}>
                 <Card
