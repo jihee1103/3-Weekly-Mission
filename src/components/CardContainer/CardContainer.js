@@ -18,7 +18,7 @@ const CardContainer = ({ cardData, allCardData }) => {
   // const [allCardData, setAllCardData] = useState({ data: [] });
   const [defaultData, setDefaultData] = useState({ data: [] });
 
-  const { folderName, folderId } = useFolderNameContext();
+  const { folderName } = useFolderNameContext();
 
   // const handleOneCardData = async () => {
   //   const card = await getFolderData();
