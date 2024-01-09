@@ -1,0 +1,35 @@
+.footer-section {
+  display: flex;
+  background-color: #111322;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 104px 64px 104px;
+}
+
+.footer-font-style {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.footer-first-section {
+  color: #676767;
+}
+
+.footer-second-section {
+  color: #676767;
+}
+
+.footer-second-section-wrap {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-third-section {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-icon {
+  width: 20px;
+  height: 20px;
+}
