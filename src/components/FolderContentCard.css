@@ -46,6 +46,7 @@
 }
 
 .card-contents {
+  position: relative;
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -64,6 +65,29 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.popover-box {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: var(--gray-light-gray-100, #333236);
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  z-index: 1;
+}
+
+.popover-box div {
+  display: flex;
+  justify-content: center;
+  padding: 7px 12px;
+}
+
+.popover-box div:hover {
+  color: var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-gray10, #e7effb);
 }
 
 .card-description {

@@ -4,8 +4,16 @@ import { getTimeDifference, formatCreatedAt } from "./DateUtils";
 import "./FolderContentCard.css";
 export default function FolderContentCard({ selectedFolder }) {
   const [items, setItems] = useState([]);
+  const [isPopoverVisible, setIsPopoverVisible] = useState([]);
   const openNewWindow = (url) => {
     window.open(url, "_blank");
+  };
+  const handlePopoverToggle = (id) => {
+    setIsPopoverVisible((prevStates) => {
+      const newStates = [...prevStates];
+      newStates[id] = !newStates[id];
+      return newStates;
+    });
   };
   useEffect(() => {
     async function handleload() {
@@ -29,9 +37,10 @@ export default function FolderContentCard({ selectedFolder }) {
           const formatAt = formatCreatedAt(created_at);
           const openLink = () => openNewWindow(url);
           return (
-            <li className="card" onClick={openLink} key={id}>
+            <li className="card" key={id}>
               <div className="card-img-div">
                 <img
+                  onClick={openLink}
                   className="card-img"
                   src={
                     image_source ||
@@ -48,9 +57,21 @@ export default function FolderContentCard({ selectedFolder }) {
               <div className="card-contents">
                 <div className="card-time-ago-box">
                   <p className="card-time-ago">{timeAgo}</p>
-                  <img src="/imgs/kebab.png" alt="파일수정" />
+                  <img
+                    onClick={() => handlePopoverToggle(id)}
+                    src="/imgs/kebab.png"
+                    alt="파일수정"
+                  />
                 </div>
-                <p className="card-description">{description}</p>
+                {isPopoverVisible[id] && (
+                  <div className="popover-box">
+                    <div>삭제하기</div>
+                    <div>폴더에 추가</div>
+                  </div>
+                )}
+                <p onClick={openLink} className="card-description">
+                  {description}
+                </p>
                 <p className="card-createdat">{formatAt}</p>
               </div>
             </li>
