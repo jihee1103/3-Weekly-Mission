@@ -3,10 +3,9 @@ import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 
 function SharedLinkPage() {
-  const isFolder = false;
   return (
     <>
-      <Navbar isFolder={isFolder} />
+      <Navbar isSticky={false} />
       <Header></Header>
       <SearchBar />
     </>

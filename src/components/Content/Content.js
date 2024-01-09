@@ -3,11 +3,12 @@ import { useFolderData } from "../../hooks/useFolderData";
 import SearchBar from "../SearchBar/SearchBar";
 
 import FolderList from "../Folder/FolderList";
+import { ALL_LINKS_ID } from "../Folder/constants";
 import "./Content.css";
 
 function Content() {
   const { folderData } = useFolderData();
-  const [folderId, setFolderId] = useState("all");
+  const [folderId, setFolderId] = useState(ALL_LINKS_ID);
 
   return (
     <div className="wrap">

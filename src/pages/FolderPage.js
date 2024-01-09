@@ -3,10 +3,9 @@ import AddLink from "../components/AddLink/AddLink";
 import Content from "../components/Content/Content";
 
 function FolderPage() {
-  const isFolder = true;
   return (
     <>
-      <Navbar isFolder={isFolder} />
+      <Navbar isSticky={true} />
       <AddLink />
       <Content />
     </>

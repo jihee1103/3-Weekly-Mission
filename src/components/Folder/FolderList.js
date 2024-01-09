@@ -1,6 +1,8 @@
 import { useState } from "react";
 import FolderButton from "./FolderButton";
 import CardList from "../CardList/CardList";
+import { ALL_LINKS_ID, ALL_LINKS_NAME } from "./constants";
+
 import styled from "styled-components";
 
 const FolderListBar = styled.div`
@@ -37,11 +39,19 @@ function FolderList({ folderData, folderId }) {
     <>
       <FolderListBar>
         <FolderButtons>
+          <FolderButton
+            key={ALL_LINKS_ID}
+            name={ALL_LINKS_NAME}
+            onClick={() => handleFolderClick(ALL_LINKS_ID)}
+            isSelected={ALL_LINKS_ID === selectedFolderId}
+          >
+            전체
+          </FolderButton>
           {folderData &&
             folderData.map((item) => (
               <FolderButton
                 key={item.id}
-                item={item}
+                name={item.name}
                 onClick={() => handleFolderClick(item.id)}
                 isSelected={item.id === selectedFolderId}
               />

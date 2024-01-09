@@ -25,9 +25,9 @@ function Account() {
   );
 }
 
-function Navbar({ isFolder }) {
+function Navbar({ isSticky }) {
   return (
-    <nav className={`nav ${isFolder ? "folder" : ""}`}>
+    <nav className={`nav ${isSticky ? "folder" : ""}`}>
       <div className="gnb">
         <a href="/">
           <img className="logo" src="/assets/logo.svg" alt="linkbrary-logo" />

@@ -18,14 +18,14 @@ const SelectedFolderItem = styled(FolderItem)`
   color: #fff;
 `;
 
-function FolderButton({ item, onClick, isSelected }) {
+function FolderButton({ name, onClick, isSelected }) {
   // console.log("isSelected", isSelected);
   return (
     <>
       {isSelected ? (
-        <SelectedFolderItem onClick={onClick}>{item.name}</SelectedFolderItem>
+        <SelectedFolderItem onClick={onClick}>{name}</SelectedFolderItem>
       ) : (
-        <FolderItem onClick={onClick}>{item.name}</FolderItem>
+        <FolderItem onClick={onClick}>{name}</FolderItem>
       )}
     </>
   );
