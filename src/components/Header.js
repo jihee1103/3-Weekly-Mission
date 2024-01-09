@@ -7,7 +7,7 @@ export default function Header({page}) {
   const [profileImageSource, email] = useGetUserAsync(getUser);
   
   return (
-    <>
+    <div className="nav-wrapper">
       <div className={page==="folder" ? "nav-folder-bg": "nav-bg"}></div>
       <header className={page==="folder" ? "nav-folder" : "nav"} >
         <img src={logo} className="logo" alt="logo" />
@@ -20,6 +20,6 @@ export default function Header({page}) {
           <span className="profile-email">{email ?? "로그인"}</span>
         </div>
       </header>
-    </>
+    </div>
   );
 }
