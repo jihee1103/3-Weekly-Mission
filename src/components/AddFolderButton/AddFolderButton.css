@@ -1,0 +1,34 @@
+.add-btn {
+  position: fixed;
+  left: 100px;
+  bottom: 101px;
+
+  display: flex;
+  padding: 8px 24px;
+  align-items: flex-start;
+  gap: 20px;
+
+  border-radius: 20px;
+  border: 1px solid var(--Linkbrary-white, #fff);
+  background: var(--Linkbrary-primary-color, #6d6afe);
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.add-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--Linkbrary-gray10, #e7effb);
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
+.add-img {
+}
