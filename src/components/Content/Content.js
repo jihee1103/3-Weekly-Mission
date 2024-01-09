@@ -8,7 +8,7 @@ import { ALL_LINKS_NAME } from "../Folder/constants";
 import "./Content.css";
 
 function Content() {
-  const { folderData } = useFolderData();
+  const { folderData } = useFolderData(false);
   const [folderId, setFolderId] = useState(ALL_LINKS_ID);
   const [folderName, setFolderName] = useState(ALL_LINKS_NAME);
 
@@ -16,11 +16,15 @@ function Content() {
     <div className="wrap">
       <div className="spacing">
         <SearchBar></SearchBar>
-        <FolderList
-          folderData={folderData}
-          folderId={folderId}
-          folderName={folderName}
-        />
+        {!folderData ? (
+          <div className="no-link">저장된 링크가 없습니다.</div>
+        ) : (
+          <FolderList
+            folderData={folderData}
+            folderId={folderId}
+            folderName={folderName}
+          />
+        )}
       </div>
     </div>
   );
