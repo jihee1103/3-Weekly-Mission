@@ -3,8 +3,6 @@ import CardList from "../CardList/CardList";
 import { useFolderNameContext } from "../../context/FolderNameContext";
 
 const CardContainer = ({ cardData, allCardData }) => {
-  console.log({ cardData });
-
   const { folderName } = useFolderNameContext();
 
   if (folderName !== "전체") {
