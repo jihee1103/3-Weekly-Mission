@@ -1,5 +1,8 @@
 import "./LinkSearchInput.css";
-export default function LinkSearchInput() {
+export default function LinkSearchInput({ onOpenModal }) {
+  const handleOpenMoldalAddToFolder = () => {
+    onOpenModal("addToFolder");
+  };
   return (
     <div className="header-content">
       <label className="link-search-box">
@@ -9,6 +12,7 @@ export default function LinkSearchInput() {
           placeholder="링크를 추가해 보세요"
         ></input>
         <img
+          onClick={handleOpenMoldalAddToFolder}
           src="/imgs/추가하기버튼.png"
           className="link-button-img"
           alt="링크추가 버튼"

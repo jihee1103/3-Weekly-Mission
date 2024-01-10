@@ -3,11 +3,11 @@ import Nav from "./Nav.js";
 import "./Header.css";
 import LinkSearchInput from "./LinkSearchInput.js";
 
-export default function Header() {
+export default function Header({ onOpenModal }) {
   return (
     <header>
       <Nav />
-      <LinkSearchInput />
+      <LinkSearchInput onOpenModal={onOpenModal} />
     </header>
   );
 }

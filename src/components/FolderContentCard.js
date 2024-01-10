@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { getUserLinks } from "../api";
 import { getTimeDifference, formatCreatedAt } from "./DateUtils";
 import "./FolderContentCard.css";
-export default function FolderContentCard({ selectedFolder }) {
+
+export default function FolderContentCard({ selectedFolder, onOpenModal }) {
   const [items, setItems] = useState([]);
   const [isPopoverVisible, setIsPopoverVisible] = useState([]);
   const openNewWindow = (url) => {
@@ -28,22 +29,24 @@ export default function FolderContentCard({ selectedFolder }) {
     }
     handleload();
   }, [selectedFolder]);
-  console.log(items);
+  const handleModal = (modal, item) => {
+    onOpenModal(modal, item);
+  };
   return (
     <ul className="cards">
       {items.length > 0 ? (
-        items.map(({ created_at, url, id, description, image_source }) => {
-          const timeAgo = getTimeDifference(created_at);
-          const formatAt = formatCreatedAt(created_at);
-          const openLink = () => openNewWindow(url);
+        items.map((item) => {
+          const timeAgo = getTimeDifference(item.created_at);
+          const formatAt = formatCreatedAt(item.created_at);
+          const openLink = () => openNewWindow(item.url);
           return (
-            <li className="card" key={id}>
+            <li className="card" key={item.id}>
               <div className="card-img-div">
                 <img
                   onClick={openLink}
                   className="card-img"
                   src={
-                    image_source ||
+                    item.image_source ||
                     "/imgs/01_모코코콘1_16_백색모코코_물음표.png"
                   }
                   alt="카드사진"
@@ -58,19 +61,23 @@ export default function FolderContentCard({ selectedFolder }) {
                 <div className="card-time-ago-box">
                   <p className="card-time-ago">{timeAgo}</p>
                   <img
-                    onClick={() => handlePopoverToggle(id)}
+                    onClick={() => handlePopoverToggle(item.id)}
                     src="/imgs/kebab.png"
                     alt="파일수정"
                   />
                 </div>
-                {isPopoverVisible[id] && (
+                {isPopoverVisible[item.id] && (
                   <div className="popover-box">
-                    <div>삭제하기</div>
-                    <div>폴더에 추가</div>
+                    <div onClick={() => handleModal("deleteItem", item)}>
+                      삭제하기
+                    </div>
+                    <div onClick={() => handleModal("addToFolder")}>
+                      폴더에 추가
+                    </div>
                   </div>
                 )}
                 <p onClick={openLink} className="card-description">
-                  {description}
+                  {item.description}
                 </p>
                 <p className="card-createdat">{formatAt}</p>
               </div>
