@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import logo from "./logo.png";
-import profile from "./myprofile.png";
-import backgroundProfile from "./background-profile.png";
 import facebook from "./facebook.png";
 import twitter from "./twitter.png";
 import youtube from "./youtube.png";
 import instagram from "./instagram.png";
+import search from "./search.png";
+import defaultImage from "./card-component-default.png";
 import "./footer-style.css";
 import "./nav-style.css";
 import "./header-style.css";
+import "./card-style.css";
+import "./search-bar-style.css";
+import "./style.css";
 
-function NavBar() {
+function NavBar({ user }) {
   return (
     <>
       <div className="nav-section">
@@ -19,23 +22,20 @@ function NavBar() {
         </div>
 
         <div className="nav-second-section">
-          <div className="nav-background-profile">
-            <img src={backgroundProfile}></img>
-            <div className="nav-profile">
-              <img src={profile}></img>
-            </div>
+          <div className="nav-profile">
+            <img src={user.profileImageSource}></img>
           </div>
-          <h3 className="nav-profile-info">Codeit@codeit.com</h3>
+          <h3 className="nav-profile-info">{user.email}</h3>
         </div>
       </div>
     </>
   );
 }
 
-function Header({ folder }) {
+function Header({ folder, user }) {
   return (
     <header className="header-section">
-      <NavBar />
+      <NavBar user={user} />
       <div className="header-info">
         <img
           src={folder.owner.profileImageSource}
@@ -77,35 +77,48 @@ function Footer() {
   );
 }
 
-function Card({ imageSource, description, createAt }) {
+function SearchBar() {
+  return (
+    <div className="input-section">
+      <input
+        className="search-bar"
+        type="text"
+        placeholder="링크를 검색해 보세요."
+      ></input>
+      <img src={search} className="input-icon" />
+    </div>
+  );
+}
+
+function Card({ imageSource, description, createdAt, url }) {
   return (
     <>
-      <div>
-        <div style={{ position: "relative", margin: "50px 0 45px" }}>
-          <ul style={{ display: "flex" }}>
-            <img
-              style={{ width: "340px", height: "200px", objectFit: "cover" }}
-              src={imageSource}
-            />
-            <div
-              style={{
-                fontSize: "16px",
-                fontWeight: "400",
-                lineHeight: "24px",
-              }}
-            >
-              {description}
+      <a href={url} className="card-url">
+        <div className="card-container">
+          <div className="image-wrap">
+            <div className="image-container">
+              <img src={imageSource} />
             </div>
-            <div>{createAt}</div>
-          </ul>
+          </div>
+          <div className="card-content">
+            <div className="card-description">
+              <div className="description-section">
+                <p>{description}</p>
+              </div>
+              <div className="time-section">
+                <p>{createdAt}</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </a>
     </>
   );
 }
 
 export default function App() {
   const [folder, setFolder] = useState(null);
+  const [user, setUser] = useState(null);
 
   const getFetch = async () => {
     const response = await fetch(
@@ -115,32 +128,58 @@ export default function App() {
     return body;
   };
 
+  const getUserData = async () => {
+    const response = await fetch(
+      "https://bootcamp-api.codeit.kr/api/sample/user"
+    );
+    const body = await response.json();
+    return body;
+  };
+
   useEffect(() => {
-    getFetch().then((data) => {
+    const getData = async () => {
+      const data = await getFetch();
       setFolder(() => {
         return data.folder;
       });
-    });
+
+      const user = await getUserData();
+      setUser(() => {
+        return user;
+      });
+    };
+    getData();
   }, []);
+
   console.log(folder);
+  console.log(user);
 
   return (
-    <div>
-      {folder !== null ? <Header folder={folder} /> : undefined}
-      {folder !== null
-        ? folder.links.map((e) => {
-            return (
-              <div key={e.id}>
-                <Card
-                  imageSource={e.imageSource}
-                  description={e.description}
-                  createAt={e.createAt}
-                />
-              </div>
-            );
-          })
-        : undefined}
+    <>
+      {folder !== null ? (
+        <Header folder={folder} user={user !== null ? user : "로그인"} />
+      ) : undefined}
+      <div className="main-section">
+        <SearchBar />
+        <div className="card-component-section">
+          {folder !== null
+            ? folder.links.map((e) => {
+                return (
+                  <Card
+                    key={e.id}
+                    imageSource={
+                      e.imageSource !== undefined ? e.imageSource : defaultImage
+                    }
+                    description={e.description}
+                    createdAt={e.createdAt}
+                    url={e.url}
+                  />
+                );
+              })
+            : undefined}
+        </div>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }

@@ -16,14 +16,10 @@
   gap: 10px;
 }
 
-.nav-background-profile {
-  position: relative;
-}
-
 .nav-profile {
-  position: absolute;
-  top: 5px;
-  left: 9px;
+  display: flex;
+  width: 28px;
+  height: 28px;
 }
 
 .nav-profile-info {

@@ -1,0 +1,12 @@
+.card-component-section {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-section {
+  max-width: 1060px;
+  margin: 0 auto;
+}
