@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import share from '../../../assets/images/share.svg';
+import pen from '../../../assets/images/pen.svg';
+import trashCan from '../../../assets/images/trash_can.svg';
 
 const FolderTitle = ({ currentFolder }) => {
   return (
@@ -7,15 +10,15 @@ const FolderTitle = ({ currentFolder }) => {
       {currentFolder !== '전체' ? (
         <FolderToolbar>
           <button type="button">
-            <img src={`${process.env.PUBLIC_URL}/images/share.svg`} alt="폴더 도구 모음 공유 버튼" />
+            <img src={share} alt="폴더 도구 모음 공유 버튼" />
             <span>공유</span>
           </button>
           <button type="button">
-            <img src={`${process.env.PUBLIC_URL}/images/pen.svg`} alt="폴더 도구 모음 수정 버튼" />
+            <img src={pen} alt="폴더 도구 모음 수정 버튼" />
             <span>이름 변경</span>
           </button>
           <button type="button">
-            <img src={`${process.env.PUBLIC_URL}/images/trash_can.svg`} alt="폴더 도구 모음 삭제 버튼" />
+            <img src={trashCan} alt="폴더 도구 모음 삭제 버튼" />
             <span>삭제</span>
           </button>
         </FolderToolbar>
