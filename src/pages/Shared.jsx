@@ -7,7 +7,7 @@ import Search from '../components/CardList/Search/Search';
 import Card from '../components/CardList/Card/Card';
 
 import getFetch from '../utils/getFetch';
-import getFormattedCardData from '../utils/getFormattedCardData';
+import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 
 const Shared = () => {
   const [linkData, setLinkData] = useState([]);
@@ -22,7 +22,7 @@ const Shared = () => {
         })
         .then((data) => {
           // sample 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
-          const formattedData = getFormattedCardData(data);
+          const formattedData = getFormattedCamelCaseData(data);
           setLinkData(() => formattedData.folder.links);
           setHeroLinkData(() => data.folder);
         });
