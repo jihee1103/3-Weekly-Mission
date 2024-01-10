@@ -1,12 +1,12 @@
+import camelcaseKeys from 'camelcase-keys';
 import styled from 'styled-components';
-import convertKeyToCamelCase from '../../utils/convertToCamelCase';
 import Card from './Card';
 
 export default function CardList({ links }) {
   return (
     <CardBox>
       {links.map((link) => {
-        const newLink = convertKeyToCamelCase(link);
+        const newLink = camelcaseKeys(link);
         return <Card key={newLink.id} link={newLink} />;
       })}
     </CardBox>
