@@ -24,7 +24,6 @@ function FolderContent({ folders, links, onFolderClick }) {
                   "폴더 없음";
 
         setSelectedFolderName(folderName);
-        onFolderClick(folderId);
     };
 
     const renderFolderButtons = () =>
@@ -90,7 +89,7 @@ function FolderContent({ folders, links, onFolderClick }) {
             </div>
 
             <div className="links-container-box">
-                {links.length === 0 ? (
+                {enhancedLinks.length === 0 ? (
                     <div className="links-container-empty">
                         저장된 링크가 없습니다.
                     </div>
