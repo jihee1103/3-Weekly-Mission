@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useFetchFolders } from "./hooks/FolderContainer";
+import { useFetchFolders } from "./hooks/useFetchFolders";
 import { fetchFolders } from "./api/fetchFolders";
 import FolderContent from "./FolderContent";
 
