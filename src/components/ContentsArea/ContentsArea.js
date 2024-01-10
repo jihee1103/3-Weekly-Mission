@@ -3,20 +3,23 @@ import CardContainer from "../CardContainer/CardContainer.js";
 import "./ContentsArea.css";
 import FolderListArea from "../FolderListArea/FolderListArea";
 import { useLocation } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SharedProvider } from "../../context/FolderNameContext";
-import { getAllCardData, getCardDataById } from "../../api/api";
+import { getAllCardData, getCardDataById, getFolderData } from "../../api/api";
+import EmptyArea from "../EmptyArea/EmptyArea";
 
 const ContentsArea = () => {
   const location = useLocation();
 
   const [cardData, setCardData] = useState({ data: [] });
   const [allCardData, setAllCardData] = useState({ data: [] });
+  const [sharedFolderData, setSharedFolderData] = useState({
+    folder: { links: [{ id: "", createdAt: "", description: "", url: "" }] },
+  });
 
   const handleFolderClick = async (itemId) => {
     const cardData = await getCardDataById(itemId);
     setCardData(cardData);
-    console.log(cardData);
   };
 
   const handleAllFolderClick = async () => {
@@ -24,12 +27,27 @@ const ContentsArea = () => {
     setAllCardData(allCardData);
   };
 
+  const getSharedFolderData = async () => {
+    const sharedFolderData = await getFolderData();
+    setSharedFolderData(sharedFolderData);
+    console.log(sharedFolderData.folder.links);
+  };
+
+  if (location.path === "/shared") {
+    getSharedFolderData();
+  }
+  useEffect(() => {
+    if (location.path === "/shared") {
+      getSharedFolderData();
+    }
+  }, []);
+
   switch (location.pathname) {
     case "/shared":
       return (
         <div className="contentsArea">
           <SearchArea></SearchArea>
-          <CardContainer></CardContainer>
+          <CardContainer sharedFolderData={sharedFolderData}></CardContainer>
         </div>
       );
     case "/folder":
@@ -46,11 +64,7 @@ const ContentsArea = () => {
         </div>
       );
     default:
-      return (
-        <div className="contentsArea">
-          <p className="emptyMessage">저장된 링크가 없습니다</p>
-        </div>
-      );
+      return <EmptyArea></EmptyArea>;
   }
 };
 

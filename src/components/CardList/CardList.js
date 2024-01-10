@@ -1,10 +1,10 @@
 import setPassedTime from "../../utils/setPassedTime";
 import "./CardList.css";
 import { useLocation } from "react-router";
-import { useEffect, useState } from "react";
 import EditButtonsArea from "../EditButtonsArea/EditButtonsArea";
 import Kebab from "../Kebab/Kebab";
 import { useFolderNameContext } from "../../context/FolderNameContext";
+import EmptyArea from "../EmptyArea/EmptyArea";
 
 const CardList = ({ cardList }) => {
   function createDate(createdAt) {
@@ -17,19 +17,9 @@ const CardList = ({ cardList }) => {
 
   const location = useLocation();
 
-  const [state, setState] = useState("");
-
   const { folderName } = useFolderNameContext();
 
-  useEffect(() => {
-    handleState();
-  }, []);
-
-  const handleState = () => {
-    setState(location.pathname);
-  };
-
-  switch (state) {
+  switch (location.pathname) {
     case "/shared":
       return (
         <div className="cardList">
@@ -59,7 +49,7 @@ const CardList = ({ cardList }) => {
               <h1 className="cardListTitle">{folderName}</h1>
               <EditButtonsArea />
             </div>
-            <p className="emptyMessage">저장된 링크가 없습니다</p>
+            <EmptyArea></EmptyArea>
           </div>
         );
       } else {
