@@ -13,12 +13,11 @@ const CardContainer = ({ cardData, allCardData }) => {
         <CardList cardList={cardData.data}></CardList>
       </div>
     );
-  } else {
-    return (
-      <div className="cardContainer">
-        <CardList cardList={allCardData.data}></CardList>
-      </div>
-    );
   }
+  return (
+    <div className="cardContainer">
+      <CardList cardList={allCardData.data}></CardList>
+    </div>
+  );
 };
 export default CardContainer;
