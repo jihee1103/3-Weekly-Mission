@@ -2,6 +2,17 @@ import styled from 'styled-components';
 import convertKeyToCamelCase from '../../utils/convertToCamelCase';
 import Card from './Card';
 
+export default function CardList({ links }) {
+  return (
+    <CardBox>
+      {links.map((link) => {
+        const newLink = convertKeyToCamelCase(link);
+        return <Card key={newLink.id} link={newLink} />;
+      })}
+    </CardBox>
+  );
+}
+
 const CardBox = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -20,14 +31,3 @@ const CardBox = styled.div`
     }
   }
 `;
-
-export default function CardList({ links }) {
-  return (
-    <CardBox>
-      {links.map((link) => {
-        const newLink = convertKeyToCamelCase(link);
-        return <Card key={newLink.id} link={newLink} />;
-      })}
-    </CardBox>
-  );
-}

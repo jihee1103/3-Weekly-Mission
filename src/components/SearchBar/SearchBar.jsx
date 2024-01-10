@@ -1,6 +1,21 @@
 import styled from 'styled-components';
 import SearchIconImg from '../../asset/SearchIcon.svg';
 
+export default function SearchBar() {
+  return (
+    <SearchForm>
+      <SearchInputWrapper htmlFor="searchValue">
+        <SearchIcon src={SearchIconImg} alt="SearchIcon" />
+        <SearchInput
+          id="searchValue"
+          type="text"
+          placeholder="링크를 검색해 보세요."
+        />
+      </SearchInputWrapper>
+    </SearchForm>
+  );
+}
+
 const SearchForm = styled.form`
   width: 1060px;
   @media (max-width: 1199px) {
@@ -51,18 +66,3 @@ const SearchInput = styled.input`
     }
   }
 `;
-
-export default function SearchBar() {
-  return (
-    <SearchForm>
-      <SearchInputWrapper htmlFor="searchValue">
-        <SearchIcon src={SearchIconImg} alt="SearchIcon" />
-        <SearchInput
-          id="searchValue"
-          type="text"
-          placeholder="링크를 검색해 보세요."
-        />
-      </SearchInputWrapper>
-    </SearchForm>
-  );
-}

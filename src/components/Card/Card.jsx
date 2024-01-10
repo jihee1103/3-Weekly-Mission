@@ -1,10 +1,60 @@
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import defaultImage from '../../asset/default-image.svg';
-import calculateTime from '../../utils/calculateTime';
-import starIcon from '../../asset/star.svg';
 import kebabIcon from '../../asset/kebab.svg';
+import starIcon from '../../asset/star.svg';
+import calculateTime from '../../utils/calculateTime';
+
+export default function Card({ link }) {
+  const [formattedCreatedAt, setFormattedCreatedAt] = useState('');
+  const [elapsedTime, setElapsedTime] = useState('');
+  const [cardImgUrl, setCardImgUrl] = useState('');
+  const [linkUrl, setLinkUrl] = useState('');
+
+  const updateFormattedCreatedAt = (dateTimeString) => {
+    const formattedDateTime = new Date(dateTimeString);
+
+    const year = formattedDateTime.getFullYear();
+    const month = formattedDateTime.getMonth() + 1;
+    const day = formattedDateTime.getDate();
+
+    setFormattedCreatedAt(`${year}. ${month}. ${day}`);
+  };
+
+  useEffect(() => {
+    const formattedElapsedTime = calculateTime(link.createdAt);
+
+    setElapsedTime(formattedElapsedTime);
+    setLinkUrl(link.url);
+    setCardImgUrl(link.imageSource);
+    updateFormattedCreatedAt(link.createdAt);
+  }, [link]);
+
+  const handleImageError = (e) => {
+    e.target.src = defaultImage;
+  };
+  return (
+    <CardContainer to={linkUrl} target="_blank">
+      <CardImgArea>
+        <CardPreviewImg
+          src={cardImgUrl || defaultImage}
+          alt="카드 미리보기 이미지"
+          onError={handleImageError}
+        />
+        <StarIcon src={starIcon} alt="즐겨찾기 버튼" />
+      </CardImgArea>
+      <CardInfoArea>
+        <CardInfoTop>
+          <CardInfoTime>{elapsedTime}</CardInfoTime>
+          <KebabIcon src={kebabIcon} alt="더보기 아이콘" />
+        </CardInfoTop>
+        <CardInfoBody>{link.description || '설명이 없습니다.'}</CardInfoBody>
+        <CardInfoDate>{formattedCreatedAt}</CardInfoDate>
+      </CardInfoArea>
+    </CardContainer>
+  );
+}
 
 const CardContainer = styled(Link)`
   display: flex;
@@ -78,53 +128,3 @@ const CardInfoDate = styled.p`
   font-size: 14px;
   color: #333333;
 `;
-
-export default function Card({ link }) {
-  const [formattedCreatedAt, setFormattedCreatedAt] = useState('');
-  const [elapsedTime, setElapsedTime] = useState('');
-  const [cardImgUrl, setCardImgUrl] = useState('');
-  const [linkUrl, setLinkUrl] = useState('');
-
-  const updateFormattedCreatedAt = (dateTimeString) => {
-    const formattedDateTime = new Date(dateTimeString);
-
-    const year = formattedDateTime.getFullYear();
-    const month = formattedDateTime.getMonth() + 1;
-    const day = formattedDateTime.getDate();
-
-    setFormattedCreatedAt(`${year}. ${month}. ${day}`);
-  };
-
-  useEffect(() => {
-    const formattedElapsedTime = calculateTime(link.createdAt);
-
-    setElapsedTime(formattedElapsedTime);
-    setLinkUrl(link.url);
-    setCardImgUrl(link.imageSource);
-    updateFormattedCreatedAt(link.createdAt);
-  }, [link]);
-
-  const handleImageError = (e) => {
-    e.target.src = defaultImage;
-  };
-  return (
-    <CardContainer to={linkUrl} target="_blank">
-      <CardImgArea>
-        <CardPreviewImg
-          src={cardImgUrl || defaultImage}
-          alt="카드 미리보기 이미지"
-          onError={handleImageError}
-        />
-        <StarIcon src={starIcon} alt="즐겨찾기 버튼" />
-      </CardImgArea>
-      <CardInfoArea>
-        <CardInfoTop>
-          <CardInfoTime>{elapsedTime}</CardInfoTime>
-          <KebabIcon src={kebabIcon} alt="더보기 아이콘" />
-        </CardInfoTop>
-        <CardInfoBody>{link.description || '설명이 없습니다.'}</CardInfoBody>
-        <CardInfoDate>{formattedCreatedAt}</CardInfoDate>
-      </CardInfoArea>
-    </CardContainer>
-  );
-}

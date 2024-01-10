@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import FolderTitleList from './FolderTitleList';
 import FolderCardHeader from './FolderCardHeader';
 import FolderCardList from './FolderCardList';
+import FolderTitleList from './FolderTitleList';
 
 const FolderCardArea = styled.div`
   display: flex;

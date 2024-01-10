@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 
+export default function NavProfile({ userEmail, userProfileImg }) {
+  return (
+    <HeaderProfile>
+      <HeaderProfileImg src={userProfileImg} alt="profile" />
+      <HeaderProfileEmail>{userEmail}</HeaderProfileEmail>
+    </HeaderProfile>
+  );
+}
+
 const HeaderProfile = styled.div`
   display: flex;
   align-items: center;
@@ -18,12 +27,3 @@ const HeaderProfileEmail = styled.span`
     }
   }
 `;
-
-export default function NavProfile({ userEmail, userProfileImg }) {
-  return (
-    <HeaderProfile>
-      <HeaderProfileImg src={userProfileImg} alt="profile" />
-      <HeaderProfileEmail>{userEmail}</HeaderProfileEmail>
-    </HeaderProfile>
-  );
-}

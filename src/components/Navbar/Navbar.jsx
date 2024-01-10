@@ -1,11 +1,63 @@
-import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import logoImg from '../../asset/logo.svg';
-import NavProfile from './NavProfile';
-import getFetchRequest from '../../utils/getFetchRequest';
 import { API_USERS, BASE_API_HOST } from '../../constants/api';
+import getFetchRequest from '../../utils/getFetchRequest';
 import Loading from '../Loading/Loading';
+import NavProfile from './NavProfile';
+
+export default function Navbar() {
+  const location = useLocation();
+  const isFolderPage = location.pathname === '/folder';
+  const [userEmail, setUserEmail] = useState(null);
+  const [userProfileImg, setUserProfileImg] = useState(null);
+  const [condition, setCondition] = useState('noData');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    setCondition('loading');
+    const getUserInfo = async () => {
+      try {
+        const result = await getFetchRequest(BASE_API_HOST, `${API_USERS}/1`);
+        setUserEmail(result.data[0].email);
+        setUserProfileImg(result.data[0].image_source);
+        setCondition('getInfoSuccess');
+      } catch (e) {
+        setErrorMessage(e.message);
+        setCondition('error');
+      }
+    };
+    getUserInfo();
+  }, []);
+
+  return (
+    <NavHeader $isFolderPage={isFolderPage}>
+      <HeaderBox>
+        <Link to="/">
+          <HeaderLogo src={logoImg} alt="logo" />
+        </Link>
+        {
+          {
+            loading: <Loading />,
+            getInfoSuccess: (
+              <NavProfile
+                userEmail={userEmail}
+                userProfileImg={userProfileImg}
+              />
+            ),
+            error: errorMessage,
+            noData: (
+              <HeaderLogin to="/">
+                <HeaderLoginSpan>로그인</HeaderLoginSpan>
+              </HeaderLogin>
+            ),
+          }[condition]
+        }
+      </HeaderBox>
+    </NavHeader>
+  );
+}
 
 const NavHeader = styled.header`
   position: sticky;
@@ -62,55 +114,3 @@ const HeaderLoginSpan = styled.span`
   font-size: 18px;
   font-weight: 600;
 `;
-
-export default function Navbar() {
-  const location = useLocation();
-  const isFolderPage = location.pathname === '/folder';
-  const [userEmail, setUserEmail] = useState(null);
-  const [userProfileImg, setUserProfileImg] = useState(null);
-  const [condition, setCondition] = useState('noData');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  useEffect(() => {
-    setCondition('loading');
-    const getUserInfo = async () => {
-      try {
-        const result = await getFetchRequest(BASE_API_HOST, `${API_USERS}/1`);
-        setUserEmail(result.data[0].email);
-        setUserProfileImg(result.data[0].image_source);
-        setCondition('getInfoSuccess');
-      } catch (e) {
-        setErrorMessage(e.message);
-        setCondition('error');
-      }
-    };
-    getUserInfo();
-  }, []);
-
-  return (
-    <NavHeader $isFolderPage={isFolderPage}>
-      <HeaderBox>
-        <Link to="/">
-          <HeaderLogo src={logoImg} alt="logo" />
-        </Link>
-        {
-          {
-            loading: <Loading />,
-            getInfoSuccess: (
-              <NavProfile
-                userEmail={userEmail}
-                userProfileImg={userProfileImg}
-              />
-            ),
-            error: errorMessage,
-            noData: (
-              <HeaderLogin to="/">
-                <HeaderLoginSpan>로그인</HeaderLoginSpan>
-              </HeaderLogin>
-            ),
-          }[condition]
-        }
-      </HeaderBox>
-    </NavHeader>
-  );
-}

@@ -5,6 +5,52 @@ import twitterImg from '../../asset/akar-icons_twitter-fill.svg';
 import youtubeImg from '../../asset/akar-icons_youtube-fill.svg';
 import instagramImg from '../../asset/ant-design_instagram-filled.svg';
 
+export default function Footer() {
+  return (
+    <FooterContainer>
+      <FooterBox>
+        <FooterContents>
+          <FooterContentsBox>
+            <FooterCopyRight>
+              <FooterCodeit>©codeit - 2023</FooterCodeit>
+            </FooterCopyRight>
+            <FooterPolicyText>
+              <FooterText to="/privacy">Privacy Policy</FooterText>
+              <FooterText to="/faq">FAQ</FooterText>
+            </FooterPolicyText>
+            <FooterLogo>
+              <Link
+                to="https://www.facebook.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FooterLogoImg src={facebookImg} alt="facebook" />
+              </Link>
+              <Link to="https://twitter.com/" target="_blank" rel="noreferrer">
+                <FooterLogoImg src={twitterImg} alt="twitter" />
+              </Link>
+              <Link
+                to="https://www.youtube.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FooterLogoImg src={youtubeImg} alt="youtube" />
+              </Link>
+              <Link
+                to="https://www.instagram.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FooterLogoImg src={instagramImg} alt="instagram" />
+              </Link>
+            </FooterLogo>
+          </FooterContentsBox>
+        </FooterContents>
+      </FooterBox>
+    </FooterContainer>
+  );
+}
+
 const FooterContainer = styled.footer`
   display: flex;
   height: 220px;
@@ -91,49 +137,3 @@ const FooterLogo = styled.div`
 const FooterLogoImg = styled.img`
   cursor: pointer;
 `;
-
-export default function Footer() {
-  return (
-    <FooterContainer>
-      <FooterBox>
-        <FooterContents>
-          <FooterContentsBox>
-            <FooterCopyRight>
-              <FooterCodeit>©codeit - 2023</FooterCodeit>
-            </FooterCopyRight>
-            <FooterPolicyText>
-              <FooterText to="/privacy">Privacy Policy</FooterText>
-              <FooterText to="/faq">FAQ</FooterText>
-            </FooterPolicyText>
-            <FooterLogo>
-              <Link
-                to="https://www.facebook.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FooterLogoImg src={facebookImg} alt="facebook" />
-              </Link>
-              <Link to="https://twitter.com/" target="_blank" rel="noreferrer">
-                <FooterLogoImg src={twitterImg} alt="twitter" />
-              </Link>
-              <Link
-                to="https://www.youtube.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FooterLogoImg src={youtubeImg} alt="youtube" />
-              </Link>
-              <Link
-                to="https://www.instagram.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FooterLogoImg src={instagramImg} alt="instagram" />
-              </Link>
-            </FooterLogo>
-          </FooterContentsBox>
-        </FooterContents>
-      </FooterBox>
-    </FooterContainer>
-  );
-}

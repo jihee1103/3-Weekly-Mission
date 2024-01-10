@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export default function NoLinkCard() {
+  return <Wrapper>저장된 링크가 없습니다</Wrapper>;
+}
+
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -9,7 +13,3 @@ const Wrapper = styled.div`
   padding: 41px 0 35px;
   line-height: 24px;
 `;
-
-export default function NoLinkCard() {
-  return <Wrapper>저장된 링크가 없습니다</Wrapper>;
-}

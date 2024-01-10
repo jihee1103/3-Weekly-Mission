@@ -1,6 +1,22 @@
 import styled from 'styled-components';
 import linkIcon from '../../asset/link.svg';
 
+export default function AddLink() {
+  return (
+    <AddLinkForm>
+      <Wrapper>
+        <IconInputWrapper>
+          <LinkIcon src={linkIcon} />
+          <AddLinkInput id="linkInput" placeholder="링크를 추가해 보세요." />
+        </IconInputWrapper>
+        <AddButton>
+          <Addtext>추가하기</Addtext>
+        </AddButton>
+      </Wrapper>
+    </AddLinkForm>
+  );
+}
+
 const AddLinkForm = styled.form`
   display: flex;
   align-items: center;
@@ -78,19 +94,3 @@ const Addtext = styled.span`
   font-weight: 600;
   line-height: 17px;
 `;
-
-export default function AddLink() {
-  return (
-    <AddLinkForm>
-      <Wrapper>
-        <IconInputWrapper>
-          <LinkIcon src={linkIcon} />
-          <AddLinkInput id="linkInput" placeholder="링크를 추가해 보세요." />
-        </IconInputWrapper>
-        <AddButton>
-          <Addtext>추가하기</Addtext>
-        </AddButton>
-      </Wrapper>
-    </AddLinkForm>
-  );
-}

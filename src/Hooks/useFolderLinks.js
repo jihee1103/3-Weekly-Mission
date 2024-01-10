@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import getFetchRequest from '../utils/getFetchRequest';
 import { BASE_API_HOST } from '../constants/api';
+import getFetchRequest from '../utils/getFetchRequest';
 
 const useFolderLinks = (apiPath, folderId = 0) => {
   const [data, setData] = useState([]);

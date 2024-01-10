@@ -1,7 +1,43 @@
-import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import FolderTitle from './FolderTitle';
+import styled from 'styled-components';
 import AddFolder from './AddFolder';
+import FolderTitle from './FolderTitle';
+
+export default function FolderTitleList({ folderList, folderId, onClick }) {
+  const allFolder = { id: 0, name: '전체' };
+  const [isSelected, setIsSelected] = useState(false);
+
+  useEffect(() => {
+    setIsSelected(false);
+    if (allFolder.id === folderId) {
+      setIsSelected(true);
+    }
+  }, [folderId]);
+
+  return (
+    <Wrapper>
+      <FolderListContainer>
+        <FolderItemAll
+          onClick={() => onClick(allFolder)}
+          $isSelected={isSelected}
+        >
+          전체
+        </FolderItemAll>
+        {folderList.map((item) => (
+          <FolderTitle
+            key={item.id}
+            item={item}
+            folderId={folderId}
+            onClick={() => onClick(item)}
+          />
+        ))}
+      </FolderListContainer>
+      <AddFolderWrapper>
+        <AddFolder />
+      </AddFolderWrapper>
+    </Wrapper>
+  );
+}
 
 const Wrapper = styled.div`
   display: flex;
@@ -58,39 +94,3 @@ const AddFolderWrapper = styled.div`
     }
   }
 `;
-
-export default function FolderTitleList({ folderList, folderId, onClick }) {
-  const allFolder = { id: 0, name: '전체' };
-  const [isSelected, setIsSelected] = useState(false);
-
-  useEffect(() => {
-    setIsSelected(false);
-    if (allFolder.id === folderId) {
-      setIsSelected(true);
-    }
-  }, [folderId]);
-
-  return (
-    <Wrapper>
-      <FolderListContainer>
-        <FolderItemAll
-          onClick={() => onClick(allFolder)}
-          $isSelected={isSelected}
-        >
-          전체
-        </FolderItemAll>
-        {folderList.map((item) => (
-          <FolderTitle
-            key={item.id}
-            item={item}
-            folderId={folderId}
-            onClick={() => onClick(item)}
-          />
-        ))}
-      </FolderListContainer>
-      <AddFolderWrapper>
-        <AddFolder />
-      </AddFolderWrapper>
-    </Wrapper>
-  );
-}

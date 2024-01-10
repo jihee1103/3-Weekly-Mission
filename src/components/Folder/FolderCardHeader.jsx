@@ -1,7 +1,31 @@
 import styled from 'styled-components';
-import shareIcon from '../../asset/shareIcon.svg';
-import editIcon from '../../asset/penIcon.svg';
 import deleteIcon from '../../asset/deleteIcon.svg';
+import editIcon from '../../asset/penIcon.svg';
+import shareIcon from '../../asset/shareIcon.svg';
+
+export default function FolderCardHeader({ folderName, folderId }) {
+  return (
+    <Wrapper>
+      <FolderTitle>{folderName}</FolderTitle>
+      {folderId !== 0 && (
+        <FolderManageContainer>
+          <FolderEditButton>
+            <EditIcon src={shareIcon} />
+            공유
+          </FolderEditButton>
+          <FolderEditButton>
+            <EditIcon src={editIcon} />
+            이름 변경
+          </FolderEditButton>
+          <FolderEditButton>
+            <DeleteIcon src={deleteIcon} />
+            삭제
+          </FolderEditButton>
+        </FolderManageContainer>
+      )}
+    </Wrapper>
+  );
+}
 
 const Wrapper = styled.div`
   display: flex;
@@ -42,27 +66,3 @@ const FolderEditButton = styled.div`
   font-size: 14px;
   cursor: pointer;
 `;
-
-export default function FolderCardHeader({ folderName, folderId }) {
-  return (
-    <Wrapper>
-      <FolderTitle>{folderName}</FolderTitle>
-      {folderId !== 0 && (
-        <FolderManageContainer>
-          <FolderEditButton>
-            <EditIcon src={shareIcon} />
-            공유
-          </FolderEditButton>
-          <FolderEditButton>
-            <EditIcon src={editIcon} />
-            이름 변경
-          </FolderEditButton>
-          <FolderEditButton>
-            <DeleteIcon src={deleteIcon} />
-            삭제
-          </FolderEditButton>
-        </FolderManageContainer>
-      )}
-    </Wrapper>
-  );
-}

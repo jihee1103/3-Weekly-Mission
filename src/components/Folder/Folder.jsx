@@ -2,6 +2,19 @@ import styled from 'styled-components';
 import AddLink from '../AddLink/AddLink';
 import FolderBody from './FolderBody';
 
+export default function Folder() {
+  return (
+    <>
+      <AddLinkArea>
+        <AddLink />
+      </AddLinkArea>
+      <FolderBodyArea>
+        <FolderBody />
+      </FolderBodyArea>
+    </>
+  );
+}
+
 const AddLinkArea = styled.div`
   display: flex;
   align-items: center;
@@ -27,16 +40,3 @@ const FolderBodyArea = styled.div`
     }
   }
 `;
-
-export default function Folder() {
-  return (
-    <>
-      <AddLinkArea>
-        <AddLink />
-      </AddLinkArea>
-      <FolderBodyArea>
-        <FolderBody />
-      </FolderBodyArea>
-    </>
-  );
-}

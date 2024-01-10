@@ -2,6 +2,15 @@ import styled from 'styled-components';
 import addFolderIcon from '../../asset/addfolder.svg';
 import addFolderWhiteIcon from '../../asset/addfolderwhite.svg';
 
+export default function AddFolder() {
+  return (
+    <Wrapper>
+      <AddFolderText>폴더 추가</AddFolderText>
+      <AddFolderIcon />
+    </Wrapper>
+  );
+}
+
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -31,12 +40,3 @@ const AddFolderIcon = styled.div`
     background-image: url(${addFolderWhiteIcon});
   }
 `;
-
-export default function AddFolder() {
-  return (
-    <Wrapper>
-      <AddFolderText>폴더 추가</AddFolderText>
-      <AddFolderIcon />
-    </Wrapper>
-  );
-}
