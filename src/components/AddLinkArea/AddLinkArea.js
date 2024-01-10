@@ -4,7 +4,7 @@ import "./AddLinkArea.css";
 const AddLinkArea = () => {
   return (
     <div className="addLinkArea">
-      <AddLinkInput />{" "}
+      <AddLinkInput />
     </div>
   );
 };
