@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { fetchFolderProfileData } from "./api/fetchFolderProfileData";
 
 function FolderProfile() {
     const [profileData, setProfileData] = useState(null);
 
     useEffect(() => {
-        fetch("https://bootcamp-api.codeit.kr/api/users/1")
-            .then((response) => response.json())
+        fetchFolderProfileData()
             .then((data) => {
-                setProfileData(data.data[0]);
+                setProfileData(data);
             })
             .catch((error) => {
                 console.error("Error fetching profile data:", error);
