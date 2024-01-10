@@ -6,18 +6,17 @@ import imageData from "../../utils/imageData";
 export default function FolderListButton({
   itemList,
   setFolderName,
-  handleIdData,
-  handleEntireData,
+  setCardListItem,
   folderName,
 }) {
   const handleClick = ({ target }) => {
     setFolderName(target.name);
-    handleIdData(getFolderData, target.id);
+    setCardListItem(() => getFolderData(target.id));
   };
 
   const handleEntireClick = () => {
     setFolderName("전체");
-    handleEntireData();
+    setCardListItem();
   };
 
   return (

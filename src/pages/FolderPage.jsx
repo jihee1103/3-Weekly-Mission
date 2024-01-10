@@ -11,9 +11,9 @@ import FloatingActionButton from "../components/FloatingActionButton/FloatingAct
 import NoLinkBlock from "../components/NoLinkBlock/NoLinkBlock";
 
 export default function FolderPage() {
-  const [cardListItem, handleEntireData, handleIdData] =
+  const { data: cardListItem, fetchData: setCardListItem } =
     useFetchData(getLinkList);
-  const [folderNameList] = useFetchData(getFolderList);
+  const { data: folderNameList } = useFetchData(getFolderList);
   const [folderName, setFolderName] = useState("전체");
 
   return (
@@ -28,8 +28,7 @@ export default function FolderPage() {
             <FolderListButton
               itemList={folderNameList}
               setFolderName={setFolderName}
-              handleEntireData={handleEntireData}
-              handleIdData={handleIdData}
+              setCardListItem={setCardListItem}
               folderName={folderName}
             />
             <FolderNameLine folderName={folderName} />
