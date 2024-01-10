@@ -24,3 +24,8 @@ export const getCardDataById = async (id) => {
   const res = await fetch(`${API_BASE_URL}/api/users/1/links?folderId=${id}`);
   return res.json();
 };
+
+export const getFolderUserData = async () => {
+  const res = await fetch(`${API_BASE_URL}/api/users/1`);
+  return res.json();
+};

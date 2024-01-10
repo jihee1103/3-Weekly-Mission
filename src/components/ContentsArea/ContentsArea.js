@@ -30,16 +30,16 @@ const ContentsArea = () => {
   const getSharedFolderData = async () => {
     const sharedFolderData = await getFolderData();
     setSharedFolderData(sharedFolderData);
-    console.log(sharedFolderData.folder.links);
   };
 
-  if (location.path === "/shared") {
-    getSharedFolderData();
-  }
+  // useEffect(() => {
+  //   if (location.path === "/shared") {
+  //     getSharedFolderData();
+  //   }
+  // }, []);
+
   useEffect(() => {
-    if (location.path === "/shared") {
-      getSharedFolderData();
-    }
+    getSharedFolderData();
   }, []);
 
   switch (location.pathname) {
