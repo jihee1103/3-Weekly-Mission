@@ -49,7 +49,7 @@ export default function Card({ link }) {
           <CardInfoTime>{elapsedTime}</CardInfoTime>
           <KebabIcon src={kebabIcon} alt="더보기 아이콘" />
         </CardInfoTop>
-        <CardInfoBody>{link.description || '설명이 없습니다.'}</CardInfoBody>
+        <CardInfoBody>{link.description ?? '설명이 없습니다.'}</CardInfoBody>
         <CardInfoDate>{formattedCreatedAt}</CardInfoDate>
       </CardInfoArea>
     </CardContainer>

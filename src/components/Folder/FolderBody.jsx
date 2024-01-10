@@ -33,7 +33,7 @@ export default function FolderBody() {
           folderName={folderName}
         />
       )}
-      {links.length === 0 && folderList.length !== 0 && <NoLinkCard />}
+      {links.length === 0 && folderList.length !== 0 ? <NoLinkCard /> : null}
     </Wrapper>
   );
 }

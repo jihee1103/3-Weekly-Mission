@@ -6,6 +6,7 @@
     "prettier", // eslint-config-prettier 라이브러리 적용하여 Prettier에 관련된 규칙을 사용합니다.
     "airbnb"
   ], // eslint-config-airbnb 라이브러리 적용하여 Airbnb 스타일 가이드에 따라 규칙을 설정합니다.
+  "parser": "babel-parser", // 최신 ECMA 버전을 사용할 수 있게 설정
   "plugins": ["prettier"], // Prettier와 관련된 플러그인을 사용합니다.
   "rules": {
     "linebreak-style": "off",
