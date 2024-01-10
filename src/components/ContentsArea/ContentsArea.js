@@ -3,24 +3,15 @@ import CardContainer from "../CardContainer/CardContainer.js";
 import "./ContentsArea.css";
 import FolderListArea from "../FolderListArea/FolderListArea";
 import { useLocation } from "react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SharedProvider } from "../../context/FolderNameContext";
 import { getAllCardData, getCardDataById } from "../../api/api";
 
 const ContentsArea = () => {
   const location = useLocation();
 
-  const [state, setState] = useState("");
   const [cardData, setCardData] = useState({ data: [] });
   const [allCardData, setAllCardData] = useState({ data: [] });
-
-  useEffect(() => {
-    handleState();
-  }, []);
-
-  const handleState = () => {
-    setState(location.pathname);
-  };
 
   const handleFolderClick = async (itemId) => {
     const cardData = await getCardDataById(itemId);
@@ -33,7 +24,7 @@ const ContentsArea = () => {
     setAllCardData(allCardData);
   };
 
-  switch (state) {
+  switch (location.pathname) {
     case "/shared":
       return (
         <div className="contentsArea">
