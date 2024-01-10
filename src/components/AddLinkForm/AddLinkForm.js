@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+function AddLinkForm() {
+  return (
+    <S.Wrapper>
+      <S.Container>
+        <div>
+          <Input type="text" placeholder="링크를 추가해 보세요"></Input>
+        </div>
+        <Button>추가하기</Button>
+      </S.Container>
+    </S.Wrapper>
+  );
+}
+
 const Wrapper = styled.div`
   background: var(--Linkbrary-bg, #f0f6ff);
   padding: 60px 320px 90px 320px;
@@ -16,6 +29,12 @@ const Container = styled.div`
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: var(--Linkbrary-white, #fff);
 `;
+
+//스타일
+const S = {
+  Wrapper,
+  Container,
+};
 
 const Button = styled.button`
   border: 0px;
@@ -49,17 +68,5 @@ const Input = styled.input`
   background-size: 16px;
   padding-left: 40px;
 `;
-function AddLink() {
-  return (
-    <Wrapper>
-      <Container>
-        <div>
-          <Input type="text" placeholder="링크를 추가해 보세요"></Input>
-        </div>
-        <Button>추가하기</Button>
-      </Container>
-    </Wrapper>
-  );
-}
 
-export default AddLink;
+export default AddLinkForm;

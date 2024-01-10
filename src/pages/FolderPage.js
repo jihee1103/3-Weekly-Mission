@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar/Navbar";
-import AddLink from "../components/AddLink/AddLink";
+import AddLinkForm from "../components/AddLinkForm/AddLinkForm";
 import Content from "../components/Content/Content";
 import AddFolderButton from "../components/AddFolderButton/AddFolderButton";
 
@@ -7,7 +7,7 @@ function FolderPage() {
   return (
     <>
       <Navbar isSticky={true} />
-      <AddLink />
+      <AddLinkForm />
       <Content />
       <AddFolderButton></AddFolderButton>
     </>

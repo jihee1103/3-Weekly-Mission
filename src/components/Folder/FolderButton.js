@@ -1,32 +1,34 @@
 import styled from "styled-components";
 
+const COLORS = {
+  primary: "--linkbrary-primary-color",
+  white: "--linkbrary-white",
+  black: "--text-color-light-mode",
+};
+
 const FolderItem = styled.span`
   padding: 8px 12px;
   border-radius: 5px;
-  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-  background: #fff;
+  border: 1px solid var(--linkbrary-primary-color);
+  background: var(
+    ${({ isSelected }) => (isSelected ? COLORS["primary"] : COLORS["white"])}
+  );
 
-  color: #000;
+  color: var(
+    ${({ isSelected }) => (isSelected ? COLORS["white"] : COLORS["black"])}
+  );
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 `;
 
-const SelectedFolderItem = styled(FolderItem)`
-  background: var(--Linkbrary-primary-color, #6d6afe);
-  color: #fff;
-`;
-
 function FolderButton({ name, onClick, isSelected }) {
-  // console.log("isSelected", isSelected);
   return (
     <>
-      {isSelected ? (
-        <SelectedFolderItem onClick={onClick}>{name}</SelectedFolderItem>
-      ) : (
-        <FolderItem onClick={onClick}>{name}</FolderItem>
-      )}
+      <FolderItem onClick={onClick} isSelected={isSelected}>
+        {name}
+      </FolderItem>
     </>
   );
 }

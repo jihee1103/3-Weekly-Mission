@@ -5,13 +5,12 @@ import { ALL_LINKS_ID } from "../Folder/constants";
 import "./CardList.css";
 
 function CardList({ selectedFolderId, selectedFolderName }) {
-  const [cardList, setCardList] = useState(null);
+  const [cardList, setCardList] = useState([]);
 
   useEffect(() => {
     const handleLoadCardList = async () => {
       // console.log("selectedFolderId", selectedFolderId);
       const { data } = await getLinkDataByFolderId(selectedFolderId);
-      // console.log("data", data);
 
       setCardList(data);
     };
@@ -41,8 +40,9 @@ function CardList({ selectedFolderId, selectedFolderName }) {
         )}
       </div>
       <div className="card-list">
-        {cardList &&
-          cardList.map((link) => <Card key={link.id} link={link}></Card>)}
+        {cardList.map((link) => (
+          <Card key={link.id} link={link}></Card>
+        ))}
       </div>
     </>
   );
