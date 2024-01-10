@@ -1,5 +1,29 @@
 import styled from 'styled-components';
 
+const FolderTitle = ({ currentFolder }) => {
+  return (
+    <FolderTitleContainer>
+      <div>{currentFolder}</div>
+      {currentFolder !== '전체' ? (
+        <FolderToolbar>
+          <button type="button">
+            <img src={`${process.env.PUBLIC_URL}/images/share.svg`} alt="폴더 도구 모음 공유 버튼" />
+            <span>공유</span>
+          </button>
+          <button type="button">
+            <img src={`${process.env.PUBLIC_URL}/images/pen.svg`} alt="폴더 도구 모음 수정 버튼" />
+            <span>이름 변경</span>
+          </button>
+          <button type="button">
+            <img src={`${process.env.PUBLIC_URL}/images/trash_can.svg`} alt="폴더 도구 모음 삭제 버튼" />
+            <span>삭제</span>
+          </button>
+        </FolderToolbar>
+      ) : null}
+    </FolderTitleContainer>
+  );
+};
+
 const FolderTitleContainer = styled.div`
   width: 1060px;
   display: flex;
@@ -43,29 +67,5 @@ const FolderToolbar = styled.div`
     }
   }
 `;
-
-const FolderTitle = ({ currentFolder }) => {
-  return (
-    <FolderTitleContainer>
-      <div>{currentFolder}</div>
-      {currentFolder !== '전체' ? (
-        <FolderToolbar>
-          <button type="button">
-            <img src={`${process.env.PUBLIC_URL}/images/share.svg`} alt="폴더 도구 모음 공유 버튼" />
-            <span>공유</span>
-          </button>
-          <button type="button">
-            <img src={`${process.env.PUBLIC_URL}/images/pen.svg`} alt="폴더 도구 모음 수정 버튼" />
-            <span>이름 변경</span>
-          </button>
-          <button type="button">
-            <img src={`${process.env.PUBLIC_URL}/images/trash_can.svg`} alt="폴더 도구 모음 삭제 버튼" />
-            <span>삭제</span>
-          </button>
-        </FolderToolbar>
-      ) : null}
-    </FolderTitleContainer>
-  );
-};
 
 export default FolderTitle;

@@ -3,6 +3,25 @@ import styled from 'styled-components';
 import CardImg, { CardMainImg } from './CardImg/CardImg';
 import CardContent, { CardContentContainer } from './CardContent/CardContent';
 
+const Card = ({ cardData }) => {
+  return (
+    <CardListContainer>
+      {cardData.length !== 0 ? (
+        cardData.map((link) => {
+          return (
+            <CardLink to={link.url} target="_blank" key={link.id} rel="noreferrer">
+              <CardImg link={link} />
+              <CardContent link={link} />
+            </CardLink>
+          );
+        })
+      ) : (
+        <AlertNotStoredLink>저장된 링크가 없습니다</AlertNotStoredLink>
+      )}
+    </CardListContainer>
+  );
+};
+
 const CardListContainer = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 340px);
@@ -54,24 +73,5 @@ const AlertNotStoredLink = styled.div`
     width: 704px;
   }
 `;
-
-const Card = ({ cardData }) => {
-  return (
-    <CardListContainer>
-      {cardData.length !== 0 ? (
-        cardData.map((link) => {
-          return (
-            <CardLink to={link.url} target="_blank" key={link.id} rel="noreferrer">
-              <CardImg link={link} />
-              <CardContent link={link} />
-            </CardLink>
-          );
-        })
-      ) : (
-        <AlertNotStoredLink>저장된 링크가 없습니다</AlertNotStoredLink>
-      )}
-    </CardListContainer>
-  );
-};
 
 export default Card;

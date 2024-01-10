@@ -2,6 +2,19 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import HeaderProfile from './HeaderProfile/HeaderProfile';
 
+const Header = ({ login, userData }) => {
+  return (
+    <HeaderWrap>
+      <HeaderContainer>
+        <LogoImg to="/">
+          <img src={`${process.env.PUBLIC_URL}/images/logo.svg`} alt="로고 이미지" />
+        </LogoImg>
+        <HeaderProfile login={login} userData={userData} />
+      </HeaderContainer>
+    </HeaderWrap>
+  );
+};
+
 const HeaderWrap = styled.div`
   box-sizing: border-box;
   width: 100%;
@@ -53,18 +66,5 @@ const LogoImg = styled(Link)`
     height: 16px;
   }
 `;
-
-const Header = ({ login, userData }) => {
-  return (
-    <HeaderWrap>
-      <HeaderContainer>
-        <LogoImg to="/" className="header__img">
-          <img src={`${process.env.PUBLIC_URL}/images/logo.svg`} alt="로고 이미지" />
-        </LogoImg>
-        <HeaderProfile login={login} userData={userData} />
-      </HeaderContainer>
-    </HeaderWrap>
-  );
-};
 
 export default Header;

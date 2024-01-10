@@ -1,6 +1,34 @@
 import { Link } from 'react-router-dom';
 import { styled, css } from 'styled-components';
 
+const Footer = () => {
+  return (
+    <FooterWrap>
+      <FooterContainer>
+        <FooterCodeit>©codeit - 2023</FooterCodeit>
+        <FooterPrivacyPolicyAndFaq>
+          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/faq">FAQ</Link>
+        </FooterPrivacyPolicyAndFaq>
+        <FooterLink>
+          <Link to="https://www.facebook.com" target="_blank">
+            <img src={`${process.env.PUBLIC_URL}/images/facebook_icon.svg`} alt="페이스북 링크 아이콘" />
+          </Link>
+          <Link to="https://twitter.com" target="_blank">
+            <img src={`${process.env.PUBLIC_URL}/images/twitter_icon.svg`} alt="트위터 링크 아이콘" />
+          </Link>
+          <Link to="https://www.youtube.com" target="_blank">
+            <img src={`${process.env.PUBLIC_URL}/images/youtube_icon.svg`} alt="유튜브 링크 아이콘" />
+          </Link>
+          <Link to="https://www.instagram.com" target="_blank">
+            <img src={`${process.env.PUBLIC_URL}/images/instagram_icon.svg`} alt="인스타그램 링크아이콘" />
+          </Link>
+        </FooterLink>
+      </FooterContainer>
+    </FooterWrap>
+  );
+};
+
 const FooterWrap = styled.footer`
   box-sizing: border-box;
   padding: 32px 104px 64px;
@@ -59,33 +87,5 @@ const FooterLink = styled.div`
   align-items: center;
   gap: 12px;
 `;
-
-const Footer = () => {
-  return (
-    <FooterWrap>
-      <FooterContainer>
-        <FooterCodeit>©codeit - 2023</FooterCodeit>
-        <FooterPrivacyPolicyAndFaq>
-          <Link to="/privacy">Privacy Policy</Link>
-          <Link to="/faq">FAQ</Link>
-        </FooterPrivacyPolicyAndFaq>
-        <FooterLink className="footer-font footer-link">
-          <Link to="https://www.facebook.com" target="_blank">
-            <img src={`${process.env.PUBLIC_URL}/images/facebook_icon.svg`} alt="페이스북 링크 아이콘" />
-          </Link>
-          <Link to="https://twitter.com" target="_blank">
-            <img src={`${process.env.PUBLIC_URL}/images/twitter_icon.svg`} alt="트위터 링크 아이콘" />
-          </Link>
-          <Link to="https://www.youtube.com" target="_blank">
-            <img src={`${process.env.PUBLIC_URL}/images/youtube_icon.svg`} alt="유튜브 링크 아이콘" />
-          </Link>
-          <Link to="https://www.instagram.com" target="_blank">
-            <img src={`${process.env.PUBLIC_URL}/images/instagram_icon.svg`} alt="인스타그램 링크아이콘" />
-          </Link>
-        </FooterLink>
-      </FooterContainer>
-    </FooterWrap>
-  );
-};
 
 export default Footer;

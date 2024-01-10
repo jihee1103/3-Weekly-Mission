@@ -3,6 +3,38 @@ import { useState } from 'react';
 import calculatePassedTime from '../../../../utils/calculatePassedTime';
 import getFormattedDate from '../../../../utils/getFormattedDate';
 
+const CardDescription = ({ link }) => {
+  const [kebabToggle, setKebabToggle] = useState(false);
+
+  const handleKebabToggle = () => {
+    setKebabToggle(!kebabToggle);
+  };
+
+  return (
+    <CardContentContainer>
+      <CardContentTimePassed>
+        {calculatePassedTime(link.created_at)}
+        <KebabBtn
+          onClick={(e) => {
+            e.preventDefault();
+            handleKebabToggle();
+          }}
+        >
+          <img src={`${process.env.PUBLIC_URL}/images/kebab.svg`} alt="더보기 케밥 버튼" />
+        </KebabBtn>
+        {kebabToggle ? (
+          <KebabMenu>
+            <KebabMenuDeleteBtn>삭제하기</KebabMenuDeleteBtn>
+            <KebabMenuAddFolderBtn>폴더에 추가</KebabMenuAddFolderBtn>
+          </KebabMenu>
+        ) : null}
+      </CardContentTimePassed>
+      <CardContentDescription>{link.description}</CardContentDescription>
+      <CardContentCreatedAt>{getFormattedDate(link.created_at)}</CardContentCreatedAt>
+    </CardContentContainer>
+  );
+};
+
 export const CardContentContainer = styled.div`
   box-sizing: border-box;
   width: 100%;
@@ -88,41 +120,5 @@ const KebabMenuAddFolderBtn = styled.button`
   color: var(--Linkbrary-primary-color, #6d6afe);
   font-family: Pretendard;
 `;
-
-const CardDescription = ({ link }) => {
-  const [kebabToggle, setKebabToggle] = useState(false);
-
-  const handleKebabToggle = () => {
-    setKebabToggle(!kebabToggle);
-  };
-
-  return (
-    <CardContentContainer>
-      <CardContentTimePassed>
-        {calculatePassedTime(link.created_at)}
-        <KebabBtn
-          onClick={(e) => {
-            e.preventDefault();
-            handleKebabToggle();
-          }}
-        >
-          <img
-            className="link__content--More-Btn"
-            src={`${process.env.PUBLIC_URL}/images/kebab.svg`}
-            alt="더보기 케밥 버튼"
-          />
-        </KebabBtn>
-        {kebabToggle ? (
-          <KebabMenu>
-            <KebabMenuDeleteBtn>삭제하기</KebabMenuDeleteBtn>
-            <KebabMenuAddFolderBtn>폴더에 추가</KebabMenuAddFolderBtn>
-          </KebabMenu>
-        ) : null}
-      </CardContentTimePassed>
-      <CardContentDescription>{link.description}</CardContentDescription>
-      <CardContentCreatedAt>{getFormattedDate(link.created_at)}</CardContentCreatedAt>
-    </CardContentContainer>
-  );
-};
 
 export default CardDescription;

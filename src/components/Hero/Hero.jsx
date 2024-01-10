@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+const Hero = ({ children }) => {
+  return <HeroContainer>{children}</HeroContainer>;
+};
+
 const HeroContainer = styled.div`
   box-sizing: border-box;
   background: var(--gray5);
@@ -13,9 +17,5 @@ const HeroContainer = styled.div`
     padding: 87px 32px 40px;
   }
 `;
-
-const Hero = ({ children }) => {
-  return <HeroContainer>{children}</HeroContainer>;
-};
 
 export default Hero;

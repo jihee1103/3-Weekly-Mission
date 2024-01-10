@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+const ShareDescription = ({ heroLinkData }) => {
+  return (
+    <ShareDescriptionContainer>
+      <img src={heroLinkData.owner?.profileImageSource} alt="코드잇 마크" />
+      <span>{heroLinkData.owner?.name}</span>
+      <div>{heroLinkData?.name}</div>
+    </ShareDescriptionContainer>
+  );
+};
+
 const ShareDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,15 +36,5 @@ const ShareDescriptionContainer = styled.div`
     font-size: 40px;
   }
 `;
-
-const ShareDescription = ({ heroLinkData }) => {
-  return (
-    <ShareDescriptionContainer>
-      <img src={heroLinkData.owner?.profileImageSource} alt="코드잇 마크" />
-      <span>{heroLinkData.owner?.name}</span>
-      <div className="favorites">{heroLinkData?.name}</div>
-    </ShareDescriptionContainer>
-  );
-};
 
 export default ShareDescription;

@@ -1,6 +1,23 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+const HeaderProfile = ({ login, userData }) => {
+  return (
+    <div>
+      {login ? (
+        <HeaderProfileContainer>
+          <img src={userData.image_source} alt="프로필 이미지" />
+          <div>{userData.email}</div>
+        </HeaderProfileContainer>
+      ) : (
+        <HeaderLoginInBtn type="button">
+          <Link to="/signin">로그인</Link>
+        </HeaderLoginInBtn>
+      )}
+    </div>
+  );
+};
+
 const HeaderProfileContainer = styled.div`
   display: flex;
   align-items: center;
@@ -36,22 +53,5 @@ const HeaderLoginInBtn = styled.button`
   gap: 10px;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
 `;
-
-const HeaderProfile = ({ login, userData }) => {
-  return (
-    <div>
-      {login ? (
-        <HeaderProfileContainer>
-          <img src={userData.image_source} alt="프로필 이미지" />
-          <div>{userData.email}</div>
-        </HeaderProfileContainer>
-      ) : (
-        <HeaderLoginInBtn type="button">
-          <Link to="/signin">로그인</Link>
-        </HeaderLoginInBtn>
-      )}
-    </div>
-  );
-};
 
 export default HeaderProfile;

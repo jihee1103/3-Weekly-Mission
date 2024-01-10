@@ -2,6 +2,53 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import FolderTitle from './FolderTitle/FolderTitle';
 
+const Folder = ({ folderData, HandleOverViewFolderCardData, HandleFolderCardData }) => {
+  const [currentFolder, setCurrentFolder] = useState('전체');
+
+  const handleCurrentFolder = (name) => {
+    setCurrentFolder(name);
+  };
+
+  return (
+    <>
+      <FolderContainer>
+        <div>
+          <FolderButtonContainer>
+            <FolderButton
+              type="button"
+              onClick={() => {
+                handleCurrentFolder('전체');
+                HandleOverViewFolderCardData();
+              }}
+            >
+              전체
+            </FolderButton>
+            {folderData.map((folder) => {
+              return (
+                <FolderButton
+                  type="button"
+                  key={folder.id}
+                  onClick={() => {
+                    handleCurrentFolder(folder.name);
+                    HandleFolderCardData(folder.id);
+                  }}
+                >
+                  {folder.name}
+                </FolderButton>
+              );
+            })}
+          </FolderButtonContainer>
+          <AddFolderButton>
+            <span>폴더추가</span>
+            <img alt="폴더 더보기 사진" />
+          </AddFolderButton>
+        </div>
+      </FolderContainer>
+      <FolderTitle currentFolder={currentFolder} />
+    </>
+  );
+};
+
 const FolderContainer = styled.div`
   width: 1060px;
   margin-bottom: 24px;
@@ -106,52 +153,5 @@ const AddFolderButton = styled.button`
     }
   }
 `;
-
-const Folder = ({ folderData, HandleOverViewFolderCardData, HandleFolderCardData }) => {
-  const [currentFolder, setCurrentFolder] = useState('전체');
-
-  const handleCurrentFolder = (name) => {
-    setCurrentFolder(name);
-  };
-
-  return (
-    <>
-      <FolderContainer>
-        <div>
-          <FolderButtonContainer>
-            <FolderButton
-              type="button"
-              onClick={() => {
-                handleCurrentFolder('전체');
-                HandleOverViewFolderCardData();
-              }}
-            >
-              전체
-            </FolderButton>
-            {folderData.map((folder) => {
-              return (
-                <FolderButton
-                  type="button"
-                  key={folder.id}
-                  onClick={() => {
-                    handleCurrentFolder(folder.name);
-                    HandleFolderCardData(folder.id);
-                  }}
-                >
-                  {folder.name}
-                </FolderButton>
-              );
-            })}
-          </FolderButtonContainer>
-          <AddFolderButton>
-            <span>폴더추가</span>
-            <img alt="폴더 더보기 사진" />
-          </AddFolderButton>
-        </div>
-      </FolderContainer>
-      <FolderTitle currentFolder={currentFolder} />
-    </>
-  );
-};
 
 export default Folder;
