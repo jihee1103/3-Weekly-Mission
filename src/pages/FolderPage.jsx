@@ -8,6 +8,7 @@ import CardList from "../components/CardList/CardList";
 import useFetchData from "../hooks/useFetchData";
 import FolderNameLine from "../components/FolderNameLine/FolderNameLine";
 import FloatingActionButton from "../components/FloatingActionButton/FloatingActionButton";
+import NoLinkBlock from "../components/NoLinkBlock/NoLinkBlock";
 
 export default function FolderPage() {
   const [cardListItem, handleEntireData, handleIdData] =
@@ -15,11 +16,6 @@ export default function FolderPage() {
   const [folderNameList] = useFetchData(getFolderList);
   const [folderName, setFolderName] = useState("전체");
 
-  const noLinkElement = (
-    <div className={styled.noLink}>
-      <span>저장된 링크가 없습니다.</span>
-    </div>
-  );
   return (
     <main className={styled.main}>
       <section className={styled.header}>
@@ -40,11 +36,11 @@ export default function FolderPage() {
             {cardListItem ? (
               <CardList itemList={cardListItem} toggle={true} />
             ) : (
-              noLinkElement
+              <NoLinkBlock />
             )}
           </div>
         ) : (
-          noLinkElement
+          <NoLinkBlock />
         )}
         <FloatingActionButton />
       </section>
