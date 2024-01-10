@@ -43,14 +43,20 @@ module.exports = {
   },
   ignorePatterns: ['reportWebVitals.js', '*.test.js'],
   rules: {
+    'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
     'no-shadow': 'off',
     'react/react-in-jsx-scope': 'off',
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'padding-line-between-statements': [
       'error',
-      { blankLine: 'always', prev: ['function', 'if', 'block'], next: '*' },
-      { blankLine: 'always', prev: '*', next: ['return', 'try', 'if', 'iife', 'for'] },
+      { blankLine: 'always', prev: ['function', 'block'], next: '*' },
+      {
+        blankLine: 'always',
+        prev: ['return', 'try', 'if', 'while', 'iife', 'for'],
+        next: '*',
+      },
+      { blankLine: 'always', prev: '*', next: ['return', 'try', 'if', 'while', 'iife', 'for', 'export'] },
       {
         blankLine: 'always',
         prev: ['const', 'let', 'var'],
