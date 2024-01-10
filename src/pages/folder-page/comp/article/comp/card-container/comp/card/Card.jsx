@@ -6,13 +6,13 @@ const Card = ({ link }) => {
     <LinkCard {...link}>
       <LinkCard.CardCover asAnchor className='link-card'>
         <div className='card-image-box'>
-          <LinkCard.CardImage className='link-image' alt={'카드 링크 이미지'} />
+          <LinkCard.CardImage className='link-image' alt='카드 링크 이미지' />
           <LinkCard.Bookmark />
         </div>
         <div className='link-text-box'>
           <div className='justify-between'>
             <LinkCard.TimeElapsed className='link-elapsed' />
-            <button className='link-kebab-btn'>
+            <button type='button' className='link-kebab-btn'>
               <img
                 className='link-kebab-btn-image'
                 src={`${process.env.PUBLIC_URL}/images/folder/kebab.svg`}

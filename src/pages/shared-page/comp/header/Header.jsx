@@ -5,6 +5,7 @@ import { useGetProfileData } from './hooks/useGetProfileData';
 
 const Header = () => {
   const profileData = useGetProfileData();
+
   return (
     <header id='header' role='heading' aria-level={1}>
       <nav className='gnb' role='navigation'>

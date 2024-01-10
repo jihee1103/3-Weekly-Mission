@@ -1,10 +1,10 @@
-import Header from './comp/header/Header';
-import Footer from './comp/footer/Footer';
+import DocumentTitle from '@layout/document-title/DocumentTitle';
+import './Shared.css';
 import Article from './comp/article/Article';
 import Banner from './comp/banner/Banner';
+import Footer from './comp/footer/Footer';
+import Header from './comp/header/Header';
 import { useGetUserFolders } from './hooks/useGetUserFolders';
-import './Shared.css';
-import DocumentTitle from '@layout/document-title/DocumentTitle';
 
 const Shared = () => {
   const { links, userInfo } = useGetUserFolders();

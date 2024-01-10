@@ -6,7 +6,7 @@ const Card = ({ link }) => {
     <LinkCard {...link}>
       <LinkCard.CardCover asAnchor className='link-card'>
         <div className='card-image-box'>
-          <LinkCard.CardImage className='link-image' alt={'카드 링크 이미지'} />
+          <LinkCard.CardImage className='link-image' alt='카드 링크 이미지' />
         </div>
         <div className='link-text-box'>
           <LinkCard.TimeElapsed className='link-elapsed' />

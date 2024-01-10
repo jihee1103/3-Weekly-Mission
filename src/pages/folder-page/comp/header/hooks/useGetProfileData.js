@@ -25,6 +25,7 @@ const useGetProfileData = () => {
   useEffect(() => {
     fetchAndSetProfileData();
   }, [fetchAndSetProfileData]);
+
   return profileData;
 };
 

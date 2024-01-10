@@ -20,31 +20,32 @@ const FolderLinkCategory = ({ selectedFolderId, handleFolderIdAndName }) => {
       {folderSortList.length > 1 && (
         <div className={styles['folder-link-category-wrapper']}>
           <div className={styles['folder-link-category-box']}>
-            {folderSortList.map(sortList => (
+            {folderSortList.map((folder) => (
               <button
+                type='button'
                 className={`${styles['folder-link-category-btn']} ${
-                  selectedFolderId === sortList.id ? styles['selected'] : ''
+                  selectedFolderId === folder.id ? styles.selected : ''
                 }`}
-                key={sortList.id}
+                key={folder.id}
                 onClick={() =>
                   handleFolderIdAndName({
-                    folderId: sortList.id,
-                    folderName: sortList.name,
+                    folderId: folder.id,
+                    folderName: folder.name,
                   })
                 }
               >
-                {sortList.name}
+                {folder.name}
               </button>
             ))}
           </div>
-          <button className={styles['folder-link-category-add-btn']}>
+          <button type='button' className={styles['folder-link-category-add-btn']}>
             <img
               className={styles['folder-link-category-btn-add-img']}
               src={`${process.env.PUBLIC_URL}/images/folder/folder-add.svg`}
               alt='폴더 카테고리 추가 버튼'
             />
           </button>
-          <button className={styles['floating-category-add-btn']}>
+          <button type='button' className={styles['floating-category-add-btn']}>
             <span>폴더 추가</span>
             <img
               className={styles['folder-link-category-floating-btn-add-img']}

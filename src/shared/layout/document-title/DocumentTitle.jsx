@@ -8,6 +8,7 @@ import { documentTitle } from './data/documentTitle';
  */
 const DocumentTitle = ({ title, children }) => {
   useSetDocumentTitle(`${documentTitle} ${title}`);
+
   return <Fragment>{children}</Fragment>;
 };
 export default DocumentTitle;

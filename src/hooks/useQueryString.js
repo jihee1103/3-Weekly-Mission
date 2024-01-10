@@ -9,12 +9,13 @@ export const useQueryString = () => {
    * @param {number | string} value
    */
   const generateNewSearchParams = (key, value) => {
-    setSearchParams(prev => {
+    setSearchParams((prev) => {
       if (value == null) {
         prev.delete(key);
       } else {
         prev.set(key, String(value));
       }
+
       return prev;
     });
   };

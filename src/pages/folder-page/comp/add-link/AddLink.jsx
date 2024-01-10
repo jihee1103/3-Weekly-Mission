@@ -12,7 +12,9 @@ const AddLink = () => {
           />
           <input className={styles['add-link-input']} type='text' placeholder='링크를 추가해 보세요' />
         </div>
-        <button className={styles['add-link-cta']}>추가하기</button>
+        <button type='button' className={styles['add-link-cta']}>
+          추가하기
+        </button>
       </div>
     </section>
   );

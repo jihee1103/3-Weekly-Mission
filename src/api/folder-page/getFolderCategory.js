@@ -10,6 +10,7 @@ const getFolderCategory = async () => {
         'Content-Type': 'application/json',
       },
     });
+
     if (!response.ok) {
       throw new Error(`${response.status} ${response.statusText}`);
     }

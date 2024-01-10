@@ -6,6 +6,7 @@ import './LoginSuccessProfile.css';
  */
 const LoginSuccessProfile = ({ profileData }) => {
   const { email, profileImageSource } = profileData;
+
   return (
     <div className='account-box'>
       <img className='account-profile' src={profileImageSource} alt='프로필 이미지' />

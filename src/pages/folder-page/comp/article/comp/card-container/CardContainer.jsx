@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import Card from './comp/card/Card';
 import FolderLinkCategory from './comp/folder-link-category/FolderLinkCategory';
-import { useState } from 'react';
 import { useGetSortedFolderLinksData } from './comp/hooks/useGetSortedFolderLinksData';
 import CardContainerOptions from './comp/card-container-options/CardContainerOptions';
 import './CardContainer.css';
@@ -22,9 +22,9 @@ const CardContainer = () => {
           {folderIdAndName.folderId !== 'total' && !!sortedLinks?.length && <CardContainerOptions />}
         </div>
       </div>
-      {!!sortedLinks?.length ? (
+      {sortedLinks?.length ? (
         <section className='card-container'>
-          {sortedLinks.map(link => (
+          {sortedLinks.map((link) => (
             <Card key={link.id} link={link} />
           ))}
         </section>

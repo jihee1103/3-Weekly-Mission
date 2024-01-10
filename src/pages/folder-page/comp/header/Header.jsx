@@ -5,6 +5,7 @@ import './Header.css';
 
 const Header = () => {
   const profileData = useGetProfileData();
+
   return (
     <header id='header' role='heading' aria-level={1}>
       <nav className='gnb absolute' role='navigation'>

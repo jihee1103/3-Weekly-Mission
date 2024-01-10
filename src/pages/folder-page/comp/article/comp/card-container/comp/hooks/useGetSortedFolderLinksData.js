@@ -66,7 +66,7 @@ import { getSortedFolderLinksData } from '@api/folder-page/getSortedFolderLinksD
 //   ]
 // }
 
-const useGetSortedFolderLinksData = folderId => {
+const useGetSortedFolderLinksData = (folderId) => {
   const [sortedLinks, setSortedLinks] = useState(null);
 
   const fetchAndSetSortedLinks = useCallback(async () => {
@@ -77,6 +77,7 @@ const useGetSortedFolderLinksData = folderId => {
   useEffect(() => {
     fetchAndSetSortedLinks();
   }, [fetchAndSetSortedLinks]);
+
   return sortedLinks;
 };
 

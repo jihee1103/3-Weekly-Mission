@@ -13,8 +13,8 @@ const CardContainerOptions = () => {
 
   return (
     <div className={styles['card-container-options-box']}>
-      {mappedData.map(d => (
-        <button className={styles['card-container-options-btn']} key={d.name}>
+      {mappedData.map((d) => (
+        <button type='button' className={styles['card-container-options-btn']} key={d.name}>
           <img
             className={styles['card-container-options-icon']}
             src={`${process.env.PUBLIC_URL}/images/folder/${d.source}.svg`}

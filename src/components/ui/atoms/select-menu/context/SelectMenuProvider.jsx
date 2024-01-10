@@ -11,9 +11,12 @@ const SelectMenuProvider = ({ children, ...rest }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useSelectMenuProvider = () => {
   const context = useContext(SelectMenuContext);
+
   if (context === undefined) throw new Error('useSelectMenuProvider must be used within a SelectMenuProvider');
+
   return context;
 };
 

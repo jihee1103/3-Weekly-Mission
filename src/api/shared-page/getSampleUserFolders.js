@@ -10,9 +10,11 @@ const getSampleUserFolders = async () => {
         'Content-Type': 'application/json',
       },
     });
+
     if (!response.ok) {
       throw new Error(`${response.status} ${response.statusText}`);
     }
+
     return await response.json();
   } catch (error) {
     console.error('🚀 ~ file: getSampleUserFolders.js:18 ~ getSampleUserFolders ~ error:', error);

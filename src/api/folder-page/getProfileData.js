@@ -10,9 +10,11 @@ const getProfileData = async () => {
         'Content-Type': 'application/json',
       },
     });
+
     if (!response.ok) {
       throw new Error(`${response.status} ${response.statusText}`);
     }
+
     return response.json();
   } catch (error) {
     console.error('🚀 ~ file: getProfileData.js:11 ~ getProfileData ~ error:', error);
