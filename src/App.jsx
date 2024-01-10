@@ -22,6 +22,7 @@ const App = () => {
   const [linkData, setLinkData] = useState([]);
   const [heroLinkData, setHeroLinkData] = useState({});
   const [folderData, setFolderData] = useState([]);
+
   const [folderCardData, setFolderCardData] = useState([]);
 
   // shared의 Hero 컴포넌트 데이터
@@ -29,7 +30,7 @@ const App = () => {
     try {
       getFetch('bootcamp-api.codeit.kr', 'api/sample/folder')
         .then((data) => {
-          // sampe 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
+          // sample 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
           const formattedData = getFormattingCardData(data);
           return formattedData;
         })
