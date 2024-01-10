@@ -1,6 +1,6 @@
 import { useState } from "react";
-import convertKeysToCamelCase from "../utils/camelCaseUtil";
 import useEffectOnce from "./useEffectOnce";
+import camelcaseKeys from "camelcase-keys";
 
 export default function useFetchData(apiFunction) {
   const [data, setData] = useState(null);
@@ -22,7 +22,7 @@ export default function useFetchData(apiFunction) {
         setData(null);
         return;
       }
-      const camelData = convertKeysToCamelCase(data);
+      const camelData = camelcaseKeys(data, { deep: true });
       setData(camelData);
     } catch (error) {
       setError(error);
