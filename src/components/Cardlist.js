@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/CardList.css";
+import "../styles/Cardlist.css";
 import { useFetchCardsData } from "./hooks/CardContainer";
 
 function CardList() {
