@@ -4,28 +4,28 @@ import styled, { css } from 'styled-components';
 import logoImg from '../../asset/logo.svg';
 import { API_USERS, BASE_API_HOST } from '../../constants/api';
 import getFetchRequest from '../../utils/getFetchRequest';
-import Loading from '../Loading/Loading';
-import NavProfile from './NavProfile';
+import NavbarContent from './NavbarContent';
 
 export default function Navbar() {
   const location = useLocation();
   const isFolderPage = location.pathname === '/folder';
   const [userEmail, setUserEmail] = useState(null);
   const [userProfileImg, setUserProfileImg] = useState(null);
-  const [condition, setCondition] = useState('noData');
   const [errorMessage, setErrorMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setCondition('loading');
+    setIsLoading(true);
+    setErrorMessage('');
     const getUserInfo = async () => {
       try {
         const result = await getFetchRequest(BASE_API_HOST, `${API_USERS}/1`);
         setUserEmail(result.data[0].email);
         setUserProfileImg(result.data[0].image_source);
-        setCondition('getInfoSuccess');
       } catch (e) {
         setErrorMessage(e.message);
-        setCondition('error');
+      } finally {
+        setIsLoading(false);
       }
     };
     getUserInfo();
@@ -37,23 +37,12 @@ export default function Navbar() {
         <Link to="/">
           <HeaderLogo src={logoImg} alt="logo" />
         </Link>
-        {
-          {
-            loading: <Loading />,
-            getInfoSuccess: (
-              <NavProfile
-                userEmail={userEmail}
-                userProfileImg={userProfileImg}
-              />
-            ),
-            error: errorMessage,
-            noData: (
-              <HeaderLogin to="/">
-                <HeaderLoginSpan>로그인</HeaderLoginSpan>
-              </HeaderLogin>
-            ),
-          }[condition]
-        }
+        <NavbarContent
+          isLoading={isLoading}
+          userEmail={userEmail}
+          userProfileImg={userProfileImg}
+          errorMessage={errorMessage}
+        />
       </HeaderBox>
     </NavHeader>
   );
@@ -97,20 +86,4 @@ const HeaderLogo = styled.img`
   width: 133px;
   height: 24px;
   cursor: pointer;
-`;
-const HeaderLogin = styled(Link)`
-  display: flex;
-  width: 128px;
-  padding: 16px 20px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 8px;
-  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-  cursor: pointer;
-`;
-const HeaderLoginSpan = styled.span`
-  color: #f5f5f5;
-  font-size: 18px;
-  font-weight: 600;
 `;
