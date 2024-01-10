@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import link from '../../../assets/images/link.svg';
 
 const LinkCreator = () => {
   return (
     <LinkCreatorContainer>
       <div>
-        <LinkCreatorImg src={`${process.env.PUBLIC_URL}/images/link.svg`} />
+        <LinkCreatorImg src={link} />
         <LinkCreatorInput type="text" placeholder="링크를 추가하세요" />
       </div>
       <CreateLinkButton type="button">추가하기</CreateLinkButton>

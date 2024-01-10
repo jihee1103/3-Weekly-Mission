@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import noImageSource from '../../../../assets/images/no_image_source.svg';
+import star from '../../../../assets/images/star.svg';
 
 const CardImg = ({ link }) => {
   return (
@@ -6,10 +8,10 @@ const CardImg = ({ link }) => {
       {link.image_source ?? link.imageSource ? (
         <CardMainImg src={link.image_source ?? link.imageSource} alt="카드 이미지" />
       ) : (
-        <CardMainImg src={`${process.env.PUBLIC_URL}/images/no_image_source.svg`} alt="이미지가 없음" />
+        <CardMainImg src={noImageSource} alt="이미지가 없음" />
       )}
       <CardStarBtn>
-        <img src={`${process.env.PUBLIC_URL}/images/star.svg`} alt="즐겨찾기 별 이미지" />
+        <img src={star} alt="즐겨찾기 별 이미지" />
       </CardStarBtn>
     </CardImgContainer>
   );

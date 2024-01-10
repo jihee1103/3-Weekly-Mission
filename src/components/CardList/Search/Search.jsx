@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import search from '../../../assets/images/Search.svg';
 
 const Search = () => {
   return (
     <CardListSearchBar>
-      <img src={`${process.env.PUBLIC_URL}/images/Search.svg`} alt="돋보기 모양 사진" />
+      <img src={search} alt="돋보기 모양 사진" />
       <input type="search" placeholder="링크를 검색해 보세요." />
     </CardListSearchBar>
   );

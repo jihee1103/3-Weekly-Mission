@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import calculatePassedTime from '../../../../utils/calculatePassedTime';
 import getFormattedDate from '../../../../utils/getFormattedDate';
+import kebab from '../../../../assets/images/kebab.svg';
 
 const CardDescription = ({ link }) => {
   const [kebabToggle, setKebabToggle] = useState(false);
@@ -20,7 +21,7 @@ const CardDescription = ({ link }) => {
             handleKebabToggle();
           }}
         >
-          <img src={`${process.env.PUBLIC_URL}/images/kebab.svg`} alt="더보기 케밥 버튼" />
+          <img src={kebab} alt="더보기 케밥 버튼" />
         </KebabBtn>
         {kebabToggle ? (
           <KebabMenu>

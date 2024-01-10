@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import FolderTitle from './FolderTitle/FolderTitle';
+import add from '../../assets/images/add.svg';
+import mobileAdd from '../../assets/images/mobile_add.svg';
 
 const Folder = ({ folderData, handleOverViewFolderCardData, handleFolderCardData }) => {
   const [currentFolder, setCurrentFolder] = useState('전체');
@@ -124,7 +126,7 @@ const AddFolderButton = styled.button`
   img {
     width: 16px;
     height: 16px;
-    content: url('${process.env.PUBLIC_URL}/images/add.svg');
+    content: url(${add});
   }
 
   @media (max-width: 767px) {
@@ -149,7 +151,7 @@ const AddFolderButton = styled.button`
     }
 
     img {
-      content: url('${process.env.PUBLIC_URL}/images/mobile_add.svg');
+      content: url(${mobileAdd});
     }
   }
 `;

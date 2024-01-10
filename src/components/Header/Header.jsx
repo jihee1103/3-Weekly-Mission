@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import HeaderProfile from './HeaderProfile/HeaderProfile';
+import logo from '../../assets/images/logo.svg';
 
 const Header = ({ login, userData }) => {
   return (
     <HeaderWrap>
       <HeaderContainer>
         <LogoImg to="/">
-          <img src={`${process.env.PUBLIC_URL}/images/logo.svg`} alt="로고 이미지" />
+          <img src={logo} alt="로고 이미지" />
         </LogoImg>
         <HeaderProfile login={login} userData={userData} />
       </HeaderContainer>
