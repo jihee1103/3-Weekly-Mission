@@ -1,4 +1,4 @@
-const getFormattingCardData = (data) => {
+const getFormattedCardData = (data) => {
   const formattedData = { ...data };
   data.folder.links.forEach((link, i) => {
     const formattedLink = { ...link, created_at: link.createdAt, image_source: link.imageSource };
@@ -9,4 +9,4 @@ const getFormattingCardData = (data) => {
   return formattedData;
 };
 
-export default getFormattingCardData;
+export default getFormattedCardData;

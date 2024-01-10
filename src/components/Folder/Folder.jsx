@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import FolderTitle from './FolderTitle/FolderTitle';
 
-const Folder = ({ folderData, HandleOverViewFolderCardData, HandleFolderCardData }) => {
+const Folder = ({ folderData, handleOverViewFolderCardData, handleFolderCardData }) => {
   const [currentFolder, setCurrentFolder] = useState('전체');
 
   const handleCurrentFolder = (name) => {
@@ -18,7 +18,7 @@ const Folder = ({ folderData, HandleOverViewFolderCardData, HandleFolderCardData
               type="button"
               onClick={() => {
                 handleCurrentFolder('전체');
-                HandleOverViewFolderCardData();
+                handleOverViewFolderCardData();
               }}
             >
               전체
@@ -30,7 +30,7 @@ const Folder = ({ folderData, HandleOverViewFolderCardData, HandleFolderCardData
                   key={folder.id}
                   onClick={() => {
                     handleCurrentFolder(folder.name);
-                    HandleFolderCardData(folder.id);
+                    handleFolderCardData(folder.id);
                   }}
                 >
                   {folder.name}

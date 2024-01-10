@@ -12,8 +12,8 @@ import LinkCreator from './components/Hero/LinkCreator.jsx/LinkCreator';
 import Search from './components/CardList/Search/Search';
 import Card from './components/CardList/Card/Card';
 import Folder from './components/Folder/Folder';
-import NotFoundPage from './components/NotFoundPage/NotFoundPage';
-import getFormattingCardData from './utils/getFormattingCardData';
+import NotFoundPage from './pages/NotFoundPage';
+import getFormattedCardData from './utils/getFormattedCardData';
 import GlobalStyle from './GlobalStyle';
 
 const App = () => {
@@ -31,7 +31,7 @@ const App = () => {
       getFetch('bootcamp-api.codeit.kr', 'api/sample/folder')
         .then((data) => {
           // sample 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
-          const formattedData = getFormattingCardData(data);
+          const formattedData = getFormattedCardData(data);
           return formattedData;
         })
         .then((data) => {
@@ -69,7 +69,7 @@ const App = () => {
   }, []);
 
   // 폴더의 전체 버튼을 클릭했을 때 가져올 데이터
-  const HandleOverViewFolderCardData = () => {
+  const handleOverViewFolderCardData = () => {
     try {
       getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((FolderData) => {
         setFolderCardData(() => {
@@ -82,7 +82,7 @@ const App = () => {
   };
 
   // 폴더의 전체 버튼이 아닌 버튼을 클릭했을 때 가져올 데이터
-  const HandleFolderCardData = (id) => {
+  const handleFolderCardData = (id) => {
     try {
       getFetch('bootcamp-api.codeit.kr', `api/users/1/links?folderId=${id}`).then((FolderData) => {
         setFolderCardData(() => {
@@ -108,7 +108,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div>
       <GlobalStyle />
       <Header login={login} userData={userData} />
       <Routes>
@@ -137,8 +137,8 @@ const App = () => {
                 <Search />
                 <Folder
                   folderData={folderData}
-                  HandleOverViewFolderCardData={HandleOverViewFolderCardData}
-                  HandleFolderCardData={HandleFolderCardData}
+                  handleOverViewFolderCardData={handleOverViewFolderCardData}
+                  handleFolderCardData={handleFolderCardData}
                 />
                 <Card cardData={folderCardData} />
               </CardList>
