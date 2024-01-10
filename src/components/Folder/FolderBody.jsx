@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import FolderContent from './FolderContent';
-import { API_FOLDERS, API_LINKS, BASE_API_HOST } from '../../constants/api';
+// import { API_FOLDERS, API_LINKS } from '../../constants/api';
 import useFolderLinks from '../../Hooks/useFolderLinks';
 import NoLinkCard from '../Card/NoLinkCard';
 
@@ -15,16 +15,18 @@ const Wrapper = styled.div`
 `;
 
 export default function FolderBody() {
+  const [userId, setUserId] = useState(1);
   const [folderId, setFolderId] = useState(0);
   const [folderName, setFolderName] = useState('전체');
 
-  const handleTitleClick = (item) => {
+  const handleClickTitle = (item) => {
+    setUserId(1); // test
     setFolderId(item.id);
     setFolderName(item.name);
   };
 
-  const links = useFolderLinks(BASE_API_HOST, `${API_LINKS}`, folderId);
-  const folderList = useFolderLinks(BASE_API_HOST, `${API_FOLDERS}`);
+  const links = useFolderLinks(`users/${userId}/links`, folderId);
+  const folderList = useFolderLinks(`users/${userId}/folders`);
 
   return (
     <Wrapper>
@@ -36,7 +38,7 @@ export default function FolderBody() {
           folderList={folderList}
           links={links}
           folderId={folderId}
-          onClick={handleTitleClick}
+          onClick={handleClickTitle}
           folderName={folderName}
         />
       )}
