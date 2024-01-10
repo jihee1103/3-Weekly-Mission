@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getLinkDataByFolderId } from "../../apis/api";
-import Card from "../Card/Card";
+import Card from "../CardList/Card/Card";
 import { ALL_LINKS_ID } from "../Folder/constants";
 import "./CardList.css";
 

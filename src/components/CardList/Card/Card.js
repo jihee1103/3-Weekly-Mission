@@ -1,5 +1,5 @@
-import { calElapsedTime } from "../../utils/calElapsedTime";
-import { calDate } from "../../utils/calDate";
+import { calElapsedTime } from "../../../utils/calElapsedTime";
+import { calDate } from "../../../utils/calDate";
 import "./Card.css";
 
 function Card({ link }) {
