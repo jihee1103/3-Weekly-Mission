@@ -12,7 +12,7 @@ export default function Card({ item, toggle }) {
   const timeAgo = getTimeDifference(dateTimeString);
   const createdDay = getCreateDay(dateTimeString);
   const imgAlt = `${title} 새창으로 바로가기 이미지`;
-  const imgSource = imageSource ? imageSource : imageData.defaultImg;
+  const imgSource = imageSource ?? imageData.defaultImg;
 
   return (
     <>
