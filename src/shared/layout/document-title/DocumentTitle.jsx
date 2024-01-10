@@ -11,4 +11,5 @@ const DocumentTitle = ({ title, children }) => {
 
   return <Fragment>{children}</Fragment>;
 };
+
 export default DocumentTitle;

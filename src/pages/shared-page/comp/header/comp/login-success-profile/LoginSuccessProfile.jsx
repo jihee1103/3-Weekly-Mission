@@ -14,4 +14,5 @@ const LoginSuccessProfile = ({ profileData }) => {
     </div>
   );
 };
+
 export default LoginSuccessProfile;

@@ -11,4 +11,5 @@ const Bookmark = ({ onClick, ...rest }) => {
     </button>
   );
 };
+
 export default Bookmark;

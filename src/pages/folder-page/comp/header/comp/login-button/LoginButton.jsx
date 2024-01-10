@@ -7,4 +7,5 @@ const LoginButton = ({ children }) => {
     </AnchorButton>
   );
 };
+
 export default LoginButton;

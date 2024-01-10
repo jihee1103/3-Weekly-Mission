@@ -12,4 +12,5 @@ const Article = ({ links }) => {
     </article>
   );
 };
+
 export default Article;

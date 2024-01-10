@@ -7,4 +7,5 @@ const DeleteMenu = () => {
     </button>
   );
 };
+
 export default DeleteMenu;

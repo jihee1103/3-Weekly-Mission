@@ -12,4 +12,5 @@ const AnchorButton = ({ children, width = 'short', href, ...rest }) => {
     </a>
   );
 };
+
 export default AnchorButton;

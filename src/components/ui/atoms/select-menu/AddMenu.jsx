@@ -7,4 +7,5 @@ const AddMenu = () => {
     </button>
   );
 };
+
 export default AddMenu;

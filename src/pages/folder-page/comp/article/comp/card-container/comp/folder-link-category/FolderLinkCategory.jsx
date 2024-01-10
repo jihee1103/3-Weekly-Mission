@@ -58,4 +58,5 @@ const FolderLinkCategory = ({ selectedFolderId, handleFolderIdAndName }) => {
     </>
   );
 };
+
 export default FolderLinkCategory;

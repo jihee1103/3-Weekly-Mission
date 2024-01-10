@@ -6,4 +6,5 @@ const CardImage = ({ children, alt, ...rest }) => {
 
   return <img alt={alt} src={imageSource || altImage} {...rest} />;
 };
+
 export default CardImage;

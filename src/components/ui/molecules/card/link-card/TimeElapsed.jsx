@@ -7,4 +7,5 @@ const TimeElapsed = ({ children, ...rest }) => {
 
   return <span {...rest}>{timeDiffMsg}</span>;
 };
+
 export default TimeElapsed;

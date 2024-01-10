@@ -17,4 +17,5 @@ const PageTurner = () => {
     </Fragment>
   );
 };
+
 export default PageTurner;

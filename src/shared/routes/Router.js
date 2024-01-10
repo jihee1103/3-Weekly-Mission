@@ -11,4 +11,5 @@ const PrimaryRoute = (
 );
 
 const baseRoute = createRoutesFromElements(PrimaryRoute);
+
 export const router = createBrowserRouter(baseRoute);

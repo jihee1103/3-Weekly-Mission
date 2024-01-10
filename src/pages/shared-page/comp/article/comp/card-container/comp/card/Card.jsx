@@ -17,4 +17,5 @@ const Card = ({ link }) => {
     </LinkCard>
   );
 };
+
 export default Card;

@@ -19,4 +19,5 @@ const AddLink = () => {
     </section>
   );
 };
+
 export default AddLink;

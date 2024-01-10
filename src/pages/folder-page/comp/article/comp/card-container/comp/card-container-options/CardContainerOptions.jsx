@@ -26,4 +26,5 @@ const CardContainerOptions = () => {
     </div>
   );
 };
+
 export default CardContainerOptions;

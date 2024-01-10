@@ -32,7 +32,7 @@ module.exports = {
   settings: {
     react: { version: '18.2' },
     // import/resolver` 는 `eslint-plugin-import` 의 경로 설정 옵션
-    // todo: unresolved 에러 안 고쳐져서 규칙 일단 꺼놓음.
+    // todo: unresolved 에러 안 고쳐져서 규칙 일단 꺼놓음
     // 'import/resolver': {
     //   node: {
     //     paths: ['src'],
