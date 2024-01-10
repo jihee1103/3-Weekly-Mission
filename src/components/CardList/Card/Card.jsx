@@ -4,6 +4,7 @@ import CardImg, { CardMainImg } from './CardImg/CardImg';
 import CardContent, { CardContentContainer } from './CardContent/CardContent';
 
 const Card = ({ cardData }) => {
+  console.log(cardData);
   return (
     <CardListContainer>
       {cardData.length !== 0 ? (

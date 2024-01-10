@@ -14,7 +14,7 @@ const CardDescription = ({ link }) => {
   return (
     <CardContentContainer>
       <CardContentTimePassed>
-        {calculatePassedTime(link.created_at)}
+        {calculatePassedTime(link.createdAt)}
         <KebabBtn
           onClick={(e) => {
             e.preventDefault();
@@ -31,7 +31,7 @@ const CardDescription = ({ link }) => {
         ) : null}
       </CardContentTimePassed>
       <CardContentDescription>{link.description}</CardContentDescription>
-      <CardContentCreatedAt>{getFormattedDate(link.created_at)}</CardContentCreatedAt>
+      <CardContentCreatedAt>{getFormattedDate(link.createdAt)}</CardContentCreatedAt>
     </CardContentContainer>
   );
 };

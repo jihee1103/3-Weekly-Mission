@@ -5,8 +5,8 @@ import star from '../../../../assets/images/star.svg';
 const CardImg = ({ link }) => {
   return (
     <CardImgContainer>
-      {link.image_source ?? link.imageSource ? (
-        <CardMainImg src={link.image_source ?? link.imageSource} alt="카드 이미지" />
+      {link.imageSource ? (
+        <CardMainImg src={link.imageSource} alt="카드 이미지" />
       ) : (
         <CardMainImg src={noImageSource} alt="이미지가 없음" />
       )}

@@ -18,12 +18,12 @@ const Shared = () => {
     try {
       getFetch('bootcamp-api.codeit.kr', 'api/sample/folder')
         .then((data) => {
-          // sample 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
-          const formattedData = getFormattedCardData(data);
-          return formattedData;
+          return data;
         })
         .then((data) => {
-          setLinkData(() => data.folder.links);
+          // sample 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
+          const formattedData = getFormattedCardData(data);
+          setLinkData(() => formattedData.folder.links);
           setHeroLinkData(() => data.folder);
         });
     } catch (error) {
