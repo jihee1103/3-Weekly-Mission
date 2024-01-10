@@ -1,6 +1,15 @@
 {
   // eslint용 바벨 파서 사용하기
   "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "babelrc": false,
+      "configFile": false,
+      // your babel options
+      "presets": ["@babel/preset-react"]
+    }
+  },
   // airbnb 스타일 가이드 사용, esLint에서 prettier규칙을 사용하도록함 (충돌 방지)
   "extends": ["airbnb", "plugin:prettier/recommended"],
   "plugins": ["react", "jsx-a11y", "import"],
