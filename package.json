@@ -18,7 +18,7 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "prettier-lint": "prettier \"src/**/*.{js,jsx}\" --write && eslint --fix ./src/**/*.{ts,tsx,js,jsx}"
+    "prettier-lint": "prettier \"src/**/*.{js,jsx,ts,tsx}\" --write && eslint --fix ./src/**/*.{ts,tsx,js,jsx}"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
