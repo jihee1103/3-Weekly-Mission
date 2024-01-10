@@ -1,3 +1,4 @@
+import IMAGE_URL from "../../constant/imageUrl";
 import "./AddLinkInput.css";
 
 const AddLinkInput = () => {
@@ -9,7 +10,7 @@ const AddLinkInput = () => {
       ></input>
       <img
         className="LinkIcon"
-        src={process.env.PUBLIC_URL + `/assets/link.png`}
+        src={`${IMAGE_URL}/assets/link.png`}
         alt="링크 아이콘"
       />
       <button className="addButton">추가하기</button>
