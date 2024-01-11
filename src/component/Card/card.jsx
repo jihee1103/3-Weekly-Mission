@@ -1,6 +1,7 @@
 import "./card-style.css";
 
 export function Card({ imageSource, description, createdAt, url }) {
+  const myDate = new Date(createdAt);
   return (
     <>
       <a href={url} target="_blank" className="card-url">
@@ -12,11 +13,10 @@ export function Card({ imageSource, description, createdAt, url }) {
           </div>
           <div className="card-content">
             <div className="card-description">
-              <div className="description-section">
-                <p>{description}</p>
-              </div>
+              <p className="time-stamp-section">{createdAt}</p>
+              <p className="description-section">{description}</p>
               <div className="time-section">
-                <p>{createdAt}</p>
+                <p>{myDate.toLocaleDateString()}</p>
               </div>
             </div>
           </div>
