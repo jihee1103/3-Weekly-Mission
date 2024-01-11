@@ -1,6 +1,6 @@
 import "./style.css";
 import SharedLinks from "../../components/SharedLinks";
-import search from "../../assets/search.svg";
+import SearchBar from "../../components/SearchBar";
 
 const SharedPage = ({ sampleFolderObj, loadingError }) => {
   const { folder = {} } = sampleFolderObj;
@@ -16,9 +16,8 @@ const SharedPage = ({ sampleFolderObj, loadingError }) => {
           <div className="folder-name">{folder.name}</div>
         </section>
         <section className="folder-links">
-          <div className="link-search-bar">
-            <img className="link-search-icon" src={search} alt="검색 아이콘" />
-            <input className="link-search" placeholder="링크를 검색해 보세요." />
+          <div className="SearchBar-wrapper">
+            <SearchBar />
           </div>
           <SharedLinks className="SharedPage-folder-links" links={links} />
         </section>

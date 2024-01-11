@@ -1,8 +1,8 @@
 import "./style.css";
-import search from "../../assets/search.svg";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import AddLinkBar from "../../components/AddLinkBar";
+import SearchBar from "../../components/SearchBar";
 
 const FolderPage = ({ user, folderObj }) => {
   const { folder = {} } = folderObj;
@@ -13,13 +13,14 @@ const FolderPage = ({ user, folderObj }) => {
       <Nav user={user} />
       <main>
         <section className="AddLinkBar-section">
-          <AddLinkBar />
+          <div className="AddLinkBar-wrapper">
+            <AddLinkBar />
+          </div>
         </section>
 
         <section className="folder-links">
-          <div className="link-search-bar">
-            <img className="link-search-icon" src={search} alt="검색 아이콘" />
-            <input className="link-search" placeholder="링크를 검색해 보세요." />
+          <div className="SearchBar-wrapper">
+            <SearchBar />
           </div>
           {/* <SharedLinks className="SharedPage-folder-links" links={links} /> */}
         </section>
