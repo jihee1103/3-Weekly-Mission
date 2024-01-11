@@ -34,11 +34,11 @@ module.exports = {
     // import/resolver` 는 `eslint-plugin-import` 의 경로 설정 옵션
     // todo: unresolved 에러 안 고쳐져서 규칙 일단 꺼놓음
     // 'import/resolver': {
-    //   node: {
-    //     paths: ['src'],
-    //     extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    //   },
-    //   caseSensitive: false,
+    // node: {
+    // paths: ['src'],
+    // extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    // },
+    // caseSensitive: false,
     // },
   },
   ignorePatterns: ['reportWebVitals.js', '*.test.js'],
@@ -84,5 +84,64 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/jsx-props-no-spreading': 'off',
     'consistent-return': 'off',
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index'], 'object', 'type', 'unknown'],
+        pathGroups: [
+          {
+            pattern: '{react*,react*/**,react-dom/**,@tanstack/react-query/**}',
+            group: 'external',
+            position: 'before',
+          },
+          {
+            pattern: '@{layout,pages,components,assets}/**/*',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: '@{lib,utils,hooks,event,api}/**/*',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: '@{store,slice}/**/*',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: '@pages/**/*.style',
+            group: 'unknown',
+          },
+          {
+            pattern: '@components/**/*.style',
+            group: 'unknown',
+          },
+          {
+            pattern: '{.,..}/**/*.style',
+            group: 'unknown',
+          },
+          {
+            pattern: '*.style',
+            group: 'unknown',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: true,
+        ignoreDeclarationSort: true,
+        ignoreMemberSort: false,
+        allowSeparatedGroups: true,
+      },
+    ],
   },
 };

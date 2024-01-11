@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+
 import { getSampleProfileData } from '@api/shared-page/getSampleProfileData';
 
 const useGetProfileData = () => {

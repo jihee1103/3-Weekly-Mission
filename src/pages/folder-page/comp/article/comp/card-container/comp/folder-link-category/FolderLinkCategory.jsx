@@ -1,5 +1,5 @@
-import { useGetFolderCategoryList } from './hooks/useGetFolderCategoryList';
 import styles from './FolderLinkCategory.module.css';
+import { useGetFolderCategoryList } from './hooks/useGetFolderCategoryList';
 
 // {
 //   "id": 14, ---> 이게 folder id 인듯?

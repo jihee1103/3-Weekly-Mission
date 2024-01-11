@@ -1,8 +1,9 @@
 import DocumentTitle from '@layout/document-title/DocumentTitle';
-import Header from './comp/header/Header';
-import Footer from './comp/footer/Footer';
+
 import AddLink from './comp/add-link/AddLink';
 import Article from './comp/article/Article';
+import Footer from './comp/footer/Footer';
+import Header from './comp/header/Header';
 
 const Folder = () => {
   return (

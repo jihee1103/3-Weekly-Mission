@@ -1,4 +1,5 @@
 import DocumentTitle from '@layout/document-title/DocumentTitle';
+
 import './Shared.css';
 import Article from './comp/article/Article';
 import Banner from './comp/banner/Banner';

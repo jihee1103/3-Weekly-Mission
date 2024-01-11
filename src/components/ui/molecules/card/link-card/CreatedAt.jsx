@@ -1,4 +1,5 @@
 import { formatDate } from '@utils/time/formatDate';
+
 import { useCardProvider } from './context/CardProvider';
 
 const CreatedAt = ({ children, ...rest }) => {

@@ -1,5 +1,7 @@
-import { useSetDocumentTitle } from '@layout/document-title/hooks/useSetDocumentTitle';
 import { Fragment } from 'react';
+
+import { useSetDocumentTitle } from '@layout/document-title/hooks/useSetDocumentTitle';
+
 import { documentTitle } from './data/documentTitle';
 
 /**

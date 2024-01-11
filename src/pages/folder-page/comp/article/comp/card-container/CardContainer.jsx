@@ -1,8 +1,9 @@
 import { useState } from 'react';
+
 import Card from './comp/card/Card';
+import CardContainerOptions from './comp/card-container-options/CardContainerOptions';
 import FolderLinkCategory from './comp/folder-link-category/FolderLinkCategory';
 import { useGetSortedFolderLinksData } from './comp/hooks/useGetSortedFolderLinksData';
-import CardContainerOptions from './comp/card-container-options/CardContainerOptions';
 import './CardContainer.css';
 
 const CardContainer = () => {
