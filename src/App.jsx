@@ -3,8 +3,6 @@ import { Card } from "./component/Card/card.jsx";
 import { Header } from "./component/Header/header.jsx";
 import { Footer } from "./component/Footer/footer.jsx";
 import { SearchBar } from "./component/SearchBar/searchbar.jsx";
-import { LoginButton } from "./component/login-button/login-button.jsx";
-import { NavBar } from "./component/NavBar/navbar.jsx";
 import defaultImage from "./card-component-default.png";
 import "./style.css";
 
@@ -49,7 +47,6 @@ export default function App() {
       {folder !== null ? (
         <Header folder={folder} user={user !== null ? user : ""} />
       ) : undefined}
-
       <div className="main-section">
         <SearchBar />
         <div className="card-component-section">
