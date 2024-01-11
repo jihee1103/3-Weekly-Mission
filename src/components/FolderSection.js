@@ -5,7 +5,7 @@ import FolderList from "./FolderList";
 import FolderName from "./FolderName";
 import FolderContentCard from "./FolderContentCard";
 
-export default function FolderSection({ onOpenModal }) {
+export default function FolderSection() {
   const [selectedFolder, setSelectedFolder] = useState("$1");
   const handleSelectFolder = (folder) => {
     setSelectedFolder(folder);
@@ -16,15 +16,11 @@ export default function FolderSection({ onOpenModal }) {
       <ForderSearchInput />
       <div className="foder-contents">
         <FolderList
-          onOpenModal={onOpenModal}
           onSelectFolder={handleSelectFolder}
           selectedFolder={selectedFolder}
         />
-        <FolderName onOpenModal={onOpenModal} selectedFolder={selectedFolder} />
-        <FolderContentCard
-          onOpenModal={onOpenModal}
-          selectedFolder={selectedFolder}
-        />
+        <FolderName selectedFolder={selectedFolder} />
+        <FolderContentCard selectedFolder={selectedFolder} />
       </div>
     </section>
   );

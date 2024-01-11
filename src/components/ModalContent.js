@@ -61,7 +61,7 @@ export const AddFolderModal = ({ closeModal }) => (
   </>
 );
 
-export const ShareModal = ({ closeModal }) => (
+export const ShareModal = ({ closeModal, selectedModalItem }) => (
   <>
     <img
       src="/imgs/_close.png"
@@ -69,7 +69,10 @@ export const ShareModal = ({ closeModal }) => (
       onClick={closeModal}
       alt="나가기"
     />
-    <div className="modal-title">폴더 공유</div>
+    <div>
+      <div className="modal-title">폴더 공유</div>
+      <div className="ShaereFolderName">{selectedModalItem}</div>
+    </div>
     <div className="shareIcon-box">
       <div className="shareIcon">
         <img src="/imgs/카카오톡아이콘.png" alt="카카오톡" />
@@ -90,7 +93,7 @@ export const ShareModal = ({ closeModal }) => (
   </>
 );
 
-export const RenameModal = ({ closeModal }) => (
+export const RenameModal = ({ closeModal, selectedModalItem }) => (
   <>
     <img
       src="/imgs/_close.png"
@@ -99,14 +102,14 @@ export const RenameModal = ({ closeModal }) => (
       alt="나가기"
     />
     <div className="modal-title">폴더 이름 변경</div>
-    {/* 이름 변경 모달 내용 */}
+    <input defaultValue={selectedModalItem} />
     <button className="modal-button-blue" onClick={() => closeModal("rename")}>
       변경하기
     </button>
   </>
 );
 
-export const DeleteFolderModal = ({ closeModal }) => (
+export const DeleteFolderModal = ({ closeModal, selectedModalItem }) => (
   <>
     <img
       src="/imgs/_close.png"
@@ -114,8 +117,10 @@ export const DeleteFolderModal = ({ closeModal }) => (
       onClick={closeModal}
       alt="나가기"
     />
-    <div className="modal-title">폴더 삭제</div>
-    {/* 폴더 삭제 모달 내용 */}
+    <div>
+      <div className="modal-title">폴더 삭제</div>
+      <div>{selectedModalItem}</div>
+    </div>
     <button
       className="modal-button-red"
       onClick={() => closeModal("deleteFolder")}
@@ -137,7 +142,6 @@ export const DeleteItemModal = ({ closeModal, selectedModalItem }) => (
       <div className="modal-title">링크 삭제</div>
       <div>{selectedModalItem.url}</div>
     </div>
-
     <button
       className="modal-button-red"
       onClick={() => closeModal("deleteItem")}

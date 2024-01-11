@@ -15,11 +15,26 @@ export const ModalManager = ({ modalType, closeModal, selectedModalItem }) => {
     case "addFolder":
       return <AddFolderModal closeModal={closeModal} />;
     case "share":
-      return <ShareModal closeModal={closeModal} />;
+      return (
+        <ShareModal
+          closeModal={closeModal}
+          selectedModalItem={selectedModalItem}
+        />
+      );
     case "rename":
-      return <RenameModal closeModal={closeModal} />;
+      return (
+        <RenameModal
+          closeModal={closeModal}
+          selectedModalItem={selectedModalItem}
+        />
+      );
     case "deleteFolder":
-      return <DeleteFolderModal closeModal={closeModal} />;
+      return (
+        <DeleteFolderModal
+          closeModal={closeModal}
+          selectedModalItem={selectedModalItem}
+        />
+      );
     case "deleteItem":
       return (
         <DeleteItemModal
