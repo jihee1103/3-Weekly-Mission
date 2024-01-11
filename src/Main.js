@@ -33,8 +33,9 @@ const Main = () => {
       <Routes>
         <Route path="/" element={<App user={user} />}>
           <Route path="shared" element={<SharedPage folderObj={folderObj} loadingError={loadingError} />} />
-          <Route path="folder" element={<FolderPage />} />
         </Route>
+
+        <Route path="folder" element={<FolderPage />} />
       </Routes>
     </BrowserRouter>
   );

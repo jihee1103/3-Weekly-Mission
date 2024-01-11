@@ -1,7 +1,4 @@
 header {
-  position: sticky;
-  z-index: 1;
-  top: 0;
   padding: 2rem 20rem;
   background: var(--background);
 }
