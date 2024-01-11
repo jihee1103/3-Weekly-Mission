@@ -1,5 +1,5 @@
 import "./style.css";
-import FolderLinks from "../../components/FolderLinks";
+import SharedLinks from "../../components/SharedLinks";
 import search from "../../assets/search.svg";
 
 const SharedPage = ({ sampleFolderObj, loadingError }) => {
@@ -20,7 +20,7 @@ const SharedPage = ({ sampleFolderObj, loadingError }) => {
             <img className="link-search-icon" src={search} alt="검색 아이콘" />
             <input className="link-search" placeholder="링크를 검색해 보세요." />
           </div>
-          <FolderLinks className="SharedPage-folder-links" links={links} />
+          <SharedLinks className="SharedPage-folder-links" links={links} />
         </section>
       </main>
     </>
