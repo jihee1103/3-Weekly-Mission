@@ -31,6 +31,10 @@ body {
   border-color: #6d6afe;
   cursor: pointer;
 }
+.folderItem:hover {
+  background-color: #6d6afe;
+  color: #ffffff;
+}
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
   .folderList {
