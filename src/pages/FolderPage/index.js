@@ -4,6 +4,7 @@ import Footer from "../../components/Footer";
 import AddLinkBar from "../../components/AddLinkBar";
 import SearchBar from "../../components/SearchBar";
 import FilterButton from "../../components/FilterButton";
+import addIcon from "../../assets/add.svg";
 
 const FolderPage = ({ user, folderObj }) => {
   const { folder = {} } = folderObj;
@@ -31,6 +32,9 @@ const FolderPage = ({ user, folderObj }) => {
               <FilterButton>유용한 글</FilterButton>
               <FilterButton>나만의 장소</FilterButton>
             </div>
+            <button className="add-button">
+              <img className="add-icon" src={addIcon} alt="필터링 폴더를 새로 생성하는 버튼" />
+            </button>
           </div>
 
           {/* <SharedLinks className="SharedPage-folder-links" links={links} /> */}

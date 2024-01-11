@@ -31,6 +31,16 @@
   width: 100%;
   display: flex;
   align-items: center;
-  width: 106rem;
+  width: 103rem;
   gap: 0.8rem;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+.add-icon {
+  width: 1.6rem;
+  height: 1.6rem;
 }

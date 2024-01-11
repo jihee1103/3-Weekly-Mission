@@ -4,4 +4,7 @@
   padding: 0.8rem 1.2rem;
   font-size: 1.6rem;
   cursor: pointer;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
 }
