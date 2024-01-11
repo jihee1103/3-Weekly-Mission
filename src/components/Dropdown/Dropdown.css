@@ -16,3 +16,8 @@
   font-weight: 400;
   color: #333236;
 }
+
+.dropdownMenu:hover {
+  background: #e7effb;
+  color: #6d6afe;
+}
