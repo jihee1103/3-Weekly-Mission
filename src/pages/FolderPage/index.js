@@ -1,10 +1,10 @@
 import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
 
-const FolderPage = () => {
+const FolderPage = ({ user }) => {
   return (
     <>
-      <Nav />
+      <Nav user={user} />
       폴더 페이지 입니다.
       <Footer />
     </>

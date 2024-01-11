@@ -1,7 +1,7 @@
 const API_BASE_URL = "https://bootcamp-api.codeit.kr/api";
 
-export const getSampleUser = async () => {
-  const response = await fetch(`${API_BASE_URL}/sample/user`);
+export const getUser = async () => {
+  const response = await fetch(`${API_BASE_URL}/users/1`);
   if (!response.ok) {
     throw new Error("데이터를 불러오는데 실패했습니다");
   }

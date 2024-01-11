@@ -10,7 +10,7 @@ const Nav = ({ user, className = "" }) => {
         </a>
         {user ? (
           <div className="user-profile">
-            <img className="user-image" src={user.profileImageSource} alt={user.name} />
+            <img className="user-image" src={user.image_source} alt={user.name} />
             <div className="user-email">{user.email}</div>
           </div>
         ) : (

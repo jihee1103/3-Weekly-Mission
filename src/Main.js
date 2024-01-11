@@ -4,7 +4,7 @@ import App from "./components/App";
 import SharedPage from "./pages/SharedPage";
 import FolderPage from "./pages/FolderPage";
 import "./styles/global.css";
-import { getSampleUser, getSampleFolder } from "./api";
+import { getUser, getSampleFolder } from "./api";
 
 const Main = () => {
   const [user, setUser] = useState({});
@@ -14,9 +14,9 @@ const Main = () => {
   const handleLoad = async () => {
     try {
       setLoadingError(null);
-      const userBody = await getSampleUser();
+      const userBody = await getUser();
       const folderBody = await getSampleFolder();
-      setUser(userBody);
+      setUser(userBody.data[0]);
       setFolderObj(folderBody);
     } catch (error) {
       setLoadingError(error);
@@ -35,7 +35,7 @@ const Main = () => {
           <Route path="shared" element={<SharedPage folderObj={folderObj} loadingError={loadingError} />} />
         </Route>
 
-        <Route path="folder" element={<FolderPage />} />
+        <Route path="folder" element={<FolderPage user={user} />} />
       </Routes>
     </BrowserRouter>
   );
