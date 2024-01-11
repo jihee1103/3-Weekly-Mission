@@ -9,4 +9,11 @@
 .main-section {
   max-width: 1060px;
   margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 1124px) {
+  .main-section {
+    padding: 0 32px;
+  }
 }

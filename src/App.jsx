@@ -40,11 +40,12 @@ export default function App() {
     };
     getData();
   }, []);
+  console.log(folder);
 
   return (
     <>
       {folder !== null ? (
-        <Header folder={folder} user={user !== null ? user : "로그인"} />
+        <Header folder={folder} user={user !== null ? user : ""} />
       ) : undefined}
       <div className="main-section">
         <SearchBar />
