@@ -10,7 +10,7 @@ export default function LinkSearchInput() {
     <>
       <div className="header-content">
         <label className="link-search-box">
-          <img src="/imgs/link.png" className="link-img" alt="링크추가기" />
+          <img src="/imgs/link.png" className="link-img" alt="링크추가하기" />
           <input
             className="link-search-input"
             placeholder="링크를 추가해 보세요"

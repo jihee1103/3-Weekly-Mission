@@ -25,9 +25,9 @@ export default function FolderList({ onSelectFolder, selectedFolder }) {
       <div className="folder-list-box">
         <ul className="folder-list">
           <li
-            onClick={() => handleFolderClick("$1")}
+            onClick={() => handleFolderClick("전체")}
             className={`folder ${
-              selectedFolder === "$1" ? "folderSelected" : ""
+              selectedFolder === "전체" ? "folderSelected" : ""
             }`}
           >
             <div>전체</div>

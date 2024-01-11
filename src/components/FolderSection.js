@@ -6,7 +6,7 @@ import FolderName from "./FolderName";
 import FolderContentCard from "./FolderContentCard";
 
 export default function FolderSection() {
-  const [selectedFolder, setSelectedFolder] = useState("$1");
+  const [selectedFolder, setSelectedFolder] = useState("전체");
   const handleSelectFolder = (folder) => {
     setSelectedFolder(folder);
   };
