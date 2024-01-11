@@ -3,10 +3,13 @@
     "browser": true // document, window 등의 브라우저 내장 객체 조회 가능하도록 설정
   },
   "extends": [
-    "prettier", // eslint-config-prettier 라이브러리 적용하여 Prettier에 관련된 규칙을 사용합니다.
-    "airbnb"
-  ], // eslint-config-airbnb 라이브러리 적용하여 Airbnb 스타일 가이드에 따라 규칙을 설정합니다.
-  "parser": "@babel/eslint-parser", // 최신 ECMA 버전을 사용할 수 있게 설정
+    "eslint:recommended",
+    "plugin:prettier/recommended", // eslint-config-prettier 라이브러리 적용하여 Prettier에 관련된 규칙을 사용합니다.
+    "airbnb" // eslint-config-airbnb 라이브러리 적용하여 Airbnb 스타일 가이드에 따라 규칙을 설정합니다.
+  ],
+  // npm i -D @babel/eslint-parser @babel/preset-react
+  // 최신 ECMA 버전을 사용할 수 있게 설정
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "requireConfigFile": false,
     "babelOptions": {
