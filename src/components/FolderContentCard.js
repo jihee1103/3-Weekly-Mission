@@ -43,14 +43,11 @@ export default function FolderContentCard({ selectedFolder }) {
       <ul className="cards">
         {items.length > 0 ? (
           items.map((item) => {
-            const timeAgo = getTimeDifference(item.created_at);
-            const formatAt = formatCreatedAt(item.created_at);
-            const openLink = () => openNewWindow(item.url);
             return (
               <li className="card" key={item.id}>
                 <div className="card-img-div">
                   <img
-                    onClick={openLink}
+                    onClick={() => openNewWindow(item.url)}
                     className="card-img"
                     src={
                       item.image_source ||
@@ -66,7 +63,9 @@ export default function FolderContentCard({ selectedFolder }) {
                 </div>
                 <div className="card-contents">
                   <div className="card-time-ago-box">
-                    <p className="card-time-ago">{timeAgo}</p>
+                    <p className="card-time-ago">
+                      {getTimeDifference(item.created_at)}
+                    </p>
                     <img
                       onClick={() => handlePopoverToggle(item.id)}
                       src="/imgs/kebab.png"
@@ -81,10 +80,15 @@ export default function FolderContentCard({ selectedFolder }) {
                       <div onClick={handleModalAddtoFolder}>폴더에 추가</div>
                     </div>
                   )}
-                  <p onClick={openLink} className="card-description">
+                  <p
+                    onClick={() => openNewWindow(item.url)}
+                    className="card-description"
+                  >
                     {item.description}
                   </p>
-                  <p className="card-createdat">{formatAt}</p>
+                  <p className="card-createdat">
+                    {formatCreatedAt(item.created_at)}
+                  </p>
                 </div>
               </li>
             );
