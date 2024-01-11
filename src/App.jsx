@@ -1,28 +1,27 @@
-import './App.css';
 import { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+
+import './reset.css';
+import './assets/pretendard.css';
+
 import Header from './components/Header/Header';
-import Folder from './components/Folder/Folder';
-import CardList from './components/CardList/CardList';
 import Footer from './components/Footer/Footer';
+import NotFoundPage from './pages/NotFoundPage';
+import GlobalStyle from './GlobalStyle';
+import Folder from './pages/Folder';
+import Shared from './pages/Shared';
+
+import getFetch from './utils/getFetch';
 
 const App = () => {
   const [login, setLogin] = useState(false);
-  const [userData, setUserData] = useState({});
-  const [linkData, setLinkData] = useState({});
+  const [userData, setUserData] = useState([]);
 
-  const loadUserData = async () => {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/user');
-    if (response.ok) {
-      const body = await response.json();
-      return body;
-    }
-    throw new Error('유저 정보를 불러오지 못함');
-  };
-
+  // Header의 유저 프로필 데이터
   useEffect(() => {
     try {
-      loadUserData().then((data) => {
-        setUserData({ ...data });
+      getFetch('bootcamp-api.codeit.kr', 'api/users/1').then((user) => {
+        setUserData({ ...user.data[0] });
         setLogin(true);
       });
     } catch (error) {
@@ -30,30 +29,15 @@ const App = () => {
     }
   }, []);
 
-  const loadCardData = async () => {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/folder');
-    if (response.ok) {
-      const body = await response.json();
-      return body;
-    }
-    throw new Error('카드 정보를 불러오지 못함');
-  };
-
-  useEffect(() => {
-    try {
-      loadCardData().then((data) => {
-        setLinkData(() => data.folder);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-
   return (
-    <div className="App">
+    <div>
+      <GlobalStyle />
       <Header login={login} userData={userData} />
-      <Folder linkData={linkData} />
-      <CardList linkData={linkData} />
+      <Routes>
+        <Route path="/shared" element={<Shared />} />
+        <Route path="/folder" element={<Folder />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
       <Footer />
     </div>
   );
