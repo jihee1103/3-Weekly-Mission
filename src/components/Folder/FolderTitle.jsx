@@ -34,7 +34,10 @@ const FolderItem = styled.div`
   padding: 8px 12px;
   border-radius: 5px;
   border: 1px solid #6d6afe;
-  background-color: ${(prop) => (prop.$isSelected ? '#6D6AFE' : '#FFFFFF')};
-  color: ${(prop) => (prop.$isSelected ? '#FFFFFF' : '#000000')};
   cursor: pointer;
+  color: ${(prop) => (prop.$isSelected ? '#FFFFFF' : '#000000')};
+  background-color: ${(prop) => (prop.$isSelected ? '#6D6AFE' : '#ffffff')};
+  &:hover {
+    background-color: ${(prop) => (prop.$isSelected ? '#6D6AFE' : '#E7EFFB')};
+  }
 `;

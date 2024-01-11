@@ -21,6 +21,7 @@ const Wrapper = styled.div`
 `;
 const AddFolderText = styled.span`
   cursor: pointer;
+  color: #6d6afe;
   @media (max-width: 767px) {
     & {
       color: #e7effb;
