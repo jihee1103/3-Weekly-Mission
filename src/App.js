@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SharedPage from "./pages/SharedPage";
 import { getSampleUser, getSampleFolder } from "./api";
@@ -26,9 +27,11 @@ const App = () => {
   }, []);
 
   return (
-    <>
-      <SharedPage user={user} folderObj={folderObj} loadingError={loadingError} />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/shared" element={<SharedPage user={user} folderObj={folderObj} loadingError={loadingError} />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
