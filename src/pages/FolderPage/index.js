@@ -12,7 +12,10 @@ const FolderPage = ({ user, folderObj }) => {
     <>
       <Nav user={user} />
       <main>
-        <AddLinkBar />
+        <section className="AddLinkBar-section">
+          <AddLinkBar />
+        </section>
+
         <section className="folder-links">
           <div className="link-search-bar">
             <img className="link-search-icon" src={search} alt="검색 아이콘" />
