@@ -55,7 +55,19 @@ export default function Card({ link }) {
     </CardContainer>
   );
 }
-
+const CardPreviewImg = styled.img`
+  max-height: 100%;
+  margin: auto;
+`;
+const CardInfoArea = styled.div`
+  display: flex;
+  width: 100%;
+  height: 135px;
+  flex-direction: column;
+  padding: 15px 20px;
+  gap: 10px;
+  overflow: hidden;
+`;
 const CardContainer = styled(Link)`
   display: flex;
   flex-direction: column;
@@ -66,16 +78,21 @@ const CardContainer = styled(Link)`
   overflow: hidden;
   cursor: pointer;
   color: #000000;
+  &:hover {
+    ${CardPreviewImg} {
+      transition: all 0.3s;
+      transform: scale(1.3);
+    }
+    ${CardInfoArea} {
+      background-color: #f0f6ff;
+    }
+  }
   @media (max-width: 767px) {
     & {
       width: 325px;
       height: 327px;
     }
   }
-`;
-const CardPreviewImg = styled.img`
-  max-height: 100%;
-  margin: auto;
 `;
 const CardImgArea = styled.div`
   position: relative;
@@ -86,26 +103,11 @@ const CardImgArea = styled.div`
   height: 200px;
   cursor: pointer;
   overflow: hidden;
-  &:hover {
-    ${CardPreviewImg} {
-      transition: all 0.3s;
-      transform: scale(1.3);
-    }
-  }
 `;
 const StarIcon = styled.img`
   position: absolute;
   top: 15px;
   right: 15px;
-`;
-const CardInfoArea = styled.div`
-  display: flex;
-  width: 100%;
-  height: 135px;
-  flex-direction: column;
-  padding: 15px 20px;
-  gap: 10px;
-  overflow: hidden;
 `;
 const CardInfoTop = styled.div`
   display: flex;
