@@ -4,7 +4,6 @@ import noImage from "../../assets/no-image.png";
 
 const SharedLinks = ({ links, className = "" }) => {
   const classNames = `SharedLinks ${className}`;
-
   return (
     <ul className={classNames}>
       {links.map((link) => (

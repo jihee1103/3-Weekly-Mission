@@ -18,7 +18,7 @@ const Main = () => {
       const userBody = await getUser();
       const folderBody = await getFolder();
       setUser(userBody.data[0]);
-      setFolderObj(folderBody.data[0]);
+      setFolderObj(folderBody.data);
     } catch (error) {
       setLoadingError(error);
       return;
