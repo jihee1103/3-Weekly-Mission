@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SharedPage from "./pages/SharedPage";
+import FolderPage from "./pages/FolderPage";
 import { getSampleUser, getSampleFolder } from "./api";
 import "./styles/global.css";
 
@@ -30,6 +31,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/shared" element={<SharedPage user={user} folderObj={folderObj} loadingError={loadingError} />} />
+        <Route path="/folder" element={<FolderPage />} />
       </Routes>
     </BrowserRouter>
   );
