@@ -2,8 +2,8 @@ import "./style.css";
 import FolderLinks from "../../components/FolderLinks";
 import search from "../../assets/search.svg";
 
-const SharedPage = ({ folderObj, loadingError }) => {
-  const { folder = {} } = folderObj;
+const SharedPage = ({ sampleFolderObj, loadingError }) => {
+  const { folder = {} } = sampleFolderObj;
   const { owner = {}, links = [] } = folder;
 
   return (
