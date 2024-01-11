@@ -12,7 +12,7 @@
   justify-content: center;
 }
 
-.folder-links {
+.FolderPage-section {
   margin: 0 3.2rem;
 }
 
@@ -20,4 +20,17 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.FilterButton-container {
+  display: flex;
+  justify-content: center;
+}
+
+.FilterButton-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  width: 106rem;
+  gap: 0.8rem;
 }
