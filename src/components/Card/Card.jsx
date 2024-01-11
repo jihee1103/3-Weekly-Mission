@@ -73,6 +73,10 @@ const CardContainer = styled(Link)`
     }
   }
 `;
+const CardPreviewImg = styled.img`
+  max-height: 100%;
+  margin: auto;
+`;
 const CardImgArea = styled.div`
   position: relative;
   display: flex;
@@ -82,14 +86,11 @@ const CardImgArea = styled.div`
   height: 200px;
   cursor: pointer;
   overflow: hidden;
-`;
-const CardPreviewImg = styled.img`
-  max-height: 100%;
-  margin: auto;
-
   &:hover {
-    transition: all 0.3s;
-    transform: scale(1.3);
+    ${CardPreviewImg} {
+      transition: all 0.3s;
+      transform: scale(1.3);
+    }
   }
 `;
 const StarIcon = styled.img`
