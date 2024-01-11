@@ -1,16 +1,13 @@
-import Nav from "../../components/Nav";
-import FolderLinks from "../../components/FolderLinks";
-import Footer from "../../components/Footer";
 import "./style.css";
+import FolderLinks from "../../components/FolderLinks";
 import search from "../../assets/search.svg";
 
-const SharedPage = ({ user, folderObj, loadingError }) => {
+const SharedPage = ({ folderObj, loadingError }) => {
   const { folder = {} } = folderObj;
   const { owner = {}, links = [] } = folder;
 
   return (
     <>
-      <Nav user={user} />
       <main>
         <section className="folder-info">
           {loadingError && <div className="loading-error-message">{loadingError.message}</div>}
@@ -26,7 +23,6 @@ const SharedPage = ({ user, folderObj, loadingError }) => {
           <FolderLinks className="SharedPage-folder-links" links={links} />
         </section>
       </main>
-      <Footer />
     </>
   );
 };
