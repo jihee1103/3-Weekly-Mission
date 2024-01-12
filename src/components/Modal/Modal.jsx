@@ -41,7 +41,7 @@ const getModalContent = (modalId, folderName) => {
     case "shareFolder":
       return <ModalShare folderName={folderName} />;
     case "deleteFolder":
-      return <ModalDelete />;
+      return <ModalDelete nameType={"폴더"} DeleteName={folderName} />;
 
     default:
       return;

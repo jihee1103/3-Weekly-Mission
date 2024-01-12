@@ -7,12 +7,12 @@ import {
   ModalWrapper,
 } from "./Modal.styled";
 
-export default function ModalDelete({ folderName = "폴더명" }) {
+export default function ModalDelete({ nameType, DeleteName }) {
   return (
     <ModalWrapper>
       <ModalShareTitleContainer>
-        <ModalTitle>폴더 삭제</ModalTitle>
-        <ModalShareFolderTitle>{folderName}</ModalShareFolderTitle>
+        <ModalTitle>{nameType} 삭제</ModalTitle>
+        <ModalShareFolderTitle>{DeleteName}</ModalShareFolderTitle>
       </ModalShareTitleContainer>
       <ModalNegativeButton>삭제하기</ModalNegativeButton>
     </ModalWrapper>
