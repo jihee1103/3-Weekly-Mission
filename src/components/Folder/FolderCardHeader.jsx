@@ -3,21 +3,30 @@ import deleteIcon from '../../asset/deleteIcon.svg';
 import editIcon from '../../asset/penIcon.svg';
 import shareIcon from '../../asset/shareIcon.svg';
 
-export default function FolderCardHeader({ folderName, folderId }) {
+export default function FolderCardHeader({
+  folderName,
+  folderId,
+  toggleModalClick,
+  updateModalName,
+}) {
+  const handleButtonClick = (e) => {
+    toggleModalClick();
+    updateModalName(e.currentTarget.id);
+  };
   return (
     <Wrapper>
       <FolderTitle>{folderName}</FolderTitle>
       {folderId !== 0 && (
         <FolderManageContainer>
-          <FolderEditButton>
+          <FolderEditButton id="shareFolder" onClick={handleButtonClick}>
             <EditIcon src={shareIcon} />
             공유
           </FolderEditButton>
-          <FolderEditButton>
+          <FolderEditButton id="changeFolderName" onClick={handleButtonClick}>
             <EditIcon src={editIcon} />
             이름 변경
           </FolderEditButton>
-          <FolderEditButton>
+          <FolderEditButton id="deleteFolder" onClick={handleButtonClick}>
             <DeleteIcon src={deleteIcon} />
             삭제
           </FolderEditButton>

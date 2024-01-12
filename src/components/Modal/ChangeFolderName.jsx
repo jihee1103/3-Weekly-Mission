@@ -1,35 +1,35 @@
 import styled from 'styled-components';
 
-export default function AddFolder() {
+export default function ChangeFolderName() {
   return (
-    <AddFolderWrapper>
-      <AddFolderTitle>폴더 추가</AddFolderTitle>
-      <AddFolderForm>
-        <AddFolderInput placeholder="내용 입력" />
-        <AddFolderButton>추가하기</AddFolderButton>
-      </AddFolderForm>
-    </AddFolderWrapper>
+    <EditFolderWrapper>
+      <EditFolderTitle>폴더 이름 변경</EditFolderTitle>
+      <EditFolderForm>
+        <EditFolderInput placeholder="유용한 팁" />
+        <EditFolderButton>변경하기</EditFolderButton>
+      </EditFolderForm>
+    </EditFolderWrapper>
   );
 }
 
-const AddFolderWrapper = styled.div`
+const EditFolderWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
 `;
-const AddFolderTitle = styled.span`
+const EditFolderTitle = styled.span`
   font-size: 20px;
   font-weight: 700;
   color: #373740;
 `;
-const AddFolderForm = styled.form`
+const EditFolderForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 15px;
 `;
-const AddFolderInput = styled.input`
+const EditFolderInput = styled.input`
   display: flex;
   width: 280px;
   padding: 18px 15px;
@@ -43,7 +43,7 @@ const AddFolderInput = styled.input`
     color: #9fa6b2;
   }
 `;
-const AddFolderButton = styled.button`
+const EditFolderButton = styled.button`
   display: flex;
   width: 280px;
   padding: 16px 20px;

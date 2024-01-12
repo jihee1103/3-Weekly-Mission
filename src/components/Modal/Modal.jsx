@@ -1,16 +1,34 @@
 import styled from 'styled-components';
 import AddFolder from './AddFolder';
 import closeButton from '../../asset/close.svg';
+import ChangeFolderName from './ChangeFolderName';
+import DeleteFolder from './DeleteFolder';
+import ShareFolder from './ShareFolder';
 
-export default function Modal({ toggleModalClick }) {
+export default function Modal({ toggleModalClick, modalName }) {
   const handleCloseButtonClick = () => {
     toggleModalClick();
+  };
+  const updateModal = () => {
+    if (modalName === 'addFolder') {
+      return <AddFolder />;
+    }
+    if (modalName === 'changeFolderName') {
+      return <ChangeFolderName />;
+    }
+    if (modalName === 'deleteFolder') {
+      return <DeleteFolder />;
+    }
+    if (modalName === 'shareFolder') {
+      return <ShareFolder />;
+    }
+    return null;
   };
   return (
     <ModalWrapper>
       <ModalContainer>
         <CloseButton src={closeButton} onClick={handleCloseButtonClick} />
-        <AddFolder />
+        {updateModal()}
       </ModalContainer>
     </ModalWrapper>
   );
@@ -30,6 +48,7 @@ const ModalContainer = styled.div`
   position: relative;
   display: flex;
   padding: 32px 40px;
+  width: 360px;
   flex-direction: column;
   justify-content: center;
   align-items: center;

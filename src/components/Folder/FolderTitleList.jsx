@@ -8,6 +8,7 @@ export default function FolderTitleList({
   folderId,
   onClick,
   toggleModalClick,
+  updateModalName,
 }) {
   const allFolder = { id: 0, name: '전체' };
   const [isSelected, setIsSelected] = useState(false);
@@ -38,7 +39,10 @@ export default function FolderTitleList({
         ))}
       </FolderListContainer>
       <AddFolderWrapper>
-        <AddFolder toggleModalClick={toggleModalClick} />
+        <AddFolder
+          toggleModalClick={toggleModalClick}
+          updateModalName={updateModalName}
+        />
       </AddFolderWrapper>
     </Wrapper>
   );

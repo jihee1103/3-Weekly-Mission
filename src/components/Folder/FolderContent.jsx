@@ -3,15 +3,6 @@ import FolderCardHeader from './FolderCardHeader';
 import FolderCardList from './FolderCardList';
 import FolderTitleList from './FolderTitleList';
 
-const FolderCardArea = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 24px;
-  width: 100%;
-`;
-
 export default function FolderContent({
   folderList,
   links,
@@ -19,6 +10,7 @@ export default function FolderContent({
   onClick,
   folderName,
   toggleModalClick,
+  updateModalName,
 }) {
   return (
     <>
@@ -27,11 +19,26 @@ export default function FolderContent({
         folderId={folderId}
         onClick={onClick}
         toggleModalClick={toggleModalClick}
+        updateModalName={updateModalName}
       />
       <FolderCardArea>
-        <FolderCardHeader folderName={folderName} folderId={folderId} />
+        <FolderCardHeader
+          folderName={folderName}
+          folderId={folderId}
+          toggleModalClick={toggleModalClick}
+          updateModalName={updateModalName}
+        />
         <FolderCardList links={links} />
       </FolderCardArea>
     </>
   );
 }
+
+const FolderCardArea = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+`;

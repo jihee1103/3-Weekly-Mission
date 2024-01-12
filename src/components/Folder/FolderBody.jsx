@@ -11,6 +11,11 @@ export default function FolderBody() {
   const [folderId, setFolderId] = useState(0);
   const [folderName, setFolderName] = useState('전체');
   const [isModalClicked, setIsModalClicked] = useState(false);
+  const [modalName, setModalName] = useState('');
+
+  const updateModalName = (name) => {
+    setModalName(name);
+  };
 
   const toggleModalClick = () => {
     setIsModalClicked(!isModalClicked);
@@ -27,7 +32,9 @@ export default function FolderBody() {
 
   return (
     <Wrapper>
-      {isModalClicked ? <Modal toggleModalClick={toggleModalClick} /> : null}
+      {isModalClicked ? (
+        <Modal toggleModalClick={toggleModalClick} modalName={modalName} />
+      ) : null}
       <SearchBar />
       {links.length === 0 && folderList.length === 0 ? (
         <NoLinkCard />
@@ -39,6 +46,7 @@ export default function FolderBody() {
           onClick={handleClickTitle}
           folderName={folderName}
           toggleModalClick={toggleModalClick}
+          updateModalName={updateModalName}
         />
       )}
       {links.length === 0 && folderList.length !== 0 ? <NoLinkCard /> : null}

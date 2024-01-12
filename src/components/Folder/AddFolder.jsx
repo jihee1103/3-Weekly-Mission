@@ -2,12 +2,13 @@ import styled from 'styled-components';
 import addFolderIcon from '../../asset/addfolder.svg';
 import addFolderWhiteIcon from '../../asset/addfolderwhite.svg';
 
-export default function AddFolder({ toggleModalClick }) {
-  const handleAddFolderClick = () => {
+export default function AddFolder({ toggleModalClick, updateModalName }) {
+  const handleAddFolderClick = (e) => {
     toggleModalClick();
+    updateModalName(e.currentTarget.id);
   };
   return (
-    <Wrapper onClick={handleAddFolderClick}>
+    <Wrapper id="addFolder" onClick={handleAddFolderClick}>
       <AddFolderText>폴더 추가</AddFolderText>
       <AddFolderIcon />
     </Wrapper>
