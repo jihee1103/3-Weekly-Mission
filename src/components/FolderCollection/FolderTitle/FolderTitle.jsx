@@ -3,7 +3,7 @@ import share from '../../../assets/images/share.svg';
 import pen from '../../../assets/images/pen.svg';
 import trashCan from '../../../assets/images/trash_can.svg';
 
-const FolderTitle = ({ currentFolder }) => {
+const FolderTitle = ({ currentFolder, sharingUrl }) => {
   return (
     <FolderTitleContainer>
       <div>{currentFolder}</div>

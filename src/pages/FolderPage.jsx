@@ -10,7 +10,7 @@ import FolderCollection from '../components/FolderCollection/FolderCollection';
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 
-const Folder = () => {
+const Folder = ({ userData }) => {
   const [folderData, setFolderData] = useState([]);
   const [folderCardData, setFolderCardData] = useState([]);
 
@@ -74,6 +74,7 @@ const Folder = () => {
       <CardList>
         <Search />
         <FolderCollection
+          userData={userData}
           folderData={folderData}
           handleOverViewFolderCardData={handleOverViewFolderCardData}
           handleFolderCardData={handleFolderCardData}

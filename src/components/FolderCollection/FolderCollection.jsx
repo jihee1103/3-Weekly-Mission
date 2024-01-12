@@ -4,11 +4,17 @@ import FolderTitle from './FolderTitle/FolderTitle';
 import add from '../../assets/images/add.svg';
 import mobileAdd from '../../assets/images/mobile_add.svg';
 
-const Folder = ({ folderData, handleOverViewFolderCardData, handleFolderCardData }) => {
+const Folder = ({ folderData, handleOverViewFolderCardData, handleFolderCardData, userData }) => {
   const [currentFolder, setCurrentFolder] = useState('전체');
+
+  const [sharingUrl, setSharingUrl] = useState('');
 
   const handleCurrentFolder = (name) => {
     setCurrentFolder(name);
+  };
+
+  const createSharingUrl = (userId, folderId) => {
+    setSharingUrl(`http://localhost:3000/shared?user=${userId}&folder=${folderId}`);
   };
 
   return (
@@ -33,6 +39,8 @@ const Folder = ({ folderData, handleOverViewFolderCardData, handleFolderCardData
                   onClick={() => {
                     handleCurrentFolder(folder.name);
                     handleFolderCardData(folder.id);
+                    createSharingUrl(userData.id, folder.id);
+                    console.log(sharingUrl);
                   }}
                 >
                   {folder.name}
@@ -46,7 +54,7 @@ const Folder = ({ folderData, handleOverViewFolderCardData, handleFolderCardData
           </AddFolderButton>
         </div>
       </FolderContainer>
-      <FolderTitle currentFolder={currentFolder} />
+      <FolderTitle currentFolder={currentFolder} sharingUrl={sharingUrl} />
     </>
   );
 };

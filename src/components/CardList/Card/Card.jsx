@@ -6,8 +6,8 @@ import CardContent, { CardContentContainer } from './CardContent/CardContent';
 const Card = ({ cardData }) => {
   return (
     <CardListContainer>
-      {cardData.length !== 0 ? (
-        cardData.map((link) => {
+      {cardData?.length !== 0 ? (
+        cardData?.map((link) => {
           return (
             <CardLink to={link.url} target="_blank" key={link.id} rel="noreferrer">
               <CardImg link={link} />

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-const ShareDescription = ({ heroLinkData }) => {
+const ShareDescription = ({ heroProfileData, heroFolderName }) => {
   return (
     <ShareDescriptionContainer>
-      <img src={heroLinkData.owner?.profileImageSource} alt="코드잇 마크" />
-      <span>{heroLinkData.owner?.name}</span>
-      <div>{heroLinkData?.name}</div>
+      <img src={heroProfileData.owner?.profileImageSource} alt="코드잇 마크" />
+      <span>{heroProfileData.owner?.name}</span>
+      <div>{heroFolderName}</div>
     </ShareDescriptionContainer>
   );
 };

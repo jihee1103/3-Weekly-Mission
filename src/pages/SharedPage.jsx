@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import Hero from '../components/Hero/Hero';
 import ShareDescription from '../components/Hero/ShareDescription/ShareDescription';
@@ -10,35 +11,82 @@ import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 
 const Shared = () => {
-  const [linkData, setLinkData] = useState([]);
-  const [heroLinkData, setHeroLinkData] = useState({});
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [sharedUserId, setSharedUserId] = useState(null);
+  const [sharedFolderId, setSharedFolderId] = useState(null);
+  const [sharedFolderData, setSharedFolderData] = useState([]);
+  const [heroProfileData, setHeroProfileData] = useState({});
+  const [heroFolderName, setHeroFolderName] = useState('');
+
+  useEffect(() => {
+    const userId = searchParams.get('user');
+    const folderId = searchParams.get('folder');
+    setSharedFolderId(folderId);
+    setSharedUserId(userId);
+  }, []);
 
   // shared의 Hero 컴포넌트 데이터
   useEffect(() => {
     try {
-      getFetch('bootcamp-api.codeit.kr', 'api/sample/folder')
-        .then((data) => {
-          return data;
-        })
-        .then((data) => {
-          // sample 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
-          const formattedData = getFormattedCamelCaseData(data);
-          setLinkData(() => formattedData.folder.links);
-          setHeroLinkData(() => data.folder);
-        });
+      if (sharedFolderId && sharedUserId) {
+        getFetch('bootcamp-api.codeit.kr', `api/users/${sharedUserId}/links?folderId=${sharedFolderId}`)
+          .then((data) => {
+            return data;
+          })
+          .then((data) => {
+            // sample 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
+            const formattedData = getFormattedCamelCaseData(data);
+            setSharedFolderData(formattedData);
+          });
+      }
     } catch (error) {
       console.error(error);
+    }
+  }, [sharedFolderId, sharedUserId]);
+
+  useEffect(() => {
+    try {
+      if (sharedFolderId) {
+        getFetch('bootcamp-api.codeit.kr', `api/users/${sharedUserId}/folders`)
+          .then((res) => {
+            return res.data;
+          })
+          .then((folderCollection) => {
+            const foundFolder = folderCollection.find((folder) => {
+              return folder.id === Number(sharedFolderId);
+            });
+            setHeroFolderName(foundFolder.name);
+          });
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }, [sharedUserId]);
+
+  useEffect(() => {
+    try {
+      getFetch('bootcamp-api.codeit.kr', `api/sample/folder`)
+        .then((data) => {
+          return data.folder;
+        })
+        .then((folder) => {
+          setHeroProfileData(() => {
+            return folder;
+          });
+        });
+    } catch (err) {
+      console.error(err);
     }
   }, []);
 
   return (
     <>
       <Hero>
-        <ShareDescription heroLinkData={heroLinkData} />
+        <ShareDescription heroProfileData={heroProfileData} heroFolderName={heroFolderName} />
       </Hero>
       <CardList>
         <Search />
-        <Card cardData={linkData} />
+        <Card cardData={sharedFolderData.data} />
       </CardList>
     </>
   );

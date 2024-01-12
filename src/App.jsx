@@ -8,8 +8,8 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import NotFoundPage from './pages/NotFoundPage';
 import GlobalStyle from './GlobalStyle';
-import Folder from './pages/Folder';
-import Shared from './pages/Shared';
+import FolderPage from './pages/FolderPage';
+import SharedPage from './pages/SharedPage';
 
 import getFetch from './utils/getFetch';
 
@@ -34,8 +34,9 @@ const App = () => {
       <GlobalStyle />
       <Header login={login} userData={userData} />
       <Routes>
-        <Route path="/shared" element={<Shared />} />
-        <Route path="/folder" element={<Folder />} />
+        <Route path="/shared/" element={<SharedPage />} />
+        <Route path="/shared/*" element={<SharedPage />} />
+        <Route path="/folder" element={<FolderPage userData={userData}/>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
