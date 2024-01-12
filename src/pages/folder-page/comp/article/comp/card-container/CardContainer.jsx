@@ -12,7 +12,7 @@ const CardContainer = () => {
     folderName: '',
   });
 
-  const sortedLinks = useGetSortedFolderLinksData(folderIdAndName.folderId);
+  const sortedLinks = useGetSortedFolderLinksData(folderIdAndName.folderId === 'total' ? '' : folderIdAndName.folderId);
 
   return (
     <div className='card-container-wrapper'>

@@ -16,9 +16,9 @@ module.exports = {
   overrides: [
     {
       env: {
-        node: true,
+        node: true, // node 환경 허락? 어디에서? ⤵️
       },
-      files: ['.eslintrc.{js,cjs}'],
+      files: ['.eslintrc.{js,cjs}'], // 여기 files에 명시된 파일에 한해서만 node 환경 허락
       parserOptions: {
         sourceType: 'script',
       },
