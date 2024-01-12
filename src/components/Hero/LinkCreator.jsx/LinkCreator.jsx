@@ -3,17 +3,17 @@ import link from '../../../assets/images/link.svg';
 
 const LinkCreator = () => {
   return (
-    <LinkCreatorContainer>
+    <LinkCreatorWrapper>
       <div>
         <LinkCreatorImg src={link} />
         <LinkCreatorInput type="text" placeholder="링크를 추가하세요" />
       </div>
       <CreateLinkButton type="button">추가하기</CreateLinkButton>
-    </LinkCreatorContainer>
+    </LinkCreatorWrapper>
   );
 };
 
-const LinkCreatorContainer = styled.div`
+const LinkCreatorWrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;

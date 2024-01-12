@@ -32,11 +32,11 @@ const App = () => {
   return (
     <div>
       <GlobalStyle />
-      <Header login={login} userData={userData} />
+      <Header login={login} userData={userData}/>
       <Routes>
         <Route path="/shared/" element={<SharedPage />} />
         <Route path="/shared/*" element={<SharedPage />} />
-        <Route path="/folder" element={<FolderPage userData={userData}/>} />
+        <Route path="/folder" element={<FolderPage userData={userData} />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

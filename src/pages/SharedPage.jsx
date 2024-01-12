@@ -3,14 +3,14 @@ import { useSearchParams } from 'react-router-dom';
 
 import Hero from '../components/Hero/Hero';
 import ShareDescription from '../components/Hero/ShareDescription/ShareDescription';
-import CardList from '../components/CardList/CardList';
-import Search from '../components/CardList/Search/Search';
-import Card from '../components/CardList/Card/Card';
+import Contents from '../components/Contents/Contents';
+import Search from '../components/Contents/CardSearchBar/CardSearchBar';
+import CardList from '../components/Contents/CardList/CardList';
 
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 
-const Shared = () => {
+const SharedPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [sharedUserId, setSharedUserId] = useState(null);
   const [sharedFolderId, setSharedFolderId] = useState(null);
@@ -84,12 +84,12 @@ const Shared = () => {
       <Hero>
         <ShareDescription heroProfileData={heroProfileData} heroFolderName={heroFolderName} />
       </Hero>
-      <CardList>
+      <Contents>
         <Search />
-        <Card cardData={sharedFolderData.data} />
-      </CardList>
+        <CardList cardData={sharedFolderData.data} />
+      </Contents>
     </>
   );
 };
 
-export default Shared;
+export default SharedPage;

@@ -1,16 +1,25 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import HeaderProfile from './HeaderProfile/HeaderProfile';
+
 import logo from '../../assets/images/logo.svg';
 
 const Header = ({ login, userData }) => {
   return (
     <HeaderWrap>
       <HeaderContainer>
-        <LogoImg to="/">
+        <HeaderLogoImgBox to="/">
           <img src={logo} alt="로고 이미지" />
-        </LogoImg>
-        <HeaderProfile login={login} userData={userData} />
+        </HeaderLogoImgBox>
+        {login ? (
+          <HeaderProfileBox>
+            <img src={userData.image_source} alt="프로필 이미지" />
+            <div>{userData.email}</div>
+          </HeaderProfileBox>
+        ) : (
+          <HeaderLoginInButton type="button">
+            <Link to="/signin">로그인</Link>
+          </HeaderLoginInButton>
+        )}
       </HeaderContainer>
     </HeaderWrap>
   );
@@ -53,7 +62,7 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const LogoImg = styled(Link)`
+const HeaderLogoImgBox = styled(Link)`
   width: 133px;
   height: 24px;
 
@@ -66,6 +75,42 @@ const LogoImg = styled(Link)`
     width: 88px;
     height: 16px;
   }
+`;
+
+const HeaderProfileBox = styled.div`
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+  div {
+    color: var(--Linkbrary-gray100, #373740);
+    font-family: Pretendard;
+    font-size: 14px;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+`;
+
+const HeaderLoginInButton = styled.button`
+  width: 128px;
+  border-radius: 8px;
+  padding: 16px 20px;
+  color: var(--Grey-Light, #f5f5f5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
 `;
 
 export default Header;

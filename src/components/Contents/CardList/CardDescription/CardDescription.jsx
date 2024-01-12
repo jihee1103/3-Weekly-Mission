@@ -12,8 +12,8 @@ const CardDescription = ({ link }) => {
   };
 
   return (
-    <CardContentContainer>
-      <CardContentTimePassed>
+    <CardDescriptionWrapper>
+      <CardContentTimePassedBox>
         {calculatePassedTime(link.createdAt)}
         <KebabBtn
           onClick={(e) => {
@@ -24,19 +24,19 @@ const CardDescription = ({ link }) => {
           <img src={kebab} alt="더보기 케밥 버튼" />
         </KebabBtn>
         {kebabToggle ? (
-          <KebabMenu>
+          <KebabMenuBox>
             <KebabMenuDeleteBtn>삭제하기</KebabMenuDeleteBtn>
             <KebabMenuAddFolderBtn>폴더에 추가</KebabMenuAddFolderBtn>
-          </KebabMenu>
+          </KebabMenuBox>
         ) : null}
-      </CardContentTimePassed>
+      </CardContentTimePassedBox>
       <CardContentDescription>{link.description}</CardContentDescription>
       <CardContentCreatedAt>{getFormattedDate(link.createdAt)}</CardContentCreatedAt>
-    </CardContentContainer>
+    </CardDescriptionWrapper>
   );
 };
 
-export const CardContentContainer = styled.div`
+export const CardDescriptionWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 135px;
@@ -47,7 +47,7 @@ export const CardContentContainer = styled.div`
   background: #fff;
 `;
 
-const CardContentTimePassed = styled.div`
+const CardContentTimePassedBox = styled.div`
   color: #666;
   font-family: Pretendard;
   font-size: 13px;
@@ -87,7 +87,7 @@ const KebabBtn = styled.button`
   }
 `;
 
-const KebabMenu = styled.div`
+const KebabMenuBox = styled.div`
   display: flex;
   width: 100px;
   flex-direction: column;

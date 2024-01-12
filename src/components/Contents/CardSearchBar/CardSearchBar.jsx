@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import search from '../../../assets/images/Search.svg';
 
-const Search = () => {
+const CardSearchBar = () => {
   return (
-    <CardListSearchBar>
+    <CardSearchBarWrapper>
       <img src={search} alt="돋보기 모양 사진" />
       <input type="search" placeholder="링크를 검색해 보세요." />
-    </CardListSearchBar>
+    </CardSearchBarWrapper>
   );
 };
 
-const CardListSearchBar = styled.div`
+const CardSearchBarWrapper = styled.div`
   box-sizing: border-box;
   width: 1060px;
   padding: 15px 16px;
@@ -43,4 +43,4 @@ const CardListSearchBar = styled.div`
   }
 `;
 
-export default Search;
+export default CardSearchBar;

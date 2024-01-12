@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import FolderTitle from './FolderTitle/FolderTitle';
-import add from '../../assets/images/add.svg';
-import mobileAdd from '../../assets/images/mobile_add.svg';
+import add from '../../../assets/images/add.svg';
+import mobileAdd from '../../../assets/images/mobile_add.svg';
+import share from '../../../assets/images/share.svg';
+import pen from '../../../assets/images/pen.svg';
+import trashCan from '../../../assets/images/trash_can.svg';
 
-const Folder = ({ folderData, handleOverViewFolderCardData, handleFolderCardData, userData }) => {
+const FolderCollection = ({ folderData, handleOverViewFolderCardData, handleFolderCardData, userData }) => {
   const [currentFolder, setCurrentFolder] = useState('전체');
-
   const [sharingUrl, setSharingUrl] = useState('');
 
   const handleCurrentFolder = (name) => {
@@ -19,10 +20,10 @@ const Folder = ({ folderData, handleOverViewFolderCardData, handleFolderCardData
 
   return (
     <>
-      <FolderContainer>
+      <FolderWrapper>
         <div>
-          <FolderButtonContainer>
-            <FolderButton
+          <FolderButtonWrapper>
+            <FolderButtonBox
               type="button"
               onClick={() => {
                 handleCurrentFolder('전체');
@@ -30,10 +31,10 @@ const Folder = ({ folderData, handleOverViewFolderCardData, handleFolderCardData
               }}
             >
               전체
-            </FolderButton>
+            </FolderButtonBox>
             {folderData.map((folder) => {
               return (
-                <FolderButton
+                <FolderButtonBox
                   type="button"
                   key={folder.id}
                   onClick={() => {
@@ -44,22 +45,41 @@ const Folder = ({ folderData, handleOverViewFolderCardData, handleFolderCardData
                   }}
                 >
                   {folder.name}
-                </FolderButton>
+                </FolderButtonBox>
               );
             })}
-          </FolderButtonContainer>
+          </FolderButtonWrapper>
           <AddFolderButton>
             <span>폴더추가</span>
             <img alt="폴더 더보기 사진" />
           </AddFolderButton>
         </div>
-      </FolderContainer>
-      <FolderTitle currentFolder={currentFolder} sharingUrl={sharingUrl} />
+      </FolderWrapper>
+      
+      <FolderToolbarWrapper>
+        <div>{currentFolder}</div>
+        {currentFolder !== '전체' ? (
+          <FolderToolbarBox>
+            <button type="button">
+              <img src={share} alt="폴더 도구 모음 공유 버튼" />
+              <span>공유</span>
+            </button>
+            <button type="button">
+              <img src={pen} alt="폴더 도구 모음 수정 버튼" />
+              <span>이름 변경</span>
+            </button>
+            <button type="button">
+              <img src={trashCan} alt="폴더 도구 모음 삭제 버튼" />
+              <span>삭제</span>
+            </button>
+          </FolderToolbarBox>
+        ) : null}
+      </FolderToolbarWrapper>
     </>
   );
 };
 
-const FolderContainer = styled.div`
+const FolderWrapper = styled.div`
   width: 1060px;
   margin-bottom: 24px;
 
@@ -79,13 +99,13 @@ const FolderContainer = styled.div`
   }
 `;
 
-const FolderButtonContainer = styled.div`
+const FolderButtonWrapper = styled.div`
   display: flex;
   justify-content: start;
   flex-wrap: wrap;
 `;
 
-const FolderButton = styled.button`
+const FolderButtonBox = styled.button`
   display: flex;
   padding: 8px 12px;
   flex-direction: column;
@@ -164,4 +184,48 @@ const AddFolderButton = styled.button`
   }
 `;
 
-export default Folder;
+const FolderToolbarWrapper = styled.div`
+  width: 1060px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  div {
+    color: #000;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+  }
+
+  @media (max-width: 1123px) {
+    width: 704px;
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+`;
+
+const FolderToolbarBox = styled.div`
+  display: flex;
+  gap: 16px;
+  button {
+    display: flex;
+    align-items: center;
+    color: var(--Linkbrary-gray60, #9fa6b2);
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    img {
+      margin-right: 4px;
+    }
+  }
+`;
+
+export default FolderCollection;

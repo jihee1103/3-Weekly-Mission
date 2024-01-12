@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 
 import Hero from '../components/Hero/Hero';
-import CardList from '../components/CardList/CardList';
+import Contents from '../components/Contents/Contents';
 import LinkCreator from '../components/Hero/LinkCreator.jsx/LinkCreator';
-import Search from '../components/CardList/Search/Search';
-import Card from '../components/CardList/Card/Card';
-import FolderCollection from '../components/FolderCollection/FolderCollection';
+import Search from '../components/Contents/CardSearchBar/CardSearchBar';
+import CardList from '../components/Contents/CardList/CardList';
+import FolderCollection from '../components/Contents/FolderCollection/FolderCollection';
 
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 
-const Folder = ({ userData }) => {
+const FolderPage = ({ userData }) => {
   const [folderData, setFolderData] = useState([]);
   const [folderCardData, setFolderCardData] = useState([]);
 
@@ -71,7 +71,7 @@ const Folder = ({ userData }) => {
       <Hero>
         <LinkCreator />
       </Hero>
-      <CardList>
+      <Contents>
         <Search />
         <FolderCollection
           userData={userData}
@@ -79,10 +79,10 @@ const Folder = ({ userData }) => {
           handleOverViewFolderCardData={handleOverViewFolderCardData}
           handleFolderCardData={handleFolderCardData}
         />
-        <Card cardData={folderCardData} />
-      </CardList>
+        <CardList cardData={folderCardData} />
+      </Contents>
     </>
   );
 };
 
-export default Folder;
+export default FolderPage;

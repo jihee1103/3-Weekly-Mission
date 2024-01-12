@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import CardImg, { CardMainImg } from './CardImg/CardImg';
-import CardContent, { CardContentContainer } from './CardContent/CardContent';
+import CardContent, { CardContentContainer } from './CardDescription/CardDescription';
 
-const Card = ({ cardData }) => {
+const CardList = ({ cardData }) => {
   return (
-    <CardListContainer>
+    <CardListWrapper>
       {cardData?.length !== 0 ? (
         cardData?.map((link) => {
           return (
@@ -18,11 +18,11 @@ const Card = ({ cardData }) => {
       ) : (
         <AlertNotStoredLink>저장된 링크가 없습니다</AlertNotStoredLink>
       )}
-    </CardListContainer>
+    </CardListWrapper>
   );
 };
 
-const CardListContainer = styled.ul`
+const CardListWrapper = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 340px);
   gap: 20px;
@@ -74,4 +74,4 @@ const AlertNotStoredLink = styled.div`
   }
 `;
 
-export default Card;
+export default CardList;

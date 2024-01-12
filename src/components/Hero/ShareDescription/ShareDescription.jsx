@@ -2,15 +2,15 @@ import styled from 'styled-components';
 
 const ShareDescription = ({ heroProfileData, heroFolderName }) => {
   return (
-    <ShareDescriptionContainer>
+    <ShareDescriptionWrapper>
       <img src={heroProfileData.owner?.profileImageSource} alt="코드잇 마크" />
       <span>{heroProfileData.owner?.name}</span>
       <div>{heroFolderName}</div>
-    </ShareDescriptionContainer>
+    </ShareDescriptionWrapper>
   );
 };
 
-const ShareDescriptionContainer = styled.div`
+const ShareDescriptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
