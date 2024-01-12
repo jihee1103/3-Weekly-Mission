@@ -2,32 +2,30 @@ import CardImage from "./CardImage";
 import CardContent from "./CardContent";
 import "./Card.css";
 import { useState } from "react";
+import getElapsedTime from "../utils/getElapsedTime";
 
-const Card = function () {
-  const createdAt = new Date().toLocaleDateString();
-
+const Card = function ({ item }) {
+  const { id, createdAt, description, imageSource, url } = item;
   const [isHovered, setIsHoverd] = useState(false);
-  const [date, setDate] = useState(createdAt);
 
   const handleMouseOver = () => setIsHoverd(true);
   const handleMouseLeave = () => setIsHoverd(false);
-
-  const imageSource = "/img/catImage.png";
-
-  const description =
-    "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. TldkdLorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Tldkd";
-  const elapsedTime = "10minutes ago";
+  const handleOnClick = () => {
+    window.open(url);
+  };
 
   return (
     <div
       className={isHovered ? "Card Hovered" : "Card"}
       onMouseOver={handleMouseOver}
-      onMouseLeave={handleMouseLeave}>
+      onMouseLeave={handleMouseLeave}
+      onClick={handleOnClick}>
       <CardImage isHovered={isHovered} imageSource={imageSource} />
       <CardContent
-        elapsedTime={elapsedTime}
+        id={id}
+        elapsedTime={getElapsedTime({ createdAt })}
         description={description}
-        createdAt={date}
+        createdAt={createdAt}
       />
     </div>
   );
