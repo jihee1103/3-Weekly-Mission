@@ -16,5 +16,26 @@
   border: none;
   border-radius: 1rem;
   background-color: #f5f5f5;
-  margin: 4rem 0;
+  margin: 4rem auto;
+}
+
+.Main {
+  margin: auto;
+}
+
+@media (min-width: 769px) and (max-width: 1123px) {
+  .content-box {
+    width: 70rem;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 768px) {
+  .content-box {
+    width: 34rem;
+  }
+}
+@media (max-width: 389px) {
+  .content-box {
+    padding: 32px;
+  }
 }
