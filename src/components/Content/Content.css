@@ -25,3 +25,15 @@
     gap: 4rem;
   }
 }
+
+.no-link {
+  padding: 41px 0px 35px 0px;
+
+  color: #000;
+  text-align: center;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
