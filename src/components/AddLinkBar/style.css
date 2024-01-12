@@ -39,3 +39,11 @@ input::placeholder {
 .AddLinkBar-input:focus {
   outline: none;
 }
+
+@media (max-width: 767px) {
+  .AddLinkBar-button {
+    width: 13rem;
+    height: 5rem;
+    font-size: 1.6rem;
+  }
+}

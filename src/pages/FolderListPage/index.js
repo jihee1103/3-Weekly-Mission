@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 import AddLinkBar from "../../components/AddLinkBar";
 import SearchBar from "../../components/SearchBar";
 import FilterButton from "../../components/FilterButton";
-import Folders from "../../components/Folders";
+import Folders from "../../components/FolderItem";
 import { getFolderLinks, getTotalFolderLinks } from "../../api";
 
 import addIcon from "../../assets/add.svg";
@@ -89,12 +89,14 @@ const FolderPage = ({ user, folderObj }) => {
           </div>
 
           <div className="FolderItem-wrapper">
-            {links.length === 0 ? null : (
+            {links.length && folderObj.length ? (
               <div className="FolderItem-folder-links">
                 {links.map((link) => (
                   <Folders key={link.id} link={link} />
                 ))}
               </div>
+            ) : (
+              <div className="FolderItem-error-message">저장된 링크가 없습니다</div>
             )}
           </div>
         </section>

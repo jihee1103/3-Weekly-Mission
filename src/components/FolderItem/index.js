@@ -1,6 +1,8 @@
 import "./style.css";
 import { formatDate, afterTimeDate } from "../../utils";
 import noImage from "../../assets/no-image.png";
+import kebab from "../../assets/kebab.svg";
+import star from "../../assets/star.svg";
 
 const FolderItem = ({ link }) => {
   const { created_at, url, title, description, image_source = noImage } = link;
@@ -20,6 +22,8 @@ const FolderItem = ({ link }) => {
         <div className="description">{description}</div>
         <div className="format-date">{formatDate(created_at)}</div>
       </div>
+      <img className="kebab" src={kebab} alt="삭제하기와 폴더 추가 기능이 있는 케밥 아이콘" />
+      <img className="star" src={star} alt="즐겨찾기 아이콘" />
     </a>
   );
 };
