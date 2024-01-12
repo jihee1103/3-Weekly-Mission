@@ -3,10 +3,6 @@ import styled from "./FolderNameLine.module.css";
 import imageData from "../../utils/imageData";
 
 export default function FolderNameLine({ ModalButtonClick, folderName }) {
-  const handleClick = (e) => {
-    ModalButtonClick({ target: e.target });
-  };
-
   return (
     <div className={styled.folderNameLine}>
       <h2 className={styled.folder_name}>{folderName}</h2>

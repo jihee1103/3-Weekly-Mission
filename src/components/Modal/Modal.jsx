@@ -3,6 +3,8 @@ import styled from "styled-components";
 import ModalEdit from "./ModalEdit";
 import imageData from "../../utils/imageData";
 import ModalAdd from "./ModalAdd";
+import ModalShare from "./ModalShare";
+import ModalDelete from "./ModalDelete";
 
 export default function Modal({ modalId, toggleModalClick }) {
   const getModalContent = () => {
@@ -12,8 +14,10 @@ export default function Modal({ modalId, toggleModalClick }) {
         return <ModalAdd />;
       case "editFolder":
         return <ModalEdit />;
+      case "shareFolder":
+        return <ModalShare />;
       default:
-        return;
+        return <ModalDelete />;
     }
   };
 

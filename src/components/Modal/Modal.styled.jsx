@@ -18,6 +18,10 @@ export const ModalButton = styled.button`
   border: none;
 `;
 
+export const ModalNegativeButton = styled(ModalButton)`
+  background: var(--Linkbrary-red, #ff5b56);
+`;
+
 export const ModalInput = styled.input`
   display: flex;
   width: 280px;
@@ -42,4 +46,30 @@ export const ModalTitle = styled.h2`
   color: var(--Linkbrary-gray100, #373740);
   font-size: 20px;
   font-weight: 700;
+`;
+
+export const ModalShareWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ModalShareTitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  gap: 8px;
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+`;
+
+export const ModalShareFolderTitle = styled.span`
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+  font-weight: 400;
 `;

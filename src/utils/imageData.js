@@ -16,6 +16,9 @@ import codeitLogo from "../assets/images/shared-white.svg";
 import plusIcon from "../assets/images/add.svg";
 import folderPulsIcon from "../assets/images/folder-add.svg";
 import closeButton from "../assets/images/modalClose.svg";
+import kakaoIcon from "../assets/images/modal-icon-kakao.svg";
+import modalShareIcon from "../assets/images/modal-link.svg";
+import modalFacebookIcon from "../assets/images/modal-icon-facebook.svg";
 
 const imageData = {
   shareIcon,
@@ -36,6 +39,9 @@ const imageData = {
   plusIcon,
   folderPulsIcon,
   closeButton,
+  kakaoIcon,
+  modalShareIcon,
+  modalFacebookIcon,
 };
 
 export default imageData;
