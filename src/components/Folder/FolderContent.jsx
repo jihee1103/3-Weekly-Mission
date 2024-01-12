@@ -18,6 +18,7 @@ export default function FolderContent({
   folderId,
   onClick,
   folderName,
+  toggleModalClick,
 }) {
   return (
     <>
@@ -25,6 +26,7 @@ export default function FolderContent({
         folderList={folderList}
         folderId={folderId}
         onClick={onClick}
+        toggleModalClick={toggleModalClick}
       />
       <FolderCardArea>
         <FolderCardHeader folderName={folderName} folderId={folderId} />

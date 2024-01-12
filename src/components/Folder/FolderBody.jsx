@@ -4,11 +4,17 @@ import useFolderLinks from '../../Hooks/useFolderLinks';
 import NoLinkCard from '../Card/NoLinkCard';
 import SearchBar from '../SearchBar/SearchBar';
 import FolderContent from './FolderContent';
+import Modal from '../Modal/Modal';
 
 export default function FolderBody() {
   const [userId, setUserId] = useState(1);
   const [folderId, setFolderId] = useState(0);
   const [folderName, setFolderName] = useState('전체');
+  const [isModalClicked, setIsModalClicked] = useState(false);
+
+  const toggleModalClick = () => {
+    setIsModalClicked(!isModalClicked);
+  };
 
   const handleClickTitle = (item) => {
     setUserId(1); // test
@@ -21,6 +27,7 @@ export default function FolderBody() {
 
   return (
     <Wrapper>
+      {isModalClicked ? <Modal toggleModalClick={toggleModalClick} /> : null}
       <SearchBar />
       {links.length === 0 && folderList.length === 0 ? (
         <NoLinkCard />
@@ -31,6 +38,7 @@ export default function FolderBody() {
           folderId={folderId}
           onClick={handleClickTitle}
           folderName={folderName}
+          toggleModalClick={toggleModalClick}
         />
       )}
       {links.length === 0 && folderList.length !== 0 ? <NoLinkCard /> : null}

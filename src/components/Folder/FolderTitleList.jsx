@@ -3,7 +3,12 @@ import styled from 'styled-components';
 import AddFolder from './AddFolder';
 import FolderTitle from './FolderTitle';
 
-export default function FolderTitleList({ folderList, folderId, onClick }) {
+export default function FolderTitleList({
+  folderList,
+  folderId,
+  onClick,
+  toggleModalClick,
+}) {
   const allFolder = { id: 0, name: '전체' };
   const [isSelected, setIsSelected] = useState(false);
 
@@ -33,7 +38,7 @@ export default function FolderTitleList({ folderList, folderId, onClick }) {
         ))}
       </FolderListContainer>
       <AddFolderWrapper>
-        <AddFolder />
+        <AddFolder toggleModalClick={toggleModalClick} />
       </AddFolderWrapper>
     </Wrapper>
   );
