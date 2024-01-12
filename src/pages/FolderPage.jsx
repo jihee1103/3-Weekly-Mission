@@ -9,15 +9,28 @@ import useFetchData from "../hooks/useFetchData";
 import FolderNameLine from "../components/FolderNameLine/FolderNameLine";
 import FloatingActionButton from "../components/FloatingActionButton/FloatingActionButton";
 import NoLinkBlock from "../components/NoLinkBlock/NoLinkBlock";
+import Modal from "../components/Modal/Modal";
 
 export default function FolderPage() {
   const { data: cardListItem, fetchData: setCardListItem } =
     useFetchData(getLinkList);
   const { data: folderNameList } = useFetchData(getFolderList);
   const [folderName, setFolderName] = useState("전체");
+  const [isModalClicked, setIsModalClicked] = useState(false);
+  const [modalName, setModalName] = useState("");
+  const toggleModalClick = () => {
+    setIsModalClicked(!isModalClicked);
+  };
+  const ModalButtonClick = ({ target }) => {
+    setModalName(target.name);
+    toggleModalClick();
+  };
 
   return (
     <main className={styled.main}>
+      {isModalClicked && (
+        <Modal modalName={modalName} toggleModalClick={toggleModalClick} />
+      )}
       <section className={styled.header}>
         <LinkAddForm />
       </section>
@@ -26,12 +39,16 @@ export default function FolderPage() {
         {folderNameList ? (
           <div className={styled.container}>
             <FolderListButton
+              ModalButtonClick={ModalButtonClick}
               itemList={folderNameList}
               setFolderName={setFolderName}
               setCardListItem={setCardListItem}
               folderName={folderName}
             />
-            <FolderNameLine folderName={folderName} />
+            <FolderNameLine
+              ModalButtonClick={ModalButtonClick}
+              folderName={folderName}
+            />
             {cardListItem ? (
               <CardList itemList={cardListItem} toggle={true} />
             ) : (

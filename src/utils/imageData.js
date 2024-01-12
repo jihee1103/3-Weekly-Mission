@@ -15,6 +15,7 @@ import defaultProfileImg from "../assets/images/shared-myprofile.svg";
 import codeitLogo from "../assets/images/shared-white.svg";
 import plusIcon from "../assets/images/add.svg";
 import folderPulsIcon from "../assets/images/folder-add.svg";
+import closeButton from "../assets/images/modalClose.svg";
 
 const imageData = {
   shareIcon,
@@ -34,6 +35,7 @@ const imageData = {
   codeitLogo,
   plusIcon,
   folderPulsIcon,
+  closeButton,
 };
 
 export default imageData;

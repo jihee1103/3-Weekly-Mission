@@ -4,6 +4,7 @@ import { getFolderData } from "../../apis/api";
 import imageData from "../../utils/imageData";
 
 export default function FolderListButton({
+  ModalButtonClick,
   itemList,
   setFolderName,
   setCardListItem,
@@ -43,9 +44,11 @@ export default function FolderListButton({
         );
       })}
       <img
+        name="addFolder"
         className={styled.icon}
         src={imageData.plusIcon}
         alt="더하기 아이콘"
+        onClick={ModalButtonClick}
       />
     </div>
   );
