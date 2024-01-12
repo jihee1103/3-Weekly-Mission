@@ -1,7 +1,11 @@
 .CardImage {
-  border-radius: 15px 15px 0 0;
+  width: 100%;
+  height: 19.2rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  background-position: center;
+  background-size: 100%;
 }
 
-/* .zoomedCardImage {
-
-} */
+.zoomedCardImage {
+  background-size: 130%;
+}
