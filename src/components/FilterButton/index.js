@@ -1,7 +1,11 @@
 import "./style.css";
 
-const FilterButton = ({ children }) => {
-  return <div className="FilterButton">{children}</div>;
+const FilterButton = ({ children, id }) => {
+  return (
+    <div className="FilterButton" id={id}>
+      {children}
+    </div>
+  );
 };
 
 export default FilterButton;

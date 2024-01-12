@@ -26,3 +26,21 @@ export const getSampleFolder = async () => {
   const body = await response.json();
   return body;
 };
+
+export const getTotalFolderLinks = async () => {
+  const response = await fetch(`${API_BASE_URL}/users/1/links`);
+  if (!response.ok) {
+    throw new Error("데이터를 불러오는데 실패했습니다");
+  }
+  const body = await response.json();
+  return body;
+};
+
+export const getFolderLinks = async (folderId) => {
+  const response = await fetch(`${API_BASE_URL}/users/1/links?folderId=${folderId}`);
+  if (!response.ok) {
+    throw new Error("데이터를 불러오는데 실패했습니다");
+  }
+  const body = await response.json();
+  return body;
+};
