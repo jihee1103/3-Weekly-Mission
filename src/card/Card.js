@@ -21,12 +21,7 @@ const Card = function ({ item }) {
       onMouseLeave={handleMouseLeave}
       onClick={handleOnClick}>
       <CardImage isHovered={isHovered} imageSource={imageSource} />
-      <CardContent
-        id={id}
-        elapsedTime={getElapsedTime({ createdAt })}
-        description={description}
-        createdAt={createdAt}
-      />
+      <CardContent elapsedTime={getElapsedTime({ createdAt })} description={description} createdAt={createdAt} />
     </div>
   );
 };
