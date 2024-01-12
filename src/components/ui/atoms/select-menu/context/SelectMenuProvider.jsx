@@ -7,7 +7,7 @@ const SelectMenuContext = createContext();
 const SelectMenuProvider = ({ children, ...rest }) => {
   return (
     <SelectMenuContext.Provider value={rest}>
-      <div className={styles['style-menu-context-wrapper']}>{children}</div>
+      <div className={styles['select-menu-context-wrapper']}>{children}</div>
     </SelectMenuContext.Provider>
   );
 };
