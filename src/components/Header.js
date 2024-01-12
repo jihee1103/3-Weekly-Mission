@@ -17,7 +17,7 @@ const Header = function () {
   const logInButton = <button className="cta cta-short">로그인</button>;
   const userProfile = (
     <div className="userProfile">
-      <img className="profileImg" src={profileData.profileImageSource} alt="profile-image" />
+      <img className="profileImg" src={profileData.profileImageSource} alt="프로필이미지" />
       <p>{profileData.email}</p>
     </div>
   );
