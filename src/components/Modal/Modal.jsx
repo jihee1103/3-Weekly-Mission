@@ -11,7 +11,7 @@ export default function Modal({ folderName, modalId, toggleModalClick }) {
       <ModalContainer>
         <ModalCloseButton
           src={imageData.closeButton}
-          alt="버튼임"
+          alt="모달창 닫기 버튼"
           onClick={toggleModalClick}
         />
         {getModalContent(modalId, folderName)}
@@ -39,9 +39,12 @@ const getModalContent = (modalId, folderName) => {
         />
       );
     case "shareFolder":
-      return <ModalShare />;
-    default:
+      return <ModalShare folderName={folderName} />;
+    case "deleteFolder":
       return <ModalDelete />;
+
+    default:
+      return;
   }
 };
 

@@ -4,14 +4,15 @@ import imageData from "../../utils/imageData";
 import {
   ModalShareFolderTitle,
   ModalShareTitleContainer,
-  ModalShareWrapper,
+  ModalTitle,
+  ModalWrapper,
 } from "./Modal.styled";
 
 export default function ModalShare({ folderName = "폴더명" }) {
   return (
-    <ModalShareWrapper>
+    <ModalWrapper>
       <ModalShareTitleContainer>
-        폴더 공유
+        <ModalTitle>폴더 공유</ModalTitle>
         <ModalShareFolderTitle>{folderName}</ModalShareFolderTitle>
       </ModalShareTitleContainer>
       <ModalShareLinkContainer>
@@ -40,7 +41,7 @@ export default function ModalShare({ folderName = "폴더명" }) {
           링크복사
         </ModalShareLinkBox>
       </ModalShareLinkContainer>
-    </ModalShareWrapper>
+    </ModalWrapper>
   );
 }
 
