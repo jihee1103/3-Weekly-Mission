@@ -18,12 +18,14 @@ export default function FolderPage() {
   const [folderName, setFolderName] = useState("전체");
   const [isModalClicked, setIsModalClicked] = useState(false);
   const [modalId, setModalId] = useState("");
+  const [modalUrl, setModalUrl] = useState(null);
   const toggleModalClick = () => {
     setIsModalClicked(!isModalClicked);
   };
-  const ModalButtonClick = ({ currentTarget }) => {
+  const ModalButtonClick = ({ currentTarget, url }) => {
     const targetId = currentTarget.id;
     setModalId(targetId);
+    setModalUrl(url);
     toggleModalClick();
   };
 
@@ -31,6 +33,7 @@ export default function FolderPage() {
     <main className={styled.main}>
       {isModalClicked && (
         <Modal
+          modalUrl={modalUrl}
           folderName={folderName}
           modalId={modalId}
           toggleModalClick={toggleModalClick}
@@ -55,7 +58,11 @@ export default function FolderPage() {
               folderName={folderName}
             />
             {cardListItem ? (
-              <CardList itemList={cardListItem} toggle={true} />
+              <CardList
+                ModalButtonClick={ModalButtonClick}
+                itemList={cardListItem}
+                toggle={true}
+              />
             ) : (
               <NoLinkBlock />
             )}

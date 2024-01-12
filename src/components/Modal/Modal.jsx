@@ -5,7 +5,12 @@ import ModalShare from "./ModalShare/ModalShare";
 import ModalDelete from "./ModalDelete";
 import ModalForm from "./ModalForm";
 
-export default function Modal({ folderName, modalId, toggleModalClick }) {
+export default function Modal({
+  folderName,
+  modalId,
+  toggleModalClick,
+  modalUrl,
+}) {
   return (
     <ModalWrapper>
       <ModalContainer>
@@ -14,13 +19,13 @@ export default function Modal({ folderName, modalId, toggleModalClick }) {
           alt="모달창 닫기 버튼"
           onClick={toggleModalClick}
         />
-        {getModalContent(modalId, folderName)}
+        {getModalContent({ modalId, folderName, modalUrl })}
       </ModalContainer>
     </ModalWrapper>
   );
 }
 
-const getModalContent = (modalId, folderName) => {
+const getModalContent = ({ modalId, folderName, modalUrl }) => {
   switch (modalId) {
     case "addFolder":
       return (
@@ -42,6 +47,8 @@ const getModalContent = (modalId, folderName) => {
       return <ModalShare folderName={folderName} />;
     case "deleteFolder":
       return <ModalDelete nameType={"폴더"} DeleteName={folderName} />;
+    case "deleteLink":
+      return <ModalDelete nameType={"링크"} DeleteName={modalUrl} />;
 
     default:
       return;
