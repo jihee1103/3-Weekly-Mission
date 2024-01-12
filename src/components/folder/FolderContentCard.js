@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUserLinks } from "../../api";
-import { getTimeDifference, formatCreatedAt } from "./DateUtils";
+import { getTimeDifference, formatCreatedAt } from "../common/DateUtils";
 import useModals from "../../hooks/useModals";
 import Modals from "./Modals";
 import styled from "styled-components";

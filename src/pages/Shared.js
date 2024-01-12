@@ -1,12 +1,13 @@
 import React from "react";
-import Header from "../components/folder/Header";
+import Header from "../components/share/Header";
+import ShareSection from "../components/share/ShareSection";
 import Footer from "../components/folder/Footer";
 
 export default function Shared() {
   return (
     <>
       <Header />
-      {/* 파일을 날려서 임시페이지 */}
+      <ShareSection />
       <Footer />
     </>
   );
