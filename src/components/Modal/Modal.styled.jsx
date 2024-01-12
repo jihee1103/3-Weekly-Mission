@@ -19,7 +19,7 @@ export const ModalCtaButton = styled(CTAButton)`
 `;
 
 export const ModalNegativeButton = styled(ModalCtaButton)`
-  background: var(--Linkbrary-red, #ff5b56);
+  background: #ff5b56;
 `;
 
 export const ModalWrapper = styled.div`

@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import imageData from "../../utils/imageData";
+import imageData from "../../../utils/imageData";
 import {
   ModalShareFolderTitle,
   ModalShareTitleContainer,
   ModalTitle,
   ModalWrapper,
-} from "./Modal.styled";
+} from "../Modal.styled";
+import ModalShareLinkIcon from "./ModalShareLinkIcon";
 
 export default function ModalShare({ folderName = "폴더명" }) {
   return (
@@ -44,23 +45,6 @@ export default function ModalShare({ folderName = "폴더명" }) {
     </ModalWrapper>
   );
 }
-
-const ModalShareLinkIcon = ({ type, imageSource, altContent }) => {
-  const TYPE = {
-    kakao: "#FEE500",
-    facebook: "#1877F2",
-    link: "rgba(157, 157, 157, 0.04)",
-  };
-
-  const LinkIconBackground = styled.img`
-    position: relative;
-    background-color: ${TYPE[type]};
-    border-radius: 37.333px;
-    padding: 12px;
-  `;
-
-  return <LinkIconBackground src={imageSource} alt={altContent} />;
-};
 
 const ModalShareLinkBox = styled.div`
   display: flex;

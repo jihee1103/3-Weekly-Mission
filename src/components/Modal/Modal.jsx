@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import imageData from "../../utils/imageData";
-import ModalShare from "./ModalShare";
+import ModalShare from "./ModalShare/ModalShare";
 import ModalDelete from "./ModalDelete";
 import ModalForm from "./ModalForm";
 
