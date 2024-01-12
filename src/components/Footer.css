@@ -40,3 +40,37 @@
   column-gap: 1.2rem;
   height: 2rem;
 }
+
+@media (max-width: 767px) {
+  .footer {
+    justify-content: space-between;
+    padding: 3.2rem 3.2rem 6.4rem;
+    align-items: flex-start;
+  }
+
+  .footer-box {
+    display: grid;
+    width: 100%;
+    max-width: 192rem;
+    height: fit-content;
+    align-self: stretch;
+    padding: 0;
+    grid-template: repeat(2, auto) / repeat(2, auto);
+    grid-template-areas:
+      "links sns"
+      "copyright .";
+    gap: 6rem;
+  }
+
+  .copyright {
+    grid-area: copyright;
+  }
+
+  .footer-links {
+    grid-area: links;
+  }
+
+  .sns {
+    grid-area: sns;
+  }
+}

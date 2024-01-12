@@ -4,3 +4,69 @@
   "email": "codeit@codeit.com",
   "profileImageSource": "https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png"
 }
+
+@media (max-width: 767px){
+  
+  nav {
+    padding: 0 3.2rem;
+  }
+
+  .cta {
+    height: auto;
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+  }
+
+  .cta-short {
+    width: 8rem;
+  }
+
+  footer {
+    justify-content: space-between;
+    padding: 3.2rem 3.2rem 6.4rem;
+    align-items: flex-start;
+  }
+
+  .footer-box {
+    display: grid;
+    width: 100%;
+    max-width: 192rem;
+    height: fit-content;
+    align-self: stretch;
+    padding: 0;
+    grid-template: repeat(2,auto)/repeat(2,auto);
+    grid-template-areas: 
+    "links sns"
+    "copyright .";
+    gap: 6rem;
+    
+  }
+
+  .copyright {
+    grid-area: copyright;
+  }
+
+  .footer-links {
+    grid-area: links;
+  }
+
+  .sns {
+    grid-area: sns;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width:1199px){
+
+  br.break-media {
+    display: inline;
+  }
+  
+  nav {
+    width: 1200px;
+  }
+
+  section {
+    column-gap: 5.1rem;
+  }
+}
