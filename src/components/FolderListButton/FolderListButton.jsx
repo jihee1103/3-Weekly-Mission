@@ -44,7 +44,7 @@ export default function FolderListButton({
         );
       })}
       <img
-        name="addFolder"
+        id="addFolder"
         className={styled.icon}
         src={imageData.plusIcon}
         alt="더하기 아이콘"

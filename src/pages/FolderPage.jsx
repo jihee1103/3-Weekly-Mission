@@ -17,19 +17,20 @@ export default function FolderPage() {
   const { data: folderNameList } = useFetchData(getFolderList);
   const [folderName, setFolderName] = useState("전체");
   const [isModalClicked, setIsModalClicked] = useState(false);
-  const [modalName, setModalName] = useState("");
+  const [modalId, setModalId] = useState("");
   const toggleModalClick = () => {
     setIsModalClicked(!isModalClicked);
   };
-  const ModalButtonClick = ({ target }) => {
-    setModalName(target.name);
+  const ModalButtonClick = ({ currentTarget }) => {
+    const targetId = currentTarget.id;
+    setModalId(targetId);
     toggleModalClick();
   };
 
   return (
     <main className={styled.main}>
       {isModalClicked && (
-        <Modal modalName={modalName} toggleModalClick={toggleModalClick} />
+        <Modal modalId={modalId} toggleModalClick={toggleModalClick} />
       )}
       <section className={styled.header}>
         <LinkAddForm />

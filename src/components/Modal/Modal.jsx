@@ -4,10 +4,10 @@ import ModalEdit from "./ModalEdit";
 import imageData from "../../utils/imageData";
 import ModalAdd from "./ModalAdd";
 
-export default function Modal({ modalName, toggleModalClick }) {
-  console.log(modalName);
+export default function Modal({ modalId, toggleModalClick }) {
   const getModalContent = () => {
-    switch (modalName) {
+    console.log(modalId);
+    switch (modalId) {
       case "addFolder":
         return <ModalAdd />;
       case "editFolder":
