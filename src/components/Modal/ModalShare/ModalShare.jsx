@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import imageData from "../../../utils/imageData";
 import {
-  ModalShareFolderTitle,
-  ModalShareTitleContainer,
+  ModalFolderTitle,
+  ModalTitleContainer,
   ModalTitle,
   ModalWrapper,
 } from "../Modal.styled";
@@ -12,10 +12,10 @@ import ModalShareLinkIcon from "./ModalShareLinkIcon";
 export default function ModalShare({ folderName = "폴더명" }) {
   return (
     <ModalWrapper>
-      <ModalShareTitleContainer>
+      <ModalTitleContainer>
         <ModalTitle>폴더 공유</ModalTitle>
-        <ModalShareFolderTitle>{folderName}</ModalShareFolderTitle>
-      </ModalShareTitleContainer>
+        <ModalFolderTitle>{folderName}</ModalFolderTitle>
+      </ModalTitleContainer>
       <ModalShareLinkContainer>
         <ModalShareLinkBox>
           <ModalShareLinkIcon

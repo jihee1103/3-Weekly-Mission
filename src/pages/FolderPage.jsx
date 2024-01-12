@@ -33,6 +33,7 @@ export default function FolderPage() {
     <main className={styled.main}>
       {isModalClicked && (
         <Modal
+          itemList={folderNameList}
           modalUrl={modalUrl}
           folderName={folderName}
           modalId={modalId}

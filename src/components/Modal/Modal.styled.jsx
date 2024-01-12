@@ -35,13 +35,13 @@ export const ModalTitle = styled.h2`
   font-weight: 700;
 `;
 
-export const ModalShareTitleContainer = styled(ModalWrapper)`
+export const ModalTitleContainer = styled(ModalWrapper)`
   width: 280px;
   gap: 8px;
   margin-bottom: 24px;
 `;
 
-export const ModalShareFolderTitle = styled.span`
+export const ModalFolderTitle = styled.span`
   color: #9fa6b2;
   font-size: 14px;
   font-weight: 400;

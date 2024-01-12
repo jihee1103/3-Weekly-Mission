@@ -1,8 +1,8 @@
 import React from "react";
 import {
   ModalNegativeButton,
-  ModalShareFolderTitle,
-  ModalShareTitleContainer,
+  ModalFolderTitle,
+  ModalTitleContainer,
   ModalTitle,
   ModalWrapper,
 } from "./Modal.styled";
@@ -10,10 +10,10 @@ import {
 export default function ModalDelete({ nameType, DeleteName }) {
   return (
     <ModalWrapper>
-      <ModalShareTitleContainer>
+      <ModalTitleContainer>
         <ModalTitle>{nameType} 삭제</ModalTitle>
-        <ModalShareFolderTitle>{DeleteName}</ModalShareFolderTitle>
-      </ModalShareTitleContainer>
+        <ModalFolderTitle>{DeleteName}</ModalFolderTitle>
+      </ModalTitleContainer>
       <ModalNegativeButton>삭제하기</ModalNegativeButton>
     </ModalWrapper>
   );
