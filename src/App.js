@@ -1,7 +1,7 @@
 import React from "react";
-import Folder from "./pages/Folder/Folder";
+import Folder from "./pages/Folder";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Shared from "./pages/Shared/Shared";
+import Shared from "./pages/Shared";
 
 export default function App() {
   return (

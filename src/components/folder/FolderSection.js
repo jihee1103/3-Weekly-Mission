@@ -1,18 +1,17 @@
 import { useState } from "react";
-import "./FolderSection.css";
 import ForderSearchInput from "./FolderSearchInput";
 import FolderList from "./FolderList";
 import FolderName from "./FolderName";
 import FolderContentCard from "./FolderContentCard";
+import styled from "styled-components";
 
 export default function FolderSection() {
   const [selectedFolder, setSelectedFolder] = useState("전체");
   const handleSelectFolder = (folder) => {
     setSelectedFolder(folder);
   };
-  console.log(selectedFolder);
   return (
-    <section>
+    <Section>
       <ForderSearchInput />
       <div className="foder-contents">
         <FolderList
@@ -22,6 +21,15 @@ export default function FolderSection() {
         <FolderName selectedFolder={selectedFolder} />
         <FolderContentCard selectedFolder={selectedFolder} />
       </div>
-    </section>
+    </Section>
   );
 }
+
+const Section = styled.section`
+  padding: 0 32.5px;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 112.5rem;
+  gap: 4rem;
+`;

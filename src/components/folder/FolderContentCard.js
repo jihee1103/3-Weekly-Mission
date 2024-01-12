@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getUserLinks } from "../api";
+import { getUserLinks } from "../../api";
 import { getTimeDifference, formatCreatedAt } from "./DateUtils";
-import "./FolderContentCard.css";
-import useModals from "../hooks/useModals";
+import useModals from "../../hooks/useModals";
 import Modals from "./Modals";
+import styled from "styled-components";
 
 export default function FolderContentCard({ selectedFolder }) {
   const [items, setItems] = useState([]);
@@ -40,7 +40,7 @@ export default function FolderContentCard({ selectedFolder }) {
   };
   return (
     <>
-      <ul className="cards">
+      <Cards>
         {items.length > 0 ? (
           items.map((item) => {
             return (
@@ -99,8 +99,137 @@ export default function FolderContentCard({ selectedFolder }) {
             <img src="/imgs/03_땡깡-1.gif" alt="폴더에 링크를 추가해주세요" />
           </div>
         )}
-      </ul>
+      </Cards>
       <Modals modal={modal} closeModal={closeModal} />
     </>
   );
 }
+
+const Cards = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    width: 34rem;
+    height: 33.4rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  }
+
+  .card:hover .card-img {
+    transform: scale(1.3);
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover .card-contents {
+    background-color: #f0f6ff;
+  }
+
+  .card-img-div {
+    position: relative;
+    overflow: hidden;
+    width: 34rem;
+    height: 20rem;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .star-img {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .card-contents {
+    position: relative;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-time-ago-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.1rem;
+    height: 1.6rem;
+  }
+
+  .card-time-ago {
+    color: #666;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .popover-box {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: var(--gray-light-gray-100, #333236);
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    z-index: 1;
+  }
+
+  .popover-box div {
+    display: flex;
+    justify-content: center;
+    padding: 7px 12px;
+  }
+
+  .popover-box div:hover {
+    color: var(--Linkbrary-primary-color, #6d6afe);
+    background: var(--Linkbrary-gray10, #e7effb);
+  }
+
+  .card-description {
+    width: 100%;
+    height: 4.9rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    color: #000;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .card-createdat {
+    height: 1.9rem;
+    color: #333;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .no-save-link {
+    display: flex;
+    padding: 41px 0px 35px 0px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+  }
+`;

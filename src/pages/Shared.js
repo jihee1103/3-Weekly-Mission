@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import Header from "../components/folder/Header";
+import Footer from "../components/folder/Footer";
 
 export default function Shared() {
   return (

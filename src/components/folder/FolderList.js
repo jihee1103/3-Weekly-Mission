@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { getUserFolders } from "../api";
-import "./FolderList.css";
-import useModals from "../hooks/useModals";
+import { getUserFolders } from "../../api";
+import useModals from "../../hooks/useModals";
 import Modals from "./Modals";
+import styled from "styled-components";
 export default function FolderList({ onSelectFolder, selectedFolder }) {
   const [folderNames, setFolderNames] = useState([]);
   const handleFolderClick = (folder) => {
@@ -22,7 +22,7 @@ export default function FolderList({ onSelectFolder, selectedFolder }) {
 
   return (
     <>
-      <div className="folder-list-box">
+      <FolderListBox>
         <ul className="folder-list">
           <li
             onClick={() => handleFolderClick("전체")}
@@ -54,8 +54,68 @@ export default function FolderList({ onSelectFolder, selectedFolder }) {
             alt="폴더추가하기"
           />
         </div>
-      </div>
+      </FolderListBox>
       <Modals modal={modal} closeModal={closeModal} />
     </>
   );
 }
+
+const FolderListBox = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  .folder-list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .folder {
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+    background: #fff;
+  }
+
+  .folderSelected {
+    color: #fff;
+    background: var(--Linkbrary-primary-color, #6d6afe);
+  }
+
+  .folder-add-box {
+    display: flex;
+
+    @media screen and (max-width: 767px) {
+      padding: 8px 24px;
+      position: fixed;
+      z-index: 1;
+      bottom: 101px;
+      left: 50%;
+      transform: translate(-50%);
+      border-radius: 20px;
+      border: 1px solid var(--Linkbrary-white, #fff);
+      background: var(--Linkbrary-primary-color, #6d6afe);
+    }
+  }
+
+  .folder-add-box input {
+    border: none;
+
+    @media screen and (max-width: 767px) {
+      background: var(--Linkbrary-primary-color, #6d6afe);
+    }
+  }
+
+  .folder-add-box img {
+    @media screen and (max-width: 767px) {
+      filter: brightness(0%);
+    }
+  }
+`;

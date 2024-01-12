@@ -1,5 +1,5 @@
-import useModals from "../hooks/useModals";
-import "./LinkSearchInput.css";
+import styled from "styled-components";
+import useModals from "../../hooks/useModals";
 import Modals from "./Modals";
 export default function LinkSearchInput() {
   const { openModal, closeModal, modal } = useModals();
@@ -8,7 +8,7 @@ export default function LinkSearchInput() {
   };
   return (
     <>
-      <div className="header-content">
+      <HeaderContent>
         <label className="link-search-box">
           <img src="/imgs/link.png" className="link-img" alt="링크추가하기" />
           <input
@@ -22,8 +22,32 @@ export default function LinkSearchInput() {
             alt="링크추가 버튼"
           />
         </label>
-      </div>
+      </HeaderContent>
       <Modals modal={modal} closeModal={closeModal} />
     </>
   );
 }
+
+const HeaderContent = styled.div`
+  display: flex;
+  margin: 153px auto 90px;
+  max-width: 865px;
+  width: 100%;
+  padding: 0 32.5px;
+
+  .link-search-box {
+    width: 100%;
+    display: flex;
+    padding: 16px 20px;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+    background: var(--Linkbrary-white, #fff);
+    justify-content: space-between;
+  }
+
+  .link-search-input {
+    width: 100%;
+    border: none;
+  }
+`;

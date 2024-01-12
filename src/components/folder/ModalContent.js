@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Modal.css";
-import { getUserFolders } from "../api";
+import { getUserFolders } from "../../api";
 
 export const AddToFolderModal = ({ closeModal }) => {
   const [FolderList, setFolderList] = useState([]);
