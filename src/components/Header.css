@@ -33,3 +33,24 @@ nav {
 .cta-short {
   width: 12.8rem;
 }
+
+.userProfile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.userProfile .profileImg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 9999px;
+}
+
+.userProfile p {
+  color: #373740;
+  font-family: Pretendard;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
