@@ -5,7 +5,7 @@ import { useState } from "react";
 import getElapsedTime from "../utils/getElapsedTime";
 
 const Card = function ({ item }) {
-  const { id, createdAt, description, imageSource, url } = item;
+  const { createdAt, description, imageSource, url } = item;
   const [isHovered, setIsHoverd] = useState(false);
 
   const handleMouseOver = () => setIsHoverd(true);
