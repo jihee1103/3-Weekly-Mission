@@ -1,8 +1,7 @@
 import penIcon from "../assets/pen.svg";
 import shareIcon from "../assets/share.svg";
 import deleteIcon from "../assets/delete.svg";
-
-import { getUserFolder, getFolderList } from "../api";
+import plusImg from "../assets/puls_img.svg";
 import useGetUserFolderAsync from "../hooks/useGetUserFolderAsync";
 import useGetFolderListAsync from "../hooks/useGetFolderListAsync";
 import Card from "./Card";
@@ -10,19 +9,26 @@ import { useState } from "react";
 import "./Content.css";
 
 export default function Content() {
-  const [title, setTitle] = useState("전체");
-  const [folderId, setFolderId] = useState(0);
-  const data = useGetUserFolderAsync(getUserFolder);
-  const folderList = useGetFolderListAsync(getFolderList);
+  const [targetFolder, setTargetFolder] = useState({
+    title: "전체",
+    id: 0,
+  });
+
+  const datas = useGetUserFolderAsync();
+  const folderList = useGetFolderListAsync();
+  let isEmpty = false;
 
   const handleClick = (title, id) => {
-    setTitle(title);
-    setFolderId(id);
+    setTargetFolder({
+      title: title,
+      id: id,
+    });
   };
 
-  let isNotEmpty = true;
-
-  isNotEmpty = data?.some((data) => data.folder_id === folderId || !folderId);
+  isEmpty = !(
+    datas?.some((data) => data.folder_id === targetFolder["id"]) ||
+    targetFolder["id"] === 0
+  );
 
   return (
     <section className="content">
@@ -30,7 +36,9 @@ export default function Content() {
         <div className="folder-title-wrapper">
           <button
             className={
-              title === "전체" ? "folder-title selected" : "folder-title"
+              targetFolder["title"] === "전체"
+                ? "folder-title selected"
+                : "folder-title"
             }
             onClick={() => handleClick("전체", 0)}
           >
@@ -39,7 +47,9 @@ export default function Content() {
           {folderList?.map((folder) => (
             <button
               className={
-                title === folder.name ? "folder-title selected" : "folder-title"
+                targetFolder["title"] === folder.name
+                  ? "folder-title selected"
+                  : "folder-title"
               }
               key={folder.id}
               onClick={() => {
@@ -50,30 +60,15 @@ export default function Content() {
             </button>
           ))}
         </div>
-        <div className="add-folder-btn-wrapper">
+        <button className="plus-btn add-folder-btn-wrapper">
           <span>폴더추가</span>
-          <button className="plus-btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M8.52151 2.46603C8.52151 2.17148 8.28272 1.9327 7.98817 1.9327C7.69362 1.9327 7.45484 2.17148 7.45484 2.46603L7.45484 7.96668L1.95425 7.96668C1.6597 7.96668 1.42092 8.20546 1.42092 8.50001C1.42092 8.79456 1.6597 9.03335 1.95425 9.03335L7.45484 9.03335L7.45484 14.534C7.45484 14.8285 7.69362 15.0673 7.98817 15.0673C8.28273 15.0673 8.52151 14.8285 8.52151 14.534L8.52151 9.03335L14.0222 9.03335C14.3168 9.03335 14.5555 8.79457 14.5555 8.50002C14.5555 8.20546 14.3167 7.96668 14.0222 7.96668L8.52151 7.96668L8.52151 2.46603Z"
-                fill="#6D6AFE"
-              />
-            </svg>
-          </button>
-        </div>
+          <img className="plus-svg" src={plusImg} alt="plus-img" />
+        </button>
       </div>
 
       <div className="selected-category">
-        <h2>{title}</h2>
-        {title === "전체" || (
+        <h2>{targetFolder["title"]}</h2>
+        {targetFolder["title"] === "전체" || (
           <div className="folder-edits">
             <span className="edit-function">
               <img src={shareIcon} alt="shareIcon" />
@@ -90,17 +85,20 @@ export default function Content() {
           </div>
         )}
       </div>
-      {isNotEmpty ? (
-        <div className="card-container">
-          {data?.map(
-            (data) =>
-              (data.folder_id === folderId || !folderId) && (
-                <Card key={data?.id} data={data} />
-              )
-          )}
-        </div>
-      ) : (
+      {isEmpty ? (
         <div className="no-link">저장된 링크가 없습니다</div>
+      ) : (
+        <div className="card-container">
+          {datas
+            ?.filter(
+              (data) =>
+                data.folder_id === targetFolder["id"] ||
+                targetFolder["id"] === 0
+            )
+            .map((data) => (
+              <Card key={data.id} data={data} />
+            ))}
+        </div>
       )}
     </section>
   );

@@ -1,9 +1,9 @@
 import useGetFolderAsync from "../hooks/useGetFolderAsync";
 import "./Banner.css";
-import { getFolder } from "../api";
 
 export default function Banner() {
-  const data = useGetFolderAsync(getFolder);
+  const data = useGetFolderAsync();
+  
   return (
     <section className="banner">
       <div className="banner-wrapper">
