@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import AddLinkBar from "../../components/AddLinkBar";
 import SearchBar from "../../components/SearchBar";
 import FilterButton from "../../components/FilterButton";
+import Folders from "../../components/Folders";
 import { getFolderLinks, getTotalFolderLinks } from "../../api";
 
 import addIcon from "../../assets/add.svg";
@@ -16,7 +17,6 @@ const FolderPage = ({ user, folderObj }) => {
   const [keyword, setKeyword] = useState("전체");
   const [links, setLinks] = useState([]);
 
-  // ?folderId=${folderId}
   const handleLoad = async () => {
     const links = await getTotalFolderLinks();
     if (links.data.length) {
@@ -88,15 +88,15 @@ const FolderPage = ({ user, folderObj }) => {
             </div>
           </div>
 
-          {links.length === 0 ? (
-            <>조건에맞는게 없다.</>
-          ) : (
-            <div>
-              {links.map((link) => (
-                <div key={link.id}>{link.created_at}</div>
-              ))}
-            </div>
-          )}
+          <div className="FolderItem-wrapper">
+            {links.length === 0 ? null : (
+              <div className="FolderItem-folder-links">
+                {links.map((link) => (
+                  <Folders key={link.id} link={link} />
+                ))}
+              </div>
+            )}
+          </div>
         </section>
       </main>
       <Footer />
