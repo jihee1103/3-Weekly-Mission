@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CTAButton } from "../CtaButton/CtaButton";
 
 export const ModalButton = styled.button`
   display: flex;
@@ -72,4 +73,9 @@ export const ModalShareFolderTitle = styled.span`
   color: var(--Linkbrary-gray60, #9fa6b2);
   font-size: 14px;
   font-weight: 400;
+`;
+
+export const ModalCtaButton = styled(CTAButton)`
+  padding: 16px 20px;
+  width: 280px;
 `;

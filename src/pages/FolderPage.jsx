@@ -30,7 +30,11 @@ export default function FolderPage() {
   return (
     <main className={styled.main}>
       {isModalClicked && (
-        <Modal modalId={modalId} toggleModalClick={toggleModalClick} />
+        <Modal
+          folderName={folderName}
+          modalId={modalId}
+          toggleModalClick={toggleModalClick}
+        />
       )}
       <section className={styled.header}>
         <LinkAddForm />

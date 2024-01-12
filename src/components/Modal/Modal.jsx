@@ -1,26 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import ModalEdit from "./ModalEdit";
 import imageData from "../../utils/imageData";
-import ModalAdd from "./ModalAdd";
 import ModalShare from "./ModalShare";
 import ModalDelete from "./ModalDelete";
+import ModalForm from "./ModalForm";
 
-export default function Modal({ modalId, toggleModalClick }) {
-  const getModalContent = () => {
-    console.log(modalId);
-    switch (modalId) {
-      case "addFolder":
-        return <ModalAdd />;
-      case "editFolder":
-        return <ModalEdit />;
-      case "shareFolder":
-        return <ModalShare />;
-      default:
-        return <ModalDelete />;
-    }
-  };
-
+export default function Modal({ folderName, modalId, toggleModalClick }) {
   return (
     <ModalWrapper>
       <ModalContainer>
@@ -29,11 +14,36 @@ export default function Modal({ modalId, toggleModalClick }) {
           alt="버튼임"
           onClick={toggleModalClick}
         />
-        {getModalContent()}
+        {getModalContent(modalId, folderName)}
       </ModalContainer>
     </ModalWrapper>
   );
 }
+
+const getModalContent = (modalId, folderName) => {
+  switch (modalId) {
+    case "addFolder":
+      return (
+        <ModalForm
+          title={"폴더 추가"}
+          defaultPlace={"내용 입력"}
+          buttonContent={"추가하기"}
+        />
+      );
+    case "editFolder":
+      return (
+        <ModalForm
+          title={"폴더 이름 변경"}
+          defaultPlace={folderName}
+          buttonContent={"변경하기"}
+        />
+      );
+    case "shareFolder":
+      return <ModalShare />;
+    default:
+      return <ModalDelete />;
+  }
+};
 
 const ModalCloseButton = styled.img`
   position: absolute;
