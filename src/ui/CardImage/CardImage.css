@@ -1,0 +1,13 @@
+.CardImage {
+  width: 100%;
+  min-height: 19.2rem;
+  height: 19.2rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  background-position: center;
+  background-size: 100%;
+  transition: background-size 0.3s ease-in-out; /* 시간 곡선에 따라 애니메이션 넣어줌 나중에 메모로 따로 정리하기*/
+}
+
+.CardImage.CardImage-zoom-in {
+  background-size: 130%;
+}
