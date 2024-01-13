@@ -1,7 +1,7 @@
 import Profile from "../components/Profile";
 import Main from "../components/Main";
 
-const Shared = function () {
+const Folder = function () {
   return (
     <>
       <Profile />
@@ -10,4 +10,4 @@ const Shared = function () {
   );
 };
 
-export default Shared;
+export default Folder;
