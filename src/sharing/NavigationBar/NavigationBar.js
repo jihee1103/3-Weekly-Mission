@@ -1,7 +1,7 @@
-import { Profile } from "../../ui/Profile/Profile";
+import { Profile } from "../Profile/Profile";
 import { ROUTE } from "../../util/constant";
 import { LOGO_IMAGE, TEXT } from "./constant";
-import { Cta } from "../../ui/Cta/Cta";
+import { Cta } from "../Cta/Cta";
 import "./NavigationBar.css";
 
 export const NavigationBar = ({ profile }) => {
