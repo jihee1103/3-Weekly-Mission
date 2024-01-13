@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import IMAGE_URL from "../../constant/imageUrl";
 import { useFolderNameContext } from "../../context/FolderNameContext";
-import { useLocation } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { getFolderUserData } from "../../api/api";
