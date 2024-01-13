@@ -2,8 +2,27 @@ import styled from 'styled-components';
 import kakaoLogo from '../../asset/Kakao.svg';
 import facebookLogo from '../../asset/Facebook.svg';
 import linkLogo from '../../asset/link.svg';
+import Error from '../Error/Error';
+import { BASE_API_HOST } from '../../constants/api';
 
-export default function ShareFolder({ folderName }) {
+export default function ShareFolder({
+  folderName,
+  userId,
+  folderId,
+  toggleModalClick,
+}) {
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(
+        `https://${BASE_API_HOST}/shared?user=${userId}&folder=${folderId}`,
+      );
+    } catch (error) {
+      return <Error errorMessage={error.message} />;
+    } finally {
+      toggleModalClick();
+    }
+    return null;
+  };
   return (
     <ShareFolderWrapper>
       <ShareFolderTitleContainer>
@@ -24,7 +43,7 @@ export default function ShareFolder({ folderName }) {
           <IconName>페이스북</IconName>
         </IconBox>
         <IconBox>
-          <SocialIcon color="rgba(157, 157, 157, 0.04)">
+          <SocialIcon color="rgba(157, 157, 157, 0.04)" onClick={copyLink}>
             <Icon src={linkLogo} />
           </SocialIcon>
           <IconName>링크 복사</IconName>

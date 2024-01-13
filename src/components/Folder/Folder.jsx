@@ -64,6 +64,8 @@ export default function Folder() {
           addLinkUrl={addLinkUrl}
           folderName={folderName}
           selectedLinkUrl={selectedLinkUrl}
+          userId={userId}
+          folderId={folderId}
         />
       ) : null}
       <AddLinkArea>
