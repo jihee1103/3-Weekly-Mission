@@ -77,7 +77,7 @@ const ModalAddFolder = ({ handleClose }) => {
     <ModalContainer>
       <div>
         <div>
-          <h1>폴더 이름 변경</h1>
+          <h1>폴더 추가</h1>
           <input
             autoFocus="autofocus"
             value={inputText}
@@ -91,7 +91,7 @@ const ModalAddFolder = ({ handleClose }) => {
             alt="닫기버튼"
           />
         </div>
-        <button>변경하기</button>
+        <button>추가하기</button>
       </div>
     </ModalContainer>
   );
