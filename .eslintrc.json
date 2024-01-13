@@ -36,6 +36,7 @@
     ],
     "indent": "off",
     "implicit-arrow-linebreak": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "react/jsx-one-expression-per-line": "off"
   }
 }

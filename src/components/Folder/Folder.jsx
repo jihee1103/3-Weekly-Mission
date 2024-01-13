@@ -1,15 +1,74 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AddLink from '../AddLink/AddLink';
 import FolderBody from './FolderBody';
+import useFolderLinks from '../../Hooks/useFolderLinks';
+import Modal from '../Modal/Modal';
 
 export default function Folder() {
+  const [addLinkUrl, setAddLinkUrl] = useState('');
+  const [isModalClicked, setIsModalClicked] = useState(false);
+  const [modalName, setModalName] = useState('');
+  const [userId, setUserId] = useState(1);
+  const [folderId, setFolderId] = useState(0);
+
+  const links = useFolderLinks(`users/${userId}/links`, folderId);
+  const folderList = useFolderLinks(`users/${userId}/folders`);
+
+  const updateAddLinkUrl = (url) => {
+    setAddLinkUrl(url);
+  };
+
+  const updateModalName = (name) => {
+    setModalName(name);
+  };
+
+  const toggleModalClick = () => {
+    setIsModalClicked(!isModalClicked);
+  };
+
+  useEffect(() => {
+    document.documentElement.style.scrollbarGutter = 'stable';
+
+    if (isModalClicked) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalClicked]);
+
   return (
     <>
+      {isModalClicked ? (
+        <Modal
+          toggleModalClick={toggleModalClick}
+          modalName={modalName}
+          folderList={folderList}
+          addLinkUrl={addLinkUrl}
+        />
+      ) : null}
       <AddLinkArea>
-        <AddLink />
+        <AddLink
+          toggleModalClick={toggleModalClick}
+          updateModalName={updateModalName}
+          folderList={folderList}
+          updateAddLinkUrl={updateAddLinkUrl}
+          addLinkUrl={addLinkUrl}
+        />
       </AddLinkArea>
       <FolderBodyArea>
-        <FolderBody />
+        <FolderBody
+          isModalClicked={isModalClicked}
+          toggleModalClick={toggleModalClick}
+          modalName={modalName}
+          updateModalName={updateModalName}
+          setUserId={setUserId}
+          setFolderId={setFolderId}
+          links={links}
+          folderList={folderList}
+          folderId={folderId}
+        />
       </FolderBodyArea>
     </>
   );

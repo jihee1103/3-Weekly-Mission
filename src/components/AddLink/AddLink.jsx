@@ -1,16 +1,34 @@
 import styled from 'styled-components';
 import linkIcon from '../../asset/link.svg';
 
-export default function AddLink() {
+export default function AddLink({
+  toggleModalClick,
+  updateModalName,
+  updateAddLinkUrl,
+  addLinkUrl,
+}) {
+  const handleInputValue = (e) => {
+    updateAddLinkUrl(e.currentTarget.value);
+  };
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    toggleModalClick();
+    updateModalName(e.currentTarget.id);
+  };
   return (
     <AddLinkForm>
       <Wrapper htmlFor="linkInput">
         <IconInputWrapper>
           <LinkIcon src={linkIcon} />
-          <AddLinkInput id="linkInput" placeholder="링크를 추가해 보세요." />
+          <AddLinkInput
+            id="linkInput"
+            value={addLinkUrl}
+            placeholder="링크를 추가해 보세요."
+            onChange={handleInputValue}
+          />
         </IconInputWrapper>
-        <AddButton>
-          <Addtext>추가하기</Addtext>
+        <AddButton id="addLinkButton" onClick={handleButtonClick}>
+          <AddText>추가하기</AddText>
         </AddButton>
       </Wrapper>
     </AddLinkForm>
@@ -82,7 +100,7 @@ const AddButton = styled.div`
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   cursor: pointer;
 `;
-const Addtext = styled.span`
+const AddText = styled.span`
   font-size: 14px;
   color: #f5f5f5;
   font-weight: 600;

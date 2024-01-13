@@ -4,8 +4,14 @@ import closeButton from '../../asset/close.svg';
 import ChangeFolderName from './ChangeFolderName';
 import DeleteFolder from './DeleteFolder';
 import ShareFolder from './ShareFolder';
+import AddLinkToFolder from './AddLinkToFolder';
 
-export default function Modal({ toggleModalClick, modalName }) {
+export default function Modal({
+  toggleModalClick,
+  modalName,
+  folderList,
+  addLinkUrl,
+}) {
   const handleCloseButtonClick = () => {
     toggleModalClick();
   };
@@ -21,6 +27,11 @@ export default function Modal({ toggleModalClick, modalName }) {
     }
     if (modalName === 'shareFolder') {
       return <ShareFolder />;
+    }
+    if (modalName === 'addLinkButton') {
+      return (
+        <AddLinkToFolder folderList={folderList} addLinkUrl={addLinkUrl} />
+      );
     }
     return null;
   };
