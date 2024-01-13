@@ -24,7 +24,7 @@ export default function Modal({
       return <ChangeFolderName folderName={folderName} />;
     }
     if (modalName === 'deleteFolder') {
-      return <DeleteFolder />;
+      return <DeleteFolder folderName={folderName} />;
     }
     if (modalName === 'shareFolder') {
       return <ShareFolder folderName={folderName} />;

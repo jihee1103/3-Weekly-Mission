@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export default function DeleteFolder() {
+export default function DeleteFolder({ folderName }) {
   return (
     <DeleteFolderWrapper>
       <DeleteFolderTitleContainer>
         <DeleteFolderTitle>폴더 삭제</DeleteFolderTitle>
-        <DeleteFolderName>폴더명</DeleteFolderName>
+        <DeleteFolderName>{folderName}</DeleteFolderName>
       </DeleteFolderTitleContainer>
       <DeleteFolderButton>삭제하기</DeleteFolderButton>
     </DeleteFolderWrapper>
