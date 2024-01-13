@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.folder-filter {
+.folder-categories {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -15,7 +15,7 @@
   flex-wrap: wrap;
 }
 
-.filter-btn {
+.folder-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@
   height: 35px;
 }
 
-.filter-btn__selected {
+.folder-btn__selected {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,11 +127,11 @@
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
-  .folder-filter {
+  .folder-categories {
     font-size: 1.4rem;
   }
 
-  .filter-btn {
+  .folder-btn {
     padding: 6px 10px;
   }
 

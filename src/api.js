@@ -47,7 +47,17 @@ export const getUser = async () => {
   }
 };
 
-export const getFolder = async folderId => {
+export const getFolder = async () => {
+  try {
+    const response = await fetch(API.USER_FOLDERS);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    return `Error: ${error}`;
+  }
+};
+
+export const getFolderItem = async folderId => {
   try {
     const response = await fetch(
       folderId === 'all'
@@ -59,15 +69,5 @@ export const getFolder = async folderId => {
   } catch (error) {
     console.error(`Error: ${error}`);
     return [];
-  }
-};
-
-export const getFilter = async () => {
-  try {
-    const response = await fetch(API.USER_FOLDERS);
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    return `Error: ${error}`;
   }
 };
