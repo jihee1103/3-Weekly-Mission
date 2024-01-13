@@ -8,7 +8,6 @@
 
 .image-wrap {
   height: 200px;
-  position: relative;
 }
 
 .image-container img {
@@ -28,7 +27,6 @@
 
 .star-icon {
   position: absolute;
-  top: 15px;
   right: 15px;
   z-index: 1;
   width: 34px;

@@ -1,26 +1,12 @@
 import { useEffect, useState } from "react";
-import { Card } from "./component/Card/card.jsx";
 import { Header } from "./component/Header/header.jsx";
 import { Footer } from "./component/Footer/footer.jsx";
-import { SearchBar } from "./component/SearchBar/searchbar.jsx";
-import defaultImage from "./card-component-default.png";
-import "./style.css";
-
-const getFetch = async () => {
-  const response = await fetch(
-    "https://bootcamp-api.codeit.kr/api/sample/folder"
-  );
-  const body = await response.json();
-  return body;
-};
-
-const getUserData = async () => {
-  const response = await fetch(
-    "https://bootcamp-api.codeit.kr/api/sample/user"
-  );
-  const body = await response.json();
-  return body;
-};
+import { Shared } from "./pages/shared.jsx";
+import { getFetch } from "./api/getFetch.jsx";
+import { getUserData } from "./api/getUserData.jsx";
+import { Folder } from "./pages/folder.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./app.css";
 
 export default function App() {
   const [folder, setFolder] = useState(null);
@@ -38,31 +24,15 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <BrowserRouter>
       {folder !== null ? (
         <Header folder={folder} user={user !== null ? user : ""} />
       ) : undefined}
-      <div className="main-section">
-        <SearchBar />
-        <div className="card-component-section">
-          {folder !== null
-            ? folder.links.map((e) => {
-                return (
-                  <Card
-                    key={e.id}
-                    imageSource={
-                      e.imageSource !== undefined ? e.imageSource : defaultImage
-                    }
-                    description={e.description}
-                    createdAt={e.createdAt}
-                    url={e.url}
-                  />
-                );
-              })
-            : undefined}
-        </div>
-      </div>
+      <Routes>
+        <Route path="/shared" element={<Shared />} />
+        <Route path="/folder" element={<Folder />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
