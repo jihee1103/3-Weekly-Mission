@@ -1,8 +1,8 @@
-import "./Folder.css";
+import "./FolderInfo.css";
 import { useEffect, useState } from "react";
-import { getFolderData } from "../api/api";
+import { getFolderData } from "../../api/api";
 
-const Folder = () => {
+const FolderInfo = () => {
   const [folderInfo, setFolderInfo] = useState({ folder: { owner: {} } });
   const handleFolderData = async () => {
     const folder = await getFolderData();
@@ -24,4 +24,4 @@ const Folder = () => {
   );
 };
 
-export default Folder;
+export default FolderInfo;

@@ -1,15 +1,31 @@
 const API_BASE_URL = "https://bootcamp-api.codeit.kr";
 
-const getUserData = async () => {
+export const getUserData = async () => {
   const res = await fetch(`${API_BASE_URL}/api/sample/user`);
-  const result = await res.json();
-  return result;
+  return res.json();
 };
 
-const getFolderData = async () => {
+export const getFolderData = async () => {
   const res = await fetch(`${API_BASE_URL}/api/sample/folder`);
-  const result = await res.json();
-  return result;
+  return res.json();
 };
 
-export { getUserData, getFolderData };
+export const getFolderList = async () => {
+  const res = await fetch(`${API_BASE_URL}/api/users/1/folders`);
+  return res.json();
+};
+
+export const getAllCardData = async () => {
+  const res = await fetch(`${API_BASE_URL}/api/users/1/links`);
+  return res.json();
+};
+
+export const getCardDataById = async (id) => {
+  const res = await fetch(`${API_BASE_URL}/api/users/1/links?folderId=${id}`);
+  return res.json();
+};
+
+export const getFolderUserData = async () => {
+  const res = await fetch(`${API_BASE_URL}/api/users/1`);
+  return res.json();
+};

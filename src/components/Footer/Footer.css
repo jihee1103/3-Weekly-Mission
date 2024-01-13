@@ -3,6 +3,7 @@ footer {
   background-color: #111322;
   display: block;
   height: 160px;
+  bottom: 0;
 }
 .footer_item {
   display: grid;
