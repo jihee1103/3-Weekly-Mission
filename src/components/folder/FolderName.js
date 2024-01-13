@@ -15,10 +15,8 @@ export default function FolderName({ selectedFolder }) {
   return (
     <>
       <FolderNameBox>
-        <div className="folder-name">
-          {selectedFolder ? selectedFolder.name : "전체"}
-        </div>
-        {selectedFolder && (
+        <div className="folder-name">{selectedFolder?.name ?? "전체"}</div>
+        {selectedFolder.name && (
           <div className="folder-edit-box">
             <div onClick={handleOpenModalShare}>
               <img src="/imgs/share.png" alt="공유하기" />
