@@ -31,7 +31,7 @@ export default function SharedPage() {
   useEffect(() => {
     handleHeaderData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [folderData]);
+  }, [folderData, ownerData]);
 
   return (
     <main>
