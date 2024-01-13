@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ModalFolderTitle,
   ModalTitleContainer,
@@ -11,6 +11,10 @@ import AddFolderListBox from "./AddFolderListBox";
 import CtaButton from "../../CtaButton/CtaButton";
 
 export default function ModalAddLink({ url, itemList }) {
+  const [folderChecked, setFolderChecked] = useState("");
+  const handleCheckFolder = (name) => {
+    setFolderChecked(name);
+  };
   return (
     <ModalWrapper>
       <ModalTitleContainer>
@@ -25,6 +29,8 @@ export default function ModalAddLink({ url, itemList }) {
                 key={item.id}
                 name={item.name}
                 count={item.link.count}
+                folderChecked={folderChecked}
+                onClick={handleCheckFolder}
               ></AddFolderListBox>
             );
           })}

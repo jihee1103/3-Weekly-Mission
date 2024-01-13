@@ -19,6 +19,7 @@ import closeButton from "../assets/images/modalClose.svg";
 import kakaoIcon from "../assets/images/modal-icon-kakao.svg";
 import modalShareIcon from "../assets/images/modal-link.svg";
 import modalFacebookIcon from "../assets/images/modal-icon-facebook.svg";
+import modalCheckedIcon from "../assets/images/modal-footer-icon-check.svg";
 
 const imageData = {
   shareIcon,
@@ -42,6 +43,7 @@ const imageData = {
   kakaoIcon,
   modalShareIcon,
   modalFacebookIcon,
+  modalCheckedIcon,
 };
 
 export default imageData;

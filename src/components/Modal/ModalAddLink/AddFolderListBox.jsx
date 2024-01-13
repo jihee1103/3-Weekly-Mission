@@ -1,17 +1,31 @@
 import React from "react";
 import styled from "styled-components";
+import imageData from "../../../utils/imageData";
 
-export default function AddFolderListBox({ name, count }) {
+export default function AddFolderListBox({
+  name,
+  count,
+  folderChecked,
+  onClick,
+}) {
+  const checked = name === folderChecked;
+  const handleClick = () => {
+    onClick(name);
+  };
   return (
     <>
-      <Box>
+      <Box onClick={handleClick}>
         <Name>{name}</Name> <Count>{count}개 링크</Count>
+        {checked && (
+          <Image src={imageData.modalCheckedIcon} alt={name + "체크됨"} />
+        )}
       </Box>
     </>
   );
 }
 
 const Box = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   width: 264px;
@@ -22,14 +36,16 @@ const Box = styled.div`
 
 const Name = styled.span`
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
   color: #373740;
 `;
 
 const Count = styled.span`
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
   color: #9fa6b2;
+`;
+
+const Image = styled.img`
+  margin-left: auto;
 `;
