@@ -12,11 +12,14 @@ import { handleCopyClipBoard } from "../../../utils/util";
 
 export default function ModalShare({ folderName = "", itemList, userId }) {
   const [curFolder] = itemList.filter((item) => item.name === folderName);
+  const url =
+    window.location.origin + `/shared?user=${userId}&folder=${curFolder.id}`;
   const handleLinkCopy = () => {
-    const url =
-      window.location.origin + `/shared?user=${userId}&folder=${curFolder.id}`;
-    console.log(url);
     handleCopyClipBoard(url);
+  };
+  const handleShareToFacebook = () => {
+    const sharedLink = encodeURIComponent(url);
+    window.open(`http://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
   };
 
   return (
@@ -34,7 +37,7 @@ export default function ModalShare({ folderName = "", itemList, userId }) {
           />
           카카오톡
         </ModalShareLinkBox>
-        <ModalShareLinkBox>
+        <ModalShareLinkBox onClick={handleShareToFacebook}>
           <ModalShareLinkIcon
             type={"facebook"}
             imageSource={imageData.modalFacebookIcon}

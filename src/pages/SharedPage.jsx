@@ -25,12 +25,12 @@ export default function SharedPage() {
     const [folder] = folderData.filter((data) => data.id === +folderId);
     setFolderName(folder.name);
     const { name, imageSource } = ownerData[0];
-    console.log(imageSource);
     setFolderOwner({ name, imageSource });
   };
 
   useEffect(() => {
     handleHeaderData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [folderData]);
 
   return (
