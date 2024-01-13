@@ -11,7 +11,7 @@ import FloatingActionButton from "../components/FloatingActionButton/FloatingAct
 import NoLinkBlock from "../components/NoLinkBlock/NoLinkBlock";
 import Modal from "../components/Modal/Modal";
 
-export default function FolderPage() {
+export default function FolderPage({ user }) {
   const { data: cardListItem, fetchData: setCardListItem } =
     useFetchData(getLinkList);
   const { data: folderNameList } = useFetchData(getFolderList);
@@ -33,6 +33,7 @@ export default function FolderPage() {
     <main className={styled.main}>
       {isModalClicked && (
         <Modal
+          user={user}
           itemList={folderNameList}
           modalUrl={modalUrl}
           folderName={folderName}

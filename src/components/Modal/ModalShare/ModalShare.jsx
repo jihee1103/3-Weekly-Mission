@@ -10,11 +10,11 @@ import {
 import ModalShareLinkIcon from "./ModalShareLinkIcon";
 import { handleCopyClipBoard } from "../../../utils/util";
 
-export default function ModalShare({ folderName = "", itemList }) {
+export default function ModalShare({ folderName = "", itemList, userId }) {
   const [curFolder] = itemList.filter((item) => item.name === folderName);
   const handleLinkCopy = () => {
     const url =
-      window.location.origin + `/shard?user=${1}&folder=${curFolder.id}`;
+      window.location.origin + `/shared?user=${userId}&folder=${curFolder.id}`;
     console.log(url);
     handleCopyClipBoard(url);
   };

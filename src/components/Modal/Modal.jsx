@@ -12,6 +12,7 @@ export default function Modal({
   toggleModalClick,
   modalUrl,
   itemList,
+  user,
 }) {
   return (
     <ModalWrapper>
@@ -21,13 +22,13 @@ export default function Modal({
           alt="모달창 닫기 버튼"
           onClick={toggleModalClick}
         />
-        {getModalContent({ modalId, folderName, modalUrl, itemList })}
+        {getModalContent({ modalId, folderName, modalUrl, itemList, user })}
       </ModalContainer>
     </ModalWrapper>
   );
 }
 
-const getModalContent = ({ modalId, folderName, modalUrl, itemList }) => {
+const getModalContent = ({ modalId, folderName, modalUrl, itemList, user }) => {
   switch (modalId) {
     case "addFolder":
       return (
@@ -46,7 +47,13 @@ const getModalContent = ({ modalId, folderName, modalUrl, itemList }) => {
         />
       );
     case "shareFolder":
-      return <ModalShare folderName={folderName} itemList={itemList} />;
+      return (
+        <ModalShare
+          userId={user.id}
+          folderName={folderName}
+          itemList={itemList}
+        />
+      );
     case "deleteFolder":
       return <ModalDelete nameType={"폴더"} DeleteName={folderName} />;
     case "deleteLink":
