@@ -24,6 +24,7 @@ const StyledLabel = styled.label`
   }
 
   input {
+    outline: none;
     margin-left: 10px;
     height: 100%;
     width: 100%;

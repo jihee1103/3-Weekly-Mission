@@ -90,6 +90,7 @@ const FolderListBox = styled.div`
   }
 
   .folder-add-box {
+    cursor: pointer;
     display: flex;
 
     @media screen and (max-width: 767px) {

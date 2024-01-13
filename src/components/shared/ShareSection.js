@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUserFolder } from "../../api";
-import { getTimeDifference, formatCreatedAt } from "../common/DateUtils";
+import { getTimeDifference, formatCreatedAt } from "../common/Utils";
 import "./ShareSection.css";
 
 export default function Section() {

@@ -47,7 +47,11 @@ const HeaderContent = styled.div`
   }
 
   .link-search-input {
+    outline: none;
     width: 100%;
     border: none;
+  }
+  .link-button-img {
+    cursor: pointer;
   }
 `;

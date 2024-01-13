@@ -64,6 +64,7 @@ const FolderNameBox = styled.div`
   }
 
   .folder-edit-box div {
+    cursor: pointer;
     display: flex;
     align-items: center;
   }

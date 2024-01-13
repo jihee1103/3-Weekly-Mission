@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Modal.css";
 import { getUserFolders } from "../../api";
+import { copyToClipboard } from "../common/Utils";
 
 export const AddToFolderModal = ({ closeModal }) => {
   const [FolderList, setFolderList] = useState([]);
@@ -61,37 +62,43 @@ export const AddFolderModal = ({ closeModal }) => (
   </>
 );
 
-export const ShareModal = ({ closeModal, selectedModalItem }) => (
-  <>
-    <img
-      src="/imgs/_close.png"
-      className="closeModal"
-      onClick={closeModal}
-      alt="나가기"
-    />
-    <div>
-      <div className="modal-title">폴더 공유</div>
-      <div className="ShaereFolderName">{selectedModalItem}</div>
-    </div>
-    <div className="shareIcon-box">
-      <div className="shareIcon">
-        <img src="/imgs/카카오톡아이콘.png" alt="카카오톡" />
-        카카오톡
+export const ShareModal = ({ closeModal, selectedModalItem }) => {
+  return (
+    <>
+      <img
+        src="/imgs/_close.png"
+        className="closeModal"
+        onClick={closeModal}
+        alt="나가기"
+      />
+      <div>
+        <div className="modal-title">폴더 공유</div>
+        <div className="ShaereFolderName">{selectedModalItem}</div>
       </div>
-      <div className="shareIcon">
-        <img src="/imgs/페이스북아이콘.png" alt="페이스북" />
-        페이스북
+      <div className="shareIcon-box">
+        <div className="shareIcon">
+          <img src="/imgs/카카오톡아이콘.png" alt="카카오톡" />
+          카카오톡
+        </div>
+        <div className="shareIcon">
+          <img src="/imgs/페이스북아이콘.png" alt="페이스북" />
+          페이스북
+        </div>
+        <div className="shareIcon">
+          <img
+            onClick={copyToClipboard}
+            src="/imgs/링크복사아이콘.png"
+            alt="링크복사"
+          />
+          링크 복사
+        </div>
       </div>
-      <div className="shareIcon">
-        <img src="/imgs/링크복사아이콘.png" alt="링크복사" />
-        링크 복사
-      </div>
-    </div>
-    <button className="modal-button-blue" onClick={() => closeModal("share")}>
-      닫기
-    </button>
-  </>
-);
+      <button className="modal-button-blue" onClick={() => closeModal("share")}>
+        닫기
+      </button>
+    </>
+  );
+};
 
 export const RenameModal = ({ closeModal, selectedModalItem }) => (
   <>
