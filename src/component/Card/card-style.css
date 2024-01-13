@@ -18,10 +18,28 @@
   animation: ease-in;
   object-fit: cover;
   position: relative;
+  z-index: 0;
 }
 
 .image-container img:hover {
   transform: scale(1.3);
+}
+
+.star-icon {
+  position: absolute;
+  right: 15px;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+}
+
+.kebab-icon {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 1;
+  width: 21px;
+  height: 17px;
 }
 
 .card-content {

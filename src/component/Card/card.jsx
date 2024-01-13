@@ -1,4 +1,6 @@
 import "./card-style.css";
+import kebab from "./kebab.png";
+import star from "./star.png";
 
 export function Card({ imageSource, description, createdAt, url }) {
   const createdDate = new Date(createdAt);
@@ -39,12 +41,14 @@ export function Card({ imageSource, description, createdAt, url }) {
       <a href={url} target="_blank" className="card-url">
         <div className="card-container">
           <div className="image-wrap">
+            <img src={star} className="star-icon" />
             <div className="image-container">
               <img src={imageSource} />
             </div>
           </div>
           <div className="card-content">
             <div className="card-description">
+              <img src={kebab} className="kebab-icon" />
               <p className="time-stamp-section">{timeStatus}</p>
               <p className="description-section">{description}</p>
               <div className="time-section">

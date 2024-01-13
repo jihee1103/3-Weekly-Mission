@@ -6,41 +6,36 @@ import { SearchBar } from "./component/SearchBar/searchbar.jsx";
 import defaultImage from "./card-component-default.png";
 import "./style.css";
 
+const getFetch = async () => {
+  const response = await fetch(
+    "https://bootcamp-api.codeit.kr/api/sample/folder"
+  );
+  const body = await response.json();
+  return body;
+};
+
+const getUserData = async () => {
+  const response = await fetch(
+    "https://bootcamp-api.codeit.kr/api/sample/user"
+  );
+  const body = await response.json();
+  return body;
+};
+
 export default function App() {
   const [folder, setFolder] = useState(null);
   const [user, setUser] = useState(null);
 
-  const getFetch = async () => {
-    const response = await fetch(
-      "https://bootcamp-api.codeit.kr/api/sample/folder"
-    );
-    const body = await response.json();
-    return body;
-  };
-
-  const getUserData = async () => {
-    const response = await fetch(
-      "https://bootcamp-api.codeit.kr/api/sample/user"
-    );
-    const body = await response.json();
-    return body;
-  };
-
   useEffect(() => {
     const getData = async () => {
       const data = await getFetch();
-      setFolder(() => {
-        return data.folder;
-      });
+      setFolder(data.folder);
 
       const user = await getUserData();
-      setUser(() => {
-        return user;
-      });
+      setUser(user);
     };
     getData();
   }, []);
-  console.log(folder);
 
   return (
     <>
