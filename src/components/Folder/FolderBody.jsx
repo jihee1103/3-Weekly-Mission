@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useFolderLinks from '../../Hooks/useFolderLinks';
 import NoLinkCard from '../Card/NoLinkCard';
@@ -26,6 +26,17 @@ export default function FolderBody() {
     setFolderId(item.id);
     setFolderName(item.name);
   };
+
+  useEffect(() => {
+    document.documentElement.style.scrollbarGutter = 'stable';
+
+    if (isModalClicked) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalClicked]);
 
   const links = useFolderLinks(`users/${userId}/links`, folderId);
   const folderList = useFolderLinks(`users/${userId}/folders`);

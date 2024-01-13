@@ -18,9 +18,9 @@ const MenuWrapper = styled.div`
   align-items: center;
   width: 100px;
   gap: 2px;
-  background-color: #fff;
+  background: #fff;
   box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
-  z-index: 1;
+  z-index: 2;
 `;
 const MenuButton = styled.div`
   display: flex;

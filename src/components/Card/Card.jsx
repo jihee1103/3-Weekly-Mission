@@ -114,8 +114,7 @@ const CardImgArea = styled(Link)`
   width: 100%;
   height: 200px;
   cursor: pointer;
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
+  border-radius: 15px 15px 0 0;
   overflow: hidden;
   z-index: 1;
 `;

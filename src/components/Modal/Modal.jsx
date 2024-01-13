@@ -35,14 +35,14 @@ export default function Modal({ toggleModalClick, modalName }) {
 }
 
 const ModalWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
   box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
-  z-index: 1;
+  z-index: 3;
 `;
 const ModalContainer = styled.div`
   position: relative;
