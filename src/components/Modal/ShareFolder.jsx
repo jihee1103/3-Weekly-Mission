@@ -3,12 +3,12 @@ import kakaoLogo from '../../asset/Kakao.svg';
 import facebookLogo from '../../asset/Facebook.svg';
 import linkLogo from '../../asset/link.svg';
 
-export default function ShareFolder() {
+export default function ShareFolder({ folderName }) {
   return (
     <ShareFolderWrapper>
       <ShareFolderTitleContainer>
         <ShareFolderTitle>폴더 공유</ShareFolderTitle>
-        <ShareFolderName>폴더명</ShareFolderName>
+        <ShareFolderName>{folderName}</ShareFolderName>
       </ShareFolderTitleContainer>
       <ShareFolderIconContainer>
         <IconBox>

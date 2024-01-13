@@ -11,6 +11,7 @@ export default function Modal({
   modalName,
   folderList,
   addLinkUrl,
+  folderName,
 }) {
   const handleCloseButtonClick = () => {
     toggleModalClick();
@@ -26,7 +27,7 @@ export default function Modal({
       return <DeleteFolder />;
     }
     if (modalName === 'shareFolder') {
-      return <ShareFolder />;
+      return <ShareFolder folderName={folderName} />;
     }
     if (modalName === 'addLinkButton') {
       return (

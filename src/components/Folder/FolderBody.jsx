@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import NoLinkCard from '../Card/NoLinkCard';
 import SearchBar from '../SearchBar/SearchBar';
@@ -7,20 +6,12 @@ import FolderContent from './FolderContent';
 export default function FolderBody({
   toggleModalClick,
   updateModalName,
-  setUserId,
-  setFolderId,
   links,
   folderList,
   folderId,
+  folderName,
+  handleClickTitle,
 }) {
-  const [folderName, setFolderName] = useState('전체');
-
-  const handleClickTitle = (item) => {
-    setUserId(1); // test
-    setFolderId(item.id);
-    setFolderName(item.name);
-  };
-
   return (
     <Wrapper>
       <SearchBar />

@@ -11,9 +11,16 @@ export default function Folder() {
   const [modalName, setModalName] = useState('');
   const [userId, setUserId] = useState(1);
   const [folderId, setFolderId] = useState(0);
+  const [folderName, setFolderName] = useState('전체');
 
   const links = useFolderLinks(`users/${userId}/links`, folderId);
   const folderList = useFolderLinks(`users/${userId}/folders`);
+
+  const handleClickTitle = (item) => {
+    setUserId(1); // test
+    setFolderId(item.id);
+    setFolderName(item.name);
+  };
 
   const updateAddLinkUrl = (url) => {
     setAddLinkUrl(url);
@@ -46,6 +53,7 @@ export default function Folder() {
           modalName={modalName}
           folderList={folderList}
           addLinkUrl={addLinkUrl}
+          folderName={folderName}
         />
       ) : null}
       <AddLinkArea>
@@ -68,6 +76,8 @@ export default function Folder() {
           links={links}
           folderList={folderList}
           folderId={folderId}
+          folderName={folderName}
+          handleClickTitle={handleClickTitle}
         />
       </FolderBodyArea>
     </>
