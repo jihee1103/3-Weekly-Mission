@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import IMAGE_URL from "../../constant/imageUrl";
 import { useFolderNameContext } from "../../context/FolderNameContext";
+import { useLocation } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { getFolderUserData } from "../../api/api";
@@ -69,6 +70,10 @@ const ModalContainer = styled.div`
 const ModalShareFolder = ({ handleClose }) => {
   const { folderName, folderId } = useFolderNameContext();
   const [linkUserId, setLinkUserId] = useState("");
+  const location = useLocation();
+  const { Kakao } = window;
+
+  const KAKAO_SHARE_KEY = "aabd14c029bfccc0741b8c57bbafe148";
 
   const handleCopyClipBoard = (text) => {
     navigator.clipboard.writeText(text);
@@ -86,11 +91,112 @@ const ModalShareFolder = ({ handleClose }) => {
     );
   };
 
+  const shareToKakao = (url) => {
+    if (window.Kakao === undefined) {
+      return;
+    }
+
+    const kakao = window.Kakao;
+
+    // 인증이 안되어 있는 경우, 인증한다.
+    if (!kakao.isInitialized()) {
+      kakao.init(KAKAO_SHARE_KEY); // 가져온 KEY를 넣는 장소, ENV로 넣던지 아니면 스트링으로 해셔도..ㅎ
+    }
+
+    kakao.Share.sendDefault({
+      objectType: "text",
+      text: "링크 공유",
+      link: {
+        mobileWebUrl: url,
+        webUrl: url,
+      },
+    });
+  };
+
+  // const shareKakao = () => {
+  //   Kakao.Share.sendDefault({
+  //     objectType: "feed",
+  //     content: {
+  //       title: "오늘의 디저트",
+  //       description: "아메리카노, 빵, 케익",
+  //       imageUrl:
+  //         "https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg",
+  //       link: {
+  //         mobileWebUrl: "https://developers.kakao.com",
+  //         webUrl: "https://developers.kakao.com",
+  //       },
+  //     },
+  //     itemContent: {
+  //       profileText: "Kakao",
+  //       profileImageUrl:
+  //         "https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
+  //       titleImageUrl:
+  //         "https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
+  //       titleImageText: "Cheese cake",
+  //       titleImageCategory: "Cake",
+  //       items: [
+  //         {
+  //           item: "Cake1",
+  //           itemOp: "1000원",
+  //         },
+  //         {
+  //           item: "Cake2",
+  //           itemOp: "2000원",
+  //         },
+  //         {
+  //           item: "Cake3",
+  //           itemOp: "3000원",
+  //         },
+  //         {
+  //           item: "Cake4",
+  //           itemOp: "4000원",
+  //         },
+  //         {
+  //           item: "Cake5",
+  //           itemOp: "5000원",
+  //         },
+  //       ],
+  //       sum: "총 결제금액",
+  //       sumOp: "15000원",
+  //     },
+  //     social: {
+  //       likeCount: 10,
+  //       commentCount: 20,
+  //       sharedCount: 30,
+  //     },
+  //     buttons: [
+  //       {
+  //         title: "웹으로 이동",
+  //         link: {
+  //           mobileWebUrl: "https://developers.kakao.com",
+  //           webUrl: "https://developers.kakao.com",
+  //         },
+  //       },
+  //       {
+  //         title: "앱으로 이동",
+  //         link: {
+  //           mobileWebUrl: "https://developers.kakao.com",
+  //           webUrl: "https://developers.kakao.com",
+  //         },
+  //       },
+  //     ],
+  //   });
+  // };
+
   useEffect(() => {
-    handleFolderUserData();
+    const script = document.createElement("script");
+    script.src = "https://developers.kakao.com/sdk/js/kakao.js"; // 카카오톡 SDK
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+      handleFolderUserData();
+    };
   }, []);
 
-  const sharedLink = `localhost:3000/shared?user=${linkUserId}&folder=${folderId}`;
+  const sharedLink = `http://localhost:3000/shared?user=${linkUserId}&folder=${folderId}`;
 
   return (
     <ModalContainer>
@@ -103,7 +209,9 @@ const ModalShareFolder = ({ handleClose }) => {
         <div className="iconArea">
           <div className="oneIconArea">
             <img
-              onClick={handleClose}
+              onClick={() => {
+                shareToKakao(sharedLink);
+              }}
               src={`${IMAGE_URL}/assets/modal_kakao.png`}
               alt="close"
             />
