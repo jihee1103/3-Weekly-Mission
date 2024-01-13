@@ -26,3 +26,9 @@
     row-gap: 4rem;
   }
 }
+
+.folder-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

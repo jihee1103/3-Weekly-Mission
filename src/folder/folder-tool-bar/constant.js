@@ -4,11 +4,11 @@ export const BUTTONS = [
     text: "공유",
   },
   {
-    iconSource: "image/pen.svg",
+    iconSource: "images/pen.svg",
     text: "이름 변경",
   },
   {
-    iconSource: "image/trash.svg",
+    iconSource: "images/trash.svg",
     text: "삭제",
   },
 ];

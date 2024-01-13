@@ -7,8 +7,8 @@
   @media (min-width: 768px) {
     display: grid;
     grid-template-areas:
-      "folders folders add-button"
-      "folder-name button button";
+      "folders add-button"
+      "folder-name .";
     justify-content: space-between;
     align-items: center;
     row-gap: 2.4rem;
@@ -41,6 +41,7 @@
 
 .Folder-name {
   grid-area: folder-name;
+  height: 3.2rem;
   margin-top: 1.6rem;
   font-size: 2rem;
   font-weight: 600;
@@ -53,8 +54,6 @@
 }
 
 .Buttons {
-  justify-self: flex-start;
-  grid-area: buttons;
   display: flex;
   column-gap: 1.2rem;
 

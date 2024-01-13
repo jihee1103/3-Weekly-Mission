@@ -1,7 +1,9 @@
-export const IconAndTextButton = (iconSourcon, text) => {
+import "./IconAndTextButton.css";
+
+export const IconAndTextButton = ({ iconSource, text }) => {
   return (
-    <button className="Container">
-      <img className="Icon" src={iconSourcon} alt={`${text} 아이콘`} />
+    <button className="IconAndTextButton">
+      <img className="Icon" src={iconSource} alt={`${text} 아이콘`} />
       <span className="Text">{text}</span>
     </button>
   );
