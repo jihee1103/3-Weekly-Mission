@@ -8,10 +8,16 @@ import {
   ModalWrapper,
 } from "../Modal.styled";
 import ModalShareLinkIcon from "./ModalShareLinkIcon";
+import { handleCopyClipBoard } from "../../../utils/util";
 
 export default function ModalShare({ folderName = "", itemList }) {
   const [curFolder] = itemList.filter((item) => item.name === folderName);
-  console.log(curFolder);
+  const handleLinkCopy = () => {
+    const url =
+      window.location.origin + `/shard?user=${1}&folder=${curFolder.id}`;
+    console.log(url);
+    handleCopyClipBoard(url);
+  };
 
   return (
     <ModalWrapper>
@@ -36,7 +42,7 @@ export default function ModalShare({ folderName = "", itemList }) {
           />
           페이스북
         </ModalShareLinkBox>
-        <ModalShareLinkBox>
+        <ModalShareLinkBox onClick={handleLinkCopy}>
           <ModalShareLinkIcon
             type={"link"}
             imageSource={imageData.modalShareIcon}
