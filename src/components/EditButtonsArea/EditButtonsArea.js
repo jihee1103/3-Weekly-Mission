@@ -1,8 +1,15 @@
 import "./EditButtonsArea.css";
 import { useFolderNameContext } from "../../context/FolderNameContext";
+import { useState } from "react";
+import ModalEditFolderName from "../Modal/ModalEditFolderName";
 
 const EditButtonsArea = () => {
   const { folderName } = useFolderNameContext();
+  const [showModalEditFolderName, setShowModalEditFolderName] = useState(false);
+
+  const handleModalEditFolderName = () => {
+    setShowModalEditFolderName(!showModalEditFolderName);
+  };
 
   if (folderName !== "전체") {
     return (
@@ -15,7 +22,7 @@ const EditButtonsArea = () => {
           />
           <p className="editButtonName">공유</p>
         </div>
-        <div className="editButton">
+        <div className="editButton" onClick={handleModalEditFolderName}>
           <img
             className="editButtonIcon"
             src={process.env.PUBLIC_URL + `/assets/pen.png`}
@@ -31,6 +38,9 @@ const EditButtonsArea = () => {
           />
           <p className="editButtonName">삭제</p>
         </div>
+        {showModalEditFolderName && (
+          <ModalEditFolderName handleClose={handleModalEditFolderName} />
+        )}
       </div>
     );
   } else {
