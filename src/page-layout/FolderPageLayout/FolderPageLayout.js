@@ -1,9 +1,9 @@
 import "./FolderPageLayout.css";
 
-export const FolderPageLayout = ({ folderInfo, searchBar, cardList }) => {
+export const FolderPageLayout = ({ LinkForm, searchBar, cardList }) => {
   return (
     <div className="FolderPageLayout">
-      {folderInfo}
+      {LinkForm}
       <div className="FolderPageLayout-items">
         {searchBar}
         {cardList}

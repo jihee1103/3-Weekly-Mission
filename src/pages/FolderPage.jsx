@@ -2,20 +2,18 @@ import { FolderPageLayout } from "../page-layout/FolderPageLayout/FolderPageLayo
 import { useGetFolder } from "../data-access/useGetFolder";
 import { Layout } from "../sharing/Layout/Layout";
 import { CardList } from "../sharing/card/CardList/CardList";
-import { FolderInfo } from "../shared-page-ui/FolderInfo/FolderInfo";
 import { ReadOnlyCard } from "../sharing/card/ReadOnlyCard/RedOnlyCard";
 import { SearchBar } from "../sharing/SearchBar/SearchBar";
+import { LinkForm } from "../folder-page-ui/LinkForm/LinkForm";
 
 export const FolderPage = () => {
   const { data } = useGetFolder();
-  const { profileImage, ownerName, folderName, links } = data;
+  const { links } = data;
 
   return (
     <Layout>
       <FolderPageLayout
-        folderInfo={
-          <FolderInfo profileImage={profileImage} ownerName={ownerName} foldername={folderName} />
-        }
+        LinkForm={<LinkForm />}
         searchBar={<SearchBar />}
         cardList={
           <CardList>
