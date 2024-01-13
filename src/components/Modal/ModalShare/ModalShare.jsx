@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import imageData from "../../../utils/imageData";
+import imageData from "../../../assets/imageData";
 import {
   ModalFolderTitle,
   ModalTitleContainer,
@@ -9,7 +9,10 @@ import {
 } from "../Modal.styled";
 import ModalShareLinkIcon from "./ModalShareLinkIcon";
 
-export default function ModalShare({ folderName = "폴더명" }) {
+export default function ModalShare({ folderName = "", itemList }) {
+  const [curFolder] = itemList.filter((item) => item.name === folderName);
+  console.log(curFolder);
+
   return (
     <ModalWrapper>
       <ModalTitleContainer>
@@ -52,6 +55,10 @@ const ModalShareLinkBox = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: Inter;
+  color: #373740;
 `;
 
 const ModalShareLinkContainer = styled.div`

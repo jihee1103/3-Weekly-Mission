@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import imageData from "../../utils/imageData";
+import imageData from "../../assets/imageData";
 import { Link } from "react-router-dom";
 
 export default function Navbar({ user }) {

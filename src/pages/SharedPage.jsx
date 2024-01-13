@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SharedPage.css";
-import imageData from "../utils/imageData";
+import imageData from "../assets/imageData";
 import CardList from "../components/CardList/CardList";
 import { getShredCardList } from "../apis/api";
 import LinkSearchForm from "../components/LinkSearchForm/LinkSearchForm";

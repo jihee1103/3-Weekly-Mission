@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import imageData from "../../../utils/imageData";
+import imageData from "../../../assets/imageData";
 
 export default function AddFolderListBox({
   name,

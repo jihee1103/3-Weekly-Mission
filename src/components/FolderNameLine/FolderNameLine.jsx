@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "./FolderNameLine.module.css";
-import imageData from "../../utils/imageData";
+import imageData from "../../assets/imageData";
 
 export default function FolderNameLine({ ModalButtonClick, folderName }) {
   return (

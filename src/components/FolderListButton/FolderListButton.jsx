@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "./FolderListButton.module.css";
 import { getFolderData } from "../../apis/api";
-import imageData from "../../utils/imageData";
+import imageData from "../../assets/imageData";
 
 export default function FolderListButton({
   ModalButtonClick,

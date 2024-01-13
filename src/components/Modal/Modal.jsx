@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import imageData from "../../utils/imageData";
+import imageData from "../../assets/imageData";
 import ModalShare from "./ModalShare/ModalShare";
 import ModalDelete from "./ModalDelete";
 import ModalForm from "./ModalForm";
@@ -46,7 +46,7 @@ const getModalContent = ({ modalId, folderName, modalUrl, itemList }) => {
         />
       );
     case "shareFolder":
-      return <ModalShare folderName={folderName} />;
+      return <ModalShare folderName={folderName} itemList={itemList} />;
     case "deleteFolder":
       return <ModalDelete nameType={"폴더"} DeleteName={folderName} />;
     case "deleteLink":

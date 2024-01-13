@@ -1,5 +1,5 @@
 import React from "react";
-import imageData from "../../utils/imageData";
+import imageData from "../../assets/imageData";
 import styled from "./FloatingActionButton.module.css";
 
 export default function FloatingActionButton() {

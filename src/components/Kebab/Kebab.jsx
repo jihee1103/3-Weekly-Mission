@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import imageData from "../../utils/imageData";
+import imageData from "../../assets/imageData";
 import styled from "./Kebab.module.css";
 
 export default function Kebab({ ModalButtonClick, url }) {

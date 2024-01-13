@@ -1,6 +1,6 @@
 import React from "react";
 import { getCreateDay, getTimeDifference } from "../../utils/util";
-import imageData from "../../utils/imageData";
+import imageData from "../../assets/imageData";
 import { Link } from "react-router-dom";
 import styled from "./Card.module.css";
 import Kebab from "../Kebab/Kebab";
