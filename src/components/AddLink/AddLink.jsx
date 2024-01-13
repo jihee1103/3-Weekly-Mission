@@ -4,7 +4,7 @@ import linkIcon from '../../asset/link.svg';
 export default function AddLink() {
   return (
     <AddLinkForm>
-      <Wrapper>
+      <Wrapper htmlFor="linkInput">
         <IconInputWrapper>
           <LinkIcon src={linkIcon} />
           <AddLinkInput id="linkInput" placeholder="링크를 추가해 보세요." />
@@ -17,12 +17,12 @@ export default function AddLink() {
   );
 }
 
-const AddLinkForm = styled.form`
+const AddLinkForm = styled.form``;
+const Wrapper = styled.label`
+  width: 800px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 800px;
-  text-align: center;
+  justify-content: space-between;
   background-color: #fff;
   padding: 16px 20px;
   border-radius: 15px;
@@ -39,12 +39,6 @@ const AddLinkForm = styled.form`
       width: 325px;
     }
   }
-`;
-const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 `;
 const IconInputWrapper = styled.div`
   display: flex;
