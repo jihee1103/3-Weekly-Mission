@@ -23,8 +23,7 @@ export default function ModalShare({ folderName = "", itemList, userId }) {
     window.open(`http://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
   };
   const handleShareToKakao = () => {
-    const sharedLink = encodeURIComponent(url);
-    shareKakao(sharedLink, folderName);
+    shareKakao(url, folderName);
   };
 
   return (
