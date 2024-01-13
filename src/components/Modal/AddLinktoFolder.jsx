@@ -58,7 +58,6 @@ const ShareFolderTitle = styled.span`
 const ShareFolderUrl = styled.p`
   line-height: 22px;
   text-align: center;
-  width: 100%;
   color: #9fa6b2;
   word-wrap: break-word;
   display: -webkit-box;

@@ -11,6 +11,7 @@ export default function FolderBody({
   folderId,
   folderName,
   handleClickTitle,
+  handleClickDeleteLink,
 }) {
   return (
     <Wrapper>
@@ -26,6 +27,7 @@ export default function FolderBody({
           folderName={folderName}
           toggleModalClick={toggleModalClick}
           updateModalName={updateModalName}
+          handleClickDeleteLink={handleClickDeleteLink}
         />
       )}
       {links.length === 0 && folderList.length !== 0 ? <NoLinkCard /> : null}

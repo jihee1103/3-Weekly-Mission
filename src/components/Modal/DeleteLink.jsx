@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export default function DeleteLink() {
+export default function DeleteLink({ deleteLinkUrl }) {
   return (
     <DeleteLinkWrapper>
       <DeleteLinkTitleContainer>
         <DeleteLinkTitle>링크 삭제</DeleteLinkTitle>
-        <DeleteLinkName>https://naver.com</DeleteLinkName>
+        <DeleteLinkName>{deleteLinkUrl}</DeleteLinkName>
       </DeleteLinkTitleContainer>
       <DeleteLinkButton>삭제하기</DeleteLinkButton>
     </DeleteLinkWrapper>
@@ -33,6 +33,11 @@ const DeleteLinkTitle = styled.span`
 const DeleteLinkName = styled.span`
   line-height: 22px;
   color: #9fa6b2;
+  word-wrap: break-word;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 `;
 
 const DeleteLinkButton = styled.button`

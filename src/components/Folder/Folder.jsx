@@ -7,6 +7,7 @@ import Modal from '../Modal/Modal';
 
 export default function Folder() {
   const [addLinkUrl, setAddLinkUrl] = useState('');
+  const [deleteLinkUrl, setDeleteLinkUrl] = useState('');
   const [isModalClicked, setIsModalClicked] = useState(false);
   const [modalName, setModalName] = useState('');
   const [userId, setUserId] = useState(1);
@@ -15,6 +16,10 @@ export default function Folder() {
 
   const links = useFolderLinks(`users/${userId}/links`, folderId);
   const folderList = useFolderLinks(`users/${userId}/folders`);
+
+  const handleClickDeleteLink = (url) => {
+    setDeleteLinkUrl(url);
+  };
 
   const handleClickTitle = (item) => {
     setUserId(1); // test
@@ -54,6 +59,7 @@ export default function Folder() {
           folderList={folderList}
           addLinkUrl={addLinkUrl}
           folderName={folderName}
+          deleteLinkUrl={deleteLinkUrl}
         />
       ) : null}
       <AddLinkArea>
@@ -78,6 +84,7 @@ export default function Folder() {
           folderId={folderId}
           folderName={folderName}
           handleClickTitle={handleClickTitle}
+          handleClickDeleteLink={handleClickDeleteLink}
         />
       </FolderBodyArea>
     </>

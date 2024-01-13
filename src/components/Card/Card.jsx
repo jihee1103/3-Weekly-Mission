@@ -7,7 +7,12 @@ import starIcon from '../../asset/star.svg';
 import calculateTime from '../../utils/calculateTime';
 import PopOverMenu from '../Modal/PopOverMenu';
 
-export default function Card({ link }) {
+export default function Card({
+  link,
+  toggleModalClick,
+  updateModalName,
+  handleClickDeleteLink,
+}) {
   const [formattedCreatedAt, setFormattedCreatedAt] = useState('');
   const [elapsedTime, setElapsedTime] = useState('');
   const [cardImgUrl, setCardImgUrl] = useState('');
@@ -58,7 +63,14 @@ export default function Card({ link }) {
             alt="더보기 아이콘"
             onClick={handleKebabClick}
           />
-          {isKebabClicked ? <PopOverMenu /> : null}
+          {isKebabClicked ? (
+            <PopOverMenu
+              toggleModalClick={toggleModalClick}
+              updateModalName={updateModalName}
+              handleClickDeleteLink={handleClickDeleteLink}
+              linkUrl={linkUrl}
+            />
+          ) : null}
         </CardInfoTop>
         <CardInfoBodyContainer to={linkUrl} target="_blank">
           <CardInfoBody>{link.description ?? '설명이 없습니다.'}</CardInfoBody>

@@ -2,12 +2,25 @@ import camelcaseKeys from 'camelcase-keys';
 import styled from 'styled-components';
 import Card from './Card';
 
-export default function CardList({ links }) {
+export default function CardList({
+  links,
+  toggleModalClick,
+  updateModalName,
+  handleClickDeleteLink,
+}) {
   return (
     <CardBox>
       {links.map((link) => {
         const newLink = camelcaseKeys(link);
-        return <Card key={newLink.id} link={newLink} />;
+        return (
+          <Card
+            key={newLink.id}
+            link={newLink}
+            toggleModalClick={toggleModalClick}
+            updateModalName={updateModalName}
+            handleClickDeleteLink={handleClickDeleteLink}
+          />
+        );
       })}
     </CardBox>
   );

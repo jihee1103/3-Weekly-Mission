@@ -5,6 +5,7 @@ import ChangeFolderName from './ChangeFolderName';
 import DeleteFolder from './DeleteFolder';
 import ShareFolder from './ShareFolder';
 import AddLinkToFolder from './AddLinkToFolder';
+import DeleteLink from './DeleteLink';
 
 export default function Modal({
   toggleModalClick,
@@ -12,6 +13,7 @@ export default function Modal({
   folderList,
   addLinkUrl,
   folderName,
+  deleteLinkUrl,
 }) {
   const handleCloseButtonClick = () => {
     toggleModalClick();
@@ -25,6 +27,9 @@ export default function Modal({
     }
     if (modalName === 'deleteFolder') {
       return <DeleteFolder folderName={folderName} />;
+    }
+    if (modalName === 'deleteLink') {
+      return <DeleteLink deleteLinkUrl={deleteLinkUrl} />;
     }
     if (modalName === 'shareFolder') {
       return <ShareFolder folderName={folderName} />;

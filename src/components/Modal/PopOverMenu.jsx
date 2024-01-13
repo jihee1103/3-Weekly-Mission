@@ -1,10 +1,24 @@
 import styled from 'styled-components';
 
-export default function PopOverMenu() {
+export default function PopOverMenu({
+  toggleModalClick,
+  updateModalName,
+  handleClickDeleteLink,
+  linkUrl,
+}) {
+  const handleClickButton = (e) => {
+    toggleModalClick();
+    updateModalName(e.currentTarget.id);
+    handleClickDeleteLink(linkUrl);
+  };
   return (
     <MenuWrapper>
-      <MenuButton>삭제하기</MenuButton>
-      <MenuButton>폴더에 추가</MenuButton>
+      <MenuButton id="deleteLink" onClick={handleClickButton}>
+        삭제하기
+      </MenuButton>
+      <MenuButton id="addLinkButton" onClick={handleClickButton}>
+        폴더에 추가
+      </MenuButton>
     </MenuWrapper>
   );
 }

@@ -11,6 +11,7 @@ export default function FolderContent({
   folderName,
   toggleModalClick,
   updateModalName,
+  handleClickDeleteLink,
 }) {
   return (
     <>
@@ -28,7 +29,12 @@ export default function FolderContent({
           toggleModalClick={toggleModalClick}
           updateModalName={updateModalName}
         />
-        <FolderCardList links={links} />
+        <FolderCardList
+          links={links}
+          toggleModalClick={toggleModalClick}
+          updateModalName={updateModalName}
+          handleClickDeleteLink={handleClickDeleteLink}
+        />
       </FolderCardArea>
     </>
   );
