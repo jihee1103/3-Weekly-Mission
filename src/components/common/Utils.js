@@ -42,3 +42,18 @@ export function formatCreatedAt(createdAt) {
 
   return formattedDate;
 }
+
+export async function copyToClipboard() {
+  let hostAddress = window.location.origin;
+  //현재 로그인 상태관리를 하지 못하므로 임시 ID 값
+  let userId = 1;
+  let folderId = 1;
+  const shareLink = `${hostAddress}/shared?user=${userId}&folder=${folderId}`;
+
+  try {
+    await navigator.clipboard.writeText(shareLink);
+    alert("링크가 클립보드에 복사되었습니다.");
+  } catch (error) {
+    console.error("클립보드 복사 실패:", error);
+  }
+}
