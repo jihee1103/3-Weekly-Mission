@@ -21,7 +21,7 @@ export default function Modal({
       return <AddFolder />;
     }
     if (modalName === 'changeFolderName') {
-      return <ChangeFolderName />;
+      return <ChangeFolderName folderName={folderName} />;
     }
     if (modalName === 'deleteFolder') {
       return <DeleteFolder />;

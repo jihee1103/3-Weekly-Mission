@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export default function ChangeFolderName() {
+export default function ChangeFolderName({ folderName }) {
   return (
     <EditFolderWrapper>
       <EditFolderTitle>폴더 이름 변경</EditFolderTitle>
       <EditFolderForm>
-        <EditFolderInput placeholder="유용한 팁" />
+        <EditFolderInput placeholder={folderName} />
         <EditFolderButton>변경하기</EditFolderButton>
       </EditFolderForm>
     </EditFolderWrapper>
