@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export default function DeleteLink({ deleteLinkUrl }) {
+export default function DeleteLink({ selectedLinkUrl }) {
   return (
     <DeleteLinkWrapper>
       <DeleteLinkTitleContainer>
         <DeleteLinkTitle>링크 삭제</DeleteLinkTitle>
-        <DeleteLinkName>{deleteLinkUrl}</DeleteLinkName>
+        <DeleteLinkName>{selectedLinkUrl}</DeleteLinkName>
       </DeleteLinkTitleContainer>
       <DeleteLinkButton>삭제하기</DeleteLinkButton>
     </DeleteLinkWrapper>

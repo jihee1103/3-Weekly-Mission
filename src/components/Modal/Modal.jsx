@@ -13,7 +13,7 @@ export default function Modal({
   folderList,
   addLinkUrl,
   folderName,
-  deleteLinkUrl,
+  selectedLinkUrl,
 }) {
   const handleCloseButtonClick = () => {
     toggleModalClick();
@@ -29,14 +29,18 @@ export default function Modal({
       return <DeleteFolder folderName={folderName} />;
     }
     if (modalName === 'deleteLink') {
-      return <DeleteLink deleteLinkUrl={deleteLinkUrl} />;
+      return <DeleteLink selectedLinkUrl={selectedLinkUrl} />;
     }
     if (modalName === 'shareFolder') {
       return <ShareFolder folderName={folderName} />;
     }
     if (modalName === 'addLinkButton') {
       return (
-        <AddLinkToFolder folderList={folderList} addLinkUrl={addLinkUrl} />
+        <AddLinkToFolder
+          folderList={folderList}
+          addLinkUrl={addLinkUrl}
+          selectedLinkUrl={selectedLinkUrl}
+        />
       );
     }
     return null;

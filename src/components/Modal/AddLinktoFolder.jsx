@@ -2,7 +2,11 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import checkedIcon from '../../asset/check.svg';
 
-export default function AddLinkToFolder({ folderList, addLinkUrl }) {
+export default function AddLinkToFolder({
+  folderList,
+  addLinkUrl,
+  selectedLinkUrl,
+}) {
   const [selectedFolderId, setSelectedFolderId] = useState(0);
   const handleFolderListClick = (id) => {
     setSelectedFolderId(id);
@@ -11,7 +15,7 @@ export default function AddLinkToFolder({ folderList, addLinkUrl }) {
     <ShareFolderWrapper>
       <ShareFolderTitleContainer>
         <ShareFolderTitle>폴더에 추가</ShareFolderTitle>
-        <ShareFolderUrl>{addLinkUrl}</ShareFolderUrl>
+        <ShareFolderUrl>{selectedLinkUrl || addLinkUrl}</ShareFolderUrl>
       </ShareFolderTitleContainer>
       <FolderListContainer>
         {folderList.map((item) => (

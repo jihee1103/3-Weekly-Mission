@@ -6,12 +6,14 @@ export default function AddLink({
   updateModalName,
   updateAddLinkUrl,
   addLinkUrl,
+  resetSelectedLinkUrl,
 }) {
   const handleInputValue = (e) => {
     updateAddLinkUrl(e.currentTarget.value);
   };
   const handleButtonClick = (e) => {
     e.preventDefault();
+    resetSelectedLinkUrl();
     toggleModalClick();
     updateModalName(e.currentTarget.id);
   };
