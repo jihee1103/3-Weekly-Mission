@@ -1,4 +1,4 @@
-import { getElapsedTime } from "./getElapsedTime";
+import { getElapsedTime } from "../../util/getElapsedTime";
 
 export const mapLinksData = (link) => {
   const { id, createdAt, url, imageSource, title, description } = link;

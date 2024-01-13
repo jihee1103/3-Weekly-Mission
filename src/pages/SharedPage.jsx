@@ -1,5 +1,5 @@
 import { SharedPageLayout } from "../page-layout/SharedPageLayout/SharedPageLayout";
-import { useGetFolder } from "../data-access/useGetFolder";
+import { useGetFolder } from "../folder/data-access-folder/useGetFolder";
 import { Layout } from "../sharing/Layout/Layout";
 import { CardList } from "../sharing/card/CardList/CardList";
 import { FolderInfo } from "../shared-page-ui/FolderInfo/FolderInfo";

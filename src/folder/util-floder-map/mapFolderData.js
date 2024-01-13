@@ -1,4 +1,4 @@
-import { getElapsedTime } from "./getElapsedTime";
+import { getElapsedTime } from "../../util/getElapsedTime";
 
 export const mapFolderData = (folder) => {
   if (!folder) return []; //폴더 없으면 빈 배열 반환하게 보험

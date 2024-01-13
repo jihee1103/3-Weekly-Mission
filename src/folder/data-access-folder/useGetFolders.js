@@ -1,5 +1,5 @@
-import { axiosInstance } from "../util/axiosInstance";
-import { useAsync } from "../util/useAsync";
+import { axiosInstance } from "../../util/axiosInstance";
+import { useAsync } from "../../util/useAsync";
 
 export const useGetFolders = () => {
   const getFolders = () => axiosInstance.get("users/1/folders");
