@@ -1,5 +1,3 @@
-import imageData from "../assets/imageData";
-
 export const shareKakao = (url, folderName) => {
   if (!window.Kakao.isInitialized()) {
     window.Kakao.init("32adc3f02c72c6c7bb61effc65a716ec");
