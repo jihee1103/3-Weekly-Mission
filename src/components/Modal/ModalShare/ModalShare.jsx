@@ -9,6 +9,7 @@ import {
 } from "../Modal.styled";
 import ModalShareLinkIcon from "./ModalShareLinkIcon";
 import { handleCopyClipBoard } from "../../../utils/util";
+import { shareKakao } from "../../../utils/kakaoShare";
 
 export default function ModalShare({ folderName = "", itemList, userId }) {
   const [curFolder] = itemList.filter((item) => item.name === folderName);
@@ -21,6 +22,10 @@ export default function ModalShare({ folderName = "", itemList, userId }) {
     const sharedLink = encodeURIComponent(url);
     window.open(`http://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
   };
+  const handleShareToKakao = () => {
+    const sharedLink = encodeURIComponent(url);
+    shareKakao({ url: sharedLink, folderName });
+  };
 
   return (
     <ModalWrapper>
@@ -29,7 +34,7 @@ export default function ModalShare({ folderName = "", itemList, userId }) {
         <ModalFolderTitle>{folderName}</ModalFolderTitle>
       </ModalTitleContainer>
       <ModalShareLinkContainer>
-        <ModalShareLinkBox>
+        <ModalShareLinkBox onClick={handleShareToKakao}>
           <ModalShareLinkIcon
             type={"kakao"}
             imageSource={imageData.kakaoIcon}
