@@ -1,16 +1,19 @@
 import Header from "./components/Header";
-import Profile from "./components/Profile";
 import Footer from "./components/Footer";
-import Main from "./components/Main";
+import { BrowserRouter, Routes } from "react-router-dom";
+import Shared from "./pages/Shared";
+import Folder from "./pages/Folder";
 
 const App = function () {
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <Profile />
-      <Main />
+      <Routes>
+        <Route path="/shared" element={<Shared />} />
+        <Route path="/folder" element={<Folder />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 };
 
