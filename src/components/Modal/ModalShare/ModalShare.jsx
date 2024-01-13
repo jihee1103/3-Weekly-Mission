@@ -24,7 +24,7 @@ export default function ModalShare({ folderName = "", itemList, userId }) {
   };
   const handleShareToKakao = () => {
     const sharedLink = encodeURIComponent(url);
-    shareKakao({ url: sharedLink, folderName });
+    shareKakao(sharedLink, folderName);
   };
 
   return (
