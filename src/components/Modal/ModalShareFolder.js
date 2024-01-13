@@ -70,8 +70,6 @@ const ModalContainer = styled.div`
 const ModalShareFolder = ({ handleClose }) => {
   const { folderName, folderId } = useFolderNameContext();
   const [linkUserId, setLinkUserId] = useState("");
-  const location = useLocation();
-  const { Kakao } = window;
 
   const KAKAO_SHARE_KEY = "aabd14c029bfccc0741b8c57bbafe148";
 

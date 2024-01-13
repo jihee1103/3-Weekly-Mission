@@ -5,8 +5,6 @@ import EditButtonsArea from "../EditButtonsArea/EditButtonsArea";
 import Kebab from "../Kebab/Kebab";
 import { useFolderNameContext } from "../../context/FolderNameContext";
 import EmptyArea from "../EmptyArea/EmptyArea";
-import { useState } from "react";
-import Dropdown from "../Dropdown/Dropdown";
 
 const CardList = ({ cardList }) => {
   function createDate(createdAt) {
