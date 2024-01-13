@@ -1,5 +1,5 @@
 import Profile from "../components/Profile";
-import Main from "../components/Main";
+import Main from "../components/Main/Main";
 
 const Shared = function () {
   return (
