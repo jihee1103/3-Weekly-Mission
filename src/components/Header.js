@@ -1,4 +1,4 @@
-import getUser from "../api/getUser";
+import getData from "../api/getData";
 import "./Header.css";
 import { useEffect, useState } from "react";
 
@@ -7,7 +7,7 @@ const Header = function () {
 
   useEffect(() => {
     const data = async () => {
-      const result = await getUser();
+      const result = await getData("/sample/user");
       setProfileData(result);
     };
 

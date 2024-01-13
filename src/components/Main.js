@@ -1,5 +1,5 @@
 import "./Main.css";
-import getFolder from "../api/getFolder";
+import getData from "../api/getData";
 import { useState, useEffect } from "react";
 import CardList from "../card/CardList";
 
@@ -8,7 +8,7 @@ const Main = function () {
 
   useEffect(() => {
     const data = async () => {
-      const result = await getFolder();
+      const result = await getData("/sample/folder");
       setCardData(result.folder.links);
     };
 
