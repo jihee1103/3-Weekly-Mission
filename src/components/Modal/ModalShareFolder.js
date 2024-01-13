@@ -71,6 +71,7 @@ const ModalShareFolder = ({ handleClose }) => {
   const [linkUserId, setLinkUserId] = useState("");
 
   const KAKAO_SHARE_KEY = "aabd14c029bfccc0741b8c57bbafe148";
+  const HOST_URL = "https://dynamic-figolla-7cd5e8.netlify.app/";
 
   const handleCopyClipBoard = (text) => {
     navigator.clipboard.writeText(text);
@@ -193,7 +194,7 @@ const ModalShareFolder = ({ handleClose }) => {
     };
   }, []);
 
-  const sharedLink = `http://localhost:3000/shared?user=${linkUserId}&folder=${folderId}`;
+  const sharedLink = `${HOST_URL}/shared?user=${linkUserId}&folder=${folderId}`;
 
   return (
     <ModalContainer>
