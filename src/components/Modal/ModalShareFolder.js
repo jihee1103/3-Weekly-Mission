@@ -78,9 +78,19 @@ const ModalShareFolder = ({ handleClose }) => {
     setLinkUserId(folderUserData.data[0].id);
   };
 
+  const shareToFacebook = (link) => {
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${link}`,
+      "페이스북 공유하기",
+      "width=600,height=800,location=no,status=no,scrollbars=yes"
+    );
+  };
+
   useEffect(() => {
     handleFolderUserData();
   }, []);
+
+  const sharedLink = `localhost:3000/shared?user=${linkUserId}&folder=${folderId}`;
 
   return (
     <ModalContainer>
@@ -101,7 +111,9 @@ const ModalShareFolder = ({ handleClose }) => {
           </div>
           <div className="oneIconArea">
             <img
-              onClick={handleClose}
+              onClick={() => {
+                shareToFacebook(sharedLink);
+              }}
               src={`${IMAGE_URL}/assets/modal_facebook.png`}
               alt="close"
             />
@@ -111,9 +123,7 @@ const ModalShareFolder = ({ handleClose }) => {
             <img
               onClick={() => {
                 handleFolderUserData();
-                handleCopyClipBoard(
-                  `localhost:3000/shared?user=${linkUserId}&folder=${folderId}`
-                );
+                handleCopyClipBoard(sharedLink);
               }}
               src={`${IMAGE_URL}/assets/modal_link.png`}
               alt="링크 복사 아이콘"
