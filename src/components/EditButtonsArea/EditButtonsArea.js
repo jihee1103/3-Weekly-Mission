@@ -3,11 +3,13 @@ import { useFolderNameContext } from "../../context/FolderNameContext";
 import { useState } from "react";
 import ModalEditFolderName from "../Modal/ModalEditFolderName";
 import ModalDeleteFolder from "../Modal/ModalDeleteFolder";
+import ModalShareFolder from "../Modal/ModalShareFolder";
 
 const EditButtonsArea = () => {
   const { folderName } = useFolderNameContext();
   const [showModalEditFolderName, setShowModalEditFolderName] = useState(false);
   const [showModalDeleteFolder, setShowModalDeleteFolder] = useState(false);
+  const [showModalShareFolder, setShowModalShareFolder] = useState(false);
 
   const handleModalEditFolderName = () => {
     setShowModalEditFolderName(!showModalEditFolderName);
@@ -17,10 +19,13 @@ const EditButtonsArea = () => {
     setShowModalDeleteFolder(!showModalDeleteFolder);
   };
 
+  const handleModalShareFolder = () => {
+    setShowModalShareFolder(!showModalShareFolder);
+  };
   if (folderName !== "전체") {
     return (
       <div className="editButtonsArea">
-        <div className="editButton">
+        <div className="editButton" onClick={handleModalShareFolder}>
           <img
             className="editButtonIcon"
             src={process.env.PUBLIC_URL + `/assets/share.png`}
@@ -49,6 +54,9 @@ const EditButtonsArea = () => {
         )}
         {showModalDeleteFolder && (
           <ModalDeleteFolder handleClose={handleModalDeleteFolder} />
+        )}
+        {showModalShareFolder && (
+          <ModalShareFolder handleClose={handleModalShareFolder} />
         )}
       </div>
     );
