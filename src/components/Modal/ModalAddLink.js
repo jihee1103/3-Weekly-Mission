@@ -46,7 +46,7 @@ const ModalContainer = styled.div`
         margin: 0;
       }
 
-      img {
+      .closeIcon {
         position: absolute;
         top: -20px;
         right: -25px;
@@ -63,12 +63,48 @@ const ModalContainer = styled.div`
       padding: 8px;
       gap: 8px;
       cursor: pointer;
+      border-radius: 8px;
+      position: relative;
+
+      h2 {
+        font-size: 1.6rem;
+        font-weight: 400;
+        margin: 0;
+        line-height: 14px;
+      }
+
+      p {
+        color: #9fa6b2;
+        font-size: 1.4rem;
+        margin: 0;
+      }
+    }
+    .checkIcon {
+      position: absolute;
+      height: 14px;
+      margin-right: 0px;
+      right: 8px;
+      top: 8px;
+    }
+
+    .modalItem:hover {
+      background-color: #f0f6ff;
+      color: #6d6afe;
+    }
+    .modalItemCliked {
+      background-color: #f0f6ff;
+      display: flex;
+      flex-direction: row;
+      padding: 8px;
+      gap: 8px;
+      cursor: pointer;
 
       h2 {
         font-size: 1.6rem;
         font-weight: 400;
         margin: 0;
         line-height: 24px;
+        color: #6d6afe;
       }
 
       p {
@@ -77,12 +113,6 @@ const ModalContainer = styled.div`
         margin: 0;
         padding-top: 4px;
       }
-    }
-
-    .modalItem:hover {
-      border-radius: 8px;
-      background-color: #f0f6ff;
-      color: #6d6afe;
     }
 
     button {
@@ -104,15 +134,19 @@ const ModalContainer = styled.div`
 
 const ModalAddLink = ({ handleClose, link }) => {
   const [folderData, setFolderData] = useState({ data: [] });
+  const [itemClick, setItemClick] = useState(null);
 
   const handleFolderData = async () => {
     const folder = await getFolderList();
     setFolderData(folder);
   };
 
+  const handleItemClick = (index) => {
+    setItemClick(index);
+  };
+
   useEffect(() => {
     handleFolderData();
-    console.log(folderData.data);
   }, []);
 
   return (
@@ -125,22 +159,34 @@ const ModalAddLink = ({ handleClose, link }) => {
           </div>
 
           <div className="modalFolderList">
-            {folderData.data.map((item) => (
-              <div className="modalItem">
-                <h2>{item.name}</h2>
-                <p>{`${item.link.count}개 링크`}</p>
+            {folderData.data.map((item, index) => (
+              <div>
+                <div key={index}>
+                  <div
+                    onClick={() => {
+                      handleItemClick(index);
+                    }}
+                    className={
+                      index === itemClick ? "modalItemCliked" : "modalItem"
+                    }
+                  >
+                    <h2>{item.name}</h2>
+                    <p>{`${item.link.count}개 링크`}</p>
+                  </div>
+                  {index === itemClick && (
+                    <img
+                      className="checkIcon"
+                      src={`${IMAGE_URL}/assets/check.png`}
+                      alt="체크표시 아이콘"
+                    ></img>
+                  )}
+                </div>
               </div>
             ))}
           </div>
 
-          {/* <input
-            autoFocus="autofocus"
-            value={inputText}
-            onChange={(e) => {
-              setInputText(e.target.value);
-            }}
-          /> */}
           <img
+            className="closeIcon"
             onClick={handleClose}
             src={`${IMAGE_URL}/assets/close.png`}
             alt="닫기버튼"
