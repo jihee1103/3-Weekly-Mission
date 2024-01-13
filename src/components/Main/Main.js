@@ -1,7 +1,8 @@
 import "./Main.css";
-import getData from "../api/getData";
+import getData from "../../api/getData";
 import { useState, useEffect } from "react";
-import CardList from "../card/CardList";
+import CardList from "../../card/CardList";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Main = function () {
   const [cardData, setCardData] = useState([]);
@@ -18,7 +19,7 @@ const Main = function () {
   return (
     <div className="Main">
       <div className="content-box">
-        <input className="search-bar" placeholder="링크를 검색해 보세요." />
+        <SearchBar />
         <CardList cardData={cardData} />
       </div>
     </div>
