@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useFolderNameContext } from "../../context/FolderNameContext";
 import IMAGE_URL from "../../constant/imageUrl";
 
 const ModalContainer = styled.div`
@@ -23,26 +23,22 @@ const ModalContainer = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 24px;
 
     div {
-      gap: 24px;
+      gap: 8px;
       padding: 0;
 
       h1 {
         color: #373740;
         font-size: 2rem;
+        margin: 0;
       }
 
-      input {
-        width: 280px;
-        padding: 18px 15px;
-        border-radius: 8px;
-        border: 1px solid lightgray;
-        background: #fff;
-      }
-      input:focus {
-        outline: 1px solid #6d6afe;
+      p {
+        color: #9fa6b2;
+        font-size: 1.4rem;
+        margin: 0;
       }
 
       img {
@@ -55,46 +51,36 @@ const ModalContainer = styled.div`
 
     button {
       width: 280px;
-      padding: 16px 20px;
+      height: 51px;
       border-radius: 8px;
-      background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-      border: 0px;
-      cursor: pointer;
-
-      color: #f5f5f5;
+      background: #ff5b56;
+      color: #ffffff;
+      border-style: none;
       font-size: 1.6rem;
-      font-style: normal;
       font-weight: 600;
-      line-height: normal;
     }
   }
 `;
 
-const ModalAddFolder = ({ handleClose }) => {
-  const [inputText, setInputText] = useState("");
+const ModalDeleteFolder = ({ handleClose }) => {
+  const { folderName } = useFolderNameContext();
 
   return (
     <ModalContainer>
       <div>
         <div>
           <h1>폴더 이름 변경</h1>
-          <input
-            autoFocus="autofocus"
-            value={inputText}
-            onChange={(e) => {
-              setInputText(e.target.value);
-            }}
-          />
+          <p>{folderName}</p>
           <img
             onClick={handleClose}
             src={`${IMAGE_URL}/assets/close.png`}
             alt="닫기버튼"
           />
         </div>
-        <button>변경하기</button>
+        <button>삭제하기</button>
       </div>
     </ModalContainer>
   );
 };
 
-export default ModalAddFolder;
+export default ModalDeleteFolder;

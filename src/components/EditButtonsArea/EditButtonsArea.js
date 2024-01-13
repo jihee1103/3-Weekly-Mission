@@ -2,13 +2,19 @@ import "./EditButtonsArea.css";
 import { useFolderNameContext } from "../../context/FolderNameContext";
 import { useState } from "react";
 import ModalEditFolderName from "../Modal/ModalEditFolderName";
+import ModalDeleteFolder from "../Modal/ModalDeleteFolder";
 
 const EditButtonsArea = () => {
   const { folderName } = useFolderNameContext();
   const [showModalEditFolderName, setShowModalEditFolderName] = useState(false);
+  const [showModalDeleteFolder, setShowModalDeleteFolder] = useState(false);
 
   const handleModalEditFolderName = () => {
     setShowModalEditFolderName(!showModalEditFolderName);
+  };
+
+  const handleModalDeleteFolder = () => {
+    setShowModalDeleteFolder(!showModalDeleteFolder);
   };
 
   if (folderName !== "전체") {
@@ -30,7 +36,7 @@ const EditButtonsArea = () => {
           />
           <p className="editButtonName">이름 변경</p>
         </div>
-        <div className="editButton">
+        <div className="editButton" onClick={handleModalDeleteFolder}>
           <img
             className="editButtonIcon"
             src={process.env.PUBLIC_URL + `/assets/delete.png`}
@@ -40,6 +46,9 @@ const EditButtonsArea = () => {
         </div>
         {showModalEditFolderName && (
           <ModalEditFolderName handleClose={handleModalEditFolderName} />
+        )}
+        {showModalDeleteFolder && (
+          <ModalDeleteFolder handleClose={handleModalDeleteFolder} />
         )}
       </div>
     );
