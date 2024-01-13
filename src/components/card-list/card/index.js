@@ -1,5 +1,5 @@
 import { formatDate, returnUploadDate } from '../../../utils';
-import Kebab from '../../kebab/index';
+import Kebab from '../../kebab-button/index';
 import './style.css';
 import { useState } from 'react';
 

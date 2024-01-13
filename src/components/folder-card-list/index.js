@@ -3,7 +3,7 @@ import { getFolder, getFolderItem } from '../../api';
 import CardList from '../card-list/index';
 import FolderMenu from '../folder-menu';
 import SelectedFolder from '../selected-folder';
-import AddFolderBtn from '../add-folder-btn';
+import AddFolderBtn from '../add-folder-button';
 
 function FolderCardList() {
   const [link, setLink] = useState();

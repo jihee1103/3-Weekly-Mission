@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react';
 import { getUserSample, getUser } from '../../api';
 import './style.css';
 
-const Header = () => {
+const Header = isSticky => {
   const [user, setUser] = useState({});
-  const headerClass =
-    location.pathname === '/folder' ? 'header__folder' : 'header';
+  const headerClass = isSticky ? 'header__folder' : 'header';
 
   useEffect(() => {
     if (location.pathname === '/shared') {
