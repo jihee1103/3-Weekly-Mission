@@ -1,4 +1,4 @@
-import { getUrlWithQs } from '@api/util/getUrl';
+import { getUrlWithQs } from '@api/util/getURL';
 
 import { BASE_URL } from './instance-api';
 
