@@ -76,28 +76,32 @@ const ModalShareFolder = ({ handleClose }) => {
   const HOST_URL = "https://dynamic-figolla-7cd5e8.netlify.app/";
   const sharedLink = `${HOST_URL}/shared?user=${linkUserId}&folder=${folderId}`;
 
-  // useEffect(() => {
-  //   const script = document.createElement("script");
-  //   script.src = "https://developers.kakao.com/sdk/js/kakao.js"; // 카카오톡 SDK
-  //   script.async = true;
-
-  //   document.body.appendChild(script);
-
-  //   return () => {
-  //     document.body.removeChild(script);
-  //     handleFolderUserData();
-  //   };
-  // }, []);
-
   useEffect(() => {
-    // init 해주기 전에 clean up 을 해준다.
-    Kakao.cleanup();
-    // 자신의 js 키를 넣어준다.
-    Kakao.init({ KAKAO_SHARE_KEY });
-    // 잘 적용되면 true 를 뱉는다.
-    console.log(Kakao.isInitialized());
-    handleFolderUserData();
+    const script = document.createElement("script");
+    script.src = "https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"; // 카카오톡 SDK
+    script.async = true;
+
+    document.body.appendChild(script);
+    if (!Kakao.isInitialized()) {
+      Kakao.init(KAKAO_SHARE_KEY);
+    }
+
+    return () => {
+      Kakao.cleanup();
+      document.body.removeChild(script);
+      handleFolderUserData();
+    };
   }, []);
+
+  // useEffect(() => {
+  //   // init 해주기 전에 clean up 을 해준다.
+  //   Kakao.cleanup();
+  //   // 자신의 js 키를 넣어준다.
+  //   Kakao.init({ KAKAO_SHARE_KEY });
+  //   // 잘 적용되면 true 를 뱉는다.
+  //   console.log(Kakao.isInitialized());
+  //   handleFolderUserData();
+  // }, []);
 
   const handleCopyClipBoard = (text) => {
     navigator.clipboard.writeText(text);
