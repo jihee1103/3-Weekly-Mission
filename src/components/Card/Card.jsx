@@ -5,12 +5,18 @@ import defaultImage from '../../asset/default-image.svg';
 import kebabIcon from '../../asset/kebab.svg';
 import starIcon from '../../asset/star.svg';
 import calculateTime from '../../utils/calculateTime';
+import PopOverMenu from '../Modal/PopOverMenu';
 
 export default function Card({ link }) {
   const [formattedCreatedAt, setFormattedCreatedAt] = useState('');
   const [elapsedTime, setElapsedTime] = useState('');
   const [cardImgUrl, setCardImgUrl] = useState('');
   const [linkUrl, setLinkUrl] = useState('');
+  const [isKebabClicked, setIskebabClicked] = useState(false);
+
+  const handleKebabClick = () => {
+    setIskebabClicked(!isKebabClicked);
+  };
 
   const updateFormattedCreatedAt = (dateTimeString) => {
     const formattedDateTime = new Date(dateTimeString);
@@ -35,8 +41,8 @@ export default function Card({ link }) {
     e.target.src = defaultImage;
   };
   return (
-    <CardContainer to={linkUrl} target="_blank">
-      <CardImgArea>
+    <CardContainer>
+      <CardImgArea to={linkUrl} target="_blank">
         <CardPreviewImg
           src={cardImgUrl || defaultImage}
           alt="카드 미리보기 이미지"
@@ -47,10 +53,17 @@ export default function Card({ link }) {
       <CardInfoArea>
         <CardInfoTop>
           <CardInfoTime>{elapsedTime}</CardInfoTime>
-          <KebabIcon src={kebabIcon} alt="더보기 아이콘" />
+          <KebabIcon
+            src={kebabIcon}
+            alt="더보기 아이콘"
+            onClick={handleKebabClick}
+          />
+          {isKebabClicked ? <PopOverMenu /> : null}
         </CardInfoTop>
-        <CardInfoBody>{link.description ?? '설명이 없습니다.'}</CardInfoBody>
-        <CardInfoDate>{formattedCreatedAt}</CardInfoDate>
+        <CardInfoBodyContainer to={linkUrl} target="_blank">
+          <CardInfoBody>{link.description ?? '설명이 없습니다.'}</CardInfoBody>
+          <CardInfoDate>{formattedCreatedAt}</CardInfoDate>
+        </CardInfoBodyContainer>
       </CardInfoArea>
     </CardContainer>
   );
@@ -66,18 +79,17 @@ const CardInfoArea = styled.div`
   flex-direction: column;
   padding: 15px 20px;
   gap: 10px;
-  overflow: hidden;
 `;
-const CardContainer = styled(Link)`
+const CardContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 340px;
   height: 335px;
   box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.08);
   border-radius: 15px;
-  overflow: hidden;
   cursor: pointer;
-  color: #000000;
+
   &:hover {
     ${CardPreviewImg} {
       transition: all 0.3s;
@@ -94,7 +106,7 @@ const CardContainer = styled(Link)`
     }
   }
 `;
-const CardImgArea = styled.div`
+const CardImgArea = styled(Link)`
   position: relative;
   display: flex;
   align-items: center;
@@ -102,7 +114,10 @@ const CardImgArea = styled.div`
   width: 100%;
   height: 200px;
   cursor: pointer;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
   overflow: hidden;
+  z-index: 1;
 `;
 const StarIcon = styled.img`
   position: absolute;
@@ -110,6 +125,7 @@ const StarIcon = styled.img`
   right: 15px;
 `;
 const CardInfoTop = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -120,6 +136,7 @@ const CardInfoTime = styled.p`
 `;
 const KebabIcon = styled.img``;
 const CardInfoBody = styled.p`
+  position: relative;
   height: 49px;
   line-height: 24px;
   display: -webkit-box;
@@ -130,4 +147,10 @@ const CardInfoBody = styled.p`
 const CardInfoDate = styled.p`
   font-size: 14px;
   color: #333333;
+`;
+const CardInfoBodyContainer = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  color: #000000;
+  gap: 10px;
 `;
