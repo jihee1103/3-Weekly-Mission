@@ -5,6 +5,8 @@ import EditButtonsArea from "../EditButtonsArea/EditButtonsArea";
 import Kebab from "../Kebab/Kebab";
 import { useFolderNameContext } from "../../context/FolderNameContext";
 import EmptyArea from "../EmptyArea/EmptyArea";
+import { useState } from "react";
+import Dropdown from "../Dropdown/Dropdown";
 
 const CardList = ({ cardList }) => {
   function createDate(createdAt) {
@@ -78,7 +80,8 @@ const CardList = ({ cardList }) => {
                     src={process.env.PUBLIC_URL + `/assets/star.png`}
                     alt="별 버튼"
                   />
-                  <Kebab />
+                  <Kebab link={item.url} />
+
                   <div className="cardBottom">
                     <div>
                       <p className="time">{setPassedTime(item.created_at)}</p>

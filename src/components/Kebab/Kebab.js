@@ -2,7 +2,7 @@ import { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import "./Kebab.css";
 
-const Kebab = () => {
+const Kebab = (link) => {
   const [view, setView] = useState(false);
 
   const handleView = () => {
@@ -14,6 +14,7 @@ const Kebab = () => {
       onClick={(e) => {
         e.stopPropagation();
         handleView();
+        // console.log(link);
       }}
     >
       <img
@@ -21,7 +22,7 @@ const Kebab = () => {
         src={process.env.PUBLIC_URL + `/assets/kebab.png`}
         alt="케밥 버튼"
       />
-      {view && <Dropdown></Dropdown>}
+      {view && <Dropdown link={link}></Dropdown>}
     </div>
   );
 };

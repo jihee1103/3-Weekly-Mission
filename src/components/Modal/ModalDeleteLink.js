@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useFolderNameContext } from "../../context/FolderNameContext";
 import IMAGE_URL from "../../constant/imageUrl";
 
 const ModalContainer = styled.div`
@@ -62,15 +61,13 @@ const ModalContainer = styled.div`
   }
 `;
 
-const ModalDeleteFolder = ({ handleClose }) => {
-  const { folderName } = useFolderNameContext();
-
+const ModalDeleteLink = ({ handleClose, link }) => {
   return (
     <ModalContainer>
       <div>
         <div>
-          <h1>폴더 삭제</h1>
-          <p>{folderName}</p>
+          <h1>링크 삭제</h1>
+          <p>{link}</p>
           <img
             onClick={handleClose}
             src={`${IMAGE_URL}/assets/close.png`}
@@ -83,4 +80,4 @@ const ModalDeleteFolder = ({ handleClose }) => {
   );
 };
 
-export default ModalDeleteFolder;
+export default ModalDeleteLink;
