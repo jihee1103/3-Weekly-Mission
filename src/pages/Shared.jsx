@@ -1,5 +1,5 @@
-import Profile from "./components/Profile";
-import Main from "./components/Main";
+import Profile from "../components/Profile";
+import Main from "../components/Main";
 
 const Folder = function () {
   return (
