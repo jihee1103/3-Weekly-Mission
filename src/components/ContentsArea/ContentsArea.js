@@ -32,12 +32,6 @@ const ContentsArea = () => {
     setSharedFolderData(sharedFolderData);
   };
 
-  // useEffect(() => {
-  //   if (location.path === "/shared") {
-  //     getSharedFolderData();
-  //   }
-  // }, []);
-
   useEffect(() => {
     getSharedFolderData();
   }, []);

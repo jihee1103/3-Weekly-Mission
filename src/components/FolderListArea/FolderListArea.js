@@ -17,10 +17,13 @@ const FolderListArea = ({ onFolderClick, onAllFolderClick }) => {
     setFolderData(folder);
   };
 
-  const { setFolderNameValue } = useFolderNameContext();
+  const { setFolderNameValue, setFolderIdValue } = useFolderNameContext();
 
   const handleFolderName = (clickItemName) => {
     setFolderNameValue(clickItemName);
+  };
+  const handleFolderId = (clickItemId) => {
+    setFolderIdValue(clickItemId);
   };
 
   useEffect(() => {
@@ -45,6 +48,7 @@ const FolderListArea = ({ onFolderClick, onAllFolderClick }) => {
             onClick={() => {
               onFolderClick(item.id);
               handleFolderName(item.name);
+              handleFolderId(item.id);
             }}
           >
             {item.name}

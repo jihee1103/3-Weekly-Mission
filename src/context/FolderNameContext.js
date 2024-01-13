@@ -2,7 +2,9 @@ import { createContext, useContext, useState } from "react";
 
 const FolderNameContext = createContext({
   folderName: "",
+  folderId: "",
   setFolderName: () => {},
+  setFolderId: () => {},
 });
 
 export const SharedProvider = ({ children }) => {

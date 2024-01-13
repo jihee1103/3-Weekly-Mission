@@ -2,7 +2,8 @@ import styled from "styled-components";
 import IMAGE_URL from "../../constant/imageUrl";
 import { useFolderNameContext } from "../../context/FolderNameContext";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getFolderUserData } from "../../api/api";
 
 const ModalContainer = styled.div`
   position: fixed;
@@ -59,13 +60,27 @@ const ModalContainer = styled.div`
       gap: 32px;
       .oneIconArea {
         display: block;
+        cursor: pointer;
       }
     }
   }
 `;
 
 const ModalShareFolder = ({ handleClose }) => {
-  const { folderName } = useFolderNameContext();
+  const { folderName, folderId } = useFolderNameContext();
+  const [linkUserId, setLinkUserId] = useState("");
+
+  const handleCopyClipBoard = (text) => {
+    navigator.clipboard.writeText(text);
+  };
+  const handleFolderUserData = async () => {
+    const folderUserData = await getFolderUserData();
+    setLinkUserId(folderUserData.data[0].id);
+  };
+
+  useEffect(() => {
+    handleFolderUserData();
+  }, []);
 
   return (
     <ModalContainer>
@@ -94,9 +109,14 @@ const ModalShareFolder = ({ handleClose }) => {
           </div>
           <div className="oneIconArea">
             <img
-              onClick={handleClose}
+              onClick={() => {
+                handleFolderUserData();
+                handleCopyClipBoard(
+                  `localhost:3000/shared?user=${linkUserId}&folder=${folderId}`
+                );
+              }}
               src={`${IMAGE_URL}/assets/modal_link.png`}
-              alt="close"
+              alt="링크 복사 아이콘"
             />
             <p>링크 복사</p>
           </div>
