@@ -15,7 +15,7 @@ const KakaoButton = styled.button`
 `;
 
 const KakaoShareButton = () => {
-  const realUrl = '배포된 url';
+  const realUrl = 'https://adorable-malasada-14962e.netlify.app';
   const resultUrl = window.location.href;
 
   useEffect(() => {

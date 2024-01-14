@@ -12,11 +12,11 @@ const FacebookButton = styled.button`
 `;
 
 const FacebookShareButton = () => {
-  const realUrl = '배포된 url';
+  const realUrl = 'https://adorable-malasada-14962e.netlify.app';
   const resultUrl = window.location.href;
 
   const shareFacebook = () => {
-    window.open('https://www.facebook.com/sharer/sharer.php?u=공유할 URL');
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + realUrl);
   };
 
   return (
