@@ -2,7 +2,7 @@ import { Card } from "../component/Card/card.jsx";
 import { SearchBar } from "../component/SearchBar/searchbar.jsx";
 import { getFetch } from "../api/getFetch.jsx";
 import { getUserData } from "../api/getUserData.jsx";
-import defaultImage from "./card-component-default.png";
+import defaultImage from "../component/Card/card-component-default.png";
 import "./style.css";
 import { useState, useEffect } from "react";
 import { HeaderInfo } from "../component/HeaderInfo/header-info.jsx";

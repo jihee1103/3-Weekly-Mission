@@ -1,7 +1,7 @@
-export function FilterButton(name) {
+export function FilterButton({ name, id }) {
   return (
     <>
-      <button>{name.name}</button>
+      <button>{name}</button>
     </>
   );
 }
