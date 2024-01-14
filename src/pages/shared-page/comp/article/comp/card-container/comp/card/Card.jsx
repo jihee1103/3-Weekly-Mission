@@ -1,17 +1,18 @@
 import LinkCard from '@components/ui/molecules/card/link-card';
-import './Card.css';
+
+import styles from './Card.module.css';
 
 const Card = ({ link }) => {
   return (
     <LinkCard {...link}>
-      <LinkCard.CardCover asAnchor className='link-card'>
-        <div className='card-image-box'>
-          <LinkCard.CardImage className='link-image' alt='카드 링크 이미지' />
+      <LinkCard.CardCover asAnchor className={styles['link-card']}>
+        <div className={styles['card-image-box']}>
+          <LinkCard.CardImage className={styles['link-image']} alt='카드 링크 이미지' />
         </div>
-        <div className='link-text-box'>
-          <LinkCard.TimeElapsed className='link-elapsed' />
-          <LinkCard.Description className='link-description' />
-          <LinkCard.CreatedAt className='link-createdAt' />
+        <div className={styles['link-text-box']}>
+          <LinkCard.TimeElapsed className={styles['link-elapsed']} />
+          <LinkCard.Description className={styles['link-description']} />
+          <LinkCard.CreatedAt className={styles['link-createdAt']} />
         </div>
       </LinkCard.CardCover>
     </LinkCard>
