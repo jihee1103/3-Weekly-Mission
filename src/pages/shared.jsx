@@ -1,11 +1,11 @@
-import { Card } from "../component/Card/card.jsx";
-import { SearchBar } from "../component/SearchBar/searchbar.jsx";
+import { Card } from "../components/Card/card.jsx";
+import { SearchBar } from "../components/SearchBar/searchbar.jsx";
 import { getFetch } from "../api/getFetch.js";
 import { getUserData } from "../api/getUserData.js";
-import defaultImage from "../component/Card/card-component-default.png";
+import defaultImage from "../components/Card/card-component-default.png";
 import "./style.css";
 import { useState, useEffect } from "react";
-import { HeaderInfo } from "../component/HeaderInfo/header-info.jsx";
+import { HeaderInfo } from "../components/HeaderInfo/header-info.jsx";
 
 export function Shared() {
   const [folder, setFolder] = useState(null);

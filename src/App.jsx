@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Header } from "./component/Header/header.jsx";
-import { Footer } from "./component/Footer/footer.jsx";
+import { Header } from "./components/Header/header.jsx";
+import { Footer } from "./components/Footer/footer.jsx";
 import { Shared } from "./pages/shared.jsx";
 import { getFetch } from "./api/getFetch.js";
 import { getUserData } from "./api/getUserData.js";

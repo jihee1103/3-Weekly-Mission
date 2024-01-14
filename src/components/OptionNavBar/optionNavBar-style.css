@@ -1,0 +1,33 @@
+.option-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.option-button-section {
+  display: flex;
+  align-items: center;
+}
+
+.option-title {
+  color: #000;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.option-button-font {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.share-button {
+  margin-right: 12px;
+}
+
+.edit-button {
+  margin-right: 12px;
+}

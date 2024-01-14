@@ -1,17 +1,19 @@
-import { Card } from "../component/FolderCard/card.jsx";
-import { SearchBar } from "../component/SearchBar/searchbar.jsx";
+import { Card } from "../components/FolderCard/card.jsx";
+import { SearchBar } from "../components/SearchBar/searchbar.jsx";
 import { getLinkData } from "../api/getLinkData.js";
 import { getFolderData } from "../api/getFolderData.js";
-import defaultImage from "../component/FolderCard/card-component-default.png";
+import defaultImage from "../components/FolderCard/card-component-default.png";
 import "./style.css";
 import { useState, useEffect } from "react";
-import { AddLinkBar } from "../component/AddLinkBar/addlinkbar.jsx";
-import { FilterButton } from "../component/FilterButton/filter-button.jsx";
+import { AddLinkBar } from "../components/AddLinkBar/addlinkbar.jsx";
+import { FilterButton } from "../components/FilterButton/filter-button.jsx";
 import { getFolderIdData } from "../api/getFolderIdData.js";
+import { OptionNavBar } from "../components/OptionNavBar/optionNavBar.jsx";
 
 export function Folder() {
   const [linkData, setLinkData] = useState([]);
   const [filterFolder, setFilterFolder] = useState([]);
+  const [selectedFolderName, setSelectedFolderName] = useState("전체");
 
   useEffect(() => {
     const getData = async () => {
@@ -19,16 +21,22 @@ export function Folder() {
       setLinkData(data.data);
 
       const filterData = await getFolderData();
-      setFilterFolder(filterData.data);
+      setFilterFolder([{ id: "all", name: "전체" }, ...filterData.data]);
     };
     getData();
   }, []);
 
-  const handleClickFilter = (folderId) => {
-    const response = getFolderIdData(folderId);
-    response.then((data) => {
+  const handleClickFilter = async (folderId) => {
+    if (folderId === "all") {
+      setSelectedFolderName("전체");
+      const data = await getLinkData();
       setLinkData(data.data);
-    });
+    } else {
+      const folder = filterFolder.find((f) => f.id === folderId);
+      setSelectedFolderName(folder && folder.name);
+      const response = await getFolderIdData(folderId);
+      setLinkData(response.data);
+    }
   };
 
   return (
@@ -46,7 +54,7 @@ export function Folder() {
           />
         );
       })}
-
+      <OptionNavBar name={selectedFolderName} />
       <div className="card-component-section">
         {!!linkData.length ? (
           linkData.map((e) => (
