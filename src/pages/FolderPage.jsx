@@ -25,7 +25,7 @@ export const FolderPage = () => {
         ))}
       </CardList>
     );
-  }, [loading, links]);
+  }, [folders, loading, links]);
 
   return (
     <Layout isSticky={false}>
