@@ -25,6 +25,8 @@
   border-radius: 15px;
   border: 1px solid var(--linkbrary-gray-20);
   background: var(--linkbrary-white);
+
+  z-index: 2;
 }
 .closeBtn {
   position: absolute;

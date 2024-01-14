@@ -7,12 +7,6 @@ import { useState } from "react";
 function Card({ link, folderData }) {
   const [pop, setPop] = useState(false);
 
-  const handleClick = () => {
-    //케밥 클릭시 팝오버
-    setPop(!pop);
-    console.log("pop: ", pop);
-  };
-
   return (
     <div className={styles.cardBox}>
       <div className={styles.cardImgWrap} onClick={() => window.open(link.url)}>
@@ -34,7 +28,7 @@ function Card({ link, folderData }) {
               src="/assets/kebab-icon.svg"
               alt="kebab"
               onClick={() => {
-                handleClick();
+                setPop(!pop);
               }}
             />
             {pop && <PopOver folderData={folderData} />}
