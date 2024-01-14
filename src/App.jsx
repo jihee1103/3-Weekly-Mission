@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Header } from "./component/Header/header.jsx";
 import { Footer } from "./component/Footer/footer.jsx";
 import { Shared } from "./pages/shared.jsx";
-import { getFetch } from "./api/getFetch.jsx";
-import { getUserData } from "./api/getUserData.jsx";
+import { getFetch } from "./api/getFetch.js";
+import { getUserData } from "./api/getUserData.js";
 import { Folder } from "./pages/folder.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./app.css";
@@ -18,16 +18,14 @@ export default function App() {
       setFolder(data.folder);
 
       const user = await getUserData();
-      setUser(user);
+      setUser(user.data?.[0] ?? null);
     };
     getData();
   }, []);
 
   return (
     <BrowserRouter>
-      {folder !== null ? (
-        <Header folder={folder} user={user !== null ? user : ""} />
-      ) : undefined}
+      {folder && <Header folder={folder} user={user} />}
       <Routes>
         <Route path="/shared" element={<Shared />} />
         <Route path="/folder" element={<Folder />} />

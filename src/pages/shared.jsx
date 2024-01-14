@@ -1,7 +1,7 @@
 import { Card } from "../component/Card/card.jsx";
 import { SearchBar } from "../component/SearchBar/searchbar.jsx";
-import { getFetch } from "../api/getFetch.jsx";
-import { getUserData } from "../api/getUserData.jsx";
+import { getFetch } from "../api/getFetch.js";
+import { getUserData } from "../api/getUserData.js";
 import defaultImage from "../component/Card/card-component-default.png";
 import "./style.css";
 import { useState, useEffect } from "react";
