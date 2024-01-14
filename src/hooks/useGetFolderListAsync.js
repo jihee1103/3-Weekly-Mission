@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
+import { getFolderList } from "../api";
 
-export default function useGetFolderListAsync(asyncFunction) {
+export default function useGetFolderListAsync() {
   const [folderList, setFolderList] = useState(null);
 
   useEffect(() => {
     (async () => {
-        const {data} = await asyncFunction();
+        const {data} = await getFolderList();
         setFolderList(data);
     })();
-  }, [asyncFunction]);
+  }, []);
 
   return folderList;
 }

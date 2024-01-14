@@ -5,10 +5,9 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 export default function Folder() {
-
   return (
     <>
-      <Header page="folder"/>
+      <Header isSticky={true}/>
       <AddLinkBar />
       <SearchBar />
       <Content />
