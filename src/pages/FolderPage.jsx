@@ -9,10 +9,14 @@ import FolderCollection from '../components/Contents/FolderCollection/FolderColl
 
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
+import Modal from '../components/Modal/Modal';
 
 const FolderPage = ({ userData }) => {
   const [folderData, setFolderData] = useState([]);
   const [folderCardData, setFolderCardData] = useState([]);
+
+  // Modal
+  const [modal, setModal] = useState('');
 
   // 폴더의 전체 버튼을 클릭했을 때 가져올 데이터
   const handleOverViewFolderCardData = () => {
@@ -69,18 +73,20 @@ const FolderPage = ({ userData }) => {
   return (
     <>
       <Hero>
-        <LinkCreator />
+        <LinkCreator setModal={setModal} />
       </Hero>
       <Contents>
         <Search />
         <FolderCollection
+          setModal={setModal}
           userData={userData}
           folderData={folderData}
           handleOverViewFolderCardData={handleOverViewFolderCardData}
           handleFolderCardData={handleFolderCardData}
         />
-        <CardList cardData={folderCardData} />
+        <CardList cardData={folderCardData} setModal={setModal} />
       </Contents>
+      <Modal modal={modal} />
     </>
   );
 };

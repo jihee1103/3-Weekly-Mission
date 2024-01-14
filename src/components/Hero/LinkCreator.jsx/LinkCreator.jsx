@@ -1,14 +1,23 @@
 import styled from 'styled-components';
 import link from '../../../assets/images/link.svg';
 
-const LinkCreator = () => {
+import { handleModal } from '../../../utils/handleModal';
+
+const LinkCreator = ({ setModal }) => {
   return (
     <LinkCreatorWrapper>
       <div>
         <LinkCreatorImg src={link} />
         <LinkCreatorInput type="text" placeholder="링크를 추가하세요" />
       </div>
-      <CreateLinkButton type="button">추가하기</CreateLinkButton>
+      <CreateLinkButton
+        type="button"
+        onClick={() => {
+          handleModal(setModal, '폴더에추가');
+        }}
+      >
+        추가하기
+      </CreateLinkButton>
     </LinkCreatorWrapper>
   );
 };

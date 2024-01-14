@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import CardImg, { CardMainImg } from './CardImg/CardImg';
-import CardContent, { CardContentContainer } from './CardDescription/CardDescription';
+import CardContent, { CardDescriptionWrapper } from './CardDescription/CardDescription';
 
-const CardList = ({ cardData }) => {
+const CardList = ({ setModal, cardData }) => {
   return (
     <CardListWrapper>
       {cardData?.length !== 0 ? (
@@ -11,7 +11,7 @@ const CardList = ({ cardData }) => {
           return (
             <CardLink to={link.url} target="_blank" key={link.id} rel="noreferrer">
               <CardImg link={link} />
-              <CardContent link={link} />
+              <CardContent link={link} setModal={setModal} />
             </CardLink>
           );
         })
@@ -50,7 +50,7 @@ const CardLink = styled(Link)`
     transform: scale(1.3);
   }
 
-  &:hover ${CardContentContainer} {
+  &:hover ${CardDescriptionWrapper} {
     background: var(--gray5);
   }
 `;
