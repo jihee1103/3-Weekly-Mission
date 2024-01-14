@@ -5,6 +5,7 @@ import './Header.css';
 
 const Header = () => {
   const profileData = useGetProfileData();
+  // console.log(profileData.id)// 1;
 
   return (
     <header id='header' role='heading' aria-level={1}>

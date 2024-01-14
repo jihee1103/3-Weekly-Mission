@@ -12,6 +12,11 @@ const CardContainer = () => {
     folderName: '',
   });
 
+  const [popupState, setPopUpLinkId] = useState({
+    isPopuped: false,
+    linkId: null,
+  });
+
   const sortedLinks = useGetSortedFolderLinksData(folderIdAndName.folderId === 'total' ? '' : folderIdAndName.folderId);
 
   return (
@@ -26,7 +31,7 @@ const CardContainer = () => {
       {sortedLinks?.length ? (
         <section className='card-container'>
           {sortedLinks.map((link) => (
-            <Card key={link.id} link={link} />
+            <Card key={link.id} link={link} setPopUpLinkId={setPopUpLinkId} popupState={popupState} />
           ))}
         </section>
       ) : (
