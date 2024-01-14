@@ -1,4 +1,5 @@
 import AddLink from "../components/addLink/AddLink";
+import FloatingButton from "../components/FloatingButton";
 import FolderMain from "../components/FolderMain";
 
 const Folder = function () {
@@ -6,6 +7,7 @@ const Folder = function () {
     <>
       <AddLink />
       <FolderMain />
+      <FloatingButton />
     </>
   );
 };
