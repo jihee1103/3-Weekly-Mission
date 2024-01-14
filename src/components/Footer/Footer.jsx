@@ -1,30 +1,30 @@
 import React from "react";
-import "./Footer.css";
+import styles from "./Footer.module.css";
 
 function Footer() {
   return (
     <footer>
-      <div className="footer-frame">
-        <div className="footer-bar">
-          <div className="footer-left">
-            <span className="footer-logo">©codeit - 2023</span>
-            <div className="footer-policy">
-              <a className="footer-text" href="/privacy">
+      <div className={styles.footerFrame}>
+        <div className={styles.footerBar}>
+          <div className={styles.footerLeft}>
+            <span className={styles.footerLogo}>©codeit - 2023</span>
+            <div className={styles.footerPolicy}>
+              <a className={styles.footerText} href="/privacy">
                 Privacy Policy
               </a>
-              <a className="footer-text" href="/faq">
+              <a className={styles.footerText} href="/faq">
                 FAQ
               </a>
             </div>
           </div>
-          <div className="footer-right">
+          <div className={styles.footerRight}>
             <a
               href="https://www.facebook.com"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                className="sns-icon"
+                className={styles.snsIcon}
                 src="/assets/icon-facebook-fill.svg"
                 alt="facebook"
               />
@@ -35,7 +35,7 @@ function Footer() {
               rel="noopener noreferrer"
             >
               <img
-                className="sns-icon"
+                className={styles.snsIcon}
                 src="/assets/icon-twitter-fill.svg"
                 alt="twitter"
               />
@@ -46,7 +46,7 @@ function Footer() {
               rel="noopener noreferrer"
             >
               <img
-                className="sns-icon"
+                className={styles.snsIcon}
                 src="/assets/icon-youtube-fill.svg"
                 alt="youtube"
               />
@@ -57,7 +57,7 @@ function Footer() {
               rel="noopener noreferrer"
             >
               <img
-                className="sns-icon"
+                className={styles.snsIcon}
                 src="/assets/icon-instagram-fill.svg"
                 alt="instagram"
               />

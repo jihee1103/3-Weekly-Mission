@@ -1,4 +1,4 @@
-.card-list {
+.cardList {
   /* display: flex; */
   display: grid;
   /* flex-direction: column; */
@@ -24,7 +24,7 @@
   }
 }
 
-.option-bar {
+.optionBar {
   display: flex;
   /* width: 1060px; */
   justify-content: space-between;
@@ -50,7 +50,7 @@
   align-items: center;
   gap: 4px;
 
-  color: var(--Linkbrary-gray60, #9fa6b2);
+  color: var(--linkbrary-gray-60);
 
   font-size: 14px;
   font-style: normal;
