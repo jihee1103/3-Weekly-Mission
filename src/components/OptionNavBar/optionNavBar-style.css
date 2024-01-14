@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin: 0 auto;
+  width: 1060px;
+  padding: 24px;
 }
 
 .option-button-section {
@@ -30,4 +31,17 @@
 
 .edit-button {
   margin-right: 12px;
+}
+@media (max-width: 1124px) {
+  .option-section {
+    width: 700px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 780px) {
+  .option-section {
+    width: 340px;
+    margin: 0 auto;
+  }
 }

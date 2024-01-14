@@ -1,9 +1,11 @@
 .add-folder-section {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
   gap: 4px;
+  margin-left: 20px;
+  flex-wrap: wrap;
 }
 
 .add-folder-font {
@@ -11,6 +13,13 @@
   text-align: center;
   font-size: 16px;
   font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+}
+
+.add-folder-button {
+  display: inline-flex;
+  align-items: center;
 }
 
 @media (max-width: 767px) {

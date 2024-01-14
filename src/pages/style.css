@@ -16,21 +16,38 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 1060px;
+  margin: 0 auto;
 }
 
 .folder-list {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 8px;
+  flex-grow: 1;
+  max-width: 80%;
 }
 
 .folder-add {
-  display: flex;
-  flex-wrap: wrap;
+  flex-grow: 0;
+  max-width: 20%;
 }
 
 @media (max-width: 1124px) {
   .main-section {
     padding: 0 32px;
+  }
+
+  .folder-edit-area {
+    width: 700px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 780px) {
+  .folder-edit-area {
+    width: 340px;
+    margin: 0 auto;
   }
 }

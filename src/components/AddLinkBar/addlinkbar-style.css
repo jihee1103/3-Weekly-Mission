@@ -1,3 +1,7 @@
+.add-link-bar-container {
+  background-color: #f0f6ff;
+}
+
 .add-bar {
   display: flex;
   width: 800px;
@@ -30,7 +34,6 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  background-color: #f0f6ff;
   padding-top: 60px;
   padding-bottom: 90px;
 }
@@ -64,6 +67,20 @@
 
 @media (max-width: 780px) {
   .add-link-input-section {
+    width: 340px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1124px) {
+  .add-bar {
+    width: 700px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 780px) {
+  .add-bar {
     width: 340px;
     margin: 0 auto;
   }
