@@ -22,9 +22,9 @@ export default function AddLinkToFolder({
           <FolderList
             key={item.id}
             onClick={() => handleFolderListClick(item.id)}
-            isSelected={item.id === selectedFolderId}
+            $isSelected={item.id === selectedFolderId}
           >
-            <FolderName isSelected={item.id === selectedFolderId}>
+            <FolderName $isSelected={item.id === selectedFolderId}>
               {item.name}
             </FolderName>
             <FolderCount>{item.link.count}개 링크</FolderCount>
@@ -93,7 +93,7 @@ const AddLinkButton = styled.button`
 `;
 const FolderName = styled.span`
   line-height: 24px;
-  color: ${(props) => (props.isSelected ? '#6d6afe' : '#373740')};
+  color: ${(props) => (props.$isSelected ? '#6d6afe' : '#373740')};
 `;
 const FolderCount = styled.span`
   color: #9fa6b2;
@@ -106,7 +106,7 @@ const FolderList = styled.div`
   justify-content: flex-start;
   border-radius: 8px;
   gap: 8px;
-  background-color: ${(props) => (props.isSelected ? '#F0F6FF' : '#fff')};
+  background-color: ${(props) => (props.$isSelected ? '#F0F6FF' : '#fff')};
   &:hover {
     background-color: #f0f6ff;
     ${FolderName} {
