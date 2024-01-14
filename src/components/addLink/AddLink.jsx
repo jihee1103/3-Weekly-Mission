@@ -5,7 +5,7 @@ const AddLink = function () {
     <div className="background">
       <div className="AddLink">
         <div className="InputImage">
-          <input className="AddLinkInput" />
+          <input className="AddLinkInput" placeholder="링크를 추가해 보세요" />
           <img className="AddLinkImage" src="/img/link_icon.svg" />
         </div>
         <button className="AddLinkCta">추가하기</button>

@@ -34,7 +34,7 @@
 .AddLinkInput {
   border: none;
   width: 100%;
-  height: 2.4rem;
+  height: 100%;
 }
 
 .AddLinkCta {
@@ -50,4 +50,23 @@
   font-size: 1.8rem;
   font-weight: 600;
   width: 12.8rem;
+}
+
+@media (min-width: 769px) and (max-width: 1123px) {
+  .AddLink {
+    width: 70rem;
+    height: 6.9rem;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 768px) {
+  .AddLink {
+    width: 34rem;
+    height: auto;
+  }
+}
+@media (max-width: 389px) {
+  .AddLink {
+    padding: 32px;
+  }
 }
