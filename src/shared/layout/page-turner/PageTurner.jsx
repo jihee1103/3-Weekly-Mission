@@ -7,7 +7,7 @@ const PageTurner = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (pathname === '/') {
-      navigate('shared');
+      navigate('folder');
     }
   }, [pathname, navigate]);
 
