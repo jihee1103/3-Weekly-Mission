@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import './LoginSuccessProfile.css';
 
 // {
@@ -24,4 +25,4 @@ const LoginSuccessProfile = ({ profileData }) => {
   );
 };
 
-export default LoginSuccessProfile;
+export default memo(LoginSuccessProfile);

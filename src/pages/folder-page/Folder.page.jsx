@@ -1,4 +1,5 @@
 import DocumentTitle from '@layout/document-title/DocumentTitle';
+import FolderContextProvider from '@pages/folder-page/context/FolderContextProvider';
 
 import AddLink from './comp/add-link/AddLink';
 import Article from './comp/article/Article';
@@ -9,10 +10,12 @@ const Folder = () => {
   return (
     <>
       <DocumentTitle title='Folder' />
-      <Header />
-      <AddLink />
-      <Article />
-      <Footer />
+      <FolderContextProvider>
+        <Header />
+        <AddLink />
+        <Article />
+        <Footer />
+      </FolderContextProvider>
     </>
   );
 };

@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react';
 
 import styled from 'styled-components';
 
-const SelectMenuContext = createContext(null);
+const SelectMenuContext = createContext();
 
 const SelectMenuProvider = ({ children, ...rest }) => {
   return (
@@ -12,7 +12,6 @@ const SelectMenuProvider = ({ children, ...rest }) => {
   );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useSelectMenuProvider = () => {
   const context = useContext(SelectMenuContext);
 

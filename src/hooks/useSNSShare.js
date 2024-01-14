@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 
-const useSNSShare = ({ title, url }) => {
+// const useSNSShare = ({ title, url }) => {
+const useSNSShare = ({ title, origin, userId, folderId }) => {
   // ① encodeURI(): 인터넷 주소에서 사용하는 :, ;, /, =, ?, & 등을 제외하고 인코딩하는 함수
   // ② encodeURIComponent(): 모든 문자를 인코딩하는 함수, 전체 URI를 구성하는 부분 인코딩에 적합, 매개변수를 인코딩 하려는 경우
   // ③ 인코딩: 데이터를 다른 포맷(형식)으로 변환. 사용할 수 없는 문자를 사용할 수 있는 특수 문자 조합으로 표현
 
-  // const url = `${origin}/shared?user=${userId}&folder=${folderId}`;
+  const url = `${origin}/shared?user=${userId}&folder=${folderId}`;
+
   /**
    * @see {@link https://become-a-developer.tistory.com/63} - Parameter 'href' should represent a valid URL 에러 뜰 시.  URL을 읽어들일 수 없음 에러 뜰 시
    */

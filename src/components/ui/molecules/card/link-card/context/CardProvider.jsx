@@ -1,14 +1,14 @@
 import { createContext, useContext, useMemo } from 'react';
 
-const initialState = {
-  createdAt: '',
-  description: '',
-  imageSource: '',
-  url: '',
-  folderId: '',
-};
+// const initialState = {
+//   createdAt: '',
+//   description: '',
+//   imageSource: '',
+//   url: '',
+//   folderId: '',
+// };
 
-const CardProviderContext = createContext(initialState);
+const CardProviderContext = createContext();
 
 const CardProvider = ({ children, ...rest }) => {
   const { createdAt, created_at, imageSource, image_source, folder_id, ...r } = rest;

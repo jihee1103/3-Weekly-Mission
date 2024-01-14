@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
+import { useFolderContext } from '@pages/folder-page/context/FolderContextProvider';
+
 import { useSNSShare } from '@hooks/useSNSShare';
 
 import Modal from '..';
@@ -11,14 +13,18 @@ import { StModalSubText } from '../StModalSubText';
  * @description 폴더 공유 모달
  */
 const FolderShareModal = ({ modalName = '폴더 공유', folderName, closeModal }) => {
-  // const [origin, setOriginAfterMount] = useState('');
-  const [url, setUrlAfterMount] = useState('');
+  const [origin, setOriginAfterMount] = useState('');
+  // const [url, setUrlAfterMount] = useState('');
 
   // 지금 위치한 곳은 /folder인데 🤔❓{호스트 주소}/shared?user={현재 로그인 중인 유저 ID}&folder={현재 열려있는 폴더 ID}
   useEffect(() => {
-    // setOriginAfterMount(window.location.origin);
-    setUrlAfterMount(window.location.href);
+    setOriginAfterMount(window.location.origin);
+    // setUrlAfterMount(window.location.href);
   }, []);
+
+  const {
+    folderPageInfos: { userId, currentFolderId: folderId },
+  } = useFolderContext();
 
   // ① encodeURI(): 인터넷 주소에서 사용하는 :, ;, /, =, ?, & 등을 제외하고 인코딩하는 함수
   // ② encodeURIComponent(): 모든 문자를 인코딩하는 함수, 전체 URI를 구성하는 부분 인코딩에 적합, 매개변수를 인코딩 하려는 경우
@@ -32,7 +38,13 @@ const FolderShareModal = ({ modalName = '폴더 공유', folderName, closeModal 
   //   window.open(`https://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
   // };
 
-  const { shareToFacebook, shareToKakaotalk, copyFolderUrl } = useSNSShare({ title: 'Linkbrary', url });
+  // const { shareToFacebook, shareToKakaotalk, copyFolderUrl } = useSNSShare({ title: 'Linkbrary', url });
+  const { shareToFacebook, shareToKakaotalk, copyFolderUrl } = useSNSShare({
+    title: 'Linkbrary',
+    origin,
+    userId,
+    folderId,
+  });
 
   const snsShareOptionsArray = [
     { iconName: 'kakao', text: '카카오톡', onClickHandler: shareToKakaotalk },

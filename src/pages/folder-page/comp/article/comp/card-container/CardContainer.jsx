@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { useFolderContext } from '@pages/folder-page/context/FolderContextProvider';
 
 import Card from './comp/card/Card';
 import CardContainerOptions from './comp/card-container-options/CardContainerOptions';
@@ -18,6 +20,15 @@ const CardContainer = () => {
   });
 
   const sortedLinks = useGetSortedFolderLinksData(folderIdAndName.folderId === 'total' ? '' : folderIdAndName.folderId);
+
+  const { setFolderPageInfos } = useFolderContext();
+
+  useEffect(() => {
+    setFolderPageInfos((prev) => ({
+      ...prev,
+      currentFolderId: folderIdAndName.folderId === 'total' ? '' : folderIdAndName.folderId,
+    }));
+  }, [setFolderPageInfos, folderIdAndName.folderId]);
 
   return (
     <div className='card-container-wrapper'>
