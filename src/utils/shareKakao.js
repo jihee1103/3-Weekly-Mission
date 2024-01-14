@@ -1,6 +1,6 @@
 import camelcaseKeys from 'camelcase-keys';
 
-const shareKakao = (userId, folderId, links, folderName) => {
+const shareKakao = (links, folderName, shareUrl) => {
   if (links.length < 3) {
     alert('폴더에 2개 이상의 링크가 있어야 합니다.');
     return;
@@ -24,23 +24,23 @@ const shareKakao = (userId, folderId, links, folderName) => {
     objectType: 'list',
     headerTitle: folderName,
     headerLink: {
-      mobileWebUrl: `${process.env.REACT_APP_HOST}/shared?user=${userId}&folder=${folderId}`,
-      webUrl: `${process.env.REACT_APP_HOST}/shared?user=${userId}&folder=${folderId}`,
+      mobileWebUrl: shareUrl,
+      webUrl: shareUrl,
     },
     contents: linkContent.slice(0, 3),
     buttons: [
       {
         title: '웹으로 보기',
         link: {
-          mobileWebUrl: `${process.env.REACT_APP_HOST}/shared?user=${userId}&folder=${folderId}`,
-          webUrl: `${process.env.REACT_APP_HOST}/shared?user=${userId}&folder=${folderId}`,
+          mobileWebUrl: shareUrl,
+          webUrl: shareUrl,
         },
       },
       {
         title: '앱으로 보기',
         link: {
-          mobileWebUrl: `${process.env.REACT_APP_HOST}/shared?user=${userId}&folder=${folderId}`,
-          webUrl: `${process.env.REACT_APP_HOST}/shared?user=${userId}&folder=${folderId}`,
+          mobileWebUrl: shareUrl,
+          webUrl: shareUrl,
         },
       },
     ],

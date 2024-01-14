@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
+import { FacebookShareButton } from 'react-share';
 import facebookLogo from '../../asset/Facebook.svg';
 import kakaoLogo from '../../asset/Kakao.svg';
 import linkLogo from '../../asset/link.svg';
@@ -10,11 +11,11 @@ const { Kakao } = window;
 const kakaoApiKey = process.env.REACT_APP_API_KEY;
 
 export default function ShareFolder({ folderName, userId, folderId, links }) {
+  const shareUrl = `https://${process.env.REACT_APP_HOST}/shared?user=${userId}&folder=${folderId}`;
+
   const copyLink = async () => {
     try {
-      await navigator.clipboard.writeText(
-        `https://${process.env.REACT_APP_HOST}/shared?user=${userId}&folder=${folderId}`,
-      );
+      await navigator.clipboard.writeText(shareUrl);
     } catch (error) {
       return <Error errorMessage={error.message} />;
     } finally {
@@ -38,16 +39,18 @@ export default function ShareFolder({ folderName, userId, folderId, links }) {
         <IconBox>
           <SocialIcon
             color="#FEE500"
-            onClick={() => shareKakao(userId, folderId, links, folderName)}
+            onClick={() => shareKakao(links, folderName, shareUrl)}
           >
             <Icon src={kakaoLogo} />
           </SocialIcon>
           <IconName>카카오톡</IconName>
         </IconBox>
         <IconBox>
-          <SocialIcon color="#1877F2">
-            <Icon src={facebookLogo} />
-          </SocialIcon>
+          <FacebookShareButton url={shareUrl}>
+            <SocialIcon color="#1877F2">
+              <Icon src={facebookLogo} />
+            </SocialIcon>
+          </FacebookShareButton>
           <IconName>페이스북</IconName>
         </IconBox>
         <IconBox>
