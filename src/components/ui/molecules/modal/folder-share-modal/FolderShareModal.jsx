@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
+import { useSNSShare } from '@hooks/useSNSShare';
+
 import Modal from '..';
 import { StModalSubText } from '../StModalSubText';
 
@@ -9,19 +11,10 @@ import { StModalSubText } from '../StModalSubText';
  * @description 폴더 공유 모달
  */
 const FolderShareModal = ({ modalName = '폴더 공유', folderName, closeModal }) => {
-  const [hrefAfterMount, setHrefAfterMount] = useState('');
-
-  const copyFolderUrl = async (location) => {
-    try {
-      await navigator.clipboard.writeText(location);
-      console.log('Content copied to clipboard');
-    } catch (e) {
-      console.error('Failed to copy');
-    }
-  };
+  const [currentHref, setCurrentHrefAfterMound] = useState('');
 
   useEffect(() => {
-    setHrefAfterMount(window.location.href);
+    setCurrentHrefAfterMound(window.location.href);
   }, []);
 
   // ① encodeURI(): 인터넷 주소에서 사용하는 :, ;, /, =, ?, & 등을 제외하고 인코딩하는 함수
@@ -31,29 +24,18 @@ const FolderShareModal = ({ modalName = '폴더 공유', folderName, closeModal 
   /**
    * @see {@link https://become-a-developer.tistory.com/63} - Parameter 'href' should represent a valid URL 에러 뜰 시.  URL을 읽어들일 수 없음 에러 뜰 시
    */
-  const shareToFacebook = () => {
-    const sharedLink = encodeURIComponent(window.location.href);
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
-  };
+  // const shareToFacebook = () => {
+  //   const sharedLink = encodeURIComponent(window.location.href);
+  //   window.open(`https://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
+  // };
+
+  const { shareToFacebook, shareToKakaotalk, copyFolderUrl } = useSNSShare({ title: 'Linkbrary', url: currentHref });
 
   const mockArray = [
-    { iconName: 'kakao', text: '카카오톡', onClickHandler: () => {} },
+    { iconName: 'kakao', text: '카카오톡', onClickHandler: shareToKakaotalk },
     { iconName: 'facebook', text: '페이스북', onClickHandler: shareToFacebook },
-    { iconName: 'clipboard', text: '링크 복사', onClickHandler: () => copyFolderUrl(hrefAfterMount) },
+    { iconName: 'clipboard', text: '링크 복사', onClickHandler: copyFolderUrl },
   ];
-
-  // ✅ clipboard.js 라이브러리
-  useEffect(() => {
-    // navigator.permissions.query({ name: 'write-on-clipboard' }).then((result) => {
-    // chrome용
-    navigator.permissions.query({ name: 'clipboard-write' }).then((result) => {
-      // eslint-disable-next-line eqeqeq
-      if (result.state == 'granted' || result.state == 'prompt') {
-        // eslint-disable-next-line no-alert
-        console.log('Write access granted!');
-      }
-    });
-  }, []);
 
   return (
     <Modal.StModalBackground>
