@@ -15,8 +15,8 @@ const TIME_IN_MILLISECONDS = {
 };
 
 const getElapsedTime = (createdAt) => {
-  const now = new Date();
-  const createdAtDate = new Date(createdAt);
+  const now = new Date().getTime();
+  const createdAtDate = new Date(createdAt).getTime();
   const elapsedTime = now - createdAtDate;
   const { minute, hour, day, month, year } = TIME_IN_MILLISECONDS;
 

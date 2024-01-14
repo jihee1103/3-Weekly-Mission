@@ -23,7 +23,7 @@ const Card = function ({ item }) {
       <CardImage isHovered={isHovered} imageSource={imageSource || image_source} />
 
       <CardContent
-        elapsedTime={getElapsedTime({ createdAt: createdAt || created_at })}
+        elapsedTime={getElapsedTime(createdAt || created_at)}
         description={description}
         createdAt={createdAt || created_at}
       />
