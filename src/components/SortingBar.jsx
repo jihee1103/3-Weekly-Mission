@@ -12,7 +12,7 @@ const Sorts = styled.div`
 const Sort = styled.button`
   display: flex;
   padding: 8px 12px;
-  flex-direction: column;
+  height: 3.5rem;
   align-items: center;
   border-radius: 5px;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
