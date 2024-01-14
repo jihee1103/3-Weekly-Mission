@@ -10,7 +10,6 @@ const Folder = () => {
     <>
       <DocumentTitle title='Folder' />
       <Header />
-      {/* <FolderRenameModal /> */}
       <AddLink />
       <Article />
       <Footer />

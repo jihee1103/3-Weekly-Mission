@@ -47,7 +47,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'no-shadow': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    // 'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'padding-line-between-statements': [
       'error',
       { blankLine: 'always', prev: ['function', 'block'], next: '*' },
