@@ -28,17 +28,19 @@
 
 .kebab,
 .star {
-  width: 3.4rem;
-  height: 3.4rem;
   position: absolute;
   cursor: pointer;
 }
 .kebab {
-  top: 20.5rem;
+  top: 21.5rem;
   right: 2rem;
+  width: 2.1rem;
+  height: 1.7rem;
 }
 
 .star {
+  width: 3.4rem;
+  height: 3.4rem;
   top: 2rem;
   right: 2rem;
 }
