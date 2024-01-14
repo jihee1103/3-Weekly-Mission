@@ -38,6 +38,7 @@ function FolderList({ folderData, folderInfo }) {
         <FloatingButton />
       </div>
       <CardList
+        folderData={folderData}
         selectedFolderId={selectedFolderInfo[0]}
         selectedFolderName={selectedFolderInfo[1]}
       ></CardList>

@@ -12,6 +12,7 @@
   border: 1px solid var(--linkbrary-white);
   background: var(--linkbrary-primary-color);
   z-index: 1;
+  cursor: pointer;
   @media (min-width: 768px) {
     display: none;
   }
@@ -30,10 +31,24 @@
   letter-spacing: -0.3px;
 }
 
-.fixedIcon {
+.fixedBtn {
   display: none;
-
+  cursor: pointer;
   @media (min-width: 768px) {
     display: inline;
   }
+}
+
+.fixedText {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #6d6afe;
+  text-align: center;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.3px;
 }

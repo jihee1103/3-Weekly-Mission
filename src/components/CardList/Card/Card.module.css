@@ -55,6 +55,7 @@
 
 .kebab {
   position: relative;
+  z-index: 1;
 }
 .kebabImg {
   width: 21px;

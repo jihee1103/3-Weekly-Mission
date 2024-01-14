@@ -9,7 +9,7 @@ export async function getUserData() {
 }
 
 export async function getFolderData() {
-  const response = await fetch(`${BASE_URL}/users/1/folders`);
+  const response = await fetch(`${BASE_URL}/users/2/folders`);
   if (!response.ok) {
     throw new Error("폴더를 불러오는데 실패했습니다.");
   }

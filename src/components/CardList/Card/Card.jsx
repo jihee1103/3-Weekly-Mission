@@ -4,7 +4,7 @@ import styles from "./Card.module.css";
 import PopOver from "../../PopOver/PopOver";
 import { useState } from "react";
 
-function Card({ link }) {
+function Card({ link, folderData }) {
   const [pop, setPop] = useState(false);
 
   const handleClick = () => {
@@ -37,7 +37,7 @@ function Card({ link }) {
                 handleClick();
               }}
             />
-            {pop && <PopOver />}
+            {pop && <PopOver folderData={folderData} />}
           </span>
         </div>
         <div className={styles.contentText}>{link.title}</div>
