@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import getData from "../api/getData";
-import { useEffect, useState } from "react";
 
 const Sorts = styled.div`
   display: flex;
@@ -26,23 +24,18 @@ const Sort = styled.button`
   }
 `;
 
-const SortingBar = function () {
-  const [folderName, setFolderName] = useState([]);
-
-  useEffect(() => {
-    const Data = async () => {
-      const result = await getData("/users/1/folders");
-      setFolderName(result.data);
-    };
-
-    Data();
-  }, []);
-
+const SortingBar = function ({ handleSort, folderName }) {
   return (
     <Sorts>
-      <Sort>전체</Sort>
+      <Sort folderName={folderName} onClick={() => handleSort("all")}>
+        전체
+      </Sort>
       {folderName.map((item) => {
-        return <Sort key={item.id}>{item.name}</Sort>;
+        return (
+          <Sort key={item.id} onClick={() => handleSort(item.id)}>
+            {item.name}
+          </Sort>
+        );
       })}
     </Sorts>
   );

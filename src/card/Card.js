@@ -5,7 +5,7 @@ import { useState } from "react";
 import getElapsedTime from "../utils/getElapsedTime";
 
 const Card = function ({ item }) {
-  const { createdAt, description, imageSource, url } = item;
+  const { createdAt, created_at, description, imageSource, image_source, url } = item;
   const [isHovered, setIsHoverd] = useState(false);
 
   const handleMouseOver = () => setIsHoverd(true);
@@ -20,8 +20,12 @@ const Card = function ({ item }) {
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
       onClick={handleOnClick}>
-      <CardImage isHovered={isHovered} imageSource={imageSource} />
-      <CardContent elapsedTime={getElapsedTime({ createdAt })} description={description} createdAt={createdAt} />
+      <CardImage isHovered={isHovered} imageSource={imageSource || image_source} />
+      <CardContent
+        elapsedTime={getElapsedTime({ createdAt: createdAt || created_at })}
+        description={description}
+        createdAt={createdAt || created_at}
+      />
     </div>
   );
 };
