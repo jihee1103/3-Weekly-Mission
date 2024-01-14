@@ -1,4 +1,3 @@
-import FolderRenameModal from '@components/ui/molecules/modal/folder-rename-modal/FolderRenameModal';
 import DocumentTitle from '@layout/document-title/DocumentTitle';
 
 import AddLink from './comp/add-link/AddLink';
@@ -11,7 +10,7 @@ const Folder = () => {
     <>
       <DocumentTitle title='Folder' />
       <Header />
-      <FolderRenameModal />
+      {/* <FolderRenameModal /> */}
       <AddLink />
       <Article />
       <Footer />

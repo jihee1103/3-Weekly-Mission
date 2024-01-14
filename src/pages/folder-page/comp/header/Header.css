@@ -27,6 +27,19 @@ header {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .gnb {
+    height: 9.3rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .gnb {
+    max-width: 192rem;
+    padding: 0 20rem;
+  }
+}
+
 .gnb.absolute {
   position: absolute;
 }
@@ -45,8 +58,10 @@ header {
 
   border-radius: 0.8rem;
   background-image: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+}
 
-  @media screen and (width >= 768px) {
+@media screen and (width >= 768px) {
+  .cta {
     font-size: 1.8rem;
     height: 5.3rem;
   }
@@ -56,6 +71,12 @@ header {
   width: 8rem;
 
   @media screen and (width >= 768px) {
+    width: 12.8rem;
+  }
+}
+
+@media screen and (width >= 768px) {
+  .cta-short {
     width: 12.8rem;
   }
 }
