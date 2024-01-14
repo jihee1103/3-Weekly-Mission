@@ -16,15 +16,6 @@ header {
   height: 6.3rem;
 
   margin-inline: auto;
-
-  @media screen and (width >= 768px) {
-    height: 9.3rem;
-  }
-
-  @media screen and (width >= 1200px) {
-    max-width: 192rem;
-    padding: 0 20rem;
-  }
 }
 
 @media screen and (min-width: 768px) {
@@ -69,10 +60,6 @@ header {
 
 .cta-short {
   width: 8rem;
-
-  @media screen and (width >= 768px) {
-    width: 12.8rem;
-  }
 }
 
 @media screen and (width >= 768px) {
