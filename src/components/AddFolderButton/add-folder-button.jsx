@@ -5,7 +5,7 @@ export function AddFolderButton() {
   return (
     <div className="add-folder-section">
       <h4 className="add-folder-font">폴더 추가</h4>
-      <img src={addButton} />
+      <img className="add-folder-button" src={addButton} />
     </div>
   );
 }

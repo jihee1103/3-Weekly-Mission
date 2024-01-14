@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  justify-content: center;
   gap: 4px;
 }
 
@@ -10,4 +11,36 @@
   text-align: center;
   font-size: 16px;
   font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .add-folder-section {
+    position: fixed;
+    bottom: 101px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 135px;
+    height: 36px;
+    padding: 8px 24px;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1;
+
+    border-radius: 20px;
+    border: 1px solid var(--Linkbrary-white, #fff);
+    background: var(--Linkbrary-primary-color, #6d6afe);
+  }
+
+  .add-folder-font {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .add-folder-button {
+    background-color: white;
+  }
 }
