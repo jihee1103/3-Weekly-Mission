@@ -1,21 +1,23 @@
-.FloatingButton {
-  position: fixed;
-  left: 50%;
-  bottom: 101px;
-  padding: 8px 24px;
-  display: flex;
-  background-color: #6d6afe;
-  border: 1px solid #fff;
-  border-radius: 2rem;
-  gap: 2rem;
-}
+@media (max-width: 767px) {
+  .FloatingButton {
+    position: fixed;
+    left: 50%;
+    bottom: 101px;
+    padding: 8px 24px;
+    display: flex;
+    background-color: #6d6afe;
+    border: 1px solid #fff;
+    border-radius: 2rem;
+    gap: 2rem;
+  }
 
-.FloatingButton div {
-  align-items: flex-start;
-  color: var(--Linkbrary-gray10, #e7effb);
-  text-align: center;
-  font-family: Abel;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: -0.3px;
+  .FloatingButton div {
+    align-items: flex-start;
+    color: var(--Linkbrary-gray10, #e7effb);
+    text-align: center;
+    font-family: Abel;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+  }
 }
