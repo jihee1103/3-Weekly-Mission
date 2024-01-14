@@ -21,11 +21,14 @@ const Card = function ({ item }) {
       onMouseLeave={handleMouseLeave}
       onClick={handleOnClick}>
       <CardImage isHovered={isHovered} imageSource={imageSource || image_source} />
+
       <CardContent
         elapsedTime={getElapsedTime({ createdAt: createdAt || created_at })}
         description={description}
         createdAt={createdAt || created_at}
       />
+      <img className="star" src="/img/star_icon.svg" alt="즐겨찾기" />
+      <img className="kebab" src="/img/kebab_icon.svg" alt="케밥아이콘" />
     </div>
   );
 };

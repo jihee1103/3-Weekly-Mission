@@ -12,6 +12,7 @@
 
   border-radius: 15px;
   background: #fff;
+  position: relative;
 }
 
 .Hovered {
@@ -23,4 +24,21 @@
 .Hovered .CardImage {
   overflow: hidden;
   /* width: 400px; */
+}
+
+.kebab,
+.star {
+  width: 3.4rem;
+  height: 3.4rem;
+  position: absolute;
+  cursor: pointer;
+}
+.kebab {
+  top: 20.5rem;
+  right: 2rem;
+}
+
+.star {
+  top: 2rem;
+  right: 2rem;
 }
