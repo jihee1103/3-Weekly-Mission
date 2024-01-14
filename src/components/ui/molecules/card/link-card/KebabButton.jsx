@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const KebabButton = ({ onClick, ...rest }) => {
+const KebabButton = ({ onClickHandler, ...rest }) => {
   const onKebabButtonClickHandler = (e) => {
     e.stopPropagation(); // event 전파를 막고 (근데 이거 하나만으로는 안 됨.)
     e.preventDefault(); // 지금은 button이 a 태그 안에 있기 때문에 a 태그의 기본 동작까지 막아야 함.
-    onClick();
+    onClickHandler();
   };
 
   return (

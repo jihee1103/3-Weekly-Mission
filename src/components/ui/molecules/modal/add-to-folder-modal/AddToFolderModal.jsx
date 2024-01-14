@@ -15,7 +15,7 @@ const mockArray = [
 /**
  * @description 폴더에 추가 모달
  */
-const AddToFolderModal = ({ modalName = '폴더에 추가', linkUrl }) => {
+const AddToFolderModal = ({ modalName = '폴더에 추가', linkUrl, closeModal }) => {
   const [selectedFolder, setSelectedFolder] = useState([]);
   const imgUrl = '/images/folder/folder-icon-check.svg';
 
@@ -39,7 +39,7 @@ const AddToFolderModal = ({ modalName = '폴더에 추가', linkUrl }) => {
             const isSelected = selectedFolder.includes(folderName);
 
             return (
-              <StAddFolderList $isSelected={isSelected} onClick={() => onSelectHandler(folderName)}>
+              <StAddFolderList key={folderName} $isSelected={isSelected} onClick={() => onSelectHandler(folderName)}>
                 <StAddFolderListTextBox>
                   {folderName}
                   <StAddFolderListLinkCount>{linkCount}개 링크</StAddFolderListLinkCount>
@@ -49,7 +49,7 @@ const AddToFolderModal = ({ modalName = '폴더에 추가', linkUrl }) => {
             );
           })}
         </StAddFolderListUl>
-        <Modal.ModalCloseBtn />
+        <Modal.ModalCloseBtn closeModal={closeModal} />
         <Modal.StModalActionBtn>추가하기</Modal.StModalActionBtn>
       </Modal.StModalWrapper>
     </Modal.StModalBackground>

@@ -11,10 +11,13 @@ import { StModalSubText } from '../StModalSubText';
  * @description 폴더 공유 모달
  */
 const FolderShareModal = ({ modalName = '폴더 공유', folderName, closeModal }) => {
-  const [currentHref, setCurrentHrefAfterMound] = useState('');
+  // const [origin, setOriginAfterMount] = useState('');
+  const [url, setUrlAfterMount] = useState('');
 
+  // 지금 위치한 곳은 /folder인데 🤔❓{호스트 주소}/shared?user={현재 로그인 중인 유저 ID}&folder={현재 열려있는 폴더 ID}
   useEffect(() => {
-    setCurrentHrefAfterMound(window.location.href);
+    // setOriginAfterMount(window.location.origin);
+    setUrlAfterMount(window.location.href);
   }, []);
 
   // ① encodeURI(): 인터넷 주소에서 사용하는 :, ;, /, =, ?, & 등을 제외하고 인코딩하는 함수
@@ -29,9 +32,9 @@ const FolderShareModal = ({ modalName = '폴더 공유', folderName, closeModal 
   //   window.open(`https://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
   // };
 
-  const { shareToFacebook, shareToKakaotalk, copyFolderUrl } = useSNSShare({ title: 'Linkbrary', url: currentHref });
+  const { shareToFacebook, shareToKakaotalk, copyFolderUrl } = useSNSShare({ title: 'Linkbrary', url });
 
-  const mockArray = [
+  const snsShareOptionsArray = [
     { iconName: 'kakao', text: '카카오톡', onClickHandler: shareToKakaotalk },
     { iconName: 'facebook', text: '페이스북', onClickHandler: shareToFacebook },
     { iconName: 'clipboard', text: '링크 복사', onClickHandler: copyFolderUrl },
@@ -45,7 +48,7 @@ const FolderShareModal = ({ modalName = '폴더 공유', folderName, closeModal 
           <StModalSubText>{folderName}</StModalSubText>
         </Modal.StModalLabel>
         <StSNSListWrapper>
-          {mockArray.map(({ iconName, text, onClickHandler }) => {
+          {snsShareOptionsArray.map(({ iconName, text, onClickHandler }) => {
             return (
               <StSNSBox key={text} onClick={onClickHandler}>
                 <img alt={`${text} 아이콘`} src={`/images/folder/modal-${iconName}-icon.svg`} />
