@@ -5,12 +5,15 @@ const useSNSShare = ({ title, url }) => {
   // ② encodeURIComponent(): 모든 문자를 인코딩하는 함수, 전체 URI를 구성하는 부분 인코딩에 적합, 매개변수를 인코딩 하려는 경우
   // ③ 인코딩: 데이터를 다른 포맷(형식)으로 변환. 사용할 수 없는 문자를 사용할 수 있는 특수 문자 조합으로 표현
 
+  // const url = `${origin}/shared?user=${userId}&folder=${folderId}`;
   /**
    * @see {@link https://become-a-developer.tistory.com/63} - Parameter 'href' should represent a valid URL 에러 뜰 시.  URL을 읽어들일 수 없음 에러 뜰 시
    */
+  // {호스트 주소}/shared?user={현재 로그인 중인 유저 ID}&folder={현재 열려있는 폴더 ID}
   const shareToFacebook = () => {
     // const sharedLink = encodeURIComponent(window.location.href);
     const sharedLink = encodeURIComponent(url);
+    // const sharedLink = encodeURIComponent(`${origin}/shared?user=${userId}&folder=${folderId}`);
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
   };
 
@@ -67,13 +70,11 @@ const useSNSShare = ({ title, url }) => {
   // };
 
   useEffect(() => {
-    // ✅ clipboard.js 라이브러리
-    // navigator.permissions.query({ name: 'write-on-clipboard' }).then((result) => {
-    // chrome용
+    // ✅ clipboard api가 안되면 clipboard.js 라이브러리도 있다.
+    // chrome용 사용 가능 확인 api
     navigator.permissions.query({ name: 'clipboard-write' }).then((result) => {
       // eslint-disable-next-line eqeqeq
       if (result.state == 'granted' || result.state == 'prompt') {
-        // eslint-disable-next-line no-alert
         console.log('Write access granted!');
       }
     });

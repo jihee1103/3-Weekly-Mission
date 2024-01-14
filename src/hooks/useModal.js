@@ -10,11 +10,27 @@ const useModal = () => {
     folderName: '',
     subTextName: '',
     linkUrl: '',
+    closeModalCallback: null,
   });
-  const [isModalOpen, isModalOpenToggler] = useToggle();
+  const [isModalOpen, toggleModal] = useToggle();
 
-  const toggleAndSetModal = ({ modalName = '', folderName = '', subTextName = '', linkUrl = '', ModalComponent }) => {
-    isModalOpenToggler();
+  const closeModal = (closeModalCallback) => {
+    toggleModal();
+
+    if (typeof closeModalCallback === 'function' && isModalOpen) closeModalCallback();
+  };
+
+  // todo: 문제점: 모달 전부를 커버하려다 보니 받는 property가 많아질 듯. 열고 닫는 역할만 하고 프로퍼티는 Modal에 직접 넣는 방향으로 개선할 것 -> modalName, folderName, subTextName, linkUrl은 고정으로 받고 나머지는 ModalComponent로 일단 직접 넣기.
+  // ? 애초에 모달 컴포넌트를 프롭으로 받아야 하는 이유가 있나?
+  const toggleAndSetModal = ({
+    modalName = '',
+    folderName = '',
+    subTextName = '',
+    linkUrl = '',
+    closeModalCallback,
+    ModalComponent,
+  }) => {
+    toggleModal(); // 여는 순간 실행
     setModalInfo(() => {
       if (!isModalOpen) {
         return {
@@ -22,6 +38,7 @@ const useModal = () => {
           folderName,
           subTextName,
           linkUrl,
+          closeModalCallback,
         };
       }
 
@@ -39,30 +56,7 @@ const useModal = () => {
     });
   };
 
-  // const toggleAndSetModal = useCallback(
-  //   (ModalComponent, modalName, subTextName) => {
-  //     isModalOpenToggler();
-  //     setModalInfo(() => {
-  //       if (!isModalOpen) {
-  //         return {
-  //           modalName,
-  //           subTextName,
-  //           ModalComponent,
-  //         };
-  //       }
-
-  //       return {
-  //         modalName: '',
-  //         subTextName: '',
-  //         ModalComponent: <></>,
-  //       };
-  //     });
-  //   },
-  //   [isModalOpen],
-  // );
-
-  // // todo: folder name, urlName 넣어줘야 함.
-  const ModalComponent = () => {
+  const ModalComponent = (props) => {
     const validProps = {};
 
     // eslint-disable-next-line no-restricted-syntax
@@ -72,7 +66,7 @@ const useModal = () => {
       }
     }
 
-    return <Modal closeModal={isModalOpenToggler} {...validProps} />;
+    return <Modal {...props} closeModal={() => closeModal(ModalInfo.closeModalCallback)} {...validProps} />;
   };
 
   return { isModalOpen, toggleAndSetModal, ModalInfo, ModalComponent };
