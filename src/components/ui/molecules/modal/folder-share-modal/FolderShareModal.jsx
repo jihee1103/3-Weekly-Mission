@@ -1,23 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
-import ModalCloseBtn from '@components/ui/atoms/button/modal-btn/ModalCloseBtn';
-import { StModalLabel } from '@components/ui/atoms/label/modal-label/StModalLabel';
-
-import { StModalBackground } from '../StModalBackground';
+import Modal from '..';
 import { StModalSubText } from '../StModalSubText';
-import { StModalWrapper } from '../StModalWrapper';
 
-const FolderShareModal = ({ modalText, linkUrl }) => {
-  const copyFolderUrl = async () => {
+/**
+ * @description 폴더 공유 모달
+ */
+const FolderShareModal = ({ modalName = '폴더 공유', folderName, closeModal }) => {
+  const [hrefAfterMount, setHrefAfterMount] = useState('');
+
+  const copyFolderUrl = async (location) => {
     try {
-      await navigator.clipboard.writeText(window.location.href);
+      await navigator.clipboard.writeText(location);
       console.log('Content copied to clipboard');
     } catch (e) {
       console.error('Failed to copy');
     }
   };
+
+  useEffect(() => {
+    setHrefAfterMount(window.location.href);
+  }, []);
 
   // ① encodeURI(): 인터넷 주소에서 사용하는 :, ;, /, =, ?, & 등을 제외하고 인코딩하는 함수
   // ② encodeURIComponent(): 모든 문자를 인코딩하는 함수, 전체 URI를 구성하는 부분 인코딩에 적합, 매개변수를 인코딩 하려는 경우
@@ -34,7 +39,7 @@ const FolderShareModal = ({ modalText, linkUrl }) => {
   const mockArray = [
     { iconName: 'kakao', text: '카카오톡', onClickHandler: () => {} },
     { iconName: 'facebook', text: '페이스북', onClickHandler: shareToFacebook },
-    { iconName: 'clipboard', text: '링크 복사', onClickHandler: copyFolderUrl },
+    { iconName: 'clipboard', text: '링크 복사', onClickHandler: () => copyFolderUrl(hrefAfterMount) },
   ];
 
   // ✅ clipboard.js 라이브러리
@@ -51,25 +56,25 @@ const FolderShareModal = ({ modalText, linkUrl }) => {
   }, []);
 
   return (
-    <StModalBackground>
-      <StModalWrapper $rowGap={2.4}>
-        <StModalLabel as='div' $rowGap={0.8}>
-          {modalText}
-          <StModalSubText>{linkUrl}</StModalSubText>
-        </StModalLabel>
+    <Modal.StModalBackground>
+      <Modal.StModalWrapper $rowGap={2.4}>
+        <Modal.StModalLabel as='div' $rowGap={0.8}>
+          {modalName}
+          <StModalSubText>{folderName}</StModalSubText>
+        </Modal.StModalLabel>
         <StSNSListWrapper>
           {mockArray.map(({ iconName, text, onClickHandler }) => {
             return (
               <StSNSBox key={text} onClick={onClickHandler}>
-                <img alt={`${text} 아이콘`} src={`/images/modal-${iconName}-icon.svg`} />
+                <img alt={`${text} 아이콘`} src={`/images/folder/modal-${iconName}-icon.svg`} />
                 <span>{text}</span>
               </StSNSBox>
             );
           })}
         </StSNSListWrapper>
-        <ModalCloseBtn />
-      </StModalWrapper>
-    </StModalBackground>
+        <Modal.ModalCloseBtn closeModal={closeModal} />
+      </Modal.StModalWrapper>
+    </Modal.StModalBackground>
   );
 };
 

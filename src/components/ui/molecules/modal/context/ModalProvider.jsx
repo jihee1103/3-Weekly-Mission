@@ -1,5 +1,6 @@
 import { createContext, useContext } from 'react';
 
+// todo: 모달 내부 공유 데이터 대비: 다음주에 아마 폴더명이나 링크이름?이 될 듯
 const ModalContext = createContext();
 
 const ModalProvider = ({ children, ...rest }) => {

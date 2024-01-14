@@ -10,4 +10,6 @@
   --linkbrary-gray-10: #e7effb;
 
   --linkbrary-bg: #f0f6ff;
+
+  --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }

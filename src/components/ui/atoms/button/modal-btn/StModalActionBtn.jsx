@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StModalActionBtn = styled.button`
+const StModalActionBtn = styled.button.attrs({ type: 'button' })`
   width: 100%;
   height: 5.1rem;
 

@@ -1,7 +1,5 @@
 import ReactDOM from 'react-dom';
 
-import styled from 'styled-components';
-
 /**
  *
  * @param {React.ReactNode} props
@@ -12,13 +10,13 @@ const Portal = ({ children }) => {
 };
 
 const PortalContainer = ({ children }) => {
-  // return <Portal>{children}</Portal>;
-  return <StPortalArea>{children}</StPortalArea>;
+  return <Portal>{children}</Portal>;
+  // return <StPortalArea>{children}</StPortalArea>;
 };
 
 export default PortalContainer;
 
-const StPortalArea = styled(Portal)`
-  position: fixed;
-  top: 0;
-`;
+// const StPortalArea = styled(Portal)`
+//   position: fixed;
+//   top: 0;
+// `;

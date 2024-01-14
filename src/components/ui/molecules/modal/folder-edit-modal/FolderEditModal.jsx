@@ -1,24 +1,22 @@
-import ModalCloseBtn from '@components/ui/atoms/button/modal-btn/ModalCloseBtn';
-import { StModalActionBtn } from '@components/ui/atoms/button/modal-btn/StModalActionBtn';
-import { StModalLabel } from '@components/ui/atoms/label/modal-label/StModalLabel';
+import Modal from '..';
 
-import { StModalBackground } from '../StModalBackground';
-import { StModalInput } from '../StModalInput';
-import { StModalWrapper } from '../StModalWrapper';
-
-const FolderEditModal = ({ modalText }) => {
+/**
+ * @description 폴더 이름 변경 모달
+ * todo: 폴더명 state 받아서 변경
+ */
+const FolderEditModal = ({ modalName = '폴더 이름 변경', folderName = '', closeModal }) => {
   return (
-    <StModalBackground>
-      <StModalWrapper $rowGap={1.5}>
-        <StModalLabel htmlFor='folder-name-change' $rowGap={2.4}>
+    <Modal.StModalBackground>
+      <Modal.StModalWrapper $rowGap={1.5}>
+        <Modal.StModalLabel htmlFor='folder-name-change' $rowGap={2.4}>
           {/* 접근성 - 시각 장애인 분들 위함 ---> input은 무조건 라벨 태그 안에 있어야 한다고 권장함. - W3C */}
-          {modalText}
-          <StModalInput placeholder='내용 입력' id='folder-name-change' />
-        </StModalLabel>
-        <ModalCloseBtn />
-        <StModalActionBtn>변경하기</StModalActionBtn>
-      </StModalWrapper>
-    </StModalBackground>
+          {modalName}
+          <Modal.StModalInput placeholder={folderName} id='folder-name-change' />
+        </Modal.StModalLabel>
+        <Modal.ModalCloseBtn closeModal={closeModal} />
+        <Modal.StModalActionBtn>변경하기</Modal.StModalActionBtn>
+      </Modal.StModalWrapper>
+    </Modal.StModalBackground>
   );
 };
 

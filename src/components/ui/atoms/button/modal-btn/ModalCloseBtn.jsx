@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-const ModalCloseBtn = () => {
+const ModalCloseBtn = ({ closeModal }) => {
   return (
-    <StModalCloseBtn>
-      <img className='modal__button--close' alt='모달 닫기 버튼' src='/images/modal-close.svg' />
+    <StModalCloseBtn onClick={closeModal}>
+      <img className='modal__button--close' alt='모달 닫기 버튼' src='/images/folder/modal-close.svg' />
     </StModalCloseBtn>
   );
 };

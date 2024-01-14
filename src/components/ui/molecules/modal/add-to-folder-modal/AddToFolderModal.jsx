@@ -2,13 +2,8 @@ import { useState } from 'react';
 
 import styled from 'styled-components';
 
-import ModalCloseBtn from '@components/ui/atoms/button/modal-btn/ModalCloseBtn';
-import { StModalActionBtn } from '@components/ui/atoms/button/modal-btn/StModalActionBtn';
-import { StModalLabel } from '@components/ui/atoms/label/modal-label/StModalLabel';
-
-import { StModalBackground } from '../StModalBackground';
+import Modal from '..';
 import { StModalSubText } from '../StModalSubText';
-import { StModalWrapper } from '../StModalWrapper';
 
 const mockArray = [
   { folderName: '코딩팁', linkCount: 7 },
@@ -17,9 +12,12 @@ const mockArray = [
   { folderName: '나만의 장소', linkCount: 3 },
 ];
 
-const AddToFolderModal = ({ modalText, linkUrl }) => {
+/**
+ * @description 폴더에 추가 모달
+ */
+const AddToFolderModal = ({ modalName = '폴더에 추가', linkUrl }) => {
   const [selectedFolder, setSelectedFolder] = useState([]);
-  const imgUrl = '/images/folder-icon-check.svg';
+  const imgUrl = '/images/folder/folder-icon-check.svg';
 
   const onSelectHandler = (folderName) => {
     setSelectedFolder((prev) => {
@@ -30,12 +28,12 @@ const AddToFolderModal = ({ modalText, linkUrl }) => {
   };
 
   return (
-    <StModalBackground>
-      <StModalWrapper $rowGap={2.4}>
-        <StModalLabel as='div' $rowGap={0.8}>
-          {modalText}
+    <Modal.StModalBackground>
+      <Modal.StModalWrapper $rowGap={2.4}>
+        <Modal.StModalLabel as='div' $rowGap={0.8}>
+          {modalName}
           <StModalSubText>{linkUrl}</StModalSubText>
-        </StModalLabel>
+        </Modal.StModalLabel>
         <StAddFolderListUl>
           {mockArray.map(({ folderName, linkCount }) => {
             const isSelected = selectedFolder.includes(folderName);
@@ -51,10 +49,10 @@ const AddToFolderModal = ({ modalText, linkUrl }) => {
             );
           })}
         </StAddFolderListUl>
-        <ModalCloseBtn />
-        <StModalActionBtn>추가하기</StModalActionBtn>
-      </StModalWrapper>
-    </StModalBackground>
+        <Modal.ModalCloseBtn />
+        <Modal.StModalActionBtn>추가하기</Modal.StModalActionBtn>
+      </Modal.StModalWrapper>
+    </Modal.StModalBackground>
   );
 };
 

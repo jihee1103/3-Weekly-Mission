@@ -1,23 +1,22 @@
-import ModalCloseBtn from '@components/ui/atoms/button/modal-btn/ModalCloseBtn';
-import { StModalActionBtn } from '@components/ui/atoms/button/modal-btn/StModalActionBtn';
-import { StModalLabel } from '@components/ui/atoms/label/modal-label/StModalLabel';
+import Modal from '..';
 
-import { StModalBackground } from '../StModalBackground';
-import { StModalSubText } from '../StModalSubText';
-import { StModalWrapper } from '../StModalWrapper';
-
-const FolderDeleteModal = ({ modalText }) => {
+/**
+ * @description '폴더 삭제' 혹은 '링크 삭제'용 모달
+ * 스타일 동일
+ * todo: prop 받는 거 linkUrl 혹은 folderName으로 할 거.
+ */
+const FolderDeleteModal = ({ modalName = '폴더 삭제', folderName = '', closeModal }) => {
   return (
-    <StModalBackground>
-      <StModalWrapper $rowGap={2.4}>
-        <StModalLabel as='div' $rowGap={0.8}>
-          {modalText}
-          <StModalSubText>폴더명</StModalSubText>
-        </StModalLabel>
-        <ModalCloseBtn />
-        <StModalActionBtn $originalColor='red'>삭제하기</StModalActionBtn>
-      </StModalWrapper>
-    </StModalBackground>
+    <Modal.StModalBackground>
+      <Modal.StModalWrapper $rowGap={2.4}>
+        <Modal.StModalLabel as='div' $rowGap={0.8}>
+          {modalName}
+          <Modal.StModalSubText>{folderName}</Modal.StModalSubText>
+        </Modal.StModalLabel>
+        <Modal.ModalCloseBtn closeModal={closeModal} />
+        <Modal.StModalActionBtn $originalColor='red'>삭제하기</Modal.StModalActionBtn>
+      </Modal.StModalWrapper>
+    </Modal.StModalBackground>
   );
 };
 

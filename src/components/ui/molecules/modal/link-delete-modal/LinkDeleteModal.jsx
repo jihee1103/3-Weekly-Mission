@@ -1,23 +1,20 @@
-import ModalCloseBtn from '@components/ui/atoms/button/modal-btn/ModalCloseBtn';
-import { StModalActionBtn } from '@components/ui/atoms/button/modal-btn/StModalActionBtn';
-import { StModalLabel } from '@components/ui/atoms/label/modal-label/StModalLabel';
-
-import { StModalBackground } from '../StModalBackground';
+import Modal from '..';
 import { StModalSubText } from '../StModalSubText';
-import { StModalWrapper } from '../StModalWrapper';
 
-const LinkDeleteModal = ({ modalText, linkUrl }) => {
+const LinkDeleteModal = ({ modalText, linkUrl, closeModal }) => {
   return (
-    <StModalBackground>
-      <StModalWrapper $rowGap={2.4}>
-        <StModalLabel as='div' $rowGap={0.8}>
+    <Modal.StModalBackground>
+      <Modal.StModalWrapper $rowGap={2.4}>
+        <Modal.StModalLabel as='div' $rowGap={0.8}>
           {modalText}
           <StModalSubText>{linkUrl}</StModalSubText>
-        </StModalLabel>
-        <ModalCloseBtn />
-        <StModalActionBtn $originalColor='red'>삭제하기</StModalActionBtn>
-      </StModalWrapper>
-    </StModalBackground>
+        </Modal.StModalLabel>
+        <Modal.ModalCloseBtn />
+        <Modal.StModalActionBtn $originalColor='red' onClick={closeModal}>
+          삭제하기
+        </Modal.StModalActionBtn>
+      </Modal.StModalWrapper>
+    </Modal.StModalBackground>
   );
 };
 
