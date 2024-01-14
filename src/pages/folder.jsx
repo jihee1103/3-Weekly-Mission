@@ -6,9 +6,10 @@ import defaultImage from "../components/FolderCard/card-component-default.png";
 import "./style.css";
 import { useState, useEffect } from "react";
 import { AddLinkBar } from "../components/AddLinkBar/addlinkbar.jsx";
-import { FilterButton } from "../components/FilterButton/filter-button.jsx";
+import { FolderSectionBar } from "../components/FolderSectionBar/folder-section-bar.jsx";
 import { getFolderIdData } from "../api/getFolderIdData.js";
 import { OptionNavBar } from "../components/OptionNavBar/optionNavBar.jsx";
+import { AddFolderButton } from "../components/AddFolderButton/add-folder-button.jsx";
 
 export function Folder() {
   const [linkData, setLinkData] = useState([]);
@@ -43,17 +44,24 @@ export function Folder() {
     <>
       <AddLinkBar />
       <SearchBar />
-      {filterFolder.map((folder) => {
-        return (
-          <FilterButton
-            key={folder.id}
-            name={folder.name}
-            onClick={() => {
-              handleClickFilter(folder.id);
-            }}
-          />
-        );
-      })}
+      <div className="folder-edit-area">
+        <div className="folder-list">
+          {filterFolder.map((folder) => {
+            return (
+              <FolderSectionBar
+                key={folder.id}
+                name={folder.name}
+                onClick={() => {
+                  handleClickFilter(folder.id);
+                }}
+              />
+            );
+          })}
+        </div>
+        <div className="folder-add">
+          <AddFolderButton />
+        </div>
+      </div>
       <OptionNavBar name={selectedFolderName} />
       <div className="card-component-section">
         {!!linkData.length ? (

@@ -1,0 +1,13 @@
+.add-folder-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.add-folder-font {
+  color: #6d6afe;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+}
