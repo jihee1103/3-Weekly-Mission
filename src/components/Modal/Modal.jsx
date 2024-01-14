@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import closeButton from '../../asset/close.svg';
 import AddFolder from './AddFolder';
-import AddLinkToFolder from './AddLinkToFolder';
 import ChangeFolderName from './ChangeFolderName';
 import DeleteFolder from './DeleteFolder';
 import DeleteLink from './DeleteLink';
 import ShareFolder from './ShareFolder';
+import AddLinksToFolder from './AddLinksToFolder';
 
 export default function Modal({
   toggleModal,
@@ -45,7 +45,7 @@ export default function Modal({
     }
     if (modalName === 'addLinkButton') {
       return (
-        <AddLinkToFolder
+        <AddLinksToFolder
           folderList={folderList}
           addLinkUrl={addLinkUrl}
           selectedLinkUrl={selectedLinkUrl}
