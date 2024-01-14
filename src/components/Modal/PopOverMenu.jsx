@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export default function PopOverMenu({
-  toggleModalClick,
+  toggleModal,
   updateModalName,
   handleClickDeleteLink,
   linkUrl,
 }) {
   const handleClickButton = (e) => {
-    toggleModalClick();
+    toggleModal();
     updateModalName(e.currentTarget.id);
     handleClickDeleteLink(linkUrl);
   };

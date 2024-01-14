@@ -9,7 +9,7 @@ export default function ShareFolder({
   folderName,
   userId,
   folderId,
-  toggleModalClick,
+  toggleModal,
 }) {
   const copyLink = async () => {
     try {
@@ -19,7 +19,7 @@ export default function ShareFolder({
     } catch (error) {
       return <Error errorMessage={error.message} />;
     } finally {
-      toggleModalClick();
+      toggleModal();
     }
     return null;
   };

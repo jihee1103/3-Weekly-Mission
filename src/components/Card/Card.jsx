@@ -9,7 +9,7 @@ import PopOverMenu from '../Modal/PopOverMenu';
 
 export default function Card({
   link,
-  toggleModalClick,
+  toggleModal,
   updateModalName,
   handleClickDeleteLink,
 }) {
@@ -17,10 +17,10 @@ export default function Card({
   const [elapsedTime, setElapsedTime] = useState('');
   const [cardImgUrl, setCardImgUrl] = useState('');
   const [linkUrl, setLinkUrl] = useState('');
-  const [isKebabClicked, setIskebabClicked] = useState(false);
+  const [isKebabClicked, setIsKebabClicked] = useState(false);
 
   const handleKebabClick = () => {
-    setIskebabClicked(!isKebabClicked);
+    setIsKebabClicked(!isKebabClicked);
   };
 
   const updateFormattedCreatedAt = (dateTimeString) => {
@@ -65,7 +65,7 @@ export default function Card({
           />
           {isKebabClicked ? (
             <PopOverMenu
-              toggleModalClick={toggleModalClick}
+              toggleModal={toggleModal}
               updateModalName={updateModalName}
               handleClickDeleteLink={handleClickDeleteLink}
               linkUrl={linkUrl}

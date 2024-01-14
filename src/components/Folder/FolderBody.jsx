@@ -4,7 +4,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import FolderContent from './FolderContent';
 
 export default function FolderBody({
-  toggleModalClick,
+  toggleModal,
   updateModalName,
   links,
   folderList,
@@ -25,7 +25,7 @@ export default function FolderBody({
           folderId={folderId}
           onClick={handleClickTitle}
           folderName={folderName}
-          toggleModalClick={toggleModalClick}
+          toggleModal={toggleModal}
           updateModalName={updateModalName}
           handleClickDeleteLink={handleClickDeleteLink}
         />

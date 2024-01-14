@@ -39,7 +39,7 @@ export default function Folder() {
     setModalName(name);
   };
 
-  const toggleModalClick = () => {
+  const toggleModal = () => {
     setIsModalClicked(!isModalClicked);
   };
 
@@ -58,7 +58,7 @@ export default function Folder() {
     <>
       {isModalClicked ? (
         <Modal
-          toggleModalClick={toggleModalClick}
+          toggleModal={toggleModal}
           modalName={modalName}
           folderList={folderList}
           addLinkUrl={addLinkUrl}
@@ -70,7 +70,7 @@ export default function Folder() {
       ) : null}
       <AddLinkArea>
         <AddLink
-          toggleModalClick={toggleModalClick}
+          toggleModal={toggleModal}
           updateModalName={updateModalName}
           folderList={folderList}
           updateAddLinkUrl={updateAddLinkUrl}
@@ -81,7 +81,7 @@ export default function Folder() {
       <FolderBodyArea>
         <FolderBody
           isModalClicked={isModalClicked}
-          toggleModalClick={toggleModalClick}
+          toggleModal={toggleModal}
           modalName={modalName}
           updateModalName={updateModalName}
           setUserId={setUserId}

@@ -6,11 +6,11 @@ import shareIcon from '../../asset/shareIcon.svg';
 export default function FolderCardHeader({
   folderName,
   folderId,
-  toggleModalClick,
+  toggleModal,
   updateModalName,
 }) {
   const handleButtonClick = (e) => {
-    toggleModalClick();
+    toggleModal();
     updateModalName(e.currentTarget.id);
   };
   return (

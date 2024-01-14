@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import linkIcon from '../../asset/link.svg';
 
 export default function AddLink({
-  toggleModalClick,
+  toggleModal,
   updateModalName,
   updateAddLinkUrl,
   addLinkUrl,
@@ -14,7 +14,7 @@ export default function AddLink({
   const handleButtonClick = (e) => {
     e.preventDefault();
     resetSelectedLinkUrl();
-    toggleModalClick();
+    toggleModal();
     updateModalName(e.currentTarget.id);
   };
   return (

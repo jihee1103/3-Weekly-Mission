@@ -4,7 +4,7 @@ import Card from './Card';
 
 export default function CardList({
   links,
-  toggleModalClick,
+  toggleModal,
   updateModalName,
   handleClickDeleteLink,
 }) {
@@ -16,7 +16,7 @@ export default function CardList({
           <Card
             key={newLink.id}
             link={newLink}
-            toggleModalClick={toggleModalClick}
+            toggleModal={toggleModal}
             updateModalName={updateModalName}
             handleClickDeleteLink={handleClickDeleteLink}
           />

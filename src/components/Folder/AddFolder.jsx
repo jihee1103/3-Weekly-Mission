@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import addFolderIcon from '../../asset/addfolder.svg';
 import addFolderWhiteIcon from '../../asset/addfolderwhite.svg';
 
-export default function AddFolder({ toggleModalClick, updateModalName }) {
+export default function AddFolder({ toggleModal, updateModalName }) {
   const handleAddFolderClick = (e) => {
-    toggleModalClick();
+    toggleModal();
     updateModalName(e.currentTarget.id);
   };
   return (

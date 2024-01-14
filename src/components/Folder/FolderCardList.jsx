@@ -2,14 +2,14 @@ import CardList from '../Card/CardList';
 
 export default function FolderCardList({
   links,
-  toggleModalClick,
+  toggleModal,
   updateModalName,
   handleClickDeleteLink,
 }) {
   return (
     <CardList
       links={links}
-      toggleModalClick={toggleModalClick}
+      toggleModal={toggleModal}
       updateModalName={updateModalName}
       handleClickDeleteLink={handleClickDeleteLink}
     />

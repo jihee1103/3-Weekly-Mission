@@ -9,7 +9,7 @@ export default function FolderContent({
   folderId,
   onClick,
   folderName,
-  toggleModalClick,
+  toggleModal,
   updateModalName,
   handleClickDeleteLink,
 }) {
@@ -19,19 +19,19 @@ export default function FolderContent({
         folderList={folderList}
         folderId={folderId}
         onClick={onClick}
-        toggleModalClick={toggleModalClick}
+        toggleModal={toggleModal}
         updateModalName={updateModalName}
       />
       <FolderCardArea>
         <FolderCardHeader
           folderName={folderName}
           folderId={folderId}
-          toggleModalClick={toggleModalClick}
+          toggleModal={toggleModal}
           updateModalName={updateModalName}
         />
         <FolderCardList
           links={links}
-          toggleModalClick={toggleModalClick}
+          toggleModal={toggleModal}
           updateModalName={updateModalName}
           handleClickDeleteLink={handleClickDeleteLink}
         />
