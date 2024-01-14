@@ -16,6 +16,7 @@ export default function Modal({
   selectedLinkUrl,
   userId,
   folderId,
+  links,
 }) {
   const handleCloseButtonClick = () => {
     toggleModal();
@@ -40,6 +41,7 @@ export default function Modal({
           userId={userId}
           folderId={folderId}
           toggleModal={toggleModal}
+          links={links}
         />
       );
     }
@@ -72,7 +74,7 @@ const ModalWrapper = styled.div`
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
   box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
-  z-index: 3;
+  z-index: 4;
 `;
 const ModalContainer = styled.div`
   position: relative;

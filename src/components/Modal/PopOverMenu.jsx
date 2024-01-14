@@ -34,7 +34,7 @@ const MenuWrapper = styled.div`
   gap: 2px;
   background: #fff;
   box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
-  z-index: 2;
+  z-index: 3;
 `;
 const MenuButton = styled.div`
   display: flex;

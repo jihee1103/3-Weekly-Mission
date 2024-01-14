@@ -1,28 +1,33 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
-import kakaoLogo from '../../asset/Kakao.svg';
 import facebookLogo from '../../asset/Facebook.svg';
+import kakaoLogo from '../../asset/Kakao.svg';
 import linkLogo from '../../asset/link.svg';
 import Error from '../Error/Error';
-import { BASE_API_HOST } from '../../constants/api';
+import shareKakao from '../../utils/shareKakao';
 
-export default function ShareFolder({
-  folderName,
-  userId,
-  folderId,
-  toggleModal,
-}) {
+const { Kakao } = window;
+const kakaoApiKey = process.env.REACT_APP_API_KEY;
+
+export default function ShareFolder({ folderName, userId, folderId, links }) {
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(
-        `https://${BASE_API_HOST}/shared?user=${userId}&folder=${folderId}`,
+        `https://${process.env.REACT_APP_HOST}/shared?user=${userId}&folder=${folderId}`,
       );
     } catch (error) {
       return <Error errorMessage={error.message} />;
     } finally {
-      toggleModal();
+      alert('링크가 복사되었습니다!');
     }
     return null;
   };
+
+  useEffect(() => {
+    Kakao.cleanup();
+    Kakao.init(kakaoApiKey);
+  }, []);
+
   return (
     <ShareFolderWrapper>
       <ShareFolderTitleContainer>
@@ -31,7 +36,10 @@ export default function ShareFolder({
       </ShareFolderTitleContainer>
       <ShareFolderIconContainer>
         <IconBox>
-          <SocialIcon color="#FEE500">
+          <SocialIcon
+            color="#FEE500"
+            onClick={() => shareKakao(userId, folderId, links, folderName)}
+          >
             <Icon src={kakaoLogo} />
           </SocialIcon>
           <IconName>카카오톡</IconName>

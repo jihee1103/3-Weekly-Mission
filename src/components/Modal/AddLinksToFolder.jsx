@@ -11,6 +11,7 @@ export default function AddLinkToFolder({
   const handleFolderListClick = (id) => {
     setSelectedFolderId(id);
   };
+
   return (
     <ShareFolderWrapper>
       <ShareFolderTitleContainer>

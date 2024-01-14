@@ -57,7 +57,7 @@ const NavHeader = styled.header`
   padding: 33px 200px 32px;
   gap: 8px;
   background: #f0f6ff;
-  z-index: 1;
+  z-index: 2;
   ${(props) =>
     props.$isFolderPage &&
     css`

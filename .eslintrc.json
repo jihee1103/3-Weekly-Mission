@@ -3,7 +3,6 @@
     "browser": true // document, window 등의 브라우저 내장 객체 조회 가능하도록 설정
   },
   "extends": [
-    "eslint:recommended",
     "plugin:prettier/recommended", // eslint-config-prettier 라이브러리 적용하여 Prettier에 관련된 규칙을 사용합니다.
     "airbnb" // eslint-config-airbnb 라이브러리 적용하여 Airbnb 스타일 가이드에 따라 규칙을 설정합니다.
   ],
@@ -37,6 +36,8 @@
     "indent": "off",
     "implicit-arrow-linebreak": "off",
     "operator-linebreak": "off",
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "object-curly-newline": "off",
+    "no-alert": "off"
   }
 }
