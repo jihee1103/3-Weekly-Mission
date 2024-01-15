@@ -75,9 +75,11 @@ const FolderListContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 4px;
   cursor: pointer;
+  height: 172px;
+  overflow: auto;
 `;
 const AddLinkButton = styled.button`
   display: flex;
