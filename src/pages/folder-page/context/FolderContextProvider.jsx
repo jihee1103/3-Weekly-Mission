@@ -9,7 +9,6 @@ const FolderContextProvider = ({ children }) => {
     targetLink: null,
     currentFolderId: null,
   });
-  console.log(folderPageInfos);
 
   // eslint-disable-next-line react/jsx-no-constructed-context-values
   return <FolderContext.Provider value={{ folderPageInfos, setFolderPageInfos }}>{children}</FolderContext.Provider>;

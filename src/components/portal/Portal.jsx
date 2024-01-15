@@ -11,12 +11,6 @@ const Portal = ({ children }) => {
 
 const PortalContainer = ({ children }) => {
   return <Portal>{children}</Portal>;
-  // return <StPortalArea>{children}</StPortalArea>;
 };
 
 export default PortalContainer;
-
-// const StPortalArea = styled(Portal)`
-//   position: fixed;
-//   top: 0;
-// `;

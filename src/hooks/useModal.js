@@ -47,6 +47,7 @@ const useModal = () => {
         folderName: '',
         linkUrl: '',
         subTextName: '',
+        closeModalCallback: null,
       };
     });
     setModal(() => {

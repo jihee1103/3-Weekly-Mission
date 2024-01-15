@@ -12,9 +12,9 @@ import styles from './Card.module.css';
 
 const cn = classNames.bind(styles);
 
-const Card = ({ link, setPopUpLinkId, popupState: { isPopuped, linkId } }) => {
+const Card = ({ link, setSelectMenutPopupState, selectMenutPopupState: { isPopuped, linkId } }) => {
   const handleKebabButton = (linkId) => {
-    setPopUpLinkId((prev) => ({ linkId, isPopuped: !prev.isPopuped }));
+    setSelectMenutPopupState((prev) => ({ linkId, isPopuped: !prev.isPopuped }));
   };
 
   const { ModalComponent, isModalOpen, toggleAndSetModal } = useModal();

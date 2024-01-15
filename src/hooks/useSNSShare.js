@@ -1,11 +1,6 @@
 import { useEffect } from 'react';
 
-// const useSNSShare = ({ title, url }) => {
 const useSNSShare = ({ title, origin, userId, folderId }) => {
-  // ① encodeURI(): 인터넷 주소에서 사용하는 :, ;, /, =, ?, & 등을 제외하고 인코딩하는 함수
-  // ② encodeURIComponent(): 모든 문자를 인코딩하는 함수, 전체 URI를 구성하는 부분 인코딩에 적합, 매개변수를 인코딩 하려는 경우
-  // ③ 인코딩: 데이터를 다른 포맷(형식)으로 변환. 사용할 수 없는 문자를 사용할 수 있는 특수 문자 조합으로 표현
-
   const url = `${origin}/shared?user=${userId}&folder=${folderId}`;
 
   /**
@@ -13,9 +8,7 @@ const useSNSShare = ({ title, origin, userId, folderId }) => {
    */
   // {호스트 주소}/shared?user={현재 로그인 중인 유저 ID}&folder={현재 열려있는 폴더 ID}
   const shareToFacebook = () => {
-    // const sharedLink = encodeURIComponent(window.location.href);
     const sharedLink = encodeURIComponent(url);
-    // const sharedLink = encodeURIComponent(`${origin}/shared?user=${userId}&folder=${folderId}`);
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
   };
 
@@ -34,7 +27,7 @@ const useSNSShare = ({ title, origin, userId, folderId }) => {
       objectType: 'text',
       text: title,
       link: {
-        mobileWebUrl: url, // 나중에 폴더 포함한 주소 링크 넣기
+        mobileWebUrl: url,
         webUrl: url,
       },
     });
@@ -48,28 +41,6 @@ const useSNSShare = ({ title, origin, userId, folderId }) => {
       console.error('Failed to copy');
     }
   };
-
-  // const shareToNavigator = ({ text, url }) => {
-  //   const sharedData = {
-  //     text,
-  //     url,
-  //   };
-
-  //   try {
-  //     if (navigator.canShare && navigator.canShare(sharedData)) {
-  //       navigator
-  //         .share(sharedData)
-  //         .then(() => {
-  //           console.log('🚀 ~ .then ~ 성공');
-  //         })
-  //         .catch(() => {
-  //           console.log('취소');
-  //         });
-  //     }
-  //   } catch (e) {
-  //     console.error('실패');
-  //   }
-  // };
 
   useEffect(() => {
     // ✅ clipboard api가 안되면 clipboard.js 라이브러리도 있다.

@@ -7,7 +7,7 @@ import { useModal } from '@hooks/useModal';
 import styles from './AddLink.module.css';
 
 const AddLink = () => {
-  // 폴더 이름들을 받아야 함.
+  // todo : 폴더 이름들을 받아야 함.
   // 폴더 내부의 링크의 개수를 받아야 함.
   const [input, onChange, clearInput] = useInput();
   const { ModalComponent, isModalOpen, toggleAndSetModal } = useModal();
