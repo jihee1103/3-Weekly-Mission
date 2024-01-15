@@ -38,12 +38,12 @@ export default function FolderTitleList({
           />
         ))}
       </FolderListContainer>
-      <AddFolderWrapper>
+      <AddFolderContainer>
         <AddFolder
           toggleModal={toggleModal}
           updateModalName={updateModalName}
         />
-      </AddFolderWrapper>
+      </AddFolderContainer>
     </Wrapper>
   );
 }
@@ -52,7 +52,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  width: 100%;
+  width: 1060px;
   margin-top: 16px;
   gap: 8px;
   @media (max-width: 1199px) {
@@ -88,7 +88,7 @@ const FolderItemAll = styled.div`
     background-color: ${(prop) => (prop.$isSelected ? '#6D6AFE' : '#E7EFFB')};
   }
 `;
-const AddFolderWrapper = styled.div`
+const AddFolderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
