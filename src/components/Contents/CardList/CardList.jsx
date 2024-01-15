@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import CardImg, { CardMainImg } from './CardImg/CardImg';
 import CardContent, { CardDescriptionWrapper } from './CardDescription/CardDescription';
 
-const CardList = ({ setModal, cardData }) => {
+const CardList = ({ handleModal, cardData }) => {
   return (
     <CardListWrapper>
       {cardData?.length !== 0 ? (
@@ -11,7 +11,7 @@ const CardList = ({ setModal, cardData }) => {
           return (
             <CardLink to={link.url} target="_blank" key={link.id} rel="noreferrer">
               <CardImg link={link} />
-              <CardContent link={link} setModal={setModal} />
+              <CardContent link={link} handleModal={handleModal} />
             </CardLink>
           );
         })

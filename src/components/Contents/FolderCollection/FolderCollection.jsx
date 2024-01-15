@@ -1,13 +1,19 @@
 import { useState } from 'react';
+
 import styled from 'styled-components';
 import add from '../../../assets/images/add.svg';
 import mobileAdd from '../../../assets/images/mobile_add.svg';
 import share from '../../../assets/images/share.svg';
 import pen from '../../../assets/images/pen.svg';
 import trashCan from '../../../assets/images/trash_can.svg';
-import { handleModal } from '../../../utils/handleModal';
 
-const FolderCollection = ({ setModal, folderData, handleOverViewFolderCardData, handleFolderCardData, userData }) => {
+const FolderCollection = ({
+  handleModal,
+  folderData,
+  handleOverViewFolderCardData,
+  handleFolderCardData,
+  userData,
+}) => {
   const [currentFolder, setCurrentFolder] = useState('전체');
   const [sharingUrl, setSharingUrl] = useState('');
 
@@ -52,7 +58,7 @@ const FolderCollection = ({ setModal, folderData, handleOverViewFolderCardData, 
           </FolderButtonWrapper>
           <CreateFolderButton
             onClick={() => {
-              handleModal(setModal, '폴더추가');
+              handleModal({ name: 'CreateFolder', data: { sharingUrl } });
             }}
           >
             <span>폴더추가</span>
@@ -68,7 +74,7 @@ const FolderCollection = ({ setModal, folderData, handleOverViewFolderCardData, 
             <button
               type="button"
               onClick={() => {
-                handleModal(setModal, '공유');
+                handleModal({ name: 'ShareFolder', data: { folderName: currentFolder } });
               }}
             >
               <img src={share} alt="폴더 도구 모음 공유 버튼" />
@@ -77,7 +83,7 @@ const FolderCollection = ({ setModal, folderData, handleOverViewFolderCardData, 
             <button
               type="button"
               onClick={() => {
-                handleModal(setModal, '이름 변경');
+                handleModal({ name: 'ChangeFolderName', data: { folderName: currentFolder } });
               }}
             >
               <img src={pen} alt="폴더 도구 모음 수정 버튼" />
@@ -86,7 +92,7 @@ const FolderCollection = ({ setModal, folderData, handleOverViewFolderCardData, 
             <button
               type="button"
               onClick={() => {
-                handleModal(setModal, '삭제');
+                handleModal({ name: 'DeleteFolder', data: { folderName: currentFolder } });
               }}
             >
               <img src={trashCan} alt="폴더 도구 모음 삭제 버튼" />

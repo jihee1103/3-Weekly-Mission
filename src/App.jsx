@@ -32,7 +32,7 @@ const App = () => {
   return (
     <div>
       <GlobalStyle />
-      <Header login={login} userData={userData}/>
+      <Header login={login} userData={userData} />
       <Routes>
         <Route path="/shared/" element={<SharedPage />} />
         <Route path="/shared/*" element={<SharedPage />} />

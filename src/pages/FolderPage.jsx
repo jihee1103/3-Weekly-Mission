@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 import Hero from '../components/Hero/Hero';
 import Contents from '../components/Contents/Contents';
@@ -10,13 +11,18 @@ import FolderCollection from '../components/Contents/FolderCollection/FolderColl
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 import Modal from '../components/Modal/Modal';
+import { modalInit } from '../data';
 
 const FolderPage = ({ userData }) => {
   const [folderData, setFolderData] = useState([]);
   const [folderCardData, setFolderCardData] = useState([]);
 
   // Modal
-  const [modal, setModal] = useState('');
+  const [modal, setModal] = useState(modalInit);
+
+  const handleModal = (modalValue) => {
+    setModal(modalValue);
+  };
 
   // 폴더의 전체 버튼을 클릭했을 때 가져올 데이터
   const handleOverViewFolderCardData = () => {
@@ -71,24 +77,28 @@ const FolderPage = ({ userData }) => {
   }, []);
 
   return (
-    <>
+    <FolderPageWrapper>
       <Hero>
-        <LinkCreator setModal={setModal} />
+        <LinkCreator handleModal={handleModal} />
       </Hero>
       <Contents>
         <Search />
         <FolderCollection
-          setModal={setModal}
+          handleModal={handleModal}
           userData={userData}
           folderData={folderData}
           handleOverViewFolderCardData={handleOverViewFolderCardData}
           handleFolderCardData={handleFolderCardData}
         />
-        <CardList cardData={folderCardData} setModal={setModal} />
+        <CardList cardData={folderCardData} handleModal={handleModal} />
       </Contents>
-      <Modal modal={modal} />
-    </>
+      {modal.name ? <Modal modal={modal} setModal={setModal} /> : null}
+    </FolderPageWrapper>
   );
 };
+
+const FolderPageWrapper = styled.div`
+  position: relative;
+`;
 
 export default FolderPage;

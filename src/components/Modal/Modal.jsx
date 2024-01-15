@@ -1,24 +1,73 @@
-const Modal = ({ Modal, children }) => {
-  switch (Modal) {
-    case 1: {
-      return;
+import styled from 'styled-components';
+
+import CreateFolder from './CreateFolder';
+import ShareFolder from './ShareFolder';
+import ChangeFolderName from './ChangeFolderName';
+import DeleteFolder from './DeleteFolder';
+import UpdateFolder from './UpdateFolder';
+import DeleteLink from './DeleteLink';
+
+const Modal = ({ modal, setModal }) => {
+  switch (modal.name) {
+    case 'CreateFolder': {
+      return (
+        <ModalWrapper>
+          <CreateFolder modal={modal} setModal={setModal} />
+        </ModalWrapper>
+      );
     }
-    case 1: {
-      return;
+    case 'ShareFolder': {
+      return (
+        <ModalWrapper>
+          <ShareFolder modal={modal} setModal={setModal} />
+        </ModalWrapper>
+      );
     }
-    case 1: {
-      return;
+    case 'ChangeFolderName': {
+      return (
+        <ModalWrapper>
+          <ChangeFolderName modal={modal} setModal={setModal} />
+        </ModalWrapper>
+      );
     }
-    case 1: {
-      return;
+    case 'DeleteFolder': {
+      return (
+        <ModalWrapper>
+          <DeleteFolder modal={modal} setModal={setModal} />
+        </ModalWrapper>
+      );
     }
-    case 1: {
-      return;
+    case 'UpdateFolder': {
+      return (
+        <ModalWrapper>
+          <UpdateFolder modal={modal} setModal={setModal} />
+        </ModalWrapper>
+      );
     }
-    case 1: {
-      return;
+    case 'DeleteLink': {
+      return (
+        <ModalWrapper>
+          <DeleteLink modal={modal} setModal={setModal} />
+        </ModalWrapper>
+      );
+    }
+    default: {
+      break;
     }
   }
+  return console.log(`${modal} 모달창 생성!`);
 };
+
+const ModalWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  top: 0;
+`;
 
 export default Modal;

@@ -4,9 +4,7 @@ import calculatePassedTime from '../../../../utils/calculatePassedTime';
 import getFormattedDate from '../../../../utils/getFormattedDate';
 import kebab from '../../../../assets/images/kebab.svg';
 
-import { handleModal } from '../../../../utils/handleModal';
-
-const CardDescription = ({ link, setModal }) => {
+const CardDescription = ({ link, handleModal }) => {
   const [kebabToggle, setKebabToggle] = useState(false);
 
   const handleKebabToggle = () => {
@@ -30,7 +28,7 @@ const CardDescription = ({ link, setModal }) => {
             <KebabMenuDeleteBtn
               onClick={(e) => {
                 e.preventDefault();
-                handleModal(setModal, '링크삭제');
+                handleModal({ name: 'DeleteLink', data: { url: link.url } });
               }}
             >
               삭제하기

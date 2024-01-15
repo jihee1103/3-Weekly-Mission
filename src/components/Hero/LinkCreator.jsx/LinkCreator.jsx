@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import link from '../../../assets/images/link.svg';
 
-import { handleModal } from '../../../utils/handleModal';
-
-const LinkCreator = ({ setModal }) => {
+const LinkCreator = ({ handleModal }) => {
   return (
     <LinkCreatorWrapper>
       <div>
@@ -13,7 +11,7 @@ const LinkCreator = ({ setModal }) => {
       <CreateLinkButton
         type="button"
         onClick={() => {
-          handleModal(setModal, '폴더에추가');
+          handleModal({ name: 'UpdateFolder', data: {} });
         }}
       >
         추가하기
