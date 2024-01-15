@@ -7,7 +7,7 @@ export default function Modal({ state, onClick, link }) {
     e.stopPropagation();
     onClick();
   };
-  
+
   const folderList = useGetFolderListAsync();
 
   return (
@@ -32,7 +32,10 @@ export default function Modal({ state, onClick, link }) {
               (state["target"] === "이름 변경" && (
                 <>
                   <h2 className="modal-title">폴더 이름 변경</h2>
-                  <input className="modal-input" placeholder={state["folderName"]}/>
+                  <input
+                    className="modal-input"
+                    placeholder={state["folderName"]}
+                  />
                   <button className="modal-submit-btn">변경하기</button>
                 </>
               )) ||
@@ -66,7 +69,11 @@ export default function Modal({ state, onClick, link }) {
                   <h2 className="modal-title">폴더에 추가</h2>
                   <h3>{state["url"] ?? link}</h3>
                   <div className="folder-item-wrapper">
-                  {folderList.map((folder)=> <div key={folder.id} className="folder-item">{folder?.name}</div>)}
+                    {folderList.map((folder) => (
+                      <div key={folder.id} className="folder-item">
+                        {folder?.name}
+                      </div>
+                    ))}
                   </div>
                   <button className="modal-submit-btn">추가하기</button>
                 </>
