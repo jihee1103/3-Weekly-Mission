@@ -3,6 +3,7 @@ import CardContent from "./CardContent";
 import "./Card.css";
 import { useState } from "react";
 import getElapsedTime from "../utils/getElapsedTime";
+import timeFormatter from "../utils/timeFormatter";
 
 const Card = function ({ item }) {
   const { createdAt, created_at, description, imageSource, image_source, url } = item;
@@ -25,7 +26,7 @@ const Card = function ({ item }) {
       <CardContent
         elapsedTime={getElapsedTime(createdAt || created_at)}
         description={description}
-        createdAt={createdAt || created_at}
+        createdAt={timeFormatter(createdAt || created_at)}
       />
       <img className="star" src="/img/star_icon.svg" alt="즐겨찾기" />
       <img className="kebab" src="/img/kebab_icon.svg" alt="케밥아이콘" />
