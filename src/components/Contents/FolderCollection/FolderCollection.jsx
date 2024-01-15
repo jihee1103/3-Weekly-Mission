@@ -22,7 +22,7 @@ const FolderCollection = ({
   };
 
   const createSharingUrl = (userId, folderId) => {
-    setSharingUrl(`http://localhost:3000/shared?user=${userId}&folder=${folderId}`);
+    setSharingUrl(window.location.origin + `/shared?user=${userId}&folder=${folderId}`);
   };
 
   return (
@@ -58,7 +58,7 @@ const FolderCollection = ({
           </FolderButtonWrapper>
           <CreateFolderButton
             onClick={() => {
-              handleModal({ name: 'CreateFolder', data: { sharingUrl } });
+              handleModal({ name: 'CreateFolder', data: { folderName: '' } });
             }}
           >
             <span>폴더추가</span>
@@ -74,7 +74,11 @@ const FolderCollection = ({
             <button
               type="button"
               onClick={() => {
-                handleModal({ name: 'ShareFolder', data: { folderName: currentFolder } });
+                // data에 title, description, sourceImg가 들어가야한다.
+                handleModal({
+                  name: 'ShareFolder',
+                  data: { folderName: currentFolder, sharingUrl },
+                });
               }}
             >
               <img src={share} alt="폴더 도구 모음 공유 버튼" />
