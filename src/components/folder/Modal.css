@@ -68,22 +68,65 @@
   align-items: center;
 }
 
+.modal-title-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .modal-title {
   color: var(--Linkbrary-gray100, #373740);
   font-size: 20px;
   font-weight: 700;
 }
 
+.modal-title-subtitle {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
 div .shareIcon-box {
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.ShaereFolderName {
-  color: var(--Linkbrary-gray60, #9fa6b2);
-  text-align: center;
-  font-size: 14px;
-  font-style: normal;
+.addToFolderModal-folderList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 280px;
+  height: 172px;
+  overflow-y: scroll;
+}
+
+.addToFolderModal-folderName-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+}
+
+.addToFolderModal-folderName {
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 16px;
   font-weight: 400;
-  line-height: 22px; /* 157.143% */
+  line-height: 24px;
+}
+
+.addToFolderModal-folderLinkLength {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.modal-input {
+  display: flex;
+  width: 280px;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
 }

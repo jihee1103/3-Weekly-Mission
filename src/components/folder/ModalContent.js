@@ -20,15 +20,16 @@ export const AddToFolderModal = ({ closeModal }) => {
         onClick={closeModal}
         alt="나가기"
       />
-      <div>
+      <div className="modal-title-box">
         <div className="modal-title">폴더에 추가하기</div>
-        <div>주소</div>
+        <div className="modal-title-subtitle">링크 주소</div>
       </div>
-      <ul>
+      <ul className="addToFolderModal-folderList">
         {FolderList.map((folder) => {
           return (
-            <li key={folder.id}>
-              <div>{folder.name}</div>
+            <li className="addToFolderModal-folderName-box" key={folder.id}>
+              <div className="addToFolderModal-folderName">{folder.name}</div>
+              <div className="addToFolderModal-folderLinkLength">{`${folder.link.count}개 링크`}</div>
             </li>
           );
         })}
@@ -53,6 +54,7 @@ export const AddFolderModal = ({ closeModal }) => (
       alt="나가기"
     />
     <div className="modal-title">폴더 추가</div>
+    <input className="modal-input" />
     <button
       className="modal-button-blue"
       onClick={() => closeModal("addFolder")}
@@ -71,9 +73,9 @@ export const ShareModal = ({ closeModal, selectedModalItem }) => {
         onClick={closeModal}
         alt="나가기"
       />
-      <div>
+      <div className="modal-title-box">
         <div className="modal-title">폴더 공유</div>
-        <div className="ShaereFolderName">{selectedModalItem}</div>
+        <div className="modal-title-subtitle">{selectedModalItem}</div>
       </div>
       <div className="shareIcon-box">
         <div className="shareIcon">
@@ -109,7 +111,7 @@ export const RenameModal = ({ closeModal, selectedModalItem }) => (
       alt="나가기"
     />
     <div className="modal-title">폴더 이름 변경</div>
-    <input defaultValue={selectedModalItem} />
+    <input className="modal-input" defaultValue={selectedModalItem} />
     <button className="modal-button-blue" onClick={() => closeModal("rename")}>
       변경하기
     </button>
@@ -124,9 +126,9 @@ export const DeleteFolderModal = ({ closeModal, selectedModalItem }) => (
       onClick={closeModal}
       alt="나가기"
     />
-    <div>
+    <div className="modal-title-box">
       <div className="modal-title">폴더 삭제</div>
-      <div>{selectedModalItem}</div>
+      <div className="modal-title-subtitle">{selectedModalItem}</div>
     </div>
     <button
       className="modal-button-red"
@@ -145,9 +147,9 @@ export const DeleteItemModal = ({ closeModal, selectedModalItem }) => (
       onClick={closeModal}
       alt="나가기"
     />
-    <div>
+    <div className="modal-title-box">
       <div className="modal-title">링크 삭제</div>
-      <div>{selectedModalItem.url}</div>
+      <div className="modal-title-subtitle">{selectedModalItem.url}</div>
     </div>
     <button
       className="modal-button-red"
