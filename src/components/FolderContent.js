@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles/FolderContent.css";
 import ActionContainer from "../components/ActionContainer";
+import LinkCard from "../components/LinkCard";
 import { calculateTimePassed, formatDate } from "./utils";
+import useModal from "./hooks/useModal";
+import Modal from "./Modal";
 
 function FolderContent({ folders, links, onFolderClick }) {
+    const [modalState, setModalState, onHandleCancel] = useModal();
     const [selectedFolderName, setSelectedFolderName] = useState("전체");
-    const enhancedLinks = links.map((link) => ({
-        ...link,
-        timePassed: calculateTimePassed(link.created_at),
-        formattedDate: formatDate(link.created_at),
-    }));
-
-    useEffect(() => {
-        onFolderClick("all");
-    }, []);
 
     const handleFolderClick = (folderId) => {
         onFolderClick(folderId);
@@ -22,7 +17,6 @@ function FolderContent({ folders, links, onFolderClick }) {
                 ? "전체"
                 : folders.find((folder) => folder.id === folderId)?.name ||
                   "폴더 없음";
-
         setSelectedFolderName(folderName);
     };
 
@@ -37,40 +31,6 @@ function FolderContent({ folders, links, onFolderClick }) {
             </button>
         ));
 
-    const renderLinkCards = () =>
-        enhancedLinks.map((link) => (
-            <a
-                key={link.id}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-card"
-            >
-                <div className="card-image-container">
-                    <img
-                        src={link.image_source || "/images/noimageicon.png"}
-                        alt={link.title}
-                        className="card-image"
-                    />
-                    <button className="favorite-icon">
-                        <img src="/images/star.png" alt="즐겨찾기" />
-                    </button>
-                </div>
-                <div className="card-text-container">
-                    <div className="card-content">
-                        <span className="time-passed">{link.timePassed}</span>
-                        <p className="link-description">{link.description}</p>
-                        <span className="date-number">
-                            {link.formattedDate}
-                        </span>
-                    </div>
-                    <button className="kebab-menu-icon">
-                        <img src="/images/kebab.png" alt="메뉴" />
-                    </button>
-                </div>
-            </a>
-        ));
-
     return (
         <div>
             <div className="folder-box">
@@ -83,22 +43,35 @@ function FolderContent({ folders, links, onFolderClick }) {
                     </button>
                     {renderFolderButtons()}
                 </div>
-                <a>
+                <a className="folder-add-box">
+                    <p>폴더추가</p>
                     <img className="folder-add" src="/images/add.png" />
                 </a>
             </div>
-
             <div className="links-container-box">
-                {enhancedLinks.length === 0 ? (
+                <ActionContainer folderName={selectedFolderName} />
+                {links.length === 0 ? (
                     <div className="links-container-empty">
                         저장된 링크가 없습니다.
                     </div>
                 ) : (
                     <div className="links-container">
-                        <ActionContainer folderName={selectedFolderName} />
-                        {renderLinkCards()}
+                        {links.map((link) => (
+                            <LinkCard
+                                key={link.id}
+                                link={link}
+                                setModalState={setModalState}
+                                calculateTimePassed={calculateTimePassed}
+                                formatDate={formatDate}
+                            />
+                        ))}
                     </div>
                 )}
+                <Modal
+                    values={modalState}
+                    onClose={onHandleCancel}
+                    folders={folders}
+                />
             </div>
         </div>
     );
