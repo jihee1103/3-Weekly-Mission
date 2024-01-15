@@ -12,6 +12,7 @@ export default function FolderName({ selectedFolder }) {
   const handleOpenModalDeleteFolder = () => {
     openModal({ type: "deleteFolder", props: selectedFolder.name });
   };
+
   return (
     <>
       <FolderNameBox>

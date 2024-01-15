@@ -7,20 +7,9 @@ import styled from "styled-components";
 
 export default function FolderContentCard({ selectedFolder }) {
   const [items, setItems] = useState([]);
-  const [isPopoverVisible, setIsPopoverVisible] = useState([]);
-  const openNewWindow = (url) => {
-    window.open(url, "_blank");
-  };
-  const handlePopoverToggle = (id) => {
-    setIsPopoverVisible((prevStates) => {
-      const newStates = [...prevStates];
-      newStates[id] = !newStates[id];
-      return newStates;
-    });
-  };
   useEffect(() => {
     async function handleload() {
-      if (selectedFolder === "$1") {
+      if (selectedFolder === "전체") {
         const { data } = await getUserLinks(1);
         setItems(data);
       } else {
@@ -31,67 +20,12 @@ export default function FolderContentCard({ selectedFolder }) {
     }
     handleload();
   }, [selectedFolder]);
-  const { openModal, closeModal, modal } = useModals();
-  const handleModalAddtoFolder = () => {
-    openModal({ type: "addToFolder", props: null });
-  };
-  const handleModalDeleteItem = (item) => {
-    openModal({ type: "deleteItem", props: item });
-  };
   return (
     <>
       <Cards>
         {items.length > 0 ? (
           items.map((item) => {
-            return (
-              <li className="card" key={item.id}>
-                <div className="card-img-div">
-                  <img
-                    onClick={() => openNewWindow(item.url)}
-                    className="card-img"
-                    src={
-                      item.image_source ||
-                      "/imgs/01_모코코콘1_16_백색모코코_물음표.png"
-                    }
-                    alt="카드사진"
-                  />
-                  <img
-                    className="star-img"
-                    src="/imgs/star.png"
-                    alt="즐겨찾기 등록"
-                  />
-                </div>
-                <div className="card-contents">
-                  <div className="card-time-ago-box">
-                    <p className="card-time-ago">
-                      {getTimeDifference(item.created_at)}
-                    </p>
-                    <img
-                      onClick={() => handlePopoverToggle(item.id)}
-                      src="/imgs/kebab.png"
-                      alt="파일수정"
-                    />
-                  </div>
-                  {isPopoverVisible[item.id] && (
-                    <div className="popover-box">
-                      <div onClick={() => handleModalDeleteItem(item)}>
-                        삭제하기
-                      </div>
-                      <div onClick={handleModalAddtoFolder}>폴더에 추가</div>
-                    </div>
-                  )}
-                  <p
-                    onClick={() => openNewWindow(item.url)}
-                    className="card-description"
-                  >
-                    {item.description}
-                  </p>
-                  <p className="card-createdat">
-                    {formatCreatedAt(item.created_at)}
-                  </p>
-                </div>
-              </li>
-            );
+            return <LITag item={item} key={item.id} />;
           })
         ) : (
           <div className="no-save-link">
@@ -100,6 +34,72 @@ export default function FolderContentCard({ selectedFolder }) {
           </div>
         )}
       </Cards>
+    </>
+  );
+}
+
+function LITag({ item }) {
+  const [isPopoverVisible, setIsPopoverVisible] = useState(false);
+  const openNewWindow = (url) => {
+    window.open(url, "_blank");
+  };
+  const handlePopoverToggle = () => {
+    setIsPopoverVisible(!isPopoverVisible);
+  };
+  const { openModal, closeModal, modal } = useModals();
+  const handleModalAddtoFolder = () => {
+    openModal({ type: "addToFolder", props: null });
+  };
+  const handleModalDeleteItem = (item) => {
+    openModal({ type: "deleteItem", props: item });
+  };
+  const handleOnBlur = () => {
+    setIsPopoverVisible(false);
+  };
+  return (
+    <>
+      <li className="card">
+        <div className="card-img-div">
+          <img
+            onClick={() => openNewWindow(item.url)}
+            className="card-img"
+            src={
+              item.image_source || "/imgs/01_모코코콘1_16_백색모코코_물음표.png"
+            }
+            alt="카드사진"
+          />
+          <img className="star-img" src="/imgs/star.png" alt="즐겨찾기 등록" />
+        </div>
+        <div className="card-contents">
+          <div className="card-time-ago-box">
+            <p className="card-time-ago">
+              {getTimeDifference(item.created_at)}
+            </p>
+            <button
+              className="kebab-button"
+              onClick={handlePopoverToggle}
+              onBlur={handleOnBlur}
+            >
+              <img src="/imgs/kebab.png" alt="파일수정" />
+              {isPopoverVisible && (
+                <div className="popover-box">
+                  <div onClick={() => handleModalDeleteItem(item)}>
+                    삭제하기
+                  </div>
+                  <div onClick={handleModalAddtoFolder}>폴더에 추가</div>
+                </div>
+              )}
+            </button>
+          </div>
+          <p
+            onClick={() => openNewWindow(item.url)}
+            className="card-description"
+          >
+            {item.description}
+          </p>
+          <p className="card-createdat">{formatCreatedAt(item.created_at)}</p>
+        </div>
+      </li>
       <Modals modal={modal} closeModal={closeModal} />
     </>
   );
@@ -112,13 +112,13 @@ const Cards = styled.ul`
   justify-content: center;
 
   .card {
+    overflow: visible;
     display: flex;
     flex-direction: column;
     list-style-type: none;
     width: 34rem;
     height: 33.4rem;
     border-radius: 1.5rem;
-    overflow: hidden;
     cursor: pointer;
     box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   }
@@ -134,7 +134,6 @@ const Cards = styled.ul`
 
   .card-img-div {
     position: relative;
-    overflow: hidden;
     width: 34rem;
     height: 20rem;
   }
@@ -173,6 +172,15 @@ const Cards = styled.ul`
     line-height: normal;
   }
 
+  .kebab-button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
   .popover-box {
     display: flex;
     flex-direction: column;
@@ -180,9 +188,8 @@ const Cards = styled.ul`
     background-color: #ffffff;
     color: var(--gray-light-gray-100, #333236);
     position: absolute;
+    right: -35px;
     top: 30px;
-    right: 0px;
-    z-index: 1;
   }
 
   .popover-box div {
@@ -200,7 +207,7 @@ const Cards = styled.ul`
     width: 100%;
     height: 4.9rem;
     margin-bottom: 1rem;
-    overflow: hidden;
+
     color: #000;
     text-overflow: ellipsis;
     display: -webkit-box;
