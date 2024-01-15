@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './reset.css';
 import './assets/pretendard.css';
@@ -30,7 +30,7 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <BrowserRouter>
       <GlobalStyle />
       <Header login={login} userData={userData} />
       <Routes>
@@ -40,7 +40,7 @@ const App = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 };
 

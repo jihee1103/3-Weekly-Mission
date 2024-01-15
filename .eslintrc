@@ -19,10 +19,10 @@
     "indent": "off",
     "react/react-in-jsx-scope": "off",
     // 함수 선언 방식
-    "react/function-component-definition": [2, { "namedComponents": ["arrow-function", "function-expression"] }],
+    "react/function-component-definition": [1, { "namedComponents": ["arrow-function", "function-expression"] }],
     // PropType 강제하기
     "react/prop-types": "off",
     // jsx확장자 파일에서만 jsx를 사용하게 하기
-    "react/jsx-filename-extension": [2, { "extensions": [".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }]
   }
 }
