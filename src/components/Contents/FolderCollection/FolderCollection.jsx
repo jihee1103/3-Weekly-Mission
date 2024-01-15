@@ -22,7 +22,7 @@ const FolderCollection = ({
   };
 
   const createSharingUrl = (userId, folderId) => {
-    setSharingUrl(window.location.origin + `/shared?user=${userId}&folder=${folderId}`);
+    setSharingUrl(`${window.location.origin}/shared?user=${userId}&folder=${folderId}`);
   };
 
   return (

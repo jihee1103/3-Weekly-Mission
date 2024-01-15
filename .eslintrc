@@ -23,6 +23,8 @@
     // PropType 강제하기
     "react/prop-types": "off",
     // jsx확장자 파일에서만 jsx를 사용하게 하기
-    "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }],
+    // export defalut 에러 없애기
+    "import/prefer-default-export": "off"
   }
 }

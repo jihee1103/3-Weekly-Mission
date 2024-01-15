@@ -11,7 +11,7 @@ import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 
 const SharedPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams(); // eslint-disable-line no-unused-vars
   const [sharedUserId, setSharedUserId] = useState(null);
   const [sharedFolderId, setSharedFolderId] = useState(null);
   const [sharedFolderData, setSharedFolderData] = useState([]);
