@@ -7,13 +7,15 @@ import useGetFolderListAsync from "../hooks/useGetFolderListAsync";
 import Card from "./Card";
 import { useState } from "react";
 import "./Content.css";
+import Modal from "./Modal";
+import useModal from "../hooks/useModal";
 
 export default function Content() {
   const [targetFolder, setTargetFolder] = useState({
     title: "전체",
     id: 0,
   });
-
+  const [modalState, setModalState, handleModalCancel] = useModal();
   const datas = useGetUserFolderAsync();
   const folderList = useGetFolderListAsync();
   let isEmpty = false;
@@ -32,6 +34,7 @@ export default function Content() {
 
   return (
     <section className="content">
+      <Modal state={modalState} onClick={handleModalCancel} />
       <div className="folder-title-container">
         <div className="folder-title-wrapper">
           <button
@@ -60,7 +63,15 @@ export default function Content() {
             </button>
           ))}
         </div>
-        <button className="plus-btn add-folder-btn-wrapper">
+        <button
+          className="plus-btn add-folder-btn-wrapper"
+          onClick={(e) =>
+            setModalState({
+              state: true,
+              target: e.target.innerText,
+            })
+          }
+        >
           <span>폴더추가</span>
           <img className="plus-svg" src={plusImg} alt="plus-img" />
         </button>
@@ -70,21 +81,49 @@ export default function Content() {
         <h2>{targetFolder["title"]}</h2>
         {targetFolder["title"] === "전체" || (
           <div className="folder-edits">
-            <span className="edit-function">
+            <button
+              className="edit-function"
+              onClick={(e) =>
+                setModalState({
+                  state: true,
+                  target: e.target.innerText,
+                  folderName: targetFolder["title"],
+                })
+              }
+            >
               <img src={shareIcon} alt="shareIcon" />
               공유
-            </span>
-            <span className="edit-function">
+            </button>
+            <button
+              className="edit-function"
+              onClick={(e) =>
+                setModalState({
+                  state: true,
+                  target: e.target.innerText,
+                  folderName: targetFolder["title"],
+                })
+              }
+            >
               <img src={penIcon} alt="penIcon" />
-              이름변경
-            </span>
-            <span className="edit-function">
+              이름 변경
+            </button>
+            <button
+              className="edit-function"
+              onClick={(e) =>
+                setModalState({
+                  state: true,
+                  target: e.target.innerText,
+                  folderName: targetFolder["title"],
+                })
+              }
+            >
               <img src={deleteIcon} alt="deleteIcon" />
               삭제
-            </span>
+            </button>
           </div>
         )}
       </div>
+
       {isEmpty ? (
         <div className="no-link">저장된 링크가 없습니다</div>
       ) : (
