@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+function FolderButton({ name, onClick, isSelected }) {
+  return (
+    <>
+      <FolderItem onClick={onClick} isSelected={isSelected}>
+        {name}
+      </FolderItem>
+    </>
+  );
+}
+
 const COLORS = {
   primary: "--linkbrary-primary-color",
   white: "--linkbrary-white",
@@ -22,15 +32,5 @@ const FolderItem = styled.span`
   font-weight: 400;
   line-height: normal;
 `;
-
-function FolderButton({ name, onClick, isSelected }) {
-  return (
-    <>
-      <FolderItem onClick={onClick} isSelected={isSelected}>
-        {name}
-      </FolderItem>
-    </>
-  );
-}
 
 export default FolderButton;

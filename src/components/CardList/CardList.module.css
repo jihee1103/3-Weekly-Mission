@@ -1,13 +1,10 @@
-.card-list {
-  /* display: flex; */
+.cardList {
   display: grid;
-  /* flex-direction: column; */
   grid-template-columns: repeat(1, 1fr);
   width: 100%;
   row-gap: 2rem;
 
   @media (min-width: 768px) {
-    /* max-width: 86.3rem; */
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2.4rem;
     row-gap: 2.5rem;
@@ -19,14 +16,11 @@
   }
 
   @media (min-width: 1200px) {
-    /* max-width: 192rem; */
-    /* padding: 0 20rem; */
   }
 }
 
-.option-bar {
+.optionBar {
   display: flex;
-  /* width: 1060px; */
   justify-content: space-between;
   align-items: center;
 
@@ -49,8 +43,9 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  cursor: pointer;
 
-  color: var(--Linkbrary-gray60, #9fa6b2);
+  color: var(--linkbrary-gray-60);
 
   font-size: 14px;
   font-style: normal;

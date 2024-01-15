@@ -22,5 +22,5 @@ export function useFolderData() {
     handleLoadFolder();
   }, []);
 
-  return { folderData, loadingError };
+  return { folderData };
 }

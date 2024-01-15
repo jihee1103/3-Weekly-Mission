@@ -24,9 +24,13 @@
   @media (min-width: 768px) {
     gap: 4rem;
   }
+
+  @media (min-width: 1200px) {
+    padding: 0;
+  }
 }
 
-.no-link {
+.noLink {
   padding: 41px 0px 35px 0px;
 
   color: #000;

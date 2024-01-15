@@ -37,7 +37,7 @@
   height: 24px;
 }
 
-.account-frame {
+.accountFrame {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -51,7 +51,7 @@
 
 .email {
   display: none;
-  color: var(--linkbrary-gray-100, #373740);
+  color: var(--linkbrary-gray-100);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

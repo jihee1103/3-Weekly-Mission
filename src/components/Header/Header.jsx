@@ -1,21 +1,21 @@
 import { useFolderData } from "../../hooks/useFolderData";
-import "./Header.css";
+import styles from "./Header.module.css";
 
 function Header() {
   const { folderData, loadingError } = useFolderData();
 
   return (
     <header>
-      <div className="folder-info">
+      <div className={styles.folderInfo}>
         <img
-          className="folder-owner-profile"
+          className={styles.folderOwnerProfile}
           src={folderData?.folder?.owner?.profileImageSource}
           alt="folder-owner-profile-img"
         />
-        <span className="folder-owner-name">
+        <span className={styles.folderOwnerName}>
           @{folderData?.folder?.owner?.name}
         </span>
-        <span className="folder-name">{folderData?.folder?.name}</span>
+        <span className={styles.folderName}>{folderData?.folder?.name}</span>
         {loadingError?.message && <span>{loadingError.message}</span>}
       </div>
     </header>

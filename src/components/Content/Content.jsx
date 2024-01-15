@@ -5,25 +5,20 @@ import SearchBar from "../SearchBar/SearchBar";
 import FolderList from "../Folder/FolderList";
 import { ALL_LINKS_ID } from "../Folder/constants";
 import { ALL_LINKS_NAME } from "../Folder/constants";
-import "./Content.css";
+import styles from "./Content.module.css";
 
 function Content() {
   const { folderData } = useFolderData(false);
-  const [folderId, setFolderId] = useState(ALL_LINKS_ID);
-  const [folderName, setFolderName] = useState(ALL_LINKS_NAME);
+  const [folderInfo, setFolderInfo] = useState([ALL_LINKS_ID, ALL_LINKS_NAME]); //수정-id name 하나로 관리할것...
 
   return (
-    <div className="wrap">
-      <div className="spacing">
+    <div className={styles.wrap}>
+      <div className={styles.spacing}>
         <SearchBar></SearchBar>
         {!folderData ? (
-          <div className="no-link">저장된 링크가 없습니다.</div>
+          <div className={styles.noLink}>저장된 링크가 없습니다.</div>
         ) : (
-          <FolderList
-            folderData={folderData}
-            folderId={folderId}
-            folderName={folderName}
-          />
+          <FolderList folderData={folderData} folderInfo={folderInfo} />
         )}
       </div>
     </div>

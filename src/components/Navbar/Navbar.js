@@ -1,5 +1,5 @@
 import { useUserData } from "../../hooks/useUserData";
-import "./Navbar.css";
+import styles from "./Navbar.module.css";
 
 function Account() {
   const { userData, loadingError } = useUserData();
@@ -7,16 +7,16 @@ function Account() {
   return (
     <>
       {userData ? (
-        <div className="account-frame">
+        <div className={styles.accountFrame}>
           <img
-            className="profile"
+            className={styles.profile}
             src={userData?.image_source}
             alt="profile-img"
           />
-          <span className="email">{userData?.email}</span>
+          <span className={styles.email}>{userData?.email}</span>
         </div>
       ) : (
-        <a className="login" href="/signin">
+        <a className={styles.login} href="/signin">
           로그인
         </a>
       )}
@@ -27,10 +27,14 @@ function Account() {
 
 function Navbar({ isSticky }) {
   return (
-    <nav className={`nav ${isSticky ? "folder" : ""}`}>
-      <div className="gnb">
+    <nav className={`${styles.nav} ${isSticky ? styles.folder : ""}`}>
+      <div className={styles.gnb}>
         <a href="/">
-          <img className="logo" src="/assets/logo.svg" alt="linkbrary-logo" />
+          <img
+            className={styles.logo}
+            src="/assets/logo.svg"
+            alt="linkbrary-logo"
+          />
         </a>
         <Account />
       </div>
