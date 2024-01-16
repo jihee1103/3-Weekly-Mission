@@ -12,6 +12,14 @@ export default function Modal({ state, onClick, link }) {
     onClick();
   };
 
+  const currentUrl = window.location.href;
+  
+  const handleCopyClipBoard = () => {
+      navigator.clipboard.writeText(currentUrl);
+      alert('클립보드에 복사되었습니다.');
+  };
+
+
   const folderList = useGetFolderListAsync();
   return (
     <>
@@ -41,9 +49,9 @@ export default function Modal({ state, onClick, link }) {
                     <img className="share-icon facebook" src={facebook} />
                     <span className="share-icon-name">페이스북</span>
                   </button>
-                  <button className="share-icon-btn">
+                  <button className="share-icon-btn" onClick={handleCopyClipBoard}>
                     <img className="share-icon link-icon" src={linkIcon} />
-                    <span className="share-icon-name">링크 복사</span>
+                    <span className="share-icon-name" >링크 복사</span>
                   </button>
                 </div>
               </>
