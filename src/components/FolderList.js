@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useFetchFolders } from "./hooks/FolderContainer";
+import { useFetchFolders } from "./hooks/useFetchFolders";
 import { fetchFolders } from "./api/fetchFolders";
 import FolderContent from "./FolderContent";
 
-function FolderBar() {
+function FolderList() {
     const { folders, error: folderError } = useFetchFolders();
     const [links, setLinks] = useState([]);
     const [error, setError] = useState(null);
@@ -26,4 +26,4 @@ function FolderBar() {
     );
 }
 
-export default FolderBar;
+export default FolderList;

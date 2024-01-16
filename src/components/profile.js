@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { fetchProfileData } from "./api/fetchProfileData";
 
 function Profile() {
     const [profileData, setProfileData] = useState(null);
 
     useEffect(() => {
-        fetch("https://bootcamp-api.codeit.kr/api/sample/user")
-            .then((response) => response.json())
+        fetchProfileData()
             .then((data) => {
                 setProfileData(data);
             })

@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/CardList.css";
-import { useFetchCardsData } from "./hooks/CardContainer";
+import "../styles/Cardlist.css";
+import { useFetchCardsData } from "./hooks/useFetchCardsData";
 
 function CardList() {
     const data = useFetchCardsData();

@@ -2,7 +2,7 @@ import React from "react";
 import FolderHeader from "../components/FolderHeader";
 import LinkForm from "../components/LinkForm";
 import SearchBar from "../components/SearchBar";
-import FolderBar from "../components/FolderBar";
+import FolderList from "../components/FolderList";
 import Footer from "../components/Footer";
 import FloatingActionButton from "../components/FloatingActionButton";
 
@@ -13,7 +13,7 @@ function Folder() {
             <LinkForm />
             <SearchBar />
             <FloatingActionButton />
-            <FolderBar />
+            <FolderList />
             <Footer />
         </div>
     );

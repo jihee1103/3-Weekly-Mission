@@ -1,26 +1,57 @@
 import React from "react";
 import "../styles/ActionContainer.css";
+import Modal from "./Modal";
+import useModal from "./hooks/useModal";
 
 function ActionContainer({ folderName }) {
+    const [modalState, setModalState, onHandleCancel] = useModal();
+
     return (
         <div className="action-container-box">
             <p>{folderName}</p>
             {folderName !== "전체" && (
                 <div className="action-container-icon">
-                    <a>
+                    <a
+                        onClick={(e) => {
+                            setModalState({
+                                visibility: true,
+                                target: e.target.innerText,
+                            });
+                        }}
+                    >
                         <img src="/images/share.png" />
-                        <div>공유</div>
+                        <div className="action-shared">공유</div>
                     </a>
-                    <a>
+                    <a
+                        onClick={(e) => {
+                            setModalState({
+                                visibility: true,
+                                target: e.target.innerText,
+                            });
+                        }}
+                    >
                         <img src="/images/pen.png" />
-                        <div>이름 변경</div>
+                        <div className="action-name">이름 변경</div>
                     </a>
-                    <a>
+                    <a
+                        onClick={(e) => {
+                            setModalState({
+                                visibility: true,
+                                target: e.target.innerText,
+                            });
+                        }}
+                    >
                         <img src="/images/delete.png" />
-                        <div>삭제</div>
+                        <div className="action-delete">삭제</div>
                     </a>
                 </div>
             )}
+
+            <Modal
+                values={modalState}
+                onClose={onHandleCancel}
+                folderName={folderName}
+            />
         </div>
     );
 }
