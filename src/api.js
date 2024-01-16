@@ -1,3 +1,5 @@
+export const kakaoJSAppKey = "3566425d9a15039db9fa79a19d5fa8f8";
+
 async function getUser() {
   const response = await fetch(
     "https://bootcamp-api.codeit.kr/api/sample/user"
@@ -25,7 +27,7 @@ async function getFolder() {
   return body;
 }
 
-async function getFoldersById(id) {
+async function getFoldersById(id = 1) {
   const response = await fetch(
     `https://bootcamp-api.codeit.kr/api/users/${id}/folders`
   );

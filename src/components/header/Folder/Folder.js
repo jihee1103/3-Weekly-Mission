@@ -1,17 +1,9 @@
 import { useEffect, useState } from "react";
-import { getFolder } from "../../api";
+import { getFolder } from "../../../api";
 import "./Folder.css";
 
-const INIT_USER = {
-  name: "Linkbrary",
-  owner: {
-    name: "anonymous",
-    profileImageSource: "./images/logo.svg",
-  },
-};
-
 function Folder() {
-  const [folder, setFolder] = useState(INIT_USER);
+  const [folder, setFolder] = useState();
 
   useEffect(() => {
     async function applyGetFolder() {
@@ -29,12 +21,14 @@ function Folder() {
         <div className="user-info">
           <img
             className="owner-profile"
-            src={folder.owner.profileImageSource}
+            src={folder?.owner.profileImageSource || "./images/logo.svg"}
             alt="소유자 프로필"
           />
-          <span className="owner-name">{folder.owner.name}</span>
+          <span className="owner-name">
+            {folder?.owner.name || "anonymous"}
+          </span>
         </div>
-        <div id="folder-name">{folder.name}</div>
+        <div id="folder-name">{folder?.name || "Linkbrary"}</div>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import Sns from "../Sns/Sns";
 import LinkString from "../LinkString/LinkString";
-import "./Links.css";
+import "./FooterLinks.css";
 
-function Links({ props }) {
+function FooterLinks(props) {
   return (
     <>
       <LinkString className="footer-links" />
@@ -11,4 +11,4 @@ function Links({ props }) {
   );
 }
 
-export default Links;
+export default FooterLinks;

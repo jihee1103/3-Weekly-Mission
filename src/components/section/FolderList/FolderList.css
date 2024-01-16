@@ -31,10 +31,10 @@
 
 @media (max-width: 767px) {
   .add-list {
-    width: 20vw;
+    width: 10rem;
     position: fixed;
     bottom: 101px;
-    left: calc(50vw - 10vw);
+    left: calc(50vw - 5rem);
 
     display: flex;
     padding: 0.8rem 2.4rem;

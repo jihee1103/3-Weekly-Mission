@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { getUser, getUserById } from "../../api";
+import { getUser, getUserById } from "../../../api";
 import Profile from "../Profile/Profile";
 import "./Nav.css";
 
-function Nav({ className, id = undefined }) {
+function Nav({ className, setUserId, id = undefined }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -17,11 +17,12 @@ function Nav({ className, id = undefined }) {
       const nextUser = await getUserById(id);
       if (!nextUser) return;
       setUser(nextUser.data[0]);
+      setUserId(nextUser.data[0].id);
     }
 
     if (id) apllyGetUserById(id);
     else applyGetUser();
-  }, [id]);
+  }, [id, setUserId]);
 
   return (
     <nav className={className}>

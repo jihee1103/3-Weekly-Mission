@@ -1,39 +1,56 @@
 import { useState, useEffect } from "react";
-import { getLinksById } from "../../api";
+import { getFoldersById, getLinksById } from "../../api";
 import "./FolderPage.css";
-import Nav from "../../components/Nav/Nav";
-import Search from "../../components/Search/Search";
-import Links from "../../components/Links/Links";
-import AddLink from "../../components/AddLink/AddLink";
-import FolderList from "../../components/FolderFilter/FolderList";
-import Option from "../../components/Option/Option";
-import Card from "../../components/Card/Card";
+import Nav from "../../components/header/Nav/Nav";
+import Search from "../../components/section/Search/Search";
+import FooterLinks from "../../components/footer/FooterLinks/FooterLinks";
+import AddLink from "../../components/header/AddLink/AddLink";
+import FolderList from "../../components/section/FolderList/FolderList";
+import EditOption from "../../components/section/EditOption/EditOption";
+import Card from "../../components/section/Card/Card";
 
 function FolderPage() {
   const [listName, setListName] = useState("전체");
-  const [id, setId] = useState();
+  const [userId, setUserId] = useState();
+  const [folderId, setFolderId] = useState();
   const [links, setLinks] = useState([]);
+  const [folderList, setFolderList] = useState([]);
 
   const handleChangeList = (nextListName, nextId) => {
     setListName(nextListName);
-    setId(nextId);
+    setFolderId(nextId);
+  };
+
+  const handleSetUserId = (nextUserId) => {
+    setUserId(nextUserId);
   };
 
   useEffect(() => {
     async function getFolderLinks() {
-      const { data } = await getLinksById(id);
+      const { data } = await getLinksById(folderId);
       if (!data) return;
       setLinks(data);
     }
 
+    async function getFolderLists() {
+      const { data } = await getFoldersById(userId);
+      if (!data) return;
+      setFolderList(
+        data.map((element) => {
+          return [element.name, element.link.count];
+        })
+      );
+    }
+
     getFolderLinks();
-  }, [id]);
+    getFolderLists();
+  }, [folderId, userId]);
 
   return (
     <>
       <header>
-        <Nav className="not-fixed" id="1" />
-        <AddLink />
+        <Nav className="not-fixed" id="1" setUserId={handleSetUserId} />
+        <AddLink folderList={folderList} />
       </header>
       <section>
         <Search />
@@ -45,39 +62,44 @@ function FolderPage() {
           />
           <div className="list-info">
             <span className="list-name">{listName}</span>
-            {listName !== "전체" ? (
+            {listName === "전체" || (
               <div className="list-edit">
-                <Option
-                  className="option"
+                <EditOption
                   src="./images/share.png"
                   optionName="공유"
+                  listName={listName}
+                  userId={userId}
+                  folderId={folderId}
                 />
-                <Option
-                  className="option"
+                <EditOption
                   src="./images/pen.png"
                   optionName="이름 변경"
+                  listName={listName}
                 />
-                <Option
-                  className="option"
+                <EditOption
                   src="./images/delete.png"
                   optionName="삭제"
+                  listName={listName}
                 />
               </div>
-            ) : (
-              <div />
             )}
           </div>
-
           {links.length > 0 ? (
             <div className="pages">
               {links
                 .filter((element) => {
-                  if (id) {
-                    return element["folder_id"] === id;
+                  if (folderId) {
+                    return element["folder_id"] === folderId;
                   } else return true;
                 })
                 .map((element) => {
-                  return <Card key={element.id} page={element} />;
+                  return (
+                    <Card
+                      key={element.id}
+                      page={element}
+                      folderList={folderList}
+                    />
+                  );
                 })}
             </div>
           ) : (
@@ -88,7 +110,7 @@ function FolderPage() {
       <footer>
         <div className="footer-box">
           <span className="copyright">©codeit - 2023</span>
-          <Links target="_blank" rel="noopener noreferrer" />
+          <FooterLinks target="_blank" rel="noopener noreferrer" />
         </div>
       </footer>
     </>

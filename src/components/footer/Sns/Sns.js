@@ -1,7 +1,7 @@
 import LinkLogo from "../LinkLogo/LinkLogo.js";
 import "./Sns.css";
 
-function Sns({ className, ...props }) {
+function Sns({ className, props }) {
   return (
     <div className={className}>
       <LinkLogo
