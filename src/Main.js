@@ -32,7 +32,6 @@ const Main = () => {
       setSampleFolderObj(folderBody);
     } catch (error) {
       setLoadingError(error);
-      return;
     }
   };
 
