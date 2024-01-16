@@ -13,7 +13,6 @@ export default function Modal({ state, onClick, link }) {
   };
 
   const folderList = useGetFolderListAsync();
-
   return (
     <>
       {state["state"] && (
@@ -29,12 +28,23 @@ export default function Modal({ state, onClick, link }) {
             </button>
             {(state["target"] === "공유" && (
               <>
-                <h2 className="modal-title">폴더 공유</h2>
-                <h3 className="folder-name">{state["folderName"]}</h3>
+                <h2 className="modal-title having-folder-and-link">
+                  폴더 공유
+                </h2>
+                <h3 className="link-and-folder-name">{state["folderName"]}</h3>
                 <div className="share-icon-wrapper">
-                  <button className="share-icon-bg kakao"><img  src={kakao}/><span>카카오톡</span></button>
-                  <button className="share-icon-bg facebook"><img src={facebook}/></button>
-                  <button className="share-icon-bg link-icon"><img src={linkIcon}/></button>
+                  <button className="share-icon-btn">
+                    <img className="share-icon kakao" src={kakao} />
+                    <span className="share-icon-name">카카오톡</span>
+                  </button>
+                  <button className="share-icon-btn">
+                    <img className="share-icon facebook" src={facebook} />
+                    <span className="share-icon-name">페이스북</span>
+                  </button>
+                  <button className="share-icon-btn">
+                    <img className="share-icon link-icon" src={linkIcon} />
+                    <span className="share-icon-name">링크 복사</span>
+                  </button>
                 </div>
               </>
             )) ||
@@ -50,8 +60,12 @@ export default function Modal({ state, onClick, link }) {
               )) ||
               (state["target"] === "삭제" && (
                 <>
-                  <h2 className="modal-title">폴더 삭제</h2>
-                  <h3>{state["folderName"]}</h3>
+                  <h2 className="modal-title having-folder-and-link">
+                    폴더 삭제
+                  </h2>
+                  <h3 className="link-and-folder-name">
+                    {state["folderName"]}
+                  </h3>
                   <button className="modal-submit-btn modal-delete-btn">
                     삭제하기
                   </button>
@@ -66,8 +80,10 @@ export default function Modal({ state, onClick, link }) {
               )) ||
               (state["target"] === "삭제하기" && (
                 <>
-                  <h2 className="modal-title">링크 삭제</h2>
-                  <h3>{state["url"]}</h3>
+                  <h2 className="modal-title having-folder-and-link">
+                    링크 삭제
+                  </h2>
+                  <h3 className="link-and-folder-name">{state["url"]}</h3>
                   <button className="modal-submit-btn modal-delete-btn">
                     삭제하기
                   </button>
@@ -75,12 +91,19 @@ export default function Modal({ state, onClick, link }) {
               )) ||
               ((state["target"] === "폴더에 추가" || "추가하기") && (
                 <>
-                  <h2 className="modal-title">폴더에 추가</h2>
-                  <h3>{state["url"] ?? link}</h3>
+                  <h2 className="modal-title having-folder-and-link">
+                    폴더에 추가
+                  </h2>
+                  <h3 className="link-and-folder-name">
+                    {state["url"] ?? link}
+                  </h3>
                   <div className="folder-item-wrapper">
                     {folderList.map((folder) => (
-                      <div key={folder.id} className="folder-item">
-                        {folder?.name}
+                      <div key={folder?.id} className="folder-item">
+                        <span className="link-name">{folder?.name}</span>
+                        <span className="link-length">
+                          {folder?.link?.length ?? 0}개 링크
+                        </span>
                       </div>
                     ))}
                   </div>

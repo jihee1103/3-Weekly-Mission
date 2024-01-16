@@ -45,6 +45,10 @@
   margin-bottom: 24px;
 }
 
+.having-folder-and-link {
+  margin-bottom: 8px;
+}
+
 .modal-input {
   display: flex;
   width: 280px;
@@ -80,7 +84,6 @@
 
 .folder-item-wrapper {
   width: 280px;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -91,17 +94,27 @@
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 150% */
+  margin-bottom: 24px;
 }
 
 .folder-item {
   width: 100%;
   display: flex;
   padding: 8px;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
 }
 
-.folder-name {
+.link-name {
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.link-and-folder-name {
   margin: 0;
   color: var(--Linkbrary-gray60, #9fa6b2);
   text-align: center;
@@ -110,6 +123,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 22px; /* 157.143% */
+  margin-bottom: 24px;
 }
 
 .share-icon-wrapper {
@@ -117,15 +131,31 @@
   gap: 32px;
 }
 
-.share-icon-bg {
-  height: 42px;
-  width: 42px;
+.share-icon-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.share-icon {
+  padding: 8px;
   border-radius: 37.333px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.share-icon-name {
+  color: var(--Linkbrary-gray100, #373740);
+  text-align: center;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px; /* 115.385% */
+}
 .kakao {
   background-color: #fee500;
 }
@@ -136,4 +166,13 @@
 
 .link-icon {
   background: rgba(157, 157, 157, 0.04);
+}
+
+.link-length {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

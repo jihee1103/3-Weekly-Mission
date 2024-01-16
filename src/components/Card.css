@@ -1,11 +1,13 @@
 button{
   cursor: pointer;
 }
+
 .card {
   border-radius: 1.5rem;
   width: 100%;
   height: 100%;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+
   &:hover {
     background-color: var(--Linkbrary-bg);
   }
@@ -24,7 +26,7 @@ button{
 }
 
 .card-img {
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   width: 100%;
   height: 100%;
 }
@@ -50,20 +52,15 @@ button{
   width: 2.1rem;
   height: 1.7rem;
   background-image: url("../assets/kebab.png");
-  background-color: inherit;
-  background-position: center;
-  background-repeat: none;
-  background-size: cover;
-  border-style: none;
 }
 
 .popover {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   background: var(--gray-light-gray-00, #fff);
   box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
   position: absolute;
-  bottom: 40px;
+  top: 30px;
   right: -59px;
   z-index: 1;
 }

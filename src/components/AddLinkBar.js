@@ -10,16 +10,21 @@ export default function AddLinkBar() {
 
   return (
     <div className="form-container">
-      <Modal state={modalState} onClick={handleModalCancel} link={inputValue}/>
+      <Modal state={modalState} onClick={handleModalCancel} link={inputValue} />
       <div className="add-link-form">
-        <input 
+        <input
           className="add-link-input"
           placeholder="링크를 추가해 보세요"
           onBlur={handleInput}
         ></input>
-        <button className="add-btn" onClick={(e) => {
-                setModalState(()=>({ state: true, target: e.target.innerText }));
-              }}>추가하기</button>
+        <button
+          className="add-btn"
+          onClick={(e) => {
+            setModalState(() => ({ state: true, target: e.target.innerText }));
+          }}
+        >
+          추가하기
+        </button>
       </div>
     </div>
   );
