@@ -5,8 +5,7 @@ export const getUser = async () => {
   if (!response.ok) {
     throw new Error("데이터를 불러오는데 실패했습니다");
   }
-  const body = await response.json();
-  return body;
+  return await response.json();
 };
 
 export const getFolder = async () => {
@@ -14,8 +13,7 @@ export const getFolder = async () => {
   if (!response.ok) {
     throw new Error("데이터를 불러오는데 실패했습니다");
   }
-  const body = await response.json();
-  return body;
+  return await response.json();
 };
 
 export const getSampleFolder = async () => {
@@ -23,8 +21,7 @@ export const getSampleFolder = async () => {
   if (!response.ok) {
     throw new Error("데이터를 불러오는데 실패했습니다");
   }
-  const body = await response.json();
-  return body;
+  return await response.json();
 };
 
 export const getTotalFolderLinks = async () => {
@@ -32,8 +29,7 @@ export const getTotalFolderLinks = async () => {
   if (!response.ok) {
     throw new Error("데이터를 불러오는데 실패했습니다");
   }
-  const body = await response.json();
-  return body;
+  return await response.json();
 };
 
 export const getFolderLinks = async (folderId) => {
@@ -41,6 +37,5 @@ export const getFolderLinks = async (folderId) => {
   if (!response.ok) {
     throw new Error("데이터를 불러오는데 실패했습니다");
   }
-  const body = await response.json();
-  return body;
+  return await response.json();
 };
