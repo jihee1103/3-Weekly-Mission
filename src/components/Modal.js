@@ -1,5 +1,9 @@
 import useGetFolderListAsync from "../hooks/useGetFolderListAsync";
 import modalCloseIcon from "../assets/modal_close_icon.svg";
+import kakao from "../assets/kakao_share.svg";
+import facebook from "../assets/facebook_share.svg";
+import linkIcon from "../assets/link.svg";
+
 import "./Modal.css";
 
 export default function Modal({ state, onClick, link }) {
@@ -26,7 +30,12 @@ export default function Modal({ state, onClick, link }) {
             {(state["target"] === "공유" && (
               <>
                 <h2 className="modal-title">폴더 공유</h2>
-                <h3>{state["folderName"]}</h3>
+                <h3 className="folder-name">{state["folderName"]}</h3>
+                <div className="share-icon-wrapper">
+                  <button className="share-icon-bg kakao"><img  src={kakao}/><span>카카오톡</span></button>
+                  <button className="share-icon-bg facebook"><img src={facebook}/></button>
+                  <button className="share-icon-bg link-icon"><img src={linkIcon}/></button>
+                </div>
               </>
             )) ||
               (state["target"] === "이름 변경" && (

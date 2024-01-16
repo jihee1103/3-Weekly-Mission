@@ -91,7 +91,7 @@ export default function Content() {
                 })
               }
             >
-              <img src={shareIcon} alt="shareIcon" />
+              <img src={shareIcon} alt="shareIcon"/>
               공유
             </button>
             <button

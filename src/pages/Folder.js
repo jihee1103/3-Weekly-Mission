@@ -6,12 +6,12 @@ import Header from "../components/Header";
 
 export default function Folder() {
   return (
-    <div className="wrapper">
-      <Header isSticky={true}/>
+    <>
+      <Header isSticky={true} />
       <AddLinkBar />
       <SearchBar />
       <Content />
       <Footer />
-    </div>
+    </>
   );
 }
