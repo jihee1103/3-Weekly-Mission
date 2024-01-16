@@ -16,14 +16,14 @@ export default function Card({ data }) {
     image_source,
     title,
   } = data;
+
   const formattedDate = formatDate(createdAt || created_at);
   const timeAgo = calculateWhenItIsCreated(createdAt || created_at);
 
   const classNames =
     imageSource || image_source ? "card-img" : "card-img no-img";
-
+    
   const [popoverState, setPopoverState] = useState(false);
-
   const [modalState, setModalState, handleModalCancel] = useModal();
 
   return (

@@ -7,6 +7,8 @@ import linkIcon from "../assets/link.svg";
 import "./Modal.css";
 
 export default function Modal({ state, onClick, link }) {
+  const folderList = useGetFolderListAsync();
+
   const cancelModal = (e) => {
     e.stopPropagation();
     onClick();
@@ -19,8 +21,6 @@ export default function Modal({ state, onClick, link }) {
       alert('클립보드에 복사되었습니다.');
   };
 
-
-  const folderList = useGetFolderListAsync();
   return (
     <>
       {state["state"] && (

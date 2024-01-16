@@ -15,6 +15,7 @@ export default function Content() {
     title: "전체",
     id: 0,
   });
+  
   const [modalState, setModalState, handleModalCancel] = useModal();
   const datas = useGetUserFolderAsync();
   const folderList = useGetFolderListAsync();
@@ -30,7 +31,6 @@ export default function Content() {
     (data) => data.folder_id === targetFolder["id"] || targetFolder["id"] === 0
   );
 
-  console.log(filteredDatas.length);
   return (
     <section className="content">
       <Modal state={modalState} onClick={handleModalCancel} />
