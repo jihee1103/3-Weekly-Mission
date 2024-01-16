@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import './LoginSuccessProfile.css';
 
 // {
@@ -15,6 +16,7 @@ import './LoginSuccessProfile.css';
  */
 const LoginSuccessProfile = ({ profileData }) => {
   const { email, image_source } = profileData;
+
   return (
     <div className='account-box'>
       <img className='account-profile' src={image_source} alt='프로필 이미지' />
@@ -22,4 +24,5 @@ const LoginSuccessProfile = ({ profileData }) => {
     </div>
   );
 };
-export default LoginSuccessProfile;
+
+export default memo(LoginSuccessProfile);

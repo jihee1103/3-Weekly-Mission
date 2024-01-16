@@ -17,4 +17,5 @@ const Banner = ({ userInfo }) => {
     </div>
   );
 };
+
 export default Banner;

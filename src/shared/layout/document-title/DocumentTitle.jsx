@@ -1,5 +1,7 @@
-import { useSetDocumentTitle } from '@layout/document-title/hooks/useSetDocumentTitle';
 import { Fragment } from 'react';
+
+import { useSetDocumentTitle } from '@layout/document-title/hooks/useSetDocumentTitle';
+
 import { documentTitle } from './data/documentTitle';
 
 /**
@@ -8,6 +10,8 @@ import { documentTitle } from './data/documentTitle';
  */
 const DocumentTitle = ({ title, children }) => {
   useSetDocumentTitle(`${documentTitle} ${title}`);
+
   return <Fragment>{children}</Fragment>;
 };
+
 export default DocumentTitle;

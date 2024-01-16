@@ -18,4 +18,5 @@ const CardCover = ({ children, asAnchor = false, ...rest }) => {
     </Comp>
   );
 };
+
 export default CardCover;

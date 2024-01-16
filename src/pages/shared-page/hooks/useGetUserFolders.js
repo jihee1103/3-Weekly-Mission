@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+
 import { getSampleUserFolders } from '@api/shared-page/getSampleUserFolders';
 
 const useGetUserFolders = () => {

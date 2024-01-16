@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+
 import { getFolderCategory } from '@api/folder-page/getFolderCategory';
 
 // {
@@ -71,13 +72,16 @@ const useGetFolderCategoryList = () => {
 
   const fetchAndSetFolderCategory = useCallback(async () => {
     const { data } = await getFolderCategory();
-    data.unshift({ name: '전체', id: 'total' });
+
+    if (data.length) data.unshift({ name: '전체', id: 'total' });
+
     setFolderCategoryList(data);
   }, []);
 
   useEffect(() => {
     fetchAndSetFolderCategory();
   }, [fetchAndSetFolderCategory]);
+
   return folderCategoryList;
 };
 

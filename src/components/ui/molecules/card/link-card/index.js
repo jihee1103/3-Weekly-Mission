@@ -1,10 +1,11 @@
-import Description from './Description';
-import CreatedAt from './CreatedAt';
-import CardImage from './CardImage';
-import CardCover from './CardCover';
-import CardProvider from './context/CardProvider';
-import TimeElapsed from './TimeElapsed';
 import Bookmark from './Bookmark';
+import CardCover from './CardCover';
+import CardImage from './CardImage';
+import CardProvider from './context/CardProvider';
+import CreatedAt from './CreatedAt';
+import Description from './Description';
+import KebabButton from './KebabButton';
+import TimeElapsed from './TimeElapsed';
 
 const CardWrapper = Object.assign(CardProvider, {
   Description,
@@ -13,6 +14,7 @@ const CardWrapper = Object.assign(CardProvider, {
   TimeElapsed,
   CardCover,
   Bookmark,
+  KebabButton,
 });
 
 export default CardWrapper;

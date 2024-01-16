@@ -1,10 +1,8 @@
 import SelectMenuProvider from './context/SelectMenuProvider';
-import AddMenu from './AddMenu';
-import DeleteMenu from './DeleteMenu';
+import { StMenuButton } from './StMenuButton';
 
-const SelectMenuWrapper = Object.assign(SelectMenuProvider, {
-  AddMenu,
-  DeleteMenu,
+const SelectMenu = Object.assign(SelectMenuProvider, {
+  StMenuButton,
 });
 
-export default SelectMenuWrapper;
+export default SelectMenu;

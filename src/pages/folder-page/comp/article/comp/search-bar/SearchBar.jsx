@@ -3,6 +3,7 @@ import './SearchBar.css';
 
 const SearchBar = () => {
   const [input, onChange] = useInput('');
+
   return (
     <div className='search-bar-box'>
       <img
@@ -20,4 +21,5 @@ const SearchBar = () => {
     </div>
   );
 };
+
 export default SearchBar;

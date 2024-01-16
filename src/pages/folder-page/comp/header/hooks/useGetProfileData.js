@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+
 import { getProfileData } from '@api/folder-page/getProfileData';
 
 // {
@@ -25,6 +26,7 @@ const useGetProfileData = () => {
   useEffect(() => {
     fetchAndSetProfileData();
   }, [fetchAndSetProfileData]);
+
   return profileData;
 };
 

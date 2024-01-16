@@ -12,4 +12,5 @@ const NormalButton = ({ children, width, ...rest }) => {
     </a>
   );
 };
+
 export default NormalButton;

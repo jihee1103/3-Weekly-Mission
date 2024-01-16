@@ -7,7 +7,7 @@ const PageTurner = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (pathname === '/') {
-      navigate('shared');
+      navigate('folder');
     }
   }, [pathname, navigate]);
 
@@ -17,4 +17,5 @@ const PageTurner = () => {
     </Fragment>
   );
 };
+
 export default PageTurner;
