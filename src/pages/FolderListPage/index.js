@@ -19,7 +19,7 @@ const FolderPage = ({ user, folderObj }) => {
 
   const handleLoad = async () => {
     const links = await getTotalFolderLinks();
-    if (links.data.length) {
+    if (links.data) {
       setLinks(links.data);
     }
   };
