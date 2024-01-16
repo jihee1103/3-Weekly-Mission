@@ -18,7 +18,6 @@ export default function Content() {
   const [modalState, setModalState, handleModalCancel] = useModal();
   const datas = useGetUserFolderAsync();
   const folderList = useGetFolderListAsync();
-  let isEmpty = false;
 
   const handleClick = (title, id) => {
     setTargetFolder({
@@ -27,11 +26,11 @@ export default function Content() {
     });
   };
 
-  isEmpty = !(
-    datas?.some((data) => data.folder_id === targetFolder["id"]) ||
-    targetFolder["id"] === 0
+  const filteredDatas = datas?.filter(
+    (data) => data.folder_id === targetFolder["id"] || targetFolder["id"] === 0
   );
 
+  console.log(filteredDatas.length);
   return (
     <section className="content">
       <Modal state={modalState} onClick={handleModalCancel} />
@@ -91,7 +90,7 @@ export default function Content() {
                 })
               }
             >
-              <img src={shareIcon} alt="shareIcon"/>
+              <img src={shareIcon} alt="shareIcon" />
               공유
             </button>
             <button
@@ -124,20 +123,14 @@ export default function Content() {
         )}
       </div>
 
-      {isEmpty ? (
-        <div className="no-link">저장된 링크가 없습니다</div>
-      ) : (
+      {filteredDatas.length ? (
         <div className="card-container">
-          {datas
-            ?.filter(
-              (data) =>
-                data.folder_id === targetFolder["id"] ||
-                targetFolder["id"] === 0
-            )
-            .map((data) => (
-              <Card key={data.id} data={data} />
-            ))}
+          {filteredDatas?.map((data) => (
+            <Card key={data.id} data={data} />
+          ))}
         </div>
+      ) : (
+        <div className="no-link">저장된 링크가 없습니다</div>
       )}
     </section>
   );
