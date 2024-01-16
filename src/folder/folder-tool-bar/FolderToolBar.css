@@ -1,0 +1,63 @@
+.FolderToolBar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 1.2rem;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-areas:
+      "folders add-button"
+      "folder-name .";
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 2.4rem;
+    column-gap: 1.2rem;
+  }
+}
+
+.Folders {
+  grid-area: folders;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.8rem;
+  row-gap: 1.2rem;
+  flex-grow: 1;
+}
+
+.Add-button {
+  grid-area: add-button;
+  position: fixed;
+  bottom: 10.1 rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media (min-width: 768px) {
+    justify-self: flex-end;
+    position: static;
+    transform: none;
+  }
+}
+
+.Folder-name {
+  grid-area: folder-name;
+  height: 3.2rem;
+  margin-top: 1.6rem;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.02rem;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+    font-size: 2.4rem;
+  }
+}
+
+.Buttons {
+  display: flex;
+  column-gap: 1.2rem;
+
+  @media (min-width: 768px) {
+    justify-self: flex-end;
+  }
+}

@@ -1,0 +1,31 @@
+.CardContent {
+  height: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.CardContent-elapsed-time {
+  font-size: 1.3rem;
+  color: var(--text-content-gray);
+}
+
+.CardContent-description {
+  height: 4.9rem;
+  text-overflow: ellipsis; /* 텍스트 요소가 넓이를 초과할 때 ... 부호를 표시하며 뒤 생략*/
+  overflow: hidden;
+  word-break: break-word; /* 단어가 요소 너비를 초과할 때 줄바꿈해서 표시*/
+  display: -webkit-box; /*웹킷 박스에 대한 설정 */
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 1.6rem;
+  line-height: 150%;
+}
+
+.CardContent-created-at {
+  font-size: 1.4rem;
+  color: var(--text-content-black);
+}
