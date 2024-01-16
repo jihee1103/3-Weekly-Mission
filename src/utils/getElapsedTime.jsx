@@ -1,22 +1,8 @@
-const second = 1000;
-const minute = second * 60;
-const hour = minute * 60;
-const day = hour * 24;
-const month = day * 31;
-const year = month * 12;
-
-const TIME_IN_MILLISECONDS = {
-  second,
-  minute,
-  hour,
-  day,
-  month,
-  year,
-};
+import TIME_IN_MILLISECONDS from "./timeSet";
 
 const getElapsedTime = (createdAt) => {
-  const now = new Date();
-  const createdAtDate = new Date(createdAt);
+  const now = new Date().getTime();
+  const createdAtDate = new Date(createdAt).getTime();
   const elapsedTime = now - createdAtDate;
   const { minute, hour, day, month, year } = TIME_IN_MILLISECONDS;
 

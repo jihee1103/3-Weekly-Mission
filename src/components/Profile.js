@@ -1,6 +1,5 @@
 import "./Profile.css";
-import getUser from "../api/getUser";
-import getFolder from "../api/getFolder";
+import getData from "../api/getData";
 import { useState, useEffect } from "react";
 
 const Profile = function () {
@@ -9,14 +8,14 @@ const Profile = function () {
 
   useEffect(() => {
     const getFolderData = async () => {
-      const result = await getFolder();
+      const result = await getData("/sample/folder");
       setFolderName(result.folder.name);
     };
 
     getFolderData();
 
     const getUserData = async () => {
-      const result = await getUser();
+      const result = await getData("/sample/user");
       setUserData(result);
     };
 

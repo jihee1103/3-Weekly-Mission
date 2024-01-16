@@ -3,9 +3,10 @@ import CardContent from "./CardContent";
 import "./Card.css";
 import { useState } from "react";
 import getElapsedTime from "../utils/getElapsedTime";
+import timeFormatter from "../utils/timeFormatter";
 
 const Card = function ({ item }) {
-  const { createdAt, description, imageSource, url } = item;
+  const { createdAt, created_at, description, imageSource, image_source, url } = item;
   const [isHovered, setIsHoverd] = useState(false);
 
   const handleMouseOver = () => setIsHoverd(true);
@@ -20,8 +21,15 @@ const Card = function ({ item }) {
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
       onClick={handleOnClick}>
-      <CardImage isHovered={isHovered} imageSource={imageSource} />
-      <CardContent elapsedTime={getElapsedTime({ createdAt })} description={description} createdAt={createdAt} />
+      <CardImage isHovered={isHovered} imageSource={imageSource || image_source} />
+
+      <CardContent
+        elapsedTime={getElapsedTime(createdAt || created_at)}
+        description={description}
+        createdAt={timeFormatter(createdAt || created_at)}
+      />
+      <img className="star" src="/img/star_icon.svg" alt="즐겨찾기" />
+      <img className="kebab" src="/img/kebab_icon.svg" alt="케밥아이콘" />
     </div>
   );
 };
