@@ -28,7 +28,7 @@ const CardDescription = ({ link, onDeleteButtonClick }) => {
             <KebabMenuDeleteButton
               type="button"
               onClick={(e) => {
-                e.stopPropagation();
+                e.preventDefault();
                 onDeleteButtonClick({ name: 'DeleteLink', data: { url: link.url } });
               }}
             >

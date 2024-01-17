@@ -9,13 +9,17 @@ import CardList from '../components/Contents/CardList/CardList';
 
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
+import useGetSharePageData from '../hooks/useGetSharePageData';
 
 const SharedPage = () => {
   const [searchParams, setSearchParams] = useSearchParams(); // eslint-disable-line no-unused-vars
   const [sharedUserId, setSharedUserId] = useState(null);
   const [sharedFolderId, setSharedFolderId] = useState(null);
   const [sharedFolderData, setSharedFolderData] = useState([]);
-  const [heroProfileData, setHeroProfileData] = useState({});
+
+  const { sharePageData } = useGetSharePageData();
+
+  // const [sharePageData, setHeroProfileData] = useState({});
   const [heroFolderName, setHeroFolderName] = useState('');
 
   useEffect(() => {
@@ -37,6 +41,7 @@ const SharedPage = () => {
             // sample 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
             const formattedData = getFormattedCamelCaseData(data);
             setSharedFolderData(formattedData);
+            console.log(formattedData);
           });
       }
     } catch (error) {
@@ -63,26 +68,10 @@ const SharedPage = () => {
     }
   }, [sharedUserId]);
 
-  useEffect(() => {
-    try {
-      getFetch('bootcamp-api.codeit.kr', `api/sample/folder`)
-        .then((data) => {
-          return data.folder;
-        })
-        .then((folder) => {
-          setHeroProfileData(() => {
-            return folder;
-          });
-        });
-    } catch (err) {
-      console.error(err);
-    }
-  }, []);
-
   return (
     <>
       <Hero>
-        <ShareDescription heroProfileData={heroProfileData} heroFolderName={heroFolderName} />
+        <ShareDescription sharePageData={sharePageData} heroFolderName={heroFolderName} />
       </Hero>
       <Contents>
         <Search />

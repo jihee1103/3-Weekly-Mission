@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
-const ShareDescription = ({ heroProfileData, heroFolderName }) => {
+const ShareDescription = ({ sharePageData, heroFolderName }) => {
   return (
     <ShareDescriptionWrapper>
-      <img src={heroProfileData.owner?.profileImageSource} alt="코드잇 마크" />
-      <span>{heroProfileData.owner?.name}</span>
+      <button
+        type="button"
+        onClick={() => {
+          console.log(sharePageData);
+        }}
+      >
+        버튼
+      </button>
+      <img src={sharePageData.owner?.profileImageSource} alt="코드잇 마크" />
+      <span>{sharePageData.owner?.name}</span>
       <div>{heroFolderName}</div>
     </ShareDescriptionWrapper>
   );

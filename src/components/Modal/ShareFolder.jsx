@@ -15,13 +15,14 @@ import shareToFacebook from '../../utils/shareToFacebook';
 import shareToKakao from '../../utils/shareToKakao';
 
 const ShareFolder = ({ modal, onCloseModalButtonClick }) => {
+  const { folderName, sharingUrl } = modal.data;
   // useGetKakaoSdkScript 훅으로 카카오 SDK 스크립트를 불러온다
   const { kakaoSdk } = useGetKakaoSdkScript();
 
   return (
     <ModalContentWrapper>
       <ModalTitleContainer>
-        <ModalTitle text="폴더 공유" detailText={modal.data.folderName} />
+        <ModalTitle text="폴더 공유" detailText={folderName} />
       </ModalTitleContainer>
       <ShareButtonWrapper>
         <ShareButton
@@ -38,7 +39,7 @@ const ShareFolder = ({ modal, onCloseModalButtonClick }) => {
         <ShareButton
           type="button"
           onClick={() => {
-            return shareToFacebook(modal.data.sharingUrl);
+            return shareToFacebook(sharingUrl);
           }}
         >
           <ShareButtonImgWrapper bgColor="#1877F2">
@@ -49,7 +50,7 @@ const ShareFolder = ({ modal, onCloseModalButtonClick }) => {
         <ShareButton
           type="button"
           onClick={() => {
-            return copySharingLinkToClipBoard(modal.data.sharingUrl);
+            return copySharingLinkToClipBoard(sharingUrl);
           }}
         >
           <ShareButtonImgWrapper bgColor="rgba(157, 157, 157, 0.04)">
