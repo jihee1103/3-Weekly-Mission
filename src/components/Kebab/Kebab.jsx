@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import imageData from "../../assets/imageData";
 import styled from "./Kebab.module.css";
 
-export default function Kebab({ ModalButtonClick, url }) {
+export default function Kebab({ handleModalButtonClick, url }) {
   const [isClicked, setIsClicked] = useState(false);
 
   const toggleClicked = () => {
@@ -14,7 +14,7 @@ export default function Kebab({ ModalButtonClick, url }) {
   };
 
   const handleButtonClick = ({ currentTarget }) => {
-    ModalButtonClick({ currentTarget, url });
+    handleModalButtonClick({ currentTarget, url });
   };
 
   return (

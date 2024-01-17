@@ -4,7 +4,7 @@ import { getFolderData } from "../../apis/api";
 import imageData from "../../assets/imageData";
 
 export default function FolderListButton({
-  ModalButtonClick,
+  handleModalButtonClick,
   itemList,
   setFolderName,
   setCardListItem,
@@ -49,7 +49,7 @@ export default function FolderListButton({
         id="addFolder"
         type="button"
         className={styled.icon}
-        onClick={ModalButtonClick}
+        onClick={handleModalButtonClick}
       >
         <img src={imageData.plusIcon} alt="더하기 아이콘" />
       </button>

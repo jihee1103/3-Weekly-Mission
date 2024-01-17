@@ -22,7 +22,7 @@ export default function FolderPage({ user }) {
   const toggleModalClick = () => {
     setIsModalClicked(!isModalClicked);
   };
-  const ModalButtonClick = ({ currentTarget, url }) => {
+  const handleModalButtonClick = ({ currentTarget, url }) => {
     const targetId = currentTarget.id;
     setModalId(targetId);
     setModalUrl(url);
@@ -49,19 +49,19 @@ export default function FolderPage({ user }) {
         {folderNameList ? (
           <div className={styled.container}>
             <FolderListButton
-              ModalButtonClick={ModalButtonClick}
+              handleModalButtonClick={handleModalButtonClick}
               itemList={folderNameList}
               setFolderName={setFolderName}
               setCardListItem={setCardListItem}
               folderName={folderName}
             />
             <FolderNameLine
-              ModalButtonClick={ModalButtonClick}
+              handleModalButtonClick={handleModalButtonClick}
               folderName={folderName}
             />
             {cardListItem ? (
               <CardList
-                ModalButtonClick={ModalButtonClick}
+                handleModalButtonClick={handleModalButtonClick}
                 itemList={cardListItem}
                 toggle={true}
               />
