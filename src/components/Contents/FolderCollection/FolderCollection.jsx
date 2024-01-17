@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import styled from 'styled-components';
 import add from '../../../assets/images/add.svg';
@@ -15,14 +15,14 @@ const FolderCollection = ({
   userData,
 }) => {
   const [currentFolder, setCurrentFolder] = useState('전체');
-  const [sharingUrl, setSharingUrl] = useState('');
+  const sharingUrl = useRef('');
 
   const handleCurrentFolder = (name) => {
     setCurrentFolder(name);
   };
 
   const createSharingUrl = (userId, folderId) => {
-    setSharingUrl(`${window.location.origin}/shared?user=${userId}&folder=${folderId}`);
+    sharingUrl.current = `${window.location.origin}/shared?user=${userId}&folder=${folderId}`;
   };
 
   return (
@@ -76,7 +76,7 @@ const FolderCollection = ({
                 // data에 title, description, sourceImg가 들어가야한다.
                 onButtonClick({
                   name: 'ShareFolder',
-                  data: { folderName: currentFolder, sharingUrl },
+                  data: { folderName: currentFolder, sharingUrl: sharingUrl.current },
                 });
               }}
             >

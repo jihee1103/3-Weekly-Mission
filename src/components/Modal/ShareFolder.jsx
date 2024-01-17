@@ -60,6 +60,7 @@ const ShareFolder = ({ modal, setModal }) => {
 
   const handleCopySharingUrlToClipBoard = async () => {
     try {
+      console.log(modal.data.sharingUrl);
       await navigator.clipboard.writeText(modal.data.sharingUrl);
     } catch (err) {
       console.error(err);
