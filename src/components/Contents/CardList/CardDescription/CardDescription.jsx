@@ -13,7 +13,7 @@ const CardDescription = ({ link, handleModal }) => {
 
   return (
     <CardDescriptionWrapper>
-      <CardContentTimePassedBox>
+      <TimePassedBox>
         {calculatePassedTime(link.createdAt)}
         <KebabBtn
           onClick={(e) => {
@@ -36,9 +36,9 @@ const CardDescription = ({ link, handleModal }) => {
             <KebabMenuAddFolderBtn>폴더에 추가</KebabMenuAddFolderBtn>
           </KebabMenuBox>
         ) : null}
-      </CardContentTimePassedBox>
-      <CardContentDescription>{link.description}</CardContentDescription>
-      <CardContentCreatedAt>{getFormattedDate(link.createdAt)}</CardContentCreatedAt>
+      </TimePassedBox>
+      <Description>{link.description}</Description>
+      <CreatedAt>{getFormattedDate(link.createdAt)}</CreatedAt>
     </CardDescriptionWrapper>
   );
 };
@@ -54,7 +54,7 @@ export const CardDescriptionWrapper = styled.div`
   background: #fff;
 `;
 
-const CardContentTimePassedBox = styled.div`
+const TimePassedBox = styled.div`
   color: #666;
   font-family: Pretendard;
   font-size: 13px;
@@ -64,7 +64,7 @@ const CardContentTimePassedBox = styled.div`
   position: relative;
 `;
 
-const CardContentDescription = styled.div`
+const Description = styled.div`
   overflow: hidden;
   color: #000;
   font-family: Pretendard;
@@ -76,7 +76,7 @@ const CardContentDescription = styled.div`
   overflow: hidden;
 `;
 
-const CardContentCreatedAt = styled.div`
+const CreatedAt = styled.div`
   overflow: hidden;
   color: #333;
   text-overflow: ellipsis;

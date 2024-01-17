@@ -4,20 +4,20 @@ import star from '../../../../assets/images/star.svg';
 
 const CardImg = ({ link }) => {
   return (
-    <CardImgWrapper>
+    <Wrapper>
       {link.imageSource ? (
         <CardMainImg src={link.imageSource} alt="카드 이미지" />
       ) : (
         <CardMainImg src={noImageSource} alt="이미지가 없음" />
       )}
-      <CardStarButton>
+      <StarButton type="button">
         <img src={star} alt="즐겨찾기 별 이미지" />
-      </CardStarButton>
-    </CardImgWrapper>
+      </StarButton>
+    </Wrapper>
   );
 };
 
-const CardImgWrapper = styled.div`
+const Wrapper = styled.div`
   width: 100%;
   height: 205px;
   overflow: hidden;
@@ -31,7 +31,7 @@ export const CardMainImg = styled.img`
   transition: all 0.1s;
 `;
 
-const CardStarButton = styled.button`
+const StarButton = styled.button`
   width: 34px;
   height: 34px;
   position: absolute;
