@@ -10,6 +10,9 @@ import modalKakao from '../../assets/images/modal_kakao.svg';
 import modalFacebook from '../../assets/images/modal_facebook.svg';
 import modalLink from '../../assets/images/modal_link.svg';
 
+import { copySharingLinkToClipBoard } from '../../utils/copySharingLinkToClipBoard';
+import shareToFacebook from '../../utils/shareToFacebook';
+
 const ShareFolder = ({ modal, setModal }) => {
   useEffect(() => {
     const script = document.createElement('script');
@@ -52,21 +55,6 @@ const ShareFolder = ({ modal, setModal }) => {
     }
   };
 
-  const handleShareToFacebook = () => {
-    console.log(modal.data.sharingUrl);
-    const sharedLink = encodeURIComponent(modal.data.sharingUrl);
-    window.open(`http://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
-  };
-
-  const handleCopySharingUrlToClipBoard = async () => {
-    try {
-      console.log(modal.data.sharingUrl);
-      await navigator.clipboard.writeText(modal.data.sharingUrl);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   return (
     <ModalContentWrapper>
       <ModalTitleContainer>
@@ -79,13 +67,23 @@ const ShareFolder = ({ modal, setModal }) => {
           </ShareButtonImgWrapper>
           <span>카카오톡</span>
         </ShareButton>
-        <ShareButton type="button" onClick={handleShareToFacebook}>
+        <ShareButton
+          type="button"
+          onClick={() => {
+            return shareToFacebook(modal.data.sharingUrl);
+          }}
+        >
           <ShareButtonImgWrapper bgColor="#1877F2">
             <img src={modalFacebook} alt="모달 페이스북 버튼" />
           </ShareButtonImgWrapper>
           <span>페이스북</span>
         </ShareButton>
-        <ShareButton type="button" onClick={handleCopySharingUrlToClipBoard}>
+        <ShareButton
+          type="button"
+          onClick={() => {
+            return copySharingLinkToClipBoard(modal.data.sharingUrl);
+          }}
+        >
           <ShareButtonImgWrapper bgColor="rgba(157, 157, 157, 0.04)">
             <img src={modalLink} alt="모달 링크 버튼" />
           </ShareButtonImgWrapper>
