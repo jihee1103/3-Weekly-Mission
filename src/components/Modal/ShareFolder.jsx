@@ -27,7 +27,7 @@ const ShareFolder = ({ modal, setModal }) => {
     if (window.Kakao) {
       const kakao = window.Kakao;
       if (!kakao.isInitialized()) {
-        kakao.init('e5f079e205ef1816dd9189a0388e190b'); // 카카오에서 제공받은 javascript key를 넣어줌
+        kakao.init(process.env.REACT_APP_KAKAO_JS_KEY); // 카카오에서 제공받은 javascript key를 넣어줌
       }
 
       kakao.Link.sendDefault({
