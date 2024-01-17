@@ -2,6 +2,11 @@ h2 {
   margin: 0;
 }
 
+button{
+  background-color: inherit;
+  border-style: none;
+}
+
 .content {
   width: 100%;
   max-width: 106rem;

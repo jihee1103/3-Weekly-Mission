@@ -7,7 +7,7 @@ import Header from "../components/Header";
 export default function Folder() {
   return (
     <>
-      <Header isSticky={true}/>
+      <Header isSticky/>
       <AddLinkBar />
       <SearchBar />
       <Content />
