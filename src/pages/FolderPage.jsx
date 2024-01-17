@@ -24,6 +24,10 @@ const FolderPage = ({ userData }) => {
     setModal(modalValue);
   };
 
+  const closeModal = () => {
+    setModal(DEFALUT_MODAL_VALUE);
+  };
+
   // 폴더의 전체 버튼을 클릭했을 때 가져올 데이터
   const handleOverViewFolderCardData = () => {
     try {
@@ -92,7 +96,7 @@ const FolderPage = ({ userData }) => {
         />
         <CardList cardData={folderCardData} onDeleteButtonClick={showModal} />
       </Contents>
-      {modal.name ? <Modal modal={modal} setModal={setModal} /> : null}
+      {modal.name ? <Modal modal={modal} setModal={setModal} onCloseModalButtonClick={closeModal} /> : null}
     </FolderPageWrapper>
   );
 };

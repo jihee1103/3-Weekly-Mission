@@ -13,7 +13,7 @@ import modalLink from '../../assets/images/modal_link.svg';
 import { copySharingLinkToClipBoard } from '../../utils/copySharingLinkToClipBoard';
 import shareToFacebook from '../../utils/shareToFacebook';
 
-const ShareFolder = ({ modal, setModal }) => {
+const ShareFolder = ({ modal, onCloseModalButtonClick }) => {
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
@@ -90,7 +90,7 @@ const ShareFolder = ({ modal, setModal }) => {
           <span>링크 복사</span>
         </ShareButton>
       </ShareButtonWrapper>
-      <ModalCloseButton modal={modal} setModal={setModal} />
+      <ModalCloseButton modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
     </ModalContentWrapper>
   );
 };

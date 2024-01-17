@@ -4,7 +4,7 @@ import ModalContentWrapper from './ModalContent/ModalContentWrapper';
 import ModalTitleContainer from './ModalContent/ModalTitleContainer';
 import ModalCloseButton from './ModalContent/ModalCloseButton';
 
-const DeleteFolder = ({ modal, setModal }) => {
+const DeleteFolder = ({ modal, onCloseModalButtonClick }) => {
   const ModalCtaButtonBgColor = '#FF5B56';
 
   return (
@@ -13,7 +13,7 @@ const DeleteFolder = ({ modal, setModal }) => {
         <ModalTitle text="폴더 삭제" detailText={modal.data.folderName} modal={modal} />
         <ModalCtaButton text="삭제하기" bgColor={ModalCtaButtonBgColor} />
       </ModalTitleContainer>
-      <ModalCloseButton modal={modal} setModal={setModal} />
+      <ModalCloseButton modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
     </ModalContentWrapper>
   );
 };

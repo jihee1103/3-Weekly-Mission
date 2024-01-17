@@ -7,47 +7,47 @@ import DeleteFolder from './DeleteFolder';
 import UpdateFolder from './UpdateFolder';
 import DeleteLink from './DeleteLink';
 
-const Modal = ({ modal, setModal }) => {
+const Modal = ({ modal, onCloseModalButtonClick }) => {
   switch (modal.name) {
     case 'CreateFolder': {
       return (
         <ModalWrapper>
-          <CreateFolder modal={modal} setModal={setModal} />
+          <CreateFolder modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
         </ModalWrapper>
       );
     }
     case 'ShareFolder': {
       return (
         <ModalWrapper>
-          <ShareFolder modal={modal} setModal={setModal} />
+          <ShareFolder modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
         </ModalWrapper>
       );
     }
     case 'ChangeFolderName': {
       return (
         <ModalWrapper>
-          <ChangeFolderName modal={modal} setModal={setModal} />
+          <ChangeFolderName modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
         </ModalWrapper>
       );
     }
     case 'DeleteFolder': {
       return (
         <ModalWrapper>
-          <DeleteFolder modal={modal} setModal={setModal} />
+          <DeleteFolder modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
         </ModalWrapper>
       );
     }
     case 'UpdateFolder': {
       return (
         <ModalWrapper>
-          <UpdateFolder modal={modal} setModal={setModal} />
+          <UpdateFolder modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
         </ModalWrapper>
       );
     }
     case 'DeleteLink': {
       return (
         <ModalWrapper>
-          <DeleteLink modal={modal} setModal={setModal} />
+          <DeleteLink modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
         </ModalWrapper>
       );
     }
