@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
 import Hero from '../components/Hero/Hero';
 import ShareDescription from '../components/Hero/ShareDescription/ShareDescription';
@@ -10,24 +10,15 @@ import CardList from '../components/Contents/CardList/CardList';
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 import useGetSharePageData from '../hooks/useGetSharePageData';
+import useGetsharePageIds from '../hooks/useGetsharePageIds';
 
 const SharedPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams(); // eslint-disable-line no-unused-vars
-  const [sharedUserId, setSharedUserId] = useState(null);
-  const [sharedFolderId, setSharedFolderId] = useState(null);
-  const [sharedFolderData, setSharedFolderData] = useState([]);
-
+  const { sharedUserId, sharedFolderId } = useGetsharePageIds();
   const { sharePageData } = useGetSharePageData();
 
-  // const [sharePageData, setHeroProfileData] = useState({});
-  const [heroFolderName, setHeroFolderName] = useState('');
+  const [sharedFolderData, setSharedFolderData] = useState([]);
 
-  useEffect(() => {
-    const userId = searchParams.get('user');
-    const folderId = searchParams.get('folder');
-    setSharedFolderId(folderId);
-    setSharedUserId(userId);
-  }, []);
+  const [heroFolderName, setHeroFolderName] = useState('');
 
   // shared의 Hero 컴포넌트 데이터
   useEffect(() => {
