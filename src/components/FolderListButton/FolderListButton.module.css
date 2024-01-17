@@ -31,6 +31,10 @@
 
 .icon {
   margin-left: auto;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
 @media screen and (max-width: 756px) {

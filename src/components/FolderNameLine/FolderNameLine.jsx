@@ -8,18 +8,18 @@ export default function FolderNameLine({ ModalButtonClick, folderName }) {
       <h2 className={styled.folder_name}>{folderName}</h2>
       {folderName !== "전체" && (
         <div className={styled["icon-container"]}>
-          <div id="shareFolder" onClick={ModalButtonClick}>
+          <button id="shareFolder" onClick={ModalButtonClick}>
             <img src={imageData.shareIcon} alt="공유아이콘" />
             <span>공유</span>
-          </div>
-          <div id="editFolder" onClick={ModalButtonClick}>
+          </button>
+          <button id="editFolder" onClick={ModalButtonClick}>
             <img src={imageData.penIcon} alt="이름 변경아이콘" />
             <span>이름 변경</span>
-          </div>
-          <div id="deleteFolder" onClick={ModalButtonClick}>
+          </button>
+          <button id="deleteFolder" onClick={ModalButtonClick}>
             <img src={imageData.deleteIcon} alt="삭제아이콘" />
             <span>삭제</span>
-          </div>
+          </button>
         </div>
       )}
     </div>

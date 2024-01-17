@@ -18,7 +18,7 @@ export default function Kebab({ ModalButtonClick, url }) {
   };
 
   return (
-    <div className={styled.container} onClick={handleKebabClick}>
+    <button className={styled.container} onClick={handleKebabClick}>
       <img
         className={styled.Kebab}
         src={imageData.kebabIcon}
@@ -42,6 +42,6 @@ export default function Kebab({ ModalButtonClick, url }) {
           </button>
         </div>
       )}
-    </div>
+    </button>
   );
 }

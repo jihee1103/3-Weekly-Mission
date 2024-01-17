@@ -43,13 +43,14 @@ export default function FolderListButton({
           </button>
         );
       })}
-      <img
+      <button
         id="addFolder"
+        type="button"
         className={styled.icon}
-        src={imageData.plusIcon}
-        alt="더하기 아이콘"
         onClick={ModalButtonClick}
-      />
+      >
+        <img src={imageData.plusIcon} alt="더하기 아이콘" />
+      </button>
     </div>
   );
 }
