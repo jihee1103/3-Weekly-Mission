@@ -17,11 +17,9 @@ export default function Modal({
   return (
     <ModalWrapper>
       <ModalContainer>
-        <ModalCloseButton
-          src={imageData.closeButton}
-          alt="모달창 닫기 버튼"
-          onClick={toggleModalClick}
-        />
+        <ModalCloseButton onClick={toggleModalClick}>
+          <img src={imageData.closeButton} alt="모달창 닫기 버튼" />
+        </ModalCloseButton>
         {getModalContent({ modalId, folderName, modalUrl, itemList, user })}
       </ModalContainer>
     </ModalWrapper>
@@ -66,10 +64,14 @@ const getModalContent = ({ modalId, folderName, modalUrl, itemList, user }) => {
   }
 };
 
-const ModalCloseButton = styled.img`
+const ModalCloseButton = styled.button`
   position: absolute;
   top: 16px;
   right: 16px;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
 `;
 
 const ModalWrapper = styled.div`
