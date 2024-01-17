@@ -8,7 +8,7 @@ import pen from '../../../assets/images/pen.svg';
 import trashCan from '../../../assets/images/trash_can.svg';
 
 const FolderCollection = ({
-  handleModal,
+  onButtonClick,
   folderData,
   handleOverViewFolderCardData,
   handleFolderCardData,
@@ -48,7 +48,6 @@ const FolderCollection = ({
                     handleCurrentFolder(folder.name);
                     handleFolderCardData(folder.id);
                     createSharingUrl(userData.id, folder.id);
-                    console.log(sharingUrl);
                   }}
                 >
                   {folder.name}
@@ -58,7 +57,7 @@ const FolderCollection = ({
           </FolderButtonWrapper>
           <CreateFolderButton
             onClick={() => {
-              handleModal({ name: 'CreateFolder', data: { folderName: '' } });
+              onButtonClick({ name: 'CreateFolder', data: { folderName: '' } });
             }}
           >
             <span>폴더추가</span>
@@ -75,7 +74,7 @@ const FolderCollection = ({
               type="button"
               onClick={() => {
                 // data에 title, description, sourceImg가 들어가야한다.
-                handleModal({
+                onButtonClick({
                   name: 'ShareFolder',
                   data: { folderName: currentFolder, sharingUrl },
                 });
@@ -87,7 +86,7 @@ const FolderCollection = ({
             <button
               type="button"
               onClick={() => {
-                handleModal({ name: 'ChangeFolderName', data: { folderName: currentFolder } });
+                onButtonClick({ name: 'ChangeFolderName', data: { folderName: currentFolder } });
               }}
             >
               <img src={pen} alt="폴더 도구 모음 수정 버튼" />
@@ -96,7 +95,7 @@ const FolderCollection = ({
             <button
               type="button"
               onClick={() => {
-                handleModal({ name: 'DeleteFolder', data: { folderName: currentFolder } });
+                onButtonClick({ name: 'DeleteFolder', data: { folderName: currentFolder } });
               }}
             >
               <img src={trashCan} alt="폴더 도구 모음 삭제 버튼" />

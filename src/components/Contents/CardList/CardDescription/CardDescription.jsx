@@ -4,7 +4,7 @@ import calculatePassedTime from '../../../../utils/calculatePassedTime';
 import getFormattedDate from '../../../../utils/getFormattedDate';
 import kebab from '../../../../assets/images/kebab.svg';
 
-const CardDescription = ({ link, handleModal }) => {
+const CardDescription = ({ link, onDeleteButtonClick }) => {
   const [kebabToggle, setKebabToggle] = useState(false);
 
   const handleKebabToggle = () => {
@@ -25,14 +25,15 @@ const CardDescription = ({ link, handleModal }) => {
         </KebabBtn>
         {kebabToggle ? (
           <KebabMenuBox>
-            <KebabMenuDeleteBtn
+            <KebabMenuDeleteButton
+              type="button"
               onClick={(e) => {
-                e.preventDefault();
-                handleModal({ name: 'DeleteLink', data: { url: link.url } });
+                e.stopPropagation();
+                onDeleteButtonClick({ name: 'DeleteLink', data: { url: link.url } });
               }}
             >
               삭제하기
-            </KebabMenuDeleteBtn>
+            </KebabMenuDeleteButton>
             <KebabMenuAddFolderBtn>폴더에 추가</KebabMenuAddFolderBtn>
           </KebabMenuBox>
         ) : null}
@@ -105,7 +106,7 @@ const KebabMenuBox = styled.div`
   top: 16px;
 `;
 
-const KebabMenuDeleteBtn = styled.button`
+const KebabMenuDeleteButton = styled.button`
   display: flex;
   padding: 7px 12px;
   justify-content: center;

@@ -3,26 +3,26 @@ import styled from 'styled-components';
 import CardImg, { CardMainImg } from './CardImg/CardImg';
 import CardContent, { CardDescriptionWrapper } from './CardDescription/CardDescription';
 
-const CardList = ({ handleModal, cardData }) => {
+const CardList = ({ onDeleteButtonClick, cardData }) => {
   return (
-    <CardListWrapper>
+    <Container>
       {cardData?.length !== 0 ? (
         cardData?.map((link) => {
           return (
-            <CardLink to={link.url} target="_blank" key={link.id} rel="noreferrer">
+            <Card to={link.url} target="_blank" key={link.id} rel="noreferrer">
               <CardImg link={link} />
-              <CardContent link={link} handleModal={handleModal} />
-            </CardLink>
+              <CardContent link={link} onDeleteButtonClick={onDeleteButtonClick} />
+            </Card>
           );
         })
       ) : (
         <AlertNotStoredLink>저장된 링크가 없습니다</AlertNotStoredLink>
       )}
-    </CardListWrapper>
+    </Container>
   );
 };
 
-const CardListWrapper = styled.ul`
+const Container = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 340px);
   gap: 20px;
@@ -40,7 +40,7 @@ const CardListWrapper = styled.ul`
   }
 `;
 
-const CardLink = styled(Link)`
+const Card = styled(Link)`
   width: 340px;
   height: 334px;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);

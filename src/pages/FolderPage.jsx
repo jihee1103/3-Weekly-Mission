@@ -20,7 +20,7 @@ const FolderPage = ({ userData }) => {
   // Modal
   const [modal, setModal] = useState(modalInit);
 
-  const handleModal = (modalValue) => {
+  const showModal = (modalValue) => {
     setModal(modalValue);
   };
 
@@ -79,18 +79,18 @@ const FolderPage = ({ userData }) => {
   return (
     <FolderPageWrapper>
       <Hero>
-        <LinkCreator handleModal={handleModal} />
+        <LinkCreator onUpdateButtonClick={showModal} />
       </Hero>
       <Contents>
         <Search />
         <FolderCollection
-          handleModal={handleModal}
+          onButtonClick={showModal}
           userData={userData}
           folderData={folderData}
           handleOverViewFolderCardData={handleOverViewFolderCardData}
           handleFolderCardData={handleFolderCardData}
         />
-        <CardList cardData={folderCardData} handleModal={handleModal} />
+        <CardList cardData={folderCardData} onDeleteButtonClick={showModal} />
       </Contents>
       {modal.name ? <Modal modal={modal} setModal={setModal} /> : null}
     </FolderPageWrapper>
