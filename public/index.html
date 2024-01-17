@@ -42,7 +42,8 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      Kakao.init("32adc3f02c72c6c7bb61effc65a716ec"); // 사용하려는 앱의 JavaScript 키 입력
+      const key = process.env.REACT_APP_API_KEY;
+      Kakao.init(key); // 사용하려는 앱의 JavaScript 키 입력
     </script>
     <div id="root"></div>
   </body>

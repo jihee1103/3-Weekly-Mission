@@ -1,6 +1,7 @@
 export const shareKakao = (url, folderName) => {
   if (!window.Kakao.isInitialized()) {
-    window.Kakao.init("32adc3f02c72c6c7bb61effc65a716ec");
+    const key = process.env.REACT_APP_API_KEY;
+    window.Kakao.init(key);
   }
 
   window.Kakao.Share.sendDefault({
