@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import useGetKakaoSdkScript from '../../hooks/useGetKakaoSdkScript';
 
 import ModalTitle from './ModalContent/ModalTitle';
 import ModalContentWrapper from './ModalContent/ModalContentWrapper';
@@ -11,46 +12,11 @@ import modalLink from '../../assets/images/modal_link.svg';
 
 import { copySharingLinkToClipBoard } from '../../utils/copySharingLinkToClipBoard';
 import shareToFacebook from '../../utils/shareToFacebook';
-import useGetKakaoSdkScript from '../../hooks/useGetKakaoSdkScript';
+import shareToKakao from '../../utils/shareToKakao';
 
 const ShareFolder = ({ modal, onCloseModalButtonClick }) => {
   // useGetKakaoSdkScript 훅으로 카카오 SDK 스크립트를 불러온다
-  const { KakaoSdk } = useGetKakaoSdkScript();
-
-  const handleShareToKakao = () => {
-    if (KakaoSdk) {
-      // url이 id값에 따라 변경되기 때문에 route를 인자값으로 받아줌
-      if (window.Kakao) {
-        const kakao = window.Kakao;
-        if (!kakao.isInitialized()) {
-          kakao.init(`${process.env.REACT_APP_KAKAO_JS_KEY}`); // 카카오에서 제공받은 javascript key를 넣어줌
-        }
-
-        kakao.Link.sendDefault({
-          // 링크 공유 중 여러가지 타입
-          objectType: 'feed',
-          content: {
-            title: modal.data.folderName,
-            description: modal.data.sharingUrl,
-            imageUrl: '이미지 url',
-            link: {
-              mobileWebUrl: modal.data.sharingUrl,
-              webUrl: modal.data.sharingUrl,
-            },
-          },
-          buttons: [
-            {
-              title: modal.data.folderName,
-              link: {
-                mobileWebUrl: modal.data.sharingUrl,
-                webUrl: modal.data.sharingUrl,
-              },
-            },
-          ],
-        });
-      }
-    }
-  };
+  const { kakaoSdk } = useGetKakaoSdkScript();
 
   return (
     <ModalContentWrapper>
@@ -58,7 +24,12 @@ const ShareFolder = ({ modal, onCloseModalButtonClick }) => {
         <ModalTitle text="폴더 공유" detailText={modal.data.folderName} />
       </ModalTitleContainer>
       <ShareButtonWrapper>
-        <ShareButton type="button" onClick={handleShareToKakao}>
+        <ShareButton
+          type="button"
+          onClick={() => {
+            shareToKakao(kakaoSdk, modal);
+          }}
+        >
           <ShareButtonImgWrapper bgColor="#FEE500">
             <img src={modalKakao} alt="모달 카카오 버튼" />
           </ShareButtonImgWrapper>

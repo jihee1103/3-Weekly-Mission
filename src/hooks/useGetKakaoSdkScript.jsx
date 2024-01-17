@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const useGetKakaoSdkScript = () => {
-  const [KakaoSdk, setKakaoSdk] = useState(false);
+  const [kakaoSdk, setKakaoSdk] = useState(false);
 
   useEffect(() => {
     // script 요소를 생성한다
@@ -20,7 +20,7 @@ const useGetKakaoSdkScript = () => {
     };
   }, []);
 
-  return { KakaoSdk };
+  return { kakaoSdk };
 };
 
 export default useGetKakaoSdkScript;
