@@ -1,1 +1,1 @@
-export const modalInit = { name: '', data: {} };
+export const DEFALUT_MODAL_VALUE = { name: '', data: {} };

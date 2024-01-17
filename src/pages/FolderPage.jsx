@@ -11,14 +11,14 @@ import FolderCollection from '../components/Contents/FolderCollection/FolderColl
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 import Modal from '../components/Modal/Modal';
-import { modalInit } from '../data';
+import { DEFALUT_MODAL_VALUE } from '../data';
 
 const FolderPage = ({ userData }) => {
   const [folderData, setFolderData] = useState([]);
   const [folderCardData, setFolderCardData] = useState([]);
 
   // Modal
-  const [modal, setModal] = useState(modalInit);
+  const [modal, setModal] = useState(DEFALUT_MODAL_VALUE);
 
   const showModal = (modalValue) => {
     setModal(modalValue);

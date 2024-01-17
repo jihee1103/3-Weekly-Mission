@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import modalClose from '../../../assets/images/_close.svg';
-import { modalInit } from '../../../data';
+import { DEFALUT_MODAL_VALUE } from '../../../data';
 
 const ModalCloseButton = ({ setModal }) => {
   const handleModalClose = () => {
-    setModal(modalInit);
+    setModal(DEFALUT_MODAL_VALUE);
   };
 
   return (
