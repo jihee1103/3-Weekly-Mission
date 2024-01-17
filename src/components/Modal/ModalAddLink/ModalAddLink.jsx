@@ -22,18 +22,19 @@ export default function ModalAddLink({ url, itemList }) {
         <ModalFolderTitle>{url}</ModalFolderTitle>
       </ModalTitleContainer>
       <BoxContainer>
-        {itemList &&
-          itemList.map((item) => {
-            return (
-              <AddFolderListBox
-                key={item.id}
-                name={item.name}
-                count={item.link.count}
-                folderChecked={folderChecked}
-                onClick={handleCheckFolder}
-              ></AddFolderListBox>
-            );
-          })}
+        {itemList
+          ? itemList.map((item) => {
+              return (
+                <AddFolderListBox
+                  key={item.id}
+                  name={item.name}
+                  count={item.link.count}
+                  folderChecked={folderChecked}
+                  onClick={handleCheckFolder}
+                ></AddFolderListBox>
+              );
+            })
+          : null}
       </BoxContainer>
       <CtaButton CTAButtonStyle={ModalCtaButton}>추가하기</CtaButton>
     </ModalWrapper>
