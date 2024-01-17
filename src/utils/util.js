@@ -38,7 +38,7 @@ export function getCreateDay(createAt) {
   return `${year}.${month}.${day}`;
 }
 
-export const handleCopyClipBoard = async (text) => {
+export const CopyClipBoard = async (text) => {
   try {
     await navigator.clipboard.writeText(text);
     alert("클립보드에 링크가 복사되었어요.");

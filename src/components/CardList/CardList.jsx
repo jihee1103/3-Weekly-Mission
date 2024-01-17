@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../Card/Card";
 import "./CardList.css";
 
-export default function CardList({ ModalButtonClick, itemList, toggle }) {
+export default function CardList({ handleModalButtonClick, itemList, toggle }) {
   return (
     <ul className="card-list">
       {itemList
@@ -10,7 +10,7 @@ export default function CardList({ ModalButtonClick, itemList, toggle }) {
             return (
               <li className="card" key={item.id}>
                 <Card
-                  ModalButtonClick={ModalButtonClick}
+                  handleModalButtonClick={handleModalButtonClick}
                   toggle={toggle}
                   item={item}
                 />
