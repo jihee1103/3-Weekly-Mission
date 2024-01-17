@@ -11,7 +11,7 @@ import FolderCollection from '../components/Contents/FolderCollection/FolderColl
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 import Modal from '../components/Modal/Modal';
-import { DEFALUT_MODAL_VALUE } from '../data';
+import { DEFALUT_MODAL_VALUE } from '../Constants/Constants';
 
 const FolderPage = ({ userData }) => {
   const [folderData, setFolderData] = useState([]);
@@ -29,7 +29,7 @@ const FolderPage = ({ userData }) => {
   };
 
   // 폴더의 전체 버튼을 클릭했을 때 가져올 데이터
-  const handleOverViewFolderCardData = () => {
+  const handleOverviewCardButtonClick = () => {
     try {
       getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((cardData) => {
         setFolderCardData(() => {
@@ -42,7 +42,7 @@ const FolderPage = ({ userData }) => {
   };
 
   // 폴더의 전체 버튼이 아닌 버튼을 클릭했을 때 가져올 데이터
-  const handleFolderCardData = (id) => {
+  const handleFilteredCardButtonClick = (id) => {
     try {
       getFetch('bootcamp-api.codeit.kr', `api/users/1/links?folderId=${id}`).then((cardData) => {
         setFolderCardData(() => {
@@ -91,8 +91,8 @@ const FolderPage = ({ userData }) => {
           onButtonClick={showModal}
           userData={userData}
           folderData={folderData}
-          handleOverViewFolderCardData={handleOverViewFolderCardData}
-          handleFolderCardData={handleFolderCardData}
+          onOverviewCardButtonClick={handleOverviewCardButtonClick}
+          onFilteredCardButtonClick={handleFilteredCardButtonClick}
         />
         <CardList cardData={folderCardData} onDeleteButtonClick={showModal} />
       </Contents>

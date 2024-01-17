@@ -7,7 +7,7 @@ import './assets/pretendard.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import NotFoundPage from './pages/NotFoundPage';
-import GlobalStyle from './GlobalStyle';
+import GlobalStyle from './globalStyle/GlobalStyle';
 import FolderPage from './pages/FolderPage';
 import SharedPage from './pages/SharedPage';
 

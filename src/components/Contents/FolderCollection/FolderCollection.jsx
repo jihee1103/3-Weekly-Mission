@@ -10,19 +10,26 @@ import trashCan from '../../../assets/images/trash_can.svg';
 const FolderCollection = ({
   onButtonClick,
   folderData,
-  handleOverViewFolderCardData,
-  handleFolderCardData,
+  onOverviewCardButtonClick,
+  onFilteredCardButtonClick,
   userData,
 }) => {
   const [currentFolder, setCurrentFolder] = useState('전체');
   const sharingUrl = useRef('');
 
-  const handleCurrentFolder = (name) => {
-    setCurrentFolder(name);
-  };
-
   const createSharingUrl = (userId, folderId) => {
     sharingUrl.current = `${window.location.origin}/shared?user=${userId}&folder=${folderId}`;
+  };
+
+  const setCurrentFolderToOverview = () => {
+    setCurrentFolder('전체');
+    onOverviewCardButtonClick();
+  };
+
+  const setCurrentFolderToSelected = (folderName, folderId) => {
+    setCurrentFolder(folderName);
+    onFilteredCardButtonClick(folderId);
+    createSharingUrl(userData.id, folderId);
   };
 
   return (
@@ -30,13 +37,7 @@ const FolderCollection = ({
       <FolderWrapper>
         <div>
           <FolderButtonWrapper>
-            <FolderButtonBox
-              type="button"
-              onClick={() => {
-                handleCurrentFolder('전체');
-                handleOverViewFolderCardData();
-              }}
-            >
+            <FolderButtonBox type="button" onClick={setCurrentFolderToOverview}>
               전체
             </FolderButtonBox>
             {folderData.map((folder) => {
@@ -45,9 +46,7 @@ const FolderCollection = ({
                   type="button"
                   key={folder.id}
                   onClick={() => {
-                    handleCurrentFolder(folder.name);
-                    handleFolderCardData(folder.id);
-                    createSharingUrl(userData.id, folder.id);
+                    setCurrentFolderToSelected(folder.name, folder.id);
                   }}
                 >
                   {folder.name}
