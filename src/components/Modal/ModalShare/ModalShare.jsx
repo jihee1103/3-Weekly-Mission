@@ -12,9 +12,10 @@ import { handleCopyClipBoard } from "../../../utils/util";
 import { shareKakao } from "../../../utils/kakaoShare";
 
 export default function ModalShare({ folderName = "", itemList, userId }) {
-  const [curFolder] = itemList.filter((item) => item.name === folderName);
+  const currentFolder = itemList.find((item) => item.name === folderName);
   const url =
-    window.location.origin + `/shared?user=${userId}&folder=${curFolder.id}`;
+    window.location.origin +
+    `/shared?user=${userId}&folder=${currentFolder.id}`;
   const handleLinkCopy = () => {
     handleCopyClipBoard(url);
   };
