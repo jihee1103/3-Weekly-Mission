@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function CtaButton({ CTAButtonStyle = CTAButton, children }) {
   return (
-    <CTAButtonStyle>
+    <CTAButtonStyle type="button">
       <ButtonText>{children}</ButtonText>
     </CTAButtonStyle>
   );

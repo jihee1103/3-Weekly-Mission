@@ -23,6 +23,7 @@ export default function FolderListButton({
   return (
     <div className={styled.container}>
       <button
+        type="button"
         className={folderName === "전체" ? styled.activeBtn : styled.button}
         onClick={handleEntireClick}
       >
@@ -31,6 +32,7 @@ export default function FolderListButton({
       {itemList.map((item) => {
         return (
           <button
+            type="button"
             className={
               folderName === item.name ? styled.activeBtn : styled.button
             }

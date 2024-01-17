@@ -18,7 +18,11 @@ export default function Kebab({ ModalButtonClick, url }) {
   };
 
   return (
-    <button className={styled.container} onClick={handleKebabClick}>
+    <button
+      type="button"
+      className={styled.container}
+      onClick={handleKebabClick}
+    >
       <img
         className={styled.Kebab}
         src={imageData.kebabIcon}
@@ -27,6 +31,7 @@ export default function Kebab({ ModalButtonClick, url }) {
       {isClicked && (
         <div className={styled["hover-container"]}>
           <button
+            type="button"
             id="deleteLink"
             onClick={handleButtonClick}
             className={styled.button}
@@ -34,6 +39,7 @@ export default function Kebab({ ModalButtonClick, url }) {
             삭제하기
           </button>
           <button
+            type="button"
             id="addLink"
             onClick={handleButtonClick}
             className={styled.button}
