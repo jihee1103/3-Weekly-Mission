@@ -1,14 +1,11 @@
-import { useEffect } from 'react';
-import styled from 'styled-components';
 import { FacebookShareButton } from 'react-share';
+import styled from 'styled-components';
+import useKakaoInit from '../../Hooks/useKakaoInit';
 import facebookLogo from '../../asset/Facebook.svg';
 import kakaoLogo from '../../asset/Kakao.svg';
 import linkLogo from '../../asset/link.svg';
-import Error from '../Error/Error';
 import shareKakao from '../../utils/shareKakao';
-
-const { Kakao } = window;
-const kakaoApiKey = process.env.REACT_APP_API_KEY;
+import Error from '../Error/Error';
 
 export default function ShareFolder({ folderName, userId, folderId, links }) {
   const shareUrl = `https://${process.env.REACT_APP_HOST}/shared?user=${userId}&folder=${folderId}`;
@@ -24,6 +21,8 @@ export default function ShareFolder({ folderName, userId, folderId, links }) {
     return null;
   };
 
+  useKakaoInit();
+
   const handleShareKaKaoClick = () => {
     if (links.length < 3) {
       alert('폴더에 2개 이상의 링크가 있어야 합니다.');
@@ -31,12 +30,6 @@ export default function ShareFolder({ folderName, userId, folderId, links }) {
     }
     shareKakao(links, folderName, shareUrl);
   };
-
-  useEffect(() => {
-    Kakao.cleanup();
-    Kakao.init(kakaoApiKey);
-  }, []);
-
   return (
     <Wrapper>
       <TitleContainer>
