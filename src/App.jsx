@@ -58,6 +58,12 @@ const GlobalStyle = createGlobalStyle`
   p {
     padding: 0;
   }
+  button {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
 `;
 const Wrapper = styled.div`
   display: flex;

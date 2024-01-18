@@ -30,7 +30,7 @@ export default function AddLink({
           />
         </IconInputWrapper>
         <AddButton id="addLinkButton" onClick={handleButtonClick}>
-          <AddText>추가하기</AddText>
+          추가하기
         </AddButton>
       </Wrapper>
     </AddLinkForm>
@@ -91,20 +91,15 @@ const AddLinkInput = styled.input`
     }
   }
 `;
-const AddButton = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const AddButton = styled.button`
   width: 81px;
   padding: 10px 16px;
   border: none;
   border-radius: 8px;
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-  cursor: pointer;
-`;
-const AddText = styled.span`
   font-size: 14px;
   color: #f5f5f5;
   font-weight: 600;
   line-height: 17px;
+  cursor: pointer;
 `;
