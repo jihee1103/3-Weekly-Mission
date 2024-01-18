@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const CardList = ({ children }) => {
-  return <CardListContainer>{children}</CardListContainer>;
+const Contents = ({ children }) => {
+  return <ContentsWrapper>{children}</ContentsWrapper>;
 };
 
-const CardListContainer = styled.div`
+const ContentsWrapper = styled.div`
   padding: 40px 32px;
   margin-bottom: 60px;
   display: flex;
@@ -17,4 +17,4 @@ const CardListContainer = styled.div`
   }
 `;
 
-export default CardList;
+export default Contents;

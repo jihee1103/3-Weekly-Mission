@@ -1,28 +1,28 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import CardImg, { CardMainImg } from './CardImg/CardImg';
-import CardContent, { CardContentContainer } from './CardContent/CardContent';
+import CardContent, { CardDescriptionWrapper } from './CardDescription/CardDescription';
 
-const Card = ({ cardData }) => {
+const CardList = ({ onDeleteButtonClick, cardListData }) => {
   return (
-    <CardListContainer>
-      {cardData.length !== 0 ? (
-        cardData.map((link) => {
+    <Container>
+      {cardListData?.length !== 0 ? (
+        cardListData?.map((link) => {
           return (
-            <CardLink to={link.url} target="_blank" key={link.id} rel="noreferrer">
+            <Card to={link.url} target="_blank" key={link.id} rel="noreferrer">
               <CardImg link={link} />
-              <CardContent link={link} />
-            </CardLink>
+              <CardContent link={link} onDeleteButtonClick={onDeleteButtonClick} />
+            </Card>
           );
         })
       ) : (
         <AlertNotStoredLink>저장된 링크가 없습니다</AlertNotStoredLink>
       )}
-    </CardListContainer>
+    </Container>
   );
 };
 
-const CardListContainer = styled.ul`
+const Container = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 340px);
   gap: 20px;
@@ -40,7 +40,7 @@ const CardListContainer = styled.ul`
   }
 `;
 
-const CardLink = styled(Link)`
+const Card = styled(Link)`
   width: 340px;
   height: 334px;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
@@ -50,7 +50,7 @@ const CardLink = styled(Link)`
     transform: scale(1.3);
   }
 
-  &:hover ${CardContentContainer} {
+  &:hover ${CardDescriptionWrapper} {
     background: var(--gray5);
   }
 `;
@@ -74,4 +74,4 @@ const AlertNotStoredLink = styled.div`
   }
 `;
 
-export default Card;
+export default CardList;

@@ -1,47 +1,35 @@
-import { useState, useEffect } from 'react';
+import useGetSharePageData from '../hooks/useGetSharePageData';
+import useGetsharePageIds from '../hooks/useGetsharePageIds';
+import useGetSharePageFolderName from '../hooks/useGetSharePageFolderName';
 
 import Hero from '../components/Hero/Hero';
 import ShareDescription from '../components/Hero/ShareDescription/ShareDescription';
-import CardList from '../components/CardList/CardList';
-import Search from '../components/CardList/Search/Search';
-import Card from '../components/CardList/Card/Card';
+import Contents from '../components/Contents/Contents';
+import Search from '../components/Contents/CardSearchBar/CardSearchBar';
+import CardList from '../components/Contents/CardList/CardList';
 
-import getFetch from '../utils/getFetch';
-import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
+import useGetFolderListData from '../hooks/useGetFolderListData';
+import useGetShareCardList from '../hooks/useGetShareCardList';
 
-const Shared = () => {
-  const [linkData, setLinkData] = useState([]);
-  const [heroLinkData, setHeroLinkData] = useState({});
-
-  // shared의 Hero 컴포넌트 데이터
-  useEffect(() => {
-    try {
-      getFetch('bootcamp-api.codeit.kr', 'api/sample/folder')
-        .then((data) => {
-          return data;
-        })
-        .then((data) => {
-          // sample 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
-          const formattedData = getFormattedCamelCaseData(data);
-          setLinkData(() => formattedData.folder.links);
-          setHeroLinkData(() => data.folder);
-        });
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
+const SharedPage = () => {
+  const { sharedUserId, sharedFolderId } = useGetsharePageIds();
+  const { sharePageData } = useGetSharePageData();
+  // 쉐어 페이지 폴더 이름을 알아내기 위한 훅
+  const { folderListData } = useGetFolderListData(sharedUserId, sharedFolderId);
+  const { sharePageFolderName } = useGetSharePageFolderName(folderListData, sharedFolderId);
+  const { cardListData } = useGetShareCardList();
 
   return (
     <>
       <Hero>
-        <ShareDescription heroLinkData={heroLinkData} />
+        <ShareDescription sharePageData={sharePageData} sharePageFolderName={sharePageFolderName} />
       </Hero>
-      <CardList>
+      <Contents>
         <Search />
-        <Card cardData={linkData} />
-      </CardList>
+        <CardList cardListData={cardListData} />
+      </Contents>
     </>
   );
 };
 
-export default Shared;
+export default SharedPage;

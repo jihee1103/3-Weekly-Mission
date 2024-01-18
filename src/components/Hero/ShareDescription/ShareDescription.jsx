@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
-const ShareDescription = ({ heroLinkData }) => {
+const ShareDescription = ({ sharePageData, sharePageFolderName }) => {
   return (
-    <ShareDescriptionContainer>
-      <img src={heroLinkData.owner?.profileImageSource} alt="코드잇 마크" />
-      <span>{heroLinkData.owner?.name}</span>
-      <div>{heroLinkData?.name}</div>
-    </ShareDescriptionContainer>
+    <ShareDescriptionWrapper>
+      <img src={sharePageData.owner?.profileImageSource} alt="코드잇 마크" />
+      <span>{sharePageData.owner?.name}</span>
+      <div>{sharePageFolderName}</div>
+    </ShareDescriptionWrapper>
   );
 };
 
-const ShareDescriptionContainer = styled.div`
+const ShareDescriptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

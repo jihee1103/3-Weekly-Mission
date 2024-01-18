@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './reset.css';
 import './assets/pretendard.css';
@@ -7,9 +7,9 @@ import './assets/pretendard.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import NotFoundPage from './pages/NotFoundPage';
-import GlobalStyle from './GlobalStyle';
-import Folder from './pages/Folder';
-import Shared from './pages/Shared';
+import GlobalStyle from './globalStyle/GlobalStyle';
+import FolderPage from './pages/FolderPage';
+import SharedPage from './pages/SharedPage';
 
 import getFetch from './utils/getFetch';
 
@@ -30,16 +30,17 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <BrowserRouter>
       <GlobalStyle />
       <Header login={login} userData={userData} />
       <Routes>
-        <Route path="/shared" element={<Shared />} />
-        <Route path="/folder" element={<Folder />} />
+        <Route path="/shared/" element={<SharedPage />} />
+        <Route path="/shared/*" element={<SharedPage />} />
+        <Route path="/folder" element={<FolderPage userData={userData} />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 };
 

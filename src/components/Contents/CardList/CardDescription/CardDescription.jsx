@@ -4,7 +4,7 @@ import calculatePassedTime from '../../../../utils/calculatePassedTime';
 import getFormattedDate from '../../../../utils/getFormattedDate';
 import kebab from '../../../../assets/images/kebab.svg';
 
-const CardDescription = ({ link }) => {
+const CardDescription = ({ link, onDeleteButtonClick }) => {
   const [kebabToggle, setKebabToggle] = useState(false);
 
   const handleKebabToggle = () => {
@@ -12,8 +12,8 @@ const CardDescription = ({ link }) => {
   };
 
   return (
-    <CardContentContainer>
-      <CardContentTimePassed>
+    <CardDescriptionWrapper>
+      <TimePassedBox>
         {calculatePassedTime(link.createdAt)}
         <KebabBtn
           onClick={(e) => {
@@ -24,19 +24,27 @@ const CardDescription = ({ link }) => {
           <img src={kebab} alt="더보기 케밥 버튼" />
         </KebabBtn>
         {kebabToggle ? (
-          <KebabMenu>
-            <KebabMenuDeleteBtn>삭제하기</KebabMenuDeleteBtn>
+          <KebabMenuBox>
+            <KebabMenuDeleteButton
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                onDeleteButtonClick({ name: 'DeleteLink', data: { url: link.url } });
+              }}
+            >
+              삭제하기
+            </KebabMenuDeleteButton>
             <KebabMenuAddFolderBtn>폴더에 추가</KebabMenuAddFolderBtn>
-          </KebabMenu>
+          </KebabMenuBox>
         ) : null}
-      </CardContentTimePassed>
-      <CardContentDescription>{link.description}</CardContentDescription>
-      <CardContentCreatedAt>{getFormattedDate(link.createdAt)}</CardContentCreatedAt>
-    </CardContentContainer>
+      </TimePassedBox>
+      <Description>{link.description}</Description>
+      <CreatedAt>{getFormattedDate(link.createdAt)}</CreatedAt>
+    </CardDescriptionWrapper>
   );
 };
 
-export const CardContentContainer = styled.div`
+export const CardDescriptionWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 135px;
@@ -47,7 +55,7 @@ export const CardContentContainer = styled.div`
   background: #fff;
 `;
 
-const CardContentTimePassed = styled.div`
+const TimePassedBox = styled.div`
   color: #666;
   font-family: Pretendard;
   font-size: 13px;
@@ -57,7 +65,7 @@ const CardContentTimePassed = styled.div`
   position: relative;
 `;
 
-const CardContentDescription = styled.div`
+const Description = styled.div`
   overflow: hidden;
   color: #000;
   font-family: Pretendard;
@@ -69,7 +77,7 @@ const CardContentDescription = styled.div`
   overflow: hidden;
 `;
 
-const CardContentCreatedAt = styled.div`
+const CreatedAt = styled.div`
   overflow: hidden;
   color: #333;
   text-overflow: ellipsis;
@@ -87,7 +95,7 @@ const KebabBtn = styled.button`
   }
 `;
 
-const KebabMenu = styled.div`
+const KebabMenuBox = styled.div`
   display: flex;
   width: 100px;
   flex-direction: column;
@@ -98,7 +106,7 @@ const KebabMenu = styled.div`
   top: 16px;
 `;
 
-const KebabMenuDeleteBtn = styled.button`
+const KebabMenuDeleteButton = styled.button`
   display: flex;
   padding: 7px 12px;
   justify-content: center;

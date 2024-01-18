@@ -9,12 +9,12 @@ const Footer = () => {
   return (
     <FooterWrap>
       <FooterContainer>
-        <FooterCodeit>©codeit - 2023</FooterCodeit>
-        <FooterPrivacyPolicyAndFaq>
+        <FooterCodeitBox>©codeit - 2023</FooterCodeitBox>
+        <FooterPrivacyPolicyAndFaqBox>
           <Link to="/privacy">Privacy Policy</Link>
           <Link to="/faq">FAQ</Link>
-        </FooterPrivacyPolicyAndFaq>
-        <FooterLink>
+        </FooterPrivacyPolicyAndFaqBox>
+        <FooterSnsLinkBox>
           <Link to="https://www.facebook.com" target="_blank">
             <img src={facebook} alt="페이스북 링크 아이콘" />
           </Link>
@@ -27,7 +27,7 @@ const Footer = () => {
           <Link to="https://www.instagram.com" target="_blank">
             <img src={instagram} alt="인스타그램 링크아이콘" />
           </Link>
-        </FooterLink>
+        </FooterSnsLinkBox>
       </FooterContainer>
     </FooterWrap>
   );
@@ -64,12 +64,12 @@ const FooterFont = css`
   font-size: 16px;
 `;
 
-const FooterCodeit = styled.div`
+const FooterCodeitBox = styled.div`
   ${FooterFont}
   grid-area: codeit;
 `;
 
-const FooterPrivacyPolicyAndFaq = styled.div`
+const FooterPrivacyPolicyAndFaqBox = styled.div`
   ${FooterFont}
   grid-area: privacy-policy-and-faq;
   display: flex;
@@ -84,7 +84,7 @@ const FooterPrivacyPolicyAndFaq = styled.div`
   }
 `;
 
-const FooterLink = styled.div`
+const FooterSnsLinkBox = styled.div`
   ${FooterFont}
   grid-area: link;
   display: flex;
