@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import Button from './Button';
+import Button from '../Button/Button';
 import AccountEmail from './AccountEmail';
 import AccountImage from './AccountImage';
-import imgSrc from '../img/profile img.svg';
+import imgSrc from '../../../assets/profile img.svg';
 
 const API_BASE_URL_USER = 'https://bootcamp-api.codeit.kr/api/sample/user';
  
-function Account(){
+function Account({loginState}){
   const [info, setInfo] = useState();
   const [imgsrc, setImgsrc] = useState();
   const [isLogin, setIsLogin] = useState(false);
-
+  
   const handleLogin = () => {
     fetch(API_BASE_URL_USER)
     .then((response) => response.json())
@@ -18,7 +18,7 @@ function Account(){
       setInfo(result['email']);
     })
       setImgsrc(imgSrc);
-      setIsLogin(true)
+      setIsLogin(true);
   }
   const handleLogout = () => {
       setInfo('');

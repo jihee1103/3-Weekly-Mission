@@ -1,18 +1,19 @@
-import facebookImage from '../img/akar-icons_facebook-fill.svg';
-import twitterImage from '../img/akar-icons_twitter-fill.svg';
-import youtubeImage from '../img/akar-icons_youtube-fill.svg'
-import instagramImage from '../img/ant-design_instagram-filled.svg';
+import facebookImage from '../../assets/akar-icons_facebook-fill.svg';
+import twitterImage from '../../assets/akar-icons_twitter-fill.svg';
+import youtubeImage from '../../assets/akar-icons_youtube-fill.svg'
+import instagramImage from '../../assets/ant-design_instagram-filled.svg';
 import FooterSns from './FooterSns.js';
 import './Footer.css';
 
 function Footer() {
   return (
     <div className="Footer">
+    <div className="content">
         <div className="box">
-          <div className="item01">@codeit - 2023</div>
+          <span className="item01">@codeit - 2023</span>
           <div className="item02">
-          <div>Privacy Policy</div>
-          <div>FAQ</div>
+          <span>Privacy Policy</span>
+          <span>FAQ</span>
           </div>
           <div className="item03">
           <FooterSns value={facebookImage} />
@@ -20,6 +21,7 @@ function Footer() {
           <FooterSns value={youtubeImage} />
           <FooterSns value={instagramImage} />
           </div>
+        </div>
         </div>
     </div>
   )
