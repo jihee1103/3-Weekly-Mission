@@ -10,7 +10,7 @@ export default function Folder() {
   const [selectedLinkUrl, setSelectedLinkUrl] = useState('');
   const [isModalClicked, setIsModalClicked] = useState(false);
   const [modalName, setModalName] = useState('');
-  const [userId, setUserId] = useState(1);
+  const [userId, setUserId] = useState(4);
   const [folderId, setFolderId] = useState(0);
   const [folderName, setFolderName] = useState('전체');
 
@@ -30,7 +30,7 @@ export default function Folder() {
   };
 
   const handleClickTitle = (item) => {
-    setUserId(1); // test
+    setUserId(4); // test
     setFolderId(item.id);
     setFolderName(item.name);
   };

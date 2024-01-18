@@ -1,10 +1,6 @@
 import camelcaseKeys from 'camelcase-keys';
 
 const shareKakao = (links, folderName, shareUrl) => {
-  if (links.length < 3) {
-    alert('폴더에 2개 이상의 링크가 있어야 합니다.');
-    return;
-  }
   const { Kakao } = window;
 
   const linkContent = links.map((link) => {

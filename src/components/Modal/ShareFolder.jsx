@@ -24,6 +24,14 @@ export default function ShareFolder({ folderName, userId, folderId, links }) {
     return null;
   };
 
+  const handleShareKaKaoClick = () => {
+    if (links.length < 3) {
+      alert('폴더에 2개 이상의 링크가 있어야 합니다.');
+      return;
+    }
+    shareKakao(links, folderName, shareUrl);
+  };
+
   useEffect(() => {
     Kakao.cleanup();
     Kakao.init(kakaoApiKey);
@@ -37,10 +45,7 @@ export default function ShareFolder({ folderName, userId, folderId, links }) {
       </ShareFolderTitleContainer>
       <ShareFolderIconContainer>
         <IconBox>
-          <SocialIcon
-            color="#FEE500"
-            onClick={() => shareKakao(links, folderName, shareUrl)}
-          >
+          <SocialIcon color="#FEE500" onClick={handleShareKaKaoClick}>
             <Icon src={kakaoLogo} />
           </SocialIcon>
           <IconName>카카오톡</IconName>
