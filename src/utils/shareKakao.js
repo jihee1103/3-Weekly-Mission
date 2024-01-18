@@ -1,20 +1,15 @@
-import camelcaseKeys from 'camelcase-keys';
-
 const shareKakao = (links, folderName, shareUrl) => {
   const { Kakao } = window;
 
-  const linkContent = links.map((link) => {
-    const newLink = camelcaseKeys(link);
-    return {
-      title: newLink.title,
-      description: newLink.description,
-      imageUrl: newLink.imageSource,
-      link: {
-        mobileWebUrl: newLink.url,
-        webUrl: newLink.url,
-      },
-    };
-  });
+  const linkContent = links.map((link) => ({
+    title: link.title,
+    description: link.description,
+    imageUrl: link.imageSource,
+    link: {
+      mobileWebUrl: link.url,
+      webUrl: link.url,
+    },
+  }));
 
   Kakao.Share.sendDefault({
     objectType: 'list',
