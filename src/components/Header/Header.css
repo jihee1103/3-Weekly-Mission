@@ -1,0 +1,21 @@
+/* 헤더 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 12.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: var(--color-gray0);
+}
+
+header .cta {
+  width: 5.5rem;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  header {
+    padding: 0.8125rem 2rem;
+  }
+}
