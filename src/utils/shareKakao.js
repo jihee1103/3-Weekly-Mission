@@ -1,37 +1,37 @@
-const shareKakao = (links, folderName, shareUrl) => {
+const shareKakao = (links, title, url) => {
   const { Kakao } = window;
 
-  const linkContent = links.map((link) => ({
-    title: link.title,
-    description: link.description,
-    imageUrl: link.imageSource,
+  const linkContent = links.map((item) => ({
+    title: item.title,
+    description: item.description,
+    imageUrl: item.imageSource,
     link: {
-      mobileWebUrl: link.url,
-      webUrl: link.url,
+      mobileWebUrl: item.url,
+      webUrl: item.url,
     },
   }));
 
   Kakao.Share.sendDefault({
     objectType: 'list',
-    headerTitle: folderName,
+    headerTitle: title,
     headerLink: {
-      mobileWebUrl: shareUrl,
-      webUrl: shareUrl,
+      mobileWebUrl: url,
+      webUrl: url,
     },
     contents: linkContent.slice(0, 3),
     buttons: [
       {
         title: '웹으로 보기',
         link: {
-          mobileWebUrl: shareUrl,
-          webUrl: shareUrl,
+          mobileWebUrl: url,
+          webUrl: url,
         },
       },
       {
         title: '앱으로 보기',
         link: {
-          mobileWebUrl: shareUrl,
-          webUrl: shareUrl,
+          mobileWebUrl: url,
+          webUrl: url,
         },
       },
     ],
