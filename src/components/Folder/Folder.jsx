@@ -40,7 +40,7 @@ export default function Folder() {
   };
 
   const toggleModal = () => {
-    setIsModalClicked(!isModalClicked);
+    setIsModalClicked((prev) => !prev);
   };
 
   useEffect(() => {
