@@ -19,6 +19,7 @@ export default function App() {
       console.log(error);
     }
   };
+
   useEffect(() => {
     checkUser();
   }, []);
@@ -30,7 +31,7 @@ export default function App() {
         <Route path="/">
           <Route index />
           <Route path="shared" element={<SharedPage />} />
-          <Route path="folder" element={<FolderPage />} />
+          <Route path="folder" element={<FolderPage user={user} />} />
         </Route>
       </Routes>
       <Footer />

@@ -9,15 +9,38 @@ import useFetchData from "../hooks/useFetchData";
 import FolderNameLine from "../components/FolderNameLine/FolderNameLine";
 import FloatingActionButton from "../components/FloatingActionButton/FloatingActionButton";
 import NoLinkBlock from "../components/NoLinkBlock/NoLinkBlock";
+import Modal from "../components/Modal/Modal";
 
-export default function FolderPage() {
+export default function FolderPage({ user }) {
   const { data: cardListItem, fetchData: setCardListItem } =
     useFetchData(getLinkList);
   const { data: folderNameList } = useFetchData(getFolderList);
   const [folderName, setFolderName] = useState("전체");
+  const [isModalClicked, setIsModalClicked] = useState(false);
+  const [modalId, setModalId] = useState("");
+  const [modalUrl, setModalUrl] = useState(null);
+  const toggleModalClick = () => {
+    setIsModalClicked(!isModalClicked);
+  };
+  const handleModalButtonClick = ({ currentTarget, url }) => {
+    const targetId = currentTarget.id;
+    setModalId(targetId);
+    setModalUrl(url);
+    toggleModalClick();
+  };
 
   return (
     <main className={styled.main}>
+      {isModalClicked && (
+        <Modal
+          user={user}
+          itemList={folderNameList}
+          modalUrl={modalUrl}
+          folderName={folderName}
+          modalId={modalId}
+          toggleModalClick={toggleModalClick}
+        />
+      )}
       <section className={styled.header}>
         <LinkAddForm />
       </section>
@@ -26,14 +49,22 @@ export default function FolderPage() {
         {folderNameList ? (
           <div className={styled.container}>
             <FolderListButton
+              handleModalButtonClick={handleModalButtonClick}
               itemList={folderNameList}
               setFolderName={setFolderName}
               setCardListItem={setCardListItem}
               folderName={folderName}
             />
-            <FolderNameLine folderName={folderName} />
+            <FolderNameLine
+              handleModalButtonClick={handleModalButtonClick}
+              folderName={folderName}
+            />
             {cardListItem ? (
-              <CardList itemList={cardListItem} toggle={true} />
+              <CardList
+                handleModalButtonClick={handleModalButtonClick}
+                itemList={cardListItem}
+                toggle={true}
+              />
             ) : (
               <NoLinkBlock />
             )}

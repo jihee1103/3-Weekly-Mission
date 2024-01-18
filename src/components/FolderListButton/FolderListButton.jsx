@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "./FolderListButton.module.css";
 import { getFolderData } from "../../apis/api";
-import imageData from "../../utils/imageData";
+import imageData from "../../assets/imageData";
 
 export default function FolderListButton({
+  handleModalButtonClick,
   itemList,
   setFolderName,
   setCardListItem,
@@ -22,6 +23,7 @@ export default function FolderListButton({
   return (
     <div className={styled.container}>
       <button
+        type="button"
         className={folderName === "전체" ? styled.activeBtn : styled.button}
         onClick={handleEntireClick}
       >
@@ -30,6 +32,7 @@ export default function FolderListButton({
       {itemList.map((item) => {
         return (
           <button
+            type="button"
             className={
               folderName === item.name ? styled.activeBtn : styled.button
             }
@@ -42,11 +45,14 @@ export default function FolderListButton({
           </button>
         );
       })}
-      <img
+      <button
+        id="addFolder"
+        type="button"
         className={styled.icon}
-        src={imageData.plusIcon}
-        alt="더하기 아이콘"
-      />
+        onClick={handleModalButtonClick}
+      >
+        <img src={imageData.plusIcon} alt="더하기 아이콘" />
+      </button>
     </div>
   );
 }

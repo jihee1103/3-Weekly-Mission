@@ -1,11 +1,11 @@
 import React from "react";
 import { getCreateDay, getTimeDifference } from "../../utils/util";
-import imageData from "../../utils/imageData";
+import imageData from "../../assets/imageData";
 import { Link } from "react-router-dom";
 import styled from "./Card.module.css";
 import Kebab from "../Kebab/Kebab";
 
-export default function Card({ item, toggle }) {
+export default function Card({ handleModalButtonClick, item, toggle }) {
   const { createdAt, description, imageSource, url, title } = item;
 
   const dateTimeString = createdAt;
@@ -27,7 +27,9 @@ export default function Card({ item, toggle }) {
         />
       )}
       <div className={styled["card-info"]}>
-        {toggle && <Kebab />}
+        {toggle && (
+          <Kebab handleModalButtonClick={handleModalButtonClick} url={url} />
+        )}
         <span className={styled["time-ago"]}>{timeAgo}</span>
         <p className={styled.description}>{description}</p>
         <span className={styled["created-day"]}>{createdDay}</span>

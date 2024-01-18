@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "./LinkAddForm.module.css";
-import imageData from "../../utils/imageData";
+import imageData from "../../assets/imageData";
 import CtaButton from "../CtaButton/CtaButton";
 
 export default function LinkAddForm() {

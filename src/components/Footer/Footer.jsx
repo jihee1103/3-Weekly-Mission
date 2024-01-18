@@ -1,5 +1,5 @@
 import React from "react";
-import imageData from "../../utils/imageData";
+import imageData from "../../assets/imageData";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 
