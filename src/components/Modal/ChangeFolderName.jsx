@@ -2,34 +2,34 @@ import styled from 'styled-components';
 
 export default function ChangeFolderName({ folderName }) {
   return (
-    <EditFolderWrapper>
-      <EditFolderTitle>폴더 이름 변경</EditFolderTitle>
-      <EditFolderForm>
-        <EditFolderInput placeholder={folderName} />
-        <EditFolderButton>변경하기</EditFolderButton>
-      </EditFolderForm>
-    </EditFolderWrapper>
+    <Wrapper>
+      <Title>폴더 이름 변경</Title>
+      <Form>
+        <Input placeholder={folderName} />
+        <Button>변경하기</Button>
+      </Form>
+    </Wrapper>
   );
 }
 
-const EditFolderWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
 `;
-const EditFolderTitle = styled.span`
+const Title = styled.span`
   font-size: 20px;
   font-weight: 700;
   color: #373740;
 `;
-const EditFolderForm = styled.form`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 15px;
 `;
-const EditFolderInput = styled.input`
+const Input = styled.input`
   display: flex;
   width: 280px;
   padding: 18px 15px;
@@ -43,7 +43,7 @@ const EditFolderInput = styled.input`
     color: #9fa6b2;
   }
 `;
-const EditFolderButton = styled.button`
+const Button = styled.button`
   display: flex;
   width: 280px;
   padding: 16px 20px;

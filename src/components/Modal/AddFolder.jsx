@@ -2,34 +2,34 @@ import styled from 'styled-components';
 
 export default function AddFolder() {
   return (
-    <AddFolderWrapper>
-      <AddFolderTitle>폴더 추가</AddFolderTitle>
-      <AddFolderForm>
-        <AddFolderInput placeholder="내용 입력" />
-        <AddFolderButton>추가하기</AddFolderButton>
-      </AddFolderForm>
-    </AddFolderWrapper>
+    <Wrapper>
+      <Title>폴더 추가</Title>
+      <Form>
+        <Input placeholder="내용 입력" />
+        <Button>추가하기</Button>
+      </Form>
+    </Wrapper>
   );
 }
 
-const AddFolderWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
 `;
-const AddFolderTitle = styled.span`
+const Title = styled.span`
   font-size: 20px;
   font-weight: 700;
   color: #373740;
 `;
-const AddFolderForm = styled.form`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 15px;
 `;
-const AddFolderInput = styled.input`
+const Input = styled.input`
   display: flex;
   width: 280px;
   padding: 18px 15px;
@@ -43,7 +43,7 @@ const AddFolderInput = styled.input`
     color: #9fa6b2;
   }
 `;
-const AddFolderButton = styled.button`
+const Button = styled.button`
   display: flex;
   width: 280px;
   padding: 16px 20px;

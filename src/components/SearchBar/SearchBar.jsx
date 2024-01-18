@@ -3,20 +3,20 @@ import SearchIconImg from '../../asset/SearchIcon.svg';
 
 export default function SearchBar() {
   return (
-    <SearchForm>
-      <SearchInputWrapper htmlFor="searchValue">
-        <SearchIcon src={SearchIconImg} alt="SearchIcon" />
-        <SearchInput
+    <Form>
+      <InputWrapper htmlFor="searchValue">
+        <Icon src={SearchIconImg} alt="SearchIcon" />
+        <Input
           id="searchValue"
           type="text"
           placeholder="링크를 검색해 보세요."
         />
-      </SearchInputWrapper>
-    </SearchForm>
+      </InputWrapper>
+    </Form>
   );
 }
 
-const SearchForm = styled.form`
+const Form = styled.form`
   width: 1060px;
   @media (max-width: 1199px) {
     & {
@@ -29,7 +29,7 @@ const SearchForm = styled.form`
     }
   }
 `;
-const SearchInputWrapper = styled.label`
+const InputWrapper = styled.label`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -46,12 +46,12 @@ const SearchInputWrapper = styled.label`
     }
   }
 `;
-const SearchIcon = styled.img`
+const Icon = styled.img`
   width: 16px;
   height: 16px;
   margin-right: 10px;
 `;
-const SearchInput = styled.input`
+const Input = styled.input`
   width: 100%;
   border: none;
   background-color: #f5f5f5;

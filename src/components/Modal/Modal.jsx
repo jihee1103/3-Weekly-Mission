@@ -57,16 +57,16 @@ export default function Modal({
     return null;
   };
   return (
-    <ModalWrapper>
-      <ModalContainer>
+    <Wrapper>
+      <Container>
         <CloseButton src={closeButton} onClick={handleCloseButtonClick} />
         {updateModal()}
-      </ModalContainer>
-    </ModalWrapper>
+      </Container>
+    </Wrapper>
   );
 }
 
-const ModalWrapper = styled.div`
+const Wrapper = styled.div`
   position: fixed;
   inset: 0;
   display: flex;
@@ -76,7 +76,7 @@ const ModalWrapper = styled.div`
   box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
   z-index: 4;
 `;
-const ModalContainer = styled.div`
+const Container = styled.div`
   position: relative;
   display: flex;
   padding: 32px 40px;

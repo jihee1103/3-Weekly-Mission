@@ -9,8 +9,8 @@ export default function AddFolder({ toggleModal, updateModalName }) {
   };
   return (
     <Wrapper id="addFolder" onClick={handleAddFolderClick}>
-      <AddFolderText>폴더 추가</AddFolderText>
-      <AddFolderIcon />
+      <Text>폴더 추가</Text>
+      <Icon />
     </Wrapper>
   );
 }
@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   width: 80px;
   height: 20px;
 `;
-const AddFolderText = styled.span`
+const Text = styled.span`
   cursor: pointer;
   color: #6d6afe;
   @media (max-width: 767px) {
@@ -32,7 +32,7 @@ const AddFolderText = styled.span`
     }
   }
 `;
-const AddFolderIcon = styled.div`
+const Icon = styled.div`
   display: flex;
   align-items: center;
   width: 16px;

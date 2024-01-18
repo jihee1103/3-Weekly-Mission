@@ -12,17 +12,17 @@ export default function PopOverMenu({
     handleClickDeleteLink(linkUrl);
   };
   return (
-    <MenuWrapper>
-      <MenuButton id="deleteLink" onClick={handleClickButton}>
+    <Wrapper>
+      <Button id="deleteLink" onClick={handleClickButton}>
         삭제하기
-      </MenuButton>
-      <MenuButton id="addLinkButton" onClick={handleClickButton}>
+      </Button>
+      <Button id="addLinkButton" onClick={handleClickButton}>
         폴더에 추가
-      </MenuButton>
-    </MenuWrapper>
+      </Button>
+    </Wrapper>
   );
 }
-const MenuWrapper = styled.div`
+const Wrapper = styled.div`
   position: absolute;
   top: 20px;
   right: -80px;
@@ -36,7 +36,7 @@ const MenuWrapper = styled.div`
   box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
   z-index: 3;
 `;
-const MenuButton = styled.div`
+const Button = styled.div`
   display: flex;
   padding: 7px 12px;
   justify-content: center;

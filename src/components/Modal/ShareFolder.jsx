@@ -38,12 +38,12 @@ export default function ShareFolder({ folderName, userId, folderId, links }) {
   }, []);
 
   return (
-    <ShareFolderWrapper>
-      <ShareFolderTitleContainer>
-        <ShareFolderTitle>폴더 공유</ShareFolderTitle>
-        <ShareFolderName>{folderName}</ShareFolderName>
-      </ShareFolderTitleContainer>
-      <ShareFolderIconContainer>
+    <Wrapper>
+      <TitleContainer>
+        <Title>폴더 공유</Title>
+        <Name>{folderName}</Name>
+      </TitleContainer>
+      <IconContainer>
         <IconBox>
           <SocialIcon color="#FEE500" onClick={handleShareKaKaoClick}>
             <Icon src={kakaoLogo} />
@@ -64,34 +64,34 @@ export default function ShareFolder({ folderName, userId, folderId, links }) {
           </SocialIcon>
           <IconName>링크 복사</IconName>
         </IconBox>
-      </ShareFolderIconContainer>
-    </ShareFolderWrapper>
+      </IconContainer>
+    </Wrapper>
   );
 }
 
-const ShareFolderWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 24px;
 `;
-const ShareFolderTitleContainer = styled.div`
+const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
 `;
-const ShareFolderTitle = styled.span`
+const Title = styled.span`
   font-size: 20px;
   font-weight: 700;
   color: #373740;
 `;
-const ShareFolderName = styled.span`
+const Name = styled.span`
   line-height: 22px;
   color: #9fa6b2;
 `;
-const ShareFolderIconContainer = styled.div`
+const IconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

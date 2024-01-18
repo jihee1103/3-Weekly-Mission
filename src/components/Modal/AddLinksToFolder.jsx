@@ -13,11 +13,11 @@ export default function AddLinkToFolder({
   };
 
   return (
-    <ShareFolderWrapper>
-      <ShareFolderTitleContainer>
-        <ShareFolderTitle>폴더에 추가</ShareFolderTitle>
-        <ShareFolderUrl>{selectedLinkUrl || addLinkUrl}</ShareFolderUrl>
-      </ShareFolderTitleContainer>
+    <Wrapper>
+      <TitleContainer>
+        <Title>폴더에 추가</Title>
+        <Url>{selectedLinkUrl || addLinkUrl}</Url>
+      </TitleContainer>
       <FolderListContainer>
         {folderList.map((item) => (
           <FolderList
@@ -36,11 +36,11 @@ export default function AddLinkToFolder({
         ))}
       </FolderListContainer>
       <AddLinkButton>추가하기</AddLinkButton>
-    </ShareFolderWrapper>
+    </Wrapper>
   );
 }
 
-const ShareFolderWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -48,19 +48,19 @@ const ShareFolderWrapper = styled.div`
   align-items: center;
   gap: 24px;
 `;
-const ShareFolderTitleContainer = styled.div`
+const TitleContainer = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
   gap: 8px;
 `;
-const ShareFolderTitle = styled.span`
+const Title = styled.span`
   font-size: 20px;
   font-weight: 700;
   color: #373740;
 `;
-const ShareFolderUrl = styled.p`
+const Url = styled.p`
   line-height: 22px;
   text-align: center;
   width: 100%;
