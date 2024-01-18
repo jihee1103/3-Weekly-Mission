@@ -28,28 +28,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 0 3.2rem;
 }
 
-.link-search-bar {
-  position: relative;
-  padding: 4rem 0;
-}
-
-.link-search-icon {
-  position: absolute;
-  top: 5.8rem;
-  left: 1.6rem;
-  width: 1.6rem;
-  height: 1.6rem;
-}
-
-.link-search {
-  border: none;
-  background: #f5f5f5;
-  padding: 1.5rem 1.6rem 1.5rem 4rem;
-  width: 106rem;
-  height: 5.4rem;
-  border-radius: 1rem;
+.SearchBar-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0;
 }
 
 .SharedPage-folder-links {
@@ -66,10 +52,6 @@
 
 /* 태블릿 */
 @media (max-width: 1124px) {
-  .link-search {
-    width: 70rem;
-  }
-
   .SharedPage-folder-links {
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
   }
@@ -77,14 +59,6 @@
 
 /* 모바일 */
 @media (max-width: 767px) {
-  .folder-links {
-    margin: 0 3.2rem;
-  }
-
-  .link-search {
-    width: 32.5rem;
-  }
-
   .SharedPage-folder-links {
     grid-template: repeat(1, 1fr) / repeat(1, 1fr);
   }

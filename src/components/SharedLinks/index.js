@@ -2,21 +2,20 @@ import "./style.css";
 import { formatDate, afterTimeDate } from "../../utils";
 import noImage from "../../assets/no-image.png";
 
-const FolderLinks = ({ links, className = "" }) => {
-  const classNames = `FolderLinks ${className}`;
-
+const SharedLinks = ({ links, className = "" }) => {
+  const classNames = `SharedLinks ${className}`;
   return (
     <ul className={classNames}>
       {links.map((link) => (
         <li key={link.id}>
-          <FolderLinkCard link={link} />
+          <SharedLinkCard link={link} />
         </li>
       ))}
     </ul>
   );
 };
 
-const FolderLinkCard = ({ link }) => {
+const SharedLinkCard = ({ link }) => {
   const { createdAt, url, title, description, imageSource = noImage } = link;
 
   const handleLinkClick = (event) => {
@@ -25,7 +24,7 @@ const FolderLinkCard = ({ link }) => {
   };
 
   return (
-    <a href={url} className="folder-link-box" onClick={handleLinkClick}>
+    <a href={url} className="shared-link-box" onClick={handleLinkClick}>
       <div className="link-image-box">
         <img className="link-image" src={imageSource} alt={title} />
       </div>
@@ -38,4 +37,4 @@ const FolderLinkCard = ({ link }) => {
   );
 };
 
-export default FolderLinks;
+export default SharedLinks;
