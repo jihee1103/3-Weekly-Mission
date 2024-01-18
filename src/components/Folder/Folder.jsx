@@ -44,8 +44,6 @@ export default function Folder() {
   };
 
   useEffect(() => {
-    document.documentElement.style.scrollbarGutter = 'stable';
-
     if (isModalClicked) {
       document.body.style.overflow = 'hidden';
     }
