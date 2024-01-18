@@ -3,7 +3,13 @@ import styled from 'styled-components';
 import AddFolder from './AddFolder';
 import FolderTitle from './FolderTitle';
 
-export default function FolderTitleList({ folderList, folderId, onClick }) {
+export default function FolderTitleList({
+  folderList,
+  folderId,
+  onClick,
+  toggleModal,
+  updateModalName,
+}) {
   const allFolder = { id: 0, name: '전체' };
   const [isSelected, setIsSelected] = useState(false);
 
@@ -32,9 +38,12 @@ export default function FolderTitleList({ folderList, folderId, onClick }) {
           />
         ))}
       </FolderListContainer>
-      <AddFolderWrapper>
-        <AddFolder />
-      </AddFolderWrapper>
+      <AddFolderContainer>
+        <AddFolder
+          toggleModal={toggleModal}
+          updateModalName={updateModalName}
+        />
+      </AddFolderContainer>
     </Wrapper>
   );
 }
@@ -43,8 +52,9 @@ const Wrapper = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  width: 100%;
+  width: 1060px;
   margin-top: 16px;
+  gap: 8px;
   @media (max-width: 1199px) {
     & {
       width: 704px;
@@ -71,11 +81,14 @@ const FolderItemAll = styled.div`
   padding: 8px 12px;
   border-radius: 5px;
   border: 1px solid #6d6afe;
-  background-color: ${(prop) => (prop.$isSelected ? '#6D6AFE' : '#FFFFFF')};
-  color: ${(prop) => (prop.$isSelected ? '#FFFFFF' : '#000000')};
   cursor: pointer;
+  color: ${(prop) => (prop.$isSelected ? '#FFFFFF' : '#000000')};
+  background-color: ${(prop) => (prop.$isSelected ? '#6D6AFE' : '#FFFFFF')};
+  &:hover {
+    background-color: ${(prop) => (prop.$isSelected ? '#6D6AFE' : '#E7EFFB')};
+  }
 `;
-const AddFolderWrapper = styled.div`
+const AddFolderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

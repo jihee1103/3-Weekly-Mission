@@ -3,6 +3,43 @@ import FolderCardHeader from './FolderCardHeader';
 import FolderCardList from './FolderCardList';
 import FolderTitleList from './FolderTitleList';
 
+export default function FolderContent({
+  folderList,
+  links,
+  folderId,
+  onClick,
+  folderName,
+  toggleModal,
+  updateModalName,
+  handleClickDeleteLink,
+}) {
+  return (
+    <>
+      <FolderTitleList
+        folderList={folderList}
+        folderId={folderId}
+        onClick={onClick}
+        toggleModal={toggleModal}
+        updateModalName={updateModalName}
+      />
+      <FolderCardArea>
+        <FolderCardHeader
+          folderName={folderName}
+          folderId={folderId}
+          toggleModal={toggleModal}
+          updateModalName={updateModalName}
+        />
+        <FolderCardList
+          links={links}
+          toggleModal={toggleModal}
+          updateModalName={updateModalName}
+          handleClickDeleteLink={handleClickDeleteLink}
+        />
+      </FolderCardArea>
+    </>
+  );
+}
+
 const FolderCardArea = styled.div`
   display: flex;
   align-items: center;
@@ -11,25 +48,3 @@ const FolderCardArea = styled.div`
   gap: 24px;
   width: 100%;
 `;
-
-export default function FolderContent({
-  folderList,
-  links,
-  folderId,
-  onClick,
-  folderName,
-}) {
-  return (
-    <>
-      <FolderTitleList
-        folderList={folderList}
-        folderId={folderId}
-        onClick={onClick}
-      />
-      <FolderCardArea>
-        <FolderCardHeader folderName={folderName} folderId={folderId} />
-        <FolderCardList links={links} />
-      </FolderCardArea>
-    </>
-  );
-}

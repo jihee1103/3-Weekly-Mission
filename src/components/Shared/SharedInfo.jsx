@@ -30,30 +30,28 @@ export default function SharedInfo() {
   }, []);
 
   return (
-    <SharedInfoContainer>
+    <Wrapper>
       {
         {
           loading: <Loading />,
           getInfoSuccess: (
-            <SharedInfoBox>
-              <SharedOwner>
+            <Container>
+              <Owner>
                 <Avatar src={avatar} alt="유저 아바타 이미지" />
-                <SharedOwnerName>{owner}</SharedOwnerName>
-              </SharedOwner>
-              <SharedFolderName className="shared-name">
-                {folderName}
-              </SharedFolderName>
-            </SharedInfoBox>
+                <OwnerName>{owner}</OwnerName>
+              </Owner>
+              <FolderName className="shared-name">{folderName}</FolderName>
+            </Container>
           ),
           error: errorMessage,
           noData: '데이터가 없습니다.',
         }[condition]
       }
-    </SharedInfoContainer>
+    </Wrapper>
   );
 }
 
-const SharedInfoContainer = styled.div`
+const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,14 +63,14 @@ const SharedInfoContainer = styled.div`
     }
   }
 `;
-const SharedInfoBox = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
 `;
-const SharedOwner = styled.div`
+const Owner = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,7 +86,7 @@ const Avatar = styled.img`
     }
   }
 `;
-const SharedOwnerName = styled.span`
+const OwnerName = styled.span`
   line-height: 24px;
   @media (max-width: 767px) {
     & {
@@ -97,7 +95,7 @@ const SharedOwnerName = styled.span`
     }
   }
 `;
-const SharedFolderName = styled.div`
+const FolderName = styled.div`
   text-align: center;
   font-size: 40px;
   font-weight: 600;

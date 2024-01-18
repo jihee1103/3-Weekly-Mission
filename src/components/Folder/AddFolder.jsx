@@ -2,11 +2,15 @@ import styled from 'styled-components';
 import addFolderIcon from '../../asset/addfolder.svg';
 import addFolderWhiteIcon from '../../asset/addfolderwhite.svg';
 
-export default function AddFolder() {
+export default function AddFolder({ toggleModal, updateModalName }) {
+  const handleAddFolderClick = (e) => {
+    toggleModal();
+    updateModalName(e.currentTarget.id);
+  };
   return (
-    <Wrapper>
-      <AddFolderText>폴더 추가</AddFolderText>
-      <AddFolderIcon />
+    <Wrapper id="addFolder" onClick={handleAddFolderClick}>
+      <Text>폴더 추가</Text>
+      <Icon />
     </Wrapper>
   );
 }
@@ -19,15 +23,16 @@ const Wrapper = styled.div`
   width: 80px;
   height: 20px;
 `;
-const AddFolderText = styled.span`
+const Text = styled.span`
   cursor: pointer;
+  color: #6d6afe;
   @media (max-width: 767px) {
     & {
       color: #e7effb;
     }
   }
 `;
-const AddFolderIcon = styled.div`
+const Icon = styled.div`
   display: flex;
   align-items: center;
   width: 16px;

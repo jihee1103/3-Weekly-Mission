@@ -1,15 +1,97 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AddLink from '../AddLink/AddLink';
 import FolderBody from './FolderBody';
+import useFolderLinks from '../../Hooks/useFolderLinks';
+import Modal from '../Modal/Modal';
 
 export default function Folder() {
+  const [addLinkUrl, setAddLinkUrl] = useState('');
+  const [selectedLinkUrl, setSelectedLinkUrl] = useState('');
+  const [isModalClicked, setIsModalClicked] = useState(false);
+  const [modalName, setModalName] = useState('');
+  const [userId, setUserId] = useState(4);
+  const [folderId, setFolderId] = useState(0);
+  const [folderName, setFolderName] = useState('전체');
+
+  const links = useFolderLinks(`users/${userId}/links`, folderId);
+  const folderList = useFolderLinks(`users/${userId}/folders`);
+
+  const handleClickDeleteLink = (url) => {
+    setSelectedLinkUrl(url);
+  };
+
+  const resetSelectedLinkUrl = () => {
+    setSelectedLinkUrl('');
+  };
+
+  const updateAddLinkUrl = (url) => {
+    setAddLinkUrl(url);
+  };
+
+  const handleClickTitle = (item) => {
+    setUserId(4); // test
+    setFolderId(item.id);
+    setFolderName(item.name);
+  };
+
+  const updateModalName = (name) => {
+    setModalName(name);
+  };
+
+  const toggleModal = () => {
+    setIsModalClicked((prev) => !prev);
+  };
+
+  useEffect(() => {
+    if (isModalClicked) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalClicked]);
+
   return (
     <>
+      {isModalClicked ? (
+        <Modal
+          toggleModal={toggleModal}
+          modalName={modalName}
+          folderList={folderList}
+          addLinkUrl={addLinkUrl}
+          folderName={folderName}
+          selectedLinkUrl={selectedLinkUrl}
+          userId={userId}
+          folderId={folderId}
+          links={links}
+        />
+      ) : null}
       <AddLinkArea>
-        <AddLink />
+        <AddLink
+          toggleModal={toggleModal}
+          updateModalName={updateModalName}
+          folderList={folderList}
+          updateAddLinkUrl={updateAddLinkUrl}
+          addLinkUrl={addLinkUrl}
+          resetSelectedLinkUrl={resetSelectedLinkUrl}
+        />
       </AddLinkArea>
       <FolderBodyArea>
-        <FolderBody />
+        <FolderBody
+          isModalClicked={isModalClicked}
+          toggleModal={toggleModal}
+          modalName={modalName}
+          updateModalName={updateModalName}
+          setUserId={setUserId}
+          setFolderId={setFolderId}
+          links={links}
+          folderList={folderList}
+          folderId={folderId}
+          folderName={folderName}
+          handleClickTitle={handleClickTitle}
+          handleClickDeleteLink={handleClickDeleteLink}
+        />
       </FolderBodyArea>
     </>
   );
@@ -17,6 +99,7 @@ export default function Folder() {
 
 const AddLinkArea = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #f0f6ff;

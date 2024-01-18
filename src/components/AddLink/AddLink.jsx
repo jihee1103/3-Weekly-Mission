@@ -1,28 +1,48 @@
 import styled from 'styled-components';
 import linkIcon from '../../asset/link.svg';
 
-export default function AddLink() {
+export default function AddLink({
+  toggleModal,
+  updateModalName,
+  updateAddLinkUrl,
+  addLinkUrl,
+  resetSelectedLinkUrl,
+}) {
+  const handleInputValue = (e) => {
+    updateAddLinkUrl(e.currentTarget.value);
+  };
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    resetSelectedLinkUrl();
+    toggleModal();
+    updateModalName(e.currentTarget.id);
+  };
   return (
     <AddLinkForm>
-      <Wrapper>
+      <Label htmlFor="linkInput">
         <IconInputWrapper>
           <LinkIcon src={linkIcon} />
-          <AddLinkInput id="linkInput" placeholder="링크를 추가해 보세요." />
+          <AddLinkInput
+            id="linkInput"
+            value={addLinkUrl}
+            placeholder="링크를 추가해 보세요."
+            onChange={handleInputValue}
+          />
         </IconInputWrapper>
-        <AddButton>
-          <Addtext>추가하기</Addtext>
+        <AddButton id="addLinkButton" onClick={handleButtonClick}>
+          추가하기
         </AddButton>
-      </Wrapper>
+      </Label>
     </AddLinkForm>
   );
 }
 
-const AddLinkForm = styled.form`
+const AddLinkForm = styled.form``;
+const Label = styled.label`
+  width: 800px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 800px;
-  text-align: center;
+  justify-content: space-between;
   background-color: #fff;
   padding: 16px 20px;
   border-radius: 15px;
@@ -39,12 +59,6 @@ const AddLinkForm = styled.form`
       width: 325px;
     }
   }
-`;
-const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 `;
 const IconInputWrapper = styled.div`
   display: flex;
@@ -77,20 +91,15 @@ const AddLinkInput = styled.input`
     }
   }
 `;
-const AddButton = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const AddButton = styled.button`
   width: 81px;
   padding: 10px 16px;
   border: none;
   border-radius: 8px;
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-  cursor: pointer;
-`;
-const Addtext = styled.span`
   font-size: 14px;
   color: #f5f5f5;
   font-weight: 600;
   line-height: 17px;
+  cursor: pointer;
 `;
