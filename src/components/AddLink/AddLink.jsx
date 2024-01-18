@@ -19,7 +19,7 @@ export default function AddLink({
   };
   return (
     <AddLinkForm>
-      <Wrapper htmlFor="linkInput">
+      <Label htmlFor="linkInput">
         <IconInputWrapper>
           <LinkIcon src={linkIcon} />
           <AddLinkInput
@@ -32,13 +32,13 @@ export default function AddLink({
         <AddButton id="addLinkButton" onClick={handleButtonClick}>
           추가하기
         </AddButton>
-      </Wrapper>
+      </Label>
     </AddLinkForm>
   );
 }
 
 const AddLinkForm = styled.form``;
-const Wrapper = styled.label`
+const Label = styled.label`
   width: 800px;
   display: flex;
   align-items: center;
