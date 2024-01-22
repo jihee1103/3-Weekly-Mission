@@ -11,12 +11,12 @@ import addIcon from '../assets/images/add_white.svg';
 
 function Folder() {
   const [activeFolderId, setActiveFolderId] = useState(null);
-
   const { linkList } = useUserLinkData(activeFolderId);
 
   const handleFolderClick = id => {
     setActiveFolderId(id);
   };
+
   function renderLinks(linkList) {
     if (!linkList.data || linkList.data.length === 0) {
       return <EmptyFolder>저장된 링크가 없습니다</EmptyFolder>;
