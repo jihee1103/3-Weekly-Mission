@@ -2,19 +2,28 @@ import { useEffect, useState } from "react";
 import { getFolderList } from "../../api/api";
 import "./FolderListArea.css";
 import { useFolderNameContext } from "../../context/FolderNameContext";
+import ModalAddFolder from "../Modal/ModalAddFolder";
 
 const FolderListArea = ({ onFolderClick, onAllFolderClick }) => {
   const [folderData, setFolderData] = useState({ data: [] });
+  const [showModalAddFolder, setShowModalAddFolder] = useState(false);
+
+  const handleShowModalAddFolder = () => {
+    setShowModalAddFolder(!showModalAddFolder);
+  };
 
   const handleFolderData = async () => {
     const folder = await getFolderList();
     setFolderData(folder);
   };
 
-  const { setFolderNameValue } = useFolderNameContext();
+  const { setFolderNameValue, setFolderIdValue } = useFolderNameContext();
 
   const handleFolderName = (clickItemName) => {
     setFolderNameValue(clickItemName);
+  };
+  const handleFolderId = (clickItemId) => {
+    setFolderIdValue(clickItemId);
   };
 
   useEffect(() => {
@@ -39,6 +48,7 @@ const FolderListArea = ({ onFolderClick, onAllFolderClick }) => {
             onClick={() => {
               onFolderClick(item.id);
               handleFolderName(item.name);
+              handleFolderId(item.id);
             }}
           >
             {item.name}
@@ -49,7 +59,11 @@ const FolderListArea = ({ onFolderClick, onAllFolderClick }) => {
         className="addFolderButton"
         src={process.env.PUBLIC_URL + `/assets/addBtn.png`}
         alt="추가 버튼"
+        onClick={handleShowModalAddFolder}
       />
+      {showModalAddFolder && (
+        <ModalAddFolder handleClose={handleShowModalAddFolder} />
+      )}
     </div>
   );
 };

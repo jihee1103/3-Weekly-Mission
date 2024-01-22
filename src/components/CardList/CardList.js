@@ -78,7 +78,8 @@ const CardList = ({ cardList }) => {
                     src={process.env.PUBLIC_URL + `/assets/star.png`}
                     alt="별 버튼"
                   />
-                  <Kebab />
+                  <Kebab link={item.url} />
+
                   <div className="cardBottom">
                     <div>
                       <p className="time">{setPassedTime(item.created_at)}</p>

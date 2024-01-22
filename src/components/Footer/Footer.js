@@ -16,25 +16,25 @@ const Footer = () => {
           </a>
         </div>
         <div className="footer_sns">
-          <a href="https://www.facebook.com/" target="_blank">
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
             <img
               src={process.env.PUBLIC_URL + `/assets/icons_facebook.png`}
               alt="페이스북 아이콘"
             />
           </a>
-          <a href="https://www.twitter.com/" target="_blank">
+          <a href="https://www.twitter.com/" target="_blank" rel="noreferrer">
             <img
               src={process.env.PUBLIC_URL + `/assets/icons_twitter.png`}
               alt="트위터 아이콘"
             />
           </a>
-          <a href="https://www.youtube.com/" target="_blank">
+          <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
             <img
               src={process.env.PUBLIC_URL + `/assets/icons_youtube.png`}
               alt="유튜브 아이콘"
             />
           </a>
-          <a href="https://www.instagram.com/" target="_blank">
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
             <img
               src={process.env.PUBLIC_URL + `/assets/icons_instagram.png`}
               alt="인스타그램 아이콘"
