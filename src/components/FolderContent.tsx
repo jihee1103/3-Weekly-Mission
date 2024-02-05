@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/FolderContent.css";
-import ActionContainer from "../components/ActionContainer";
-import LinkCard from "../components/LinkCard";
+import ActionContainer from "./ActionContainer";
+import LinkCard from "./LinkCard";
 import { calculateTimePassed, formatDate } from "./utils";
 import useModal from "./hooks/useModal";
 import Modal from "./Modal";

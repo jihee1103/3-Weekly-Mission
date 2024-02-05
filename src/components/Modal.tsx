@@ -1,6 +1,6 @@
 import "../styles/Modal.css";
 import { useState } from "react";
-import KakaoShareButton from "../components/api/KakaoShareButton";
+import KakaoShareButton from "./api/KakaoShareButton";
 
 function Modal({ values, onClose, folderName, folders, userId }) {
     const [selectedFolderId, setSelectedFolderId] = useState(null);
