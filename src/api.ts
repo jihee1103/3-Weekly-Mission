@@ -7,7 +7,7 @@ async function getUser() {
   return body;
 }
 
-async function getUserById(id) {
+async function getUserById(id: number) {
   const response = await fetch(
     `https://bootcamp-api.codeit.kr/api/users/${id}`
   );
@@ -34,7 +34,7 @@ async function getFoldersById(id = 1) {
   return body;
 }
 
-async function getLinksById(id = undefined) {
+async function getLinksById(id = 0) {
   const response = await fetch(
     `https://bootcamp-api.codeit.kr/api/users/1/links${
       id ? `?folderId=${id}` : ''

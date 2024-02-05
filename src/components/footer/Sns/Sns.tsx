@@ -1,7 +1,13 @@
-import LinkLogo from "../LinkLogo/LinkLogo.jsx";
-import "./Sns.css";
+import LinkLogo from '../LinkLogo/LinkLogot';
+import './Sns.css';
 
-function Sns({ className, target, rel }) {
+interface Props {
+  className: string;
+  target: string;
+  rel: string;
+}
+
+export default function Sns({ className, target, rel }: Props) {
   return (
     <div className={className}>
       <LinkLogo
@@ -31,5 +37,3 @@ function Sns({ className, target, rel }) {
     </div>
   );
 }
-
-export default Sns;

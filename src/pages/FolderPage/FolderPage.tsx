@@ -9,17 +9,41 @@ import FolderList from '../../components/section/FolderList/FolderList';
 import EditOption from '../../components/section/EditOption/EditOption';
 import Card from '../../components/section/Card/Card';
 
-function FolderPage() {
-  const [folderInfo, setFolderInfo] = useState({ name: '전체', id: null });
-  const [userId, setUserId] = useState();
-  const [links, setLinks] = useState([]);
-  const [folderList, setFolderList] = useState([]);
+interface Link {
+  id: number;
+  created_at: string;
+  updated_at: string | null;
+  url: string;
+  title: string | null;
+  description: string | null;
+  image_source: string | null;
+  folder_id: number | null;
+}
 
-  const handleChangeFolder = (nextName, nextId) => {
+interface Folder {
+  id: number;
+  created_at: string;
+  name: string;
+  user_id: number;
+  favorite: boolean;
+  link: {
+    count: number;
+  };
+}
+
+function FolderPage() {
+  const [folderInfo, setFolderInfo] = useState({ name: '전체', id: 0 });
+  const [userId, setUserId] = useState(0);
+  const [links, setLinks] = useState<Link[]>([]);
+  const [folderList, setFolderList] = useState<
+    { name: string; linkCount: number }[]
+  >([]);
+
+  const handleChangeFolder = (nextName: string, nextId: number) => {
     setFolderInfo({ name: nextName, id: nextId });
   };
 
-  const handleSetUserId = (nextUserId) => {
+  const handleSetUserId = (nextUserId: number) => {
     setUserId(nextUserId);
   };
 
@@ -34,8 +58,8 @@ function FolderPage() {
       const { data } = await getFoldersById(userId);
       if (!data) return;
       setFolderList(
-        data.map((element) => {
-          return [element.name, element.link.count];
+        data.map((element: Folder) => {
+          return { name: element.name, linkCount: element.link.count };
         })
       );
     }
@@ -47,7 +71,7 @@ function FolderPage() {
   return (
     <>
       <header>
-        <Nav className="not-fixed" id="1" setUserId={handleSetUserId} />
+        <Nav className="not-fixed" id={1} setUserId={handleSetUserId} />
         <AddLink folderList={folderList} />
       </header>
       <section>
@@ -56,7 +80,7 @@ function FolderPage() {
           <FolderList
             folderName={folderInfo.name}
             onClickFolder={handleChangeFolder}
-            id="1"
+            id={1}
           />
           <div className="folders__folder-info">
             <span className="folders__folder-name">{folderInfo.name}</span>

@@ -1,10 +1,24 @@
-import { useState, useEffect } from "react";
-import { getUser, getUserById } from "../../../api";
-import Profile from "../Profile/Profile";
-import "./Nav.css";
+import { useState, useEffect } from 'react';
+import { getUser, getUserById } from '../../../api';
+import Profile from '../Profile/Profile';
+import './Nav.css';
 
-function Nav({ className, setUserId, id = undefined }) {
-  const [user, setUser] = useState(null);
+interface Props {
+  className: string | undefined;
+  setUserId: (value: number) => void | undefined;
+  id: number | undefined;
+}
+
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  profileImageSource?: string;
+  image_source?: string;
+}
+
+function Nav({ className, setUserId, id }: Props) {
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     async function applyGetUser() {
@@ -13,7 +27,7 @@ function Nav({ className, setUserId, id = undefined }) {
       setUser(nextUser);
     }
 
-    async function apllyGetUserById(id) {
+    async function apllyGetUserById(id: number) {
       const nextUser = await getUserById(id);
       if (!nextUser) return;
       setUser(nextUser.data[0]);

@@ -5,17 +5,13 @@ import FolderListButton from '../FolderListButton/FolderListButton';
 import BaseModal from '../BaseModal/BaseModal';
 import './FolderList.css';
 
-const Img = styled.img`
-  width: 1.6rem;
-  height: 1.6rem;
-  cursor: pointer;
+interface Props {
+  onClickFolder: (name: string, id: number) => void;
+  id: number;
+  folderName: string;
+}
 
-  @media (max-width: 767px) {
-    content: url('./images/addwhite.png');
-  }
-`;
-
-function FolderList({ onClickFolder, id, folderName }) {
+export default function FolderList({ onClickFolder, id, folderName }: Props) {
   const [folders, setFolders] = useState([]);
   const [openModal, setOpenModal] = useState(false);
 
@@ -85,4 +81,12 @@ function FolderList({ onClickFolder, id, folderName }) {
   );
 }
 
-export default FolderList;
+const Img = styled.img`
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+
+  @media (max-width: 767px) {
+    content: url('./images/addwhite.png');
+  }
+`;

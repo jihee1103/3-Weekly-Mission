@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import './AddLink.css';
 import BaseModal from '../../section/BaseModal/BaseModal';
 
-function AddLink({ folderList }) {
-  const [openModal, setOpenModal] = useState(false);
-  const [folderItem, setFolderItem] = useState();
-  const [inputValue, setInputValue] = useState();
+interface Props {
+  folderList: { name: string; linkCount: number }[];
+}
 
-  const handleInputValueChange = (e) => {
+export default function AddLink({ folderList }: Props) {
+  const [openModal, setOpenModal] = useState(false);
+  const [folderItem, setFolderItem] = useState<string | null>(null);
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputValueChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
@@ -21,66 +25,64 @@ function AddLink({ folderList }) {
   };
 
   return (
-    <div className='container-add-link'>
-      <div className='add-link'>
-        <div className='add-link-input'>
+    <div className="container-add-link">
+      <div className="add-link">
+        <div className="add-link-input">
           <img
-            className='link-icon'
-            src='./images/link.svg'
-            alt='클립 아이콘'
+            className="link-icon"
+            src="./images/link.svg"
+            alt="클립 아이콘"
           />
           <input
-            className='link-input'
-            placeholder='링크를 추가해 보세요'
+            className="link-input"
+            placeholder="링크를 추가해 보세요"
             onChange={handleInputValueChange}
           />
         </div>
-        <button className='cta-add' onClick={handleOpenModal}>
+        <button className="cta-add" onClick={handleOpenModal}>
           추가하기
         </button>
         {openModal && (
           <BaseModal closeModal={closeModal}>
-            <div className='modal__link-add'>
-              <span className='modal__name'>폴더에 추가</span>
-              <span className='modal__link'>{inputValue}</span>
+            <div className="modal__link-add">
+              <span className="modal__name">폴더에 추가</span>
+              <span className="modal__link">{inputValue}</span>
             </div>
-            <div className='modal__folder-list'>
-              {folderList.map((element) => {
+            <div className="modal__folder-list">
+              {folderList.map((folder) => {
                 const className =
-                  element[0] === folderItem
+                  folder.name === folderItem
                     ? 'modal__folder--item active'
                     : 'modal__folder--item';
                 const onClickFolderItem = () => {
-                  setFolderItem(element[0]);
+                  setFolderItem(folder.name);
                 };
 
                 return (
                   <div
-                    key={element[0]}
+                    key={folder.name}
                     className={className}
                     onClick={onClickFolderItem}
                   >
-                    <span className='modal__item-name'>{element[0]}</span>
-                    <span className='modal__link-count'>
-                      {element[1]}개 링크
+                    <span className="modal__item-name">{folder.name}</span>
+                    <span className="modal__link-count">
+                      {folder.linkCount}개 링크
                     </span>
-                    {folderItem === element[0] && (
+                    {folderItem === folder.name && (
                       <img
-                        className='modal__check-icon'
-                        src='./images/check.png'
-                        alt='체크 아이콘'
+                        className="modal__check-icon"
+                        src="./images/check.png"
+                        alt="체크 아이콘"
                       />
                     )}
                   </div>
                 );
               })}
             </div>
-            <button className='modal__button cta'>추가하기</button>
+            <button className="modal__button cta">추가하기</button>
           </BaseModal>
         )}
       </div>
     </div>
   );
 }
-
-export default AddLink;

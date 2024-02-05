@@ -2,8 +2,16 @@ import { useState, useEffect } from 'react';
 import BaseModal from '../BaseModal/BaseModal';
 import './EditOption.css';
 
-function EditOption({ src, optionName, userId, folder }) {
+interface Props {
+  src: string;
+  optionName: string;
+  userId?: number;
+  folder: { name: string; id: number };
+}
+
+function EditOption({ src, optionName, userId, folder }: Props) {
   const [openModal, setOpenModal] = useState(false);
+  // @ts-ignore
   const { Kakao } = window;
 
   let modalContent;
