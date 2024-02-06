@@ -21,7 +21,7 @@ interface Folder {
   count: number;
 }
 
-function Folder() {
+export default function Folder() {
   const [folder, setFolder] = useState<Folder | null>(null);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ function Folder() {
         <div className="user-info">
           <img
             className="owner-profile"
-            src={folder?.owner.profileImageSource || './images/logo.svg'}
+            src={folder?.owner.profileImageSource || '/images/logo.svg'}
             alt="소유자 프로필"
           />
           <span className="owner-name">
@@ -52,5 +52,3 @@ function Folder() {
     </div>
   );
 }
-
-export default Folder;

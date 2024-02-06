@@ -4,9 +4,10 @@ import { getFoldersById } from '../../../api';
 import FolderListButton from '../FolderListButton/FolderListButton';
 import BaseModal from '../BaseModal/BaseModal';
 import './FolderList.css';
+import { Folder, Id } from '../../../pages/FolderPage/FolderPage';
 
 interface Props {
-  onClickFolder: (name: string, id: number) => void;
+  onClickFolder: (name: string, id: Id) => void;
   id: number;
   folderName: string;
 }
@@ -41,10 +42,8 @@ export default function FolderList({ onClickFolder, id, folderName }: Props) {
             folderName={folderName}
             onClickFolder={onClickFolder}
             buttonName="전체"
-          >
-            전체
-          </FolderListButton>
-          {folders.map((element) => {
+          />
+          {folders.map((element: Folder) => {
             return (
               <FolderListButton
                 key={element.id}
@@ -52,9 +51,7 @@ export default function FolderList({ onClickFolder, id, folderName }: Props) {
                 onClickFolder={onClickFolder}
                 folderName={folderName}
                 buttonName={element.name}
-              >
-                {element.name}
-              </FolderListButton>
+              />
             );
           })}
         </div>
@@ -62,7 +59,7 @@ export default function FolderList({ onClickFolder, id, folderName }: Props) {
           <input className="add-list-input" />
           <Img
             className="add-list-button"
-            src="./images/addpurple.png"
+            src="/images/addpurple.png"
             alt="+ 아이콘"
             onClick={onClickAddFolder}
           />
@@ -87,6 +84,6 @@ const Img = styled.img`
   cursor: pointer;
 
   @media (max-width: 767px) {
-    content: url('./images/addwhite.png');
+    content: url('/images/addwhite.png');
   }
 `;

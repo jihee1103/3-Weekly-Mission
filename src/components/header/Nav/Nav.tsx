@@ -4,9 +4,9 @@ import Profile from '../Profile/Profile';
 import './Nav.css';
 
 interface Props {
-  className: string | undefined;
-  setUserId: (value: number) => void | undefined;
-  id: number | undefined;
+  className?: string | undefined;
+  setUserId?: (value: number) => void;
+  id?: number | undefined;
 }
 
 export interface User {
@@ -17,7 +17,7 @@ export interface User {
   image_source?: string;
 }
 
-function Nav({ className, setUserId, id }: Props) {
+export default function Nav({ className, setUserId, id }: Props) {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -31,7 +31,9 @@ function Nav({ className, setUserId, id }: Props) {
       const nextUser = await getUserById(id);
       if (!nextUser) return;
       setUser(nextUser.data[0]);
-      setUserId(nextUser.data[0].id);
+      if (setUserId) {
+        setUserId(nextUser.data[0].id);
+      }
     }
 
     if (id) apllyGetUserById(id);
@@ -41,7 +43,7 @@ function Nav({ className, setUserId, id }: Props) {
   return (
     <nav className={className}>
       <a href="index.html">
-        <img className="logo" src="./images/logo.svg" alt="Linkbrary 로고" />
+        <img className="logo" src="/images/logo.svg" alt="Linkbrary 로고" />
       </a>
       {user ? (
         <Profile user={user} />
@@ -53,5 +55,3 @@ function Nav({ className, setUserId, id }: Props) {
     </nav>
   );
 }
-
-export default Nav;

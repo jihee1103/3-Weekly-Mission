@@ -1,15 +1,26 @@
+import { MouseEvent } from 'react';
 import './FolderListButton.css';
+import { Id } from '../../../pages/FolderPage/FolderPage';
 
-function FolderListButton({
+interface Props {
+  folderName: string;
+  onClickFolder: (name: string, id: Id) => void;
+  buttonName: string;
+  id?: number;
+}
+
+export default function FolderListButton({
   folderName,
   onClickFolder,
   buttonName,
   id = undefined,
-}) {
+}: Props) {
   const className =
     folderName === buttonName ? 'list-button active' : 'list-button';
-  const onClick = (e) => {
-    onClickFolder(e.target.textContent, id);
+  const onClick = (e: MouseEvent) => {
+    if (e.currentTarget.textContent) {
+      onClickFolder(e.currentTarget.textContent, id);
+    }
   };
 
   return (
@@ -18,5 +29,3 @@ function FolderListButton({
     </button>
   );
 }
-
-export default FolderListButton;

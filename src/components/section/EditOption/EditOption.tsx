@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import BaseModal from '../BaseModal/BaseModal';
 import './EditOption.css';
+import { Id } from '../../../pages/FolderPage/FolderPage';
 
 interface Props {
   src: string;
   optionName: string;
   userId?: number;
-  folder: { name: string; id: number };
+  folder: { name: string; id: Id };
 }
 
-function EditOption({ src, optionName, userId, folder }: Props) {
+export default function EditOption({ src, optionName, userId, folder }: Props) {
   const [openModal, setOpenModal] = useState(false);
   // @ts-ignore
   const { Kakao } = window;
@@ -98,7 +99,7 @@ function EditOption({ src, optionName, userId, folder }: Props) {
             >
               <img
                 className="modal__share-icon"
-                src="./images/sharekakaotalk.png"
+                src="/images/sharekakaotalk.png"
                 alt="카카오톡 아이콘"
               />
               <span className="modal__share-type">카카오톡</span>
@@ -109,7 +110,7 @@ function EditOption({ src, optionName, userId, folder }: Props) {
             >
               <img
                 className="modal__share-icon"
-                src="./images/sharefacebook.png"
+                src="/images/sharefacebook.png"
                 alt="페이스북 아이콘"
               />
               <span className="modal__share-type">페이스북</span>
@@ -120,7 +121,7 @@ function EditOption({ src, optionName, userId, folder }: Props) {
             >
               <img
                 className="modal__share-icon"
-                src="./images/shareclip.png"
+                src="/images/shareclip.png"
                 alt="클립 아이콘"
               />
               <span className="modal__share-type">링크 복사</span>
@@ -159,5 +160,3 @@ function EditOption({ src, optionName, userId, folder }: Props) {
     </>
   );
 }
-
-export default EditOption;

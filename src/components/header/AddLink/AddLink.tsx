@@ -28,11 +28,7 @@ export default function AddLink({ folderList }: Props) {
     <div className="container-add-link">
       <div className="add-link">
         <div className="add-link-input">
-          <img
-            className="link-icon"
-            src="./images/link.svg"
-            alt="클립 아이콘"
-          />
+          <img className="link-icon" src="/images/link.svg" alt="클립 아이콘" />
           <input
             className="link-input"
             placeholder="링크를 추가해 보세요"
@@ -71,7 +67,7 @@ export default function AddLink({ folderList }: Props) {
                     {folderItem === folder.name && (
                       <img
                         className="modal__check-icon"
-                        src="./images/check.png"
+                        src="/images/check.png"
                         alt="체크 아이콘"
                       />
                     )}

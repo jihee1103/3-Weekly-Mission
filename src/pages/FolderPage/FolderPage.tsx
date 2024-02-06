@@ -9,18 +9,20 @@ import FolderList from '../../components/section/FolderList/FolderList';
 import EditOption from '../../components/section/EditOption/EditOption';
 import Card from '../../components/section/Card/Card';
 
-interface Link {
+export interface Link {
   id: number;
-  created_at: string;
+  created_at?: string;
+  createdAt?: string;
   updated_at: string | null;
   url: string;
   title: string | null;
   description: string | null;
-  image_source: string | null;
+  image_source?: string | null;
+  imageSource?: string;
   folder_id: number | null;
 }
 
-interface Folder {
+export interface Folder {
   id: number;
   created_at: string;
   name: string;
@@ -31,15 +33,20 @@ interface Folder {
   };
 }
 
-function FolderPage() {
-  const [folderInfo, setFolderInfo] = useState({ name: '전체', id: 0 });
+export type Id = number | undefined;
+
+export default function FolderPage() {
+  const [folderInfo, setFolderInfo] = useState<{
+    name: string;
+    id: Id;
+  }>({ name: '전체', id: 0 });
   const [userId, setUserId] = useState(0);
   const [links, setLinks] = useState<Link[]>([]);
   const [folderList, setFolderList] = useState<
     { name: string; linkCount: number }[]
   >([]);
 
-  const handleChangeFolder = (nextName: string, nextId: number) => {
+  const handleChangeFolder = (nextName: string, nextId: Id) => {
     setFolderInfo({ name: nextName, id: nextId });
   };
 
@@ -87,18 +94,18 @@ function FolderPage() {
             {folderInfo.name === '전체' || (
               <div className="folders__folder-edit">
                 <EditOption
-                  src="./images/share.png"
+                  src="/images/share.png"
                   optionName="공유"
                   userId={userId}
                   folder={folderInfo}
                 />
                 <EditOption
-                  src="./images/pen.png"
+                  src="/images/pen.png"
                   optionName="이름 변경"
                   folder={folderInfo}
                 />
                 <EditOption
-                  src="./images/delete.png"
+                  src="/images/delete.png"
                   optionName="삭제"
                   folder={folderInfo}
                 />
@@ -135,5 +142,3 @@ function FolderPage() {
     </>
   );
 }
-
-export default FolderPage;

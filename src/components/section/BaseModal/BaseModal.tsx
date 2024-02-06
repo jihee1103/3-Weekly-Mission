@@ -1,10 +1,16 @@
 import { createPortal } from 'react-dom';
+import { MouseEvent, ReactNode } from 'react';
 import './BaseModal.css';
 
-const portalModal = document.getElementById('modal');
+interface Props {
+  closeModal: () => void;
+  children: ReactNode;
+}
 
-function BaseModal({ closeModal, children }) {
-  const onClickClose = (e) => {
+const portalModal = document.getElementById('modal') as HTMLElement;
+
+export default function BaseModal({ closeModal, children }: Props) {
+  const onClickClose = (e: MouseEvent) => {
     e.preventDefault();
     closeModal();
   };
@@ -12,12 +18,12 @@ function BaseModal({ closeModal, children }) {
   return (
     <>
       {createPortal(
-        <div className='modal-container'>
-          <div className='modal'>
+        <div className="modal-container">
+          <div className="modal">
             <img
-              className='modal__close'
-              src='./images/_close.png'
-              alt='닫기 아이콘 x'
+              className="modal__close"
+              src="/images/_close.png"
+              alt="닫기 아이콘 x"
               onClick={onClickClose}
             />
             {children}
@@ -28,4 +34,3 @@ function BaseModal({ closeModal, children }) {
     </>
   );
 }
-export default BaseModal;

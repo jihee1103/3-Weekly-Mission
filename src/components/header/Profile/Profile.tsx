@@ -5,7 +5,7 @@ interface Props {
   user: User;
 }
 
-function Profile({ user }: Props) {
+export default function Profile({ user }: Props) {
   return (
     <div className="user">
       <img
@@ -17,5 +17,3 @@ function Profile({ user }: Props) {
     </div>
   );
 }
-
-export default Profile;

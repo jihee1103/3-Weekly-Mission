@@ -6,14 +6,25 @@ import Search from '../../components/section/Search/Search';
 import Card from '../../components/section/Card/Card';
 import FooterLinks from '../../components/footer/FooterLinks/FooterLinks';
 
+export interface SharedLink {
+  id: number;
+  createdAt?: string;
+  created_at?: string;
+  url: string;
+  title: string;
+  description: string;
+  imageSource?: string;
+  image_source?: string;
+}
+
 export default function SharePage() {
-  const [pages, setPages] = useState([]);
+  const [links, setLinks] = useState<SharedLink[]>([]);
 
   useEffect(() => {
     async function getLinks() {
       const { folder } = await getFolder();
       const { links } = folder;
-      setPages(links);
+      setLinks(links);
     }
 
     getLinks();
@@ -28,7 +39,7 @@ export default function SharePage() {
       <section>
         <Search />
         <div className="pages">
-          {pages.map((element) => {
+          {links.map((element: SharedLink) => {
             return <Card key={element.id} page={element} />;
           })}
         </div>

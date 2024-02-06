@@ -1,4 +1,4 @@
-async function getUser() {
+export async function getUser() {
   const response = await fetch(
     'https://bootcamp-api.codeit.kr/api/sample/user'
   );
@@ -7,7 +7,7 @@ async function getUser() {
   return body;
 }
 
-async function getUserById(id: number) {
+export async function getUserById(id: number) {
   const response = await fetch(
     `https://bootcamp-api.codeit.kr/api/users/${id}`
   );
@@ -16,7 +16,7 @@ async function getUserById(id: number) {
   return body;
 }
 
-async function getFolder() {
+export async function getFolder() {
   const response = await fetch(
     'https://bootcamp-api.codeit.kr/api/sample/folder'
   );
@@ -25,7 +25,7 @@ async function getFolder() {
   return body;
 }
 
-async function getFoldersById(id = 1) {
+export async function getFoldersById(id = 1) {
   const response = await fetch(
     `https://bootcamp-api.codeit.kr/api/users/${id}/folders`
   );
@@ -34,7 +34,7 @@ async function getFoldersById(id = 1) {
   return body;
 }
 
-async function getLinksById(id = 0) {
+export async function getLinksById(id = 0) {
   const response = await fetch(
     `https://bootcamp-api.codeit.kr/api/users/1/links${
       id ? `?folderId=${id}` : ''
@@ -44,5 +44,3 @@ async function getLinksById(id = 0) {
 
   return body;
 }
-
-export { getUser, getUserById, getFolder, getFoldersById, getLinksById };
