@@ -19,6 +19,11 @@ export interface SharedLink {
 
 export default function SharePage() {
   const [links, setLinks] = useState<SharedLink[]>([]);
+  const [keyword, setKeyword] = useState('');
+
+  const handleSearchOnChange = (nextKeyword: string) => {
+    setKeyword(nextKeyword);
+  };
 
   useEffect(() => {
     async function getLinks() {
@@ -37,11 +42,25 @@ export default function SharePage() {
         <Folder />
       </header>
       <section>
-        <Search />
+        <Search handleOnChange={handleSearchOnChange} />
+        {keyword && (
+          <span className="search-result">
+            <strong>{keyword}</strong>으로 검색한 결과입니다.
+          </span>
+        )}
         <div className="pages">
-          {links.map((element: SharedLink) => {
-            return <Card key={element.id} page={element} />;
-          })}
+          {links
+            .filter((element) => {
+              const { title, url, description } = element;
+              return (
+                url.toLowerCase().includes(keyword) ||
+                title?.toLowerCase().includes(keyword) ||
+                description?.toLowerCase().includes(keyword)
+              );
+            })
+            .map((element: SharedLink) => {
+              return <Card key={element.id} page={element} />;
+            })}
         </div>
       </section>
       <footer>

@@ -45,6 +45,11 @@ export default function FolderPage() {
   const [folderList, setFolderList] = useState<
     { name: string; linkCount: number }[]
   >([]);
+  const [keyword, setKeyword] = useState('');
+
+  const handleSearchOnChange = (nextKeyword: string) => {
+    setKeyword(nextKeyword);
+  };
 
   const handleChangeFolder = (nextName: string, nextId: Id) => {
     setFolderInfo({ name: nextName, id: nextId });
@@ -82,7 +87,12 @@ export default function FolderPage() {
         <AddLink folderList={folderList} />
       </header>
       <section>
-        <Search />
+        <Search handleOnChange={handleSearchOnChange} />
+        {keyword && (
+          <span className="search-result">
+            <strong>{keyword}</strong>으로 검색한 결과입니다.
+          </span>
+        )}
         <div className="folders">
           <FolderList
             folderName={folderInfo.name}
@@ -116,7 +126,13 @@ export default function FolderPage() {
             <div className="pages">
               {links
                 .filter((element) => {
-                  return !folderInfo.id || element?.folder_id === folderInfo.id;
+                  const { title, url, description } = element;
+                  return (
+                    (!folderInfo.id || element?.folder_id === folderInfo.id) &&
+                    (url.toLowerCase().includes(keyword) ||
+                      title?.toLowerCase().includes(keyword) ||
+                      description?.toLowerCase().includes(keyword))
+                  );
                 })
                 .map((element) => {
                   return (

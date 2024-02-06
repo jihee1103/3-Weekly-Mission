@@ -21,3 +21,16 @@
   font-size: 1.6rem;
   line-height: 2.4rem; /* 150% */
 }
+
+.eraseKeyword {
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .eraseKeyword {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}

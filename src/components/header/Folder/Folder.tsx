@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getFolder } from '../../../api';
 import './Folder.css';
 
-interface Folder {
+interface FolderType {
   id: number;
   name: string;
   owner: {
@@ -22,7 +22,7 @@ interface Folder {
 }
 
 export default function Folder() {
-  const [folder, setFolder] = useState<Folder | null>(null);
+  const [folder, setFolder] = useState<FolderType | null>(null);
 
   useEffect(() => {
     async function applyGetFolder() {
