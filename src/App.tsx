@@ -5,12 +5,13 @@ import Footer from "./components/Footer/Footer";
 import SharedPage from "./pages/SharedPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FolderPage from "./pages/FolderPage";
+import { NavbarUserInfo } from "./types/userType";
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<NavbarUserInfo | undefined>();
   const checkUser = async () => {
     try {
-      const userInfo = await getUser();
+      const userInfo: NavbarUserInfo = await getUser();
       if (!userInfo) {
         throw new Error("유저 정보가 없습니다!");
       }

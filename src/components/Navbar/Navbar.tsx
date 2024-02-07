@@ -1,8 +1,14 @@
 import "./Navbar.css";
 import imageData from "../../assets/imageData";
 import { Link } from "react-router-dom";
+import { NavbarUserInfo } from "../../types/userType";
+import { StringUndefined } from "../../types/types";
 
-export default function Navbar({ user }) {
+interface Props {
+  user: NavbarUserInfo | undefined;
+}
+
+export default function Navbar({ user }: Props) {
   return (
     <nav className="navbar">
       <div className="navbar-content">
@@ -28,9 +34,9 @@ export default function Navbar({ user }) {
   );
 }
 
-function NavProfile({ user }) {
-  const userEmail = user.email;
-  const source = user.profileImageSource;
+function NavProfile({ user }: Props) {
+  const userEmail: StringUndefined = user?.email;
+  const source: StringUndefined = user?.profileImageSource;
 
   return (
     <div className="userProfile">
