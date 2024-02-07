@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { getFoldersById, getLinksById } from '../../api';
 import './FolderPage.css';
 import Nav from '../../components/header/Nav/Nav';
@@ -40,12 +40,31 @@ export default function FolderPage() {
     name: string;
     id: Id;
   }>({ name: '전체', id: 0 });
-  const [userId, setUserId] = useState(0);
-  const [links, setLinks] = useState<Link[]>([]);
+
   const [folderList, setFolderList] = useState<
     { name: string; linkCount: number }[]
   >([]);
+
+  const [userId, setUserId] = useState(0);
+  const [links, setLinks] = useState<Link[]>([]);
   const [keyword, setKeyword] = useState('');
+  const [showFixedAddLink, setShowFixedAddLink] = useState(false);
+  const addLinkEnd = useRef<HTMLDivElement>(null);
+  const footerStart = useRef<HTMLDivElement>(null);
+  const observer = useRef<IntersectionObserver>();
+
+  observer.current = new IntersectionObserver((entries) => {
+    if (entries[0]?.isIntersecting || entries[1]?.isIntersecting) {
+      setShowFixedAddLink(false);
+    } else {
+      setShowFixedAddLink(true);
+    }
+  });
+
+  const observeTargets = document.querySelectorAll('.observe-target');
+  observeTargets.forEach((element) => {
+    observer.current?.observe(element);
+  });
 
   const handleSearchOnChange = (nextKeyword: string) => {
     setKeyword(nextKeyword);
@@ -85,6 +104,10 @@ export default function FolderPage() {
       <header>
         <Nav className="not-fixed" id={1} setUserId={handleSetUserId} />
         <AddLink folderList={folderList} />
+        <div className="observe-target" ref={addLinkEnd} />
+        {showFixedAddLink && (
+          <AddLink folderList={folderList} className="fixed" />
+        )}
       </header>
       <section>
         <Search handleOnChange={handleSearchOnChange} />
@@ -150,6 +173,7 @@ export default function FolderPage() {
         </div>
       </section>
       <footer>
+        <div className="observe-target" ref={footerStart} />
         <div className="footer-box">
           <span className="copyright">©codeit - 2023</span>
           <FooterLinks target="_blank" rel="noopener noreferrer" />

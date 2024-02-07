@@ -4,9 +4,10 @@ import BaseModal from '../../section/BaseModal/BaseModal';
 
 interface Props {
   folderList: { name: string; linkCount: number }[];
+  className?: string;
 }
 
-export default function AddLink({ folderList }: Props) {
+export default function AddLink({ folderList, className }: Props) {
   const [openModal, setOpenModal] = useState(false);
   const [folderItem, setFolderItem] = useState<string | null>(null);
   const [inputValue, setInputValue] = useState('');
@@ -25,7 +26,7 @@ export default function AddLink({ folderList }: Props) {
   };
 
   return (
-    <div className="container-add-link">
+    <div className={`container-add-link ${className}`}>
       <div className="add-link">
         <div className="add-link-input">
           <img className="link-icon" src="/images/link.svg" alt="클립 아이콘" />
