@@ -23,7 +23,7 @@ function FloatingButton() {
         <Modal
           setModal={setModal}
           title="폴더 추가"
-          isInput="true"
+          isInput
           btnText="추가하기"
         />
       )}

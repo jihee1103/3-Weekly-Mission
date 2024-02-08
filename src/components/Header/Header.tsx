@@ -2,7 +2,7 @@ import { useFolderData } from "../../hooks/useFolderData";
 import styles from "./Header.module.css";
 
 function Header() {
-  const { folderData, loadingError } = useFolderData();
+  const { folderData } = useFolderData();
 
   return (
     <header>
@@ -16,7 +16,7 @@ function Header() {
           @{folderData?.folder?.owner?.name}
         </span>
         <span className={styles.folderName}>{folderData?.folder?.name}</span>
-        {loadingError?.message && <span>{loadingError.message}</span>}
+        {/* {loadingError?.message && <span>{loadingError.message}</span>} */}
       </div>
     </header>
   );

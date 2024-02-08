@@ -1,6 +1,14 @@
+import { MouseEvent } from "react";
 import styles from "./SelectFolderItem.module.css";
 
-function SelectFolderItem({ name, count, isSelected, onClick }) {
+interface Props {
+  name: string;
+  count: number;
+  isSelected: boolean;
+  onClick: (e: React.MouseEvent) => void; // 모르겠다..
+}
+
+function SelectFolderItem({ name, count, isSelected, onClick }: Props) {
   return (
     <div
       className={

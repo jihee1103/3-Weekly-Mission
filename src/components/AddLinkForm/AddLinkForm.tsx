@@ -5,7 +5,7 @@ import styles from "./AddLinkForm.module.css";
 
 function AddLinkForm() {
   const [modal, setModal] = useState(false);
-  const { folderData } = useFolderData(null);
+  const { folderData } = useFolderData();
 
   return (
     <>
@@ -32,7 +32,7 @@ function AddLinkForm() {
           setModal={setModal}
           title="폴더에 추가"
           subTitle="링크 주소"
-          isAddLink="true"
+          isAddLink
           btnText="추가하기"
           folderData={folderData}
         />

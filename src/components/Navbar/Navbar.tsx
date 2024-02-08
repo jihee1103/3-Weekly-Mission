@@ -2,7 +2,7 @@ import { useUserData } from "../../hooks/useUserData";
 import styles from "./Navbar.module.css";
 
 function Account() {
-  const { userData, loadingError } = useUserData();
+  const { userData } = useUserData();
 
   return (
     <>
@@ -20,12 +20,13 @@ function Account() {
           로그인
         </a>
       )}
-      {loadingError?.message && <span>{loadingError.message}</span>}
     </>
   );
 }
-
-function Navbar({ isSticky }) {
+interface Props {
+  isSticky?: boolean;
+}
+function Navbar({ isSticky }: Props) {
   return (
     <nav className={`${styles.nav} ${isSticky ? styles.folder : ""}`}>
       <div className={styles.gnb}>

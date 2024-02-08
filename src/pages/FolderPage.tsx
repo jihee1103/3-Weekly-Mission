@@ -5,7 +5,7 @@ import Content from "../components/Content/Content";
 function FolderPage() {
   return (
     <>
-      <Navbar isSticky={true} />
+      <Navbar isSticky />
       <AddLinkForm />
       <Content />
     </>

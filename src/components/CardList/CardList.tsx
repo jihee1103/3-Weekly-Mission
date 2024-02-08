@@ -5,8 +5,13 @@ import { ALL_LINKS_ID } from "../Folder/constants";
 import styles from "./CardList.module.css";
 import OptionBox from "./OptionBox";
 
-function CardList({ folderData, selectedFolderId, selectedFolderName }) {
-  const [cardList, setCardList] = useState([]);
+interface Props {
+  folderData: string[];
+  selectedFolderId: number | string;
+  selectedFolderName: string;
+}
+function CardList({ folderData, selectedFolderId, selectedFolderName }: Props) {
+  const [cardList, setCardList] = useState<any[]>([]);
 
   useEffect(() => {
     const handleLoadCardList = async () => {

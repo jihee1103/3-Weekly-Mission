@@ -5,7 +5,8 @@ import App from "./App";
 import SharedLinkPage from "./pages/SharedLinkPage";
 import FolderPage from "./pages/FolderPage";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>

@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar/SearchBar";
 function SharedLinkPage() {
   return (
     <>
-      <Navbar isSticky={false} />
+      <Navbar />
       <Header></Header>
       <SearchBar />
     </>

@@ -8,7 +8,7 @@ import { ALL_LINKS_NAME } from "../Folder/constants";
 import styles from "./Content.module.css";
 
 function Content() {
-  const { folderData } = useFolderData(false);
+  const { folderData } = useFolderData();
   const [folderInfo, setFolderInfo] = useState([ALL_LINKS_ID, ALL_LINKS_NAME]); //수정-id name 하나로 관리할것...
 
   return (

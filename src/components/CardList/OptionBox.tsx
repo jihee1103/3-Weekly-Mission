@@ -2,7 +2,11 @@ import { useState } from "react";
 import Modal from "../Modal/Modal";
 import styles from "./CardList.module.css";
 
-function OptionBox({ selectedFolderName }) {
+interface Props {
+  selectedFolderName: string;
+}
+
+function OptionBox({ selectedFolderName }: Props) {
   const [shareModal, setShareModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
@@ -34,7 +38,7 @@ function OptionBox({ selectedFolderName }) {
           setModal={setShareModal}
           title="폴더 공유"
           subTitle={selectedFolderName}
-          isShare="true"
+          isShare
         />
       )}
       {editModal && (
@@ -42,7 +46,7 @@ function OptionBox({ selectedFolderName }) {
           setModal={setEditModal}
           title="폴더 이름 변경"
           btnText="변경하기"
-          isInput="true"
+          isInput
         />
       )}
       {deleteModal && (

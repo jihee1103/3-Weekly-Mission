@@ -6,10 +6,15 @@ import { ALL_LINKS_ID, ALL_LINKS_NAME } from "./constants";
 import styles from "./FolderList.module.css";
 import FloatingButton from "../FloatingButton/FloatingButton";
 
-function FolderList({ folderData, folderInfo }) {
+interface Props {
+  folderData: any[];
+  folderInfo: any[];
+}
+
+function FolderList({ folderData, folderInfo }: Props) {
   const [selectedFolderInfo, setSelectedFolderInfo] = useState([...folderInfo]);
 
-  const handleFolderClick = (folderInfo) => {
+  const handleFolderClick = (folderInfo: any) => {
     setSelectedFolderInfo([...folderInfo]);
   };
 

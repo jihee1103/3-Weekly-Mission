@@ -1,6 +1,19 @@
 import SelectFolderBox from "./SelectFolderBox";
 import ShareIconBox from "./ShareIconBox";
 import styles from "./Modal.module.css";
+import { Dispatch, SetStateAction } from "react";
+
+interface Props {
+  setModal: Dispatch<SetStateAction<boolean>>;
+  title: string;
+  subTitle?: string;
+  isShare?: boolean;
+  isInput?: boolean;
+  isAddLink?: boolean;
+  btnText?: string;
+  btnColor?: string;
+  folderData?: any;
+}
 
 function Modal({
   setModal,
@@ -12,7 +25,7 @@ function Modal({
   btnText,
   btnColor,
   folderData,
-}) {
+}: Props) {
   return (
     <div className={styles.modalBackground}>
       <div className={styles.modalContainer}>
@@ -26,8 +39,10 @@ function Modal({
         <div className={styles.subTitle}>{subTitle}</div>
         {isInput && <input className={styles.input} placeholder="내용 입력" />}
         {isAddLink && <SelectFolderBox folderData={folderData} />}
+        {/*folderData에서 해당 folderId만 뽑아서 보내야됨..*/}
         {isShare ? (
-          <ShareIconBox />
+          /*수정해야됨*/
+          <ShareIconBox folderId />
         ) : (
           <button
             className={btnColor === "red" ? styles.deleteBtn : styles.submitBtn}
