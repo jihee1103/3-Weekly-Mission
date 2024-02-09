@@ -1,11 +1,12 @@
 import { useState } from "react";
 import useEffectOnce from "./useEffectOnce";
 import camelcaseKeys from "camelcase-keys";
+import { ApiFunc } from "../types/functionType";
 
-export default function useFetchData(apiFunction) {
+export default function useFetchData(apiFunction: ApiFunc) {
   const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<Error | null>(null);
 
   const fetchData = async (apiFunc = apiFunction) => {
     if (isLoading) return;
@@ -24,7 +25,7 @@ export default function useFetchData(apiFunction) {
       }
       const camelData = camelcaseKeys(data, { deep: true });
       setData(camelData);
-    } catch (error) {
+    } catch (error: any) {
       setError(error);
     } finally {
       setIsLoading(false);

@@ -6,25 +6,42 @@ import { getFolderData, getFolderList, getOwner } from "../apis/api";
 import LinkSearchForm from "../components/LinkSearchForm/LinkSearchForm";
 import useFetchData from "../hooks/useFetchData";
 import { useSearchParams } from "react-router-dom";
+import { UserId } from "../types/userType";
+import { StringUndefined } from "../types/types";
+import {
+  CardItem,
+  FolderData,
+  FolderOwnerData,
+  OwnerData,
+} from "../types/dataTypes";
+import { VoidFunc } from "../types/functionType";
 
 export default function SharedPage() {
   const [searchParams] = useSearchParams();
-  const userId = searchParams.get("user");
-  const folderId = searchParams.get("folder");
-  const { data: cardListItem } = useFetchData(() =>
-    getFolderData(folderId, userId)
-  );
-  const { data: folderData } = useFetchData(() => getFolderList(userId));
+  const userId: UserId = searchParams.get("user");
+  const folderId: StringUndefined | null = searchParams.get("folder");
+  const cardListItem: CardItem[] | null =
+    useFetchData(() => getFolderData(folderId, userId!)).data || null;
+  const folderData: FolderData[] | null =
+    useFetchData(() => getFolderList(userId!)).data || [];
 
-  const { data: ownerData } = useFetchData(() => getOwner(userId));
-  const [folderName, setFolderName] = useState("");
-  const [folderOwner, setFolderOwner] = useState(null);
+  const ownerData: OwnerData[] =
+    useFetchData(() => getOwner(userId!)).data || [];
+  const [folderName, setFolderName] = useState<string>("");
+  const [folderOwner, setFolderOwner] = useState<FolderOwnerData | null>(null);
 
-  const handleHeaderData = () => {
-    if (!folderData || !ownerData) return;
-    const [folder] = folderData.filter((data) => data.id === +folderId);
+  const handleHeaderData: VoidFunc = () => {
+    if (!folderData || !ownerData) {
+      return;
+    }
+    const folder: FolderData | undefined = folderData?.find(
+      (data: FolderData) => data.id === +folderId!
+    );
+    if (!folder) {
+      return;
+    }
     setFolderName(folder.name);
-    const { name, imageSource } = ownerData[0];
+    const { name, imageSource }: FolderOwnerData = ownerData[0];
     setFolderOwner({ name, imageSource });
   };
 
@@ -48,8 +65,11 @@ export default function SharedPage() {
     </main>
   );
 }
-
-function SharedHeader({ folderOwner, folderName }) {
+interface Props {
+  folderOwner: FolderOwnerData;
+  folderName: string;
+}
+function SharedHeader({ folderOwner, folderName }: Props) {
   const ownerName = folderOwner.name ? folderOwner.name : null;
   const source = folderOwner.imageSource;
 

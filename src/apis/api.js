@@ -22,24 +22,24 @@ export async function getShredCardList() {
   return response;
 }
 
-export async function getOwner(userId = 1) {
+export async function getOwner(userId = "1") {
   const url = `${BASE_URL}users/${userId}`;
   const response = await fetchJson(url);
   return response;
 }
 
-export async function getFolderList(userId = 1) {
+export async function getFolderList(userId = "1") {
   const url = `${BASE_URL}users/${userId}/folders`;
   const response = await fetchJson(url);
   return response;
 }
-export async function getLinkList(userId = 1) {
+export async function getLinkList(userId = "1") {
   const url = `${BASE_URL}users/${userId}/links`;
   const response = await fetchJson(url);
   return response;
 }
 
-export async function getFolderData(id, userId = 1) {
+export async function getFolderData(id, userId = "1") {
   const url = `${BASE_URL}users/${userId}/links?folderId=${id}`;
   const response = await fetchJson(url);
   return response;

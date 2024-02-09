@@ -3,6 +3,7 @@
     "target": "ES5",
     "module": "CommonJS",
     "strict": true,
+    "strictNullChecks": true,
     "allowJs": true,
     "esModuleInterop": true,
     "jsx": "react-jsx"
