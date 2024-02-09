@@ -7,7 +7,12 @@ import {
   ModalWrapper,
 } from "./Modal.styled";
 
-export default function ModalDelete({ nameType, DeleteName }) {
+interface Props {
+  nameType: string;
+  DeleteName: string | null;
+}
+
+export default function ModalDelete({ nameType, DeleteName }: Props) {
   return (
     <ModalWrapper>
       <ModalTitleContainer>

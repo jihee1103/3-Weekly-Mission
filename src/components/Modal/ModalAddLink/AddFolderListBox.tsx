@@ -2,13 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import imageData from "../../../assets/imageData";
 
+interface Props {
+  name: string;
+  count: string | number;
+  folderChecked: string;
+  onClick: (name: string) => void;
+}
+
 export default function AddFolderListBox({
   name,
   count,
   folderChecked,
   onClick,
-}) {
-  const checked = name === folderChecked;
+}: Props) {
+  const checked: boolean = name === folderChecked;
   const handleClick = () => {
     onClick(name);
   };

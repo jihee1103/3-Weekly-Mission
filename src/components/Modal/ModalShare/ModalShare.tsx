@@ -11,12 +11,25 @@ import ModalShareLinkIcon from "./ModalShareLinkIcon";
 import { CopyClipBoard } from "../../../utils/util";
 import { shareKakao } from "../../../utils/kakaoShare";
 import { shareFacebook } from "../../../utils/facebookShare";
+import { FolderData } from "../../../types/dataTypes";
 
-export default function ModalShare({ folderName = "", itemList, userId }) {
-  const currentFolder = itemList.find((item) => item.name === folderName);
-  const url =
+interface Props {
+  folderName: string;
+  itemList: FolderData[] | undefined;
+  userId: string | undefined;
+}
+
+export default function ModalShare({
+  folderName = "",
+  itemList,
+  userId,
+}: Props) {
+  const currentFolder: FolderData | undefined = itemList?.find(
+    (item) => item.name === folderName
+  );
+  const url: string =
     window.location.origin +
-    `/shared?user=${userId}&folder=${currentFolder.id}`;
+    `/shared?user=${userId}&folder=${currentFolder?.id}`;
   const handleLinkCopy = () => {
     CopyClipBoard(url);
   };

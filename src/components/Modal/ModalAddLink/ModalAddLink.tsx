@@ -9,10 +9,15 @@ import {
 import styled from "styled-components";
 import AddFolderListBox from "./AddFolderListBox";
 import CtaButton from "../../CtaButton/CtaButton";
+import { FolderData } from "../../../types/dataTypes";
 
-export default function ModalAddLink({ url, itemList }) {
-  const [folderChecked, setFolderChecked] = useState("");
-  const handleCheckFolder = (name) => {
+interface Props {
+  url: string | null;
+  itemList: FolderData[] | undefined;
+}
+export default function ModalAddLink({ url, itemList }: Props) {
+  const [folderChecked, setFolderChecked] = useState<string>("");
+  const handleCheckFolder = (name: string) => {
     setFolderChecked(name);
   };
   return (

@@ -7,7 +7,17 @@ import {
 } from "./Modal.styled";
 import CtaButton from "../CtaButton/CtaButton";
 
-export default function ModalForm({ title, defaultPlace, buttonContent }) {
+interface Props {
+  title: string;
+  defaultPlace: string;
+  buttonContent: string;
+}
+
+export default function ModalForm({
+  title,
+  defaultPlace,
+  buttonContent,
+}: Props) {
   return (
     <ModalWrapper>
       <ModalTitle>{title}</ModalTitle>
