@@ -3,12 +3,18 @@ import { formatDate, afterTimeDate } from "../../utils";
 import noImage from "../../assets/no-image.png";
 import kebab from "../../assets/kebab.svg";
 import star from "../../assets/star.svg";
+import { MouseEvent } from "react";
+import { Link } from "../../types";
 
-const FolderItem = ({ link }) => {
+interface FolderItemProps {
+  link: Link;
+}
+
+const FolderItem = ({ link }: FolderItemProps) => {
   const { created_at, url, title, description, image_source = noImage } = link;
 
-  const handleLinkClick = (event) => {
-    event.preventDefault();
+  const handleLinkClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
     window.open(url);
   };
 

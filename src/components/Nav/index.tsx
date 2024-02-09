@@ -1,7 +1,13 @@
 import logo from "../../assets/logo.svg";
+import { User } from "../../types";
 import "./style.css";
 
-const Nav = ({ user, className = "" }) => {
+interface NavProps {
+  user?: User;
+  className?: string;
+}
+
+const Nav = ({ user, className = "" }: NavProps) => {
   return (
     <header className={className}>
       <div className="header-container">
