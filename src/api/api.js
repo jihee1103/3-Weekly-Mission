@@ -1,0 +1,57 @@
+const BASE_URL = "https://bootcamp-api.codeit.kr";
+const LOCAL_URL = "http://localhost:3000";
+const DEV_URL = "http://10.130.100.229:3000";
+
+export const getFolderInfo = async () => {
+  const response = await fetch(
+    `${BASE_URL}/api/sample/folder` // sample api
+  );
+  const rsp = await response.json();
+  const rspFolder = rsp.folder;
+
+  return {
+    name: rspFolder.name,
+    owner: rspFolder.owner,
+    links: rspFolder.links,
+  };
+};
+
+export const getFolderGroup = async (userId = 1) => {
+  const response = await fetch(`${BASE_URL}/api/users/${userId}/folders`);
+  const rsp = await response.json();
+  return rsp;
+};
+
+export const getAllFolderLinksOfUser = async (userId = 1) => {
+  const response = await fetch(`${BASE_URL}/api/users/${userId}/links`);
+  const rsp = await response.json();
+  return rsp;
+};
+
+export const getSelectionFolderLinks = async (folderId, userId = 1) => {
+  const response = await fetch(
+    `${BASE_URL}/api/users/${userId}/links?folderId=${folderId}`
+  );
+  const rsp = await response.json();
+  return rsp;
+};
+
+export const setFolderLinksFromItems = (links) => {
+  return links.map((link) => {
+    return {
+      id: link.id,
+      created_at: link.created_at,
+      url: link.url,
+      description: link.description,
+      image_source: link.image_source,
+    };
+  });
+};
+
+export const getSharedCurrentFolderLocalURL = (folderId, userId = 1) => {
+  return `${LOCAL_URL}/shared?user=${userId}&folder=${folderId}`;
+};
+
+export const getSharedCurrentFolderDevURL = (folderId, userId = 1) => {
+  return `${DEV_URL}/shared?user=${userId}&folder=${folderId}`;
+};

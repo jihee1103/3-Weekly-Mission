@@ -1,13 +1,12 @@
 import "./cardList.css";
+import "index.css";
 
-import { useLocation } from "react-router-dom";
-
+import { useState, useEffect } from "react";
+import KebabPopover from "./KebebPopover";
 export default function CardList({ items, isFunctional }) {
-  const location = useLocation();
+  const [popoverKey, setPopoverKey] = useState(null);
 
-  // const item_list = items.map;
-
-  function calculateCreateAtAfter(createAt) {
+  const calculateCreateAtAfter = (createAt) => {
     const today = new Date();
     const createAtDate = new Date(createAt);
     const diff = today.getTime() - createAtDate.getTime();
@@ -37,14 +36,14 @@ export default function CardList({ items, isFunctional }) {
     } else if (diffMin < 2) {
       return `1 minute age`;
     }
-  }
+  };
 
-  function convertCreateAt(createAt) {
+  const convertCreateAt = (createAt) => {
     const [year, month, day] = createAt.slice(0, 10).split("-");
     return `${year}. ${Number(month)}. ${Number(day)}`;
-  }
+  };
 
-  function isImageSourceUrl(imageSource) {
+  const isImageSourceUrl = (imageSource) => {
     const extensions = ["jpg", "png", "jpeg", "gif", "svg"];
 
     if (imageSource == null) {
@@ -55,11 +54,34 @@ export default function CardList({ items, isFunctional }) {
         ? true
         : false;
     }
-  }
+  };
 
-  function onClickCard(...args) {
+  const onClickCard = (...args) => {
+    if (popoverKey) return;
+
     window.open(args[1]);
-  }
+  };
+
+  const onClickKebab = (event, id) => {
+    event.stopPropagation();
+
+    popoverKey === id ? setPopoverKey(null) : setPopoverKey(id);
+  };
+
+  const onCloseKebabPopover = () => {
+    setPopoverKey(null);
+  };
+
+  const onClick = () => {
+    setPopoverKey(null);
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", onClick);
+    return () => {
+      document.removeEventListener("click", onClick);
+    };
+  }, []);
 
   const item_list = items.map((item, index) => {
     const { id, created_at, url, description, image_source } = item;
@@ -86,9 +108,14 @@ export default function CardList({ items, isFunctional }) {
             <div className="card_description">{description}</div>
             <div className="card_createdAt">{newCreatedAt}</div>
             {isFunctional && (
-              <img src="/images/kebab.svg" className="kebab_image" />
+              <img
+                src="/images/kebab.svg"
+                className="kebab_image"
+                onClick={(event) => onClickKebab(event, id)}
+              />
             )}
           </div>
+          {id === popoverKey && <KebabPopover onClose={onCloseKebabPopover} />}
         </div>
       </li>
     );

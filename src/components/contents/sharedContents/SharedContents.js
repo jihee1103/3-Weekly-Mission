@@ -1,48 +1,40 @@
+import "components/contents/contents.css";
+
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
-import CardList from "../cardList/cardList";
-import { getFolderInfo } from "../../header/header";
-
-// async function getFolderInfo() {
-//   const response = await fetch(
-//     "https://bootcamp-api.codeit.kr/api/sample/folder" // sample api
-//   );
-//   const rsp = await response.json();
-//   const rspFolder = rsp.folder;
-
-//   return {
-//     name: rspFolder.name,
-//     owner: rspFolder.owner,
-//     links: rspFolder.links,
-//   };
-// }
+import CardList from "components/contents/cardList/cardList";
+import { getSelectionFolderLinks, setFolderLinksFromItems } from "api/api";
+import SearchBar from "components/contents/searchBar/SearchBar";
 
 const SharedContents = () => {
-  const [sharedLinks, setSharedLinks] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [folderLinks, setFolderLinks] = useState([]);
+
+  const userParam = searchParams.get("user");
+  const folderParam = searchParams.get("folder");
 
   useEffect(() => {
-    getFolderInfo().then((result) => {
-      const { links } = result;
+    getSelectionFolderLinks(folderParam, userParam).then((rsp) => {
+      if (rsp.data == undefined) return;
 
-      const sharedLinks = links.map((link) => {
-        return {
-          id: link.id,
-          created_at: link.createdAt,
-          url: link.url,
-          description: link.description,
-          image_source: link.imageSource,
-        };
-      });
-      setSharedLinks(sharedLinks);
+      setFolderLinks(setFolderLinksFromItems(rsp.data));
     });
   }, []);
 
   return (
-    <>
-      <ul className="card_list">
-        <CardList items={sharedLinks} isFunctional={false} />
-      </ul>
-    </>
+    <section className="contents">
+      <div className="card_list_container">
+        <SearchBar />
+        {folderLinks.length === 0 ? (
+          <div className="empty_card_list">저장된 링크가 없습니다.</div>
+        ) : (
+          <ul className="card_list">
+            <CardList items={folderLinks} isFunctional={false} />
+          </ul>
+        )}
+      </div>
+    </section>
   );
 };
 
