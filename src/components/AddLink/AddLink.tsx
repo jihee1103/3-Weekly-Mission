@@ -1,5 +1,14 @@
+import { ChangeEvent, MouseEvent } from 'react';
 import styled from 'styled-components';
 import linkIcon from '../../asset/link.svg';
+
+interface Props {
+  toggleModal: () => void;
+  updateModalName: (id: string) => void;
+  updateAddLinkUrl: (value: string) => void;
+  addLinkUrl: string;
+  resetSelectedLinkUrl: () => void;
+}
 
 export default function AddLink({
   toggleModal,
@@ -7,11 +16,11 @@ export default function AddLink({
   updateAddLinkUrl,
   addLinkUrl,
   resetSelectedLinkUrl,
-}) {
-  const handleInputValue = (e) => {
+}: Props) {
+  const handleInputValue = (e: ChangeEvent<HTMLInputElement>) => {
     updateAddLinkUrl(e.currentTarget.value);
   };
-  const handleButtonClick = (e) => {
+  const handleButtonClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     resetSelectedLinkUrl();
     toggleModal();
