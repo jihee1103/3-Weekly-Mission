@@ -1,8 +1,20 @@
 import React from "react";
 import Card from "../Card/Card";
 import "./CardList.css";
+import { CardItem } from "../../types/dataTypes";
+import { ModalButtonClickType } from "../../types/types";
 
-export default function CardList({ itemList, toggle, handleModalButtonClick }) {
+interface Props {
+  itemList: CardItem[];
+  toggle: boolean;
+  handleModalButtonClick: ModalButtonClickType | null;
+}
+
+export default function CardList({
+  itemList,
+  toggle,
+  handleModalButtonClick,
+}: Props) {
   return (
     <ul className="card-list">
       {itemList

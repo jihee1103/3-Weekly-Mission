@@ -1,7 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function CtaButton({ CTAButtonStyle = CTAButton, children }) {
+interface Props {
+  CTAButtonStyle?: React.ComponentType<any>;
+  children: React.ReactNode;
+}
+
+export default function CtaButton({
+  CTAButtonStyle = CTAButton,
+  children,
+}: Props) {
   return (
     <CTAButtonStyle type="button">
       <ButtonText>{children}</ButtonText>
