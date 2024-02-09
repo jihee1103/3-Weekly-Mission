@@ -3,7 +3,7 @@ const calculateTime = (dateTimeString) => {
   const now = new Date();
 
   const timeDifferenceSeconds = Math.floor(
-    (now.getTime() - formattedDateTime.getTime()) / 1000,
+    (now.getTime() - formattedDateTime.getTime()) / 1000
   );
   const timeDifferenceMinutes = Math.floor(timeDifferenceSeconds / 60);
   const timeDifferenceHours = Math.floor(timeDifferenceMinutes / 60);

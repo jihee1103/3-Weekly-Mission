@@ -14,10 +14,7 @@ const shareKakao = (links, title, url) => {
   Kakao.Share.sendDefault({
     objectType: 'list',
     headerTitle: title,
-    headerLink: {
-      mobileWebUrl: url,
-      webUrl: url,
-    },
+    headerLink: { mobileWebUrl: url, webUrl: url },
     contents: linkContent.slice(0, 3),
     buttons: [
       {
