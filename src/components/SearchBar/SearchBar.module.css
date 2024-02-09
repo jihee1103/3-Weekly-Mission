@@ -17,8 +17,14 @@
 }
 
 .searchIcon {
+  border: 0px;
   width: 16px;
   height: 16px;
+  background-image: url("/public/assets/search-icon.svg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  cursor: pointer;
 }
 
 .text {

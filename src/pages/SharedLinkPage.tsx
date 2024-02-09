@@ -7,7 +7,7 @@ function SharedLinkPage() {
     <>
       <Navbar />
       <Header></Header>
-      <SearchBar />
+      {/* <SearchBar  /> */}
     </>
   );
 }
