@@ -33,13 +33,9 @@ export default function FolderPage({ user }: Props) {
     setIsModalClicked(!isModalClicked);
   };
   const handleModalButtonClick = ({
-    event,
+    currentTarget,
     url,
-  }: {
-    event: React.MouseEvent;
-    url: string;
-  }) => {
-    const { currentTarget } = event;
+  }: React.MouseEvent<HTMLButtonElement> & { url: string }) => {
     const targetId: string = currentTarget.id;
     setModalId(targetId!);
     setModalUrl(url);

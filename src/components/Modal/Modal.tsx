@@ -5,6 +5,18 @@ import ModalShare from "./ModalShare/ModalShare";
 import ModalDelete from "./ModalDelete";
 import ModalForm from "./ModalForm";
 import ModalAddLink from "./ModalAddLink/ModalAddLink";
+import { VoidFunc } from "../../types/functionType";
+import { FolderData } from "../../types/dataTypes";
+import { NavbarUserInfo } from "../../types/userType";
+
+interface Props {
+  folderName: string;
+  modalId: string;
+  toggleModalClick?: VoidFunc;
+  modalUrl: string | null;
+  itemList: FolderData[];
+  user: NavbarUserInfo | undefined;
+}
 
 export default function Modal({
   folderName,
@@ -13,7 +25,7 @@ export default function Modal({
   modalUrl,
   itemList,
   user,
-}) {
+}: Props) {
   return (
     <ModalWrapper>
       <ModalContainer>
@@ -26,7 +38,13 @@ export default function Modal({
   );
 }
 
-const getModalContent = ({ modalId, folderName, modalUrl, itemList, user }) => {
+const getModalContent = ({
+  modalId,
+  folderName,
+  modalUrl,
+  itemList,
+  user,
+}: Props) => {
   switch (modalId) {
     case "addFolder":
       return (
@@ -47,7 +65,7 @@ const getModalContent = ({ modalId, folderName, modalUrl, itemList, user }) => {
     case "shareFolder":
       return (
         <ModalShare
-          userId={user.id}
+          userId={user?.id}
           folderName={folderName}
           itemList={itemList}
         />

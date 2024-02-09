@@ -13,8 +13,8 @@ export default function Kebab({ handleModalButtonClick, url }) {
     toggleClicked();
   };
 
-  const handleButtonClick = (event) => {
-    handleModalButtonClick({ event, url });
+  const handleButtonClick = ({ currentTarget }) => {
+    handleModalButtonClick({ currentTarget, url });
   };
 
   return (

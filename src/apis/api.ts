@@ -1,6 +1,8 @@
+import { StringUndefined } from "../types/types";
+
 const BASE_URL = "https://bootcamp-api.codeit.kr/api/";
 
-export async function fetchJson(url) {
+export async function fetchJson(url: string) {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error("데이터를 불러오는데 실패했습니다.");
@@ -22,24 +24,27 @@ export async function getShredCardList() {
   return response;
 }
 
-export async function getOwner(userId = "1") {
+export async function getOwner(userId: string = "1") {
   const url = `${BASE_URL}users/${userId}`;
   const response = await fetchJson(url);
   return response;
 }
 
-export async function getFolderList(userId = "1") {
+export async function getFolderList(userId: string = "1") {
   const url = `${BASE_URL}users/${userId}/folders`;
   const response = await fetchJson(url);
   return response;
 }
-export async function getLinkList(userId = "1") {
+export async function getLinkList(userId: string = "1") {
   const url = `${BASE_URL}users/${userId}/links`;
   const response = await fetchJson(url);
   return response;
 }
 
-export async function getFolderData(id, userId = "1") {
+export async function getFolderData(
+  id: StringUndefined | null,
+  userId: string = "1"
+) {
   const url = `${BASE_URL}users/${userId}/links?folderId=${id}`;
   const response = await fetchJson(url);
   return response;
