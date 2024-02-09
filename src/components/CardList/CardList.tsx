@@ -5,7 +5,7 @@ import { ALL_LINKS_ID } from "../Folder/constants";
 import styles from "./CardList.module.css";
 import OptionBox from "./OptionBox";
 import { useRecoilState } from "recoil";
-import { searchKeyword } from "../Content/Content";
+import { resetAtom, searchKeyword } from "../Content/Content";
 
 interface Props {
   folderData: string[];
@@ -15,6 +15,7 @@ interface Props {
 function CardList({ folderData, selectedFolderId, selectedFolderName }: Props) {
   const [cardList, setCardList] = useState<any[]>([]);
   const [keyword, setKeyword] = useRecoilState<string>(searchKeyword);
+  const [isReset, setIsReset] = useRecoilState<boolean>(resetAtom);
 
   useEffect(() => {
     const handleLoadCardList = async () => {
@@ -25,14 +26,14 @@ function CardList({ folderData, selectedFolderId, selectedFolderName }: Props) {
     };
 
     handleLoadCardList();
-  }, [selectedFolderId]);
+  }, [selectedFolderId, isReset]);
 
   useEffect(() => {
     const searchedCardList = cardList.filter((card) => {
       return (
-        card?.url?.includes(keyword) ||
-        card?.description?.includes(keyword) ||
-        card?.title?.includes(keyword)
+        card?.url?.toLowerCase().includes(keyword) ||
+        card?.description?.toLowerCase().includes(keyword) ||
+        card?.title?.toLowerCase().includes(keyword)
       );
     });
     // console.log("검색결과", searchedCardList);

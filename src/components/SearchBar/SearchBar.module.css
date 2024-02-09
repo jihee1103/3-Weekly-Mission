@@ -28,8 +28,9 @@
 }
 
 .text {
+  background: transparent;
   color: var(--Text, #666);
-  text-align: right;
+  text-align: left;
 
   font-size: 14px;
   font-style: normal;
