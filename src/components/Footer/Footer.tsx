@@ -1,4 +1,3 @@
-import React from "react";
 import imageData from "../../assets/imageData";
 import "./Footer.css";
 import { Link } from "react-router-dom";
