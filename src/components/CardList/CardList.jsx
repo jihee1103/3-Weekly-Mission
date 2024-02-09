@@ -2,11 +2,7 @@ import React from "react";
 import Card from "../Card/Card";
 import "./CardList.css";
 
-export default function CardList({
-  itemList,
-  toggle,
-  handleModalButtonClick = null,
-}) {
+export default function CardList({ itemList, toggle, handleModalButtonClick }) {
   return (
     <ul className="card-list">
       {itemList

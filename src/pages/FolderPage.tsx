@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import LinkSearchForm from "../components/LinkSearchForm/LinkSearchForm";
-import styled from "./FolderPage.module.css";
 import LinkAddForm from "../components/LinkAddForm/LinkAddForm";
 import { getFolderList, getLinkList } from "../apis/api";
 import FolderListButton from "../components/FolderListButton/FolderListButton";
@@ -10,27 +9,45 @@ import FolderNameLine from "../components/FolderNameLine/FolderNameLine";
 import FloatingActionButton from "../components/FloatingActionButton/FloatingActionButton";
 import NoLinkBlock from "../components/NoLinkBlock/NoLinkBlock";
 import Modal from "../components/Modal/Modal";
+import styled from "styled-components";
+import { NavbarUserInfo } from "./../types/userType";
+import { ApiFunc, VoidFunc } from "../types/functionType";
+import { CardItem, FolderData } from "../types/dataTypes";
 
-export default function FolderPage({ user }) {
-  const { data: cardListItem, fetchData: setCardListItem } =
+interface Props {
+  user: NavbarUserInfo | undefined;
+}
+
+export default function FolderPage({ user }: Props) {
+  const {
+    data: cardListItem,
+    fetchData: setCardListItem,
+  }: { data: CardItem[] | null; fetchData: ApiFunc } =
     useFetchData(getLinkList);
-  const { data: folderNameList } = useFetchData(getFolderList);
-  const [folderName, setFolderName] = useState("전체");
-  const [isModalClicked, setIsModalClicked] = useState(false);
-  const [modalId, setModalId] = useState("");
-  const [modalUrl, setModalUrl] = useState(null);
-  const toggleModalClick = () => {
+  const folderNameList: FolderData[] = useFetchData(getFolderList).data || [];
+  const [folderName, setFolderName] = useState<string>("전체");
+  const [isModalClicked, setIsModalClicked] = useState<boolean>(false);
+  const [modalId, setModalId] = useState<string>("");
+  const [modalUrl, setModalUrl] = useState<string | null>(null);
+  const toggleModalClick: VoidFunc = () => {
     setIsModalClicked(!isModalClicked);
   };
-  const handleModalButtonClick = ({ currentTarget, url }) => {
-    const targetId = currentTarget.id;
-    setModalId(targetId);
+  const handleModalButtonClick = ({
+    event,
+    url,
+  }: {
+    event: React.MouseEvent;
+    url: string;
+  }) => {
+    const { currentTarget } = event;
+    const targetId: string = currentTarget.id;
+    setModalId(targetId!);
     setModalUrl(url);
     toggleModalClick();
   };
 
   return (
-    <main className={styled.main}>
+    <Main>
       {isModalClicked && (
         <Modal
           user={user}
@@ -41,13 +58,13 @@ export default function FolderPage({ user }) {
           toggleModalClick={toggleModalClick}
         />
       )}
-      <section className={styled.header}>
+      <Header>
         <LinkAddForm />
-      </section>
-      <section className={styled.linkBoard}>
+      </Header>
+      <LinkBoard>
         <LinkSearchForm />
         {folderNameList ? (
-          <div className={styled.container}>
+          <Container>
             <FolderListButton
               handleModalButtonClick={handleModalButtonClick}
               itemList={folderNameList}
@@ -68,12 +85,45 @@ export default function FolderPage({ user }) {
             ) : (
               <NoLinkBlock />
             )}
-          </div>
+          </Container>
         ) : (
           <NoLinkBlock />
         )}
         <FloatingActionButton />
-      </section>
-    </main>
+      </LinkBoard>
+    </Main>
   );
 }
+
+const Main = styled.main`
+  position: relative;
+  z-index: 6;
+`;
+
+const Header = styled.section`
+  margin: 0 auto;
+  padding: 60px 0 90px;
+`;
+
+const LinkBoard = styled.section`
+  background-color: #fff;
+  padding: 40px 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+`;
+
+const Container = styled.div`
+  max-width: 106rem;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media screen and (max-width: 1124px) {
+    max-width: 70.4rem;
+  }
+  @media screen and (max-width: 756px) {
+    max-width: 32.5rem;
+  }
+`;

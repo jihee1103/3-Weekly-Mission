@@ -59,7 +59,11 @@ export default function SharedPage() {
       <div className="shared-card-board">
         <LinkSearchForm />
         {cardListItem ? (
-          <CardList itemList={cardListItem} toggle={false} />
+          <CardList
+            itemList={cardListItem}
+            toggle={false}
+            handleModalButtonClick={null}
+          />
         ) : null}
       </div>
     </main>
