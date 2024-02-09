@@ -1,8 +1,16 @@
 import styles from "./AddFolderButton.module.css";
 
-function AddFolderButton() {
+function AddFolderButton({ onModalClick }) {
+  const handleClick = (e) => {
+    const modalType = e.currentTarget.value;
+    onModalClick(modalType);
+  };
   return (
-    <button className={styles.addFolder}>
+    <button
+      className={styles.addFolder}
+      value={"ADD_FOLDER"}
+      onClick={handleClick}
+    >
       <svg
         width="16"
         height="17"

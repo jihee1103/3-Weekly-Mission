@@ -6,14 +6,14 @@ import FolderEditor from "./folderEditor/FolderEditor";
 import AddFolderButton from "./addFolderButton/AddFolderButton";
 import FloatingActionButton from "./addFolderButton/FloatingActionButton";
 
-function FolderMenu({ onClick }) {
+function FolderMenu({ onClick, onModalClick }) {
   const [folders, setFolders] = useState(null);
-  const [currentFolderName = "전체", setCurrentFolderName] = useState("전체");
+  const [currentFolderName, setCurrentFolderName] = useState("전체");
   const isEditable = currentFolderName !== "전체";
   const isMobile = window.innerWidth <= 767;
 
   const handleClick = (folder) => {
-    setCurrentFolderName(folder.name);
+    setCurrentFolderName(folder.name || "전체");
     return onClick(folder);
   };
 
@@ -40,14 +40,20 @@ function FolderMenu({ onClick }) {
           folders={folders}
         />
         {isMobile ? (
-          <FloatingActionButton className={styles.addFolderFAB} />
+          <FloatingActionButton
+            className={styles.addFolderFAB}
+            onModalClick={onModalClick}
+          />
         ) : (
-          <AddFolderButton className={styles.addFolder} />
+          <AddFolderButton
+            className={styles.addFolder}
+            onModalClick={onModalClick}
+          />
         )}
       </div>
       <div className={styles.folderOption}>
         <h2 className={styles.title}>{currentFolderName}</h2>
-        {isEditable && <FolderEditor className={styles.folderEditor} />}
+        {isEditable && <FolderEditor onModalClick={onModalClick} />}
       </div>
     </>
   );

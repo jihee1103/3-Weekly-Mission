@@ -1,9 +1,18 @@
 import classNames from "classnames";
 import styles from "./FloatingActionButton.module.css";
 
-function FloatingActionButton({ className }) {
+function FloatingActionButton({ className, onModalClick }) {
+  const handleClick = (e) => {
+    const modalType = e.currentTarget.value;
+    onModalClick(modalType);
+  };
+
   return (
-    <button className={classNames(styles.fab, className)}>
+    <button
+      className={classNames(styles.fab, className)}
+      value={"ADD_FOLDER"}
+      onClick={handleClick}
+    >
       <p className={styles.text}>폴더 추가</p>
       <svg
         className={styles.icon}
