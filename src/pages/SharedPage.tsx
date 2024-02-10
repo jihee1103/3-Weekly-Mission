@@ -15,13 +15,21 @@ import {
   OwnerData,
 } from "../types/dataTypes";
 import { VoidFunc } from "../types/functionType";
+import SearchResult from "../components/SearchResult/SearchResult";
 
 export default function SharedPage() {
   const [searchParams] = useSearchParams();
   const userId: UserId = searchParams.get("user");
   const folderId: StringUndefined | null = searchParams.get("folder");
-  const cardListItem: CardItem[] | null =
-    useFetchData(() => getFolderData(folderId, userId!)).data || null;
+  const {
+    data: cardListItem,
+    fetchData: setCardListItem,
+    setData: filterCardList,
+  }: {
+    data: CardItem[] | null;
+    fetchData: VoidFunc;
+    setData: React.Dispatch<React.SetStateAction<CardItem[] | null>>;
+  } = useFetchData(() => getFolderData(folderId, userId!));
   const folderData: FolderData[] | null =
     useFetchData(() => getFolderList(userId!)).data || [];
 
@@ -29,6 +37,8 @@ export default function SharedPage() {
     useFetchData(() => getOwner(userId!)).data || [];
   const [folderName, setFolderName] = useState<string>("");
   const [folderOwner, setFolderOwner] = useState<FolderOwnerData | null>(null);
+  const [searchName, setSearchName] = useState<string>("");
+  const [isSearch, setIsSearch] = useState<boolean>(false);
 
   const handleHeaderData: VoidFunc = () => {
     if (!folderData || !ownerData) {
@@ -57,7 +67,14 @@ export default function SharedPage() {
       ) : null}
 
       <div className="shared-card-board">
-        <LinkSearchForm />
+        <LinkSearchForm
+          searchName={searchName}
+          setSearchName={setSearchName}
+          filterCardList={filterCardList}
+          setIsSearch={setIsSearch}
+          setCardListItem={setCardListItem}
+        />
+        {isSearch ? <SearchResult searchName={searchName} /> : null}
         {cardListItem ? (
           <CardList
             itemList={cardListItem}

@@ -13,6 +13,7 @@ import styled from "styled-components";
 import { NavbarUserInfo } from "./../types/userType";
 import { ApiFunc, VoidFunc } from "../types/functionType";
 import { CardItem, FolderData } from "../types/dataTypes";
+import SearchResult from "../components/SearchResult/SearchResult";
 
 interface Props {
   user: NavbarUserInfo | undefined;
@@ -22,13 +23,19 @@ export default function FolderPage({ user }: Props) {
   const {
     data: cardListItem,
     fetchData: setCardListItem,
-  }: { data: CardItem[] | null; fetchData: ApiFunc } =
-    useFetchData(getLinkList);
+    setData: filterCardList,
+  }: {
+    data: CardItem[] | null;
+    fetchData: ApiFunc;
+    setData: React.Dispatch<React.SetStateAction<CardItem[] | null>>;
+  } = useFetchData(getLinkList);
   const folderNameList: FolderData[] = useFetchData(getFolderList).data || [];
   const [folderName, setFolderName] = useState<string>("전체");
   const [isModalClicked, setIsModalClicked] = useState<boolean>(false);
   const [modalId, setModalId] = useState<string>("");
   const [modalUrl, setModalUrl] = useState<string | null>(null);
+  const [searchName, setSearchName] = useState<string>("");
+  const [isSearch, setIsSearch] = useState<boolean>(false);
   const toggleModalClick: VoidFunc = () => {
     setIsModalClicked(!isModalClicked);
   };
@@ -58,7 +65,14 @@ export default function FolderPage({ user }: Props) {
         <LinkAddForm />
       </Header>
       <LinkBoard>
-        <LinkSearchForm />
+        <LinkSearchForm
+          searchName={searchName}
+          setSearchName={setSearchName}
+          filterCardList={filterCardList}
+          setIsSearch={setIsSearch}
+          setCardListItem={setCardListItem}
+        />
+        {isSearch ? <SearchResult searchName={searchName} /> : null}
         {folderNameList ? (
           <Container>
             <FolderListButton

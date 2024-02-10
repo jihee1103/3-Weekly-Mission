@@ -4,7 +4,7 @@ import camelcaseKeys from "camelcase-keys";
 import { ApiFunc } from "../types/functionType";
 
 export default function useFetchData(apiFunction: ApiFunc) {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
@@ -34,5 +34,5 @@ export default function useFetchData(apiFunction: ApiFunc) {
 
   useEffectOnce(fetchData);
 
-  return { data, error, isLoading, fetchData };
+  return { data, error, isLoading, fetchData, setData };
 }
