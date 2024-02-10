@@ -78,7 +78,7 @@ export async function getUserFolder() {
   return await response.json();
 }
 
-export async function getUserFolders(userId: number): Promise<UserFolder[]> {
+export async function getUserFolders(userId: number): Promise<any> {
   const response = await fetch(`${API_BASE_URL}/api/users/${userId}/folders`, {
     method: "GET",
     headers: {
@@ -86,6 +86,7 @@ export async function getUserFolders(userId: number): Promise<UserFolder[]> {
     },
   });
   const { data } = await response.json();
+
   return data;
 }
 

@@ -12,7 +12,7 @@ export default function FolderList({
     id: undefined,
     name: "전체",
   };
-  const [folderNames, setFolderNames] = useState<UserFolder[] | null>();
+  const [folderNames, setFolderNames] = useState<UserFolder[]>();
   const handleFolderClick = (folder: UserFolder | AllSee) => {
     onSelectFolder(folder);
   };
