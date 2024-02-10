@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export default function ChangeFolderName({ folderName }) {
+interface Props {
+  folderName: string;
+}
+
+export default function ChangeFolderName({ folderName }: Props) {
   return (
     <Wrapper>
       <Title>폴더 이름 변경</Title>

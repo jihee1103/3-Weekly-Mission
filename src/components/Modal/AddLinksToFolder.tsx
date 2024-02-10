@@ -1,14 +1,21 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import checkedIcon from '../../asset/check.svg';
+import { FolderList } from '../Folder/Folder';
+
+interface Props {
+  folderList: FolderList[];
+  addLinkUrl: string;
+  selectedLinkUrl: string;
+}
 
 export default function AddLinkToFolder({
   folderList,
   addLinkUrl,
   selectedLinkUrl,
-}) {
+}: Props) {
   const [selectedFolderId, setSelectedFolderId] = useState(0);
-  const handleFolderListClick = (id) => {
+  const handleFolderListClick = (id: number) => {
     setSelectedFolderId(id);
   };
 
@@ -28,7 +35,7 @@ export default function AddLinkToFolder({
             <FolderName $isSelected={item.id === selectedFolderId}>
               {item.name}
             </FolderName>
-            <FolderCount>{item.link.count}개 링크</FolderCount>
+            <FolderCount>{item.link?.count}개 링크</FolderCount>
             {item.id === selectedFolderId ? (
               <CheckedIcon src={checkedIcon} />
             ) : null}
@@ -38,6 +45,10 @@ export default function AddLinkToFolder({
       <AddLinkButton>추가하기</AddLinkButton>
     </Wrapper>
   );
+}
+
+interface FolderProps {
+  $isSelected: boolean;
 }
 
 const Wrapper = styled.div`
@@ -94,14 +105,14 @@ const AddLinkButton = styled.button`
   border: none;
   cursor: pointer;
 `;
-const FolderName = styled.span`
+const FolderName = styled.span<FolderProps>`
   line-height: 24px;
   color: ${(props) => (props.$isSelected ? '#6d6afe' : '#373740')};
 `;
 const FolderCount = styled.span`
   color: #9fa6b2;
 `;
-const FolderList = styled.div`
+const FolderList = styled.div<FolderProps>`
   display: flex;
   width: 264px;
   padding: 8px;

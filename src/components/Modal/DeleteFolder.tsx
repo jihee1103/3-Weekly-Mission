@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export default function DeleteFolder({ folderName }) {
+interface Props {
+  folderName: string;
+}
+
+export default function DeleteFolder({ folderName }: Props) {
   return (
     <Wrapper>
       <TitleContainer>

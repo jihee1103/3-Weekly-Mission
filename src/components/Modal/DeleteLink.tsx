@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export default function DeleteLink({ selectedLinkUrl }) {
+interface Props {
+  selectedLinkUrl: string;
+}
+
+export default function DeleteLink({ selectedLinkUrl }: Props) {
   return (
     <Wrapper>
       <TitleContainer>

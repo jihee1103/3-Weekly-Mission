@@ -6,15 +6,28 @@ import kakaoLogo from '../../asset/Kakao.svg';
 import linkLogo from '../../asset/link.svg';
 import shareKakao from '../../utils/shareKakao';
 import Error from '../Error/Error';
+import { Links } from '../Folder/Folder';
 
-export default function ShareFolder({ folderName, userId, folderId, links }) {
+interface Props {
+  folderName: string;
+  userId: number;
+  folderId: number;
+  links: Links[];
+}
+
+export default function ShareFolder({
+  folderName,
+  userId,
+  folderId,
+  links,
+}: Props) {
   const shareUrl = `https://${process.env.REACT_APP_HOST}/shared?user=${userId}&folder=${folderId}`;
 
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(shareUrl);
     } catch (error) {
-      return <Error errorMessage={error.message} />;
+      return <Error errorMessage={(error as Error).message} />;
     } finally {
       alert('링크가 복사되었습니다!');
     }

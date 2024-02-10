@@ -1,12 +1,20 @@
+import { MouseEvent } from 'react';
 import styled from 'styled-components';
+
+interface Props {
+  toggleModal: () => void;
+  updateModalName: (id: string) => void;
+  handleClickDeleteLink: (linkUrl: string) => void;
+  linkUrl: string;
+}
 
 export default function PopOverMenu({
   toggleModal,
   updateModalName,
   handleClickDeleteLink,
   linkUrl,
-}) {
-  const handleClickButton = (e) => {
+}: Props) {
+  const handleClickButton = (e: MouseEvent<HTMLDivElement>) => {
     toggleModal();
     updateModalName(e.currentTarget.id);
     handleClickDeleteLink(linkUrl);
