@@ -5,7 +5,7 @@ import FolderBody from './FolderBody';
 import useFolderLinks from '../../Hooks/useFolderLinks';
 import Modal from '../Modal/Modal';
 
-interface Links {
+export interface Links {
   createdAt: string;
   description: string;
   folderId: number;
@@ -18,7 +18,7 @@ interface Links {
 interface LinkCount {
   count: number;
 }
-interface FolderList {
+export interface FolderList {
   createdAt?: string;
   favorite?: boolean;
   id: number;

@@ -1,11 +1,24 @@
 import styled from 'styled-components';
 import closeButton from '../../asset/close.svg';
+import { FolderList, Links } from '../Folder/Folder';
 import AddFolder from './AddFolder';
+import AddLinksToFolder from './AddLinksToFolder';
 import ChangeFolderName from './ChangeFolderName';
 import DeleteFolder from './DeleteFolder';
 import DeleteLink from './DeleteLink';
 import ShareFolder from './ShareFolder';
-import AddLinksToFolder from './AddLinksToFolder';
+
+interface Props {
+  toggleModal: () => void;
+  modalName: string;
+  folderList: FolderList[];
+  addLinkUrl: string;
+  folderName: string;
+  selectedLinkUrl: string;
+  userId: number;
+  folderId: number;
+  links: Links[];
+}
 
 export default function Modal({
   toggleModal,
@@ -17,7 +30,7 @@ export default function Modal({
   userId,
   folderId,
   links,
-}) {
+}: Props) {
   const handleCloseButtonClick = () => {
     toggleModal();
   };
@@ -40,7 +53,6 @@ export default function Modal({
           folderName={folderName}
           userId={userId}
           folderId={folderId}
-          toggleModal={toggleModal}
           links={links}
         />
       );
