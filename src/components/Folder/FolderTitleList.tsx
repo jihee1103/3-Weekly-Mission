@@ -1,15 +1,24 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AddFolder from './AddFolder';
+import { FolderList } from './Folder';
 import FolderTitle from './FolderTitle';
 
+interface Props {
+  toggleModal: () => void;
+  updateModalName: (name: string) => void;
+  folderList: FolderList[];
+  folderId: number;
+  handleClickTitle: (item: FolderList) => void;
+}
+
 export default function FolderTitleList({
-  folderList,
-  folderId,
-  onClick,
   toggleModal,
   updateModalName,
-}) {
+  folderList,
+  folderId,
+  handleClickTitle,
+}: Props) {
   const allFolder = { id: 0, name: '전체' };
   const [isSelected, setIsSelected] = useState(false);
 
@@ -24,7 +33,7 @@ export default function FolderTitleList({
     <Wrapper>
       <FolderListContainer>
         <FolderItemAll
-          onClick={() => onClick(allFolder)}
+          onClick={() => handleClickTitle(allFolder)}
           $isSelected={isSelected}
         >
           전체
@@ -34,7 +43,7 @@ export default function FolderTitleList({
             key={item.id}
             item={item}
             folderId={folderId}
-            onClick={() => onClick(item)}
+            onClick={() => handleClickTitle(item)}
           />
         ))}
       </FolderListContainer>
@@ -46,6 +55,10 @@ export default function FolderTitleList({
       </AddFolderContainer>
     </Wrapper>
   );
+}
+
+interface FolderItemAllProps {
+  $isSelected: boolean;
 }
 
 const Wrapper = styled.div`
@@ -74,7 +87,7 @@ const FolderListContainer = styled.div`
   gap: 12px 8px;
   flex-wrap: wrap;
 `;
-const FolderItemAll = styled.div`
+const FolderItemAll = styled.div<FolderItemAllProps>`
   display: flex;
   align-items: center;
   justify-content: center;

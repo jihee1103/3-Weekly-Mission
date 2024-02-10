@@ -1,9 +1,15 @@
+import { MouseEvent } from 'react';
 import styled from 'styled-components';
 import addFolderIcon from '../../asset/addfolder.svg';
 import addFolderWhiteIcon from '../../asset/addfolderwhite.svg';
 
-export default function AddFolder({ toggleModal, updateModalName }) {
-  const handleAddFolderClick = (e) => {
+interface Props {
+  toggleModal: () => void;
+  updateModalName: (id: string) => void;
+}
+
+export default function AddFolder({ toggleModal, updateModalName }: Props) {
+  const handleAddFolderClick = (e: MouseEvent<HTMLDivElement>) => {
     toggleModal();
     updateModalName(e.currentTarget.id);
   };

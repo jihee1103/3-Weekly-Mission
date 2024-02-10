@@ -2,25 +2,26 @@ import styled from 'styled-components';
 import FolderCardHeader from './FolderCardHeader';
 import FolderCardList from './FolderCardList';
 import FolderTitleList from './FolderTitleList';
+import { Props } from './FolderBody';
 
 export default function FolderContent({
-  folderList,
-  links,
-  folderId,
-  onClick,
-  folderName,
   toggleModal,
   updateModalName,
+  links,
+  folderList,
+  folderId,
+  folderName,
+  handleClickTitle,
   handleClickDeleteLink,
-}) {
+}: Props) {
   return (
     <>
       <FolderTitleList
-        folderList={folderList}
-        folderId={folderId}
-        onClick={onClick}
         toggleModal={toggleModal}
         updateModalName={updateModalName}
+        folderList={folderList}
+        folderId={folderId}
+        handleClickTitle={handleClickTitle}
       />
       <FolderCardArea>
         <FolderCardHeader
