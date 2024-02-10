@@ -36,8 +36,15 @@ const FolderPage = ({ user, folderList }: FolderPageProps) => {
     if (buttonElement && buttonElement.textContent) {
       setKeyword(buttonElement.textContent);
       const folderId = Number(buttonElement.id);
-      const links = await getFolderLinks(folderId);
-      setLinks(links.data);
+      if (isNaN(folderId)) {
+        const links = await getTotalFolderLinks();
+        if (links.data) {
+          setLinks(links.data);
+        }
+      } else {
+        const links = await getFolderLinks(folderId);
+        setLinks(links.data);
+      }
     }
   };
 

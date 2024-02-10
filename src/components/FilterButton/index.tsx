@@ -6,7 +6,7 @@ interface FilterButtonProps {
   id?: number;
 }
 
-const FilterButton = ({ children, id = 0 }: FilterButtonProps) => {
+const FilterButton = ({ children, id }: FilterButtonProps) => {
   return (
     <div className="FilterButton" id={String(id)}>
       {children}
