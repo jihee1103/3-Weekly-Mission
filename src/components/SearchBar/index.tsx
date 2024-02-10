@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import search from "../../assets/search.svg";
+import clear from "../../assets/clear.svg";
 import "./style.css";
 import { getFolderLinks, getSampleFolder } from "../../api";
 import { Link, SampleFolderLink } from "../../types";
@@ -56,6 +57,10 @@ const SearchBar = ({ setFolderPageLinks, setSharedPageLinks, folderId }: SearchP
     }
   };
 
+  const handelInputClear = () => {
+    setValue("");
+  };
+
   return (
     <div className="SearchBar-box">
       <div className="SearchBar">
@@ -69,6 +74,7 @@ const SearchBar = ({ setFolderPageLinks, setSharedPageLinks, folderId }: SearchP
             placeholder="링크를 검색해 보세요"
           />
         </form>
+        {value && <img className="SearchBar-clear-icon" src={clear} onClick={handelInputClear} alt="검색 아이콘" />}
       </div>
       {isSearch && (
         <div className="SearchBar-result">

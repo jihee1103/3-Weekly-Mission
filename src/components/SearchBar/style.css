@@ -8,6 +8,7 @@ input::placeholder {
 }
 
 .SearchBar {
+  position: relative;
   display: flex;
   align-items: center;
   width: 106rem;
@@ -33,6 +34,14 @@ input::placeholder {
 
 .SearchBar-input:focus {
   outline: none;
+}
+
+.SearchBar-clear-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+  position: absolute;
+  right: 2rem;
 }
 
 .SearchBar-result {
