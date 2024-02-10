@@ -5,16 +5,16 @@ import { SampleFolderLink } from "../../types";
 import { MouseEvent } from "react";
 
 interface SharedLinksProps {
-  links: SampleFolderLink[];
+  sharedPageLinks: SampleFolderLink[];
   className?: string;
 }
 
-const SharedLinks = ({ links, className = "" }: SharedLinksProps) => {
+const SharedLinks = ({ sharedPageLinks, className = "" }: SharedLinksProps) => {
   const classNames = `SharedLinks ${className}`;
   return (
     <ul className={classNames}>
-      {links &&
-        links.map((link: SampleFolderLink) => (
+      {sharedPageLinks &&
+        sharedPageLinks.map((link: SampleFolderLink) => (
           <li key={link.id}>
             <SharedLinkCard link={link} />
           </li>

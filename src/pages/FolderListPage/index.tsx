@@ -6,7 +6,7 @@ import AddLinkBar from "../../components/AddLinkBar";
 import SearchBar from "../../components/SearchBar";
 import FilterButton from "../../components/FilterButton";
 import Folders from "../../components/FolderItem";
-import { getFolderLinks, getTotalFolderLinks } from "../../api";
+import { getFolderLinks } from "../../api";
 
 import addIcon from "../../assets/add.svg";
 import shareIcon from "../../assets/share.svg";
@@ -21,12 +21,13 @@ interface FolderPageProps {
 
 const FolderPage = ({ user, folderList }: FolderPageProps) => {
   const [keyword, setKeyword] = useState("전체");
-  const [links, setLinks] = useState<Link[]>([]);
+  const [folderPageLinks, setFolderPageLinks] = useState<Link[]>([]);
+  const [folderId, setFolderId] = useState(0);
 
   const handleLoad = async () => {
-    const links = await getTotalFolderLinks();
+    const links = await getFolderLinks();
     if (links.data) {
-      setLinks(links.data);
+      setFolderPageLinks(links.data);
     }
   };
 
@@ -36,15 +37,9 @@ const FolderPage = ({ user, folderList }: FolderPageProps) => {
     if (buttonElement && buttonElement.textContent) {
       setKeyword(buttonElement.textContent);
       const folderId = Number(buttonElement.id);
-      if (isNaN(folderId)) {
-        const links = await getTotalFolderLinks();
-        if (links.data) {
-          setLinks(links.data);
-        }
-      } else {
-        const links = await getFolderLinks(folderId);
-        setLinks(links.data);
-      }
+      setFolderId(folderId);
+      const links = await getFolderLinks(folderId);
+      setFolderPageLinks(links.data);
     }
   };
 
@@ -64,7 +59,7 @@ const FolderPage = ({ user, folderList }: FolderPageProps) => {
 
         <section className="FolderPage-section">
           <div className="SearchBar-wrapper">
-            <SearchBar />
+            <SearchBar folderId={folderId} setFolderPageLinks={setFolderPageLinks} />
           </div>
           <div className="FilterButton-container">
             <div className="FilterButton-wrapper">
@@ -106,9 +101,9 @@ const FolderPage = ({ user, folderList }: FolderPageProps) => {
           </div>
 
           <div className="FolderItem-wrapper">
-            {links.length && folderList?.length ? (
+            {folderPageLinks.length && folderList?.length ? (
               <div className="FolderItem-folder-links">
-                {links.map((link) => (
+                {folderPageLinks.map((link) => (
                   <Folders key={link.id} link={link} />
                 ))}
               </div>

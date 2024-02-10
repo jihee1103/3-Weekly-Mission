@@ -9,6 +9,15 @@ export interface Link {
   folder_id: string;
 }
 
+export interface SampleFolderLink {
+  id: number;
+  createdAt: Date;
+  url: string;
+  title: string;
+  description: string;
+  imageSource: string;
+}
+
 export interface User {
   id: number;
   created_at: Date;
@@ -27,15 +36,6 @@ export interface Folder {
   links: {
     count: number;
   };
-}
-
-export interface SampleFolderLink {
-  id: number;
-  createdAt: Date;
-  url: string;
-  title: string;
-  description: string;
-  imageSource: string;
 }
 
 interface Owner {

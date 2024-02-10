@@ -2,6 +2,7 @@ import "./style.css";
 import SharedLinks from "../../components/SharedLinks";
 import SearchBar from "../../components/SearchBar";
 import { SampleFolder } from "../../types";
+import { useState } from "react";
 
 interface SharedPageProps {
   folderObj: SampleFolder;
@@ -10,6 +11,7 @@ interface SharedPageProps {
 
 const SharedPage = ({ folderObj, loadingError }: SharedPageProps) => {
   const { owner, links, name } = folderObj;
+  const [sharedPageLinks, setSharedPageLinks] = useState(links);
 
   return (
     <>
@@ -22,9 +24,9 @@ const SharedPage = ({ folderObj, loadingError }: SharedPageProps) => {
         </section>
         <section className="folder-links">
           <div className="SearchBar-wrapper">
-            <SearchBar />
+            <SearchBar setSharedPageLinks={setSharedPageLinks} />
           </div>
-          <SharedLinks className="SharedPage-folder-links" links={links} />
+          <SharedLinks className="SharedPage-folder-links" sharedPageLinks={sharedPageLinks} />
         </section>
       </main>
     </>
