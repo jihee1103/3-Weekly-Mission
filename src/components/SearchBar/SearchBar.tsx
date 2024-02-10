@@ -1,20 +1,21 @@
 import styles from "./SearchBar.module.css";
 import { useRecoilState } from "recoil";
-import { resetAtom, searchKeyword } from "../Content/Content";
+import { searchKeyword } from "../Content/Content";
+import { useState } from "react";
 
 function SearchBar() {
   const [keyword, setKeyword] = useRecoilState<string>(searchKeyword);
-  const [isReset, setIsReset] = useRecoilState<boolean>(resetAtom);
+  const [inputValue, setInputValue] = useState<string>("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setKeyword(value);
-    setIsReset(false);
+    setKeyword(value.toLowerCase());
+    setInputValue(value);
   };
 
   const handleClickResetButton = (e: any) => {
     setKeyword("");
-    setIsReset(true);
+    setInputValue("");
   };
 
   return (
@@ -25,7 +26,7 @@ function SearchBar() {
         type="text"
         id="search"
         placeholder="링크를 검색해 보세요."
-        value={keyword}
+        value={inputValue}
         onChange={handleInputChange}
       ></input>
 

@@ -13,10 +13,6 @@ export const searchKeyword: RecoilState<string> = atom({
   key: "keyword",
   default: "",
 });
-export const resetAtom: RecoilState<boolean> = atom({
-  key: "resetAtom",
-  default: false,
-});
 
 function Content() {
   const [keyword, setKeyword] = useRecoilState<string>(searchKeyword);
