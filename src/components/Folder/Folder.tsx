@@ -5,6 +5,28 @@ import FolderBody from './FolderBody';
 import useFolderLinks from '../../Hooks/useFolderLinks';
 import Modal from '../Modal/Modal';
 
+interface Links {
+  createdAt: string;
+  description: string;
+  folderId: number;
+  id: number;
+  imageSource: string;
+  title: string;
+  updatedAt: string | null;
+  url: string;
+}
+interface LinkCount {
+  count: number;
+}
+interface FolderList {
+  createdAt?: string;
+  favorite?: boolean;
+  id: number;
+  link?: LinkCount;
+  name: string;
+  userId?: number;
+}
+
 export default function Folder() {
   const [addLinkUrl, setAddLinkUrl] = useState('');
   const [selectedLinkUrl, setSelectedLinkUrl] = useState('');
@@ -14,10 +36,10 @@ export default function Folder() {
   const [folderId, setFolderId] = useState(0);
   const [folderName, setFolderName] = useState('전체');
 
-  const links = useFolderLinks(`users/${userId}/links`, folderId);
-  const folderList = useFolderLinks(`users/${userId}/folders`);
+  const links: Links[] = useFolderLinks(`users/${userId}/links`, folderId);
+  const folderList: FolderList[] = useFolderLinks(`users/${userId}/folders`);
 
-  const handleClickDeleteLink = (url) => {
+  const handleClickDeleteLink = (url: string) => {
     setSelectedLinkUrl(url);
   };
 
@@ -25,17 +47,17 @@ export default function Folder() {
     setSelectedLinkUrl('');
   };
 
-  const updateAddLinkUrl = (url) => {
+  const updateAddLinkUrl = (url: string) => {
     setAddLinkUrl(url);
   };
 
-  const handleClickTitle = (item) => {
+  const handleClickTitle = (item: FolderList) => {
     setUserId(4); // test
     setFolderId(item.id);
     setFolderName(item.name);
   };
 
-  const updateModalName = (name) => {
+  const updateModalName = (name: string) => {
     setModalName(name);
   };
 
@@ -71,7 +93,6 @@ export default function Folder() {
         <AddLink
           toggleModal={toggleModal}
           updateModalName={updateModalName}
-          folderList={folderList}
           updateAddLinkUrl={updateAddLinkUrl}
           addLinkUrl={addLinkUrl}
           resetSelectedLinkUrl={resetSelectedLinkUrl}
@@ -79,12 +100,8 @@ export default function Folder() {
       </AddLinkArea>
       <FolderBodyArea>
         <FolderBody
-          isModalClicked={isModalClicked}
           toggleModal={toggleModal}
-          modalName={modalName}
           updateModalName={updateModalName}
-          setUserId={setUserId}
-          setFolderId={setFolderId}
           links={links}
           folderList={folderList}
           folderId={folderId}
