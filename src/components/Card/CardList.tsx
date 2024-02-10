@@ -1,12 +1,20 @@
 import styled from 'styled-components';
 import Card from './Card';
+import { Links } from '../Folder/Folder';
+
+interface Props {
+  links: Links[];
+  toggleModal: () => void;
+  updateModalName: (name: string) => void;
+  handleClickDeleteLink: (url: string) => void;
+}
 
 export default function CardList({
   links,
   toggleModal,
   updateModalName,
   handleClickDeleteLink,
-}) {
+}: Props) {
   return (
     <CardBox>
       {links.map((link) => (

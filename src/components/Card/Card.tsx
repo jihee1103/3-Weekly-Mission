@@ -1,18 +1,26 @@
-import { useEffect, useState } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import defaultImage from '../../asset/default-image.svg';
 import kebabIcon from '../../asset/kebab.svg';
 import starIcon from '../../asset/star.svg';
 import calculateTime from '../../utils/calculateTime';
+import { Links } from '../Folder/Folder';
 import PopOverMenu from '../Modal/PopOverMenu';
+
+interface Props {
+  link: Links;
+  toggleModal: () => void;
+  updateModalName: (name: string) => void;
+  handleClickDeleteLink: (url: string) => void;
+}
 
 export default function Card({
   link,
   toggleModal,
   updateModalName,
   handleClickDeleteLink,
-}) {
+}: Props) {
   const [formattedCreatedAt, setFormattedCreatedAt] = useState('');
   const [elapsedTime, setElapsedTime] = useState('');
   const [cardImgUrl, setCardImgUrl] = useState('');
@@ -23,7 +31,7 @@ export default function Card({
     setIsKebabClicked(!isKebabClicked);
   };
 
-  const updateFormattedCreatedAt = (dateTimeString) => {
+  const updateFormattedCreatedAt = (dateTimeString: string) => {
     const formattedDateTime = new Date(dateTimeString);
 
     const year = formattedDateTime.getFullYear();
@@ -42,8 +50,9 @@ export default function Card({
     updateFormattedCreatedAt(link.createdAt);
   }, [link]);
 
-  const handleImageError = (e) => {
-    e.target.src = defaultImage;
+  const handleImageError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+    const imgElement = e.currentTarget as HTMLImageElement;
+    imgElement.src = defaultImage;
   };
   return (
     <CardContainer>
