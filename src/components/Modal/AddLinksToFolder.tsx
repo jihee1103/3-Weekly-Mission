@@ -27,7 +27,7 @@ export default function AddLinkToFolder({
       </TitleContainer>
       <FolderListContainer>
         {folderList.map((item) => (
-          <FolderList
+          <FolderListItem
             key={item.id}
             onClick={() => handleFolderListClick(item.id)}
             $isSelected={item.id === selectedFolderId}
@@ -39,7 +39,7 @@ export default function AddLinkToFolder({
             {item.id === selectedFolderId ? (
               <CheckedIcon src={checkedIcon} />
             ) : null}
-          </FolderList>
+          </FolderListItem>
         ))}
       </FolderListContainer>
       <AddLinkButton>추가하기</AddLinkButton>
@@ -112,7 +112,7 @@ const FolderName = styled.span<FolderProps>`
 const FolderCount = styled.span`
   color: #9fa6b2;
 `;
-const FolderList = styled.div<FolderProps>`
+const FolderListItem = styled.div<FolderProps>`
   display: flex;
   width: 264px;
   padding: 8px;

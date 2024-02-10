@@ -10,9 +10,9 @@ import PopOverMenu from '../Modal/PopOverMenu';
 
 interface Props {
   link: Links;
-  toggleModal: () => void;
-  updateModalName: (name: string) => void;
-  handleClickDeleteLink: (url: string) => void;
+  toggleModal?: () => void;
+  updateModalName?: (name: string) => void;
+  handleClickDeleteLink?: (url: string) => void;
 }
 
 export default function Card({

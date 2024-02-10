@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 import SearchBar from '../SearchBar/SearchBar';
 import CardList from '../Card/CardList';
+import { Links } from '../Folder/Folder';
 
-export default function SharedBodyContents({ links }) {
+interface Props {
+  links: Links[];
+}
+
+export default function SharedBodyContents({ links }: Props) {
   return (
     <ContentsBox>
       <SearchBar />

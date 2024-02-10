@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import defaultImage from '../../asset/default-image.svg';
 import { BASE_API_HOST } from '../../constants/api';
 import getFetchRequest from '../../utils/getFetchRequest';
 import Loading from '../Loading/Loading';
@@ -21,8 +22,8 @@ export default function SharedInfo() {
         setOwner(result.folder.owner.name);
         setFolderName(result.folder.name);
         setCondition('getInfoSuccess');
-      } catch (e) {
-        setErrorMessage(e.message);
+      } catch (error) {
+        setErrorMessage((error as Error).message);
         setCondition('error');
       }
     };
@@ -37,7 +38,7 @@ export default function SharedInfo() {
           getInfoSuccess: (
             <Container>
               <Owner>
-                <Avatar src={avatar} alt="유저 아바타 이미지" />
+                <Avatar src={avatar || defaultImage} alt="유저 아바타 이미지" />
                 <OwnerName>{owner}</OwnerName>
               </Owner>
               <FolderName className="shared-name">{folderName}</FolderName>

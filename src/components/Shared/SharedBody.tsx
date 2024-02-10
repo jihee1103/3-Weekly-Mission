@@ -18,8 +18,8 @@ export default function SharedBody() {
       try {
         const result = await getFetchRequest(BASE_API_HOST, API_FOLDER);
         setLink(result.folder.links);
-      } catch (e) {
-        setErrorMessage(e.message);
+      } catch (error) {
+        setErrorMessage((error as Error).message);
       } finally {
         setIsloading(false);
       }

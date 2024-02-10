@@ -4,9 +4,9 @@ import { Links } from '../Folder/Folder';
 
 interface Props {
   links: Links[];
-  toggleModal: () => void;
-  updateModalName: (name: string) => void;
-  handleClickDeleteLink: (url: string) => void;
+  toggleModal?: () => void;
+  updateModalName?: (name: string) => void;
+  handleClickDeleteLink?: (url: string) => void;
 }
 
 export default function CardList({
