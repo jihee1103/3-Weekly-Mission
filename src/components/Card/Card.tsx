@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import defaultImage from '../../asset/default-image.svg';
 import kebabIcon from '../../asset/kebab.svg';
 import starIcon from '../../asset/star.svg';
-import calculateTime from '../../utils/calculateTime';
 import { Links } from '../Folder/Folder';
 import PopOverMenu from '../Modal/PopOverMenu';
+import calculateTime from '../../utils/calculateTime';
 
 interface Props {
   link: Links;

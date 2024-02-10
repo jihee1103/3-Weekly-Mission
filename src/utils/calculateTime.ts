@@ -1,4 +1,4 @@
-const calculateTime = (dateTimeString) => {
+const calculateTime = (dateTimeString: string) => {
   const formattedDateTime = new Date(dateTimeString);
   const now = new Date();
 

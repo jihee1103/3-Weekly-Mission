@@ -1,4 +1,8 @@
-export default async function getFetchRequest(host, path, body, headers = {}) {
+export default async function getFetchRequest(
+  host: string,
+  path: string,
+  headers = {}
+) {
   const url = `https://${host}/${path}`;
 
   const options = {
@@ -7,7 +11,6 @@ export default async function getFetchRequest(host, path, body, headers = {}) {
       'Content-Type': 'application/json',
       ...headers,
     },
-    body: JSON.stringify(body),
   };
 
   const response = await fetch(url, options);

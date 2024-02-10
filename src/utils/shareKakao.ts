@@ -1,4 +1,6 @@
-const shareKakao = (links, title, url) => {
+import { Links } from '../components/Folder/Folder';
+
+const shareKakao = (links: Links[], title: string, url: string) => {
   const { Kakao } = window;
 
   const linkContent = links.map((item) => ({
