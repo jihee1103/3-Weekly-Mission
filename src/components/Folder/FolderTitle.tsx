@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { FolderList } from './Folder';
 
-export default function FolderTitle({ item, onClick, folderId }) {
+interface Props {
+  item: FolderList;
+  onClick: () => void;
+  folderId: number;
+}
+
+export default function FolderTitle({ item, onClick, folderId }: Props) {
   const [folderName, setFolderName] = useState('');
   const [isSelected, setIsSelected] = useState(false);
 
@@ -27,7 +34,11 @@ export default function FolderTitle({ item, onClick, folderId }) {
   );
 }
 
-const FolderItem = styled.div`
+interface FolderItemProps {
+  $isSelected: boolean;
+}
+
+const FolderItem = styled.div<FolderItemProps>`
   display: flex;
   align-items: center;
   justify-content: center;

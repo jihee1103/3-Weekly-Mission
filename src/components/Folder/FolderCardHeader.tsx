@@ -1,15 +1,23 @@
+import { MouseEvent } from 'react';
 import styled from 'styled-components';
 import deleteIcon from '../../asset/deleteIcon.svg';
 import editIcon from '../../asset/penIcon.svg';
 import shareIcon from '../../asset/shareIcon.svg';
+
+interface Props {
+  folderName: string;
+  folderId: number;
+  toggleModal: () => void;
+  updateModalName: (id: string) => void;
+}
 
 export default function FolderCardHeader({
   folderName,
   folderId,
   toggleModal,
   updateModalName,
-}) {
-  const handleButtonClick = (e) => {
+}: Props) {
+  const handleButtonClick = (e: MouseEvent<HTMLDivElement>) => {
     toggleModal();
     updateModalName(e.currentTarget.id);
   };
