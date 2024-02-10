@@ -9,8 +9,8 @@ import NavbarContent from './NavbarContent';
 export default function Navbar() {
   const location = useLocation();
   const isFolderPage = location.pathname === '/folder';
-  const [userEmail, setUserEmail] = useState(null);
-  const [userProfileImg, setUserProfileImg] = useState(null);
+  const [userEmail, setUserEmail] = useState('');
+  const [userProfileImg, setUserProfileImg] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,8 +22,8 @@ export default function Navbar() {
         const result = await getFetchRequest(BASE_API_HOST, `${API_USERS}/1`);
         setUserEmail(result.data[0].email);
         setUserProfileImg(result.data[0].image_source);
-      } catch (e) {
-        setErrorMessage(e.message);
+      } catch (error) {
+        setErrorMessage((error as Error).message);
       } finally {
         setIsLoading(false);
       }
@@ -48,7 +48,11 @@ export default function Navbar() {
   );
 }
 
-const NavHeader = styled.header`
+interface NavHeaderProps {
+  $isFolderPage: boolean;
+}
+
+const NavHeader = styled.header<NavHeaderProps>`
   position: sticky;
   top: 0;
   display: flex;

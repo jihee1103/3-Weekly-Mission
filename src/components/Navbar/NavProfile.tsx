@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-export default function NavProfile({ userEmail, userProfileImg }) {
+interface Props {
+  userEmail: string;
+  userProfileImg: string;
+}
+
+export default function NavProfile({ userEmail, userProfileImg }: Props) {
   return (
     <HeaderProfile>
       <HeaderProfileImg src={userProfileImg} alt="profile" />

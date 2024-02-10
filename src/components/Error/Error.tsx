@@ -1,5 +1,5 @@
 interface Props {
-  errorMessage: string;
+  errorMessage?: string;
 }
 
 export default function Error({ errorMessage }: Props) {

@@ -4,17 +4,24 @@ import Error from '../Error/Error';
 import Loading from '../Loading/Loading';
 import NavProfile from './NavProfile';
 
+interface Props {
+  userEmail: string;
+  userProfileImg: string;
+  isLoading: boolean;
+  errorMessage: string;
+}
+
 export default function NavbarContent({
   userEmail,
   userProfileImg,
   isLoading,
   errorMessage,
-}) {
+}: Props) {
   if (isLoading) {
     return <Loading />;
   }
   if (errorMessage) {
-    return <Error />;
+    return <Error errorMessage={errorMessage} />;
   }
   if (!userEmail) {
     return (
