@@ -17,36 +17,32 @@ function CardList({ searchTerm }) {
     return (
         <div className="cardlist">
             <div className="cards-container">
-                {filteredData.map(
-                    (
-                        cardData // filteredData 사용
-                    ) => (
-                        <a
-                            key={cardData.id}
-                            href={cardData.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="card"
-                        >
-                            <img
-                                src={
-                                    cardData.imageSource ||
-                                    "/images/noimageicon.png"
-                                }
-                                alt={cardData.title}
-                                className="cards-image"
-                            />
-                            <div className="text-container">
-                                {" "}
-                                <span>{cardData.timePassed}</span>
-                                <p>{cardData.description}</p>
-                                <p className="date-number">
-                                    {cardData.formattedDate}
-                                </p>
-                            </div>
-                        </a>
-                    )
-                )}
+                {filteredData.map((cardData) => (
+                    <a
+                        key={cardData.id}
+                        href={cardData.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="card"
+                    >
+                        <img
+                            src={
+                                cardData.imageSource ||
+                                "/images/noimageicon.png"
+                            }
+                            alt={cardData.title}
+                            className="cards-image"
+                        />
+                        <div className="text-container">
+                            {" "}
+                            <span>{cardData.timePassed}</span>
+                            <p>{cardData.description}</p>
+                            <p className="date-number">
+                                {cardData.formattedDate}
+                            </p>
+                        </div>
+                    </a>
+                ))}
             </div>
         </div>
     );
