@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import "../styles/SearchBar.css";
+
 function SearchBar({ setSearchTerm }) {
     const [inputValue, setInputValue] = useState("");
 
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
-        setSearchTerm(event.target.value);
     };
+
+    const handleSearchSubmit = (event) => {
+        event.preventDefault();
+        setSearchTerm(inputValue);
+    };
+
     const handleClearSearch = () => {
         setInputValue("");
         setSearchTerm("");
@@ -14,10 +20,7 @@ function SearchBar({ setSearchTerm }) {
 
     return (
         <div className="search-bar-box">
-            <form
-                className="search-bar"
-                onSubmit={(event) => event.preventDefault()}
-            >
+            <form className="search-bar" onSubmit={handleSearchSubmit}>
                 <img src="/images/Search.png" alt="Search" />
                 <input
                     type="text"
@@ -25,10 +28,14 @@ function SearchBar({ setSearchTerm }) {
                     value={inputValue}
                     onChange={handleInputChange}
                 />
+                <button type="submit" style={{ display: "none" }}>
+                    검색
+                </button>
                 <img
                     src="/images/close.svg"
                     alt="Close"
                     onClick={handleClearSearch}
+                    style={{ cursor: "pointer" }}
                 />
             </form>
         </div>

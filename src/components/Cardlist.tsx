@@ -2,11 +2,24 @@ import React from "react";
 import "../styles/Cardlist.css";
 import { useFetchCardsData } from "./hooks/useFetchCardsData";
 
-function CardList({ searchTerm }) {
+interface CardDataProps {
+    id: number;
+    url: string;
+    title: string;
+    description: string;
+    imageSource?: string;
+    timePassed: string;
+    formattedDate: string;
+}
+
+interface CardListProps {
+    searchTerm: string;
+}
+function CardList({ searchTerm }: CardListProps) {
     const data = useFetchCardsData();
 
     const filteredData = data.filter(
-        (cardData) =>
+        (cardData: CardDataProps) =>
             cardData.url.toLowerCase().includes(searchTerm.toLowerCase()) ||
             cardData.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
             cardData.description
@@ -16,8 +29,14 @@ function CardList({ searchTerm }) {
 
     return (
         <div className="cardlist">
+            {searchTerm && (
+                <div className="search-results-message">
+                    <div className="search-results-text">{searchTerm}</div>으로
+                    검색한 결과입니다
+                </div>
+            )}
             <div className="cards-container">
-                {filteredData.map((cardData) => (
+                {filteredData.map((cardData: CardDataProps) => (
                     <a
                         key={cardData.id}
                         href={cardData.url}
