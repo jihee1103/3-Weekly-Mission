@@ -1,57 +1,55 @@
 import styled from "styled-components";
-import useModals from "../../hooks/useModals";
-import Modals from "./Modals";
-export default function LinkSearchInput() {
-  const { openModal, closeModal, modal } = useModals();
-  const handleOpenMoldalAddToFolder = () => {
-    openModal({ type: "addToFolder", props: null });
+import { LinkSearchInputProps } from "../../types";
+
+export default function LinkSearchInput({
+  setSearchTerm,
+  searchTerm,
+}: LinkSearchInputProps) {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
   };
+  const clearSearchTerm = () => {
+    setSearchTerm("");
+  };
+
   return (
-    <>
-      <HeaderContent>
-        <label className="link-search-box">
-          <img src="/imgs/link.png" className="link-img" alt="링크추가하기" />
-          <input
-            className="link-search-input"
-            placeholder="링크를 추가해 보세요"
-          ></input>
-          <img
-            onClick={handleOpenMoldalAddToFolder}
-            src="/imgs/추가하기버튼.png"
-            className="link-button-img"
-            alt="링크추가 버튼"
-          />
-        </label>
-      </HeaderContent>
-      <Modals modal={modal} closeModal={closeModal} />
-    </>
+    <StyledLabel>
+      <img src="/imgs/Search.png" alt="링크검색버튼" />
+      <input
+        type="text"
+        value={searchTerm}
+        onChange={handleInputChange}
+        placeholder="링크를 검색해 보세요"
+      ></input>
+      {searchTerm && (
+        <button className="clear-button" onClick={clearSearchTerm}>
+          <img src="/imgs/close-icon.svg" alt="Clear search" />
+        </button>
+      )}
+    </StyledLabel>
   );
 }
 
-const HeaderContent = styled.div`
+const StyledLabel = styled.label`
+  border: none;
+  border-radius: 1rem;
+  background: #f5f5f5;
   display: flex;
-  margin: 153px auto 90px;
-  max-width: 865px;
-  width: 100%;
-  padding: 0 32.5px;
+  padding: 15px 16px;
+  height: 54px;
+  align-items: center;
 
-  .link-search-box {
-    width: 100%;
-    display: flex;
-    padding: 16px 20px;
-    align-items: center;
-    border-radius: 15px;
-    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-    background: var(--Linkbrary-white, #fff);
-    justify-content: space-between;
+  img {
+    width: 16px;
+    height: 16px;
   }
 
-  .link-search-input {
+  input {
     outline: none;
+    margin-left: 10px;
+    height: 100%;
     width: 100%;
     border: none;
-  }
-  .link-button-img {
-    cursor: pointer;
+    background: #f5f5f5;
   }
 `;

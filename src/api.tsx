@@ -49,11 +49,11 @@ export interface UserLink {
   id: string;
   created_at: string;
   url: string;
-  updated_at?: string;
-  title?: string;
-  description?: string;
+  updated_at: string;
+  title: string;
+  description: string;
   image_source?: string;
-  folder_id?: number;
+  folder_id: number;
 }
 
 export async function getUserId(): Promise<SampleUser> {

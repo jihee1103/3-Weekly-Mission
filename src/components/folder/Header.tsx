@@ -1,6 +1,5 @@
-import React from "react";
 import Nav from "./Nav";
-import LinkSearchInput from "./LinkSearchInput";
+import LinkSearchInput from "./LinkAddInput";
 import styled from "styled-components";
 
 export default function Header() {

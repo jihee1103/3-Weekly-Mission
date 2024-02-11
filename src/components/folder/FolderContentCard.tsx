@@ -1,20 +1,8 @@
-import { useEffect, useState } from "react";
-import { UserLink, getUserLinks } from "../../api";
 import styled from "styled-components";
 import { FolderContentCardProps } from "../../types";
 import Card from "./Card";
 
-export default function FolderContentCard({
-  selectedFolder,
-}: FolderContentCardProps) {
-  const [items, setItems] = useState<UserLink[]>();
-  useEffect(() => {
-    async function handleload() {
-      const { id } = selectedFolder;
-      setItems(await getUserLinks(1, id));
-    }
-    handleload();
-  }, [selectedFolder]);
+export default function FolderContentCard({ items }: FolderContentCardProps) {
   return (
     <>
       <Cards>

@@ -22,18 +22,19 @@ export default function FolderList({
   };
   useEffect(() => {
     async function handleload() {
-      setFolderNames(await getUserFolders(1));
+      setFolderNames(await getUserFolders(4));
     }
     handleload();
   }, []);
-
   return (
     <>
       <FolderListBox>
         <ul className="folder-list">
           <li
             onClick={() => handleFolderClick(allSee)}
-            className={`folder ${selectedFolder ? "" : "folderSelected"}`}
+            className={`folder ${
+              selectedFolder.name === "전체" ? "folderSelected" : ""
+            }`}
           >
             <div>전체</div>
           </li>
