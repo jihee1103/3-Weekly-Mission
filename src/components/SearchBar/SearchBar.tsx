@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 import SearchIconImg from '../../asset/SearchIcon.svg';
+import DeleteIconImg from '../../asset/search-delete.svg';
 
 export default function SearchBar() {
   return (
     <Form>
       <InputWrapper htmlFor="searchValue">
-        <Icon src={SearchIconImg} alt="SearchIcon" />
+        <SearchIcon src={SearchIconImg} alt="SearchIcon" />
         <Input
           id="searchValue"
           type="text"
           placeholder="링크를 검색해 보세요."
         />
+        <DeleteIcon src={DeleteIconImg} alt="DeleteIcon" />
       </InputWrapper>
     </Form>
   );
@@ -46,7 +48,7 @@ const InputWrapper = styled.label`
     }
   }
 `;
-const Icon = styled.img`
+const SearchIcon = styled.img`
   width: 16px;
   height: 16px;
   margin-right: 10px;
@@ -65,4 +67,9 @@ const Input = styled.input`
       line-height: normal;
     }
   }
+`;
+const DeleteIcon = styled.img`
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 `;
