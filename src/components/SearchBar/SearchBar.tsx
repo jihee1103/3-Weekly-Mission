@@ -15,6 +15,9 @@ export default function SearchBar({
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     updateSearchInputValue(e.target.value);
   };
+  const handleClickDeleteIcon = () => {
+    updateSearchInputValue('');
+  };
   return (
     <Form>
       <InputWrapper htmlFor="searchValue">
@@ -26,7 +29,11 @@ export default function SearchBar({
           value={searchInputValue}
           onChange={onChange}
         />
-        <DeleteIcon src={DeleteIconImg} alt="DeleteIcon" />
+        <DeleteIcon
+          src={DeleteIconImg}
+          alt="DeleteIcon"
+          onClick={handleClickDeleteIcon}
+        />
       </InputWrapper>
     </Form>
   );
