@@ -1,5 +1,12 @@
+import AddFolderButton from "../components/AddFolderButton";
 import AddLinkBar from "../components/AddLinkBar";
+import FolderContentsList from "../components/FolderContentsList";
+import FolderFunctionButtons from "../components/FolderFunctionButtons";
+import FolderNameButton from "../components/FolderNameButton";
+import FolderTitle from "../components/FolderTitle";
+import Footer from "../components/Footer";
 import HeaderNavigation from "../components/HeaderNavigation";
+import SearchLinkBar from "../components/SearchLinkBar";
 
 const FolderPage = () => {
   return (
@@ -9,17 +16,22 @@ const FolderPage = () => {
         <AddLinkBar />
       </header>
       <main>
-        <section>링크 검색 인풋</section>
-        <nav>폴더이름 버튼 섹션</nav>
         <section>
-          <div>
-            <h1>폴더 제목</h1>
-            <div>기능아이콘</div>
-          </div>
-          <article>컨텐츠 리스트</article>
+          <SearchLinkBar />
         </section>
+        <section>
+          <FolderNameButton />
+          <AddFolderButton />
+        </section>
+        <article>
+          <header>
+            <FolderTitle />
+            <FolderFunctionButtons />
+          </header>
+          <FolderContentsList />
+        </article>
       </main>
-      <footer>푸터</footer>
+      <Footer />
     </>
   );
 };
