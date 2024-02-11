@@ -4,11 +4,10 @@ import { getUserFolders } from "../../api";
 import { copyToClipboard } from "../common/Utils";
 
 export const AddToFolderModal = ({ closeModal }) => {
-  const [FolderList, setFolderList] = useState([]);
+  const [FolderList, setFolderList] = useState();
   useEffect(() => {
     async function handleload() {
-      const { data } = await getUserFolders(1);
-      setFolderList(data);
+      setFolderList(await getUserFolders(4));
     }
     handleload();
   }, []);
@@ -25,7 +24,7 @@ export const AddToFolderModal = ({ closeModal }) => {
         <div className="modal-title-subtitle">링크 주소</div>
       </div>
       <ul className="addToFolderModal-folderList">
-        {FolderList.map((folder) => {
+        {FolderList?.map((folder) => {
           return (
             <li className="addToFolderModal-folderName-box" key={folder.id}>
               <div className="addToFolderModal-folderName">{folder.name}</div>
