@@ -8,14 +8,18 @@ import CardList from '../components/Contents/CardList/CardList';
 import FolderCollection from '../components/Contents/FolderCollection/FolderCollection';
 
 import Modal from '../components/Modal/Modal';
-import { useFolder, useModal } from './useFolderPage.hook';
+import { useFolder, useFolderPageLogin, useModal } from './FolderPage.hook';
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Header/Header';
 
-const FolderPage = ({ userData }) => {
+const FolderPage = () => {
   const { modal, setModal, showModal, closeModal } = useModal();
   const { folderData, folderCardData, handleOverviewCardButtonClick, handleFilteredCardButtonClick } = useFolder();
+  const { login, userData } = useFolderPageLogin();
 
   return (
     <FolderPageWrapper>
+      <Header login={login} userData={userData} />
       <Hero>
         <LinkCreator onUpdateButtonClick={showModal} />
       </Hero>
@@ -30,6 +34,7 @@ const FolderPage = ({ userData }) => {
         />
         <CardList cardData={folderCardData} onDeleteButtonClick={showModal} />
       </Contents>
+      <Footer />
       {modal.name ? <Modal modal={modal} setModal={setModal} onCloseModalButtonClick={closeModal} /> : null}
     </FolderPageWrapper>
   );

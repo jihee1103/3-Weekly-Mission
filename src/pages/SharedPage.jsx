@@ -10,6 +10,9 @@ import CardList from '../components/Contents/CardList/CardList';
 
 import useGetFolderListData from '../hooks/useGetFolderListData';
 import useGetShareCardList from '../hooks/useGetShareCardList';
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Header/Header';
+import { useSharedPageLogin } from './SharedPage.hook';
 
 const SharedPage = () => {
   const { sharedUserId, sharedFolderId } = useGetsharePageIds();
@@ -18,9 +21,11 @@ const SharedPage = () => {
   const { folderListData } = useGetFolderListData(sharedUserId, sharedFolderId);
   const { sharePageFolderName } = useGetSharePageFolderName(folderListData, sharedFolderId);
   const { cardListData } = useGetShareCardList();
+  const { login, userData } = useSharedPageLogin();
 
   return (
     <>
+      <Header login={login} userData={userData} />
       <Hero>
         <ShareDescription sharePageData={sharePageData} sharePageFolderName={sharePageFolderName} />
       </Hero>
@@ -28,6 +33,7 @@ const SharedPage = () => {
         <Search />
         <CardList cardListData={cardListData} />
       </Contents>
+      <Footer />
     </>
   );
 };
