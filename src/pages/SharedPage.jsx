@@ -16,13 +16,10 @@ import {
 
 const SharedPage = () => {
   const { login, userData } = useSharedPageLogin();
-  const { sharedUserId, sharedFolderId } = useGetsharedPageIds();
   const { sharedPageInfo } = useGetSharedPageInfo();
-
-  // 쉐어 페이지 폴더 이름을 알아내기 위한 훅
+  const { sharedUserId, sharedFolderId } = useGetsharedPageIds();
   const { folderListData } = useGetFolderListData(sharedUserId, sharedFolderId);
   const { sharePageFolderName } = useGetSharePageFolderName(folderListData, sharedFolderId);
-
   const { cardListData } = useGetShareCardList();
 
   return (
