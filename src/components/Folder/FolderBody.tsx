@@ -3,6 +3,7 @@ import NoLinkCard from '../Card/NoLinkCard';
 import SearchBar from '../SearchBar/SearchBar';
 import { FolderList, Links } from './Folder';
 import FolderContent from './FolderContent';
+import SearchResult from '../SearchBar/SearchResult';
 
 export interface Props {
   toggleModal: () => void;
@@ -35,6 +36,9 @@ export default function FolderBody({
         searchInputValue={searchInputValue}
         updateSearchInputValue={updateSearchInputValue}
       />
+      {searchInputValue ? (
+        <SearchResult searchInputValue={searchInputValue} />
+      ) : null}
       {links.length === 0 && folderList.length === 0 ? (
         <NoLinkCard />
       ) : (
