@@ -68,11 +68,20 @@ const CardList = ({ cardList }) => {
                     window.open(item.url);
                   }}
                 >
-                  <img
-                    className="cardImg"
-                    src={item.image_source}
-                    alt="카드 이미지"
-                  ></img>
+                  {item.image_source ? (
+                    <img
+                      className="cardImg"
+                      src={item.image_source}
+                      alt="카드 이미지"
+                    ></img>
+                  ) : (
+                    <img
+                      className="cardImg"
+                      src={process.env.PUBLIC_URL + `/assets/default_img.png`}
+                      alt="카드 이미지"
+                    ></img>
+                  )}
+
                   <img
                     className="starButton"
                     src={process.env.PUBLIC_URL + `/assets/star.png`}
