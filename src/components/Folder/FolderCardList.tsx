@@ -6,6 +6,7 @@ interface Props {
   toggleModal: () => void;
   updateModalName: (name: string) => void;
   handleClickDeleteLink: (url: string) => void;
+  searchInputValue: string;
 }
 
 export default function FolderCardList({
@@ -13,6 +14,7 @@ export default function FolderCardList({
   toggleModal,
   updateModalName,
   handleClickDeleteLink,
+  searchInputValue,
 }: Props) {
   return (
     <CardList
@@ -20,6 +22,7 @@ export default function FolderCardList({
       toggleModal={toggleModal}
       updateModalName={updateModalName}
       handleClickDeleteLink={handleClickDeleteLink}
+      searchInputValue={searchInputValue}
     />
   );
 }

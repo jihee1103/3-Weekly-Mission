@@ -9,10 +9,15 @@ export default function SharedBody() {
   const API_FOLDER = 'sample/folder';
   const [links, setLink] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
-  const [isloading, setIsloading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchInputValue, setSearchInputValue] = useState('');
+
+  const updateSearchInputValue = (value: string) => {
+    setSearchInputValue(value);
+  };
 
   useEffect(() => {
-    setIsloading(true);
+    setIsLoading(true);
     setErrorMessage('');
     const getLinks = async () => {
       try {
@@ -21,17 +26,23 @@ export default function SharedBody() {
       } catch (error) {
         setErrorMessage((error as Error).message);
       } finally {
-        setIsloading(false);
+        setIsLoading(false);
       }
     };
     getLinks();
   }, []);
 
-  if (isloading) {
+  if (isLoading) {
     return <Loading />;
   }
   if (errorMessage) {
     return <Error errorMessage={errorMessage} />;
   }
-  return <SharedBodyContents links={links} />;
+  return (
+    <SharedBodyContents
+      links={links}
+      searchInputValue={searchInputValue}
+      updateSearchInputValue={updateSearchInputValue}
+    />
+  );
 }

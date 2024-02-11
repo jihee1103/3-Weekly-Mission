@@ -5,13 +5,22 @@ import { Links } from '../Folder/Folder';
 
 interface Props {
   links: Links[];
+  searchInputValue: string;
+  updateSearchInputValue: (value: string) => void;
 }
 
-export default function SharedBodyContents({ links }: Props) {
+export default function SharedBodyContents({
+  links,
+  searchInputValue,
+  updateSearchInputValue,
+}: Props) {
   return (
     <ContentsBox>
-      <SearchBar />
-      <CardList links={links} />
+      <SearchBar
+        searchInputValue={searchInputValue}
+        updateSearchInputValue={updateSearchInputValue}
+      />
+      <CardList links={links} searchInputValue={searchInputValue} />
     </ContentsBox>
   );
 }

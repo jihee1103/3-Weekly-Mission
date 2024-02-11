@@ -13,6 +13,8 @@ export interface Props {
   folderName: string;
   handleClickTitle: (item: FolderList) => void;
   handleClickDeleteLink: (url: string) => void;
+  searchInputValue: string;
+  updateSearchInputValue: (value: string) => void;
 }
 
 export default function FolderBody({
@@ -24,10 +26,15 @@ export default function FolderBody({
   folderName,
   handleClickTitle,
   handleClickDeleteLink,
+  searchInputValue,
+  updateSearchInputValue,
 }: Props) {
   return (
     <Wrapper>
-      <SearchBar />
+      <SearchBar
+        searchInputValue={searchInputValue}
+        updateSearchInputValue={updateSearchInputValue}
+      />
       {links.length === 0 && folderList.length === 0 ? (
         <NoLinkCard />
       ) : (
@@ -40,6 +47,7 @@ export default function FolderBody({
           folderName={folderName}
           handleClickTitle={handleClickTitle}
           handleClickDeleteLink={handleClickDeleteLink}
+          searchInputValue={searchInputValue}
         />
       )}
       {links.length === 0 && folderList.length !== 0 ? <NoLinkCard /> : null}

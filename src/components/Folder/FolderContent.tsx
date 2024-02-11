@@ -2,7 +2,19 @@ import styled from 'styled-components';
 import FolderCardHeader from './FolderCardHeader';
 import FolderCardList from './FolderCardList';
 import FolderTitleList from './FolderTitleList';
-import { Props } from './FolderBody';
+import { FolderList, Links } from './Folder';
+
+export interface Props {
+  toggleModal: () => void;
+  updateModalName: (name: string) => void;
+  links: Links[];
+  folderList: FolderList[];
+  folderId: number;
+  folderName: string;
+  handleClickTitle: (item: FolderList) => void;
+  handleClickDeleteLink: (url: string) => void;
+  searchInputValue: string;
+}
 
 export default function FolderContent({
   toggleModal,
@@ -13,6 +25,7 @@ export default function FolderContent({
   folderName,
   handleClickTitle,
   handleClickDeleteLink,
+  searchInputValue,
 }: Props) {
   return (
     <>
@@ -35,6 +48,7 @@ export default function FolderContent({
           toggleModal={toggleModal}
           updateModalName={updateModalName}
           handleClickDeleteLink={handleClickDeleteLink}
+          searchInputValue={searchInputValue}
         />
       </FolderCardArea>
     </>

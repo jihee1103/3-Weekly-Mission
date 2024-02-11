@@ -35,9 +35,14 @@ export default function Folder() {
   const [userId, setUserId] = useState(4);
   const [folderId, setFolderId] = useState(0);
   const [folderName, setFolderName] = useState('전체');
+  const [searchInputValue, setSearchInputValue] = useState('');
 
   const links: Links[] = useFolderLinks(`users/${userId}/links`, folderId);
   const folderList: FolderList[] = useFolderLinks(`users/${userId}/folders`);
+
+  const updateSearchInputValue = (value: string) => {
+    setSearchInputValue(value);
+  };
 
   const handleClickDeleteLink = (url: string) => {
     setSelectedLinkUrl(url);
@@ -108,6 +113,8 @@ export default function Folder() {
           folderName={folderName}
           handleClickTitle={handleClickTitle}
           handleClickDeleteLink={handleClickDeleteLink}
+          searchInputValue={searchInputValue}
+          updateSearchInputValue={updateSearchInputValue}
         />
       </FolderBodyArea>
     </>

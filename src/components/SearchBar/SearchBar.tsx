@@ -1,8 +1,20 @@
 import styled from 'styled-components';
 import SearchIconImg from '../../asset/SearchIcon.svg';
 import DeleteIconImg from '../../asset/search-delete.svg';
+import { ChangeEvent } from 'react';
 
-export default function SearchBar() {
+interface Props {
+  searchInputValue: string;
+  updateSearchInputValue: (value: string) => void;
+}
+
+export default function SearchBar({
+  searchInputValue,
+  updateSearchInputValue,
+}: Props) {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    updateSearchInputValue(e.target.value);
+  };
   return (
     <Form>
       <InputWrapper htmlFor="searchValue">
@@ -11,6 +23,8 @@ export default function SearchBar() {
           id="searchValue"
           type="text"
           placeholder="링크를 검색해 보세요."
+          value={searchInputValue}
+          onChange={onChange}
         />
         <DeleteIcon src={DeleteIconImg} alt="DeleteIcon" />
       </InputWrapper>
