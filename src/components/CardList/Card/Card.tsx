@@ -6,7 +6,7 @@ import { useState } from "react";
 
 interface Props {
   link: any;
-  folderData: any;
+  folderData: any[];
 }
 function Card({ link, folderData }: Props) {
   const [pop, setPop] = useState(false);

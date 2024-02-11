@@ -5,7 +5,11 @@ import App from "./App";
 import SharedLinkPage from "./pages/SharedLinkPage";
 import FolderPage from "./pages/FolderPage";
 import { RecoilRoot } from "recoil";
-
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 
 root.render(

@@ -1,14 +1,13 @@
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
-import { useUserData } from "../../hooks/useUserData";
+import { useEffect } from "react";
 import styles from "./ShareIconBox.module.css";
-const DEPLOYED_URL = `netify url`;
+const DEPLOYED_URL = `localhost:3000`;
+const { Kakao } = window;
 
-function ShareIconBox(folderId: any) {
-  const { userData } = useUserData();
-
-  const SHARE_URL_TEXT = `${DEPLOYED_URL}/shared?user=${userData.id}&folder=${folderId}`;
-  const location = useLocation();
+interface Props {
+  folderId: number;
+}
+function ShareIconBox({ folderId }: Props) {
+  const SHARE_URL_TEXT = `${DEPLOYED_URL}/shared?user=1&folder=${folderId}`;
 
   const handleCopyClipBoard = async (text: string) => {
     try {
@@ -19,29 +18,59 @@ function ShareIconBox(folderId: any) {
     }
   };
 
-  const handleFacebookClick = () => {};
+  const handleFacebookClick = () => {
+    const sharedLink = encodeURIComponent(DEPLOYED_URL);
+    window.open("http://www.facebook.com/sharer.php?u=" + sharedLink);
+  };
 
-  const handleKakaoClick = () => {};
+  const handleKakaoClick = () => {
+    Kakao.Share.sendDefault({
+      objectType: "feed",
+      content: {
+        title: "linkbrary",
+        description: "linkbrary",
+        imageUrl:
+          "https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg",
+        link: {
+          mobileWebUrl: DEPLOYED_URL,
+        },
+      },
+      buttons: [
+        {
+          title: "나도 테스트 하러가기",
+          link: {
+            mobileWebUrl: DEPLOYED_URL,
+          },
+        },
+      ],
+    });
+  };
+
+  useEffect(() => {
+    window.Kakao.cleanup();
+    window.Kakao.init(process.env.REACT_APP_JavaScript_KEY);
+  }, []);
 
   return (
     <div className={styles.iconBox}>
       <span className={styles.icon}>
-        <span className={styles.kakaoIcon}>
+        <span className={styles.kakaoIcon} onClick={() => handleKakaoClick()}>
           <img src="/assets/icon-kakao-fill.svg" alt="kakao" />
         </span>
         <span className={styles.iconText}>카카오톡</span>
       </span>
       <span className={styles.icon}>
-        <span className={styles.facebookIcon}>
+        <span
+          className={styles.facebookIcon}
+          onClick={() => handleFacebookClick()}
+        >
           <img src="/assets/icon-facebook-fill.svg" alt="facebook" />
         </span>
         <span className={styles.iconText}>페이스북</span>
       </span>
       <span
         className={styles.icon}
-        onClick={() =>
-          handleCopyClipBoard(`${DEPLOYED_URL}${location.pathname}`)
-        }
+        onClick={() => handleCopyClipBoard(SHARE_URL_TEXT)}
       >
         <span className={styles.linkIcon}>
           <img src="/assets/link-icon.svg" alt="share" />

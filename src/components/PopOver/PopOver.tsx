@@ -20,7 +20,6 @@ function PopOver({ folderData }: any) {
         <Modal
           setModal={setDeleteModal}
           title="링크 삭제"
-          // subtitle=""
           btnText="삭제하기"
           btnColor="red"
         />

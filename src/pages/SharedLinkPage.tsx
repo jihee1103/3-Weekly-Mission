@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar/Navbar";
 import Header from "../components/Header/Header";
-import SearchBar from "../components/SearchBar/SearchBar";
+// import SearchBar from "../components/SearchBar/SearchBar";
+import Footer from "../components/Footer/Footer";
 
 function SharedLinkPage() {
   return (
@@ -8,6 +9,7 @@ function SharedLinkPage() {
       <Navbar />
       <Header></Header>
       {/* <SearchBar  /> */}
+      <Footer></Footer>
     </>
   );
 }

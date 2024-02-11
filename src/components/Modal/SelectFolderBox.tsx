@@ -3,7 +3,7 @@ import SelectFolderItem from "./SelectFolderItem";
 import styles from "./SelectFolderBox.module.css";
 
 interface Props {
-  folderData: any;
+  folderData: any[];
 }
 
 function SelectFolderBox({ folderData }: Props) {

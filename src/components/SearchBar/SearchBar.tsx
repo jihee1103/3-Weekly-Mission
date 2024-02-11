@@ -13,7 +13,9 @@ function SearchBar() {
     setInputValue(value);
   };
 
-  const handleClickResetButton = (e: any) => {
+  const handleClickResetButton = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     setKeyword("");
     setInputValue("");
   };

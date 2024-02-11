@@ -26,6 +26,7 @@ function Modal({
   btnColor,
   folderData,
 }: Props) {
+  const folderId = 1;
   return (
     <div className={styles.modalBackground}>
       <div className={styles.modalContainer}>
@@ -42,7 +43,7 @@ function Modal({
         {/*folderData에서 해당 folderId만 뽑아서 보내야됨..*/}
         {isShare ? (
           /*수정해야됨*/
-          <ShareIconBox folderId />
+          <ShareIconBox folderId={folderId} />
         ) : (
           <button
             className={btnColor === "red" ? styles.deleteBtn : styles.submitBtn}
