@@ -1,18 +1,19 @@
 import Nav from "./Nav";
-import LinkSearchInput from "./LinkAddInput";
+import LinkAddInput from "./LinkAddInput";
 import styled from "styled-components";
 
 export default function Header() {
   return (
     <HeaderWrapper>
       <Nav />
-      <LinkSearchInput />
+      <LinkAddInput />
     </HeaderWrapper>
   );
 }
 
 const HeaderWrapper = styled.header`
   display: flex;
+  height: 374px;
   flex-direction: column;
   align-items: center;
   padding-bottom: 6rem;

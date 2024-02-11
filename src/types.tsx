@@ -1,3 +1,4 @@
+import { RefObject } from "react";
 import { UserFolder, UserLink } from "./api";
 
 export interface AllSee {

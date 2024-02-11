@@ -17,6 +17,7 @@ export default function FolderSection() {
   );
   const [items, setItems] = useState<UserLink[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
+
   useEffect(() => {
     async function handleload() {
       const { id } = selectedFolder;
@@ -38,6 +39,7 @@ export default function FolderSection() {
   const handleSelectFolder = (folder: UserFolder | AllSee) => {
     setSelectedFolder(folder);
   };
+
   return (
     <Section>
       <LinkSearchInput searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
