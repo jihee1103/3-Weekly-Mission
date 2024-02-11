@@ -1,4 +1,10 @@
-export const shareKakao = (url, folderName) => {
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+
+export const shareKakao = (url: string, folderName: string) => {
   if (!window.Kakao.isInitialized()) {
     const key = process.env.REACT_APP_API_KEY;
     window.Kakao.init(key);
