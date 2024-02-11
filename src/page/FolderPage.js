@@ -1,9 +1,12 @@
+import AddLinkBar from "../components/AddLinkBar";
+import HeaderNavigation from "../components/HeaderNavigation";
+
 const FolderPage = () => {
   return (
     <>
       <header>
-        <nav>로고, 프로필</nav>
-        <div>링크 추가 인풋</div>
+        <HeaderNavigation />
+        <AddLinkBar />
       </header>
       <main>
         <section>링크 검색 인풋</section>
