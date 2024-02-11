@@ -1,6 +1,9 @@
 .wrap {
+  display: flex;
+  justify-content: center;
   margin-top: 2rem;
   width: 100%;
+
   background: var(--linkbrary-white);
 
   @media (min-width: 768px) {
@@ -18,6 +21,7 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  max-width: 1060px;
   padding: 0 3.2rem;
   gap: 3.2rem;
 
@@ -27,6 +31,30 @@
 
   @media (min-width: 1200px) {
     padding: 0;
+  }
+}
+
+.searchText {
+  color: var(--linkbrary-gray-60);
+  font-size: 3.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.searchText span {
+  color: var(--linkbrary-gray-100);
+}
+
+.searchContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.8rem;
+
+  @media (min-width: 768px) {
+    gap: 2.4rem;
   }
 }
 

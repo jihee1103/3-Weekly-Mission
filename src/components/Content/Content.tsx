@@ -29,21 +29,26 @@ function Content() {
     <div className={styles.wrap}>
       <div className={styles.spacing}>
         <SearchBar />
-        <div>{keyword}(으)로 검색한 결과입니다.</div>
-        {!folderData ? (
-          <div className={styles.noLink}>저장된 링크가 없습니다.</div>
-        ) : (
-          <FolderList
+        <div className={styles.searchText}>
+          <span>{keyword}</span>(으)로 검색한 결과입니다.
+        </div>
+
+        <div className={styles.searchContent}>
+          {!folderData ? (
+            <div className={styles.noLink}>저장된 링크가 없습니다.</div>
+          ) : (
+            <FolderList
+              folderData={folderData}
+              onClick={handleFolderClick}
+              selectedFolderInfo={selectedFolderInfo}
+            />
+          )}
+          <CardList
             folderData={folderData}
-            onClick={handleFolderClick}
-            selectedFolderInfo={selectedFolderInfo}
-          />
-        )}
-        <CardList
-          folderData={folderData}
-          selectedFolderId={selectedFolderInfo[0]}
-          selectedFolderName={selectedFolderInfo[1]}
-        ></CardList>
+            selectedFolderId={selectedFolderInfo[0]}
+            selectedFolderName={selectedFolderInfo[1]}
+          ></CardList>
+        </div>
       </div>
     </div>
   );

@@ -20,20 +20,24 @@ function SearchBar() {
 
   return (
     <div className={styles.searchBar}>
-      <button type="button" className={styles.searchIcon} />
-      <input
-        className={styles.text}
-        type="text"
-        id="search"
-        placeholder="링크를 검색해 보세요."
-        value={inputValue}
-        onChange={handleInputChange}
-      ></input>
+      <span className={styles.searchBox}>
+        <img
+          src="/assets/search-icon.svg"
+          alt="search"
+          className={styles.searchIcon}
+        />
+        <input
+          className={styles.inputText}
+          type="text"
+          id="search"
+          placeholder="링크를 검색해 보세요."
+          value={inputValue}
+          onChange={handleInputChange}
+        ></input>
+      </span>
 
       {keyword?.length > 0 && (
-        <button className={styles.resetIcon} onClick={handleClickResetButton}>
-          x
-        </button>
+        <button className={styles.resetIcon} onClick={handleClickResetButton} />
       )}
     </div>
   );

@@ -27,7 +27,7 @@ function CardList({ folderData, selectedFolderId, selectedFolderName }: Props) {
   }, [selectedFolderId]);
 
   return (
-    <>
+    <div className={styles.cardListFrame}>
       <div className={styles.optionBar}>
         <span>{selectedFolderName}</span>
         {selectedFolderId === ALL_LINKS_ID || (
@@ -51,7 +51,7 @@ function CardList({ folderData, selectedFolderId, selectedFolderName }: Props) {
               <Card key={link.id} link={link} folderData={folderData}></Card>
             ))}
       </div>
-    </>
+    </div>
   );
 }
 export default CardList;
