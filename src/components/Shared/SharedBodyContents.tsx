@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import SearchBar from '../SearchBar/SearchBar';
 import CardList from '../Card/CardList';
 import { Links } from '../Folder/Folder';
+import SearchResult from '../SearchBar/SearchResult';
 
 interface Props {
   links: Links[];
@@ -20,6 +21,9 @@ export default function SharedBodyContents({
         searchInputValue={searchInputValue}
         updateSearchInputValue={updateSearchInputValue}
       />
+      {searchInputValue ? (
+        <SearchResult searchInputValue={searchInputValue} />
+      ) : null}
       <CardList links={links} searchInputValue={searchInputValue} />
     </ContentsBox>
   );
