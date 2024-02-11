@@ -54,19 +54,6 @@ const FolderPage = ({ userData }) => {
     }
   };
 
-  // 폴더 카드 정보를 가지고 있는 데이터
-  useEffect(() => {
-    try {
-      getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((FolderData) => {
-        setFolderCardData(() => {
-          return getFormattedCamelCaseData(FolderData.data);
-        });
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
-
   // 폴더 버튼들을 가지고 있는 데이터
   useEffect(() => {
     try {
