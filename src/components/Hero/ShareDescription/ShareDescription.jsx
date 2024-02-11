@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const ShareDescription = ({ sharePageData, sharePageFolderName }) => {
+const ShareDescription = ({ sharedPageData, sharePageFolderName }) => {
   return (
     <ShareDescriptionWrapper>
-      <img src={sharePageData.owner?.profileImageSource} alt="코드잇 마크" />
-      <span>{sharePageData.owner?.name}</span>
+      <img src={sharedPageData.owner?.profileImageSource} alt="코드잇 마크" />
+      <span>{sharedPageData.owner?.name}</span>
       <div>{sharePageFolderName}</div>
     </ShareDescriptionWrapper>
   );

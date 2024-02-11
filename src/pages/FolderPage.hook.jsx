@@ -23,6 +23,19 @@ export const useFolder = () => {
   const [folderCardData, setFolderCardData] = useState([]);
   const [folderData, setFolderData] = useState([]);
 
+  // 페이지 로드시 폴더 데이터 가지오기
+  useEffect(() => {
+    try {
+      getFetch('bootcamp-api.codeit.kr', 'api/users/1/folders').then((FolderData) => {
+        setFolderData(() => {
+          return getFormattedCamelCaseData(FolderData.data);
+        });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
   // 폴더의 전체 버튼을 클릭했을 때 가져올 데이터
   const handleOverviewCardButtonClick = () => {
     try {
@@ -48,21 +61,10 @@ export const useFolder = () => {
       console.error(error);
     }
   };
-
-  useEffect(() => {
-    try {
-      getFetch('bootcamp-api.codeit.kr', 'api/users/1/folders').then((FolderData) => {
-        setFolderData(() => {
-          return getFormattedCamelCaseData(FolderData.data);
-        });
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
   return { folderData, folderCardData, handleOverviewCardButtonClick, handleFilteredCardButtonClick };
 };
 
+// 폴더 페이지의 로그인 로직과 유저 데이터를 가져오는 훅
 export const useFolderPageLogin = () => {
   const [login, setLogin] = useState(false);
   const [userData, setUserData] = useState([]);
