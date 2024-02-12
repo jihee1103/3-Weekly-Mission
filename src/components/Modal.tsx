@@ -2,7 +2,19 @@ import "../styles/Modal.css";
 import { useState } from "react";
 import KakaoShareButton from "./api/KakaoShareButton";
 
-function Modal({ values, onClose, folderName, folders, userId }) {
+interface ModalProps {
+    values: {
+        visibility: boolean;
+        target?: string;
+        url?: string;
+    };
+    onClose: () => void;
+    folderName?: string;
+    folders?: Folder[];
+    userId?: string;
+}
+
+function Modal({ values, onClose, folderName, folders, userId }: ModalProps) {
     const [selectedFolderId, setSelectedFolderId] = useState(null);
     const closeModal = () => onClose(false);
     const { url } = values;

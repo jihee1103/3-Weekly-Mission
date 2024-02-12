@@ -2,10 +2,31 @@ import React, { useState } from "react";
 import "../styles/LinkCard.css";
 import KebabMenu from "./KebabMenu";
 
-function LinkCard({ link, setModalState, calculateTimePassed, formatDate }) {
+interface Link {
+    id: string;
+    url: string;
+    title: string;
+    description: string;
+    imageSource?: string;
+    created_at: string;
+}
+
+interface LinkCardProps {
+    link: Link;
+    setModalState: React.Dispatch<React.SetStateAction<any>>;
+    calculateTimePassed: (date: string) => string;
+    formatDate: (date: string) => string;
+}
+
+function LinkCard({
+    link,
+    setModalState,
+    calculateTimePassed,
+    formatDate,
+}: LinkCardProps) {
     const [kebabVisible, setKebabVisible] = useState(false);
 
-    const toggleKebab = (e) => {
+    const toggleKebab = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         e.stopPropagation();
         setKebabVisible(!kebabVisible);

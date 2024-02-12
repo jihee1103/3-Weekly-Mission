@@ -6,11 +6,32 @@ import { calculateTimePassed, formatDate } from "./utils";
 import useModal from "./hooks/useModal";
 import Modal from "./Modal";
 
-function FolderContent({ folders, links, onFolderClick }) {
-    const [modalState, setModalState, onHandleCancel] = useModal();
-    const [selectedFolderName, setSelectedFolderName] = useState("전체");
+interface Folder {
+    id: string;
+    name: string;
+}
 
-    const handleFolderClick = (folderId) => {
+interface Link {
+    id: string;
+    url: string;
+    title: string;
+    description: string;
+    imageSource?: string;
+    created_at: string;
+}
+
+interface FolderContentProps {
+    folders: Folder[];
+    links: Link[];
+    onFolderClick: (folderId: string) => void;
+}
+
+function FolderContent({ folders, links, onFolderClick }: FolderContentProps) {
+    const [modalState, setModalState, onHandleCancel] = useModal();
+    const [selectedFolderName, setSelectedFolderName] =
+        useState<string>("전체");
+
+    const handleFolderClick = (folderId: string) => {
         onFolderClick(folderId);
         const folderName =
             folderId === "all"
