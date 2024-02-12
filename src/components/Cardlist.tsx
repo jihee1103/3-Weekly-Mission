@@ -2,13 +2,41 @@ import React from "react";
 import "../styles/Cardlist.css";
 import { useFetchCardsData } from "./hooks/useFetchCardsData";
 
-function CardList() {
+interface CardDataProps {
+    id: number;
+    url: string;
+    title: string;
+    description: string;
+    imageSource?: string;
+    timePassed: string;
+    formattedDate: string;
+}
+
+interface CardListProps {
+    searchTerm: string;
+}
+function CardList({ searchTerm }: CardListProps) {
     const data = useFetchCardsData();
+
+    const filteredData = data.filter(
+        (cardData: CardDataProps) =>
+            cardData.url.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            cardData.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            cardData.description
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase())
+    );
 
     return (
         <div className="cardlist">
+            {searchTerm && (
+                <div className="search-results-message">
+                    <div className="search-results-text">{searchTerm}</div>으로
+                    검색한 결과입니다
+                </div>
+            )}
             <div className="cards-container">
-                {data.map((cardData) => (
+                {filteredData.map((cardData: CardDataProps) => (
                     <a
                         key={cardData.id}
                         href={cardData.url}
@@ -24,13 +52,14 @@ function CardList() {
                             alt={cardData.title}
                             className="cards-image"
                         />
-                        <p className="text-container">
+                        <div className="text-container">
+                            {" "}
                             <span>{cardData.timePassed}</span>
                             <p>{cardData.description}</p>
                             <p className="date-number">
                                 {cardData.formattedDate}
                             </p>
-                        </p>
+                        </div>
                     </a>
                 ))}
             </div>

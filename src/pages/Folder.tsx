@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FolderHeader from "../components/FolderHeader";
 import LinkForm from "../components/LinkForm";
 import SearchBar from "../components/SearchBar";
@@ -7,13 +7,15 @@ import Footer from "../components/Footer";
 import FloatingActionButton from "../components/FloatingActionButton";
 
 function Folder() {
+    const [searchTerm, setSearchTerm] = useState("");
+
     return (
         <div className="Folder">
             <FolderHeader />
             <LinkForm />
-            <SearchBar />
+            <SearchBar setSearchTerm={setSearchTerm} />
             <FloatingActionButton />
-            <FolderList />
+            <FolderList searchTerm={searchTerm} />
             <Footer />
         </div>
     );
