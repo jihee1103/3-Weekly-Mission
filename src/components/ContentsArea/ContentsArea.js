@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { SharedProvider } from "../../context/FolderNameContext";
 import { getAllCardData, getCardDataById, getFolderData } from "../../api/api";
 import EmptyArea from "../EmptyArea/EmptyArea";
+import SearchText from "../SearchText/SearchText";
 
 const ContentsArea = () => {
   const location = useLocation();
@@ -61,6 +62,8 @@ const ContentsArea = () => {
             inputText={inputText}
             deleteInput={deleteInput}
           ></SearchArea>
+          {inputText && <SearchText inputText={inputText}></SearchText>}
+
           <SharedProvider>
             <FolderListArea
               onFolderClick={handleFolderClick}
