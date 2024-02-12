@@ -12,7 +12,7 @@
   "overrides": [],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": "latest",
+    "ecmaVersion": 12,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -26,7 +26,7 @@
       }
     ],
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": 0,
+    "react/react-in-jsx-scope": "off",
     "react/prop-types": "off"
   },
   "ignorePatterns": ["*.config.js"]
