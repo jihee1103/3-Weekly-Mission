@@ -20,10 +20,10 @@ const FolderPage = () => {
         <section>
           <SearchLinkBar />
         </section>
-        <section>
+        <FolderAddSection>
           <FolderNameButton />
           <AddFolderButton />
-        </section>
+        </FolderAddSection>
         <article>
           <header>
             <FolderTitle />
@@ -44,4 +44,9 @@ const HeaderContainer = styled.header`
   padding-top: 32px;
 `;
 
-const SearchLinkBarContainer = styled.section``;
+const FolderAddSection = styled.section`
+  display: flex;
+  justify-content: space-between;
+  width: 1060px;
+  margin: 0 auto;
+`;
