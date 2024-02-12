@@ -9,7 +9,7 @@ export const CardList = ({ link }) => {
     <>
       <S.CardList>
         {link && link.length > 0 ? (
-          link.map(link => {
+          link?.map(link => {
             return (
               <Card
                 key={link.id}

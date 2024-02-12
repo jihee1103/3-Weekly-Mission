@@ -36,3 +36,15 @@ export const SearchIcon = styled.img`
     top: 56px;
   }
 `;
+
+export const SearchCancelIcon = styled.img`
+  position: absolute;
+  top: 55px;
+  right: 16px;
+  width: 24px;
+
+  @media (min-width: 375px) and (max-width: 767px) {
+    top: 57px;
+    width: 16px;
+  }
+`;

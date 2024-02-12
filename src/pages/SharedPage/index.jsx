@@ -1,7 +1,7 @@
 import useStickyState from '../../hooks/useStickyState';
 import { Header } from '../../components/Header/index';
 import { Favorites } from '../../components/Favorites/index';
-import { Search } from '../../components/SearchInput/index';
+import { SearchInput } from '../../components/SearchInput/index';
 import { SharedCardList } from '../../components/SharedCardList';
 import { Footer } from '../../components/Footer/index';
 
@@ -13,7 +13,7 @@ export const Shared = () => {
       <Header isSticky={!isSticky} setIsSticky={setIsSticky} />
       <Favorites />
       <div className="section">
-        <Search />
+        <SearchInput />
         <SharedCardList />
       </div>
       <Footer />
