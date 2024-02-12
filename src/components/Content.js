@@ -2,7 +2,6 @@ import penIcon from "../assets/pen.svg";
 import shareIcon from "../assets/share.svg";
 import deleteIcon from "../assets/delete.svg";
 import plusImg from "../assets/puls_img.svg";
-import useGetUserFolderAsync from "../hooks/useGetUserFolderAsync";
 import useGetFolderListAsync from "../hooks/useGetFolderListAsync";
 import Card from "./Card";
 import { useState } from "react";
@@ -10,14 +9,13 @@ import "./Content.css";
 import Modal from "./Modal";
 import useModal from "../hooks/useModal";
 
-export default function Content() {
+export default function Content({ datas }) {
   const [targetFolder, setTargetFolder] = useState({
     title: "전체",
     id: 0,
   });
-  
+
   const [modalState, setModalState, handleModalCancel] = useModal();
-  const datas = useGetUserFolderAsync();
   const folderList = useGetFolderListAsync();
 
   const handleClick = (title, id) => {
@@ -26,7 +24,6 @@ export default function Content() {
       id: id,
     });
   };
-
   const filteredDatas = datas?.filter(
     (data) => data.folder_id === targetFolder["id"] || targetFolder["id"] === 0
   );
@@ -67,7 +64,7 @@ export default function Content() {
           onClick={(e) =>
             setModalState({
               state: true,
-              target: e.target.innerText,
+              target: "폴더추가",
             })
           }
         >
@@ -82,10 +79,10 @@ export default function Content() {
           <div className="folder-edits">
             <button
               className="edit-function"
-              onClick={(e) =>
+              onClick={() =>
                 setModalState({
                   state: true,
-                  target: e.target.innerText,
+                  target: "공유",
                   folderName: targetFolder["title"],
                 })
               }
@@ -95,10 +92,10 @@ export default function Content() {
             </button>
             <button
               className="edit-function"
-              onClick={(e) =>
+              onClick={() =>
                 setModalState({
                   state: true,
-                  target: e.target.innerText,
+                  target: "이름 변경",
                   folderName: targetFolder["title"],
                 })
               }
@@ -108,10 +105,10 @@ export default function Content() {
             </button>
             <button
               className="edit-function"
-              onClick={(e) =>
+              onClick={() =>
                 setModalState({
                   state: true,
-                  target: e.target.innerText,
+                  target: "삭제",
                   folderName: targetFolder["title"],
                 })
               }
@@ -123,7 +120,7 @@ export default function Content() {
         )}
       </div>
 
-      {filteredDatas.length ? (
+      {filteredDatas?.length ? (
         <div className="card-container">
           {filteredDatas?.map((data) => (
             <Card key={data.id} data={data} />

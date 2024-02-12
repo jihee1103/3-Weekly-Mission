@@ -6,11 +6,11 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path="/shared" element={<Shared />} />
-      <Route path="/folder" element={<Folder />} />
-    </Routes>
-  </BrowserRouter>
+      <Routes>
+        <Route path="/shared" element={<Shared />} />
+        <Route path="/folder" element={<Folder />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
