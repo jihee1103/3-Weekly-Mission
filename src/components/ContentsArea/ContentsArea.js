@@ -22,6 +22,10 @@ const ContentsArea = () => {
     setInputText(e.target.value);
   };
 
+  const deleteInput = () => {
+    setInputText("");
+  };
+
   const handleFolderClick = async (itemId) => {
     const cardData = await getCardDataById(itemId);
     setCardData(cardData);
@@ -55,6 +59,7 @@ const ContentsArea = () => {
           <SearchArea
             handleInputText={handleInputText}
             inputText={inputText}
+            deleteInput={deleteInput}
           ></SearchArea>
           <SharedProvider>
             <FolderListArea

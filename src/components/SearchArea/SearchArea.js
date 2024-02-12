@@ -1,6 +1,6 @@
 import "./SearchArea.css";
 
-const SearchArea = ({ handleInputText, inputText }) => {
+const SearchArea = ({ handleInputText, inputText, deleteInput }) => {
   return (
     <div className="search">
       <input
@@ -19,6 +19,7 @@ const SearchArea = ({ handleInputText, inputText }) => {
           className="closeIcon"
           src={process.env.PUBLIC_URL + `/assets/input_close.png`}
           alt="삭제 아이콘"
+          onClick={deleteInput}
         />
       )}
     </div>
