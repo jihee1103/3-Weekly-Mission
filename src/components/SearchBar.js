@@ -9,8 +9,8 @@ export default function SearchBar({ handleInputChange }) {
   };
 
   const clear = () => {
-    inputRef.current.value = null;
-    handleInputChange(null);
+    inputRef.current.value = "";
+    handleInputChange("");
   };
   return (
     <>
