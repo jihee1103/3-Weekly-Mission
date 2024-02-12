@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import AddFolderButton from "../components/AddFolderButton";
 import AddLinkBar from "../components/AddLinkBar";
 import FolderContentsList from "../components/FolderContentsList";
@@ -11,10 +12,10 @@ import SearchLinkBar from "../components/SearchLinkBar";
 const FolderPage = () => {
   return (
     <>
-      <header>
+      <HeaderContainer>
         <HeaderNavigation />
         <AddLinkBar />
-      </header>
+      </HeaderContainer>
       <main>
         <section>
           <SearchLinkBar />
@@ -37,3 +38,10 @@ const FolderPage = () => {
 };
 
 export default FolderPage;
+
+const HeaderContainer = styled.header`
+  background-color: #f0f6ff;
+  padding-top: 32px;
+`;
+
+const SearchLinkBarContainer = styled.section``;
