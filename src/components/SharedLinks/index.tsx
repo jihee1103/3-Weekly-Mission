@@ -1,25 +1,37 @@
 import "./style.css";
 import { formatDate, afterTimeDate } from "../../utils";
 import noImage from "../../assets/no-image.png";
+import { SampleFolderLink } from "../../types";
+import { MouseEvent } from "react";
 
-const SharedLinks = ({ links, className = "" }) => {
+interface SharedLinksProps {
+  sharedPageLinks: SampleFolderLink[];
+  className?: string;
+}
+
+const SharedLinks = ({ sharedPageLinks, className = "" }: SharedLinksProps) => {
   const classNames = `SharedLinks ${className}`;
   return (
     <ul className={classNames}>
-      {links.map((link) => (
-        <li key={link.id}>
-          <SharedLinkCard link={link} />
-        </li>
-      ))}
+      {sharedPageLinks &&
+        sharedPageLinks.map((link: SampleFolderLink) => (
+          <li key={link.id}>
+            <SharedLinkCard link={link} />
+          </li>
+        ))}
     </ul>
   );
 };
 
-const SharedLinkCard = ({ link }) => {
+interface SharedLinkCardProps {
+  link: SampleFolderLink;
+}
+
+const SharedLinkCard = ({ link }: SharedLinkCardProps) => {
   const { createdAt, url, title, description, imageSource = noImage } = link;
 
-  const handleLinkClick = (event) => {
-    event.preventDefault();
+  const handleLinkClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
     window.open(url);
   };
 

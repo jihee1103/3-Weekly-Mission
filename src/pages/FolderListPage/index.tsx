@@ -1,34 +1,46 @@
 import "./style.css";
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import AddLinkBar from "../../components/AddLinkBar";
 import SearchBar from "../../components/SearchBar";
 import FilterButton from "../../components/FilterButton";
 import Folders from "../../components/FolderItem";
-import { getFolderLinks, getTotalFolderLinks } from "../../api";
+import { getFolderLinks } from "../../api";
 
 import addIcon from "../../assets/add.svg";
 import shareIcon from "../../assets/share.svg";
 import penIcon from "../../assets/pen.svg";
 import deleteIcon from "../../assets/delete.svg";
+import { Link, User, Folder } from "../../types";
 
-const FolderPage = ({ user, folderObj }) => {
+interface FolderPageProps {
+  user?: User;
+  folderList?: Folder[];
+}
+
+const FolderPage = ({ user, folderList }: FolderPageProps) => {
   const [keyword, setKeyword] = useState("전체");
-  const [links, setLinks] = useState([]);
+  const [folderPageLinks, setFolderPageLinks] = useState<Link[]>([]);
+  const [folderId, setFolderId] = useState(0);
 
   const handleLoad = async () => {
-    const links = await getTotalFolderLinks();
+    const links = await getFolderLinks();
     if (links.data) {
-      setLinks(links.data);
+      setFolderPageLinks(links.data);
     }
   };
 
-  const handleButtonClick = async (e) => {
-    setKeyword(e.target.textContent);
-    const folderId = e.target.id;
-    const links = await getFolderLinks(folderId);
-    setLinks(links.data);
+  const handleButtonClick = async (e: MouseEvent<HTMLLIElement>) => {
+    const buttonElement = e.target as HTMLLIElement;
+
+    if (buttonElement && buttonElement.textContent) {
+      setKeyword(buttonElement.textContent);
+      const folderId = Number(buttonElement.id);
+      setFolderId(folderId);
+      const links = await getFolderLinks(folderId);
+      setFolderPageLinks(links.data);
+    }
   };
 
   useEffect(() => {
@@ -47,15 +59,15 @@ const FolderPage = ({ user, folderObj }) => {
 
         <section className="FolderPage-section">
           <div className="SearchBar-wrapper">
-            <SearchBar />
+            <SearchBar folderId={folderId} setFolderPageLinks={setFolderPageLinks} />
           </div>
           <div className="FilterButton-container">
             <div className="FilterButton-wrapper">
               <li onClick={handleButtonClick}>
                 <FilterButton>전체</FilterButton>
               </li>
-              {folderObj.length &&
-                folderObj.map((folder) => (
+              {folderList?.length &&
+                folderList.map((folder) => (
                   <li key={folder.id} onClick={handleButtonClick}>
                     <FilterButton id={folder.id}>{folder.name}</FilterButton>
                   </li>
@@ -89,9 +101,9 @@ const FolderPage = ({ user, folderObj }) => {
           </div>
 
           <div className="FolderItem-wrapper">
-            {links.length && folderObj.length ? (
+            {folderPageLinks.length && folderList?.length ? (
               <div className="FolderItem-folder-links">
-                {links.map((link) => (
+                {folderPageLinks.map((link) => (
                   <Folders key={link.id} link={link} />
                 ))}
               </div>

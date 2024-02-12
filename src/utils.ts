@@ -1,12 +1,12 @@
-export const formatDate = (value) => {
+export const formatDate = (value: Date) => {
   const date = new Date(value);
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 };
 
-export const afterTimeDate = (value) => {
+export const afterTimeDate = (value: Date) => {
   const currentDate = new Date();
   const createdDate = new Date(value);
-  const diff = currentDate - createdDate;
+  const diff = currentDate.getTime() - createdDate.getTime();
   const SECOND = 1000;
   const MINUTE = SECOND * 60;
   const HOUR = MINUTE * 60;
@@ -14,12 +14,12 @@ export const afterTimeDate = (value) => {
   const MONTH = DAY * 30;
   const YEAR = 365 * DAY;
 
-  const diffSec = Math.floor(diff / 1000);
-  const diffMin = Math.floor(diff / (60 * 1000));
-  const diffHour = Math.floor(diff / (60 * 60 * 1000));
-  const diffDate = Math.floor(diff / (24 * 60 * 60 * 1000));
-  const diffMonth = Math.floor(diff / (30 * 24 * 60 * 60 * 1000));
-  const diffYear = Math.floor(diff / (365 * 24 * 60 * 60 * 1000));
+  const diffSec = Math.floor(diff / SECOND);
+  const diffMin = Math.floor(diff / MINUTE);
+  const diffHour = Math.floor(diff / HOUR);
+  const diffDate = Math.floor(diff / DAY);
+  const diffMonth = Math.floor(diff / MONTH);
+  const diffYear = Math.floor(diff / YEAR);
 
   if (diff < MINUTE) {
     return `${diffSec} second${diff < SECOND * 2 ? "" : "s"} ago`;
