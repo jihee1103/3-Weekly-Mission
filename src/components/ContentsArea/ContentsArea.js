@@ -66,7 +66,11 @@ const ContentsArea = () => {
               onFolderClick={handleFolderClick}
               onAllFolderClick={handleAllFolderClick}
             />
-            <CardContainer cardData={cardData} allCardData={allCardData} />
+            <CardContainer
+              cardData={cardData}
+              allCardData={allCardData}
+              inputText={inputText}
+            />
           </SharedProvider>
         </div>
       );
