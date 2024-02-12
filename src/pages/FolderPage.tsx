@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import Hero from '../components/Hero/Hero';
 import Contents from '../components/Contents/Contents';
-import LinkCreator from '../components/Hero/LinkCreator.jsx/LinkCreator';
+import LinkCreator from '../components/Hero/LinkCreator.tsx/LinkCreator';
 import Search from '../components/Contents/CardSearchBar/CardSearchBar';
 import CardList from '../components/Contents/CardList/CardList';
 import FolderCollection from '../components/Contents/FolderCollection/FolderCollection';

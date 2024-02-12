@@ -3,7 +3,18 @@ import styled from 'styled-components';
 import CardImg, { CardMainImg } from './CardImg/CardImg';
 import CardContent, { CardDescriptionWrapper } from './CardDescription/CardDescription';
 
-const CardList = ({ onDeleteButtonClick, cardListData }) => {
+interface CardListProps {
+  onDeleteButtonClick: () => void;
+  cardListData: {
+    id: number;
+    url: string;
+    title: string;
+    description: string;
+    image: string;
+  }[];
+}
+
+const CardList = ({ onDeleteButtonClick, cardListData }: CardListProps) => {
   return (
     <Container>
       {cardListData?.length !== 0 ? (
