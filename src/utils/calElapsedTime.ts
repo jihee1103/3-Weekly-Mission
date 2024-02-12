@@ -1,7 +1,9 @@
-export function calElapsedTime(createdAt) {
+export function calElapsedTime(createdAt: string) {
   const currentDate = new Date();
   const createdDate = new Date(createdAt);
-  const timeDiff = Math.floor((currentDate - createdDate) / (60 * 1000));
+  const timeDiff = Math.floor(
+    (currentDate.getTime() - createdDate.getTime()) / (60 * 1000)
+  );
   let elapsedTime = "";
 
   if (timeDiff < 2) {

@@ -1,4 +1,4 @@
-export function calDate(createdAt) {
+export function calDate(createdAt: string) {
   const date = new Date(createdAt);
   const year = date.getFullYear();
   const month = date.getMonth() + 1;

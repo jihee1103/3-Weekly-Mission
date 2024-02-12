@@ -18,7 +18,7 @@ export async function getFolderData() {
   return body;
 }
 
-export async function getLinkDataByFolderId(folderId) {
+export async function getLinkDataByFolderId(folderId: string | number) {
   const queryString = folderId === ALL_LINKS_ID ? "" : `?folderId=${folderId}`;
   const response = await fetch(`${BASE_URL}/users/1/links${queryString}`);
   if (!response.ok) {

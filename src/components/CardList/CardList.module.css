@@ -1,3 +1,11 @@
+.cardListFrame {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
 .cardList {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -21,11 +29,11 @@
 
 .optionBar {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
 
   color: #000;
-
   font-size: 24px;
   font-style: normal;
   font-weight: 600;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "../Modal/Modal";
 import styles from "./PopOver.module.css";
 
-function PopOver({ folderData }) {
+function PopOver({ folderData }: any) {
   const [deleteModal, setDeleteModal] = useState(false);
   const [addModal, setAddModal] = useState(false);
   return (
@@ -20,7 +20,6 @@ function PopOver({ folderData }) {
         <Modal
           setModal={setDeleteModal}
           title="링크 삭제"
-          subtitle=""
           btnText="삭제하기"
           btnColor="red"
         />
@@ -30,7 +29,7 @@ function PopOver({ folderData }) {
           setModal={setAddModal}
           title="폴더에 추가"
           subTitle="링크 주소"
-          isAddLink="true"
+          isAddLink
           btnText="추가하기"
           folderData={folderData}
         />

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { getFolderData } from "../apis/api";
 
 export function useFolderData() {
-  const [folderData, setFolderData] = useState(null);
-  const [loadingError, setLoadingError] = useState(null);
+  const [folderData, setFolderData] = useState<any>(null);
+  // const [loadingError, setLoadingError] = useState(null);
 
   useEffect(() => {
     //폴더 데이터 가져오기
@@ -11,9 +11,9 @@ export function useFolderData() {
       try {
         const { data } = await getFolderData();
         setFolderData(data);
-        setLoadingError(null);
+        // setLoadingError(null);
       } catch (e) {
-        setLoadingError(e);
+        console.error(e);
         return;
       } finally {
       }

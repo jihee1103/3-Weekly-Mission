@@ -1,18 +1,18 @@
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import FolderButton from "./FolderButton";
-import CardList from "../CardList/CardList";
+// import CardList from "../CardList/CardList";
 import { ALL_LINKS_ID, ALL_LINKS_NAME } from "./constants";
 
 import styles from "./FolderList.module.css";
 import FloatingButton from "../FloatingButton/FloatingButton";
 
-function FolderList({ folderData, folderInfo }) {
-  const [selectedFolderInfo, setSelectedFolderInfo] = useState([...folderInfo]);
+interface Props {
+  folderData: any[];
+  onClick: any;
+  selectedFolderInfo: string[];
+}
 
-  const handleFolderClick = (folderInfo) => {
-    setSelectedFolderInfo([...folderInfo]);
-  };
-
+function FolderList({ folderData, onClick, selectedFolderInfo }: Props) {
   return (
     <>
       <div className={styles.folderListBar}>
@@ -20,7 +20,7 @@ function FolderList({ folderData, folderInfo }) {
           <FolderButton
             key={ALL_LINKS_ID}
             name={ALL_LINKS_NAME}
-            onClick={() => handleFolderClick([ALL_LINKS_ID, ALL_LINKS_NAME])}
+            onClick={() => onClick([ALL_LINKS_ID, ALL_LINKS_NAME])}
             isSelected={ALL_LINKS_ID === selectedFolderInfo[0]}
           >
             전체
@@ -30,18 +30,13 @@ function FolderList({ folderData, folderInfo }) {
               <FolderButton
                 key={item.id}
                 name={item.name}
-                onClick={() => handleFolderClick([item.id, item.name])}
+                onClick={() => onClick([item.id, item.name])}
                 isSelected={item.id === selectedFolderInfo[0]}
               />
             ))}
         </div>
         <FloatingButton />
       </div>
-      <CardList
-        folderData={folderData}
-        selectedFolderId={selectedFolderInfo[0]}
-        selectedFolderName={selectedFolderInfo[1]}
-      ></CardList>
     </>
   );
 }

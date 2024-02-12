@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getLinkDataByFolderId } from "../apis/api";
 
-export function useLinkDataByFolderId(folderId) {
+export function useLinkDataByFolderId(folderId: string) {
   const [linkData, setLinkData] = useState(null);
-  const [loadingError, setLoadingError] = useState(null);
+  // const [loadingError, setLoadingError] = useState(null);
 
   //초기데이터 설정
   useEffect(() => {
@@ -12,9 +12,9 @@ export function useLinkDataByFolderId(folderId) {
       try {
         const { data } = await getLinkDataByFolderId(folderId);
         setLinkData(data);
-        setLoadingError(null);
+        // setLoadingError(null);
       } catch (e) {
-        setLoadingError(e);
+        console.error(e);
         return;
       } finally {
       }
@@ -25,5 +25,5 @@ export function useLinkDataByFolderId(folderId) {
     handleLoadFolder();
   }, []);
 
-  return { linkData, loadingError };
+  return { linkData };
 }
