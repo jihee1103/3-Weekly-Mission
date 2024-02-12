@@ -1,18 +1,9 @@
 /* eslint-disable */
 
 import { useEffect } from 'react';
-import styled from 'styled-components';
+import * as S from './style';
 
 const { Kakao } = window;
-
-const KakaoButton = styled.button`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.3rem;
-`;
 
 export const KakaoShareButton = () => {
   const realUrl = 'https://adorable-malasada-14962e.netlify.app';
@@ -20,7 +11,7 @@ export const KakaoShareButton = () => {
 
   useEffect(() => {
     Kakao.cleanup();
-    Kakao.init('bcab9a7d7bd8fdd7a93f0c3f30d70cb1');
+    Kakao.init(process.env.REACT_APP_KAKAO_API_KEY);
     console.log(Kakao.isInitialized());
   }, []);
 
@@ -48,14 +39,14 @@ export const KakaoShareButton = () => {
 
   return (
     <>
-      <KakaoButton
+      <S.KakaoButton
         onClick={() => {
           shareKakao();
         }}
       >
         <img src="/images/kakao.png" alt="카카오톡 아이콘" width="42" />
         카카오톡
-      </KakaoButton>
+      </S.KakaoButton>
     </>
   );
 };

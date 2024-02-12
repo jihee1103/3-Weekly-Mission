@@ -1,15 +1,6 @@
 /* eslint-disable */
 
-import styled from 'styled-components';
-
-const LinkCopyButton = styled.button`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.3rem;
-`;
+import * as S from './style';
 
 export const LinkShareButton = () => {
   const handleCopyClipBoard = async text => {
@@ -23,14 +14,14 @@ export const LinkShareButton = () => {
 
   return (
     <>
-      <LinkCopyButton
+      <S.LinkCopyButton
         onClick={() => {
           handleCopyClipBoard(location.href);
         }}
       >
         <img src="/images/link.png" alt="링크 복사 아이콘" width="42" />
         링크 복사
-      </LinkCopyButton>
+      </S.LinkCopyButton>
     </>
   );
 };

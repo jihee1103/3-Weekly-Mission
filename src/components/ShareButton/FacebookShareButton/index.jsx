@@ -1,15 +1,6 @@
 /* eslint-disable */
 
-import styled from 'styled-components';
-
-const FacebookButton = styled.button`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.3rem;
-`;
+import * as S from './style';
 
 export const FacebookShareButton = () => {
   const realUrl = 'https://adorable-malasada-14962e.netlify.app';
@@ -21,14 +12,14 @@ export const FacebookShareButton = () => {
 
   return (
     <>
-      <FacebookButton
+      <S.FacebookButton
         onClick={() => {
           shareFacebook();
         }}
       >
         <img src="/images/facebook.png" alt="페이스북 아이콘" width="42" />
         페이스북
-      </FacebookButton>
+      </S.FacebookButton>
     </>
   );
 };
