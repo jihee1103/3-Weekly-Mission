@@ -16,6 +16,11 @@ const ContentsArea = () => {
   const [sharedFolderData, setSharedFolderData] = useState({
     folder: { links: [{ id: "", createdAt: "", description: "", url: "" }] },
   });
+  const [inputText, setInputText] = useState();
+
+  const handleInputText = (e) => {
+    setInputText(e.target.value);
+  };
 
   const handleFolderClick = async (itemId) => {
     const cardData = await getCardDataById(itemId);
@@ -47,7 +52,10 @@ const ContentsArea = () => {
     case "/folder":
       return (
         <div className="contentsArea">
-          <SearchArea></SearchArea>
+          <SearchArea
+            handleInputText={handleInputText}
+            inputText={inputText}
+          ></SearchArea>
           <SharedProvider>
             <FolderListArea
               onFolderClick={handleFolderClick}

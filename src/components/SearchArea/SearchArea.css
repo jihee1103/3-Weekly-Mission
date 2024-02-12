@@ -15,4 +15,11 @@
   position: absolute;
   bottom: 19px;
   left: 16px;
+  cursor: pointer;
+}
+.closeIcon {
+  position: absolute;
+  bottom: 15px;
+  right: 16px;
+  cursor: pointer;
 }
