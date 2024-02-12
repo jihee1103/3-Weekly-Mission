@@ -42,7 +42,9 @@ export interface UserFolder {
   name: string;
   user_id: number;
   favorite: boolean;
-  link: string;
+  link: {
+    count: number;
+  };
 }
 
 export interface UserLink {
@@ -52,7 +54,7 @@ export interface UserLink {
   updated_at: string;
   title: string;
   description: string;
-  image_source?: string;
+  image_source: string;
   folder_id: number;
 }
 

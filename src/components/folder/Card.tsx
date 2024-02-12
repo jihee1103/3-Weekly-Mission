@@ -1,25 +1,29 @@
 import { useState } from "react";
-import useModals from "../../hooks/useModals";
 import { formatCreatedAt, getTimeDifference } from "../common/Utils";
-import Modals from "./Modals";
 import styled from "styled-components";
 import { CardProps } from "../../types";
 import { UserLink } from "../../api";
+import { AddToFolderModal, DeleteItemModal } from "./Modal";
 
 export default function Card({ item }: CardProps) {
   const [isPopoverVisible, setIsPopoverVisible] = useState(false);
+  const [selectedModal, setSelectedModal] = useState<string | null>(null);
+
+  const handleModalAddtoFolder = () => {
+    setSelectedModal("add");
+  };
+  const handleModalDeleteItem = (item: UserLink) => {
+    setSelectedModal("delete");
+  };
+  const closeModal = () => {
+    setSelectedModal(null);
+  };
+
   const openNewWindow = (url: string) => {
     window.open(url, "_blank");
   };
   const handlePopoverToggle = () => {
     setIsPopoverVisible(!isPopoverVisible);
-  };
-  const { openModal, closeModal, modal } = useModals();
-  const handleModalAddtoFolder = () => {
-    openModal({ type: "addToFolder", props: null });
-  };
-  const handleModalDeleteItem = (item: UserLink) => {
-    openModal({ type: "deleteItem", props: item });
   };
   const handleOnBlur = () => {
     setIsPopoverVisible(false);
@@ -68,7 +72,10 @@ export default function Card({ item }: CardProps) {
           <p className="card-createdat">{formatCreatedAt(item.created_at)}</p>
         </div>
       </StyledCard>
-      <Modals modal={modal} closeModal={closeModal} />
+      {selectedModal === "add" && <AddToFolderModal closeModal={closeModal} />}
+      {selectedModal === "delete" && (
+        <DeleteItemModal closeModal={closeModal} selectedModalItem={item} />
+      )}
     </>
   );
 }

@@ -1,17 +1,20 @@
 import styled from "styled-components";
-import useModals from "../../hooks/useModals";
-import Modals from "./Modals";
 import { FolderNameProps } from "../../types";
+import { DeleteFolderModal, RenameModal, ShareModal } from "./Modal";
+import { useState } from "react";
 export default function FolderName({ selectedFolder }: FolderNameProps) {
-  const { openModal, closeModal, modal } = useModals();
+  const [selectedModal, setSelectedModal] = useState<string | null>(null);
   const handleOpenModalShare = () => {
-    openModal({ type: "share", props: selectedFolder.name });
+    setSelectedModal("share");
   };
   const handleOpenModalRename = () => {
-    openModal({ type: "rename", props: selectedFolder.name });
+    setSelectedModal("rename");
   };
   const handleOpenModalDeleteFolder = () => {
-    openModal({ type: "deleteFolder", props: selectedFolder.name });
+    setSelectedModal("delete");
+  };
+  const closeModal = () => {
+    setSelectedModal(null);
   };
 
   return (
@@ -35,7 +38,24 @@ export default function FolderName({ selectedFolder }: FolderNameProps) {
           </div>
         )}
       </FolderNameBox>
-      <Modals modal={modal} closeModal={closeModal} />
+      {selectedModal === "share" && (
+        <ShareModal
+          closeModal={closeModal}
+          selectedModalName={selectedFolder.name}
+        />
+      )}
+      {selectedModal === "rename" && (
+        <RenameModal
+          closeModal={closeModal}
+          selectedModalName={selectedFolder.name}
+        />
+      )}
+      {selectedModal === "delete" && (
+        <DeleteFolderModal
+          closeModal={closeModal}
+          selectedModalName={selectedFolder.name}
+        />
+      )}
     </>
   );
 }

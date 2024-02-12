@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { UserFolder, getUserFolders } from "../../api";
-import useModals from "../../hooks/useModals";
-import Modals from "./Modals";
 import styled from "styled-components";
 import { AllSee, FolderListProps } from "../../types";
+import { AddFolderModal } from "./Modal";
 export default function FolderList({
   onSelectFolder,
   selectedFolder,
@@ -16,9 +15,12 @@ export default function FolderList({
   const handleFolderClick = (folder: UserFolder | AllSee) => {
     onSelectFolder(folder);
   };
-  const { openModal, closeModal, modal } = useModals();
-  const handleModalAddFolder = () => {
-    openModal({ type: "addFolder", props: null });
+  const [isModal, setIsModal] = useState(false);
+  const handleOpenMoldalAddFolder = () => {
+    setIsModal(true);
+  };
+  const closeModal = () => {
+    setIsModal(false);
   };
   useEffect(() => {
     async function handleload() {
@@ -55,13 +57,13 @@ export default function FolderList({
         <div className="folder-add-box">
           <input className="folder-add-input"></input>
           <img
-            onClick={handleModalAddFolder}
+            onClick={handleOpenMoldalAddFolder}
             src="/imgs/add.png"
             alt="폴더추가하기"
           />
         </div>
       </FolderListBox>
-      <Modals modal={modal} closeModal={closeModal} />
+      {isModal && <AddFolderModal closeModal={closeModal} />}
     </>
   );
 }

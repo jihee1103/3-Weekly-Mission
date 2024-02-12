@@ -1,11 +1,14 @@
 import styled from "styled-components";
-import useModals from "../../hooks/useModals";
-import Modals from "./Modals";
 import { useEffect, useRef, useState } from "react";
+import { AddToFolderModal } from "./Modal";
+
 export default function LinkAddInput() {
-  const { openModal, closeModal, modal } = useModals();
+  const [isModal, setIsModal] = useState(false);
   const handleOpenMoldalAddToFolder = () => {
-    openModal({ type: "addToFolder", props: null });
+    setIsModal(true);
+  };
+  const closeModal = () => {
+    setIsModal(false);
   };
   const [isLinkAreaVisible, setIsLinkAreaVisible] = useState<boolean>(true);
   const linkAreaRef = useRef<HTMLDivElement>(null);
@@ -51,7 +54,7 @@ export default function LinkAddInput() {
           />
         </label>
       </HeaderContent>
-      <Modals modal={modal} closeModal={closeModal} />
+      {isModal && <AddToFolderModal closeModal={closeModal} />}
     </>
   );
 }

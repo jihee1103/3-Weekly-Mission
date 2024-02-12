@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import { ReactNode } from "react";
 import { UserFolder, UserLink } from "./api";
 
 export interface AllSee {
@@ -26,4 +26,10 @@ export interface FolderContentCardProps {
 
 export interface CardProps {
   item: UserLink;
+}
+
+export interface ModalProps {
+  closeModal: React.MouseEventHandler<HTMLImageElement | HTMLButtonElement>;
+  selectedModalName?: string;
+  selectedModalItem?: UserLink;
 }
