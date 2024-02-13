@@ -30,7 +30,7 @@ export default function SearchBar({
           value={searchInputValue}
           onChange={handleInputChange}
         />
-        <DeleteIcon type="reset" />
+        {searchInputValue ? <DeleteIcon type="reset" /> : null}
       </InputWrapper>
     </Form>
   );
