@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react";
-import getFoldersUser1Data from "../../api/getFoldersUser1Data";
+import { useContext } from "react";
 import styled from "styled-components";
+import { FolderStateContext } from "../../page/FolderPage";
 
 const FolderNameButton = () => {
-  const [foldersUser1Data, setFoldersUser1Data] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getFoldersUser1Data();
-      setFoldersUser1Data(data.data);
-    };
-    fetchData();
-  });
+  const { foldersNameData, handleClickFilterFolder } =
+    useContext(FolderStateContext);
 
   return (
     <FolderButtonWrapper>
-      {foldersUser1Data.map((folder) => (
-        <FoldersNameButton key={folder.id}>{folder.name}</FoldersNameButton>
+      {foldersNameData.map((folder) => (
+        <FoldersNameButton
+          key={folder.id}
+          onClick={() => {
+            handleClickFilterFolder(folder.name);
+          }}
+        >
+          {folder.name}
+        </FoldersNameButton>
       ))}
     </FolderButtonWrapper>
   );

@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { FolderStateContext } from "../../page/FolderPage";
+
 const FolderTitle = () => {
-  return <h1>폴더 제목</h1>;
+  const { selectedFolderName } = useContext(FolderStateContext);
+
+  return <h1>{selectedFolderName}</h1>;
 };
+
 export default FolderTitle;

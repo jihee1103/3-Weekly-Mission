@@ -1,4 +1,4 @@
-const getFoldersUser1Data = async () => {
+const getFoldersNameData = async () => {
   const response = await fetch(
     "https://bootcamp-api.codeit.kr/api/users/1/folders"
   );
@@ -6,4 +6,4 @@ const getFoldersUser1Data = async () => {
   return body;
 };
 
-export default getFoldersUser1Data;
+export default getFoldersNameData;

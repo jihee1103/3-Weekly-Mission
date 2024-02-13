@@ -13,4 +13,5 @@ export default AddFolderButton;
 const AddfolderButtonStyle = styled.button`
   border: none;
   background-color: white;
+  cursor: pointer;
 `;
