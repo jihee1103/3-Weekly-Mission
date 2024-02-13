@@ -21,10 +21,7 @@ export default function LinkSearchForm({
 }: Props) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchName(e.target.value);
-  };
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    setIsSearch(true);
     filterCardList((prvItem) => {
       const filterItem =
         prvItem?.filter(
@@ -35,7 +32,10 @@ export default function LinkSearchForm({
         ) || [];
       return filterItem;
     });
-    setIsSearch(true);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
   };
 
   const handleCloseClick = () => {
@@ -45,17 +45,18 @@ export default function LinkSearchForm({
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} onReset={handleCloseClick}>
       <Img src={imageData.searchIcon} alt="돋보기 아이콘" />
       <Input
+        type="search"
         name="search"
         placeholder="링크를 검색해보세요."
         value={searchName}
         onChange={handleChange}
       />
       {searchName ? (
-        <CloseButton type="button" onClick={handleCloseClick}>
-          <img src={imageData.closeButton} alt="검색삭제하기버튼" />
+        <CloseButton type="reset">
+          <img src={imageData.closeButton} alt="검색어 삭제하기 버튼" />
         </CloseButton>
       ) : null}
     </Form>
@@ -74,6 +75,12 @@ const Form = styled.form`
   border-radius: 10px;
   padding: 15px 16px;
   margin: 0 auto;
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
   @media screen and (max-width: 1124px) {
     max-width: 704px;
   }
