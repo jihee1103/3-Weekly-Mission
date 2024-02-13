@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { NavbarUserInfo } from "../../types/userType";
 
 interface Props {
-  user: NavbarUserInfo | undefined;
+  user?: NavbarUserInfo;
 }
 
 export default function Navbar({ user }: Props) {

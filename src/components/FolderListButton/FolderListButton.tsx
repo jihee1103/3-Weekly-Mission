@@ -8,7 +8,7 @@ import { ModalButtonClickType } from "../../types/types";
 
 interface Props {
   handleModalButtonClick: ModalButtonClickType;
-  itemList: FolderData[] | undefined;
+  itemList?: FolderData[];
   setFolderName: React.Dispatch<React.SetStateAction<string>>;
   setCardListItem: (callback?: VoidFunc) => void;
   folderName: string;

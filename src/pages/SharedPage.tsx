@@ -19,7 +19,7 @@ import SearchResult from "../components/SearchResult/SearchResult";
 export default function SharedPage() {
   const [searchParams] = useSearchParams();
   const userId: UserId = searchParams.get("user");
-  const folderId: string | undefined | null = searchParams.get("folder");
+  const folderId: string | null = searchParams.get("folder");
   const {
     data: cardListItem,
     fetchData: setCardListItem,

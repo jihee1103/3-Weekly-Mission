@@ -16,7 +16,7 @@ import { CardItem, FolderData } from "../types/dataTypes";
 import SearchResult from "../components/SearchResult/SearchResult";
 
 interface Props {
-  user: NavbarUserInfo | undefined;
+  user?: NavbarUserInfo;
 }
 
 export default function FolderPage({ user }: Props) {

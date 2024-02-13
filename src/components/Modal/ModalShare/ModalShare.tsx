@@ -15,8 +15,8 @@ import { FolderData } from "../../../types/dataTypes";
 
 interface Props {
   folderName: string;
-  itemList: FolderData[] | undefined;
-  userId: string | undefined;
+  itemList?: FolderData[];
+  userId?: string;
 }
 
 export default function ModalShare({

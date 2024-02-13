@@ -5,4 +5,4 @@ export interface NavbarUserInfo {
   profileImageSource: string;
 }
 
-export type UserId = string | null | undefined;
+export type UserId = string | null;

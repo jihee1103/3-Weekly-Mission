@@ -13,7 +13,7 @@ import { FolderData } from "../../../types/dataTypes";
 
 interface Props {
   url: string | null;
-  itemList: FolderData[] | undefined;
+  itemList?: FolderData[];
 }
 export default function ModalAddLink({ url, itemList }: Props) {
   const [folderChecked, setFolderChecked] = useState("");

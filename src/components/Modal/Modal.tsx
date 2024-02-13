@@ -15,7 +15,7 @@ interface Props {
   toggleModalClick?: VoidFunc;
   modalUrl: string | null;
   itemList: FolderData[];
-  user: NavbarUserInfo | undefined;
+  user?: NavbarUserInfo;
 }
 
 export default function Modal({

@@ -5,7 +5,7 @@ import { ModalButtonClickType } from "../../types/types";
 
 interface Props {
   handleModalButtonClick: ModalButtonClickType;
-  folderName: string | undefined;
+  folderName?: string;
 }
 
 export default function FolderNameLine({
