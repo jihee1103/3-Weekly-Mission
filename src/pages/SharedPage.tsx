@@ -29,7 +29,7 @@ export default function SharedPage() {
     fetchData: VoidFunc;
     setData: React.Dispatch<React.SetStateAction<CardItem[] | null>>;
   } = useFetchData(() => getFolderData(folderId, userId!));
-  const folderData: FolderData[] | null =
+  const folderData: FolderData[] =
     useFetchData(() => getFolderList(userId!)).data || [];
 
   const ownerData: OwnerData[] =
@@ -40,7 +40,7 @@ export default function SharedPage() {
   const [isSearch, setIsSearch] = useState(false);
 
   const handleHeaderData: VoidFunc = () => {
-    if (!folderData || !ownerData) {
+    if (folderData.length < 1 || ownerData.length < 1) {
       return;
     }
     const folder: FolderData | undefined = folderData?.find(

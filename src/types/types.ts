@@ -1,5 +1,3 @@
-export type StringUndefined = string | undefined;
-
 export type ModalButtonClickType = ({
   currentTarget,
   url,

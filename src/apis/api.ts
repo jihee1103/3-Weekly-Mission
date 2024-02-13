@@ -1,5 +1,3 @@
-import { StringUndefined } from "../types/types";
-
 const BASE_URL = "https://bootcamp-api.codeit.kr/api/";
 
 export async function fetchJson(url: string) {
@@ -42,7 +40,7 @@ export async function getLinkList(userId: string = "1") {
 }
 
 export async function getFolderData(
-  id: StringUndefined | null,
+  id: string | undefined | null,
   userId: string = "1"
 ) {
   const url = `${BASE_URL}users/${userId}/links?folderId=${id}`;

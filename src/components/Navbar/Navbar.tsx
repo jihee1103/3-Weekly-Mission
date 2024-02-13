@@ -2,7 +2,6 @@ import "./Navbar.css";
 import imageData from "../../assets/imageData";
 import { Link } from "react-router-dom";
 import { NavbarUserInfo } from "../../types/userType";
-import { StringUndefined } from "../../types/types";
 
 interface Props {
   user: NavbarUserInfo | undefined;
@@ -35,8 +34,8 @@ export default function Navbar({ user }: Props) {
 }
 
 function NavProfile({ user }: Props) {
-  const userEmail: StringUndefined = user?.email;
-  const source: StringUndefined = user?.profileImageSource;
+  const userEmail: string | undefined = user?.email;
+  const source: string | undefined = user?.profileImageSource;
 
   return (
     <div className="userProfile">
