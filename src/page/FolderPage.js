@@ -11,6 +11,7 @@ import SearchLinkBar from "../components/SearchLinkBar";
 import getFoldersNameData from "../api/getFoldersNameData";
 import getAllFolderData from "../api/getAllFolderData";
 import CardList from "../components/CardList";
+import getFolderIdData from "../api/getFolderIdData";
 
 export const FolderStateContext = React.createContext();
 
@@ -33,11 +34,21 @@ const FolderPage = () => {
   const handleClickFilterFolder = async (folderName) => {
     if (folderName === "전체") {
       setSelectedFolderName("전체");
+      const data = await getAllFolderData();
+      if (data && data.data) {
+        setAllFolderData(data.data);
+      }
     } else {
       const folder = foldersNameData.find(
         (folder) => folder.name === folderName
       );
-      setSelectedFolderName(folder.name);
+      if (folder) {
+        setSelectedFolderName(folder.name);
+        const response = await getFolderIdData(folder.id);
+        if (response && response.data) {
+          setAllFolderData(response.data);
+        }
+      }
     }
   };
 

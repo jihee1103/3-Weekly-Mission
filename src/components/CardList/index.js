@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { FolderStateContext } from "../../page/FolderPage";
 import defaultImage from "./default.png";
 import starIcon from "./star.svg";
-import focusStartIcon from "./focusStar.svg";
 import kebabIcon from "./kebab.svg";
 
 import styled from "styled-components";
