@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ModalTitle = ({ text, detailText }) => {
+const ModalTitle = ({ text = '', detailText = '' }) => {
   return (
     <div>
       <ModalTitleHeader detailText={detailText}>{text}</ModalTitleHeader>

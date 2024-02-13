@@ -5,6 +5,7 @@ import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 
 // Modal을 사용하기 위한 hook
 export const useModal = () => {
+  // DEFALUT_MODAL_VALUE = { type: '', folderName: '', sharingUrl: '', url: '' };
   const [modal, setModal] = useState(DEFALUT_MODAL_VALUE);
 
   const showModal = (modalValue) => {
@@ -29,6 +30,19 @@ export const useFolder = () => {
       getFetch('bootcamp-api.codeit.kr', 'api/users/1/folders').then((FolderData) => {
         setFolderData(() => {
           return getFormattedCamelCaseData(FolderData.data);
+        });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
+  // 페이지 로드시 전체 링크 데이터 가져오기
+  useEffect(() => {
+    try {
+      getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((cardData) => {
+        setFolderCardData(() => {
+          return getFormattedCamelCaseData(cardData.data);
         });
       });
     } catch (error) {

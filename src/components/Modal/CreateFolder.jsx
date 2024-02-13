@@ -15,7 +15,7 @@ const CreateFolder = ({ modal, onCloseModalButtonClick }) => {
         <ModalInput placeHolder="내용 입력" modal={modal} />
         <ModalCtaButton text="추가하기" bgColor={ModalCtaButtonBgColor} />
       </ModalInputContainer>
-      <ModalCloseButton modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
+      <ModalCloseButton onCloseModalButtonClick={onCloseModalButtonClick} />
     </ModalContentWrapper>
   );
 };

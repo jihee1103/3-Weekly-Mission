@@ -10,10 +10,10 @@ const DeleteFolder = ({ modal, onCloseModalButtonClick }) => {
   return (
     <ModalContentWrapper>
       <ModalTitleContainer>
-        <ModalTitle text="폴더 삭제" detailText={modal.data.folderName} modal={modal} />
+        <ModalTitle text="폴더 삭제" detailText={modal.folderName} />
         <ModalCtaButton text="삭제하기" bgColor={ModalCtaButtonBgColor} />
       </ModalTitleContainer>
-      <ModalCloseButton modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
+      <ModalCloseButton onCloseModalButtonClick={onCloseModalButtonClick} />
     </ModalContentWrapper>
   );
 };

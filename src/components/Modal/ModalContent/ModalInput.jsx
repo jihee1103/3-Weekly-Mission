@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-const ModalInput = ({ placeHolder, modal }) => {
-  const [inputValue, setInputValue] = useState(modal.data.folderName);
+const ModalInput = ({ placeHolder = '', modal }) => {
+  const [inputValue, setInputValue] = useState(modal.folderName);
 
   const onChange = (e) => {
     setInputValue(e.target.value);

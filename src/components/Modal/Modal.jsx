@@ -8,7 +8,7 @@ import UpdateFolder from './UpdateFolder';
 import DeleteLink from './DeleteLink';
 
 const Modal = ({ modal, onCloseModalButtonClick }) => {
-  switch (modal.name) {
+  switch (modal.type) {
     case 'CreateFolder': {
       return (
         <ModalWrapper>
@@ -40,7 +40,7 @@ const Modal = ({ modal, onCloseModalButtonClick }) => {
     case 'UpdateFolder': {
       return (
         <ModalWrapper>
-          <UpdateFolder modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
+          <UpdateFolder onCloseModalButtonClick={onCloseModalButtonClick} />
         </ModalWrapper>
       );
     }

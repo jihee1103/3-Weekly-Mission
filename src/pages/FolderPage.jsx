@@ -42,7 +42,7 @@ const FolderPage = () => {
         <CardList cardData={folderCardData} onDeleteButtonClick={showModal} />
       </Contents>
       <Footer />
-      {modal.name ? <Modal modal={modal} setModal={setModal} onCloseModalButtonClick={closeModal} /> : null}
+      {modal.type ? <Modal modal={modal} setModal={setModal} onCloseModalButtonClick={closeModal} /> : null}
     </FolderPageWrapper>
   );
 };

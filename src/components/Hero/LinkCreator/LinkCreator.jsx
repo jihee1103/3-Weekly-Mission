@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import link from '../../../assets/images/link.svg';
+import { DEFALUT_MODAL_VALUE } from '../../../Constants/Constants';
 
 const LinkCreator = ({ onUpdateButtonClick }) => {
   return (
@@ -11,7 +12,7 @@ const LinkCreator = ({ onUpdateButtonClick }) => {
       <CreateLinkButton
         type="button"
         onClick={() => {
-          onUpdateButtonClick({ name: 'UpdateFolder', data: {} });
+          onUpdateButtonClick({ ...DEFALUT_MODAL_VALUE, type: 'UpdateFolder' });
         }}
       >
         추가하기

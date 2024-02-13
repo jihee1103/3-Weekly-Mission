@@ -6,7 +6,7 @@ import ModalInputContainer from './ModalContent/ModalInputContainer';
 import ModalCloseButton from './ModalContent/ModalCloseButton';
 import ModalUpdateFolderCollection from './ModalContent/ModalUpdateFolderCollection';
 
-const UpdateFolder = ({ modal, onCloseModalButtonClick }) => {
+const UpdateFolder = ({ onCloseModalButtonClick }) => {
   const ModalCtaButtonBgColor = 'linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%)';
 
   return (
@@ -18,7 +18,7 @@ const UpdateFolder = ({ modal, onCloseModalButtonClick }) => {
       <ModalInputContainer>
         <ModalCtaButton text="추가하기" bgColor={ModalCtaButtonBgColor} />
       </ModalInputContainer>
-      <ModalCloseButton modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
+      <ModalCloseButton onCloseModalButtonClick={onCloseModalButtonClick} />
     </ModalContentWrapper>
   );
 };

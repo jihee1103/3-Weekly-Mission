@@ -18,7 +18,7 @@ const ChangeFolderName = ({ modal, onCloseModalButtonClick }) => {
         <ModalInput modal={modal} />
         <ModalCtaButton text="변경하기" bgColor={ModalCtaButtonBgColor} />
       </ModalInputContainer>
-      <ModalCloseButton modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
+      <ModalCloseButton onCloseModalButtonClick={onCloseModalButtonClick} />
     </ModalContentWrapper>
   );
 };
