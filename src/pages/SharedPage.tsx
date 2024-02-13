@@ -43,14 +43,12 @@ export default function SharedPage() {
     if (folderData.length < 1 || ownerData.length < 1) {
       return;
     }
-    const folder: FolderData | undefined = folderData?.find(
-      (data: FolderData) => data.id === +folderId!
-    );
+    const folder = folderData?.find((data) => data.id === +folderId!);
     if (!folder) {
       return;
     }
     setFolderName(folder.name);
-    const { name, imageSource }: FolderOwnerData = ownerData[0];
+    const { name, imageSource } = ownerData[0];
     setFolderOwner({ name, imageSource });
   };
 

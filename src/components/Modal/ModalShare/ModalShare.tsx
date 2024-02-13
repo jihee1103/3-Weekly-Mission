@@ -24,10 +24,8 @@ export default function ModalShare({
   itemList,
   userId,
 }: Props) {
-  const currentFolder: FolderData | undefined = itemList?.find(
-    (item) => item.name === folderName
-  );
-  const url: string =
+  const currentFolder = itemList?.find((item) => item.name === folderName);
+  const url =
     window.location.origin +
     `/shared?user=${userId}&folder=${currentFolder?.id}`;
   const handleLinkCopy = () => {

@@ -31,11 +31,11 @@ export default function FolderPage({ user }: Props) {
   } = useFetchData(getLinkList);
   const folderNameList: FolderData[] = useFetchData(getFolderList).data || [];
   const [folderName, setFolderName] = useState("전체");
-  const [isModalClicked, setIsModalClicked] = useState<boolean>(false);
+  const [isModalClicked, setIsModalClicked] = useState(false);
   const [modalId, setModalId] = useState("");
   const [modalUrl, setModalUrl] = useState("");
   const [searchName, setSearchName] = useState("");
-  const [isSearch, setIsSearch] = useState<boolean>(false);
+  const [isSearch, setIsSearch] = useState(false);
   const toggleModalClick: VoidFunc = () => {
     setIsModalClicked(!isModalClicked);
   };
@@ -43,7 +43,7 @@ export default function FolderPage({ user }: Props) {
     currentTarget,
     url,
   }: React.MouseEvent<HTMLButtonElement> & { url: string }) => {
-    const targetId: string = currentTarget.id;
+    const targetId = currentTarget.id;
     setModalId(targetId!);
     setModalUrl(url);
     toggleModalClick();
