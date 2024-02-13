@@ -24,7 +24,7 @@ export default function SearchBar({
         <SearchIcon src={SearchIconImg} alt="SearchIcon" />
         <Input
           id="searchValue"
-          type="text"
+          type="search"
           placeholder="링크를 검색해 보세요."
           value={searchInputValue}
           onChange={onChange}
