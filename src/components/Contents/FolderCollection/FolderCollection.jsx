@@ -114,7 +114,7 @@ const FolderWrapper = styled.div`
   & > div {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
   }
 
   @media (max-width: 1123px) {

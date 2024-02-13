@@ -61,7 +61,13 @@ export const useFolder = () => {
       console.error(error);
     }
   };
-  return { folderData, folderCardData, handleOverviewCardButtonClick, handleFilteredCardButtonClick };
+  return {
+    folderData,
+    folderCardData,
+    handleOverviewCardButtonClick,
+    handleFilteredCardButtonClick,
+    setFolderCardData,
+  };
 };
 
 // 폴더 페이지의 로그인 로직과 유저 데이터를 가져오는 훅
@@ -82,4 +88,33 @@ export const useFolderPageLogin = () => {
   }, []);
 
   return { login, userData };
+};
+
+// 서치바의 input을 관리하는 훅
+export const useInput = (cardList, setCardList) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const resetInputValue = () => {
+    setInputValue('');
+  };
+
+  useEffect(() => {
+    const filteredCardList = cardList.filter((card) => {
+      if (card.title !== null && card.url !== null && card.description !== null) {
+        return (
+          card.title.toLowerCase().includes(inputValue.toLowerCase()) ||
+          card.url.toLowerCase().includes(inputValue.toLowerCase()) ||
+          card.description.toLowerCase().includes(inputValue.toLowerCase())
+        );
+      }
+      return null;
+    });
+    setCardList([...filteredCardList]);
+  }, [inputValue]);
+
+  return { inputValue, handleInputChange, resetInputValue };
 };
