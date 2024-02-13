@@ -18,8 +18,9 @@ export default function SearchBar({
   const handleClickDeleteIcon = () => {
     updateSearchInputValue('');
   };
+
   return (
-    <Form>
+    <Form onReset={handleClickDeleteIcon}>
       <InputWrapper htmlFor="searchValue">
         <SearchIcon src={SearchIconImg} alt="SearchIcon" />
         <Input
@@ -29,11 +30,7 @@ export default function SearchBar({
           value={searchInputValue}
           onChange={handleInputChange}
         />
-        <DeleteIcon
-          src={DeleteIconImg}
-          alt="DeleteIcon"
-          onClick={handleClickDeleteIcon}
-        />
+        <DeleteIcon type="reset" />
       </InputWrapper>
     </Form>
   );
@@ -41,6 +38,12 @@ export default function SearchBar({
 
 const Form = styled.form`
   width: 1060px;
+  input[type='search']::-webkit-search-decoration,
+  input[type='search']::-webkit-search-cancel-button,
+  input[type='search']::-webkit-search-results-button,
+  input[type='search']::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
   @media (max-width: 1199px) {
     & {
       width: 704px;
@@ -89,8 +92,12 @@ const Input = styled.input`
     }
   }
 `;
-const DeleteIcon = styled.img`
+const DeleteIcon = styled.button`
+  background-image: url(${DeleteIconImg});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 24px;
-  height: 24px;
+  height: 100%;
   cursor: pointer;
 `;
