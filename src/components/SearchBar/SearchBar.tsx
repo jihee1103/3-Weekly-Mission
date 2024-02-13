@@ -22,7 +22,7 @@ export default function SearchBar({
   return (
     <Form onReset={handleClickDeleteIcon}>
       <InputWrapper htmlFor="searchValue">
-        <SearchIcon src={SearchIconImg} alt="SearchIcon" />
+        <SearchIcon src={SearchIconImg} alt="Search-icon" />
         <Input
           id="searchValue"
           type="search"
