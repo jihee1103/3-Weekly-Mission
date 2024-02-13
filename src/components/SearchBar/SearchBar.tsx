@@ -12,7 +12,7 @@ export default function SearchBar({
   searchInputValue,
   updateSearchInputValue,
 }: Props) {
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     updateSearchInputValue(e.target.value);
   };
   const handleClickDeleteIcon = () => {
@@ -27,7 +27,7 @@ export default function SearchBar({
           type="search"
           placeholder="링크를 검색해 보세요."
           value={searchInputValue}
-          onChange={onChange}
+          onChange={handleInputChange}
         />
         <DeleteIcon
           src={DeleteIconImg}
