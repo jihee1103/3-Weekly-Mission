@@ -7,7 +7,6 @@ import LinkSearchForm from "../components/LinkSearchForm/LinkSearchForm";
 import useFetchData from "../hooks/useFetchData";
 import { useSearchParams } from "react-router-dom";
 import { UserId } from "../types/userType";
-import { StringUndefined } from "../types/types";
 import {
   CardItem,
   FolderData,
@@ -20,7 +19,7 @@ import SearchResult from "../components/SearchResult/SearchResult";
 export default function SharedPage() {
   const [searchParams] = useSearchParams();
   const userId: UserId = searchParams.get("user");
-  const folderId: StringUndefined | null = searchParams.get("folder");
+  const folderId: string | undefined | null = searchParams.get("folder");
   const {
     data: cardListItem,
     fetchData: setCardListItem,
@@ -35,10 +34,10 @@ export default function SharedPage() {
 
   const ownerData: OwnerData[] =
     useFetchData(() => getOwner(userId!)).data || [];
-  const [folderName, setFolderName] = useState<string>("");
+  const [folderName, setFolderName] = useState("");
   const [folderOwner, setFolderOwner] = useState<FolderOwnerData | null>(null);
-  const [searchName, setSearchName] = useState<string>("");
-  const [isSearch, setIsSearch] = useState<boolean>(false);
+  const [searchName, setSearchName] = useState("");
+  const [isSearch, setIsSearch] = useState(false);
 
   const handleHeaderData: VoidFunc = () => {
     if (!folderData || !ownerData) {

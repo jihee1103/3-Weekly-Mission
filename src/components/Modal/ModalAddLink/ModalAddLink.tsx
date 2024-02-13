@@ -16,7 +16,7 @@ interface Props {
   itemList: FolderData[] | undefined;
 }
 export default function ModalAddLink({ url, itemList }: Props) {
-  const [folderChecked, setFolderChecked] = useState<string>("");
+  const [folderChecked, setFolderChecked] = useState("");
   const handleCheckFolder = (name: string) => {
     setFolderChecked(name);
   };

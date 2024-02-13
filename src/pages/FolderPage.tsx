@@ -30,11 +30,11 @@ export default function FolderPage({ user }: Props) {
     setData: React.Dispatch<React.SetStateAction<CardItem[] | null>>;
   } = useFetchData(getLinkList);
   const folderNameList: FolderData[] = useFetchData(getFolderList).data || [];
-  const [folderName, setFolderName] = useState<string>("전체");
+  const [folderName, setFolderName] = useState("전체");
   const [isModalClicked, setIsModalClicked] = useState<boolean>(false);
-  const [modalId, setModalId] = useState<string>("");
-  const [modalUrl, setModalUrl] = useState<string | null>(null);
-  const [searchName, setSearchName] = useState<string>("");
+  const [modalId, setModalId] = useState("");
+  const [modalUrl, setModalUrl] = useState("");
+  const [searchName, setSearchName] = useState("");
   const [isSearch, setIsSearch] = useState<boolean>(false);
   const toggleModalClick: VoidFunc = () => {
     setIsModalClicked(!isModalClicked);
