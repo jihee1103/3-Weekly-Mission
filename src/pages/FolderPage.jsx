@@ -8,9 +8,11 @@ import CardList from '../components/Contents/CardList/CardList';
 import FolderCollection from '../components/Contents/FolderCollection/FolderCollection';
 
 import Modal from '../components/Modal/Modal';
-import { useFolder, useFolderPageLogin, useModal, useInput } from './FolderPage.hook';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
+
+import { useFolder, useFolderPageLogin, useModal } from './FolderPage.hook';
+import { useSearchBar } from '../hooks/useSearchBar';
 
 const FolderPage = () => {
   const { modal, setModal, showModal, closeModal } = useModal();
@@ -22,7 +24,7 @@ const FolderPage = () => {
     handleFilteredCardButtonClick,
   } = useFolder();
   const { login, userData } = useFolderPageLogin();
-  const { inputValue, handleInputChange, resetInputValue } = useInput(folderCardData, setFolderCardData);
+  const { inputValue, handleInputChange, resetInputValue } = useSearchBar(folderCardData, setFolderCardData);
 
   return (
     <FolderPageWrapper>

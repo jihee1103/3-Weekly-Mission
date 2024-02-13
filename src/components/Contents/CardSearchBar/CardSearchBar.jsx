@@ -8,7 +8,7 @@ const CardSearchBar = ({ inputValue, onInputChange, resetInputValue }) => {
     <CardSearchBarWrapper>
       <img src={search} alt="돋보기 모양 사진" />
       <input type="search" value={inputValue} onChange={onInputChange} placeholder="링크를 검색해 보세요." />
-      {inputValue.length === 0 ? null : (
+      {inputValue?.length === 0 ? null : (
         <button type="button" onClick={resetInputValue}>
           <img src={resetImg} alt="리셋 버튼 이미지" />
         </button>

@@ -27,7 +27,7 @@ export const useFolder = () => {
   // 페이지 로드시 폴더 데이터 가지오기
   useEffect(() => {
     try {
-      getFetch('bootcamp-api.codeit.kr', 'api/users/1/folders').then((FolderData) => {
+      getFetch('bootcamp-api.codeit.kr', 'api/users/11/folders').then((FolderData) => {
         setFolderData(() => {
           return getFormattedCamelCaseData(FolderData.data);
         });
@@ -40,7 +40,7 @@ export const useFolder = () => {
   // 페이지 로드시 전체 링크 데이터 가져오기
   useEffect(() => {
     try {
-      getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((cardData) => {
+      getFetch('bootcamp-api.codeit.kr', 'api/users/11/links').then((cardData) => {
         setFolderCardData(() => {
           return getFormattedCamelCaseData(cardData.data);
         });
@@ -53,7 +53,7 @@ export const useFolder = () => {
   // 폴더의 전체 버튼을 클릭했을 때 가져올 데이터
   const handleOverviewCardButtonClick = () => {
     try {
-      getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((cardData) => {
+      getFetch('bootcamp-api.codeit.kr', 'api/users/11/links').then((cardData) => {
         setFolderCardData(() => {
           return getFormattedCamelCaseData(cardData.data);
         });
@@ -66,7 +66,7 @@ export const useFolder = () => {
   // 폴더의 전체 버튼이 아닌 버튼을 클릭했을 때 가져올 데이터
   const handleFilteredCardButtonClick = (id) => {
     try {
-      getFetch('bootcamp-api.codeit.kr', `api/users/1/links?folderId=${id}`).then((cardData) => {
+      getFetch('bootcamp-api.codeit.kr', `api/users/11/links?folderId=${id}`).then((cardData) => {
         setFolderCardData(() => {
           return getFormattedCamelCaseData(cardData.data);
         });
@@ -92,7 +92,7 @@ export const useFolderPageLogin = () => {
   // Header의 유저 프로필 데이터
   useEffect(() => {
     try {
-      getFetch('bootcamp-api.codeit.kr', 'api/users/1').then((user) => {
+      getFetch('bootcamp-api.codeit.kr', 'api/users/11').then((user) => {
         setUserData({ ...user.data[0] });
         setLogin(true);
       });
@@ -102,33 +102,4 @@ export const useFolderPageLogin = () => {
   }, []);
 
   return { login, userData };
-};
-
-// 서치바의 input을 관리하는 훅
-export const useInput = (cardList, setCardList) => {
-  const [inputValue, setInputValue] = useState('');
-
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
-  const resetInputValue = () => {
-    setInputValue('');
-  };
-
-  useEffect(() => {
-    const filteredCardList = cardList.filter((card) => {
-      if (card.title !== null && card.url !== null && card.description !== null) {
-        return (
-          card.title.toLowerCase().includes(inputValue.toLowerCase()) ||
-          card.url.toLowerCase().includes(inputValue.toLowerCase()) ||
-          card.description.toLowerCase().includes(inputValue.toLowerCase())
-        );
-      }
-      return null;
-    });
-    setCardList([...filteredCardList]);
-  }, [inputValue]);
-
-  return { inputValue, handleInputChange, resetInputValue };
 };

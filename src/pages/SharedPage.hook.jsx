@@ -23,7 +23,7 @@ export const useSharedPageLogin = () => {
 };
 
 // sharedPage의 id와 현재 로그인된 유저의 id를 가져오는 훅
-export const useGetsharedPageIds = () => {
+export const useGetSharedPageIds = () => {
   const [searchParams, setSearchParams] = useSearchParams(); // eslint-disable-line no-unused-vars
   const [sharedUserId, setSharedUserId] = useState(null);
   const [sharedFolderId, setSharedFolderId] = useState(null);
@@ -134,5 +134,5 @@ export const useGetShareCardList = (sharedFolderId, sharedUserId) => {
     }
   }, [sharedFolderId, sharedUserId]);
 
-  return { cardListData, isLoadingSetCardListData, cardListDataError };
+  return { cardListData, setCardListData, isLoadingSetCardListData, cardListDataError };
 };

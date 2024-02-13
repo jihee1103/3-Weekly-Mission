@@ -7,20 +7,22 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import {
   useGetSharedPageInfo,
-  useGetsharedPageIds,
+  useGetSharedPageIds,
   useSharedPageLogin,
   useGetShareCardList,
   useGetFolderListData,
   useGetSharePageFolderName,
 } from './SharedPage.hook';
+import { useSearchBar } from '../hooks/useSearchBar';
 
 const SharedPage = () => {
   const { login, userData } = useSharedPageLogin();
   const { sharedPageInfo } = useGetSharedPageInfo();
-  const { sharedUserId, sharedFolderId } = useGetsharedPageIds();
+  const { sharedUserId, sharedFolderId } = useGetSharedPageIds();
   const { folderListData } = useGetFolderListData(sharedUserId, sharedFolderId);
   const { sharePageFolderName } = useGetSharePageFolderName(folderListData, sharedFolderId);
-  const { cardListData } = useGetShareCardList();
+  const { cardListData, setCardListData } = useGetShareCardList();
+  const { inputValue, handleInputChange, resetInputValue } = useSearchBar(cardListData, setCardListData);
 
   return (
     <>
@@ -29,7 +31,7 @@ const SharedPage = () => {
         <ShareDescription sharedPageInfo={sharedPageInfo} sharePageFolderName={sharePageFolderName} />
       </Hero>
       <Contents>
-        <Search />
+        <Search inputValue={inputValue} onInputChange={handleInputChange} resetInputValue={resetInputValue} />
         <CardList cardListData={cardListData} />
       </Contents>
       <Footer />
