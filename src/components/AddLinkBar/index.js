@@ -17,6 +17,7 @@ const AddLinkInput = styled.input`
   width: 800px;
   height: 37px;
   padding: 16px 40px;
+  padding-left: 50px;
   border-radius: 15px;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: var(--Linkbrary-white, #fff) url(${linkIcon}) no-repeat left 20px
