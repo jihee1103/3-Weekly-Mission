@@ -10,8 +10,8 @@ export const useSharedPageLogin = () => {
   // Header의 유저 프로필 데이터
   useEffect(() => {
     try {
-      getFetch('bootcamp-api.codeit.kr', 'api/users/1').then((user) => {
-        setUserData({ ...user.data[0] });
+      getFetch('bootcamp-api.codeit.kr', 'api/sample/user').then((user) => {
+        setUserData({ ...user });
         setLogin(true);
       });
     } catch (error) {
