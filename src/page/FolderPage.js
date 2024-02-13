@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AddFolderButton from "../components/AddFolderButton";
 import AddLinkBar from "../components/AddLinkBar";
-import FolderContentsList from "../components/FolderContentsList";
 import FolderFunctionButtons from "../components/FolderFunctionButtons";
 import FolderNameButton from "../components/FolderNameButton";
 import FolderTitle from "../components/FolderTitle";
@@ -11,6 +10,7 @@ import HeaderNavigation from "../components/HeaderNavigation";
 import SearchLinkBar from "../components/SearchLinkBar";
 import getFoldersNameData from "../api/getFoldersNameData";
 import getAllFolderData from "../api/getAllFolderData";
+import CardList from "../components/CardList";
 
 export const FolderStateContext = React.createContext();
 
@@ -21,8 +21,8 @@ const FolderPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const user1Data = await getFoldersNameData();
-      setFoldersNameData([{ id: "all", name: "전체" }, ...user1Data.data]);
+      const folderNameData = await getFoldersNameData();
+      setFoldersNameData([{ id: "all", name: "전체" }, ...folderNameData.data]);
 
       const AllFolderData = await getAllFolderData();
       setAllFolderData(AllFolderData.data);
@@ -67,7 +67,9 @@ const FolderPage = () => {
             <FolderTitle />
             <FolderFunctionButtons />
           </FolderListHeader>
-          <FolderContentsList />
+          <CardListContainer>
+            <CardList />
+          </CardListContainer>
         </article>
       </main>
       <Footer />
@@ -93,6 +95,15 @@ const FolderListHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 1060px;
+  margin: 0 auto;
+`;
+
+const CardListContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
   width: 1060px;
   margin: 0 auto;
 `;
