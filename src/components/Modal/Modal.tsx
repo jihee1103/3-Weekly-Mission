@@ -71,9 +71,9 @@ const getModalContent = ({
         />
       );
     case "deleteFolder":
-      return <ModalDelete nameType={"폴더"} DeleteName={folderName} />;
+      return <ModalDelete nameType={"폴더"} deleteName={folderName} />;
     case "deleteLink":
-      return <ModalDelete nameType={"링크"} DeleteName={modalUrl} />;
+      return <ModalDelete nameType={"링크"} deleteName={modalUrl} />;
     case "addLink":
       return <ModalAddLink itemList={itemList} url={modalUrl} />;
 

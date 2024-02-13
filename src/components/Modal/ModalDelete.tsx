@@ -9,15 +9,15 @@ import {
 
 interface Props {
   nameType: string;
-  DeleteName: string | null;
+  deleteName: string | null;
 }
 
-export default function ModalDelete({ nameType, DeleteName }: Props) {
+export default function ModalDelete({ nameType, deleteName }: Props) {
   return (
     <ModalWrapper>
       <ModalTitleContainer>
         <ModalTitle>{nameType} 삭제</ModalTitle>
-        <ModalFolderTitle>{DeleteName}</ModalFolderTitle>
+        <ModalFolderTitle>{deleteName}</ModalFolderTitle>
       </ModalTitleContainer>
       <ModalNegativeButton>삭제하기</ModalNegativeButton>
     </ModalWrapper>
