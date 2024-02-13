@@ -4,6 +4,7 @@ import getFetchRequest from '../../utils/getFetchRequest';
 import Loading from '../Loading/Loading';
 import SharedBodyContents from './SharedBodyContents';
 import Error from '../Error/Error';
+import getErrorMessage from '../../utils/getErrorMessage';
 
 export default function SharedBody() {
   const API_FOLDER = 'sample/folder';
@@ -24,7 +25,8 @@ export default function SharedBody() {
         const result = await getFetchRequest(BASE_API_HOST, API_FOLDER);
         setLink(result.folder.links);
       } catch (error) {
-        setErrorMessage((error as Error).message);
+        const errorMessage = getErrorMessage(error);
+        setErrorMessage(errorMessage);
       } finally {
         setIsLoading(false);
       }

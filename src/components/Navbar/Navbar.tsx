@@ -5,6 +5,7 @@ import logoImg from '../../asset/logo.svg';
 import { API_USERS, BASE_API_HOST } from '../../constants/api';
 import getFetchRequest from '../../utils/getFetchRequest';
 import NavbarContent from './NavbarContent';
+import getErrorMessage from '../../utils/getErrorMessage';
 
 export default function Navbar() {
   const location = useLocation();
@@ -23,7 +24,8 @@ export default function Navbar() {
         setUserEmail(result.data[0].email);
         setUserProfileImg(result.data[0].image_source);
       } catch (error) {
-        setErrorMessage((error as Error).message);
+        const errorMessage = getErrorMessage(error);
+        setErrorMessage(errorMessage);
       } finally {
         setIsLoading(false);
       }

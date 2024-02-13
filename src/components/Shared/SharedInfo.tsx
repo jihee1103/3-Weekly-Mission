@@ -4,6 +4,7 @@ import defaultImage from '../../asset/default-image.svg';
 import { BASE_API_HOST } from '../../constants/api';
 import getFetchRequest from '../../utils/getFetchRequest';
 import Loading from '../Loading/Loading';
+import getErrorMessage from '../../utils/getErrorMessage';
 
 export default function SharedInfo() {
   const API_FOLDER = 'sample/folder';
@@ -23,7 +24,8 @@ export default function SharedInfo() {
         setFolderName(result.folder.name);
         setCondition('getInfoSuccess');
       } catch (error) {
-        setErrorMessage((error as Error).message);
+        const errorMessage = getErrorMessage(error);
+        setErrorMessage(errorMessage);
         setCondition('error');
       }
     };

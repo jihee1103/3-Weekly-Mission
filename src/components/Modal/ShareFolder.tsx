@@ -7,6 +7,7 @@ import linkLogo from '../../asset/link.svg';
 import shareKakao from '../../utils/shareKakao';
 import Error from '../Error/Error';
 import { Links } from '../Folder/Folder';
+import getErrorMessage from '../../utils/getErrorMessage';
 
 interface Props {
   folderName: string;
@@ -27,7 +28,8 @@ export default function ShareFolder({
     try {
       await navigator.clipboard.writeText(shareUrl);
     } catch (error) {
-      return <Error errorMessage={(error as Error).message} />;
+      const errorMessage = getErrorMessage(error);
+      return <Error errorMessage={errorMessage} />;
     } finally {
       alert('링크가 복사되었습니다!');
     }
