@@ -3,11 +3,16 @@ import { DEFALUT_MODAL_VALUE } from '../Constants/Constants';
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 
+interface ModalType {
+  name: string;
+  data: { url: string };
+}
+
 // Modal을 사용하기 위한 hook
 export const useModal = () => {
   const [modal, setModal] = useState(DEFALUT_MODAL_VALUE);
 
-  const showModal = (modalValue) => {
+  const showModal = (modalValue: ModalType) => {
     setModal(modalValue);
   };
 
@@ -50,7 +55,7 @@ export const useFolder = () => {
   };
 
   // 폴더의 전체 버튼이 아닌 버튼을 클릭했을 때 가져올 데이터
-  const handleFilteredCardButtonClick = (id) => {
+  const handleFilteredCardButtonClick = (id: number) => {
     try {
       getFetch('bootcamp-api.codeit.kr', `api/users/1/links?folderId=${id}`).then((cardData) => {
         setFolderCardData(() => {

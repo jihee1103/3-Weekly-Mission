@@ -2,7 +2,18 @@ import styled from 'styled-components';
 import noImageSource from '../../../../assets/images/no_image_source.svg';
 import star from '../../../../assets/images/star.svg';
 
-const CardImg = ({ link }) => {
+interface LinkDataType {
+  createdAt: string;
+  description: string;
+  folderId: number;
+  id: number;
+  imageSource: string;
+  title: string;
+  updatedAt: string;
+  url: string;
+}
+
+const CardImg = ({ link }: { link: LinkDataType }) => {
   return (
     <Wrapper>
       {link.imageSource ? (

@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-const ModalTitle = ({ text, detailText }) => {
+interface ModalTitleProps {
+  text: string;
+  detailText?: string;
+}
+
+const ModalTitle = ({ text, detailText }: ModalTitleProps) => {
   return (
     <div>
       <ModalTitleHeader detailText={detailText}>{text}</ModalTitleHeader>
@@ -9,7 +14,7 @@ const ModalTitle = ({ text, detailText }) => {
   );
 };
 
-const ModalTitleHeader = styled.h1`
+const ModalTitleHeader = styled.h1<{ detailText: string | undefined }>`
   text-align: center;
   width: 280px;
   color: var(--Linkbrary-gray100, #373740);

@@ -19,7 +19,7 @@ const FolderPage = () => {
 
   return (
     <FolderPageWrapper>
-      <Header login={login} userData={userData} />
+      <Header login={login} userData={userData} />z
       <Hero>
         <LinkCreator onUpdateButtonClick={showModal} />
       </Hero>
@@ -32,7 +32,10 @@ const FolderPage = () => {
           onOverviewCardButtonClick={handleOverviewCardButtonClick}
           onFilteredCardButtonClick={handleFilteredCardButtonClick}
         />
-        <CardList cardData={folderCardData} onDeleteButtonClick={showModal} />
+        <button type="button" onClick={() => console.log(folderCardData)}>
+          버튼
+        </button>
+        <CardList cardListData={folderCardData} onDeleteButtonClick={showModal} />
       </Contents>
       <Footer />
       {modal.name ? <Modal modal={modal} setModal={setModal} onCloseModalButtonClick={closeModal} /> : null}

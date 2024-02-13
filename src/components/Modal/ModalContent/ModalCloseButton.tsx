@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import modalClose from '../../../assets/images/_close.svg';
 
-const ModalCloseButton = ({ onCloseModalButtonClick }) => {
+const ModalCloseButton = ({ onCloseModalButtonClick }: { onCloseModalButtonClick: () => void }) => {
   return (
     <StyledModalCloseButton type="button" onClick={onCloseModalButtonClick}>
       <img src={modalClose} alt="모달 닫기 버튼" />

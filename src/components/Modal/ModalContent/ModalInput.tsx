@@ -1,16 +1,21 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 
-const ModalInput = ({ placeHolder, modal }) => {
+interface ModalInputProps {
+  placeHolder?: string;
+  modal: { name: string; data: { folderName: string } };
+}
+
+const ModalInput = ({ placeHolder, modal }: ModalInputProps) => {
   const [inputValue, setInputValue] = useState(modal.data.folderName);
 
-  const onChange = (e) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
   return (
     <ModalInputWrapper>
-      <input type="text" placeHolder={placeHolder} value={inputValue} onChange={onChange} />
+      <input type="text" placeholder={placeHolder} value={inputValue} onChange={onChange} />
     </ModalInputWrapper>
   );
 };

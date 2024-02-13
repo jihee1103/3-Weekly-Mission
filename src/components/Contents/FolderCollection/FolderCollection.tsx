@@ -7,17 +7,25 @@ import share from '../../../assets/images/share.svg';
 import pen from '../../../assets/images/pen.svg';
 import trashCan from '../../../assets/images/trash_can.svg';
 
+interface FolderCollectionProps {
+  onButtonClick: (data: { name: string; data: { folderName: string; sharingUrl?: string } }) => void;
+  folderData: { id: number; name: string }[];
+  onOverviewCardButtonClick: () => void;
+  onFilteredCardButtonClick: (folderId: number) => void;
+  userData: { id: number };
+}
+
 const FolderCollection = ({
   onButtonClick,
   folderData,
   onOverviewCardButtonClick,
   onFilteredCardButtonClick,
   userData,
-}) => {
+}: FolderCollectionProps) => {
   const [currentFolder, setCurrentFolder] = useState('전체');
   const sharingUrl = useRef('');
 
-  const createSharingUrl = (userId, folderId) => {
+  const createSharingUrl = (userId: number, folderId: number) => {
     sharingUrl.current = `${window.location.origin}/shared?user=${userId}&folder=${folderId}`;
   };
 
@@ -26,7 +34,7 @@ const FolderCollection = ({
     onOverviewCardButtonClick();
   };
 
-  const setCurrentFolderToSelected = (folderName, folderId) => {
+  const setCurrentFolderToSelected = (folderName: string, folderId: number) => {
     setCurrentFolder(folderName);
     onFilteredCardButtonClick(folderId);
     createSharingUrl(userData.id, folderId);

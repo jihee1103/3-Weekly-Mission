@@ -4,7 +4,21 @@ import calculatePassedTime from '../../../../utils/calculatePassedTime';
 import getFormattedDate from '../../../../utils/getFormattedDate';
 import kebab from '../../../../assets/images/kebab.svg';
 
-const CardDescription = ({ link, onDeleteButtonClick }) => {
+interface CardDescriptionProps {
+  link: {
+    createdAt: string;
+    description: string;
+    folderId: number;
+    id: number;
+    imageSource: string;
+    title: string;
+    updatedAt: string;
+    url: string;
+  };
+  onDeleteButtonClick: (elem: { name: string; data: { url: string } }) => void;
+}
+
+const CardDescription = ({ link, onDeleteButtonClick }: CardDescriptionProps) => {
   const [kebabToggle, setKebabToggle] = useState(false);
 
   const handleKebabToggle = () => {

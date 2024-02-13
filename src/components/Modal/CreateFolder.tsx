@@ -5,7 +5,12 @@ import ModalContentWrapper from './ModalContent/ModalContentWrapper';
 import ModalInputContainer from './ModalContent/ModalInputContainer';
 import ModalCloseButton from './ModalContent/ModalCloseButton';
 
-const CreateFolder = ({ modal, onCloseModalButtonClick }) => {
+interface CreateFolderProps {
+  modal: { name: string; data: { folderName: string } };
+  onCloseModalButtonClick: () => void;
+}
+
+const CreateFolder = ({ modal, onCloseModalButtonClick }: CreateFolderProps) => {
   const ModalCtaButtonBgColor = 'linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%)';
 
   return (
@@ -15,7 +20,7 @@ const CreateFolder = ({ modal, onCloseModalButtonClick }) => {
         <ModalInput placeHolder="내용 입력" modal={modal} />
         <ModalCtaButton text="추가하기" bgColor={ModalCtaButtonBgColor} />
       </ModalInputContainer>
-      <ModalCloseButton modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
+      <ModalCloseButton onCloseModalButtonClick={onCloseModalButtonClick} />
     </ModalContentWrapper>
   );
 };
