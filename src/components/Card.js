@@ -5,6 +5,7 @@ import formatDate from "../utils/formatDate";
 import "./Card.css";
 import { useState } from "react";
 import Modal from "./Modal";
+import { Link } from "react-router-dom";
 
 export default function Card({ data }) {
   const {
@@ -22,12 +23,17 @@ export default function Card({ data }) {
 
   const classNames =
     imageSource || image_source ? "card-img" : "card-img no-img";
-    
+
   const [popoverState, setPopoverState] = useState(false);
   const [modalState, setModalState, handleModalCancel] = useModal();
 
   return (
-    <a className="card" onClick={() => window.open(url, "_blank")}>
+    <Link
+      className="card"
+      onClick={() => {
+        window.open(url, "_blank");
+      }}
+    >
       <Modal state={modalState} onClick={handleModalCancel} />
       <div className="card-img-container">
         <img
@@ -42,18 +48,20 @@ export default function Card({ data }) {
           <button
             className="kebab-btn"
             onClick={(e) => {
+              e.preventDefault();
               e.stopPropagation();
               setPopoverState(!popoverState);
             }}
-          ></button>
+          />
         </p>
         {popoverState ? (
           <div className="popover">
             <button
               className="popover-btn"
               onClick={(e) => {
+                e.preventDefault();
                 e.stopPropagation();
-                setModalState({ state: true, target: e.target.innerText, url });
+                setModalState({ state: true, target: "삭제하기", url });
               }}
             >
               삭제하기
@@ -61,8 +69,9 @@ export default function Card({ data }) {
             <button
               className="popover-btn"
               onClick={(e) => {
+                e.preventDefault();
                 e.stopPropagation();
-                setModalState({ state: true, target: e.target.innerText, url });
+                setModalState({ state: true, target: "폴더에 추가", url });
               }}
             >
               폴더에 추가
@@ -74,6 +83,6 @@ export default function Card({ data }) {
         <p className="description">{description}</p>
         <p className="upload-date">{formattedDate}</p>
       </div>
-    </a>
+    </Link>
   );
 }

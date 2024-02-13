@@ -10,22 +10,71 @@ export default function Modal({ state, onClick, link }) {
   const folderList = useGetFolderListAsync();
 
   const cancelModal = (e) => {
-    e.stopPropagation();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     onClick();
   };
 
   const currentUrl = window.location.href;
+
+  // 호스트주소/shared?user={현재 로그인 중인 유저ID}&folder={현재 열려있는 폴더ID}
+  const shareKakao = (route, title) => { // url이 id값에 따라 변경되기 때문에 route를 인자값으로 받아줌
+    if (window.Kakao) {
+      const kakao = window.Kakao;
+      if (!kakao.isInitialized()) {
+        kakao.init(process.env.REACT_APP_SHARE_KAKAO_LINK_KEY); // 카카오에서 제공받은 javascript key를 넣어줌 -> .env파일에서 호출시킴
+      }
   
+      kakao.Link.sendDefault({
+        objectType: "feed", // 카카오 링크 공유 여러 type들 중 feed라는 타입 -> 자세한 건 카카오에서 확인
+        content: {
+          title: title, // 인자값으로 받은 title
+          description: "설명", // 인자값으로 받은 title
+          imageUrl: "이미지 url",
+          link: {
+            mobileWebUrl: route, // 인자값으로 받은 route(uri 형태)
+            webUrl: route
+          }
+        },
+        buttons: [
+          {
+            title: "title",
+            link: {
+              mobileWebUrl: route,
+              webUrl: route
+            }
+          }
+        ]
+      });
+    }
+  };
   const handleCopyClipBoard = () => {
-      navigator.clipboard.writeText(currentUrl);
-      alert('클립보드에 복사되었습니다.');
+    navigator.clipboard.writeText(currentUrl);
+    alert("클립보드에 복사되었습니다.");
   };
 
+  const handleFacebookShare = () => {
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`,
+      "페이스북 공유하기",
+      "width=400,height=400,location=no,status=no,scrollbars=yes"
+    );
+  };
+
+  const handleKakaotalkShare = () => {
+
+  };
+  
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") cancelModal();
+  });
   return (
     <>
       {state["state"] && (
         <>
-          <div className="modal-background" />
+          <div className="modal-background" onClick={cancelModal} />
           <div className="modal-container">
             <button className="modal-close-btn" onClick={cancelModal}>
               <img
@@ -41,17 +90,35 @@ export default function Modal({ state, onClick, link }) {
                 </h2>
                 <h3 className="link-and-folder-name">{state["folderName"]}</h3>
                 <div className="share-icon-wrapper">
-                  <button className="share-icon-btn">
-                    <img className="share-icon kakao" src={kakao} />
+                  <button className="share-icon-btn" onClick={handleKakaotalkShare}>
+                    <img
+                      className="share-icon kakao"
+                      src={kakao}
+                      alt="kakao-icon"
+                    />
                     <span className="share-icon-name">카카오톡</span>
                   </button>
-                  <button className="share-icon-btn">
-                    <img className="share-icon facebook" src={facebook} />
+                  <button
+                    className="share-icon-btn"
+                    onClick={handleFacebookShare}
+                  >
+                    <img
+                      className="share-icon facebook"
+                      src={facebook}
+                      alt="facebook-icon"
+                    />
                     <span className="share-icon-name">페이스북</span>
                   </button>
-                  <button className="share-icon-btn" onClick={handleCopyClipBoard}>
-                    <img className="share-icon link-icon" src={linkIcon} />
-                    <span className="share-icon-name" >링크 복사</span>
+                  <button
+                    className="share-icon-btn"
+                    onClick={handleCopyClipBoard}
+                  >
+                    <img
+                      className="share-icon link-icon"
+                      src={linkIcon}
+                      alt="link-icon"
+                    />
+                    <span className="share-icon-name">링크 복사</span>
                   </button>
                 </div>
               </>
@@ -83,7 +150,15 @@ export default function Modal({ state, onClick, link }) {
                 <>
                   <h2 className="modal-title">폴더 추가</h2>
                   <input className="modal-input" />
-                  <button className="modal-submit-btn">추가하기</button>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                    className="modal-submit-btn"
+                  >
+                    추가하기
+                  </button>
                 </>
               )) ||
               (state["target"] === "삭제하기" && (
