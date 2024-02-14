@@ -9,10 +9,10 @@ import Footer from "../components/Footer";
 import SearchLinkBar from "../components/SearchLinkBar";
 import getFoldersNameData from "../api/getFoldersNameData";
 import getAllFolderData from "../api/getAllFolderData";
-import CardList from "../components/CardList";
 import getFolderIdData from "../api/getFolderIdData";
 import CardListDefault from "../components/CardListDefault";
 import FolderPageHeaderNavigation from "../components/FolderPageHeaderNavigation";
+import FolderPageCardList from "../components/FolderPageCardList";
 
 export const FolderPageStateContext = React.createContext();
 
@@ -64,7 +64,6 @@ const FolderPage = () => {
     >
       <HeaderContainer>
         <FolderPageHeaderNavigation />
-
         <AddLinkBar />
       </HeaderContainer>
       <main>
@@ -82,7 +81,7 @@ const FolderPage = () => {
           </FolderListHeader>
           <CardListContainer>
             {allFolderData.length > 0 ? (
-              <CardList data={allFolderData} />
+              <FolderPageCardList data={allFolderData} />
             ) : (
               <CardListDefault />
             )}

@@ -6,6 +6,7 @@ import SharedPageHeaderNavigation from "../components/SharedHeaderNavigation";
 import SharedPageHeaderUserInfo from "../components/SharedPageHeaderUserInfo";
 import getSampleUserData from "../api/getSampleUserData";
 import getSampleFolderData from "../api/getSampleFolderData";
+import SharedPageCardList from "../components/SharedPageCardList";
 
 export const SharedPageStateContext = React.createContext();
 
@@ -34,6 +35,11 @@ const SharedPage = () => {
         <section>
           <SearchLinkBar />
         </section>
+        <article>
+          <CardListContainer>
+            <SharedPageCardList />
+          </CardListContainer>
+        </article>
       </main>
       <Footer />
     </SharedPageStateContext.Provider>
@@ -45,4 +51,13 @@ export default SharedPage;
 const HeaderContainer = styled.header`
   background-color: #f0f6ff;
   padding-top: 32px;
+`;
+
+const CardListContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 1060px;
+  margin: 0 auto;
 `;

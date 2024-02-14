@@ -1,40 +1,41 @@
 import { useContext } from "react";
-import { FolderPageStateContext } from "../../page/FolderPage";
+import { SharedPageStateContext } from "../../page/SharedPage";
 import defaultImage from "./default.png";
 import starIcon from "./star.svg";
 import kebabIcon from "./kebab.svg";
-
 import styled from "styled-components";
 
-const CardList = () => {
-  const { allFolderData } = useContext(FolderPageStateContext);
+const SharedPageCardList = () => {
+  const { folderData } = useContext(SharedPageStateContext);
 
   return (
     <>
-      {allFolderData.map((folder) => (
-        <CardContainer key={folder.id}>
-          <CardWrapper>
-            <img src={starIcon} alt="즐겨찾기 버튼" className="startIcon" />
-            <CardImageWrapper>
-              {folder.image_source ? (
-                <img src={folder.image_source} alt="링크 대표 이미지" />
-              ) : (
-                <img src={defaultImage} alt="링크브러리 로고 사진" />
-              )}
-            </CardImageWrapper>
-            <CardContent>
-              <img src={kebabIcon} alt="더보기 버튼" className="kebabIcon" />
-              <Stamp>10 minutes ago</Stamp>
-              <Description>{folder.description}</Description>
-              <Stamp>2023. 3. 15</Stamp>
-            </CardContent>
-          </CardWrapper>
-        </CardContainer>
-      ))}
+      {folderData &&
+        folderData.folder.links &&
+        folderData.folder.links.map((folder) => (
+          <CardContainer key={folder.id}>
+            <CardWrapper>
+              <img src={starIcon} alt="즐겨찾기 버튼" className="startIcon" />
+              <CardImageWrapper>
+                {folder.imageSource ? (
+                  <img src={folder.imageSource} alt="링크 대표 이미지" />
+                ) : (
+                  <img src={defaultImage} alt="링크 기본 이미지" />
+                )}
+              </CardImageWrapper>
+              <CardContent>
+                <img src={kebabIcon} alt="더보기 버튼" className="kebabIcon" />
+                <Stamp>10 minutes ago</Stamp>
+                <Description>{folder.description}</Description>
+                <Stamp>2023. 3. 15</Stamp>
+              </CardContent>
+            </CardWrapper>
+          </CardContainer>
+        ))}
     </>
   );
 };
-export default CardList;
+export default SharedPageCardList;
 
 const CardContainer = styled.div`
   display: flex;
