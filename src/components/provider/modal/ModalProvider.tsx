@@ -16,7 +16,7 @@ type TModalProviderProps = PropsWithChildren;
 const ModalProvider = <MC extends TModalComponent>({ children }: TModalProviderProps) => {
   const [{ ModalComponent, props }, setModal] = useState<{
     ModalComponent: MC | null;
-    props: TModalHandler & { [key: string]: any };
+    props: TModalHandler & Record<string | number | symbol, any>;
   }>({
     ModalComponent: null,
     props: {
@@ -39,7 +39,7 @@ const ModalProvider = <MC extends TModalComponent>({ children }: TModalProviderP
     if (isModalOpen === false) {
       toggleModal();
       setModal(() => {
-        if (props) return { ModalComponent, props: { ...props, modalRef } };
+        if (ModalComponent && props) return { ModalComponent, props: { ...props, modalRef } };
 
         return { ModalComponent, props: { modalRef } };
       });
