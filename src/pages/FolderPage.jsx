@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import Contents from '../components/Contents/Contents';
-import LinkCreator from '../components/Hero/LinkCreator/LinkCreator';
+import LinkCreator from '../components/LinkCreator/LinkCreator';
 import Search from '../components/Contents/CardSearchBar/CardSearchBar';
 import CardList from '../components/Contents/CardList/CardList';
 import FolderCollection from '../components/Contents/FolderCollection/FolderCollection';

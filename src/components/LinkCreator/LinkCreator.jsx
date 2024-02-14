@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
-import link from '../../../assets/images/link.svg';
-import { DEFALUT_MODAL_VALUE } from '../../../Constants/Constants';
+import link from '../../assets/images/link.svg';
+import { DEFALUT_MODAL_VALUE } from '../../Constants/Constants';
 
 const LinkCreator = forwardRef(({ onUpdateButtonClick }, refs) => {
   const { linkCreactorDom, linkCreactorWrapperDom } = refs;

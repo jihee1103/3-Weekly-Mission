@@ -1,4 +1,4 @@
-import ShareDescription from '../components/Hero/ShareDescription/ShareDescription';
+import ShareDescription from '../components/ShareDescription/ShareDescription';
 import Contents from '../components/Contents/Contents';
 import Search from '../components/Contents/CardSearchBar/CardSearchBar';
 import CardList from '../components/Contents/CardList/CardList';
