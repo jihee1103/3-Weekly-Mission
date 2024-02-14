@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 import search from '../../../assets/images/Search.svg';
+import resetImg from '../../../assets/images/_close.svg';
 
-const CardSearchBar = () => {
+// Think: search의 내장 reset 버튼을 사용 할것인가? 아니면 직접 만들어서 사용할 것인가? 생각해야함
+const CardSearchBar = ({ inputValue, onInputChange, resetInputValue }) => {
   return (
     <CardSearchBarWrapper>
       <img src={search} alt="돋보기 모양 사진" />
-      <input type="search" placeholder="링크를 검색해 보세요." />
+      <input type="search" value={inputValue} onChange={onInputChange} placeholder="링크를 검색해 보세요." />
+      {inputValue?.length === 0 ? null : (
+        <button type="button" onClick={resetInputValue}>
+          <img src={resetImg} alt="리셋 버튼 이미지" />
+        </button>
+      )}
     </CardSearchBarWrapper>
   );
 };
@@ -21,7 +28,7 @@ const CardSearchBarWrapper = styled.div`
   align-items: center;
   margin-bottom: 40px;
 
-  img {
+  & > img {
     width: 16px;
     height: 16px;
   }
@@ -29,6 +36,12 @@ const CardSearchBarWrapper = styled.div`
   input {
     width: 100%;
     background-color: #f5f5f5;
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   @media (max-width: 1123px) {

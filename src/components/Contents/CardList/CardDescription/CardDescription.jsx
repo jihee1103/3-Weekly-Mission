@@ -4,6 +4,8 @@ import calculatePassedTime from '../../../../utils/calculatePassedTime';
 import getFormattedDate from '../../../../utils/getFormattedDate';
 import kebab from '../../../../assets/images/kebab.svg';
 
+import { DEFALUT_MODAL_VALUE } from '../../../../Constants/Constants';
+
 const CardDescription = ({ link, onDeleteButtonClick }) => {
   const [kebabToggle, setKebabToggle] = useState(false);
 
@@ -29,7 +31,7 @@ const CardDescription = ({ link, onDeleteButtonClick }) => {
               type="button"
               onClick={(e) => {
                 e.preventDefault();
-                onDeleteButtonClick({ name: 'DeleteLink', data: { url: link.url } });
+                onDeleteButtonClick({ ...DEFALUT_MODAL_VALUE, type: 'DeleteLink', url: link.url });
               }}
             >
               삭제하기

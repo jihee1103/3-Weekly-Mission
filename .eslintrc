@@ -26,5 +26,9 @@
     "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }],
     // export defalut 에러 없애기
     "import/prefer-default-export": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true
   }
 }

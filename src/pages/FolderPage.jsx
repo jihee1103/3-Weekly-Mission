@@ -1,92 +1,38 @@
-import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import Hero from '../components/Hero/Hero';
 import Contents from '../components/Contents/Contents';
-import LinkCreator from '../components/Hero/LinkCreator.jsx/LinkCreator';
+import LinkCreator from '../components/LinkCreator/LinkCreator';
 import Search from '../components/Contents/CardSearchBar/CardSearchBar';
 import CardList from '../components/Contents/CardList/CardList';
 import FolderCollection from '../components/Contents/FolderCollection/FolderCollection';
 
-import getFetch from '../utils/getFetch';
-import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
 import Modal from '../components/Modal/Modal';
-import { DEFALUT_MODAL_VALUE } from '../Constants/Constants';
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Header/Header';
 
-const FolderPage = ({ userData }) => {
-  const [folderData, setFolderData] = useState([]);
-  const [folderCardData, setFolderCardData] = useState([]);
+import { useFolder, useFolderPageLogin, useModal, useScrollingSearchBar } from './FolderPage.hook';
+import { useSearchBar } from '../hooks/useSearchBar';
 
-  // Modal
-  const [modal, setModal] = useState(DEFALUT_MODAL_VALUE);
-
-  const showModal = (modalValue) => {
-    setModal(modalValue);
-  };
-
-  const closeModal = () => {
-    setModal(DEFALUT_MODAL_VALUE);
-  };
-
-  // 폴더의 전체 버튼을 클릭했을 때 가져올 데이터
-  const handleOverviewCardButtonClick = () => {
-    try {
-      getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((cardData) => {
-        setFolderCardData(() => {
-          return getFormattedCamelCaseData(cardData.data);
-        });
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // 폴더의 전체 버튼이 아닌 버튼을 클릭했을 때 가져올 데이터
-  const handleFilteredCardButtonClick = (id) => {
-    try {
-      getFetch('bootcamp-api.codeit.kr', `api/users/1/links?folderId=${id}`).then((cardData) => {
-        setFolderCardData(() => {
-          return getFormattedCamelCaseData(cardData.data);
-        });
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // 폴더 카드 정보를 가지고 있는 데이터
-  useEffect(() => {
-    try {
-      getFetch('bootcamp-api.codeit.kr', 'api/users/1/links').then((FolderData) => {
-        setFolderCardData(() => {
-          return getFormattedCamelCaseData(FolderData.data);
-        });
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
-
-  // 폴더 버튼들을 가지고 있는 데이터
-  useEffect(() => {
-    try {
-      getFetch('bootcamp-api.codeit.kr', 'api/users/1/folders').then((FolderData) => {
-        setFolderData(() => {
-          return getFormattedCamelCaseData(FolderData.data);
-        });
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
+const FolderPage = () => {
+  const { modal, setModal, showModal, closeModal } = useModal();
+  const {
+    folderData,
+    folderCardData,
+    originalFolderCardData,
+    setFolderCardData,
+    handleOverviewCardButtonClick,
+    handleFilteredCardButtonClick,
+  } = useFolder();
+  const { login, userData } = useFolderPageLogin();
+  const { inputValue, handleInputChange, resetInputValue } = useSearchBar(originalFolderCardData, setFolderCardData);
+  const { linkCreactorRefs, footerDom } = useScrollingSearchBar();
 
   return (
     <FolderPageWrapper>
-      <Hero>
-        <LinkCreator onUpdateButtonClick={showModal} />
-      </Hero>
+      <Header login={login} userData={userData} />
+      <LinkCreator onUpdateButtonClick={showModal} ref={linkCreactorRefs} />
       <Contents>
-        <Search />
+        <Search inputValue={inputValue} onInputChange={handleInputChange} resetInputValue={resetInputValue} />
         <FolderCollection
           onButtonClick={showModal}
           userData={userData}
@@ -96,7 +42,8 @@ const FolderPage = ({ userData }) => {
         />
         <CardList cardData={folderCardData} onDeleteButtonClick={showModal} />
       </Contents>
-      {modal.name ? <Modal modal={modal} setModal={setModal} onCloseModalButtonClick={closeModal} /> : null}
+      <Footer ref={footerDom} />
+      {modal.type ? <Modal modal={modal} setModal={setModal} onCloseModalButtonClick={closeModal} /> : null}
     </FolderPageWrapper>
   );
 };

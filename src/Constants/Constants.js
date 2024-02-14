@@ -1,1 +1,1 @@
-export const DEFALUT_MODAL_VALUE = { name: '', data: {} };
+export const DEFALUT_MODAL_VALUE = { type: '', folderName: '', sharingUrl: '', url: '' };
