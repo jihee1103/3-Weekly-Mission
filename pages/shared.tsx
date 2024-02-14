@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { getFolder } from './api/api';
 import styles from '@/styles/page.module.css';
 import Nav from '@/src/components/header/Nav/Nav';
@@ -18,23 +18,27 @@ export interface SharedLink {
   image_source?: string;
 }
 
-export default function SharePage() {
-  const [links, setLinks] = useState<SharedLink[]>([]);
+interface Props {
+  links: SharedLink[];
+}
+
+export async function getStaticProps() {
+  const { folder } = await getFolder();
+  const links: SharedLink[] = folder.links;
+
+  return {
+    props: {
+      links,
+    },
+  };
+}
+
+export default function SharePage({ links }: Props) {
   const [keyword, setKeyword] = useState('');
 
   const handleSearchOnChange = (nextKeyword: string) => {
     setKeyword(nextKeyword);
   };
-
-  useEffect(() => {
-    async function getLinks() {
-      const { folder } = await getFolder();
-      const { links } = folder;
-      setLinks(links);
-    }
-
-    getLinks();
-  }, []);
 
   return (
     <>

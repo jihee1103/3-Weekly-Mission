@@ -46,16 +46,59 @@ export interface FolderInfo {
   id: Id;
 }
 
-export default function FolderPage() {
-  const [folderInfo, setFolderInfo] = useState<FolderInfo>({
+interface InitialData {
+  folderInfo: FolderInfo;
+  userId: number;
+  links: LinkType[];
+  folderList: FolderList[];
+}
+
+interface Props {
+  initialData: InitialData;
+}
+
+export async function getServerSideProps() {
+  const folderInfo: FolderInfo = {
     name: '전체',
     id: 0,
-  });
+  };
+  const userId = 1;
+  let links: LinkType[];
+  let folderList: FolderList[];
+  {
+    const data: LinkType[] = (await getLinksById(folderInfo.id)).data;
+    if (!data) return;
+    links = data;
+  }
+  {
+    const data: Folder[] = (await getFoldersById(userId)).data;
+    if (!data) return;
+    folderList = data.map((element: Folder) => {
+      return { name: element.name, linkCount: element.link.count };
+    });
+  }
 
-  const [folderList, setFolderList] = useState<FolderList[]>([]);
+  const initialData = {
+    folderInfo,
+    userId,
+    links,
+    folderList,
+  };
 
-  const [userId, setUserId] = useState(0);
-  const [links, setLinks] = useState<LinkType[]>([]);
+  return {
+    props: { initialData },
+  };
+}
+
+export default function FolderPage({ initialData }: Props) {
+  const [folderInfo, setFolderInfo] = useState<FolderInfo>(
+    initialData.folderInfo
+  );
+  const [folderList, setFolderList] = useState<FolderList[]>(
+    initialData.folderList
+  );
+  const [userId, setUserId] = useState(initialData.userId);
+  const [links, setLinks] = useState<LinkType[]>(initialData.links);
   const [keyword, setKeyword] = useState('');
   const [showFixedAddLink, setShowFixedAddLink] = useState(false);
   const addLinkObserver = useRef<HTMLDivElement>(null);

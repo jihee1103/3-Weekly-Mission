@@ -14,7 +14,6 @@ interface Props {
 
 export default function EditOption({ src, optionName, userId, folder }: Props) {
   const [openModal, setOpenModal] = useState(false);
-  // @ts-ignore
   const { Kakao } = window;
 
   let modalContent;
@@ -62,7 +61,7 @@ export default function EditOption({ src, optionName, userId, folder }: Props) {
       const shareLink = hostName + `/shared?user=${userId}&folder=${folder.id}`;
 
       const handleShareToKakaotalk = () => {
-        Kakao.Share.sendDefault({
+        Kakao.Link.sendScrap({
           objectType: 'feed',
           content: {
             title: '폴더 공유',
@@ -162,11 +161,6 @@ export default function EditOption({ src, optionName, userId, folder }: Props) {
   const closeModal = () => {
     setOpenModal(false);
   };
-
-  // useEffect(() => {
-  //   Kakao.cleanup();
-  //   Kakao.init(process.env.KAKAO_JS_AppKey);
-  // }, [Kakao]);
 
   return (
     <>
