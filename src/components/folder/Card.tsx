@@ -1,64 +1,36 @@
-import { useEffect, useState } from "react";
-import { getUserLinks } from "../../api";
-import { getTimeDifference, formatCreatedAt } from "../common/Utils";
-import useModals from "../../hooks/useModals";
-import Modals from "./Modals";
+import { useState } from "react";
+import { formatCreatedAt, getTimeDifference } from "../common/Utils";
 import styled from "styled-components";
+import { CardProps } from "../../types";
+import { UserLink } from "../../api";
+import { AddToFolderModal, DeleteItemModal } from "./Modal";
 
-export default function FolderContentCard({ selectedFolder }) {
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    async function handleload() {
-      if (selectedFolder === "전체") {
-        const { data } = await getUserLinks(1);
-        setItems(data);
-      } else {
-        const { id } = selectedFolder;
-        const { data } = await getUserLinks(1, id);
-        setItems(data);
-      }
-    }
-    handleload();
-  }, [selectedFolder]);
-  return (
-    <>
-      <Cards>
-        {items.length > 0 ? (
-          items.map((item) => {
-            return <LITag item={item} key={item.id} />;
-          })
-        ) : (
-          <div className="no-save-link">
-            저장된 링크가 없습니다
-            <img src="/imgs/03_땡깡-1.gif" alt="폴더에 링크를 추가해주세요" />
-          </div>
-        )}
-      </Cards>
-    </>
-  );
-}
-
-function LITag({ item }) {
+export default function Card({ item }: CardProps) {
   const [isPopoverVisible, setIsPopoverVisible] = useState(false);
-  const openNewWindow = (url) => {
+  const [selectedModal, setSelectedModal] = useState<string | null>(null);
+
+  const handleModalAddtoFolder = () => {
+    setSelectedModal("add");
+  };
+  const handleModalDeleteItem = (item: UserLink) => {
+    setSelectedModal("delete");
+  };
+  const closeModal = () => {
+    setSelectedModal(null);
+  };
+
+  const openNewWindow = (url: string) => {
     window.open(url, "_blank");
   };
   const handlePopoverToggle = () => {
     setIsPopoverVisible(!isPopoverVisible);
-  };
-  const { openModal, closeModal, modal } = useModals();
-  const handleModalAddtoFolder = () => {
-    openModal({ type: "addToFolder", props: null });
-  };
-  const handleModalDeleteItem = (item) => {
-    openModal({ type: "deleteItem", props: item });
   };
   const handleOnBlur = () => {
     setIsPopoverVisible(false);
   };
   return (
     <>
-      <li className="card">
+      <StyledCard>
         <div className="card-img-div">
           <img
             onClick={() => openNewWindow(item.url)}
@@ -99,29 +71,25 @@ function LITag({ item }) {
           </p>
           <p className="card-createdat">{formatCreatedAt(item.created_at)}</p>
         </div>
-      </li>
-      <Modals modal={modal} closeModal={closeModal} />
+      </StyledCard>
+      {selectedModal === "add" && <AddToFolderModal closeModal={closeModal} />}
+      {selectedModal === "delete" && (
+        <DeleteItemModal closeModal={closeModal} selectedModalItem={item} />
+      )}
     </>
   );
 }
 
-const Cards = styled.ul`
+const StyledCard = styled.li`
+  overflow: visible;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-
-  .card {
-    overflow: visible;
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    width: 34rem;
-    height: 33.4rem;
-    border-radius: 1.5rem;
-    cursor: pointer;
-    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
-  }
+  flex-direction: column;
+  list-style-type: none;
+  width: 34rem;
+  height: 33.4rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 
   .card:hover .card-img {
     transform: scale(1.3);

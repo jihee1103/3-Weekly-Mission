@@ -1,19 +1,19 @@
-import React from "react";
-import Nav from "./Nav.js";
-import LinkSearchInput from "./LinkSearchInput.js";
+import Nav from "./Nav";
+import LinkAddInput from "./LinkAddInput";
 import styled from "styled-components";
 
 export default function Header() {
   return (
     <HeaderWrapper>
       <Nav />
-      <LinkSearchInput />
+      <LinkAddInput />
     </HeaderWrapper>
   );
 }
 
 const HeaderWrapper = styled.header`
   display: flex;
+  height: 374px;
   flex-direction: column;
   align-items: center;
   padding-bottom: 6rem;

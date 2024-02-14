@@ -1,23 +1,27 @@
 import styled from "styled-components";
-import useModals from "../../hooks/useModals";
-import Modals from "./Modals";
-export default function FolderName({ selectedFolder }) {
-  const { openModal, closeModal, modal } = useModals();
+import { FolderNameProps } from "../../types";
+import { DeleteFolderModal, RenameModal, ShareModal } from "./Modal";
+import { useState } from "react";
+export default function FolderName({ selectedFolder }: FolderNameProps) {
+  const [selectedModal, setSelectedModal] = useState<string | null>(null);
   const handleOpenModalShare = () => {
-    openModal({ type: "share", props: selectedFolder.name });
+    setSelectedModal("share");
   };
   const handleOpenModalRename = () => {
-    openModal({ type: "rename", props: selectedFolder.name });
+    setSelectedModal("rename");
   };
   const handleOpenModalDeleteFolder = () => {
-    openModal({ type: "deleteFolder", props: selectedFolder.name });
+    setSelectedModal("delete");
+  };
+  const closeModal = () => {
+    setSelectedModal(null);
   };
 
   return (
     <>
       <FolderNameBox>
-        <div className="folder-name">{selectedFolder?.name ?? "전체"}</div>
-        {selectedFolder.name && (
+        <div className="folder-name">{selectedFolder.name}</div>
+        {selectedFolder.id && (
           <div className="folder-edit-box">
             <div onClick={handleOpenModalShare}>
               <img src="/imgs/share.png" alt="공유하기" />
@@ -34,7 +38,24 @@ export default function FolderName({ selectedFolder }) {
           </div>
         )}
       </FolderNameBox>
-      <Modals modal={modal} closeModal={closeModal} />
+      {selectedModal === "share" && (
+        <ShareModal
+          closeModal={closeModal}
+          selectedModalName={selectedFolder.name}
+        />
+      )}
+      {selectedModal === "rename" && (
+        <RenameModal
+          closeModal={closeModal}
+          selectedModalName={selectedFolder.name}
+        />
+      )}
+      {selectedModal === "delete" && (
+        <DeleteFolderModal
+          closeModal={closeModal}
+          selectedModalName={selectedFolder.name}
+        />
+      )}
     </>
   );
 }

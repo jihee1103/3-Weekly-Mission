@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUserProfile } from "../../api.js";
+import { User, getUserProfile } from "../../api";
 import styled from "styled-components";
 
 export default function Nav() {
@@ -53,12 +53,11 @@ const LogoLink = styled.a`
 `;
 
 function UserProfileInHeader() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<User>();
   useEffect(() => {
     async function handleLoginProfile() {
-      const { data } = await getUserProfile(1);
-      const [userProfile] = data;
-      setUser(userProfile);
+      const user = await getUserProfile(1);
+      setUser(user);
     }
     handleLoginProfile();
   }, []);

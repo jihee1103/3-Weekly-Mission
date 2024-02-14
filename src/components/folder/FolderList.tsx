@@ -1,42 +1,50 @@
 import { useEffect, useState } from "react";
-import { getUserFolders } from "../../api";
-import useModals from "../../hooks/useModals";
-import Modals from "./Modals";
+import { UserFolder, getUserFolders } from "../../api";
 import styled from "styled-components";
-export default function FolderList({ onSelectFolder, selectedFolder }) {
-  const [folderNames, setFolderNames] = useState([]);
-  const handleFolderClick = (folder) => {
+import { AllSee, FolderListProps } from "../../types";
+import { AddFolderModal } from "./Modal";
+export default function FolderList({
+  onSelectFolder,
+  selectedFolder,
+}: FolderListProps) {
+  const allSee: AllSee = {
+    id: undefined,
+    name: "전체",
+  };
+  const [folderNames, setFolderNames] = useState<UserFolder[]>();
+  const handleFolderClick = (folder: UserFolder | AllSee) => {
     onSelectFolder(folder);
   };
-  const { openModal, closeModal, modal } = useModals();
-  const handleModalAddFolder = () => {
-    openModal({ type: "addFolder", props: null });
+  const [isModal, setIsModal] = useState(false);
+  const handleOpenMoldalAddFolder = () => {
+    setIsModal(true);
+  };
+  const closeModal = () => {
+    setIsModal(false);
   };
   useEffect(() => {
     async function handleload() {
-      const { data } = await getUserFolders(1);
-      setFolderNames(data);
+      setFolderNames(await getUserFolders(4));
     }
     handleload();
   }, []);
-
   return (
     <>
       <FolderListBox>
         <ul className="folder-list">
           <li
-            onClick={() => handleFolderClick("전체")}
+            onClick={() => handleFolderClick(allSee)}
             className={`folder ${
-              selectedFolder === "전체" ? "folderSelected" : ""
+              selectedFolder.name === "전체" ? "folderSelected" : ""
             }`}
           >
             <div>전체</div>
           </li>
-          {folderNames.map((folder) => {
+          {folderNames?.map((folder) => {
             return (
               <li
                 className={`folder ${
-                  selectedFolder.id === folder.id ? "folderSelected" : ""
+                  selectedFolder?.id === folder.id ? "folderSelected" : ""
                 }`}
                 key={folder.id}
                 onClick={() => handleFolderClick(folder)}
@@ -49,13 +57,13 @@ export default function FolderList({ onSelectFolder, selectedFolder }) {
         <div className="folder-add-box">
           <input className="folder-add-input"></input>
           <img
-            onClick={handleModalAddFolder}
+            onClick={handleOpenMoldalAddFolder}
             src="/imgs/add.png"
             alt="폴더추가하기"
           />
         </div>
       </FolderListBox>
-      <Modals modal={modal} closeModal={closeModal} />
+      {isModal && <AddFolderModal closeModal={closeModal} />}
     </>
   );
 }

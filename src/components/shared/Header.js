@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUserFolder, getUserId } from "../../api.js";
+import { getUserFolder, getUserId } from "../../api";
 import "./Header.css";
 
 export default function Header() {
