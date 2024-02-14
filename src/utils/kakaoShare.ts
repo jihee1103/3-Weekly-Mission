@@ -1,16 +1,13 @@
-declare global {
-  interface Window {
-    Kakao: any;
-  }
-}
-
 export const shareKakao = (url: string, folderName: string) => {
-  if (!window.Kakao.isInitialized()) {
+  if (!Kakao.isInitialized()) {
     const key = process.env.REACT_APP_API_KEY;
-    window.Kakao.init(key);
+    if (!key) {
+      return;
+    }
+    Kakao.init(key);
   }
 
-  window.Kakao.Share.sendDefault({
+  Kakao.Share.sendDefault({
     objectType: "feed",
     content: {
       title: "Linkbrary",
