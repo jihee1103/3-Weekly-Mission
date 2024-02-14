@@ -50,6 +50,7 @@ export default function Nav({ className = '', setUserId, id }: Props) {
             fill
             src="/images/logo.svg"
             alt="Linkbrary 로고"
+            priority={true}
             style={{ objectFit: 'cover' }}
           />
         </div>

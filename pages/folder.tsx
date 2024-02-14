@@ -8,6 +8,7 @@ import AddLink from '@/src/components/header/AddLink/AddLink';
 import FolderList from '@/src/components/section/FolderList/FolderList';
 import EditOption from '@/src/components/section/EditOption/EditOption';
 import Card from '@/src/components/section/Card/Card';
+import 'intersection-observer';
 
 export interface LinkType {
   id: number;
@@ -49,22 +50,9 @@ export default function FolderPage() {
   const [links, setLinks] = useState<LinkType[]>([]);
   const [keyword, setKeyword] = useState('');
   const [showFixedAddLink, setShowFixedAddLink] = useState(false);
-  const addLinkEnd = useRef<HTMLDivElement>(null);
-  const footerStart = useRef<HTMLDivElement>(null);
+  const addLinkObserver = useRef<HTMLDivElement>(null);
+  const footerObserver = useRef<HTMLDivElement>(null);
   const observer = useRef<IntersectionObserver>();
-
-  observer.current = new IntersectionObserver((entries) => {
-    if (entries[0]?.isIntersecting || entries[1]?.isIntersecting) {
-      setShowFixedAddLink(false);
-    } else {
-      setShowFixedAddLink(true);
-    }
-  });
-
-  const observeTargets = document.querySelectorAll('.observe-target');
-  observeTargets.forEach((element) => {
-    observer.current?.observe(element);
-  });
 
   const handleSearchOnChange = (nextKeyword: string) => {
     setKeyword(nextKeyword);
@@ -78,7 +66,25 @@ export default function FolderPage() {
     setUserId(nextUserId);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    observer.current = new IntersectionObserver((entries) => {
+      for (let i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          setShowFixedAddLink(false);
+          break;
+        } else {
+          setShowFixedAddLink(true);
+        }
+      }
+    });
+
+    const observeTargets = document.querySelectorAll(
+      '.' + styles['observe-target']
+    );
+    observeTargets.forEach((element) => {
+      observer.current?.observe(element);
+    });
+  }, []);
 
   useEffect(() => {
     async function getFolderLinks() {
@@ -105,7 +111,7 @@ export default function FolderPage() {
     <>
       <header className={styles['header']}>
         <Nav className="not-fixed" id={1} setUserId={handleSetUserId} />
-        <div className={styles['observe-target']} ref={addLinkEnd}>
+        <div className={styles['observe-target']} ref={addLinkObserver}>
           <AddLink folderList={folderList} />
         </div>
         {showFixedAddLink && (
@@ -179,7 +185,7 @@ export default function FolderPage() {
         </div>
       </section>
       <footer className={styles['footer']}>
-        <div className={styles['observe-target']} ref={footerStart}>
+        <div className={styles['observe-target']} ref={footerObserver}>
           <div className={styles['footer-box']}>
             <span className={styles['copyright']}>©codeit - 2023</span>
             <FooterLinks target="_blank" rel="noopener noreferrer" />
