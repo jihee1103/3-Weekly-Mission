@@ -25,6 +25,7 @@ export default FolderPageHeaderProfile;
 const HeaderProfileWrapper = styled.div`
   display: flex;
   align-items: center;
+  gap: 5px;
 `;
 
 const ProfileImage = styled.img`

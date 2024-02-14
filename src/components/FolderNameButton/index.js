@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { FolderStateContext } from "../../page/FolderPage";
+import { FolderPageStateContext } from "../../page/FolderPage";
 
 const FolderNameButton = () => {
-  const { foldersNameData, handleClickFilterFolder } =
-    useContext(FolderStateContext);
+  const { foldersNameData, handleClickFilterFolder } = useContext(
+    FolderPageStateContext
+  );
 
   return (
     <FolderButtonWrapper>

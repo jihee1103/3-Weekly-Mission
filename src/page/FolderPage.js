@@ -14,7 +14,7 @@ import getFolderIdData from "../api/getFolderIdData";
 import CardListDefault from "../components/CardListDefault";
 import FolderPageHeaderNavigation from "../components/FolderPageHeaderNavigation";
 
-export const FolderStateContext = React.createContext();
+export const FolderPageStateContext = React.createContext();
 
 const FolderPage = () => {
   const [foldersNameData, setFoldersNameData] = useState([]);
@@ -54,7 +54,7 @@ const FolderPage = () => {
   };
 
   return (
-    <FolderStateContext.Provider
+    <FolderPageStateContext.Provider
       value={{
         handleClickFilterFolder,
         selectedFolderName,
@@ -90,7 +90,7 @@ const FolderPage = () => {
         </article>
       </main>
       <Footer />
-    </FolderStateContext.Provider>
+    </FolderPageStateContext.Provider>
   );
 };
 

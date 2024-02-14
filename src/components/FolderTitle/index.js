@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { FolderStateContext } from "../../page/FolderPage";
+import { FolderPageStateContext } from "../../page/FolderPage";
 
 const FolderTitle = () => {
-  const { selectedFolderName } = useContext(FolderStateContext);
+  const { selectedFolderName } = useContext(FolderPageStateContext);
 
   return <h1>{selectedFolderName}</h1>;
 };

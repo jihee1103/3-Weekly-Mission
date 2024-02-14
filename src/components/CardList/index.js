@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FolderStateContext } from "../../page/FolderPage";
+import { FolderPageStateContext } from "../../page/FolderPage";
 import defaultImage from "./default.png";
 import starIcon from "./star.svg";
 import kebabIcon from "./kebab.svg";
@@ -7,7 +7,7 @@ import kebabIcon from "./kebab.svg";
 import styled from "styled-components";
 
 const CardList = () => {
-  const { allFolderData } = useContext(FolderStateContext);
+  const { allFolderData } = useContext(FolderPageStateContext);
 
   return (
     <>

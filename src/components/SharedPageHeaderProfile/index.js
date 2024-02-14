@@ -1,22 +1,14 @@
-import { useEffect, useState } from "react";
-import getUser1Data from "../../api/getUser1Data";
 import styled from "styled-components";
+import { SharedPageStateContext } from "../../page/SharedPage";
+import { useContext } from "react";
 
 const SharedPageHeaderProfile = () => {
-  const [user1Data, setUser1Data] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getUser1Data();
-      setUser1Data(data.data[0]);
-    };
-    fetchData();
-  }, []);
+  const { userData } = useContext(SharedPageStateContext);
 
   return (
     <HeaderProfileWrapper>
-      {user1Data && <ProfileImage src={user1Data.image_source} />}
-      <Email>{user1Data && user1Data.email}</Email>
+      {userData && <ProfileImage src={userData.profileImageSource} />}
+      <Email>{userData && userData.email}</Email>
     </HeaderProfileWrapper>
   );
 };
@@ -25,11 +17,13 @@ export default SharedPageHeaderProfile;
 const HeaderProfileWrapper = styled.div`
   display: flex;
   align-items: center;
+  gap: 5px;
 `;
 
 const ProfileImage = styled.img`
   width: 25px;
   height: 25px;
+  border-radius: 50%;
 `;
 
 const Email = styled.span`
