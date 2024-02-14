@@ -6,7 +6,7 @@ import Kebab from "../Kebab/Kebab";
 import { useFolderNameContext } from "../../context/FolderNameContext";
 import EmptyArea from "../EmptyArea/EmptyArea";
 
-const CardList = ({ cardList }) => {
+const CardList = ({ cardList, inputText }) => {
   function createDate(createdAt) {
     const date = new Date(createdAt);
     const year = date.getFullYear();
@@ -18,6 +18,58 @@ const CardList = ({ cardList }) => {
   const location = useLocation();
 
   const { folderName } = useFolderNameContext();
+
+  const cards = cardList
+    .filter((item) => {
+      if (!inputText) {
+        return item;
+      } else if (
+        item.url?.toLowerCase().includes(inputText) ||
+        item.title?.toLowerCase().includes(inputText) ||
+        item.description?.toLowerCase().includes(inputText)
+      ) {
+        return item;
+      }
+    })
+    .map((item) => {
+      return (
+        <div
+          className="card"
+          onClick={() => {
+            window.open(item.url);
+          }}
+        >
+          {item.image_source ? (
+            <img
+              className="cardImg"
+              src={item.image_source}
+              alt="카드 이미지"
+            ></img>
+          ) : (
+            <img
+              className="cardImg"
+              src={process.env.PUBLIC_URL + `/assets/default_img.png`}
+              alt="카드 이미지"
+            ></img>
+          )}
+
+          <img
+            className="starButton"
+            src={process.env.PUBLIC_URL + `/assets/star.png`}
+            alt="별 버튼"
+          />
+          <Kebab link={item.url} />
+
+          <div className="cardBottom">
+            <div>
+              <p className="time">{setPassedTime(item.created_at)}</p>
+              <p className="cardText">{item.description}</p>
+              <p className="createdDate">{createDate(item.created_at)}</p>
+            </div>
+          </div>
+        </div>
+      );
+    });
 
   switch (location.pathname) {
     case "/shared":
@@ -60,38 +112,7 @@ const CardList = ({ cardList }) => {
               <EditButtonsArea />
             </div>
 
-            <div className="cardList">
-              {cardList.map((item) => (
-                <div
-                  className="card"
-                  onClick={() => {
-                    window.open(item.url);
-                  }}
-                >
-                  <img
-                    className="cardImg"
-                    src={item.image_source}
-                    alt="카드 이미지"
-                  ></img>
-                  <img
-                    className="starButton"
-                    src={process.env.PUBLIC_URL + `/assets/star.png`}
-                    alt="별 버튼"
-                  />
-                  <Kebab link={item.url} />
-
-                  <div className="cardBottom">
-                    <div>
-                      <p className="time">{setPassedTime(item.created_at)}</p>
-                      <p className="cardText">{item.description}</p>
-                      <p className="createdDate">
-                        {createDate(item.created_at)}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <div className="cardList">{cards}</div>
           </div>
         );
       }

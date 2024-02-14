@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { SharedProvider } from "../../context/FolderNameContext";
 import { getAllCardData, getCardDataById, getFolderData } from "../../api/api";
 import EmptyArea from "../EmptyArea/EmptyArea";
+import SearchText from "../SearchText/SearchText";
 
 const ContentsArea = () => {
   const location = useLocation();
@@ -16,6 +17,15 @@ const ContentsArea = () => {
   const [sharedFolderData, setSharedFolderData] = useState({
     folder: { links: [{ id: "", createdAt: "", description: "", url: "" }] },
   });
+  const [inputText, setInputText] = useState();
+
+  const handleInputText = (e) => {
+    setInputText(e.target.value);
+  };
+
+  const deleteInput = () => {
+    setInputText("");
+  };
 
   const handleFolderClick = async (itemId) => {
     const cardData = await getCardDataById(itemId);
@@ -47,13 +57,23 @@ const ContentsArea = () => {
     case "/folder":
       return (
         <div className="contentsArea">
-          <SearchArea></SearchArea>
+          <SearchArea
+            handleInputText={handleInputText}
+            inputText={inputText}
+            deleteInput={deleteInput}
+          ></SearchArea>
+          {inputText && <SearchText inputText={inputText}></SearchText>}
+
           <SharedProvider>
             <FolderListArea
               onFolderClick={handleFolderClick}
               onAllFolderClick={handleAllFolderClick}
             />
-            <CardContainer cardData={cardData} allCardData={allCardData} />
+            <CardContainer
+              cardData={cardData}
+              allCardData={allCardData}
+              inputText={inputText}
+            />
           </SharedProvider>
         </div>
       );

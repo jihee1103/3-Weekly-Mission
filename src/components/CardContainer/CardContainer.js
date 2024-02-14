@@ -3,7 +3,12 @@ import CardList from "../CardList/CardList";
 import { useFolderNameContext } from "../../context/FolderNameContext";
 import { useLocation } from "react-router";
 
-const CardContainer = ({ cardData, allCardData, sharedFolderData }) => {
+const CardContainer = ({
+  cardData,
+  allCardData,
+  sharedFolderData,
+  inputText,
+}) => {
   const location = useLocation();
   const { folderName } = useFolderNameContext();
 
@@ -18,13 +23,16 @@ const CardContainer = ({ cardData, allCardData, sharedFolderData }) => {
       if (folderName !== "전체") {
         return (
           <div className="cardContainer">
-            <CardList cardList={cardData.data}></CardList>
+            <CardList cardList={cardData.data} inputText={inputText}></CardList>
           </div>
         );
       }
       return (
         <div className="cardContainer">
-          <CardList cardList={allCardData.data}></CardList>
+          <CardList
+            cardList={allCardData.data}
+            inputText={inputText}
+          ></CardList>
         </div>
       );
     default:
