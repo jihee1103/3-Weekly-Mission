@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 // 서치바의 input을 관리하는 훅
-export const useSearchBar = (cardList, setCardList) => {
+export const useSearchBar = (originalFolderCardData, setCardList) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e) => {
@@ -13,7 +13,7 @@ export const useSearchBar = (cardList, setCardList) => {
   };
 
   useEffect(() => {
-    const filteredCardList = cardList.filter((card) => {
+    const filteredCardList = originalFolderCardData.current.filter((card) => {
       if (card.title !== null && card.url !== null && card.description !== null) {
         return (
           card.title.toLowerCase().includes(inputValue.toLowerCase()) ||
@@ -24,6 +24,10 @@ export const useSearchBar = (cardList, setCardList) => {
       return null;
     });
     setCardList([...filteredCardList]);
+
+    return () => {
+      setCardList([...originalFolderCardData.current]);
+    };
   }, [inputValue]);
 
   return { inputValue, handleInputChange, resetInputValue };

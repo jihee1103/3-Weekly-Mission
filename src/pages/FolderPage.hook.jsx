@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { DEFALUT_MODAL_VALUE } from '../Constants/Constants';
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
@@ -23,6 +23,7 @@ export const useModal = () => {
 export const useFolder = () => {
   const [folderCardData, setFolderCardData] = useState([]);
   const [folderData, setFolderData] = useState([]);
+  const originalFolderCardData = useRef([]);
 
   // 페이지 로드시 폴더 데이터 가지오기
   useEffect(() => {
@@ -44,6 +45,7 @@ export const useFolder = () => {
         setFolderCardData(() => {
           return getFormattedCamelCaseData(cardData.data);
         });
+        originalFolderCardData.current = getFormattedCamelCaseData([...cardData.data]);
       });
     } catch (error) {
       console.error(error);
@@ -78,6 +80,7 @@ export const useFolder = () => {
   return {
     folderData,
     folderCardData,
+    originalFolderCardData,
     handleOverviewCardButtonClick,
     handleFilteredCardButtonClick,
     setFolderCardData,
@@ -102,4 +105,62 @@ export const useFolderPageLogin = () => {
   }, []);
 
   return { login, userData };
+};
+
+export const useScrollingSearchBar = () => {
+  const footerDom = useRef(null);
+  const linkCreactorDom = useRef(null);
+  const linkCreactorWrapperDom = useRef(null);
+  const linkCreactorRefs = { linkCreactorDom, linkCreactorWrapperDom };
+
+  useEffect(() => {
+    // 첫 렌더링시 footerDom이 빠르게 참조돼버려서 setTimeout으로 여유를 줌
+    setTimeout(() => {
+      const linkCreactorWrapperIo = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            linkCreactorDom.current.style.position = 'relative';
+            linkCreactorDom.current.style.bottom = 'auto';
+            linkCreactorDom.current.style.left = 'auto';
+            linkCreactorDom.current.style.right = 'auto';
+            linkCreactorDom.current.style.padding = '0px';
+          }
+        });
+      });
+
+      const linkCreactorIo = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            linkCreactorDom.current.style.position = 'fixed';
+            linkCreactorDom.current.style.bottom = '0px';
+            linkCreactorDom.current.style.left = '0px';
+            linkCreactorDom.current.style.right = '0px';
+            linkCreactorDom.current.style.padding = '24px 320px';
+          }
+          if (entry.isIntersecting) {
+            linkCreactorIo.observe(linkCreactorDom.current);
+          }
+        });
+      });
+
+      const footerIo = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            linkCreactorIo.unobserve(linkCreactorDom.current);
+            linkCreactorDom.current.style.display = 'none';
+          }
+          if (!entry.isIntersecting) {
+            linkCreactorIo.observe(linkCreactorDom.current);
+            linkCreactorDom.current.style.display = 'flex';
+          }
+        });
+      });
+
+      linkCreactorWrapperIo.observe(linkCreactorWrapperDom.current);
+      footerIo.observe(footerDom.current);
+      linkCreactorIo.observe(linkCreactorDom.current);
+    }, 1000);
+  }, [footerDom, linkCreactorDom, linkCreactorWrapperDom]);
+
+  return { linkCreactorRefs, footerDom };
 };

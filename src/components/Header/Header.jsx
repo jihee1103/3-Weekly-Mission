@@ -31,7 +31,7 @@ const HeaderWrap = styled.div`
   padding: 32px 200px;
   background: var(--gray5);
   position: fixed;
-  z-index: 9999;
+  z-index: 2000;
 
   @media (max-width: 1123px) and (min-width: 768px) {
     padding: 20px 32px;

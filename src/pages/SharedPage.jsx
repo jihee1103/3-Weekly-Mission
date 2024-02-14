@@ -1,4 +1,3 @@
-import Hero from '../components/Hero/Hero';
 import ShareDescription from '../components/Hero/ShareDescription/ShareDescription';
 import Contents from '../components/Contents/Contents';
 import Search from '../components/Contents/CardSearchBar/CardSearchBar';
@@ -21,15 +20,13 @@ const SharedPage = () => {
   const { sharedUserId, sharedFolderId } = useGetSharedPageIds();
   const { folderListData } = useGetFolderListData(sharedUserId, sharedFolderId);
   const { sharePageFolderName } = useGetSharePageFolderName(folderListData, sharedFolderId);
-  const { cardListData, setCardListData } = useGetShareCardList();
-  const { inputValue, handleInputChange, resetInputValue } = useSearchBar(cardListData, setCardListData);
+  const { cardListData, originalCardListData, setCardListData } = useGetShareCardList();
+  const { inputValue, handleInputChange, resetInputValue } = useSearchBar(originalCardListData, setCardListData);
 
   return (
     <>
       <Header login={login} userData={userData} />
-      <Hero>
-        <ShareDescription sharedPageInfo={sharedPageInfo} sharePageFolderName={sharePageFolderName} />
-      </Hero>
+      <ShareDescription sharedPageInfo={sharedPageInfo} sharePageFolderName={sharePageFolderName} />
       <Contents>
         <Search inputValue={inputValue} onInputChange={handleInputChange} resetInputValue={resetInputValue} />
         <CardList cardListData={cardListData} />

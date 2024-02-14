@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import { styled, css } from 'styled-components';
+import { forwardRef } from 'react';
 import facebook from '../../assets/images/facebook_icon.svg';
 import twitter from '../../assets/images/twitter_icon.svg';
 import youtube from '../../assets/images/youtube_icon.svg';
 import instagram from '../../assets/images/instagram_icon.svg';
 
-const Footer = () => {
+const Footer = forwardRef((props, ref) => {
   return (
-    <FooterWrap>
+    <FooterWrap ref={ref}>
       <FooterContainer>
         <FooterCodeitBox>©codeit - 2023</FooterCodeitBox>
         <FooterPrivacyPolicyAndFaqBox>
@@ -31,7 +32,7 @@ const Footer = () => {
       </FooterContainer>
     </FooterWrap>
   );
-};
+});
 
 const FooterWrap = styled.footer`
   box-sizing: border-box;

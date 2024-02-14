@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
@@ -112,6 +112,7 @@ export const useGetShareCardList = (sharedFolderId, sharedUserId) => {
   const [cardListData, setCardListData] = useState([]);
   const [isLoadingSetCardListData, setIsLoadingSetCardListData] = useState(false);
   const [cardListDataError, setCardListDataError] = useState();
+  const originalCardListData = useRef([]);
 
   useEffect(() => {
     try {
@@ -125,6 +126,7 @@ export const useGetShareCardList = (sharedFolderId, sharedUserId) => {
             // sample 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
             const formattedData = getFormattedCamelCaseData(result);
             setCardListData(formattedData);
+            originalCardListData.current = formattedData;
           });
       }
     } catch (err) {
@@ -134,5 +136,5 @@ export const useGetShareCardList = (sharedFolderId, sharedUserId) => {
     }
   }, [sharedFolderId, sharedUserId]);
 
-  return { cardListData, setCardListData, isLoadingSetCardListData, cardListDataError };
+  return { cardListData, setCardListData, isLoadingSetCardListData, cardListDataError, originalCardListData };
 };

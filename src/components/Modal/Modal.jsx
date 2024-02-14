@@ -61,13 +61,11 @@ const Modal = ({ modal, onCloseModalButtonClick }) => {
 const ModalWrapper = styled.div`
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: rgba(0, 0, 0, 0.4);
   box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
   position: absolute;
   top: 0;
+  z-index: 9999;
 `;
 
 export default Modal;

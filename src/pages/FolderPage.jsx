@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import Hero from '../components/Hero/Hero';
 import Contents from '../components/Contents/Contents';
 import LinkCreator from '../components/Hero/LinkCreator/LinkCreator';
 import Search from '../components/Contents/CardSearchBar/CardSearchBar';
@@ -11,7 +10,7 @@ import Modal from '../components/Modal/Modal';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
-import { useFolder, useFolderPageLogin, useModal } from './FolderPage.hook';
+import { useFolder, useFolderPageLogin, useModal, useScrollingSearchBar } from './FolderPage.hook';
 import { useSearchBar } from '../hooks/useSearchBar';
 
 const FolderPage = () => {
@@ -19,19 +18,19 @@ const FolderPage = () => {
   const {
     folderData,
     folderCardData,
+    originalFolderCardData,
     setFolderCardData,
     handleOverviewCardButtonClick,
     handleFilteredCardButtonClick,
   } = useFolder();
   const { login, userData } = useFolderPageLogin();
-  const { inputValue, handleInputChange, resetInputValue } = useSearchBar(folderCardData, setFolderCardData);
+  const { inputValue, handleInputChange, resetInputValue } = useSearchBar(originalFolderCardData, setFolderCardData);
+  const { linkCreactorRefs, footerDom } = useScrollingSearchBar();
 
   return (
     <FolderPageWrapper>
       <Header login={login} userData={userData} />
-      <Hero>
-        <LinkCreator onUpdateButtonClick={showModal} />
-      </Hero>
+      <LinkCreator onUpdateButtonClick={showModal} ref={linkCreactorRefs} />
       <Contents>
         <Search inputValue={inputValue} onInputChange={handleInputChange} resetInputValue={resetInputValue} />
         <FolderCollection
@@ -43,7 +42,7 @@ const FolderPage = () => {
         />
         <CardList cardData={folderCardData} onDeleteButtonClick={showModal} />
       </Contents>
-      <Footer />
+      <Footer ref={footerDom} />
       {modal.type ? <Modal modal={modal} setModal={setModal} onCloseModalButtonClick={closeModal} /> : null}
     </FolderPageWrapper>
   );

@@ -1,25 +1,60 @@
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 import link from '../../../assets/images/link.svg';
 import { DEFALUT_MODAL_VALUE } from '../../../Constants/Constants';
 
-const LinkCreator = ({ onUpdateButtonClick }) => {
+const LinkCreator = forwardRef(({ onUpdateButtonClick }, refs) => {
+  const { linkCreactorDom, linkCreactorWrapperDom } = refs;
   return (
-    <LinkCreatorWrapper>
-      <div>
-        <LinkCreatorImg src={link} />
-        <LinkCreatorInput type="text" placeholder="링크를 추가하세요" />
-      </div>
-      <CreateLinkButton
-        type="button"
-        onClick={() => {
-          onUpdateButtonClick({ ...DEFALUT_MODAL_VALUE, type: 'UpdateFolder' });
-        }}
-      >
-        추가하기
-      </CreateLinkButton>
-    </LinkCreatorWrapper>
+    <EmptySpace ref={linkCreactorWrapperDom}>
+      <Background ref={linkCreactorDom}>
+        <LinkCreatorWrapper>
+          <div>
+            <LinkCreatorImg src={link} />
+            <LinkCreatorInput type="text" placeholder="링크를 추가하세요" />
+          </div>
+          <CreateLinkButton
+            type="button"
+            onClick={() => {
+              onUpdateButtonClick({ ...DEFALUT_MODAL_VALUE, type: 'UpdateFolder' });
+            }}
+          >
+            추가하기
+          </CreateLinkButton>
+        </LinkCreatorWrapper>
+      </Background>
+    </EmptySpace>
   );
-};
+});
+
+const EmptySpace = styled.div`
+  box-sizing: border-box;
+  background: var(--gray5);
+  padding: 113px 32px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  @media (max-width: 767px) {
+    padding: 87px 32px 40px;
+  }
+`;
+
+const Background = styled.div`
+  box-sizing: border-box;
+  background: var(--gray5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  @media (max-width: 767px) {
+    padding: 87px 32px 40px;
+  }
+`;
 
 const LinkCreatorWrapper = styled.div`
   box-sizing: border-box;
@@ -31,6 +66,10 @@ const LinkCreatorWrapper = styled.div`
   border-radius: 15px;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: var(--Linkbrary-white, #fff);
+
+  @media (max-width: 767px) {
+    padding: 87px 32px 40px;
+  }
 
   div {
     display: flex;
