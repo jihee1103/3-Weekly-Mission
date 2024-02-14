@@ -12,6 +12,7 @@ import getFoldersNameData from "../api/getFoldersNameData";
 import getAllFolderData from "../api/getAllFolderData";
 import CardList from "../components/CardList";
 import getFolderIdData from "../api/getFolderIdData";
+import CardListDefault from "../components/CardListDefault";
 
 export const FolderStateContext = React.createContext();
 
@@ -79,7 +80,11 @@ const FolderPage = () => {
             <FolderFunctionButtons />
           </FolderListHeader>
           <CardListContainer>
-            <CardList />
+            {allFolderData.length > 0 ? (
+              <CardList data={allFolderData} />
+            ) : (
+              <CardListDefault />
+            )}
           </CardListContainer>
         </article>
       </main>
