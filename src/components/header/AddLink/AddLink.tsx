@@ -3,9 +3,10 @@ import styles from './AddLink.module.css';
 import BaseModal from '../../section/BaseModal/BaseModal';
 import modalStyles from '../../section/BaseModal/BaseModal.module.css';
 import Image from 'next/image';
+import { FolderList } from '@/pages/folder';
 
 interface Props {
-  folderList: { name: string; linkCount: number }[];
+  folderList: FolderList[];
   className?: string;
 }
 

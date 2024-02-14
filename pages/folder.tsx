@@ -34,17 +34,25 @@ export interface Folder {
   };
 }
 
+export interface FolderList {
+  name: string;
+  linkCount: number;
+}
+
 export type Id = number | undefined;
 
-export default function FolderPage() {
-  const [folderInfo, setFolderInfo] = useState<{
-    name: string;
-    id: Id;
-  }>({ name: '전체', id: 0 });
+export interface FolderInfo {
+  name: string;
+  id: Id;
+}
 
-  const [folderList, setFolderList] = useState<
-    { name: string; linkCount: number }[]
-  >([]);
+export default function FolderPage() {
+  const [folderInfo, setFolderInfo] = useState<FolderInfo>({
+    name: '전체',
+    id: 0,
+  });
+
+  const [folderList, setFolderList] = useState<FolderList[]>([]);
 
   const [userId, setUserId] = useState(0);
   const [links, setLinks] = useState<LinkType[]>([]);
@@ -58,8 +66,8 @@ export default function FolderPage() {
     setKeyword(nextKeyword);
   };
 
-  const handleChangeFolder = (nextName: string, nextId: Id) => {
-    setFolderInfo({ name: nextName, id: nextId });
+  const handleChangeFolder = (folder: FolderInfo) => {
+    setFolderInfo({ name: folder.name, id: folder.id });
   };
 
   const handleSetUserId = (nextUserId: number) => {

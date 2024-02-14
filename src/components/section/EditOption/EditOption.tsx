@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import BaseModal from '../BaseModal/BaseModal';
 import styles from './EditOption.module.css';
 import modalStyles from '../BaseModal/BaseModal.module.css';
-import { Id } from '@/pages/folder';
+import { FolderInfo } from '@/pages/folder';
 import Image from 'next/image';
 
 interface Props {
   src: string;
-  optionName: string;
+  optionName: '이름 변경' | '삭제' | '공유';
   userId?: number;
-  folder: { name: string; id: Id };
+  folder: FolderInfo;
 }
 
 export default function EditOption({ src, optionName, userId, folder }: Props) {

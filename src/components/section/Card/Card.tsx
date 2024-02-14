@@ -5,19 +5,19 @@ import BaseModal from '../BaseModal/BaseModal';
 import modalStyles from '../BaseModal/BaseModal.module.css';
 import styles from './Card.module.css';
 import { SharedLink } from '@/pages/shared';
-import { LinkType } from '@/pages/folder';
+import { LinkType, FolderList } from '@/pages/folder';
 import Link from 'next/link';
 import Image from 'next/image';
 
 interface Props {
   page: LinkType | SharedLink;
-  folderList?: { name: string; linkCount: number }[];
+  folderList?: FolderList[];
 }
 
 export default function Card({ page, folderList }: Props) {
   const [openModal, setOpenModal] = useState(false);
   const [selectDropDownItem, setSelectDropDownItem] = useState('');
-  const [folderItem, setFolderItem] = useState<string | null | undefined>('');
+  const [folderItem, setFolderItem] = useState('');
 
   const link = page.url;
   const image = page.imageSource || page['image_source'];
@@ -72,7 +72,11 @@ export default function Card({ page, folderList }: Props) {
                     ? `${modalStyles['modal__folder--item']} ${modalStyles['active']}`
                     : modalStyles['modal__folder--item'];
                 const onClickFolderItem = (e: MouseEvent) => {
-                  setFolderItem(e.currentTarget.firstElementChild?.textContent);
+                  if (e.currentTarget.firstElementChild?.textContent) {
+                    setFolderItem(
+                      e.currentTarget.firstElementChild?.textContent
+                    );
+                  }
                 };
 
                 return (
@@ -118,7 +122,7 @@ export default function Card({ page, folderList }: Props) {
   };
 
   const closeModal = () => {
-    setFolderItem(null);
+    setFolderItem('');
     setOpenModal(false);
   };
 

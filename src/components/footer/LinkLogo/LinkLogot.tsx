@@ -5,7 +5,7 @@ interface Prop {
   href: string;
   rel: string;
   target: string;
-  logo: string;
+  logo: 'facebook' | 'twitter' | 'instagram' | 'youtube';
 }
 
 export default function LinkLogo({ href, rel, target, logo }: Prop) {

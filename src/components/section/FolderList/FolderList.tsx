@@ -4,10 +4,10 @@ import FolderListButton from '../FolderListButton/FolderListButton';
 import BaseModal from '../BaseModal/BaseModal';
 import modalStyles from '../BaseModal/BaseModal.module.css';
 import styles from './FolderList.module.css';
-import { Folder, Id } from '@/pages/folder';
+import { Folder, FolderInfo } from '@/pages/folder';
 
 interface Props {
-  onClickFolder: (name: string, id: Id) => void;
+  onClickFolder: (folder: FolderInfo) => void;
   id: number;
   folderName: string;
 }
