@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import getUser1Data from "../../api/getUser1Data";
 import styled from "styled-components";
 
-const HeaderProfile = () => {
+const FolderPageHeaderProfile = () => {
   const [user1Data, setUser1Data] = useState(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const HeaderProfile = () => {
     </HeaderProfileWrapper>
   );
 };
-export default HeaderProfile;
+export default FolderPageHeaderProfile;
 
 const HeaderProfileWrapper = styled.div`
   display: flex;

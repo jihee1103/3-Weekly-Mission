@@ -6,13 +6,13 @@ import FolderFunctionButtons from "../components/FolderFunctionButtons";
 import FolderNameButton from "../components/FolderNameButton";
 import FolderTitle from "../components/FolderTitle";
 import Footer from "../components/Footer";
-import HeaderNavigation from "../components/HeaderNavigation";
 import SearchLinkBar from "../components/SearchLinkBar";
 import getFoldersNameData from "../api/getFoldersNameData";
 import getAllFolderData from "../api/getAllFolderData";
 import CardList from "../components/CardList";
 import getFolderIdData from "../api/getFolderIdData";
 import CardListDefault from "../components/CardListDefault";
+import FolderPageHeaderNavigation from "../components/FolderPageHeaderNavigation";
 
 export const FolderStateContext = React.createContext();
 
@@ -63,7 +63,8 @@ const FolderPage = () => {
       }}
     >
       <HeaderContainer>
-        <HeaderNavigation />
+        <FolderPageHeaderNavigation />
+
         <AddLinkBar />
       </HeaderContainer>
       <main>

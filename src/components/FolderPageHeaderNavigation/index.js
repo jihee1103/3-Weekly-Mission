@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import HeaderProfile from "../HeaderProfile";
 import linkbrary from "./linkbrary.svg";
+import FolderPageHeaderProfile from "../FolderPageHeaderProfile";
 
-const HeaderNavigation = () => {
+const FolderPageHeaderNavigation = () => {
   return (
     <HeaderWrapper>
       <img src={linkbrary} alt="linkbrary 로고 이미지" />
-      <HeaderProfile />
+      <FolderPageHeaderProfile />
     </HeaderWrapper>
   );
 };
-export default HeaderNavigation;
+export default FolderPageHeaderNavigation;
 
 const HeaderWrapper = styled.nav`
   display: flex;
