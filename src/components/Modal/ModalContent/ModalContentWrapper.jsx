@@ -9,7 +9,10 @@ const ModalContentWrapper = styled.div`
   border: 1px solid #ccd5e3;
   background: #fff;
   gap: 24px;
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export default ModalContentWrapper;

@@ -15,7 +15,7 @@ import shareToFacebook from '../../utils/shareToFacebook';
 import shareToKakao from '../../utils/shareToKakao';
 
 const ShareFolder = ({ modal, onCloseModalButtonClick }) => {
-  const { folderName, sharingUrl } = modal.data;
+  const { folderName, sharingUrl } = modal;
   // useGetKakaoSdkScript 훅으로 카카오 SDK 스크립트를 불러온다
   const { kakaoSdk } = useGetKakaoSdkScript();
 
@@ -59,7 +59,7 @@ const ShareFolder = ({ modal, onCloseModalButtonClick }) => {
           <span>링크 복사</span>
         </ShareButton>
       </ShareButtonWrapper>
-      <ModalCloseButton modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
+      <ModalCloseButton onCloseModalButtonClick={onCloseModalButtonClick} />
     </ModalContentWrapper>
   );
 };

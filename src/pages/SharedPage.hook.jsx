@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import getFetch from '../utils/getFetch';
 import getFormattedCamelCaseData from '../utils/getFormattedCamelCaseData';
@@ -10,8 +10,8 @@ export const useSharedPageLogin = () => {
   // Header의 유저 프로필 데이터
   useEffect(() => {
     try {
-      getFetch('bootcamp-api.codeit.kr', 'api/users/1').then((user) => {
-        setUserData({ ...user.data[0] });
+      getFetch('bootcamp-api.codeit.kr', 'api/sample/user').then((user) => {
+        setUserData({ ...user });
         setLogin(true);
       });
     } catch (error) {
@@ -23,7 +23,7 @@ export const useSharedPageLogin = () => {
 };
 
 // sharedPage의 id와 현재 로그인된 유저의 id를 가져오는 훅
-export const useGetsharedPageIds = () => {
+export const useGetSharedPageIds = () => {
   const [searchParams, setSearchParams] = useSearchParams(); // eslint-disable-line no-unused-vars
   const [sharedUserId, setSharedUserId] = useState(null);
   const [sharedFolderId, setSharedFolderId] = useState(null);
@@ -112,6 +112,7 @@ export const useGetShareCardList = (sharedFolderId, sharedUserId) => {
   const [cardListData, setCardListData] = useState([]);
   const [isLoadingSetCardListData, setIsLoadingSetCardListData] = useState(false);
   const [cardListDataError, setCardListDataError] = useState();
+  const originalCardListData = useRef([]);
 
   useEffect(() => {
     try {
@@ -125,6 +126,7 @@ export const useGetShareCardList = (sharedFolderId, sharedUserId) => {
             // sample 데이터의 link부분의 key를 카멜 케이스에서 스네이크 케이스로 변환
             const formattedData = getFormattedCamelCaseData(result);
             setCardListData(formattedData);
+            originalCardListData.current = formattedData;
           });
       }
     } catch (err) {
@@ -134,5 +136,5 @@ export const useGetShareCardList = (sharedFolderId, sharedUserId) => {
     }
   }, [sharedFolderId, sharedUserId]);
 
-  return { cardListData, isLoadingSetCardListData, cardListDataError };
+  return { cardListData, setCardListData, isLoadingSetCardListData, cardListDataError, originalCardListData };
 };

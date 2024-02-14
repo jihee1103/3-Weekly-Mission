@@ -2,13 +2,29 @@ import styled from 'styled-components';
 
 const ShareDescription = ({ sharedPageData, sharePageFolderName }) => {
   return (
-    <ShareDescriptionWrapper>
-      <img src={sharedPageData.owner?.profileImageSource} alt="코드잇 마크" />
-      <span>{sharedPageData.owner?.name}</span>
-      <div>{sharePageFolderName}</div>
-    </ShareDescriptionWrapper>
+    <Background>
+      <ShareDescriptionWrapper>
+        <img src={sharedPageData?.owner?.profileImageSource} alt="코드잇 마크" />
+        <span>{sharedPageData?.owner?.name}</span>
+        <div>{sharePageFolderName}</div>
+      </ShareDescriptionWrapper>
+    </Background>
   );
 };
+
+const Background = styled.div`
+  box-sizing: border-box;
+  background: var(--gray5);
+  padding: 113px 32px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 767px) {
+    padding: 87px 32px 40px;
+  }
+`;
 
 const ShareDescriptionWrapper = styled.div`
   display: flex;

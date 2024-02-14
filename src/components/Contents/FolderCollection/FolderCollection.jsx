@@ -6,6 +6,7 @@ import mobileAdd from '../../../assets/images/mobile_add.svg';
 import share from '../../../assets/images/share.svg';
 import pen from '../../../assets/images/pen.svg';
 import trashCan from '../../../assets/images/trash_can.svg';
+import { DEFALUT_MODAL_VALUE } from '../../../Constants/Constants';
 
 const FolderCollection = ({
   onButtonClick,
@@ -56,7 +57,7 @@ const FolderCollection = ({
           </FolderButtonWrapper>
           <CreateFolderButton
             onClick={() => {
-              onButtonClick({ name: 'CreateFolder', data: { folderName: '' } });
+              onButtonClick({ ...DEFALUT_MODAL_VALUE, type: 'CreateFolder', folderName: '' });
             }}
           >
             <span>폴더추가</span>
@@ -74,8 +75,10 @@ const FolderCollection = ({
               onClick={() => {
                 // data에 title, description, sourceImg가 들어가야한다.
                 onButtonClick({
-                  name: 'ShareFolder',
-                  data: { folderName: currentFolder, sharingUrl: sharingUrl.current },
+                  ...DEFALUT_MODAL_VALUE,
+                  type: 'ShareFolder',
+                  folderName: currentFolder,
+                  sharingUrl: sharingUrl.current,
                 });
               }}
             >
@@ -85,7 +88,7 @@ const FolderCollection = ({
             <button
               type="button"
               onClick={() => {
-                onButtonClick({ name: 'ChangeFolderName', data: { folderName: currentFolder } });
+                onButtonClick({ ...DEFALUT_MODAL_VALUE, type: 'ChangeFolderName', folderName: currentFolder });
               }}
             >
               <img src={pen} alt="폴더 도구 모음 수정 버튼" />
@@ -94,7 +97,7 @@ const FolderCollection = ({
             <button
               type="button"
               onClick={() => {
-                onButtonClick({ name: 'DeleteFolder', data: { folderName: currentFolder } });
+                onButtonClick({ ...DEFALUT_MODAL_VALUE, type: 'DeleteFolder', folderName: currentFolder });
               }}
             >
               <img src={trashCan} alt="폴더 도구 모음 삭제 버튼" />
@@ -114,7 +117,7 @@ const FolderWrapper = styled.div`
   & > div {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
   }
 
   @media (max-width: 1123px) {

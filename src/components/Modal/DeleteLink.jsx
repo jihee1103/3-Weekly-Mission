@@ -10,10 +10,10 @@ const DeleteLink = ({ modal, onCloseModalButtonClick }) => {
   return (
     <ModalContentWrapper>
       <ModalTitleContainer>
-        <ModalTitle text="링크 삭제" detailText={modal.data.url} />
+        <ModalTitle text="링크 삭제" detailText={modal.url} />
         <ModalCtaButton text="삭제하기" bgColor={ModalCtaButtonBgColor} />
       </ModalTitleContainer>
-      <ModalCloseButton modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
+      <ModalCloseButton onCloseModalButtonClick={onCloseModalButtonClick} />
     </ModalContentWrapper>
   );
 };

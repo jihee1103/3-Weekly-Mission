@@ -10,20 +10,20 @@ const shareToKakao = (kakaoSdk, modal) => {
         // 링크 공유 중 여러가지 타입
         objectType: 'feed',
         content: {
-          title: modal.data.folderName,
-          description: modal.data.sharingUrl,
+          title: modal.folderName,
+          description: modal.sharingUrl,
           imageUrl: '이미지 url',
           link: {
-            mobileWebUrl: modal.data.sharingUrl,
-            webUrl: modal.data.sharingUrl,
+            mobileWebUrl: modal.sharingUrl,
+            webUrl: modal.sharingUrl,
           },
         },
         buttons: [
           {
-            title: modal.data.folderName,
+            title: modal.folderName,
             link: {
-              mobileWebUrl: modal.data.sharingUrl,
-              webUrl: modal.data.sharingUrl,
+              mobileWebUrl: modal.sharingUrl,
+              webUrl: modal.sharingUrl,
             },
           },
         ],

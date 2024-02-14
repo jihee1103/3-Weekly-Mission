@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import CardImg, { CardMainImg } from './CardImg/CardImg';
 import CardContent, { CardDescriptionWrapper } from './CardDescription/CardDescription';
 
-const CardList = ({ onDeleteButtonClick, cardListData }) => {
+const CardList = ({ onDeleteButtonClick, cardData }) => {
   return (
     <Container>
-      {cardListData?.length !== 0 ? (
-        cardListData?.map((link) => {
+      {cardData?.length !== 0 ? (
+        cardData?.map((link) => {
           return (
             <Card to={link.url} target="_blank" key={link.id} rel="noreferrer">
               <CardImg link={link} />
