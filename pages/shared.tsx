@@ -39,9 +39,6 @@ export default function SharePage() {
 
   return (
     <>
-      <Head>
-        <title>Linkbrary</title>
-      </Head>
       <header className={styles['header']}>
         <Nav />
         <Folder />

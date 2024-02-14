@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getUser, getUserById } from '@/pages/api/api';
 import Profile from '../Profile/Profile';
 import styles from './Nav.module.css';
+import Link from 'next/link';
 
 interface Props {
   className?: string | undefined;
@@ -42,22 +43,22 @@ export default function Nav({ className = '', setUserId, id }: Props) {
 
   return (
     <nav className={`${styles[className]} ${styles['nav']}`}>
-      <a href="index.html">
+      <Link href="/">
         <img
           className={styles['logo']}
           src="/images/logo.svg"
           alt="Linkbrary 로고"
         />
-      </a>
+      </Link>
       {user ? (
         <Profile user={user} />
       ) : (
-        <a
+        <Link
           className={`${styles['cta']} ${styles['cta-short']}`}
           href="signin.html"
         >
           <span>로그인</span>
-        </a>
+        </Link>
       )}
     </nav>
   );

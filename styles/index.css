@@ -1,4 +1,4 @@
-header {
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@ header {
   width: 12.8rem;
 }
 
-section {
+.section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +42,7 @@ section {
   row-gap: 2.5rem;
 }
 
-footer {
+.footer {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -69,19 +69,19 @@ footer {
 
 /* section 반응형 */
 @media (max-width: 1199px) {
-  section {
+  .section {
     padding: 4rem calc((100% - 78.32rem) / 2);
   }
 }
 @media (max-width: 864px) {
-  section {
+  .section {
     padding: 4rem 3.2rem;
   }
 }
 
 /* 모바일 크기 */
 @media (max-width: 767px) {
-  section {
+  .section {
     padding: 2rem 3.2rem 4rem;
   }
 

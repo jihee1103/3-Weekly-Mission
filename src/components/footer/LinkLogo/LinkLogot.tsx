@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 interface Prop {
   href: string;
   rel: string;
@@ -14,8 +16,8 @@ export default function LinkLogo({ href, rel, target, logo }: Prop) {
   };
 
   return (
-    <a href={href} target={target} rel={rel}>
+    <Link href={href} target={target} rel={rel}>
       <img src={LOGOS[logo]} alt={`${logo} 홈페이지로 연결된 ${logo} 로고`} />
-    </a>
+    </Link>
   );
 }

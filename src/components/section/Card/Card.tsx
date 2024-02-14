@@ -5,10 +5,11 @@ import BaseModal from '../BaseModal/BaseModal';
 import modalStyles from '../BaseModal/BaseModal.module.css';
 import styles from './Card.module.css';
 import { SharedLink } from '@/pages/shared';
-import { Link } from '@/pages/folder';
+import { LinkType } from '@/pages/folder';
+import Link from 'next/link';
 
 interface Props {
-  page: Link | SharedLink;
+  page: LinkType | SharedLink;
   folderList?: { name: string; linkCount: number }[];
 }
 
@@ -120,7 +121,7 @@ export default function Card({ page, folderList }: Props) {
 
   return (
     <div className={styles['card-container']}>
-      <a
+      <Link
         href={link}
         target="_blank"
         rel="noreferrer"
@@ -146,7 +147,7 @@ export default function Card({ page, folderList }: Props) {
           <span className={styles['description']}>{description}</span>
           <span className={styles['upload-date']}>{uploadDate}</span>
         </div>
-      </a>
+      </Link>
       {openModal && (
         <BaseModal closeModal={closeModal}>{modalContent}</BaseModal>
       )}

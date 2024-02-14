@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './LinkString.module.css';
 
 interface Props {
@@ -7,12 +8,12 @@ interface Props {
 export default function LinkString({ className }: Props) {
   return (
     <div className={styles[className]}>
-      <a className={styles['footer-link']} href="privacy.html">
+      <Link className={styles['footer-link']} href="privacy.html">
         Privacy Policy
-      </a>
-      <a className={styles['footer-link']} href="faq.html">
+      </Link>
+      <Link className={styles['footer-link']} href="faq.html">
         FAQ
-      </a>
+      </Link>
     </div>
   );
 }

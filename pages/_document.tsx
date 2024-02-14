@@ -19,8 +19,6 @@ export default function Document() {
           type="text/css"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
         />
-        {/* <link rel="stylesheet" href="@/styles/reset.css" />
-        <link rel="stylesheet" href="@/styles/index.css" /> */}
         <script
           src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"
           integrity="sha384-6MFdIr0zOira1CHQkedUqJVql0YtcZA1P0nbPrQYJXVJZUkTk/oX4U9GhUIs3/z8"

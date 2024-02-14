@@ -10,7 +10,7 @@ import EditOption from '@/src/components/section/EditOption/EditOption';
 import Card from '@/src/components/section/Card/Card';
 import Head from 'next/head';
 
-export interface Link {
+export interface LinkType {
   id: number;
   created_at?: string;
   createdAt?: string;
@@ -47,7 +47,7 @@ export default function FolderPage() {
   >([]);
 
   const [userId, setUserId] = useState(0);
-  const [links, setLinks] = useState<Link[]>([]);
+  const [links, setLinks] = useState<LinkType[]>([]);
   const [keyword, setKeyword] = useState('');
   const [showFixedAddLink, setShowFixedAddLink] = useState(false);
   const addLinkEnd = useRef<HTMLDivElement>(null);
@@ -104,9 +104,6 @@ export default function FolderPage() {
 
   return (
     <>
-      <Head>
-        <title>Linkbrary</title>
-      </Head>
       <header className={styles['header']}>
         <Nav className="not-fixed" id={1} setUserId={handleSetUserId} />
         <div className={styles['observe-target']} ref={addLinkEnd}>
