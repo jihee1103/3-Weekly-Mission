@@ -13,6 +13,13 @@ import getFolderIdData from "../api/getFolderIdData";
 import CardListDefault from "../components/CardListDefault";
 import FolderPageHeaderNavigation from "../components/FolderPageHeaderNavigation";
 import FolderPageCardList from "../components/FolderPageCardList";
+import AddFolder from "../components/Modal/AddFolder";
+import AddLink from "../components/Modal/AddLink";
+import DeleteFolder from "../components/Modal/DeleteFolder";
+import DeleteLink from "../components/Modal/DeleteLink";
+import EditFolder from "../components/Modal/EditFolder";
+import ShareFolder from "../components/Modal/ShareFolder";
+import KebabPopOver from "../components/KebabPopOver";
 
 export const FolderPageStateContext = React.createContext();
 
@@ -122,4 +129,25 @@ const CardListContainer = styled.div`
   flex-wrap: wrap;
   width: 1060px;
   margin: 0 auto;
+  position: relative;
+`;
+
+const ModalContainer = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
 `;

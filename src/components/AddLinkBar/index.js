@@ -4,7 +4,10 @@ import linkIcon from "./link.svg";
 const AddLinkBar = () => {
   return (
     <AddLinkInputWrapper>
-      <AddLinkInput type="text" placeholder="링크를 추가해 보세요." />
+      <div>
+        <AddLinkInput type="text" placeholder="링크를 추가해 보세요." />
+        <button>추가하기</button>
+      </div>
     </AddLinkInputWrapper>
   );
 };
@@ -13,7 +16,6 @@ export default AddLinkBar;
 const AddLinkInput = styled.input`
   display: flex;
   justify-content: center;
-  margin: 0 auto;
   width: 800px;
   height: 37px;
   padding: 16px 40px;
@@ -27,4 +29,25 @@ const AddLinkInput = styled.input`
 const AddLinkInputWrapper = styled.div`
   margin-top: 60px;
   padding-bottom: 90px;
+
+  div {
+    display: flex;
+    width: 800px;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  button {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 80px;
+    height: 37px;
+    border: none;
+    background-color: var(--Linkbrary-primary-color, #6d6afe);
+    color: white;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-sizing: border-box;
+  }
 `;

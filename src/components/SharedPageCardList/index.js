@@ -15,7 +15,6 @@ const SharedPageCardList = () => {
         folderData.folder.links.map((folder) => (
           <CardContainer key={folder.id}>
             <CardWrapper>
-              <img src={starIcon} alt="즐겨찾기 버튼" className="startIcon" />
               <CardImageWrapper>
                 {folder.imageSource ? (
                   <img src={folder.imageSource} alt="링크 대표 이미지" />
@@ -24,7 +23,6 @@ const SharedPageCardList = () => {
                 )}
               </CardImageWrapper>
               <CardContent>
-                <img src={kebabIcon} alt="더보기 버튼" className="kebabIcon" />
                 <Stamp>10 minutes ago</Stamp>
                 <Description>{folder.description}</Description>
                 <Stamp>2023. 3. 15</Stamp>
@@ -50,15 +48,6 @@ const CardWrapper = styled.div`
   border-radius: 20px;
   box-sizing: border-box;
   cursor: pointer;
-
-  .startIcon {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 9999;
-    width: 34px;
-    height: 34px;
-  }
 `;
 
 const CardImageWrapper = styled.div`
@@ -88,15 +77,6 @@ const CardContent = styled.div`
   padding: 15px 20px;
   height: 135px;
   box-sizing: border-box;
-
-  .kebabIcon {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    z-index: 9999;
-    width: 21px;
-    height: 17px;
-  }
 `;
 
 const Description = styled.p`

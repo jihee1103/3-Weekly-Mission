@@ -5,6 +5,7 @@ import starIcon from "./star.svg";
 import kebabIcon from "./kebab.svg";
 
 import styled from "styled-components";
+import KebabPopOver from "../KebabPopOver";
 
 const FolderPageCardList = () => {
   const { allFolderData } = useContext(FolderPageStateContext);
@@ -12,7 +13,7 @@ const FolderPageCardList = () => {
   return (
     <>
       {allFolderData.map((folder) => (
-        <CardContainer key={folder.id}>
+        <CardContainer key={folder.id} id={folder.id}>
           <CardWrapper>
             <img src={starIcon} alt="즐겨찾기 버튼" className="startIcon" />
             <CardImageWrapper>
@@ -95,6 +96,7 @@ const CardContent = styled.div`
     z-index: 9999;
     width: 21px;
     height: 17px;
+    cursor: pointer;
   }
 `;
 
