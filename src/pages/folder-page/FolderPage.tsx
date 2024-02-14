@@ -1,10 +1,11 @@
 import { useMemo, useRef } from 'react';
 
+import { useTargetVisibleState } from '@hooks/useTargetVisibleState';
+
 import AddLink from './comp/add-link/AddLink';
 import Article from './comp/article/Article';
 import Footer from './comp/footer/Footer';
 import Header from './comp/header/Header';
-import { useTargetVisibleState } from './comp/hooks/useTargetVisibleState';
 
 const FolderPage = <T extends HTMLElement>() => {
   const addLinkRef = useRef<T | null>(null);
