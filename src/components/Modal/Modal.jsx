@@ -55,7 +55,7 @@ const Modal = ({ modal, onCloseModalButtonClick }) => {
       break;
     }
   }
-  return null;
+  return console.log(`${modal} 모달창 생성!`);
 };
 
 const ModalWrapper = styled.div`
