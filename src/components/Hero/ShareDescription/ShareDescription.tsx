@@ -1,16 +1,6 @@
 import styled from 'styled-components';
 
-interface ShareDescriptionProps {
-  sharedPageData: {
-    owner: {
-      profileImageSource: string;
-      name: string;
-    };
-  };
-  sharePageFolderName: string;
-}
-
-const ShareDescription = ({ sharedPageData, sharePageFolderName }: ShareDescriptionProps) => {
+const ShareDescription = ({ sharedPageData, sharePageFolderName }) => {
   return (
     <ShareDescriptionWrapper>
       <img src={sharedPageData.owner?.profileImageSource} alt="코드잇 마크" />

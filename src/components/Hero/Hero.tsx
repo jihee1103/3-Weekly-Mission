@@ -1,7 +1,6 @@
-import { ReactNode } from 'react';
 import styled from 'styled-components';
 
-const Hero = ({ children }: { children: ReactNode }) => {
+const Hero = ({ children }) => {
   return <HeroWrapper>{children}</HeroWrapper>;
 };
 

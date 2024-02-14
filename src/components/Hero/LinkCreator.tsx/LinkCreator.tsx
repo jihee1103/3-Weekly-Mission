@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 import link from '../../../assets/images/link.svg';
 
-interface LinkCreatorProps {
-  onUpdateButtonClick: (data: { name: string; data: object }) => void;
-}
-
-const LinkCreator = ({ onUpdateButtonClick }: LinkCreatorProps) => {
+const LinkCreator = ({ onUpdateButtonClick }) => {
   return (
     <LinkCreatorWrapper>
       <div>

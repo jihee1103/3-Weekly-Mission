@@ -3,15 +3,7 @@ import styled from 'styled-components';
 
 import logo from '../../assets/images/logo.svg';
 
-interface HeaderProps {
-  login: boolean;
-  userData: {
-    image_source: string;
-    email: string;
-  };
-}
-
-const Header = ({ login, userData }: HeaderProps) => {
+const Header = ({ login, userData }) => {
   return (
     <HeaderWrap>
       <HeaderContainer>

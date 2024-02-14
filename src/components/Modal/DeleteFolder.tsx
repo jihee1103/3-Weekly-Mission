@@ -4,21 +4,16 @@ import ModalContentWrapper from './ModalContent/ModalContentWrapper';
 import ModalTitleContainer from './ModalContent/ModalTitleContainer';
 import ModalCloseButton from './ModalContent/ModalCloseButton';
 
-interface DeleteFolderProps {
-  modal: { name: string; data: { folderName: string } };
-  onCloseModalButtonClick: () => void;
-}
-
-const DeleteFolder = ({ modal, onCloseModalButtonClick }: DeleteFolderProps) => {
+const DeleteFolder = ({ modal, onCloseModalButtonClick }) => {
   const ModalCtaButtonBgColor = '#FF5B56';
 
   return (
     <ModalContentWrapper>
       <ModalTitleContainer>
-        <ModalTitle text="폴더 삭제" detailText={modal.data.folderName} />
+        <ModalTitle text="폴더 삭제" detailText={modal.data.folderName} modal={modal} />
         <ModalCtaButton text="삭제하기" bgColor={ModalCtaButtonBgColor} />
       </ModalTitleContainer>
-      <ModalCloseButton onCloseModalButtonClick={onCloseModalButtonClick} />
+      <ModalCloseButton modal={modal} onCloseModalButtonClick={onCloseModalButtonClick} />
     </ModalContentWrapper>
   );
 };

@@ -3,30 +3,22 @@ import styled from 'styled-components';
 import CardImg, { CardMainImg } from './CardImg/CardImg';
 import CardContent, { CardDescriptionWrapper } from './CardDescription/CardDescription';
 
-interface LinkDataType {
-  createdAt: string;
-  description: string;
-  folderId: number;
-  id: number;
-  imageSource: string;
-  title: string;
-  updatedAt: string;
-  url: string;
-}
-
 interface CardListProps {
-  cardListData: LinkDataType[];
-  onDeleteButtonClick: (elem: { name: string; data: { url: string } }) => void;
+  onDeleteButtonClick: () => void;
+  cardListData: {
+    id: number;
+    url: string;
+    title: string;
+    description: string;
+    image: string;
+  }[];
 }
 
 const CardList = ({ onDeleteButtonClick, cardListData }: CardListProps) => {
   return (
     <Container>
-      <button type="button" onClick={() => console.log(cardListData)}>
-        버튼
-      </button>
       {cardListData?.length !== 0 ? (
-        cardListData?.map((link: LinkDataType) => {
+        cardListData?.map((link) => {
           return (
             <Card to={link.url} target="_blank" key={link.id} rel="noreferrer">
               <CardImg link={link} />

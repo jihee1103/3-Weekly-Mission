@@ -1,13 +1,6 @@
 {
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": ["src"]
-      }
-    }
-  },
   // eslint용 바벨 파서 사용하기
-  "parser": "@typescript-eslint/parser",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "requireConfigFile": false,
     "babelOptions": {
@@ -17,15 +10,9 @@
       "presets": ["@babel/preset-react"]
     }
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "plugin:react/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings"
-  ],
-  "plugins": ["@typescript-eslint", "prettier", "react", "import"],
+  // airbnb 스타일 가이드 사용, esLint에서 prettier규칙을 사용하도록함 (충돌 방지)
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
     "prettier/prettier": ["error"],
     // 들여쓰기 off해서 prettier로 설정하기
@@ -36,13 +23,9 @@
     // PropType 강제하기
     "react/prop-types": "off",
     // jsx확장자 파일에서만 jsx를 사용하게 하기
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }],
     // export defalut 에러 없애기
-    "import/prefer-default-export": "off",
-    // import 확장자 에러 없애기
-    "import/extensions": "off",
-    "import/no-named-as-default": "off",
-    "no-unused-vars": "off"
+    "import/prefer-default-export": "off"
   },
   "env": {
     "browser": true,
