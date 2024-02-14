@@ -7,6 +7,7 @@ import styles from './Card.module.css';
 import { SharedLink } from '@/pages/shared';
 import { LinkType } from '@/pages/folder';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Props {
   page: LinkType | SharedLink;
@@ -87,7 +88,9 @@ export default function Card({ page, folderList }: Props) {
                       {element.linkCount}개 링크
                     </span>
                     {folderItem === element.name && (
-                      <img
+                      <Image
+                        width={14}
+                        height={14}
                         className={modalStyles['modal__check-icon']}
                         src="/images/check.png"
                         alt="체크 아이콘"
@@ -128,9 +131,17 @@ export default function Card({ page, folderList }: Props) {
         className={styles['card']}
       >
         <div className={divClass}>
-          <img className={imgClass} src={image || logo} alt="페이지 미리보기" />
+          <img
+            width={340}
+            height={200}
+            className={imgClass}
+            src={image || logo}
+            alt="페이지 미리보기"
+          />
           <button>
-            <img
+            <Image
+              width={34}
+              height={34}
               className={styles['star']}
               src="/images/star.png"
               alt="별 모양 아이콘"

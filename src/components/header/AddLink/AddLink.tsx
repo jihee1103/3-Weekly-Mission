@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from 'react';
 import styles from './AddLink.module.css';
 import BaseModal from '../../section/BaseModal/BaseModal';
 import modalStyles from '../../section/BaseModal/BaseModal.module.css';
+import Image from 'next/image';
 
 interface Props {
   folderList: { name: string; linkCount: number }[];
@@ -30,7 +31,9 @@ export default function AddLink({ folderList, className = '' }: Props) {
     <div className={`${styles['container-add-link']} ${styles[className]}`}>
       <div className={styles['add-link']}>
         <div className={styles['add-link-input']}>
-          <img
+          <Image
+            width={20}
+            height={20}
             className={styles['link-icon']}
             src="/images/link.svg"
             alt="클립 아이콘"
@@ -73,7 +76,9 @@ export default function AddLink({ folderList, className = '' }: Props) {
                       {folder.linkCount}개 링크
                     </span>
                     {folderItem === folder.name && (
-                      <img
+                      <Image
+                        width={14}
+                        height={14}
                         className={modalStyles['modal__check-icon']}
                         src="/images/check.png"
                         alt="체크 아이콘"

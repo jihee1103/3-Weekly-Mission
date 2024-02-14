@@ -27,6 +27,7 @@
 .owner-profile {
   width: 6rem;
   height: 6rem;
+  position: relative;
 }
 
 .owner-name {

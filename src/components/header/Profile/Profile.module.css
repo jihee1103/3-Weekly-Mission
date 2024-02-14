@@ -10,6 +10,9 @@
 .user .profile {
   width: 2.8rem;
   height: 2.8rem;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .user .email {

@@ -1,6 +1,7 @@
 import { createPortal } from 'react-dom';
 import { MouseEvent, ReactNode } from 'react';
 import styles from './BaseModal.module.css';
+import Image from 'next/image';
 
 interface Props {
   closeModal: () => void;
@@ -20,7 +21,9 @@ export default function BaseModal({ closeModal, children }: Props) {
       {createPortal(
         <div className={styles['modal-container']}>
           <div className={styles['modal']}>
-            <img
+            <Image
+              width={24}
+              height={24}
               className={styles['modal__close']}
               src="/images/_close.png"
               alt="닫기 아이콘 x"

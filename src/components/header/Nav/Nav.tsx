@@ -3,6 +3,7 @@ import { getUser, getUserById } from '@/pages/api/api';
 import Profile from '../Profile/Profile';
 import styles from './Nav.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Props {
   className?: string | undefined;
@@ -44,11 +45,14 @@ export default function Nav({ className = '', setUserId, id }: Props) {
   return (
     <nav className={`${styles[className]} ${styles['nav']}`}>
       <Link href="/">
-        <img
-          className={styles['logo']}
-          src="/images/logo.svg"
-          alt="Linkbrary 로고"
-        />
+        <div className={styles['logo']}>
+          <Image
+            fill
+            src="/images/logo.svg"
+            alt="Linkbrary 로고"
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
       </Link>
       {user ? (
         <Profile user={user} />

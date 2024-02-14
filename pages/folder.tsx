@@ -8,7 +8,6 @@ import AddLink from '@/src/components/header/AddLink/AddLink';
 import FolderList from '@/src/components/section/FolderList/FolderList';
 import EditOption from '@/src/components/section/EditOption/EditOption';
 import Card from '@/src/components/section/Card/Card';
-import Head from 'next/head';
 
 export interface LinkType {
   id: number;
@@ -54,6 +53,19 @@ export default function FolderPage() {
   const footerStart = useRef<HTMLDivElement>(null);
   const observer = useRef<IntersectionObserver>();
 
+  observer.current = new IntersectionObserver((entries) => {
+    if (entries[0]?.isIntersecting || entries[1]?.isIntersecting) {
+      setShowFixedAddLink(false);
+    } else {
+      setShowFixedAddLink(true);
+    }
+  });
+
+  const observeTargets = document.querySelectorAll('.observe-target');
+  observeTargets.forEach((element) => {
+    observer.current?.observe(element);
+  });
+
   const handleSearchOnChange = (nextKeyword: string) => {
     setKeyword(nextKeyword);
   };
@@ -66,20 +78,7 @@ export default function FolderPage() {
     setUserId(nextUserId);
   };
 
-  useEffect(() => {
-    observer.current = new IntersectionObserver((entries) => {
-      if (entries[0]?.isIntersecting || entries[1]?.isIntersecting) {
-        setShowFixedAddLink(false);
-      } else {
-        setShowFixedAddLink(true);
-      }
-    });
-
-    const observeTargets = document.querySelectorAll('.observe-target');
-    observeTargets.forEach((element) => {
-      observer.current?.observe(element);
-    });
-  }, []);
+  useEffect(() => {}, []);
 
   useEffect(() => {
     async function getFolderLinks() {

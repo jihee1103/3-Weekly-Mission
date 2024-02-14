@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, MouseEvent, useRef } from 'react';
 import styles from './Search.module.css';
+import Image from 'next/image';
 
 interface Props {
   handleOnChange: (value: string) => void;
@@ -29,7 +30,7 @@ export default function Search({ handleOnChange }: Props) {
 
   return (
     <div className={styles['search']}>
-      <img src="/images/Search.png" alt="돋보기" />
+      <Image width={16} height={16} src="/images/Search.png" alt="돋보기" />
       <input
         className={styles['search-input']}
         placeholder="링크를 검색해 보세요."
@@ -37,12 +38,15 @@ export default function Search({ handleOnChange }: Props) {
         ref={searchInput}
       />
       {showEraseButton && (
-        <img
-          className={styles['eraseKeyword']}
-          src="/images/_close.png"
-          alt="X 버튼"
-          onClick={onClickEraseKeyword}
-        />
+        <div className={styles['eraseKeyword']}>
+          <Image
+            fill
+            src="/images/_close.png"
+            alt="X 버튼"
+            onClick={onClickEraseKeyword}
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
       )}
     </div>
   );

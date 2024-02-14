@@ -3,6 +3,7 @@ import BaseModal from '../BaseModal/BaseModal';
 import styles from './EditOption.module.css';
 import modalStyles from '../BaseModal/BaseModal.module.css';
 import { Id } from '@/pages/folder';
+import Image from 'next/image';
 
 interface Props {
   src: string;
@@ -106,7 +107,9 @@ export default function EditOption({ src, optionName, userId, folder }: Props) {
               className={`${modalStyles['modal__share-button']} ${modalStyles['kakaotalk']}`}
               onClick={handleShareToKakaotalk}
             >
-              <img
+              <Image
+                width={42}
+                height={42}
                 className={modalStyles['modal__share-icon']}
                 src="/images/sharekakaotalk.png"
                 alt="카카오톡 아이콘"
@@ -117,7 +120,9 @@ export default function EditOption({ src, optionName, userId, folder }: Props) {
               className={`${modalStyles['modal__share-button']} ${modalStyles['facebook']}`}
               onClick={handleShareToFacebook}
             >
-              <img
+              <Image
+                width={42}
+                height={42}
                 className={modalStyles['modal__share-icon']}
                 src="/images/sharefacebook.png"
                 alt="페이스북 아이콘"
@@ -128,7 +133,9 @@ export default function EditOption({ src, optionName, userId, folder }: Props) {
               className={`${modalStyles['modal__share-button']} ${modalStyles['link-copy']}`}
               onClick={handleCopyClipBoard}
             >
-              <img
+              <Image
+                width={42}
+                height={42}
                 className={modalStyles['modal__share-icon']}
                 src="/images/shareclip.png"
                 alt="클립 아이콘"
@@ -164,7 +171,7 @@ export default function EditOption({ src, optionName, userId, folder }: Props) {
   return (
     <>
       <div className={styles['option']} onClick={onClickEditOption}>
-        <img src={src} alt={optionName + ' 아이콘'} />
+        <Image width={18} height={18} src={src} alt={optionName + ' 아이콘'} />
         <span className={styles['option-name']}>{optionName}</span>
       </div>
       {openModal && (

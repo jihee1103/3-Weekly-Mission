@@ -26,6 +26,7 @@
   width: 2.4rem;
   height: 2.4rem;
   cursor: pointer;
+  position: relative;
 }
 
 @media (max-width: 767px) {
