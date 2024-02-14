@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "strict": true,
+    "strictNullChecks": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@src/*": ["src/*"]
+    },
+    "noEmit": true
+  },
+  "include": ["src", "src/**/*.css"]
+}
