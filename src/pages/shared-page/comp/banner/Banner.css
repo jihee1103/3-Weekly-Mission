@@ -74,7 +74,9 @@
   margin: 0;
 
   @media screen and (min-width: 768px) {
-    font-feature-settings: 'clig' off, 'liga' off;
+    font-feature-settings:
+      'clig' off,
+      'liga' off;
     font-size: 4rem;
     font-weight: 600;
     line-height: normal;

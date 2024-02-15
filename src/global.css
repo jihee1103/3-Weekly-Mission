@@ -1,5 +1,11 @@
 @import url('./style/reset.css');
 @import url('./style/color.css');
+@import url('./style/font.css');
+
+:root {
+  --root-z-index: 1;
+  --portal-z-index: 2;
+}
 
 #root {
   width: 100%;
@@ -9,7 +15,18 @@
   flex-direction: column;
   position: relative;
 
-  z-index: 1;
+  z-index: var(--root-z-index, 1);
+}
+
+#portal {
+  position: fixed;
+  z-index: var(--portal-z-index, 2);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sr-only {

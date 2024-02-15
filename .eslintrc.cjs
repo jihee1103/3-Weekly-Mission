@@ -1,54 +1,79 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
+  root: true,
+  env: { browser: true, es2020: true },
   extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
     'airbnb',
+    'airbnb-typescript',
     'airbnb/hooks',
+    'plugin:@typescript-eslint/recommended', // ts 권장
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
     'plugin:prettier/recommended',
   ],
-  overrides: [
-    {
-      env: {
-        node: true, // node 환경 허락? 어디에서? ⤵️
-      },
-      files: ['.eslintrc.{js,cjs}'], // 여기 files에 명시된 파일에 한해서만 node 환경 허락
-      parserOptions: {
-        sourceType: 'script',
-      },
-    },
-  ],
-  plugins: ['react', 'react-refresh', 'react-hooks', 'jsx-a11y', 'prettier', 'import'],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
+  ignorePatterns: ['build', 'dist', 'public', '.eslintrc.cjs', 'vite.config.ts', 'node_modules/'],
   settings: {
-    react: { version: '18.2' },
-    // import/resolver` 는 `eslint-plugin-import` 의 경로 설정 옵션
-    // todo: unresolved 에러 안 고쳐져서 규칙 일단 꺼놓음
-    // 'import/resolver': {
-    // node: {
-    // paths: ['src'],
-    // extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    // },
-    // caseSensitive: false,
-    // },
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {},
+    },
   },
-  ignorePatterns: ['reportWebVitals.js', '*.test.js'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    createDefaultProgram: true,
+    sourceType: 'module',
+    ecmaVersion: 'latest',
+    ecmaFeatures: {
+      jsx: true,
+    },
+    tsconfigRootDir: __dirname,
+  },
+  plugins: ['@typescript-eslint', 'prettier', 'react', 'react-hooks', 'jsx-a11y', 'import'],
   rules: {
-    'import/no-extraneous-dependencies': 'off',
-    'import/no-unresolved': 'off',
-    'no-shadow': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react-refresh/only-export-components': 'off', // todo: provider 훅을 분리하든지 옮기든지. 컴포넌트만 export 해야지 개발 과정에서 fast refresh 효과 받을 수 있음. 아니면 그냥 꺼두던지
-    // 'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'import/no-absolute-path': 'off',
+    'consistent-return': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'no-console': 'off',
+    'no-var': 'error',
+    'react/jsx-filename-extension': ['warn', { extensions: ['.ts', '.tsx'] }],
+    'no-useless-catch': 'off',
+    'react/function-component-definition': 'off',
+    'jsx-a11y/mouse-events-have-key-events': 'off',
+    'react/jsx-no-useless-fragment': 'off',
+    'react/jsx-curly-brace-presence': 'off',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    'import/prefer-default-export': 'off',
+    'react-hooks/rules-of-hooks': 'off',
+    'react-hooks/exhaustive-deps': 'warn',
+    'no-return-assign': 'off',
+    'no-param-reassign': 'off',
+    'no-multi-assign': 'off',
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    '@typescript-eslint/naming-convention': 'off',
+    camelcase: 'off',
+    'react/require-default-props': 'off',
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-shadow': 'off',
+    '@typescript-eslint/return-await': 'off',
+    '@typescript-eslint/no-unused-expressions': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    'no-restricted-syntax': 'off',
+    'no-plusplus': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error', // or "warn"
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+      },
+    ],
     'padding-line-between-statements': [
       'error',
       { blankLine: 'always', prev: ['function', 'block'], next: '*' },
@@ -64,9 +89,26 @@ module.exports = {
         next: ['multiline-const', 'multiline-let', 'multiline-var'],
       },
     ],
-    'no-console': 'off',
-    'react/function-component-definition': 'off',
-    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
+    'react/no-unescaped-entities': [
+      'warn',
+      {
+        forbid: [
+          {
+            char: '>',
+            alternatives: ['&gt;'],
+          },
+          {
+            char: '·',
+            alternatives: ['&middot;'],
+          },
+          { char: "'", alternatives: ['&apos;'] },
+          { char: '“', alternatives: ['&quot;'] },
+          { char: '”', alternatives: ['&quot;'] },
+          { char: '•', alternatives: ['&bull;'] },
+          { chat: '©', alternatives: ['&copy;'] },
+        ],
+      },
+    ],
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -78,13 +120,12 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'react/prop-types': 'off',
-    'react/jsx-no-useless-fragment': 'off',
-    'react/jsx-fragments': 'off',
-    camelcase: 'off',
-    'import/prefer-default-export': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'consistent-return': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: true,
+      },
+    ],
     'import/order': [
       'error',
       {
