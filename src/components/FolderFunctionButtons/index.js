@@ -2,19 +2,21 @@ import shareIcon from "./share.svg";
 import penIcon from "./pen.svg";
 import deleteIcon from "./delete.svg";
 import styled from "styled-components";
+import { useModal } from "../../hook/useModal";
 
 const FolderFunctionButtons = () => {
+  const { openModal } = useModal();
   return (
     <FolderFunctionButtonWrapper>
-      <FolderFunctionButton>
+      <FolderFunctionButton onClick={() => openModal("shareFolder")}>
         <img src={shareIcon} alt="공유하기 버튼" />
         공유
       </FolderFunctionButton>
-      <FolderFunctionButton>
+      <FolderFunctionButton onClick={() => openModal("editFolder")}>
         <img src={penIcon} alt="수정하기 버튼" />
         이름변경
       </FolderFunctionButton>
-      <FolderFunctionButton>
+      <FolderFunctionButton onClick={() => openModal("deleteFolder")}>
         <img src={deleteIcon} alt="삭제하기 버튼" />
         삭제
       </FolderFunctionButton>

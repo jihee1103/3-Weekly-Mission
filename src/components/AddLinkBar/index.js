@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import linkIcon from "./link.svg";
+import { useModal } from "../../hook/useModal";
 
 const AddLinkBar = () => {
+  const { openModal } = useModal();
+
   return (
     <AddLinkInputWrapper>
       <div>
         <AddLinkInput type="text" placeholder="링크를 추가해 보세요." />
-        <button>추가하기</button>
+        <button onClick={() => openModal("addLink")}>추가하기</button>
       </div>
     </AddLinkInputWrapper>
   );

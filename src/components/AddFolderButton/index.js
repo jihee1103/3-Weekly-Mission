@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import add from "./add.svg";
+import { useModal } from "../../hook/useModal";
 
 const AddFolderButton = () => {
+  const { openModal } = useModal();
   return (
-    <AddfolderButtonStyle>
+    <AddfolderButtonStyle onClick={() => openModal("addFolder")}>
       <span>폴더 추가</span>
       <img src={add} alt="폴더 추가 버튼" />
     </AddfolderButtonStyle>

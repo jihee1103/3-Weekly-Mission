@@ -1,49 +1,64 @@
 import styled from "styled-components";
-import closeIcon from "../_close.svg";
 import kakaotalkIcon from "./kakaotalk.svg";
 import facebookIcon from "./facebook.svg";
 import linkIcon from "./link.svg";
+import CloseModalButton from "../CloseModalButton";
 
 const ShareFolder = () => {
   return (
-    <ModalContainer>
-      <CloseButton src={closeIcon} alt="닫기 버튼" />
-      <h1>폴더 공유</h1>
-      <FolderNameSpan>폴더명</FolderNameSpan>
-      <ContentsWrapper>
-        <div>
-          <img src={kakaotalkIcon} alt="카카오톡 공유 버튼" />
-          <span>카카오톡</span>
-        </div>
-        <div>
-          <img src={facebookIcon} alt="페이스북 공유 버튼" />
-          <span>페이스북</span>
-        </div>
-        <div>
-          <img src={linkIcon} alt="링크 복사 버튼" />
-          <span>링크 복사</span>
-        </div>
-      </ContentsWrapper>
-    </ModalContainer>
+    <ModalBackground>
+      <ModalContainer>
+        <CloseModalButton />
+        <h1>폴더 공유</h1>
+        <FolderNameSpan>폴더명</FolderNameSpan>
+        <ContentsWrapper>
+          <div>
+            <img src={kakaotalkIcon} alt="카카오톡 공유 버튼" />
+            <span>카카오톡</span>
+          </div>
+          <div>
+            <img src={facebookIcon} alt="페이스북 공유 버튼" />
+            <span>페이스북</span>
+          </div>
+          <div>
+            <img src={linkIcon} alt="링크 복사 버튼" />
+            <span>링크 복사</span>
+          </div>
+        </ContentsWrapper>
+      </ModalContainer>
+    </ModalBackground>
   );
 };
 
 export default ShareFolder;
 
+const ModalBackground = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+`;
+
 const ModalContainer = styled.div`
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  margin-top: 100px;
-  margin-bottom: 100px;
   width: 300px;
   height: 200px;
   background-color: white;
   border: 1px solid #e0e0e0;
   border-radius: 15px;
-  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
   h1 {
     margin: 0;
@@ -55,12 +70,6 @@ const ModalContainer = styled.div`
 const FolderNameSpan = styled.span`
   font-size: 14px;
   color: #676767;
-`;
-
-const CloseButton = styled.img`
-  position: absolute;
-  top: 15px;
-  right: 15px;
 `;
 
 const ContentsWrapper = styled.div`

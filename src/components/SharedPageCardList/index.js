@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { SharedPageStateContext } from "../../page/SharedPage";
 import defaultImage from "./default.png";
-import starIcon from "./star.svg";
-import kebabIcon from "./kebab.svg";
 import styled from "styled-components";
 
 const SharedPageCardList = () => {

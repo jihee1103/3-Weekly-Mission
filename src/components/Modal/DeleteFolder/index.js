@@ -1,33 +1,49 @@
 import styled from "styled-components";
-import closeIcon from "../_close.svg";
+import CloseModalButton from "../CloseModalButton";
 
 const DeleteFolder = () => {
   return (
-    <ModalContainer>
-      <img src={closeIcon} alt="닫기 버튼" />
-      <h1>폴더 삭제</h1>
-      <span>폴더명</span>
-      <button>삭제하기</button>
-    </ModalContainer>
+    <ModalBackground>
+      <ModalContainer>
+        <CloseModalButton />
+        <h1>폴더 삭제</h1>
+        <span>폴더명</span>
+        <button>삭제하기</button>
+      </ModalContainer>
+    </ModalBackground>
   );
 };
 
 export default DeleteFolder;
 
+const ModalBackground = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+`;
+
 const ModalContainer = styled.div`
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  margin-top: 100px;
-  margin-bottom: 100px;
+
   width: 300px;
   height: 200px;
   background-color: white;
   border: 1px solid #e0e0e0;
   border-radius: 15px;
-  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
   h1 {
     margin: 0;

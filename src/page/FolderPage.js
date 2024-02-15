@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ModalProvider } from "../hook/useModal";
 import styled from "styled-components";
 import AddFolderButton from "../components/AddFolderButton";
 import AddLinkBar from "../components/AddLinkBar";
@@ -13,13 +14,6 @@ import getFolderIdData from "../api/getFolderIdData";
 import CardListDefault from "../components/CardListDefault";
 import FolderPageHeaderNavigation from "../components/FolderPageHeaderNavigation";
 import FolderPageCardList from "../components/FolderPageCardList";
-import AddFolder from "../components/Modal/AddFolder";
-import AddLink from "../components/Modal/AddLink";
-import DeleteFolder from "../components/Modal/DeleteFolder";
-import DeleteLink from "../components/Modal/DeleteLink";
-import EditFolder from "../components/Modal/EditFolder";
-import ShareFolder from "../components/Modal/ShareFolder";
-import KebabPopOver from "../components/KebabPopOver";
 
 export const FolderPageStateContext = React.createContext();
 
@@ -61,42 +55,44 @@ const FolderPage = () => {
   };
 
   return (
-    <FolderPageStateContext.Provider
-      value={{
-        handleClickFilterFolder,
-        selectedFolderName,
-        foldersNameData,
-        allFolderData,
-      }}
-    >
-      <HeaderContainer>
-        <FolderPageHeaderNavigation />
-        <AddLinkBar />
-      </HeaderContainer>
-      <main>
-        <section>
-          <SearchLinkBar />
-        </section>
-        <FolderSelectSection>
-          <FolderNameButton />
-          <AddFolderButton />
-        </FolderSelectSection>
-        <article>
-          <FolderListHeader>
-            <FolderTitle />
-            <FolderFunctionButtons />
-          </FolderListHeader>
-          <CardListContainer>
-            {allFolderData.length > 0 ? (
-              <FolderPageCardList data={allFolderData} />
-            ) : (
-              <CardListDefault />
-            )}
-          </CardListContainer>
-        </article>
-      </main>
-      <Footer />
-    </FolderPageStateContext.Provider>
+    <ModalProvider>
+      <FolderPageStateContext.Provider
+        value={{
+          handleClickFilterFolder,
+          selectedFolderName,
+          foldersNameData,
+          allFolderData,
+        }}
+      >
+        <HeaderContainer>
+          <FolderPageHeaderNavigation />
+          <AddLinkBar />
+        </HeaderContainer>
+        <main>
+          <section>
+            <SearchLinkBar />
+          </section>
+          <FolderSelectSection>
+            <FolderNameButton />
+            <AddFolderButton />
+          </FolderSelectSection>
+          <article>
+            <FolderListHeader>
+              <FolderTitle />
+              <FolderFunctionButtons />
+            </FolderListHeader>
+            <CardListContainer>
+              {allFolderData.length > 0 ? (
+                <FolderPageCardList data={allFolderData} />
+              ) : (
+                <CardListDefault />
+              )}
+            </CardListContainer>
+          </article>
+        </main>
+        <Footer />
+      </FolderPageStateContext.Provider>
+    </ModalProvider>
   );
 };
 
@@ -130,24 +126,4 @@ const CardListContainer = styled.div`
   width: 1060px;
   margin: 0 auto;
   position: relative;
-`;
-
-const ModalContainer = styled.div`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  div {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-  }
 `;

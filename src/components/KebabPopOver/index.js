@@ -1,12 +1,22 @@
 import styled from "styled-components";
+import { useModal } from "../../hook/useModal";
 
 const KebabPopOver = () => {
+  const { openModal } = useModal();
   return (
     <PopOverContainer>
-      <li>
+      <li
+        onClick={() => {
+          openModal("deleteLink");
+        }}
+      >
         <span>삭제하기</span>
       </li>
-      <li>
+      <li
+        onClick={() => {
+          openModal("addLink");
+        }}
+      >
         <span>폴더에 추가</span>
       </li>
     </PopOverContainer>
