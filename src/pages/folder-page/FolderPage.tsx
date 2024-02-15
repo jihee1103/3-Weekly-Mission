@@ -11,20 +11,15 @@ const FolderPage = <T extends HTMLElement>() => {
   const addLinkRef = useRef<T | null>(null);
   const footerRef = useRef<T | null>(null);
 
-  const isAddLinkVisible = useTargetVisibleState(addLinkRef, ({ target, setTargetVisibleState: set }) => {
+  const isAddLinkVisible = useTargetVisibleState(addLinkRef, ({ target }) => {
     if (target && target.clientHeight <= document.documentElement.scrollTop) {
-      set(false);
-    } else {
-      set(true);
+      return false;
     }
+
+    return true;
   });
 
-  const isFooterVisible = useTargetVisibleState(footerRef, ({ target, isIntersecting, setTargetVisibleState: set }) => {
-    if (target) {
-      if (isIntersecting) set(true);
-      else set(false);
-    }
-  });
+  const isFooterVisible = useTargetVisibleState(footerRef);
 
   const shouldAddLinkLocateBottom = useMemo(
     () => !isAddLinkVisible && !isFooterVisible,

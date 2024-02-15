@@ -5,9 +5,6 @@ import { TModalDispatchContext, TModalStateContext } from '.';
 export const ModalStateContext = createContext<TModalStateContext>({
   ModalComponent: null,
   props: {
-    onClose: () => {},
-    onOpen: () => {},
-    onSubmit: () => {},
     modalRef: null,
   },
   isModalOpen: false,

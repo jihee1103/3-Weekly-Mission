@@ -9,7 +9,10 @@ type TIntersetcionResult<T = HTMLElement> = {
   target: T | null;
 };
 
-export const useObserverOnScroll = <T extends HTMLElement>(ref: MutableRefObject<T | null>) => {
+export const useObserverOnScroll = <T extends HTMLElement>(
+  ref: MutableRefObject<T | null>,
+  options?: IntersectionObserverInit,
+) => {
   const [intersetcionResult, setIntersetcionResult] = useState<TIntersetcionResult<T>>({
     isIntersecting: false,
     target: null,
@@ -23,7 +26,7 @@ export const useObserverOnScroll = <T extends HTMLElement>(ref: MutableRefObject
           target: entry.target as T,
         });
       }
-    });
+    }, options);
 
     if (ref.current) {
       observer.observe(ref.current);
