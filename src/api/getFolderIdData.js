@@ -1,4 +1,4 @@
-export const getFolderIdData = async (folderId) => {
+const getFolderIdData = async (folderId) => {
   const response = await fetch(
     `https://bootcamp-api.codeit.kr/api/users/1/links?folderId=${folderId}`,
     {
@@ -11,3 +11,5 @@ export const getFolderIdData = async (folderId) => {
   const body = await response.json();
   return body;
 };
+
+export default getFolderIdData;
