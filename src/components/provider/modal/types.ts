@@ -4,9 +4,7 @@ export type TModalComponent = React.ComponentType<any>;
 
 export type TModalComponentProps<T> = T extends TModalComponent ? ComponentProps<T> & TModalHandler : never;
 
-export type TModalComponentPropsWithoutModalRef<T extends TModalComponent> = T extends TModalComponent
-  ? Omit<ComponentProps<T> & TModalHandler, 'modalRef'>
-  : never;
+export type TModalComponentPropsWithoutModalRef<T extends TModalComponent> = Omit<TModalComponentProps<T>, 'modalRef'>;
 
 export type TModalHandler = {
   onClose?: () => void;
