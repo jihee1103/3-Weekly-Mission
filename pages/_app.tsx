@@ -14,10 +14,10 @@ declare global {
 dotenv.config();
 
 export default function App({ Component, pageProps }: AppProps) {
-  // useEffect(() => {
-  //   window.Kakao.cleanup();
-  //   window.Kakao.init(process.env.KAKAO_JS_AppKey);
-  // });
+  useEffect(() => {
+    window.Kakao.cleanup();
+    window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JS_AppKey);
+  });
 
   return (
     <>

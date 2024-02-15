@@ -61,7 +61,7 @@ export default function EditOption({ src, optionName, userId, folder }: Props) {
       const shareLink = hostName + `/shared?user=${userId}&folder=${folder.id}`;
 
       const handleShareToKakaotalk = () => {
-        Kakao.Link.sendScrap({
+        Kakao.Share.sendDefault({
           objectType: 'feed',
           content: {
             title: '폴더 공유',
