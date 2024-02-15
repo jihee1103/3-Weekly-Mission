@@ -1,15 +1,15 @@
-import { createContext, LegacyRef, MutableRefObject, PropsWithChildren, useContext } from 'react';
+import { createContext, PropsWithChildren, RefObject, useContext } from 'react';
 
 import styled from 'styled-components';
 
 const SelectMenuContext = createContext(undefined);
 
-type TSelectMenuProviderProps = PropsWithChildren<{ modalRef?: MutableRefObject<HTMLElement | null> }>;
+type TSelectMenuProviderProps = PropsWithChildren<{ modalRef?: RefObject<HTMLDivElement> }>;
 
 const SelectMenuProvider = ({ children, modalRef }: TSelectMenuProviderProps) => {
   return (
     <SelectMenuContext.Provider value={undefined}>
-      <StSelectMenuContextWrapper ref={modalRef as LegacyRef<HTMLDivElement>}>{children}</StSelectMenuContextWrapper>
+      <StSelectMenuContextWrapper ref={modalRef}>{children}</StSelectMenuContextWrapper>
     </SelectMenuContext.Provider>
   );
 };

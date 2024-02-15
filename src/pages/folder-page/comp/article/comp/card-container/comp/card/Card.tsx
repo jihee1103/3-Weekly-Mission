@@ -22,13 +22,11 @@ type TCardProps = {
 
 const Card = ({ link }: TCardProps) => {
   const [selectedLinkId, setSelectedLinkId] = useState<number | null>(null);
-  const { isModalOpen, modalRef, toggleModal } = useCloseModal();
+  const { isModalOpen, modalRef, toggleModal } = useCloseModal<HTMLDivElement>();
 
   const handleKebabButton = (linkId: number) => {
-    if (!isModalOpen) {
-      setSelectedLinkId(linkId);
-      toggleModal();
-    }
+    setSelectedLinkId(linkId);
+    toggleModal();
   };
 
   const { openModal } = useModal();
@@ -51,7 +49,7 @@ const Card = ({ link }: TCardProps) => {
     openModal({ Component: ModalComponent, props: { linkUrl } });
   };
 
-  const purifiedLinkState: TCardProviderContext = {
+  const processedFolderPageLinkData: TCardProviderContext = {
     linkId: link.id,
     createdAt: link.created_at,
     description: link.description,
@@ -62,34 +60,32 @@ const Card = ({ link }: TCardProps) => {
   };
 
   return (
-    <>
-      <LinkCard {...purifiedLinkState}>
-        <LinkCard.CardCover asAnchor className={cn('link-card')}>
-          <div className={cn('card-image-box')}>
-            <LinkCard.CardImage className={cn('link-image')} alt='카드 링크 이미지' />
-            <LinkCard.Bookmark />
+    <LinkCard {...processedFolderPageLinkData}>
+      <LinkCard.CardCover asAnchor className={cn('link-card')}>
+        <div className={cn('card-image-box')}>
+          <LinkCard.CardImage className={cn('link-image')} alt='카드 링크 이미지' />
+          <LinkCard.Bookmark />
+        </div>
+        <div className={cn('link-text-box', 'relative')}>
+          <div className={cn('justify-between')}>
+            <LinkCard.TimeElapsed className={cn('link-elapsed')} />
+            <LinkCard.KebabButton onClickHandler={() => handleKebabButton(link.id)} />
+            {selectedLinkId === link.id && isModalOpen && (
+              <SelectMenu modalRef={modalRef}>
+                <SelectMenu.StMenuButton onClick={(e) => handleDeleteMenuBtn(e, LinkDeleteModal, link.url)}>
+                  삭제하기
+                </SelectMenu.StMenuButton>
+                <SelectMenu.StMenuButton onClick={(e) => handleFolderAddMenuBtn(e, AddToFolderModal, link.url)}>
+                  폴더에 추가
+                </SelectMenu.StMenuButton>
+              </SelectMenu>
+            )}
           </div>
-          <div className={cn('link-text-box', 'relative')}>
-            <div className={cn('justify-between')}>
-              <LinkCard.TimeElapsed className={cn('link-elapsed')} />
-              <LinkCard.KebabButton onClickHandler={() => handleKebabButton(link.id)} />
-              {selectedLinkId === link.id && isModalOpen && (
-                <SelectMenu modalRef={modalRef}>
-                  <SelectMenu.StMenuButton onClick={(e) => handleDeleteMenuBtn(e, LinkDeleteModal, link.url)}>
-                    삭제하기
-                  </SelectMenu.StMenuButton>
-                  <SelectMenu.StMenuButton onClick={(e) => handleFolderAddMenuBtn(e, AddToFolderModal, link.url)}>
-                    폴더에 추가
-                  </SelectMenu.StMenuButton>
-                </SelectMenu>
-              )}
-            </div>
-            <LinkCard.Description className={cn('link-description')} />
-            <LinkCard.CreatedAt className={cn('link-createdAt')} />
-          </div>
-        </LinkCard.CardCover>
-      </LinkCard>
-    </>
+          <LinkCard.Description className={cn('link-description')} />
+          <LinkCard.CreatedAt className={cn('link-createdAt')} />
+        </div>
+      </LinkCard.CardCover>
+    </LinkCard>
   );
 };
 

@@ -9,7 +9,7 @@ type TCardProps = {
   link: TSampleFolderLink;
 };
 const Card = ({ link }: TCardProps) => {
-  const purifiedLink: TCardProviderContext = {
+  const processedSharedPageLinkData: TCardProviderContext = {
     linkId: link.id,
     createdAt: link.createdAt,
     description: link.description,
@@ -19,7 +19,7 @@ const Card = ({ link }: TCardProps) => {
   };
 
   return (
-    <LinkCard {...purifiedLink}>
+    <LinkCard {...processedSharedPageLinkData}>
       <LinkCard.CardCover asAnchor className={styles['link-card']}>
         <div className={styles['card-image-box']}>
           <LinkCard.CardImage className={styles['link-image']} alt='카드 링크 이미지' />
