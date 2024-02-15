@@ -1,0 +1,38 @@
+.nav-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-bottom: 30px;
+}
+
+.nav-first-section {
+  display: flex;
+}
+
+.nav-second-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-profile {
+  display: flex;
+  width: 28px;
+  height: 28px;
+}
+
+.nav-profile-info {
+  color: #373740;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@media (max-width: 1124px) {
+  .nav-section {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+}

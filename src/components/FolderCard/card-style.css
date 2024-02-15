@@ -1,0 +1,94 @@
+.card-container {
+  width: 340px;
+  overflow: hidden;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.image-wrap {
+  height: 200px;
+  position: relative;
+}
+
+.image-container img {
+  background-color: #dddfff;
+  width: 100%;
+  height: 200px;
+  transition: 0.3s;
+  animation: ease-in;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+
+.image-container img:hover {
+  transform: scale(1.3);
+}
+
+.star-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+}
+
+.kebab-icon {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 1;
+  width: 21px;
+  height: 17px;
+}
+
+.card-content {
+  position: relative;
+  background-color: white;
+  padding: 15px 20px;
+  height: 135px;
+  box-sizing: border-box;
+}
+
+.card-content p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.card-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.time-stamp-section {
+  color: #666;
+  font-size: 13px;
+}
+
+.description-section {
+  overflow: hidden;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.time-section {
+  color: #333;
+  font-size: 14px;
+}
+
+.card-url {
+  text-decoration: none;
+  color: inherit;
+}
