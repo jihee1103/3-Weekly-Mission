@@ -39,7 +39,7 @@ const AddLinkInputWrapper = styled.div`
 
   button {
     position: absolute;
-    top: 0;
+    top: 15px;
     right: 20px;
     width: 80px;
     height: 37px;
@@ -47,7 +47,7 @@ const AddLinkInputWrapper = styled.div`
     background-color: var(--Linkbrary-primary-color, #6d6afe);
     color: white;
     border-radius: 8px;
-    margin-top: 15px;
     box-sizing: border-box;
+    cursor: pointer;
   }
 `;

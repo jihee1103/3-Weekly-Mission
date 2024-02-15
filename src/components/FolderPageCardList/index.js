@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FolderPageStateContext } from "../../page/FolderPage";
 import defaultImage from "./default.png";
 import starIcon from "./star.svg";
@@ -9,6 +9,11 @@ import KebabPopOver from "../KebabPopOver";
 
 const FolderPageCardList = () => {
   const { allFolderData } = useContext(FolderPageStateContext);
+  const [openedKebabId, setOpenedKebabId] = useState(null);
+
+  const handleKebabClick = (id) => {
+    setOpenedKebabId((prevId) => (prevId === id ? null : id));
+  };
 
   return (
     <>
@@ -24,7 +29,13 @@ const FolderPageCardList = () => {
               )}
             </CardImageWrapper>
             <CardContent>
-              <img src={kebabIcon} alt="더보기 버튼" className="kebabIcon" />
+              <img
+                src={kebabIcon}
+                alt="더보기 버튼"
+                className="kebabIcon"
+                onClick={() => handleKebabClick(folder.id)}
+              />
+              {openedKebabId === folder.id && <KebabPopOver />}
               <Stamp>10 minutes ago</Stamp>
               <Description>{folder.description}</Description>
               <Stamp>2023. 3. 15</Stamp>
