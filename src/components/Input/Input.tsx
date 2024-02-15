@@ -50,8 +50,8 @@ export default function Input({ type }: Props) {
             width={16}
             height={16}
             className={styles['password-icon']}
-            src="/images/eye-off.svg"
-            alt="눈에 빗금친 아이콘"
+            src="/images/eye-on.svg"
+            alt="눈모양 아이콘"
             onClick={onClickIcon}
           />
         ) : (
@@ -59,8 +59,8 @@ export default function Input({ type }: Props) {
             width={16}
             height={16}
             className={styles['password-icon']}
-            src="/images/eye-on.svg"
-            alt="눈모양 아이콘"
+            src="/images/eye-off.svg"
+            alt="눈에 빗금친 아이콘"
             onClick={onClickIcon}
           />
         ))}
