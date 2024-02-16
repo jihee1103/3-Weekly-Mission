@@ -5,10 +5,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { API_USERS, BASE_API_HOST } from '../../app/constants/api';
-import logoImg from '../../asset/logo.svg';
-import getErrorMessage from '../../utils/getErrorMessage';
-import getFetchRequest from '../../utils/getFetchRequest';
+import { API_USERS, BASE_API_HOST } from '../../../constants/api';
+import logoImg from '/public/logo.svg';
+import getFetchRequest from '../../../utils/getFetchRequest';
 import NavbarContent from './NavbarContent';
 
 export default function Navbar() {
@@ -24,7 +23,7 @@ export default function Navbar() {
         setUserEmail(result.data[0].email);
         setUserProfileImg(result.data[0].image_source);
       } catch (error) {
-        const errorMessage = getErrorMessage(error);
+        console.log(error);
       }
     };
     getUserInfo();

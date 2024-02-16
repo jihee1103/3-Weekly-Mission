@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import NoLinkCard from '../Card/NoLinkCard';
-import SearchBar from '../SearchBar/SearchBar';
+import NoLinkCard from '../../../app/components/card/NoLinkCard';
+import SearchBar from '../../../app/components/search-bar/SearchBar';
 import { FolderList, Links } from './Folder';
 import FolderContent from './FolderContent';
-import SearchResult from '../SearchBar/SearchResult';
+import SearchResult from '../../../app/components/search-bar/SearchResult';
 
 export interface Props {
   toggleModal: () => void;

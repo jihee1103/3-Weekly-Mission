@@ -1,6 +1,6 @@
 import camelcaseKeys from 'camelcase-keys';
 import { useEffect, useState } from 'react';
-import { BASE_API_HOST } from '../app/constants/api';
+import { BASE_API_HOST } from '../constants/api';
 import getFetchRequest from '../utils/getFetchRequest';
 
 const useFolderLinks = (apiPath: string, folderId = 0) => {

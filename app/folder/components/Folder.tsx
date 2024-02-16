@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import AddLink from '../AddLink/AddLink';
+import useFolderLinks from '../../../hooks/useFolderLinks';
 import FolderBody from './FolderBody';
-import useFolderLinks from '../../../Hooks/useFolderLinks';
-import Modal from '../Modal/Modal';
+import Modal from '../../components/modal/Modal';
+import AddLink from '../../components/add-link/AddLink';
 
 export interface Links {
   createdAt: string;

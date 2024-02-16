@@ -1,5 +1,5 @@
-import Footer from '../components/Footer/Footer';
-import Navbar from '../components/Navbar/Navbar';
+import Footer from './components/footer/Footer';
+import Navbar from './components/navbar/Navbar';
 import StyledComponentsRegistry from '../lib/registry';
 
 export const metadata = {

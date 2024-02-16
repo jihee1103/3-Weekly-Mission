@@ -1,4 +1,4 @@
-import CardList from '../Card/CardList';
+import CardList from '../../../app/components/card/CardList';
 import { Links } from './Folder';
 
 interface Props {

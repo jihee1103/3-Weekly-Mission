@@ -1,12 +1,15 @@
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
 import { SyntheticEvent, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import defaultImage from '../../asset/default-image.svg';
-import kebabIcon from '../../asset/kebab.svg';
-import starIcon from '../../asset/star.svg';
-import { Links } from '../Folder/Folder';
-import PopOverMenu from '../Modal/PopOverMenu';
+import defaultImage from '/public/default-image.svg';
+import kebabIcon from '/public/kebab.svg';
+import starIcon from '/public/star.svg';
 import calculateTime from '../../../utils/calculateTime';
+import { Links } from '../../folder/components/Folder';
+import PopOverMenu from '../modal/PopOverMenu';
 
 interface Props {
   link: Links;
@@ -52,11 +55,12 @@ export default function Card({
 
   const handleImageError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
     const imgElement = e.currentTarget as HTMLImageElement;
-    imgElement.src = defaultImage;
+    imgElement.src = defaultImage.src;
   };
+
   return (
     <CardContainer>
-      <CardImgArea to={linkUrl} target="_blank">
+      <CardImgArea href={linkUrl} target="_blank">
         <CardPreviewImg
           src={cardImgUrl || defaultImage}
           alt="카드 미리보기 이미지"
@@ -81,7 +85,7 @@ export default function Card({
             />
           ) : null}
         </CardInfoTop>
-        <CardInfoBodyContainer to={linkUrl} target="_blank">
+        <CardInfoBodyContainer href={linkUrl} target="_blank">
           <CardInfoBody>{link.description ?? '설명이 없습니다.'}</CardInfoBody>
           <CardInfoDate>{formattedCreatedAt}</CardInfoDate>
         </CardInfoBodyContainer>
@@ -90,7 +94,7 @@ export default function Card({
   );
 }
 const CardPreviewImg = styled.img`
-  max-height: 100%;
+  height: 100%;
   margin: auto;
 `;
 const CardInfoArea = styled.div`
@@ -139,7 +143,9 @@ const CardImgArea = styled(Link)`
   overflow: hidden;
   z-index: 1;
 `;
-const StarIcon = styled.img`
+const StarIcon = styled(Image)`
+  width: 34px;
+  height: 34px;
   position: absolute;
   top: 15px;
   right: 15px;
@@ -154,7 +160,10 @@ const CardInfoTime = styled.p`
   font-size: 13px;
   color: #666666;
 `;
-const KebabIcon = styled.img``;
+const KebabIcon = styled(Image)`
+  width: 21px;
+  height: 17px;
+`;
 const CardInfoBody = styled.p`
   position: relative;
   height: 49px;

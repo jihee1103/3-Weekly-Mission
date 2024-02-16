@@ -1,6 +1,6 @@
 import { FacebookShareButton } from 'react-share';
 import styled from 'styled-components';
-import useKakaoInit from '../../../Hooks/useKakaoInit';
+import useKakaoInit from '../../../hooks/useKakaoInit';
 import facebookLogo from '../../asset/Facebook.svg';
 import kakaoLogo from '../../asset/Kakao.svg';
 import linkLogo from '../../asset/link.svg';

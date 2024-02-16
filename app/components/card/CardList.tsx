@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import Card from './Card';
-import { Links } from '../Folder/Folder';
 import { useEffect, useState } from 'react';
 import { debounce } from 'lodash';
+import { Links } from '../../folder/components/Folder';
+import Card from './Card';
 
 interface Props {
   links: Links[];

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import SearchIconImg from '../../asset/SearchIcon.svg';
-import DeleteIconImg from '../../asset/search-delete.svg';
+import SearchIconImg from '/public/SearchIcon.svg';
+import DeleteIconImg from '/public/search-delete.svg';
 import { ChangeEvent } from 'react';
+import Image from 'next/image';
 
 interface Props {
   searchInputValue: string;
@@ -72,7 +73,7 @@ const InputWrapper = styled.label`
     }
   }
 `;
-const SearchIcon = styled.img`
+const SearchIcon = styled(Image)`
   width: 16px;
   height: 16px;
   margin-right: 10px;
@@ -93,7 +94,7 @@ const Input = styled.input`
   }
 `;
 const DeleteIcon = styled.button`
-  background-image: url(${DeleteIconImg});
+  background-image: url(${DeleteIconImg.src});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

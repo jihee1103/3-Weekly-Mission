@@ -1,32 +1,25 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import defaultImage from '../../asset/default-image.svg';
-import { BASE_API_HOST } from '../../../app/constants/api';
+import { BASE_API_HOST } from '../../../constants/api';
 import getFetchRequest from '../../../utils/getFetchRequest';
-import Loading from '../Loading/Loading';
-import getErrorMessage from '../../../utils/getErrorMessage';
 
 export default function SharedInfo() {
   const API_FOLDER = 'sample/folder';
   const [avatar, setAvatar] = useState(null);
   const [owner, setOwner] = useState('');
   const [folderName, setFolderName] = useState('');
-  const [condition, setCondition] = useState('noData');
-  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    setCondition('loading');
     const getSharedInfo = async () => {
       try {
         const result = await getFetchRequest(BASE_API_HOST, API_FOLDER);
         setAvatar(result.folder.owner.profileImageSource);
         setOwner(result.folder.owner.name);
         setFolderName(result.folder.name);
-        setCondition('getInfoSuccess');
       } catch (error) {
-        const errorMessage = getErrorMessage(error);
-        setErrorMessage(errorMessage);
-        setCondition('error');
+        console.log(error);
       }
     };
     getSharedInfo();
@@ -34,22 +27,13 @@ export default function SharedInfo() {
 
   return (
     <Wrapper>
-      {
-        {
-          loading: <Loading />,
-          getInfoSuccess: (
-            <Container>
-              <Owner>
-                <Avatar src={avatar || defaultImage} alt="유저 아바타 이미지" />
-                <OwnerName>{owner}</OwnerName>
-              </Owner>
-              <FolderName className="shared-name">{folderName}</FolderName>
-            </Container>
-          ),
-          error: errorMessage,
-          noData: '데이터가 없습니다.',
-        }[condition]
-      }
+      <Container>
+        <Owner>
+          <Avatar src={avatar} alt="유저 아바타 이미지" />
+          <OwnerName>{owner}</OwnerName>
+        </Owner>
+        <FolderName className="shared-name">{folderName}</FolderName>
+      </Container>
     </Wrapper>
   );
 }

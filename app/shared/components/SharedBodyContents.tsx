@@ -1,8 +1,10 @@
+'use client';
+
 import styled from 'styled-components';
-import SearchBar from '../SearchBar/SearchBar';
-import CardList from '../Card/CardList';
-import { Links } from '../Folder/Folder';
-import SearchResult from '../SearchBar/SearchResult';
+import CardList from '../../components/card/CardList';
+import SearchBar from '../../components/search-bar/SearchBar';
+import SearchResult from '../../components/search-bar/SearchResult';
+import { Links } from '../../folder/components/Folder';
 
 interface Props {
   links: Links[];
