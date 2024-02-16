@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import checkedIcon from '../../asset/check.svg';
-import { FolderList } from '../Folder/Folder';
+import checkedIcon from '/public/check.svg';
+import { FolderList } from '../../folder/page';
 
 interface Props {
   folderList: FolderList[];
@@ -37,7 +37,7 @@ export default function AddLinkToFolder({
             </FolderName>
             <FolderCount>{item.link?.count}개 링크</FolderCount>
             {item.id === selectedFolderId ? (
-              <CheckedIcon src={checkedIcon} />
+              <CheckedIcon src={checkedIcon.src} />
             ) : null}
           </FolderListItem>
         ))}

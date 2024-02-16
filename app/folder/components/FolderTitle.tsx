@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { FolderList } from './Folder';
+import { FolderList } from '../page';
 
 interface Props {
   item: FolderList;

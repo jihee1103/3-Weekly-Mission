@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AddFolder from './AddFolder';
-import { FolderList } from './Folder';
 import FolderTitle from './FolderTitle';
+import { FolderList } from '../page';
 
 interface Props {
   toggleModal: () => void;

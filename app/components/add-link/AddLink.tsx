@@ -1,6 +1,6 @@
 import { ChangeEvent, MouseEvent } from 'react';
 import styled from 'styled-components';
-import linkIcon from '../../asset/link.svg';
+import linkIcon from '/public/link.svg';
 
 interface Props {
   toggleModal: () => void;
@@ -30,7 +30,7 @@ export default function AddLink({
     <AddLinkForm>
       <Label htmlFor="linkInput">
         <IconInputWrapper>
-          <LinkIcon src={linkIcon} />
+          <LinkIcon src={linkIcon.src} />
           <AddLinkInput
             id="linkInput"
             value={addLinkUrl}

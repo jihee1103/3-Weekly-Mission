@@ -1,8 +1,8 @@
 import { MouseEvent } from 'react';
 import styled from 'styled-components';
-import deleteIcon from '../../asset/deleteIcon.svg';
-import editIcon from '../../asset/penIcon.svg';
-import shareIcon from '../../asset/shareIcon.svg';
+import deleteIcon from '/public/deleteIcon.svg';
+import editIcon from '/public/penIcon.svg';
+import shareIcon from '/public/shareIcon.svg';
 
 interface Props {
   folderName: string;
@@ -27,15 +27,15 @@ export default function FolderCardHeader({
       {folderId !== 0 && (
         <FolderManageContainer>
           <FolderEditButton id="shareFolder" onClick={handleButtonClick}>
-            <EditIcon src={shareIcon} />
+            <EditIcon src={shareIcon.src} />
             공유
           </FolderEditButton>
           <FolderEditButton id="changeFolderName" onClick={handleButtonClick}>
-            <EditIcon src={editIcon} />
+            <EditIcon src={editIcon.src} />
             이름 변경
           </FolderEditButton>
           <FolderEditButton id="deleteFolder" onClick={handleButtonClick}>
-            <DeleteIcon src={deleteIcon} />
+            <DeleteIcon src={deleteIcon.src} />
             삭제
           </FolderEditButton>
         </FolderManageContainer>

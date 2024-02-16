@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import closeButton from '../../asset/close.svg';
-import { FolderList, Links } from '../Folder/Folder';
+import closeButton from '/public/close.svg';
 import AddFolder from './AddFolder';
 import AddLinksToFolder from './AddLinksToFolder';
 import ChangeFolderName from './ChangeFolderName';
 import DeleteFolder from './DeleteFolder';
 import DeleteLink from './DeleteLink';
 import ShareFolder from './ShareFolder';
+import { FolderList, Links } from '../../folder/page';
 
 interface Props {
   toggleModal: () => void;
@@ -71,7 +71,7 @@ export default function Modal({
   return (
     <Wrapper>
       <Container>
-        <CloseButton src={closeButton} onClick={handleCloseButtonClick} />
+        <CloseButton src={closeButton.src} onClick={handleCloseButtonClick} />
         {updateModal()}
       </Container>
     </Wrapper>

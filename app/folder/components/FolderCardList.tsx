@@ -1,5 +1,5 @@
 import CardList from '../../../app/components/card/CardList';
-import { Links } from './Folder';
+import { Links } from '../page';
 
 interface Props {
   links: Links[];

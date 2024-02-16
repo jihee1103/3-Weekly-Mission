@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import FolderCardHeader from './FolderCardHeader';
 import FolderCardList from './FolderCardList';
 import FolderTitleList from './FolderTitleList';
-import { FolderList, Links } from './Folder';
+import { FolderList, Links } from '../page';
 
 export interface Props {
   toggleModal: () => void;

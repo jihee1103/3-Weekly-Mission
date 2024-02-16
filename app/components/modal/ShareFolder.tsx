@@ -1,13 +1,11 @@
 import { FacebookShareButton } from 'react-share';
 import styled from 'styled-components';
 import useKakaoInit from '../../../hooks/useKakaoInit';
-import facebookLogo from '../../asset/Facebook.svg';
-import kakaoLogo from '../../asset/Kakao.svg';
-import linkLogo from '../../asset/link.svg';
+import facebookLogo from '/public/Facebook.svg';
+import kakaoLogo from '/public/Kakao.svg';
+import linkLogo from '/public/link.svg';
 import shareKakao from '../../../utils/shareKakao';
-import Error from '../Error/Error';
-import { Links } from '../Folder/Folder';
-import getErrorMessage from '../../../utils/getErrorMessage';
+import { Links } from '../../folder/page';
 
 interface Props {
   folderName: string;
@@ -28,8 +26,7 @@ export default function ShareFolder({
     try {
       await navigator.clipboard.writeText(shareUrl);
     } catch (error) {
-      const errorMessage = getErrorMessage(error);
-      return <Error errorMessage={errorMessage} />;
+      console.log(error);
     } finally {
       alert('링크가 복사되었습니다!');
     }

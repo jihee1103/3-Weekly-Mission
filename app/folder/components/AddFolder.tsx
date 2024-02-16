@@ -1,7 +1,7 @@
 import { MouseEvent } from 'react';
 import styled from 'styled-components';
-import addFolderIcon from '../../asset/addfolder.svg';
-import addFolderWhiteIcon from '../../asset/addfolderwhite.svg';
+import addFolderIcon from '/public/addfolder.svg';
+import addFolderWhiteIcon from '/public/addfolderwhite.svg';
 
 interface Props {
   toggleModal: () => void;
@@ -43,11 +43,11 @@ const Icon = styled.div`
   align-items: center;
   width: 16px;
   height: 16px;
-  background-image: url(${addFolderIcon});
+  background-image: url(${addFolderIcon.src});
   background-size: cover;
   background-repeat: no-repeat;
   cursor: pointer;
   @media (max-width: 767px) {
-    background-image: url(${addFolderWhiteIcon});
+    background-image: url(${addFolderWhiteIcon.src});
   }
 `;
