@@ -18,7 +18,7 @@ export const SharedPageStateContext = React.createContext<
 >(undefined);
 
 const SharedPage = () => {
-  const [userData, setUserData] = useState<SampleUserData[] | null>(null);
+  const [userData, setUserData] = useState<SampleUserData | null>(null);
   const [folderData, setFolderData] = useState<SampleFolderData | null>(null);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const SharedPage = () => {
   return (
     <SharedPageStateContext.Provider
       value={{
-        userData: userData || [],
+        userData: userData || null,
         folderData: folderData || null,
       }}
     >

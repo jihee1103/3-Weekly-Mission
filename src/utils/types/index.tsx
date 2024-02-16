@@ -27,7 +27,7 @@ export interface FolderPageState {
 }
 
 export interface SharedPageState {
-  userData: SampleUserData[];
+  userData: SampleUserData | null;
   folderData: SampleFolderData | null;
 }
 
@@ -86,7 +86,7 @@ export interface User1DataApiResponse {
 }
 
 export interface SampleUserDataApiResponse {
-  data: SampleUserData[];
+  data: SampleUserData;
 }
 
 export interface SampleFolderDataApiResponse {

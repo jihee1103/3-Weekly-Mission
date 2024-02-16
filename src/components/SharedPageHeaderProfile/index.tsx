@@ -3,7 +3,11 @@ import { SharedPageStateContext } from "../../page/SharedPage";
 import { useContext } from "react";
 
 const SharedPageHeaderProfile = () => {
-  const { userData } = useContext(SharedPageStateContext);
+  const context = useContext(SharedPageStateContext);
+  if (!context || !context.userData) {
+    return null;
+  }
+  const { userData } = context;
 
   return (
     <HeaderProfileWrapper>
