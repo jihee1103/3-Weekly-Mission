@@ -1,24 +1,27 @@
 import { useContext, useState } from "react";
 import { FolderPageStateContext } from "../../page/FolderPage";
+import styled from "styled-components";
 import defaultImage from "./default.png";
 import starIcon from "./star.svg";
 import kebabIcon from "./kebab.svg";
-
-import styled from "styled-components";
 import KebabPopOver from "../KebabPopOver";
 
 const FolderPageCardList = () => {
-  const { allFolderData } = useContext(FolderPageStateContext);
-  const [openedKebabId, setOpenedKebabId] = useState(null);
+  const [openedKebabId, setOpenedKebabId] = useState<number | null>(null);
+  const context = useContext(FolderPageStateContext);
+  if (!context) {
+    return null;
+  }
+  const { allFolderData } = context;
 
-  const handleKebabClick = (id) => {
+  const handleKebabClick = (id: number) => {
     setOpenedKebabId((prevId) => (prevId === id ? null : id));
   };
 
   return (
     <>
       {allFolderData.map((folder) => (
-        <CardContainer key={folder.id} id={folder.id}>
+        <CardContainer key={folder.id.toString()} id={folder.id.toString()}>
           <CardWrapper>
             <img src={starIcon} alt="즐겨찾기 버튼" className="startIcon" />
             <CardImageWrapper>

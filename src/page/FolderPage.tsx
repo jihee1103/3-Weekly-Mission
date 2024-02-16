@@ -14,18 +14,31 @@ import getFolderIdData from "../api/getFolderIdData";
 import CardListDefault from "../components/CardListDefault";
 import FolderPageHeaderNavigation from "../components/FolderPageHeaderNavigation";
 import FolderPageCardList from "../components/FolderPageCardList";
+import { FolderNameData, FolderData, FolderPageState } from "../utils/types";
 
-export const FolderPageStateContext = React.createContext();
+export const FolderPageStateContext = React.createContext<
+  FolderPageState | undefined
+>(undefined);
 
 const FolderPage = () => {
-  const [foldersNameData, setFoldersNameData] = useState([]);
-  const [allFolderData, setAllFolderData] = useState([]);
-  const [selectedFolderName, setSelectedFolderName] = useState("전체");
+  const [foldersNameData, setFoldersNameData] = useState<FolderNameData[]>([]);
+  const [allFolderData, setAllFolderData] = useState<FolderData[]>([]);
+  const [selectedFolderName, setSelectedFolderName] = useState<string>("전체");
 
   useEffect(() => {
     const fetchData = async () => {
       const folderNameData = await getFoldersNameData();
-      setFoldersNameData([{ id: "all", name: "전체" }, ...folderNameData.data]);
+      setFoldersNameData([
+        {
+          id: "all",
+          name: "전체",
+          created_at: "",
+          user_id: 1,
+          favorite: false,
+          link: { count: 0 },
+        },
+        ...folderNameData.data,
+      ]);
 
       const AllFolderData = await getAllFolderData();
       setAllFolderData(AllFolderData.data);
@@ -33,7 +46,7 @@ const FolderPage = () => {
     fetchData();
   }, []);
 
-  const handleClickFilterFolder = async (folderName) => {
+  const handleClickFilterFolder = async (folderName: string) => {
     if (folderName === "전체") {
       setSelectedFolderName("전체");
       const data = await getAllFolderData();
@@ -83,7 +96,7 @@ const FolderPage = () => {
             </FolderListHeader>
             <CardListContainer>
               {allFolderData.length > 0 ? (
-                <FolderPageCardList data={allFolderData} />
+                <FolderPageCardList />
               ) : (
                 <CardListDefault />
               )}
