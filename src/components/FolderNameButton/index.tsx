@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { FolderPageStateContext } from "../../page/FolderPage";
 
 const FolderNameButton = () => {
-  const { foldersNameData, handleClickFilterFolder } = useContext(
-    FolderPageStateContext
-  );
+  const context = useContext(FolderPageStateContext);
+  if (!context) {
+    return null;
+  }
+  const { foldersNameData, handleClickFilterFolder } = context;
 
   return (
     <FolderButtonWrapper>
