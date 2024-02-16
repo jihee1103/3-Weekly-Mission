@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Footer from "../components/Footer";
 import SearchLinkBar from "../components/SearchLinkBar";
-import SharedPageHeaderNavigation from "../components/SharedHeaderNavigation";
+import SharedPageHeaderNavigation from "../components/SharedPageHeaderNavigation";
 import SharedPageHeaderUserInfo from "../components/SharedPageHeaderUserInfo";
 import getSampleUserData from "../api/getSampleUserData";
 import getSampleFolderData from "../api/getSampleFolderData";
