@@ -6,7 +6,7 @@ import kebabIcon from '../../asset/kebab.svg';
 import starIcon from '../../asset/star.svg';
 import { Links } from '../Folder/Folder';
 import PopOverMenu from '../Modal/PopOverMenu';
-import calculateTime from '../../utils/calculateTime';
+import calculateTime from '../../../app/utils/calculateTime';
 
 interface Props {
   link: Links;

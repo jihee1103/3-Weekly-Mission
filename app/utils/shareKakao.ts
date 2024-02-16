@@ -1,4 +1,4 @@
-import { Links } from '../components/Folder/Folder';
+import { Links } from '../../src/components/Folder/Folder';
 
 const shareKakao = (links: Links[], title: string, url: string) => {
   const { Kakao } = window;

@@ -1,23 +1,23 @@
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import logoImg from '../../asset/logo.svg';
-import { API_USERS, BASE_API_HOST } from '../../constants/api';
-import getFetchRequest from '../../utils/getFetchRequest';
+import logoImg from '../../app/asset/logo.svg';
+import { API_USERS, BASE_API_HOST } from '../../app/constants/api';
+import getErrorMessage from '../../app/utils/getErrorMessage';
+import getFetchRequest from '../../app/utils/getFetchRequest';
 import NavbarContent from './NavbarContent';
-import getErrorMessage from '../../utils/getErrorMessage';
+import Image from 'next/image';
 
 export default function Navbar() {
-  const location = useLocation();
-  const isFolderPage = location.pathname === '/folder';
+  const pathname = usePathname();
+  const isFolderPage = pathname === '/folder';
   const [userEmail, setUserEmail] = useState('');
   const [userProfileImg, setUserProfileImg] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
-    setErrorMessage('');
     const getUserInfo = async () => {
       try {
         const result = await getFetchRequest(BASE_API_HOST, `${API_USERS}/1`);
@@ -25,9 +25,6 @@ export default function Navbar() {
         setUserProfileImg(result.data[0].image_source);
       } catch (error) {
         const errorMessage = getErrorMessage(error);
-        setErrorMessage(errorMessage);
-      } finally {
-        setIsLoading(false);
       }
     };
     getUserInfo();
@@ -36,15 +33,10 @@ export default function Navbar() {
   return (
     <NavHeader $isFolderPage={isFolderPage}>
       <HeaderBox>
-        <Link to="/">
-          <HeaderLogo src={logoImg} alt="logo" />
+        <Link href="/">
+          <HeaderLogo src={logoImg} alt="logo" priority />
         </Link>
-        <NavbarContent
-          isLoading={isLoading}
-          userEmail={userEmail}
-          userProfileImg={userProfileImg}
-          errorMessage={errorMessage}
-        />
+        <NavbarContent userEmail={userEmail} userProfileImg={userProfileImg} />
       </HeaderBox>
     </NavHeader>
   );
@@ -88,7 +80,7 @@ const HeaderBox = styled.section`
   align-items: center;
   max-width: 1520px;
 `;
-const HeaderLogo = styled.img`
+const HeaderLogo = styled(Image)`
   width: 133px;
   height: 24px;
   cursor: pointer;

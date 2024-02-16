@@ -4,10 +4,10 @@ import useKakaoInit from '../../Hooks/useKakaoInit';
 import facebookLogo from '../../asset/Facebook.svg';
 import kakaoLogo from '../../asset/Kakao.svg';
 import linkLogo from '../../asset/link.svg';
-import shareKakao from '../../utils/shareKakao';
+import shareKakao from '../../../app/utils/shareKakao';
 import Error from '../Error/Error';
 import { Links } from '../Folder/Folder';
-import getErrorMessage from '../../utils/getErrorMessage';
+import getErrorMessage from '../../../app/utils/getErrorMessage';
 
 interface Props {
   folderName: string;

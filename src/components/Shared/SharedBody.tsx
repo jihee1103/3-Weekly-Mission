@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { BASE_API_HOST } from '../../constants/api';
-import getFetchRequest from '../../utils/getFetchRequest';
+import { BASE_API_HOST } from '../../../app/constants/api';
+import getFetchRequest from '../../../app/utils/getFetchRequest';
 import Loading from '../Loading/Loading';
 import SharedBodyContents from './SharedBodyContents';
 import Error from '../Error/Error';
-import getErrorMessage from '../../utils/getErrorMessage';
+import getErrorMessage from '../../../app/utils/getErrorMessage';
 
 export default function SharedBody() {
   const API_FOLDER = 'sample/folder';

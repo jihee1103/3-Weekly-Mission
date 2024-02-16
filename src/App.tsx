@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import Folder from './components/Folder/Folder';
-import Home from './components/Home/Home';
+import Home from '../components/Home/Home';
 import Layout from './components/Layout/Layout';
 import Shared from './components/Shared/Shared';
 

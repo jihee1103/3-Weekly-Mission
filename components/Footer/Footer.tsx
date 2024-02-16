@@ -1,9 +1,12 @@
-import { Link } from 'react-router-dom';
+'use client';
+
 import styled from 'styled-components';
-import facebookImg from '../../asset/akar-icons_facebook-fill.svg';
-import twitterImg from '../../asset/akar-icons_twitter-fill.svg';
-import youtubeImg from '../../asset/akar-icons_youtube-fill.svg';
-import instagramImg from '../../asset/ant-design_instagram-filled.svg';
+import facebookImg from '../../app/asset/akar-icons_facebook-fill.svg';
+import twitterImg from '../../app/asset/akar-icons_twitter-fill.svg';
+import youtubeImg from '../../app/asset/akar-icons_youtube-fill.svg';
+import instagramImg from '../../app/asset/ant-design_instagram-filled.svg';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -15,29 +18,33 @@ export default function Footer() {
               <FooterCodeit>©codeit - 2023</FooterCodeit>
             </FooterCopyRight>
             <FooterPolicyText>
-              <FooterText to="/privacy">Privacy Policy</FooterText>
-              <FooterText to="/faq">FAQ</FooterText>
+              <FooterText href="/privacy">Privacy Policy</FooterText>
+              <FooterText href="/faq">FAQ</FooterText>
             </FooterPolicyText>
             <FooterLogo>
               <Link
-                to="https://www.facebook.com/"
+                href="https://www.facebook.com/"
                 target="_blank"
                 rel="noreferrer"
               >
                 <FooterLogoImg src={facebookImg} alt="facebook" />
               </Link>
-              <Link to="https://twitter.com/" target="_blank" rel="noreferrer">
+              <Link
+                href="https://twitter.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FooterLogoImg src={twitterImg} alt="twitter" />
               </Link>
               <Link
-                to="https://www.youtube.com/"
+                href="https://www.youtube.com/"
                 target="_blank"
                 rel="noreferrer"
               >
                 <FooterLogoImg src={youtubeImg} alt="youtube" />
               </Link>
               <Link
-                to="https://www.instagram.com/"
+                href="https://www.instagram.com/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -134,6 +141,6 @@ const FooterLogo = styled.div`
     }
   }
 `;
-const FooterLogoImg = styled.img`
+const FooterLogoImg = styled(Image)`
   cursor: pointer;
 `;

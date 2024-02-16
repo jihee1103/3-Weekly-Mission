@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import defaultImage from '../../asset/default-image.svg';
-import { BASE_API_HOST } from '../../constants/api';
-import getFetchRequest from '../../utils/getFetchRequest';
+import { BASE_API_HOST } from '../../../app/constants/api';
+import getFetchRequest from '../../../app/utils/getFetchRequest';
 import Loading from '../Loading/Loading';
-import getErrorMessage from '../../utils/getErrorMessage';
+import getErrorMessage from '../../../app/utils/getErrorMessage';
 
 export default function SharedInfo() {
   const API_FOLDER = 'sample/folder';
