@@ -1,7 +1,7 @@
 import camelcaseKeys from 'camelcase-keys';
 import { useEffect, useState } from 'react';
-import { BASE_API_HOST } from '../../app/constants/api';
-import getFetchRequest from '../../app/utils/getFetchRequest';
+import { BASE_API_HOST } from '../app/constants/api';
+import getFetchRequest from '../utils/getFetchRequest';
 
 const useFolderLinks = (apiPath: string, folderId = 0) => {
   const [data, setData] = useState([]);

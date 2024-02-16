@@ -1,13 +1,13 @@
 import { FacebookShareButton } from 'react-share';
 import styled from 'styled-components';
-import useKakaoInit from '../../Hooks/useKakaoInit';
+import useKakaoInit from '../../../Hooks/useKakaoInit';
 import facebookLogo from '../../asset/Facebook.svg';
 import kakaoLogo from '../../asset/Kakao.svg';
 import linkLogo from '../../asset/link.svg';
-import shareKakao from '../../../app/utils/shareKakao';
+import shareKakao from '../../../utils/shareKakao';
 import Error from '../Error/Error';
 import { Links } from '../Folder/Folder';
-import getErrorMessage from '../../../app/utils/getErrorMessage';
+import getErrorMessage from '../../../utils/getErrorMessage';
 
 interface Props {
   folderName: string;

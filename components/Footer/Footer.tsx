@@ -1,10 +1,10 @@
 'use client';
 
 import styled from 'styled-components';
-import facebookImg from '../../app/asset/akar-icons_facebook-fill.svg';
-import twitterImg from '../../app/asset/akar-icons_twitter-fill.svg';
-import youtubeImg from '../../app/asset/akar-icons_youtube-fill.svg';
-import instagramImg from '../../app/asset/ant-design_instagram-filled.svg';
+import facebookImg from '../../asset/akar-icons_facebook-fill.svg';
+import twitterImg from '../../asset/akar-icons_twitter-fill.svg';
+import youtubeImg from '../../asset/akar-icons_youtube-fill.svg';
+import instagramImg from '../../asset/ant-design_instagram-filled.svg';
 import Link from 'next/link';
 import Image from 'next/image';
 

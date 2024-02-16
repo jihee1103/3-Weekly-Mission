@@ -1,15 +1,15 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-import logoImg from '../../app/asset/logo.svg';
 import { API_USERS, BASE_API_HOST } from '../../app/constants/api';
-import getErrorMessage from '../../app/utils/getErrorMessage';
-import getFetchRequest from '../../app/utils/getFetchRequest';
+import logoImg from '../../asset/logo.svg';
+import getErrorMessage from '../../utils/getErrorMessage';
+import getFetchRequest from '../../utils/getFetchRequest';
 import NavbarContent from './NavbarContent';
-import Image from 'next/image';
 
 export default function Navbar() {
   const pathname = usePathname();

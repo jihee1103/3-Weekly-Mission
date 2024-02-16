@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AddLink from '../AddLink/AddLink';
 import FolderBody from './FolderBody';
-import useFolderLinks from '../../Hooks/useFolderLinks';
+import useFolderLinks from '../../../Hooks/useFolderLinks';
 import Modal from '../Modal/Modal';
 
 export interface Links {
