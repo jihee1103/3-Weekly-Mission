@@ -1,6 +1,6 @@
+import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar';
 import StyledComponentsRegistry from '../lib/registry';
-import Footer from '../components/Footer/Footer';
 
 export const metadata = {
   title: 'Next.js',
@@ -15,9 +15,11 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <Navbar />
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-        <Footer />
+        <StyledComponentsRegistry>
+          <Navbar />
+          {children}
+          <Footer />
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
