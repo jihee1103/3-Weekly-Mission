@@ -35,6 +35,11 @@ export interface User1Data {
   email: string;
   auth_id: string;
 }
+
+export interface ModalContextType {
+  openModal: (type: string) => void;
+  closeModal: () => void;
+}
 export interface FolderNameApiResponse {
   data: FolderNameData[];
 }
