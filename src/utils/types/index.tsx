@@ -8,7 +8,6 @@ export interface FolderNameData {
     count: number;
   };
 }
-
 export interface FolderData {
   id: number;
   created_at: string;
@@ -27,6 +26,40 @@ export interface FolderPageState {
   handleClickFilterFolder: (folderName: string) => Promise<void>;
 }
 
+export interface SharedPageState {
+  userData: SampleUserData[];
+  folderData: SampleFolderData | null;
+}
+
+export interface SampleUserData {
+  id: number;
+  name: string;
+  email: string;
+  profileImageSource: string;
+}
+
+export interface SampleFolderData {
+  folder: {
+    id: number;
+    name: string;
+    owner: {
+      id: number;
+      name: string;
+      profileImageSource: string;
+    };
+  };
+  links: [
+    {
+      id: number;
+      createdAt: string;
+      url: string;
+      title: string;
+      description: string;
+      imageSource: string;
+    }
+  ];
+  count: number;
+}
 export interface User1Data {
   id: number;
   created_at: string;
@@ -50,4 +83,12 @@ export interface FolderDataApiResponse {
 
 export interface User1DataApiResponse {
   data: User1Data[];
+}
+
+export interface SampleUserDataApiResponse {
+  data: SampleUserData[];
+}
+
+export interface SampleFolderDataApiResponse {
+  folder: SampleFolderData;
 }

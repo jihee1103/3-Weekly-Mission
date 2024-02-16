@@ -3,19 +3,28 @@ import { SharedPageStateContext } from "../../page/SharedPage";
 import styled from "styled-components";
 
 const SharedPageHeaderUserInfo = () => {
-  const { folderData } = useContext(SharedPageStateContext);
+  const context = useContext(SharedPageStateContext);
+  if (
+    !context ||
+    !context.folderData ||
+    !context.folderData.folder ||
+    !context.folderData.folder.owner
+  ) {
+    return null;
+  }
+
+  const { folderData } = context;
+
   return (
     <>
-      {folderData && (
-        <UserInfoContainer>
-          <img
-            src={folderData.folder.owner.profileImageSource}
-            alt="폴더 소유자 프로필 이미지"
-          />
-          <span>{folderData.folder.owner.name}</span>
-          <h1>{folderData.folder.name}</h1>
-        </UserInfoContainer>
-      )}
+      <UserInfoContainer>
+        <img
+          src={folderData.folder.owner.profileImageSource}
+          alt="폴더 소유자 프로필 이미지"
+        />
+        <span>{folderData.folder.owner.name}</span>
+        <h1>{folderData.folder.name}</h1>
+      </UserInfoContainer>
     </>
   );
 };

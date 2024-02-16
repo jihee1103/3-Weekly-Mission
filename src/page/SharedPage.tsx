@@ -7,26 +7,38 @@ import SharedPageHeaderUserInfo from "../components/SharedPageHeaderUserInfo";
 import getSampleUserData from "../api/getSampleUserData";
 import getSampleFolderData from "../api/getSampleFolderData";
 import SharedPageCardList from "../components/SharedPageCardList";
+import {
+  SharedPageState,
+  SampleFolderData,
+  SampleUserData,
+} from "../utils/types";
 
-export const SharedPageStateContext = React.createContext();
+export const SharedPageStateContext = React.createContext<
+  SharedPageState | undefined
+>(undefined);
 
 const SharedPage = () => {
-  const [userData, setUserData] = useState(null);
-  const [folderData, setFolderData] = useState(null);
+  const [userData, setUserData] = useState<SampleUserData[] | null>(null);
+  const [folderData, setFolderData] = useState<SampleFolderData | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getSampleUserData();
-      setUserData(data);
+      setUserData(data.data);
 
       const response = await getSampleFolderData();
-      setFolderData(response);
+      setFolderData(response.folder);
     };
     fetchData();
   }, []);
 
   return (
-    <SharedPageStateContext.Provider value={{ userData, folderData }}>
+    <SharedPageStateContext.Provider
+      value={{
+        userData: userData || [],
+        folderData: folderData || null,
+      }}
+    >
       <HeaderContainer>
         <SharedPageHeaderNavigation />
         <SharedPageHeaderUserInfo />
