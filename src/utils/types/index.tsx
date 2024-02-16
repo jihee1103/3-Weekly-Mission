@@ -27,10 +27,22 @@ export interface FolderPageState {
   handleClickFilterFolder: (folderName: string) => Promise<void>;
 }
 
+export interface User1Data {
+  id: number;
+  created_at: string;
+  name: string;
+  image_source: string;
+  email: string;
+  auth_id: string;
+}
 export interface FolderNameApiResponse {
   data: FolderNameData[];
 }
 
 export interface FolderDataApiResponse {
   data: FolderData[];
+}
+
+export interface User1DataApiResponse {
+  data: User1Data[];
 }

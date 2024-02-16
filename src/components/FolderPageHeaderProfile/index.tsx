@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import getUser1Data from "../../api/getUser1Data";
 import styled from "styled-components";
+import { User1Data } from "../../utils/types";
 
 const FolderPageHeaderProfile = () => {
-  const [user1Data, setUser1Data] = useState(null);
+  const [user1Data, setUser1Data] = useState<User1Data | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +16,9 @@ const FolderPageHeaderProfile = () => {
 
   return (
     <HeaderProfileWrapper>
-      {user1Data && <ProfileImage src={user1Data.image_source} />}
+      {user1Data && (
+        <ProfileImage src={user1Data.image_source} alt="유저 프로필 이미지" />
+      )}
       <Email>{user1Data && user1Data.email}</Email>
     </HeaderProfileWrapper>
   );
