@@ -1,0 +1,168 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./app/signin/SignInPage.module.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.SignInPage_html__RGY2Q {
+  background: var(--linkbrary-bg, #f0f6ff);
+}
+
+.SignInPage_header__UgEPo {
+  display: flex;
+  justify-content: center;
+}
+
+.SignInPage_header__UgEPo img {
+  height: 38px;
+}
+
+.SignInPage_header-container__u7_Oq {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 238px 0 0;
+  align-items: center;
+}
+
+.SignInPage_ask-singup__hrP7r {
+  display: flex;
+  gap: 8px;
+}
+
+.SignInPage_ask-singup-text___cP3N {
+  color: var(--black, #000);
+  /* Linkbrary/body1-regular */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.SignInPage_ask-singup-link__nHJGa a {
+  color: var(--linkbrary-primary-color, #6d6afe);
+  /* Linkbrary/body 1-semibold */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: underline;
+}
+
+.SignInPage_container__Owzuk {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.SignInPage_loginForm__XSk4E {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.SignInPage_loginForm__XSk4E div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.SignInPage_loginForm__XSk4E div:nth-child(1) {
+  padding: 0 0 24px;
+}
+
+.SignInPage_loginForm__XSk4E div:nth-child(2) {
+  padding: 0 0 24px;
+}
+
+.SignInPage_loginForm__XSk4E div:nth-child(3) {
+  padding: 0 0 30px;
+}
+
+.SignInPage_loginForm__XSk4E div:nth-child(4) {
+  padding: 0 0 32px;
+}
+
+.SignInPage_loginForm__XSk4E label {
+  color: var(--black, #000);
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.SignInPage_loginForm__XSk4E input {
+  display: flex;
+  width: 100%;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20, #ccd5e3);
+  background: var(--linkbrary-white, #fff);
+}
+
+.SignInPage_input__HPlys:focus {
+  outline-color: var(--linkbrary-primary-color);
+}
+
+.SignInPage_password-container__ZT8jn {
+  position: relative;
+}
+
+.SignInPage_password-container__ZT8jn img {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 47px;
+  right: 15px;
+}
+
+.SignInPage_loginForm__XSk4E button {
+  display: flex;
+  width: 100%;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+  color: var(--grey-light, #f5f5f5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.SignInPage_content-sns__kHr6r {
+  display: flex;
+  width: 100%;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20, #ccd5e3);
+  background: var(--linkbrary-gray-10, #e7effb);
+}
+
+.SignInPage_content-sns-text__4p1UG {
+  color: var(--linkbrary-gray-100, #373740);
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.SignInPage_content-sns-logo__S_E5v {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}

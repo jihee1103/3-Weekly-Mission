@@ -1,0 +1,24 @@
+{
+  "name": "weekly-mission-nextjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.5.1",
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.70.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.17",
+    "@types/react": "18.2.55",
+    "typescript": "5.3.3"
+  }
+}
