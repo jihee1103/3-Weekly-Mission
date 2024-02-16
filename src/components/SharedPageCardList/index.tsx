@@ -4,13 +4,17 @@ import defaultImage from "./default.png";
 import styled from "styled-components";
 
 const SharedPageCardList = () => {
-  const { folderData } = useContext(SharedPageStateContext);
+  const context = useContext(SharedPageStateContext);
+  if (!context || !context.folderData || !context.folderData.links) {
+    return null;
+  }
+  const { folderData } = context;
 
   return (
     <>
       {folderData &&
-        folderData.folder.links &&
-        folderData.folder.links.map((folder) => (
+        folderData.links &&
+        folderData.links.map((folder) => (
           <CardContainer key={folder.id}>
             <CardWrapper>
               <CardImageWrapper>
