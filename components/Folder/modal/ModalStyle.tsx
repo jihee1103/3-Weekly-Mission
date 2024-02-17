@@ -4,6 +4,10 @@ type ModalButtonProps = {
   $ColorRed?: boolean;
 };
 
+type ShareImgProps = {
+  $shareApi?: string;
+};
+
 // AddModal
 export const Modal = styled.div`
   position: fixed;
@@ -149,4 +153,64 @@ export const ContentInput = styled.input`
   border-radius: 0.8rem;
   border: 0.1rem solid var(--Linkbrary-primary-color, #6d6afe);
   background: var(--Linkbrary-white, #fff);
+`;
+
+export const ShareContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3.2rem 4rem;
+  gap: 2.4rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--Stroke-light, #dee2e6);
+  background: var(---Gray-White, #fff);
+  z-index: 10000;
+`;
+
+export const FeatureLinkWrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 3.2rem;
+`;
+
+export const FeatureLink = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+`;
+
+export const ShareImg = styled.div<ShareImgProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  gap: 1rem;
+  border-radius: 37.333px;
+  cursor: pointer;
+  background-color: ${({ $shareApi }) => {
+    switch ($shareApi) {
+      case "kakao":
+        return "#FEE500";
+      case "facebook":
+        return "#1877F2";
+      case "urlCopy":
+        return "rgba(157, 157, 157, 0.04)";
+      default:
+        return "#ffffff";
+    }
+  }};
+`;
+
+export const ShareText = styled.span`
+  color: var(--Linkbrary-gray100, #373740);
+  text-align: center;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
 `;

@@ -1,8 +1,14 @@
-import { useState } from "react";
-import * as S from "./ModalStyle";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import * as S from "./ModalStyle";
 
 type onCloseFunction = () => void;
+
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
 
 export function AddModal({ onClose }: { onClose: onCloseFunction }) {
   const handleClose = () => {
@@ -96,6 +102,170 @@ export function DeleteLinkModal({ onClose }: { onClose: onCloseFunction }) {
           <span>삭제하기</span>
         </S.ModalButton>
       </S.ModalContainer>
+    </S.Modal>
+  );
+}
+
+export function ChangeNameModal({ onClose }: { onClose: onCloseFunction }) {
+  const handleClose = () => {
+    onClose();
+  };
+
+  return (
+    <S.Modal>
+      <S.ModalContainer>
+        <S.ModalClose onClick={handleClose}>
+          <Image
+            src={"/assets/Icons/close.png"}
+            width={24}
+            height={24}
+            alt="모달 닫기 이미지"
+          />
+        </S.ModalClose>
+        <S.Feature>이름 변경하기</S.Feature>
+        <S.ContentInput />
+        <S.ModalButton>
+          <span>변경하기</span>
+        </S.ModalButton>
+      </S.ModalContainer>
+    </S.Modal>
+  );
+}
+
+export function DeleteFolderModal({ onClose }: { onClose: onCloseFunction }) {
+  const handleClose = () => {
+    onClose();
+  };
+
+  return (
+    <S.Modal>
+      <S.ModalContainer>
+        <S.ModalClose onClick={handleClose}>
+          <Image
+            src={"/assets/Icons/close.png"}
+            width={24}
+            height={24}
+            alt="모달 닫기 이미지"
+          />
+        </S.ModalClose>
+        <S.FeatureWrapper>
+          <h1>폴더 삭제</h1>
+          <span>폴더명</span>
+        </S.FeatureWrapper>
+        <S.ModalButton $ColorRed>
+          <span>삭제하기</span>
+        </S.ModalButton>
+      </S.ModalContainer>
+    </S.Modal>
+  );
+}
+
+export function ShareModal({ onClose }: { onClose: onCloseFunction }) {
+  const handleClose = () => {
+    onClose();
+  };
+
+  const host = window.location.host;
+  const userId = 1;
+  const folderId = 1;
+  const shareUrl = `https://${host}/shared?user=${userId}&folder={folderId}`;
+
+  const shareKakao = () => {
+    if (!window.Kakao || !window.Kakao.inInitialized()) {
+      console.error("Error");
+      return;
+    }
+
+    window.Kakao.init(process.env.REACT_APP_KAKAO_KEY);
+
+    window.Kakao.Share.sendDefault({
+      objectType: "feed",
+      content: {
+        title: "Linkbrary",
+        description: "세상의 모든 링크를 저장하세요.",
+        imageUrl: "",
+        link: {
+          mobileWebUrl: shareUrl,
+        },
+      },
+      buttons: [
+        {
+          title: "보러 가기",
+          link: {
+            mobileWebUrl: shareUrl,
+          },
+        },
+      ],
+    });
+  };
+
+  const shareFacebook = () => {
+    window.open(`http://www.facebook.com/sharer/sharer.php?u=${shareUrl}`);
+  };
+
+  const copyLink = () => {
+    navigator.clipboard
+      .writeText(shareUrl)
+      .then(() => alert("링크가 복사되었습니다."));
+  };
+
+  useEffect(() => {
+    if (window.Kakao && !window.Kakao.isInitialized()) {
+      window.Kakao.init(process.env.REACT_APP_KAKAO_KEY);
+    }
+  }, []);
+
+  return (
+    <S.Modal>
+      <S.ShareContainer>
+        <S.ModalClose onClick={handleClose}>
+          <Image
+            src={"/assets/Icons/close.png"}
+            width={24}
+            height={24}
+            alt="모달 닫기 이미지"
+          />
+        </S.ModalClose>
+        <S.FeatureWrapper>
+          <h1>폴더 공유</h1>
+          <span>폴더명</span>
+        </S.FeatureWrapper>
+        <S.FeatureLinkWrapper>
+          <S.FeatureLink>
+            <S.ShareImg $shareApi="kakao" onClick={shareKakao}>
+              <Image
+                src={"/assets/Icons/kakao.svg"}
+                width={18}
+                height={18}
+                alt="카카오톡 아이콘 이미지"
+              />
+            </S.ShareImg>
+            <S.ShareText>카카오톡</S.ShareText>
+          </S.FeatureLink>
+          <S.FeatureLink>
+            <S.ShareImg $shareApi="facebook" onClick={shareFacebook}>
+              <Image
+                src={"/assets/Icons/facebook.svg"}
+                width={18}
+                height={18}
+                alt="페이스북 아이콘 이미지"
+              />
+            </S.ShareImg>
+            <S.ShareText>페이스북</S.ShareText>
+          </S.FeatureLink>
+          <S.FeatureLink>
+            <S.ShareImg $shareApi="copyUrl" onClick={copyLink}>
+              <Image
+                src={"/assets/Icons/link.svg"}
+                width={18}
+                height={18}
+                alt="링크 아이콘 이미지"
+              />
+            </S.ShareImg>
+            <S.ShareText>링크 복사</S.ShareText>
+          </S.FeatureLink>
+        </S.FeatureLinkWrapper>
+      </S.ShareContainer>
     </S.Modal>
   );
 }

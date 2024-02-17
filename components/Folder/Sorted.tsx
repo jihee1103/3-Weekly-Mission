@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { FolderId } from "@/pages/folder/type";
-import { SortAddModal } from "./modal/modal";
+import { SortAddModal } from "./modal/Modal";
 import * as S from "./Style";
 
 type SortedProps = {
-  data: FolderId;
+  data: FolderId[];
   clickName: React.MouseEventHandler<HTMLButtonElement>;
-  selectName: number;
+  selectedName: number;
 };
 
-export default function Sorted({ data, clickName, selectName }: SortedProps) {
+export default function Sorted({ data, clickName, selectedName }: SortedProps) {
   const [modal, setModal] = useState<string | null>(null);
   const [openModal, setOpenModal] = useState<boolean>(false);
 
@@ -33,7 +33,7 @@ export default function Sorted({ data, clickName, selectName }: SortedProps) {
               value=""
               title="전체"
               onClick={clickName}
-              $isSelected={selectName === 0}
+              $isSelected={selectedName === 0}
             >
               전체
             </S.SortedButton>
@@ -41,14 +41,14 @@ export default function Sorted({ data, clickName, selectName }: SortedProps) {
               data.map((item) => (
                 <S.SortedButton
                   key={item.id}
-                  $isSelected={selectName === item.id}
+                  $isSelected={selectedName === item.id}
                   value={item.id}
                   title={item.name}
                   onClick={clickName}
                   style={{
                     backgroundColor:
-                      selectName === item.id ? "#6d6afe" : "#fff",
-                    color: selectName === item.id ? "#fff" : "black",
+                      selectedName === item.id ? "#6d6afe" : "#fff",
+                    color: selectedName === item.id ? "#fff" : "black",
                   }}
                 >
                   {item.name}

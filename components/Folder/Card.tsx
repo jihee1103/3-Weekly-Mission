@@ -2,7 +2,7 @@ import { calcTime, formatDateString } from "./TimeUtils";
 import { useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { AddModal, DeleteLinkModal } from "./modal/modal";
+import { AddModal, DeleteLinkModal } from "./modal/Modal";
 import { LinkId } from "@/pages/folder/type";
 import * as S from "./Style";
 

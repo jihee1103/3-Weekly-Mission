@@ -389,3 +389,59 @@ export const SNS = styled.div`
   column-gap: 1.2rem;
   height: 2rem;
 `;
+
+// Folder.tsx
+export const CardTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 106rem;
+  padding: 0 3.2rem;
+  margin: 0 auto 10rem;
+`;
+
+export const CardTitleText = styled.h2`
+  font-size: 2.4rem;
+`;
+
+export const SortedEdit = styled.div`
+  display: flex;
+  gap: 1.2rem;
+`;
+
+export const EditContent = styled.button`
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  color: #9fa6b2;
+  background-color: #fff;
+  cursor: pointer;
+`;
+
+export const CardBox = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 106rem;
+  margin: 0 auto 10rem;
+  gap: 1rem;
+  padding: 0 3.2rem;
+
+  @media (max-width: 1124px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`;
+
+export const NoData = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 106rem;
+  min-height: 20rem;
+  padding: 4.1rem 0rem 3.5rem 0rem;
+  margin: 0 auto;
+  font-size: 1.6rem;
+`;
