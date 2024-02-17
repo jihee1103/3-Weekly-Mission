@@ -72,10 +72,10 @@ export default function FolderPage() {
     setIsModalClicked((prev) => !prev);
   };
 
-  // 스크롤바 영역 보존
-  document.documentElement.style.scrollbarGutter = 'stable';
-
   useEffect(() => {
+    // 스크롤바 영역 보존
+    document.documentElement.style.scrollbarGutter = 'stable';
+
     if (isModalClicked) {
       document.body.style.overflow = 'hidden';
     }
