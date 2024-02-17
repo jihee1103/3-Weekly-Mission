@@ -1,5 +1,5 @@
-import { ShowAll } from "@/pages/folder/[id]";
-import { LinkId } from "@/pages/folder/type";
+import { ShowAll } from "@/components/Folder/[id]";
+import { LinkId } from "@/components/Folder/type";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 

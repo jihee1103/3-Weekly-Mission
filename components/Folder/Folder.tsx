@@ -1,5 +1,5 @@
-import { GetFolderId, ShowAll } from "@/pages/folder/[id]";
-import { FolderId, LinkId } from "@/pages/folder/type";
+import { GetFolderId, ShowAll } from "@/components/Folder/[id]";
+import { FolderId, LinkId } from "@/components/Folder/type";
 import React, { useEffect, useState } from "react";
 import useFoldLink from "./hooks/useFoldLink";
 import Header from "./Header";

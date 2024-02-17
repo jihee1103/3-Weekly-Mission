@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { FolderId } from "@/pages/folder/type";
+import { FolderId } from "@/components/Folder/type";
 import { SortAddModal } from "./modal/Modal";
 import * as S from "./Style";
 

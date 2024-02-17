@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { AddModal, DeleteLinkModal } from "./modal/Modal";
-import { LinkId } from "@/pages/folder/type";
+import { LinkId } from "@/components/Folder/type";
 import * as S from "./Style";
 
 export default function Card({ data }: { data: LinkId }) {
