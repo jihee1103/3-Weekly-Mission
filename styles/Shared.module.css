@@ -1,13 +1,5 @@
 /* Header.jsx */
-nav {
-  display: flex;
-  justify-content: center;
-  top: 0;
-  width: 100%;
-  background-color: #edf7ff;
-}
-
-box {
+.box {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,11 +89,6 @@ box {
 }
 
 /* Search.jsx */
-article {
-  padding-top: 7rem;
-  padding-bottom: 12rem;
-}
-
 .searchContainer {
   display: flex;
   flex-direction: column;
@@ -158,7 +145,7 @@ article {
   align-items: center;
 }
 
-emptyImg {
+.emptyImg {
   position: absolute;
   width: 13rem;
   height: 100%;
@@ -195,15 +182,6 @@ emptyImg {
 }
 
 /* Footer.jsx */
-footer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 16rem;
-  padding-top: 3.2rem;
-  background-color: var(--black);
-}
-
 .footerBox {
   display: flex;
   justify-content: space-between;
