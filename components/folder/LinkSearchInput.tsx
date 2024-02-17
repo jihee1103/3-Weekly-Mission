@@ -19,7 +19,7 @@ export default function LinkSearchInput({
     <label className={cx("linkSearch-box")}>
       <img
         className={cx("search-img")}
-        src="images/Search.png"
+        src="/images/Search.png"
         alt="링크검색버튼"
       />
       <input
@@ -31,7 +31,7 @@ export default function LinkSearchInput({
       ></input>
       {searchTerm && (
         <button className={cx("clear-button")} onClick={clearSearchTerm}>
-          <img src="/imgs/close-icon.svg" alt="Clear search" />
+          <img src="/images/input_close.png" alt="Clear search" />
         </button>
       )}
     </label>

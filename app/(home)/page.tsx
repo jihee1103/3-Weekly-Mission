@@ -1,6 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./HomePage.module.scss";
 import Link from "next/link";
+import Footer from "../../components/common/Footer";
 
 const cx = classNames.bind(styles);
 
@@ -10,7 +11,7 @@ export default function HomePage() {
       <header className={cx("header")}>
         <div className={cx("header-content")}>
           <Link href="/">
-            <img src="images/logo.png" alt="로고" />
+            <img src="/images/logo.png" alt="로고" />
           </Link>
           <Link href="/signin">로그인</Link>
         </div>
@@ -27,7 +28,7 @@ export default function HomePage() {
             <Link href="/signup">링크 추가하기</Link>
           </div>
           <div className={cx("title-img")}>
-            <img src="images/title.png" alt="정보저장 사진" />
+            <img src="/images/title.png" alt="정보저장 사진" />
           </div>
         </section>
       </div>
@@ -43,14 +44,14 @@ export default function HomePage() {
           </span>
         </div>
         <div className={cx("content-img")}>
-          <img src="images/link-img.png" alt="링크 연결 사진" />
+          <img src="/images/link-img.png" alt="링크 연결 사진" />
         </div>
       </section>
       <section className={cx("content")}>
         <div className={cx("content-img")}>
           <img
             className={cx("login-img")}
-            src="images/folder-img.png"
+            src="/images/folder-img.png"
             alt="폴더관리사진"
           />
         </div>
@@ -77,7 +78,7 @@ export default function HomePage() {
         <div className={cx("content-img")}>
           <img
             className={cx("share-img")}
-            src="images/share-img.png"
+            src="/images/share-img.png"
             alt="공유할폴더들"
           />
         </div>
@@ -87,7 +88,7 @@ export default function HomePage() {
           <div className={cx("content-img-search")}>
             <img
               className={cx("search-img")}
-              src="images/search-img.png"
+              src="/images/search-img.png"
               alt="홈페이지검색사진"
             />
           </div>
@@ -102,46 +103,7 @@ export default function HomePage() {
           </span>
         </div>
       </section>
-      <footer className={cx("footer")}>
-        <div className={cx("footer-bar")}>
-          <div className={cx("footer-bar-content")}>
-            <div className={cx("footer-bar-content-logo")}>
-              <span>©codeit - 2023 </span>
-            </div>
-            <div className={cx("footer-bar-content-mid")}>
-              <a href="/privacy">Privacy Policy</a>
-              <a href="/faq">FAQ</a>
-            </div>
-            <div className={cx("footer-bar-content-sns")}>
-              <a href="https://www.facebook.com/" target="_blank">
-                <img
-                  src="images/akar-icons_facebook-fill.png"
-                  alt="페이스북링크"
-                />
-              </a>
-              <a href="https://twitter.com/" target="_blank">
-                <img
-                  src="images/akar-icons_twitter-fill.png"
-                  alt="트위터링크"
-                />
-              </a>
-              <a href="https://www.youtube.com/" target="_blank">
-                <img
-                  src="images/akar-icons_youtube-fill.png"
-                  alt="유튜브링크"
-                />
-              </a>
-              <a href="https://www.instagram.com/" target="_blank">
-                <img
-                  src="images/ant-design_instagram-filled.png"
-                  alt="인스타그램링크"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
-      ;
+      <Footer />;
     </>
   );
 }

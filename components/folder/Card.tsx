@@ -40,13 +40,13 @@ export default function Card({ item }: CardProps) {
             className={cx("card-img")}
             src={
               item.image_source ||
-              "images/01_모코코콘1_16_백색모코코_물음표.png"
+              "/images/01_모코코콘1_16_백색모코코_물음표.png"
             }
             alt="카드사진"
           />
           <img
             className={cx("star-img")}
-            src="images/star.png"
+            src="/images/star.png"
             alt="즐겨찾기 등록"
           />
         </div>
@@ -60,7 +60,7 @@ export default function Card({ item }: CardProps) {
               onClick={handlePopoverToggle}
               onBlur={handleOnBlur}
             >
-              <img src="images/kebab.png" alt="파일수정" />
+              <img src="/images/kebab.png" alt="파일수정" />
               {isPopoverVisible && (
                 <div className={cx("popover-box")}>
                   <div onClick={() => handleModalDeleteItem(item)}>

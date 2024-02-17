@@ -19,7 +19,7 @@ export const AddToFolderModal = ({ closeModal }: ModalProps) => {
     <div className={cx("modalLayout")}>
       <div className={cx("modalContent")}>
         <img
-          src="images/_close.png"
+          src="/images/_close.png"
           className={cx("closeModal")}
           onClick={closeModal}
           alt="나가기"
@@ -57,7 +57,7 @@ export const AddFolderModal = ({ closeModal }: ModalProps) => (
   <div className={cx("modalLayout")}>
     <div className={cx("modalContent")}>
       <img
-        src="images/_close.png"
+        src="/images/_close.png"
         className={cx("closeModal")}
         onClick={closeModal}
         alt="나가기"
@@ -75,7 +75,7 @@ export const ShareModal = ({ closeModal, selectedModalName }: ModalProps) => (
   <div className={cx("modalLayout")}>
     <div className={cx("modalContent")}>
       <img
-        src="images/_close.png"
+        src="/images/_close.png"
         className={cx("closeModal")}
         onClick={closeModal}
         alt="나가기"
@@ -86,17 +86,17 @@ export const ShareModal = ({ closeModal, selectedModalName }: ModalProps) => (
       </div>
       <div className={cx("shareIcon-box")}>
         <div className={cx("shareIcon")}>
-          <img src="images/카카오톡아이콘.png" alt="카카오톡" />
+          <img src="/images/카카오톡아이콘.png" alt="카카오톡" />
           카카오톡
         </div>
         <div className={cx("shareIcon")}>
-          <img src="images/페이스북아이콘.png" alt="페이스북" />
+          <img src="/images/페이스북아이콘.png" alt="페이스북" />
           페이스북
         </div>
         <div className={cx("shareIcon")}>
           <img
             onClick={copyToClipboard}
-            src="images/링크복사아이콘.png"
+            src="/images/링크복사아이콘.png"
             alt="링크복사"
           />
           링크 복사
@@ -113,7 +113,7 @@ export const RenameModal = ({ closeModal, selectedModalName }: ModalProps) => (
   <div className={cx("modalLayout")}>
     <div className={cx("modalContent")}>
       <img
-        src="images/_close.png"
+        src="/images/_close.png"
         className={cx("closeModal")}
         onClick={closeModal}
         alt="나가기"
@@ -134,7 +134,7 @@ export const DeleteFolderModal = ({
   <div className={cx("modalLayout")}>
     <div className={cx("modalContent")}>
       <img
-        src="images/_close.png"
+        src="/images/_close.png"
         className={cx("closeModal")}
         onClick={closeModal}
         alt="나가기"
@@ -157,7 +157,7 @@ export const DeleteItemModal = ({
   <div className={cx("modalLayout")}>
     <div className={cx("modalContent")}>
       <img
-        src="images/_close.png"
+        src="/images/_close.png"
         className={cx("closeModal")}
         onClick={closeModal}
         alt="나가기"

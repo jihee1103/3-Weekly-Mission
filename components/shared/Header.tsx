@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { getUserFolder, getUserId } from "../../api/api";
 import styles from "./Header.module.scss";
 import classNames from "classnames/bind";
+import Link from "next/link";
 
 const cx = classNames.bind(styles);
 
@@ -12,13 +13,13 @@ export default function Header() {
     <header className={cx("header")}>
       <nav className={cx("nav")}>
         <div className={cx("nav-contents")}>
-          <a href="./folder">
+          <Link href="/">
             <img
               className={cx("header-logo-img")}
               src="images/logo.png"
               alt="코드잇로고"
             ></img>
-          </a>
+          </Link>
           <UserProfileInHeader />
         </div>
       </nav>
@@ -37,7 +38,7 @@ function UserProfileInHeader() {
     handleLoginProfile();
   }, []);
   return (
-    <a href="./folder" className={cx("user-profile-login")}>
+    <Link href="/folder" className={cx("user-profile-login")}>
       {user ? (
         <>
           <img
@@ -50,7 +51,7 @@ function UserProfileInHeader() {
       ) : (
         <img src="/imgs/로그인.png" alt="로그인" />
       )}
-    </a>
+    </Link>
   );
 }
 

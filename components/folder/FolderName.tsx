@@ -28,15 +28,15 @@ export default function FolderName({ selectedFolder }: FolderNameProps) {
         {selectedFolder.id && (
           <div className={cx("folder-edit-box")}>
             <div onClick={handleOpenModalShare}>
-              <img src="images/share.png" alt="공유하기" />
+              <img src="/images/share.png" alt="공유하기" />
               <span>공유</span>
             </div>
             <div onClick={handleOpenModalRename}>
-              <img src="images/pen.png" alt="이름변경하기" />
+              <img src="/images/pen.png" alt="이름변경하기" />
               <span>이름변경</span>
             </div>
             <div onClick={handleOpenModalDeleteFolder}>
-              <img src="images/delete.png" alt="삭제하기" />
+              <img src="/images/delete.png" alt="삭제하기" />
               <span>삭제</span>
             </div>
           </div>

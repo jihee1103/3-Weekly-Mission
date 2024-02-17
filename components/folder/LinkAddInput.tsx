@@ -48,14 +48,14 @@ export default function LinkAddInput() {
         className={cx("header-content", { "fixed-bottom": isLinkAreaVisible })}
       >
         <label className={cx("link-search-box")}>
-          <img src="images/link.png" className="link-img" alt="링크추가하기" />
+          <img src="/images/link.png" className="link-img" alt="링크추가하기" />
           <input
             className={cx("link-search-input")}
             placeholder="링크를 추가해 보세요"
           ></input>
           <img
             onClick={handleOpenMoldalAddToFolder}
-            src="images/추가하기버튼.png"
+            src="/images/추가하기버튼.png"
             className={cx("link-button-img")}
             alt="링크추가 버튼"
           />

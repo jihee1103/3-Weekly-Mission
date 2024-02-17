@@ -22,7 +22,7 @@ export default function Footer() {
               rel="noopener noreferrer"
             >
               <img
-                src="images/akar-icons_facebook-fill.png"
+                src="/images/akar-icons_facebook-fill.png"
                 alt="페이스북링크"
               />
             </a>
@@ -31,14 +31,14 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="images/akar-icons_twitter-fill.png" alt="트위터링크" />
+              <img src="/images/akar-icons_twitter-fill.png" alt="트위터링크" />
             </a>
             <a
               href="https://www.youtube.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="images/akar-icons_youtube-fill.png" alt="유튜브링크" />
+              <img src="/images/akar-icons_youtube-fill.png" alt="유튜브링크" />
             </a>
             <a
               href="https://www.instagram.com/"
@@ -46,7 +46,7 @@ export default function Footer() {
               rel="noopener noreferrer"
             >
               <img
-                src="images/ant-design_instagram-filled.png"
+                src="/images/ant-design_instagram-filled.png"
                 alt="인스타그램링크"
               />
             </a>

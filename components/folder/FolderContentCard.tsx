@@ -16,7 +16,7 @@ export default function FolderContentCard({ items }: FolderContentCardProps) {
         ) : (
           <div className={cx("no-save-link")}>
             저장된 링크가 없습니다
-            <img src="images/03_땡깡-1.gif" alt="폴더에 링크를 추가해주세요" />
+            <img src="/images/03_땡깡-1.gif" alt="폴더에 링크를 추가해주세요" />
           </div>
         )}
       </ul>

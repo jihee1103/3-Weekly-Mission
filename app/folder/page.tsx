@@ -5,9 +5,7 @@ import Footer from "../../components/common/Footer";
 export default function Folder() {
   return (
     <>
-      <Header />
       <FolderSection />
-      <Footer />
     </>
   );
 }

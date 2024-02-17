@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { User, getUserProfile } from "../../api/api";
 import styles from "./Nav.module.scss";
 import classNames from "classnames/bind";
+import Link from "next/link";
 
 const cx = classNames.bind(styles);
 
@@ -11,13 +12,13 @@ export default function Nav() {
   return (
     <nav className={cx("nav")}>
       <div className={cx("nav-content")}>
-        <a href="./folder">
+        <Link href="/">
           <img
             className={cx("header-logo-img")}
-            src="images/logo.png"
+            src="/images/logo.png"
             alt="코드잇로고"
           ></img>
-        </a>
+        </Link>
         <UserProfileInHeader />
       </div>
     </nav>
@@ -34,7 +35,7 @@ function UserProfileInHeader() {
     handleLoginProfile();
   }, []);
   return (
-    <a className={cx("userProfile-link")} href="./folder">
+    <Link className={cx("userProfile-link")} href="/folder">
       {user ? (
         <>
           <img
@@ -47,6 +48,6 @@ function UserProfileInHeader() {
       ) : (
         <img src="images/로그인.png" alt="로그인" />
       )}
-    </a>
+    </Link>
   );
 }

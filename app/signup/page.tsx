@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "../signin/SignInPage.module.scss";
+import Link from "next/link";
 
 const cx = classNames.bind(styles);
 
@@ -8,13 +9,13 @@ export default function SignUpPage() {
     <>
       <header>
         <div className={cx("header-container")}>
-          <a href="/">
-            <img src="images/logo-sign.png" alt="로고" />
-          </a>
+          <Link href="/">
+            <img src="/images/logo-sign.png" alt="로고" />
+          </Link>
           <div className={cx("ask-singup")}>
             <div className={cx("ask-singup-text")}>이미 회원이신가요?</div>
             <div className={cx("ask-singup-link")}>
-              <a href="/signin">로그인 하기</a>
+              <Link href="/signin">로그인 하기</Link>
             </div>
           </div>
         </div>
@@ -31,7 +32,7 @@ export default function SignUpPage() {
             <input id="signup-password" type="password" />
             <img
               className={cx("passwordEye")}
-              src="images/eye-off.png"
+              src="/images/eye-off.png"
               alt="비밀번호 보이게 설정하기"
               data-img="passwordEye"
             />
@@ -41,7 +42,7 @@ export default function SignUpPage() {
             <input id="signup-repassword" type="password" />
             <img
               className={cx("passwordEye")}
-              src="images/eye-off.png"
+              src="/images/eye-off.png"
               alt="비밀번호 보이게 설정하기"
               data-img="repasswordEye"
             />
@@ -54,10 +55,10 @@ export default function SignUpPage() {
           <div className={cx("content-sns-text")}>다른 방식으로 가입하기</div>
           <div className={cx("content-sns-logo")}>
             <a href="https://www.google.com/">
-              <img src="images/google-logo.png" alt="구글로고" />
+              <img src="/images/google-logo.png" alt="구글로고" />
             </a>
             <a href="https://www.kakaocorp.com/page/">
-              <img src="images/kakao-logo.png" alt="카카오로고" />
+              <img src="/images/kakao-logo.png" alt="카카오로고" />
             </a>
           </div>
         </div>

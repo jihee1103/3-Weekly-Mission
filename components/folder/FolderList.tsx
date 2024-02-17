@@ -62,7 +62,7 @@ export default function FolderList({
           <input className={cx("folder-add-input")}></input>
           <img
             onClick={handleOpenMoldalAddFolder}
-            src="images/add.png"
+            src="/images/add.png"
             alt="폴더추가하기"
           />
         </div>
