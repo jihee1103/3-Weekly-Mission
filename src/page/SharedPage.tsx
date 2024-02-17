@@ -16,17 +16,22 @@ import {
 export const SharedPageStateContext = React.createContext<
   SharedPageState | undefined
 >(undefined);
+//언디파인드 타입으로 넣으면 안 좋은 이유?
 
+// ---
+
+// 서버에서 받아오는 데이터랑 작성한 인터페이스 (특히 api 부분) 이 달라서 생긴 문제였다.
 const SharedPage = () => {
   const [userData, setUserData] = useState<SampleUserData | null>(null);
   const [folderData, setFolderData] = useState<SampleFolderData | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getSampleUserData();
-      setUserData(data.data);
-
-      const response = await getSampleFolderData();
+      const [data, response] = await Promise.all([
+        getSampleUserData(),
+        getSampleFolderData(),
+      ]);
+      setUserData(data);
       setFolderData(response.folder);
     };
     fetchData();

@@ -8,11 +8,14 @@ const SharedPageHeaderProfile = () => {
     return null;
   }
   const { userData } = context;
-
   return (
     <HeaderProfileWrapper>
-      {userData && <ProfileImage src={userData.profileImageSource} />}
-      <Email>{userData && userData.email}</Email>
+      {userData && (
+        <>
+          <ProfileImage src={userData.profileImageSource} alt="프로필 이미지" />
+          <Email>{userData.email}</Email>
+        </>
+      )}
     </HeaderProfileWrapper>
   );
 };

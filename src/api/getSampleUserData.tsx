@@ -1,6 +1,6 @@
 import { SampleUserDataApiResponse } from "../utils/types";
 
-const getSampleUserData = async (): Promise<SampleUserDataApiResponse> => {
+const getSampleUserData = async (): Promise<any> => {
   const response = await fetch(
     "https://bootcamp-api.codeit.kr/api/sample/user"
   );

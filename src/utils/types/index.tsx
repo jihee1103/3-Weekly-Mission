@@ -8,6 +8,8 @@ export interface FolderNameData {
     count: number;
   };
 }
+
+// intersection 네이밍 서칭 (IFolder)
 export interface FolderData {
   id: number;
   created_at: string;
@@ -39,14 +41,12 @@ export interface SampleUserData {
 }
 
 export interface SampleFolderData {
-  folder: {
+  id: number;
+  name: string;
+  owner: {
     id: number;
     name: string;
-    owner: {
-      id: number;
-      name: string;
-      profileImageSource: string;
-    };
+    profileImageSource: string;
   };
   links: [
     {
@@ -60,6 +60,7 @@ export interface SampleFolderData {
   ];
   count: number;
 }
+
 export interface User1Data {
   id: number;
   created_at: string;
