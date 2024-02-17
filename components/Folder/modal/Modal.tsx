@@ -4,7 +4,7 @@ import Image from "next/image";
 
 type onCloseFunction = () => void;
 
-export default function AddModal({ onClose }: { onClose: onCloseFunction }) {
+export function AddModal({ onClose }: { onClose: onCloseFunction }) {
   const handleClose = () => {
     onClose();
   };
@@ -38,6 +38,32 @@ export default function AddModal({ onClose }: { onClose: onCloseFunction }) {
             )
           )}
         </S.FolderListBox>
+        <S.ModalButton>
+          <span>추가하기</span>
+        </S.ModalButton>
+      </S.ModalContainer>
+    </S.Modal>
+  );
+}
+
+export function SortAddModal({ onClose }: { onClose: onCloseFunction }) {
+  const handleClose = () => {
+    onClose();
+  };
+
+  return (
+    <S.Modal>
+      <S.ModalContainer>
+        <S.ModalClose onClick={handleClose}>
+          <Image
+            src={"/assets/Icons/close.png"}
+            width={24}
+            height={24}
+            alt="모달 닫기 이미지"
+          />
+        </S.ModalClose>
+        <S.Feature>폴더 추가</S.Feature>
+        <S.ContentInput />
         <S.ModalButton>
           <span>추가하기</span>
         </S.ModalButton>

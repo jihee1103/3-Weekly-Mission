@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProfileApi from "@/pages/folder/[id]";
-import ProfileId from "@/pages/folder/type";
+import { ProfileId } from "@/pages/folder/type";
 import Link from "next/link";
 import Image from "next/image";
 import * as S from "./Style";

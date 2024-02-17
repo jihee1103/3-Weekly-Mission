@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+type SortedButtonProps = {
+  $isSelected: boolean;
+};
+
 // Header.tsx
 export const Nav = styled.nav`
   display: flex;
@@ -175,4 +179,50 @@ export const SearchResult = styled.div`
     letter-spacing: -0.2px;
     display: inline;
   }
+`;
+
+// Sorted.tsx
+export const SortedMain = styled.div`
+  display: flex;
+  justify-content: space-between;
+  max-width: 106rem;
+  margin: 2.4rem auto;
+`;
+
+export const SortedBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 106rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+  gap: 0.8rem;
+`;
+
+export const SortedButton = styled.button<SortedButtonProps>`
+  font-size: 1.6rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
+  background: ${(props) => (props.$isSelected ? "#6D6AFE" : "#fff")};
+  color: ${(props) => (props.$isSelected ? "#fff" : "black")};
+  cursor: pointer;
+`;
+
+export const SortedInput = styled.input`
+  color: #6d6afe;
+  margin-right: 4px;
+  border: none;
+  text-align: center;
+  font-family: Abel;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.3px;
+`;
+
+export const SortedImg = styled.div`
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
 `;

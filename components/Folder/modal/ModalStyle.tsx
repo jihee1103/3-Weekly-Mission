@@ -4,6 +4,7 @@ type ModalButtonProps = {
   $ColorRed?: boolean;
 };
 
+// AddModal
 export const Modal = styled.div`
   position: fixed;
   display: flex;
@@ -127,4 +128,25 @@ export const ModalButton = styled.button<ModalButtonProps>`
     font-weight: 600;
     line-height: normal;
   }
+`;
+
+// SortAddModal
+export const Feature = styled.p`
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+
+export const ContentInput = styled.input`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28rem;
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
 `;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import AddModal from "./modal/modal";
+import { AddModal } from "./modal/modal";
 import * as S from "./Style";
 
 export default function Section() {

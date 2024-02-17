@@ -1,5 +1,5 @@
 import instance from "../../lib/axios";
-import ProfileId from "./type";
+import { ProfileId } from "./type";
 
 export default async function ProfileApi(): Promise<ProfileId> {
   try {
