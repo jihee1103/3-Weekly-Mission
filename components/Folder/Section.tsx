@@ -1,6 +1,7 @@
 import { useState } from "react";
-import * as S from "./Style";
 import Image from "next/image";
+import AddModal from "./modal/modal";
+import * as S from "./Style";
 
 export default function Section() {
   const [modal, setModal] = useState<string | null>(null);
