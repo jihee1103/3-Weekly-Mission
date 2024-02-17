@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <>
       <S.Nav>
-        <S.LinkBox>
+        <S.HeaderLinkBox>
           <Link href="/">
             <Image
               src={"/assets/Icons/logo.svg"}
@@ -44,7 +44,7 @@ export default function Header() {
               </S.ProfileName>
             </S.ProfileBox>
           )}
-        </S.LinkBox>
+        </S.HeaderLinkBox>
       </S.Nav>
     </>
   );

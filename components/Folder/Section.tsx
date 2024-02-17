@@ -1,0 +1,42 @@
+import { useState } from "react";
+import * as S from "./Style";
+import Image from "next/image";
+
+export default function Section() {
+  const [modal, setModal] = useState<string | null>(null);
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleAdd = () => {
+    setModal("AddModal");
+    setOpenModal(true);
+  };
+
+  const handleClose = () => {
+    setModal(null);
+    setOpenModal(false);
+  };
+
+  return (
+    <>
+      <S.MainSection>
+        <S.SectionContainer>
+          <S.SectionLinkBox>
+            <S.LinkBoxImg>
+              <Image
+                src={"/assets/Icons/link.svg"}
+                width={20}
+                height={20}
+                alt="링크 이미지"
+              />
+            </S.LinkBoxImg>
+            <S.SectionInput placeholder="링크를 추가해 보세요"></S.SectionInput>
+          </S.SectionLinkBox>
+          <S.AddButton>
+            <S.AddText onClick={handleAdd}>추가하기</S.AddText>
+          </S.AddButton>
+        </S.SectionContainer>
+      </S.MainSection>
+      {openModal && modal === "AddModal" && <AddModal onClose={handleClose} />}
+    </>
+  );
+}
