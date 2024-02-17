@@ -4,12 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SyntheticEvent, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import calculateTime from '../../../utils/calculateTime';
+import { Links } from '../../folder/page';
+import PopOverMenu from '../modal/PopOverMenu';
 import defaultImage from '/public/default-image.svg';
 import kebabIcon from '/public/kebab.svg';
 import starIcon from '/public/star.svg';
-import calculateTime from '../../../utils/calculateTime';
-import { Links } from '../../folder/components/Folder';
-import PopOverMenu from '../modal/PopOverMenu';
 
 interface Props {
   link: Links;
