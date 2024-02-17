@@ -1,11 +1,23 @@
 'use client';
 
+import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
-import eyeOnImg from '/public/eye-on.svg';
 import eyeOffImg from '/public/eye-off.svg';
-import { useState } from 'react';
+import eyeOnImg from '/public/eye-on.svg';
 
-export default function Input({ type }: { type: string }) {
+export default function Input({
+  type,
+  inputValue,
+  updateInputValue,
+  isErrorValue,
+  testInputValue,
+}: {
+  type: string;
+  inputValue: string;
+  updateInputValue: (value: string) => void;
+  isErrorValue: boolean;
+  testInputValue: () => void;
+}) {
   const [imgUrl, setImgUrl] = useState(eyeOffImg.src);
   const [inputType, setInputType] = useState(type);
 
@@ -18,20 +30,39 @@ export default function Input({ type }: { type: string }) {
       setInputType('password');
     }
   };
+  const handleInputValue = (e: ChangeEvent<HTMLInputElement>) => {
+    updateInputValue(e.target.value);
+  };
 
   return (
     <Wrapper>
-      <StyledInput placeholder="내용입력" type={inputType} />
-      {type === 'password' ? (
-        <Icon $imgUrl={imgUrl} onClick={toggleIcon} />
-      ) : null}
+      <Container>
+        <StyledInput
+          placeholder="내용입력"
+          type={inputType}
+          value={inputValue}
+          onChange={handleInputValue}
+          $isErrorValue={isErrorValue}
+          onBlur={testInputValue}
+        />
+        {type === 'password' ? (
+          <Icon $imgUrl={imgUrl} onClick={toggleIcon} />
+        ) : null}
+      </Container>
+      {isErrorValue ? <Text>내용을 다시 작성해 주세요</Text> : null}
     </Wrapper>
   );
 }
 
 interface StyledInputProps {
-  $imgUrl: string;
+  $imgUrl?: string;
+  $isErrorValue?: boolean;
 }
+
+const Text = styled.span`
+  color: var(--Linkbrary-red, #ff5b56);
+  font-size: 14px;
+`;
 
 const Icon = styled.button<StyledInputProps>`
   background-image: ${(props) => `url(${props.$imgUrl})`};
@@ -47,18 +78,30 @@ const Icon = styled.button<StyledInputProps>`
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 350px;
-  position: relative;
+  flex-direction: column;
+  gap: 6px;
 `;
-const StyledInput = styled.input`
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+`;
+const StyledInput = styled.input<StyledInputProps>`
   display: flex;
   width: 100%;
   padding: 18px 31px 18px 15px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  border: ${(props) =>
+    props.$isErrorValue
+      ? '1px solid var(--Linkbrary-red, #FF5B56)'
+      : '1px solid var(--Linkbrary-gray20, #ccd5e3)'};
+
   background: var(--Linkbrary-white, #fff);
   outline: none;
 
