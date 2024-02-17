@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import useFolderLinks from '../../hooks/useFolderLinks';
 import Modal from '../components/modal/Modal';
 import AddLink from '../components/add-link/AddLink';
 import FolderBody from './components/FolderBody';
+import useFolderLinks from '../../Hooks/useFolderLinks';
 
 export interface Links {
   createdAt: string;
@@ -71,6 +71,9 @@ export default function FolderPage() {
   const toggleModal = () => {
     setIsModalClicked((prev) => !prev);
   };
+
+  // 스크롤바 영역 보존
+  document.documentElement.style.scrollbarGutter = 'stable';
 
   useEffect(() => {
     if (isModalClicked) {
