@@ -2,7 +2,7 @@ export default async function getFetchRequest(
   host: string,
   path: string,
   headers = {}
-) {
+) { 
   const url = `https://${host}/${path}`;
 
   const options = {
