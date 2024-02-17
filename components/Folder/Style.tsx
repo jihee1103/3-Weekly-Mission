@@ -104,3 +104,75 @@ export const AddText = styled.span`
   font-weight: 600;
   line-height: normal;
 `;
+
+// Search.tsx
+export const SearchMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 106rem;
+  margin: 4rem auto;
+  gap: 4rem;
+`;
+
+export const SearchBox = styled.form`
+  display: flex;
+  justify-content: space-between;
+  width: 102.8rem;
+  max-width: 106rem;
+  padding: 1.5rem 1.6rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  background: #f5f5f5;
+  border: 0.1rem solid #f5f5f5;
+
+  @media (max-width: 1124px) {
+    margin-left: 3.2rem;
+    margin-right: 3.2rem;
+  }
+`;
+
+export const SearchImg = styled.img`
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+`;
+
+export const SearchInput = styled.input`
+  margin-left: 1rem;
+  background-color: #f5f5f5;
+  border-color: #f5f5f5;
+  border: none;
+`;
+
+export const SearchResult = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 38.1rem;
+  height: 3.8rem;
+  margin: 0 auto;
+
+  & h1 {
+    color: var(--Linkbrary-gray100, #373740);
+    font-family: Pretendard;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    display: inline;
+  }
+
+  & h2 {
+    color: var(--Linkbrary-gray60, #9fa6b2);
+    font-family: Pretendard;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    display: inline;
+  }
+`;
