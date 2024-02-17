@@ -1,0 +1,55 @@
+.headerArea{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #edf7ff;
+}
+
+.nav{
+  width: 100%;
+  padding: 30px 200px;
+  display: flex;
+  background-color: #edf7ff;
+  justify-content: space-between;
+  position: sticky;
+  position : fixed;
+  z-index: 1;
+}
+
+.profileBox{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  }
+
+.profileImage{
+  width: 30px;
+  border-radius: 50%;
+}
+
+.headerUnder{
+  margin-top: 20px;
+  }
+
+.bookmarkArea{
+  margin-top: 100px;
+  gap: 20px;
+  text-align: center;
+
+}
+
+.userLogo {
+  height: 60px;
+}
+
+.userName{
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.bookmarkText{
+  margin-top: 0;
+  font-size: 40px;
+  font-weight: 600;
+}
+
