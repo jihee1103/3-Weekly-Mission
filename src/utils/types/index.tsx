@@ -74,6 +74,18 @@ export interface ModalContextType {
   openModal: (type: string) => void;
   closeModal: () => void;
 }
+
+export interface FolderIdData {
+  id: number;
+  created_at: string;
+  updated_at: string | null;
+  url: string;
+  title: string | null;
+  description: string | null;
+  image_source: string | null;
+  folder_id: number | null;
+}
+
 export interface FolderNameApiResponse {
   data: FolderNameData[];
 }
@@ -92,4 +104,8 @@ export interface SampleUserDataApiResponse {
 
 export interface SampleFolderDataApiResponse {
   folder: SampleFolderData;
+}
+
+export interface FolderIdApiResponse {
+  data: FolderIdData[];
 }

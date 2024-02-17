@@ -60,6 +60,7 @@ const FolderPage = () => {
       if (folder) {
         setSelectedFolderName(folder.name);
         const response = await getFolderIdData(folder.id);
+
         if (response && response.data) {
           setAllFolderData(response.data);
         }

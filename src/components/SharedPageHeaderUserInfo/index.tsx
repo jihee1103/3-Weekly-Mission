@@ -5,13 +5,11 @@ import styled from "styled-components";
 const SharedPageHeaderUserInfo = () => {
   const context = useContext(SharedPageStateContext);
 
-  console.log("context", context);
   if (!context) {
     return null;
   }
 
   const { folderData } = context;
-  console.log("folderData", folderData);
   if (!folderData) {
     return null;
   }
