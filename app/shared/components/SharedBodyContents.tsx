@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import CardList from '../../components/card/CardList';
 import SearchBar from '../../components/search-bar/SearchBar';
 import SearchResult from '../../components/search-bar/SearchResult';
-import { Links } from '../../folder/components/Folder';
+import { Links } from '../../folder/page';
 
 interface Props {
   links: Links[];
