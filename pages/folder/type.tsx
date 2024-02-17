@@ -24,3 +24,14 @@ export interface FolderId {
     count: number;
   };
 }
+
+export interface LinkId {
+  id: number;
+  created_at: string;
+  updated_at: string | null;
+  url: string;
+  title: string;
+  description: string;
+  image_source: string;
+  folder_id: number;
+}

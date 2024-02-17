@@ -71,3 +71,31 @@ export function SortAddModal({ onClose }: { onClose: onCloseFunction }) {
     </S.Modal>
   );
 }
+
+export function DeleteLinkModal({ onClose }: { onClose: onCloseFunction }) {
+  const handleClose = () => {
+    onClose();
+  };
+
+  return (
+    <S.Modal>
+      <S.ModalContainer>
+        <S.ModalClose onClick={handleClose}>
+          <Image
+            src={"/assets/Icons/close.png"}
+            width={24}
+            height={24}
+            alt="모달 닫기 이미지"
+          />
+        </S.ModalClose>
+        <S.FeatureWrapper>
+          <h1>링크 삭제</h1>
+          <span>https://www.hello.com</span>
+        </S.FeatureWrapper>
+        <S.ModalButton $ColorRed>
+          <span>삭제하기</span>
+        </S.ModalButton>
+      </S.ModalContainer>
+    </S.Modal>
+  );
+}

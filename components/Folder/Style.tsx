@@ -226,3 +226,166 @@ export const SortedImg = styled.div`
   height: 1.6rem;
   cursor: pointer;
 `;
+
+// Card.tsx
+export const Card = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 34rem;
+  height: 33.4rem;
+  border-radius: 1rem;
+  border: 2px solid rgba(0, 0, 0, 0);
+  overflow: hidden;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
+
+  &:hover {
+    border: 2px solid var(--primary);
+  }
+
+  &:hover {
+    transition: all 1s;
+    transform: scale(1.3);
+  }
+
+  &:not(hover) {
+    transition: all 1s;
+  }
+`;
+
+export const CardWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60%;
+  overflow: hidden;
+
+  &:hover {
+    transition: all 1s;
+    transform: scale(1.3);
+  }
+
+  &:not(hover) {
+    transition: all 1s;
+  }
+`;
+
+export const EmptyImg = styled.img`
+  position: absolute;
+  width: 13rem;
+  opacity: 0.5;
+`;
+
+export const CardImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+export const StarImg = styled.img`
+  position: absolute;
+  width: 3.4rem;
+  height: 3.4rem;
+  top: 1.5rem;
+  right: 1.5rem;
+`;
+
+export const CardText = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 2rem 1rem;
+  gap: 1rem;
+  z-index: 2;
+  background-color: #fff;
+`;
+
+export const KebabBox = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const Ago = styled.span`
+  font-size: 1.3rem;
+`;
+
+export const Kebab = styled.button`
+  cursor: pointer;
+  background-color: #fff;
+`;
+
+export const KebabSelect = styled.div`
+  position: absolute;
+  width: 10rem;
+  height: 6.4rem;
+  right: 0;
+  top: 3rem;
+  background: var(--gray-light-gray-00, #fff);
+  box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
+`;
+
+export const KebabOption = styled.div`
+  width: 100%;
+  height: 50%;
+  border: 1px solid #fff;
+  color: var(--gray-light-gray-100, #333236);
+  font-size: 1.4rem;
+  line-height: 3.2rem;
+  text-align: center;
+  cursor: pointer;
+  &:last-child {
+    background: #e7effb;
+    color: #6d6afe;
+  }
+`;
+
+export const Description = styled.p`
+  font-size: 1.6rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+`;
+
+export const CardDate = styled.span`
+  font-size: 1.4rem;
+`;
+
+// Footer.tsx
+export const Footer = styled.footer`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 16rem;
+  padding-top: 3.2rem;
+  background-color: black;
+`;
+
+export const Copyright = styled.span`
+  color: #676767;
+  font-family: Arial;
+  font-size: 1.6rem;
+`;
+
+export const FooterLinkBox = styled.div`
+  display: flex;
+  column-gap: 3rem;
+  padding-right: 1.8rem;
+`;
+
+export const FooterLink = styled.a`
+  color: #cfcfcf;
+  font-family: Arial;
+  font-size: 1.6rem;
+`;
+
+export const SNS = styled.div`
+  display: flex;
+  column-gap: 1.2rem;
+  height: 2rem;
+`;
