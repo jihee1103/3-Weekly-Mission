@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import * as S from "./Style";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function Search() {
   const router = useRouter();
@@ -63,12 +64,7 @@ export default function Search() {
         </div>
         {closeSearch && (
           <button onClick={resetSearch}>
-            <Image
-              src={"/assets/Icons/close.png"}
-              width={24}
-              height={24}
-              alt="닫기 아이콘 이미지"
-            />
+            <img src={"/assets/Icons/close.png"} alt="닫기 아이콘 이미지" />
           </button>
         )}
       </S.SearchBox>
