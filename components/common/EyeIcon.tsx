@@ -2,9 +2,17 @@
 import { ComponentPropsWithoutRef } from "react";
 
 interface Props extends ComponentPropsWithoutRef<"img"> {
-  name: string;
+  showPassword: boolean;
 }
 
-export default function EyeIcon({ name, ...props }: Props) {
-  return <img src={"/assets/Icons/eye-off.svg"} alt="눈 닫은 아이콘 이미지" />;
+export default function EyeIcon({ showPassword, ...props }: Props) {
+  return (
+    <img
+      src={
+        showPassword ? "/assets/Icons/eye-on.svg" : "/assets/Icons/eye-off.svg"
+      }
+      alt={showPassword ? "눈 열린 아이콘 이미지" : "눈 닫힌 아이콘 이미지"}
+      {...props}
+    />
+  );
 }
