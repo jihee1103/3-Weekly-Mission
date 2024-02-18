@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import * as S from "./Style";
 
 export default function Footer() {
@@ -16,10 +17,8 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
+          <img
             src={"/assets/Icons/facebook.svg"}
-            width={20}
-            height={20}
             alt="페이스북 아이콘 이미지"
           />
         </Link>
@@ -28,34 +27,22 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            src={"/assets/Icons/twitter.svg"}
-            width={20}
-            height={20}
-            alt="트위터 아이콘 이미지"
-          />
+          <img src={"/assets/Icons/twitter.svg"} alt="트위터 아이콘 이미지" />
         </Link>
         <Link
           href="https://www.youtube.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            src={"/assets/Icons/youtube.svg"}
-            width={20}
-            height={20}
-            alt="유튜브 아이콘 이미지"
-          />
+          <img src={"/assets/Icons/youtube.svg"} alt="유튜브 아이콘 이미지" />
         </Link>
         <Link
           href="https://www.instagram.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
+          <img
             src={"/assets/Icons/instagram.svg"}
-            width={20}
-            height={20}
             alt="인스타그램 아이콘 이미지"
           />
         </Link>
