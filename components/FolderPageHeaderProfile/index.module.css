@@ -1,0 +1,11 @@
+.div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.div span {
+  color: #373740;
+  font-size: 14px;
+  font-weight: 400;
+}

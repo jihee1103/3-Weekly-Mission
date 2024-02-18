@@ -1,0 +1,38 @@
+.div {
+  margin-top: 60px;
+  padding-bottom: 90px;
+}
+
+.div div {
+  display: flex;
+  width: 800px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.div input {
+  display: flex;
+  justify-content: center;
+  width: 800px;
+  height: 37px;
+  padding: 16px 40px;
+  padding-left: 50px;
+  border-radius: 15px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff) url("./link.svg") no-repeat left 20px
+    center;
+}
+
+.div button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 80px;
+  height: 37px;
+  border: none;
+  background-color: var(--Linkbrary-primary-color, #6d6afe);
+  color: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+}

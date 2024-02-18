@@ -1,0 +1,13 @@
+.header {
+  background-color: #f0f6ff;
+  padding-top: 32px;
+}
+
+.div {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 1060px;
+  margin: 0 auto;
+}
