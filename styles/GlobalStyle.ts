@@ -32,6 +32,54 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+
+button {
+  border: none;
+  padding: unset;
+  background-color: unset;
+  cursor: pointer;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+display: flex;
+justify-content: center;
+top: 0;
+width: 100%;
+background-color: #edf7ff;
+}
+
+header {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+background-color: #edf7ff;
+}
+
+input:focus {
+  outline: none;
+}
+
+footer {
+display: flex;
+justify-content: center;
+width: 100%;
+height: 16rem;
+padding-top: 3.2rem;
+background-color: var(--black);
+}
+
+@media (max-width: 768px) {
+  body {
+    max-width: 400px;
+  }
+}
 `;
 
 export default GlobalStyle;
