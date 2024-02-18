@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getFolderUserData, getUserData } from "../../api/api";
 import { useRouter } from "next/router";
 import styles from "@/src/components/Header/Header.module.css";
+import Link from "next/link";
 
 interface UserData {
   email: string;
@@ -44,9 +45,9 @@ const Header = () => {
         <>
           <header>
             <nav className={styles.nav}>
-              <a className={styles.link} href="/">
+              <Link className={styles.link} href="/">
                 <img src={`/assets/logo.png`} alt="로고" />
-              </a>
+              </Link>
 
               {userData ? (
                 <div className={styles.userInfo}>
@@ -58,9 +59,9 @@ const Header = () => {
                   <h2 className={styles.userEmail}>{userData.email}</h2>
                 </div>
               ) : (
-                <a className={styles.login_btn} href="/signin.html">
+                <Link className={styles.login_btn} href="/signin.html">
                   로그인
-                </a>
+                </Link>
               )}
             </nav>
           </header>
@@ -71,9 +72,9 @@ const Header = () => {
         <>
           <header>
             <nav className={styles.nav}>
-              <a className={styles.link} href="/">
+              <Link className={styles.link} href="/">
                 <img src={`/assets/logo.png`} alt="로고" />
-              </a>
+              </Link>
 
               {folderUserData ? (
                 <div className={styles.userInfo}>
@@ -87,9 +88,9 @@ const Header = () => {
                   </h2>
                 </div>
               ) : (
-                <a className={styles.login_btn} href="/signin.html">
+                <Link className={styles.login_btn} href="/signin.html">
                   로그인
-                </a>
+                </Link>
               )}
             </nav>
           </header>
