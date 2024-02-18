@@ -7,19 +7,18 @@ import FolderList from "./FolderList";
 import FolderName from "./FolderName";
 import FolderContentCard from "./FolderContentCard";
 import { UserFolder, UserLink, getUserLinks } from "../../api/api";
-import { AllSee } from "../../types/types";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
 export default function FolderSection() {
-  const allSee: AllSee = {
+  const allSee: Pick<UserFolder, "id" | "name"> = {
     id: undefined,
     name: "전체",
   };
-  const [selectedFolder, setSelectedFolder] = useState<UserFolder | AllSee>(
-    allSee
-  );
+  const [selectedFolder, setSelectedFolder] = useState<
+    UserFolder | Pick<UserFolder, "id" | "name">
+  >(allSee);
   const [items, setItems] = useState<UserLink[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
@@ -41,7 +40,9 @@ export default function FolderSection() {
     }
     handleload();
   }, [selectedFolder, searchTerm]);
-  const handleSelectFolder = (folder: UserFolder | AllSee) => {
+  const handleSelectFolder = (
+    folder: UserFolder | Pick<UserFolder, "id" | "name">
+  ) => {
     setSelectedFolder(folder);
   };
 
