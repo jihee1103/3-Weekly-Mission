@@ -1,19 +1,13 @@
 "use client";
 
-import Image from "next/image";
-import linkbrary from "./linkbrary.svg";
 import SharedPageHeaderProfile from "../SharedPageHeaderProfile";
 import styles from "./index.module.css";
+import GoMainLogo from "../GoMainLogo";
 
 const SharedPageHeaderNavigation = () => {
   return (
     <nav className={styles.nav}>
-      <Image
-        src={linkbrary}
-        width={133}
-        height={24}
-        alt="linkbrary 로고 이미지"
-      />
+      <GoMainLogo />
       <SharedPageHeaderProfile />
     </nav>
   );
