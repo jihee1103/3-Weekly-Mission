@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { calcTime, formatDateString } from "./TimeUtils";
 import { useEffect, useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 import Link from "next/link";
 import { AddModal, DeleteLinkModal } from "./modal/Modal";
 import { LinkId } from "@/components/Folder/type";
@@ -97,12 +98,7 @@ export default function Card({ data }: { data: LinkId }) {
           <S.KebabBox>
             <S.Ago>{`${ago}`}</S.Ago>
             <S.Kebab onClick={handleKebab}>
-              <Image
-                src={"/assets/Icons/kebab.svg"}
-                width={21}
-                height={17}
-                alt="케밥 아이콘 이미지"
-              />
+              <img src={"/assets/Icons/kebab.svg"} alt="케밥 아이콘 이미지" />
             </S.Kebab>
             {kebab && (
               <S.KebabSelect>
