@@ -1,5 +1,4 @@
 import useUserProfileData from "../../hook/useUserProfileData";
-import { UserProfileType } from "../../types/Types";
 import styles from './HeaderSection.module.css';
 
 export default function Bookmark() {

@@ -7,7 +7,7 @@ export default function Search() {
   }
 
   return (
-  <div className={styles.form_Wrapper}> 
+  <div> 
     <form className={styles.form_Box} onSubmit={handleSubmit}>
       <input  type='text' placeholder='링크를 검색해 보세요' />
       <img  src="/image/glass.svg" alt='glass' />

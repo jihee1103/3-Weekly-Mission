@@ -20,4 +20,3 @@ export default function FolderPage() {
     </>
   );
 }
-//"/image/facebook.svg"

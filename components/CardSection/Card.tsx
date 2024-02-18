@@ -12,9 +12,8 @@ function CardList({ link }: { link: UserLinkType }) {
   const [kebab, setKebab] = useState(false);
 
   const kebabClick = () => {
-    setKebab(!kebab); //!kebab이면 true, kebab이면 false  // true일때만 kebab 컴포넌트를 보여줌
+    setKebab(!kebab); 
   };
-  //care box?
   return (
     <div key={link.id} className={styles.card_Box}> 
       <div className={styles.imgBox}>
@@ -44,7 +43,7 @@ function CardList({ link }: { link: UserLinkType }) {
           className={styles.케밥버튼}
           onClick={kebabClick}
         />
-        {kebab && ( //kebab가 true일때만 실행/ true일때만 kebab 컴포넌트를 보여줌
+        {kebab && ( 
           <Kebab />
         )}
         <p className={styles.description}>{link.description}</p>
@@ -68,5 +67,3 @@ export default function Card({
     </>
   );
 }
-//  const { linkData } = useUserLinkData(selectedFolderId!);
-//!는 TypeScript의 non-null assertion 연산자. 해당 표현식이 null 또는 undefined가 아님을 단언(assert)하는 역할

@@ -33,8 +33,8 @@ export default function FolderListBtn() {
               key={folderList.id}
               className={`${styles.folder_list_btn} ${
                 selectedFolderId === folderList.id ? "selected" : ""
-              }`} // 선택된 폴더의 스타일 변경
-              onClick={() => handleFolderClick(folderList.id)} // 클릭시 폴더 아이디를 받아서 폴더 아이디를 변경
+              }`} 
+              onClick={() => handleFolderClick(folderList.id)}
             >
               {folderList.name}
             </button>
@@ -56,10 +56,10 @@ export default function FolderListBtn() {
         />
       </div>
       <FolderAtionBtn />
-      {selectedFolderId !== null ? ( // selectedFolderId가 null이 아닐 때
+      {selectedFolderId !== null ? ( 
         <div className={styles.folder_card_img}>
           <Card
-            selectedFolderId={selectedFolderId} // 선택된 폴더 아이디를 받아서 Card 컴포넌트에 전달
+            selectedFolderId={selectedFolderId} 
           />
         </div>
       ) : (

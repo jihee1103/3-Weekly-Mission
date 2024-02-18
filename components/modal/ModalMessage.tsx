@@ -82,6 +82,3 @@ ModalMessge.defaultProps = {
   type: "blue",
 };
 
-//나중에 버튼에서 어떤 동작을 구현해야할 때 onClick prop을 남겨야함
-// onClick={onClick}
-// 그러면 onClick 의 타입은?   onClick: (e: React.MouseEvent<HTMLElement>) => void

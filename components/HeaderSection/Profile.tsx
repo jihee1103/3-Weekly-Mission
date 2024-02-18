@@ -1,15 +1,13 @@
-// import React, { useEffect, useState } from 'react'
 import useUserIdData from "../../hook/useUserIdData";
 import Link from "next/link";
 import { UserIdType } from "../../types/Types";
-import styles from './HeaderSection.module.css';
+import styles from "./HeaderSection.module.css";
 
 export default function Profile() {
   const { userIdDatas } = useUserIdData();
-  console.log(userIdDatas)
   return (
     <div>
-      {userIdDatas ? ( // profileData가 존재하는지 확인 후 렌더링
+      {userIdDatas ? ( 
         <div className={styles.nav}>
           <Link href="/">
             <img src="/image/logo.svg" alt="로고" />
@@ -31,5 +29,3 @@ export default function Profile() {
     </div>
   );
 }
-
-// className={styles.profileImage} 하면 이미지가 사라져버림 
