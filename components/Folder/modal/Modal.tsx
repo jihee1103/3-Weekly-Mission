@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import * as S from "./ModalStyle";
 
 type onCloseFunction = () => void;
@@ -24,12 +25,7 @@ export function AddModal({ onClose }: { onClose: onCloseFunction }) {
     <S.Modal>
       <S.ModalContainer>
         <S.ModalClose onClick={handleClose}>
-          <Image
-            src={"/assets/Icons/close.png"}
-            width={24}
-            height={24}
-            alt="모달 닫기 이미지"
-          />
+          <img src={"/assets/Icons/close.png"} alt="모달 닫기 이미지" />
         </S.ModalClose>
         <S.FeatureWrapper>
           <h1>폴더에 추가</h1>
@@ -61,12 +57,7 @@ export function SortAddModal({ onClose }: { onClose: onCloseFunction }) {
     <S.Modal>
       <S.ModalContainer>
         <S.ModalClose onClick={handleClose}>
-          <Image
-            src={"/assets/Icons/close.png"}
-            width={24}
-            height={24}
-            alt="모달 닫기 이미지"
-          />
+          <img src={"/assets/Icons/close.png"} alt="모달 닫기 이미지" />
         </S.ModalClose>
         <S.Feature>폴더 추가</S.Feature>
         <S.ContentInput />
@@ -87,12 +78,7 @@ export function DeleteLinkModal({ onClose }: { onClose: onCloseFunction }) {
     <S.Modal>
       <S.ModalContainer>
         <S.ModalClose onClick={handleClose}>
-          <Image
-            src={"/assets/Icons/close.png"}
-            width={24}
-            height={24}
-            alt="모달 닫기 이미지"
-          />
+          <img src={"/assets/Icons/close.png"} alt="모달 닫기 이미지" />
         </S.ModalClose>
         <S.FeatureWrapper>
           <h1>링크 삭제</h1>
@@ -115,12 +101,7 @@ export function ChangeNameModal({ onClose }: { onClose: onCloseFunction }) {
     <S.Modal>
       <S.ModalContainer>
         <S.ModalClose onClick={handleClose}>
-          <Image
-            src={"/assets/Icons/close.png"}
-            width={24}
-            height={24}
-            alt="모달 닫기 이미지"
-          />
+          <img src={"/assets/Icons/close.png"} alt="모달 닫기 이미지" />
         </S.ModalClose>
         <S.Feature>이름 변경하기</S.Feature>
         <S.ContentInput />
@@ -141,12 +122,7 @@ export function DeleteFolderModal({ onClose }: { onClose: onCloseFunction }) {
     <S.Modal>
       <S.ModalContainer>
         <S.ModalClose onClick={handleClose}>
-          <Image
-            src={"/assets/Icons/close.png"}
-            width={24}
-            height={24}
-            alt="모달 닫기 이미지"
-          />
+          <img src={"/assets/Icons/close.png"} alt="모달 닫기 이미지" />
         </S.ModalClose>
         <S.FeatureWrapper>
           <h1>폴더 삭제</h1>
@@ -219,12 +195,7 @@ export function ShareModal({ onClose }: { onClose: onCloseFunction }) {
     <S.Modal>
       <S.ShareContainer>
         <S.ModalClose onClick={handleClose}>
-          <Image
-            src={"/assets/Icons/close.png"}
-            width={24}
-            height={24}
-            alt="모달 닫기 이미지"
-          />
+          <img src={"/assets/Icons/close.png"} alt="모달 닫기 이미지" />
         </S.ModalClose>
         <S.FeatureWrapper>
           <h1>폴더 공유</h1>
@@ -233,10 +204,8 @@ export function ShareModal({ onClose }: { onClose: onCloseFunction }) {
         <S.FeatureLinkWrapper>
           <S.FeatureLink>
             <S.ShareImg $shareApi="kakao" onClick={shareKakao}>
-              <Image
+              <img
                 src={"/assets/Icons/kakao.svg"}
-                width={18}
-                height={18}
                 alt="카카오톡 아이콘 이미지"
               />
             </S.ShareImg>
@@ -244,10 +213,8 @@ export function ShareModal({ onClose }: { onClose: onCloseFunction }) {
           </S.FeatureLink>
           <S.FeatureLink>
             <S.ShareImg $shareApi="facebook" onClick={shareFacebook}>
-              <Image
+              <img
                 src={"/assets/Icons/facebook.svg"}
-                width={18}
-                height={18}
                 alt="페이스북 아이콘 이미지"
               />
             </S.ShareImg>
@@ -255,12 +222,7 @@ export function ShareModal({ onClose }: { onClose: onCloseFunction }) {
           </S.FeatureLink>
           <S.FeatureLink>
             <S.ShareImg $shareApi="copyUrl" onClick={copyLink}>
-              <Image
-                src={"/assets/Icons/link.svg"}
-                width={18}
-                height={18}
-                alt="링크 아이콘 이미지"
-              />
+              <img src={"/assets/Icons/link.svg"} alt="링크 아이콘 이미지" />
             </S.ShareImg>
             <S.ShareText>링크 복사</S.ShareText>
           </S.FeatureLink>

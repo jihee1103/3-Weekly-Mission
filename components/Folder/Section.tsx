@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import { AddModal } from "./modal/Modal";
 import * as S from "./Style";
 
@@ -23,12 +24,7 @@ export default function Section() {
         <S.SectionContainer>
           <S.SectionLinkBox>
             <S.LinkBoxImg>
-              <Image
-                src={"/assets/Icons/link.svg"}
-                width={20}
-                height={20}
-                alt="링크 이미지"
-              />
+              <img src={"/assets/Icons/link.svg"} alt="링크 이미지" />
             </S.LinkBoxImg>
             <S.SectionInput placeholder="링크를 추가해 보세요"></S.SectionInput>
           </S.SectionLinkBox>
