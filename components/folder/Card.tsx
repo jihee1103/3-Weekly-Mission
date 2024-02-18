@@ -10,7 +10,9 @@ const cx = classNames.bind(styles);
 
 export default function Card({ item }: CardProps) {
   const [isPopoverVisible, setIsPopoverVisible] = useState(false);
-  const [selectedModal, setSelectedModal] = useState<string | null>(null);
+  const [selectedModal, setSelectedModal] = useState<"add" | "delete" | null>(
+    null
+  );
 
   const handleModalAddtoFolder = () => {
     setSelectedModal("add");

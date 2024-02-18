@@ -1,22 +1,19 @@
 import { UserFolder, UserLink } from "../api/api";
 
-export interface AllSee {
-  id: undefined;
-  name: "전체";
-}
-
 export interface LinkSearchInputProps {
   searchTerm: string;
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface FolderListProps {
-  onSelectFolder: (folder: UserFolder | AllSee) => void;
-  selectedFolder: UserFolder | AllSee;
+  onSelectFolder: (
+    folder: UserFolder | Pick<UserFolder, "id" | "name">
+  ) => void;
+  selectedFolder: UserFolder | Pick<UserFolder, "id" | "name">;
 }
 
 export interface FolderNameProps {
-  selectedFolder: UserFolder | AllSee;
+  selectedFolder: UserFolder | Pick<UserFolder, "id" | "name">;
 }
 
 export interface FolderContentCardProps {

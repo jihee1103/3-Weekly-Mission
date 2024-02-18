@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { UserFolder, getUserFolders } from "../../api/api";
-import { AllSee, FolderListProps } from "../../types/types";
+import { FolderListProps } from "../../types/types";
 import { AddFolderModal } from "./Modal";
 import styles from "./FolderList.module.scss";
 import classNames from "classnames/bind";
@@ -11,12 +11,14 @@ export default function FolderList({
   onSelectFolder,
   selectedFolder,
 }: FolderListProps) {
-  const allSee: AllSee = {
+  const allSee: Pick<UserFolder, "id" | "name"> = {
     id: undefined,
     name: "전체",
   };
   const [folderNames, setFolderNames] = useState<UserFolder[]>();
-  const handleFolderClick = (folder: UserFolder | AllSee) => {
+  const handleFolderClick = (
+    folder: UserFolder | Pick<UserFolder, "id" | "name">
+  ) => {
     onSelectFolder(folder);
   };
   const [isModal, setIsModal] = useState(false);
@@ -48,7 +50,7 @@ export default function FolderList({
             return (
               <li
                 className={cx("folder", {
-                  folderSelected: selectedFolder?.id === folder.id,
+                  folderSelected: selectedFolder.id === folder.id,
                 })}
                 key={folder.id}
                 onClick={() => handleFolderClick(folder)}

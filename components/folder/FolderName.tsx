@@ -7,7 +7,9 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 export default function FolderName({ selectedFolder }: FolderNameProps) {
-  const [selectedModal, setSelectedModal] = useState<string | null>(null);
+  const [selectedModal, setSelectedModal] = useState<
+    "share" | "rename" | "delete" | null
+  >(null);
   const handleOpenModalShare = () => {
     setSelectedModal("share");
   };

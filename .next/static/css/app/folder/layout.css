@@ -1,0 +1,298 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./components/common/Footer.module.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Footer_footer__xU_sR {
+  display: flex;
+  height: 280px;
+  padding-top: 120px;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 30px;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.02);
+}
+
+.Footer_footer-bar__RXGs2 {
+  display: flex;
+  height: 160px;
+  padding: 32px 104px 64px 104px;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  background: var(--the-julge-black, #111322);
+}
+
+.Footer_footer-bar-content___0Irh {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.Footer_footer-bar-content-logo__joRE3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.Footer_footer-bar-content-logo__joRE3 span {
+  color: #676767;
+  text-align: center;
+  font-family: Abel;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.Footer_footer-bar-content-mid__pGMPp a {
+  color: #cfcfcf;
+  font-family: Abel;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.Footer_footer-bar-content-sns__EPdQN {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.Footer_footer-bar-content-sns__EPdQN img {
+  width: 20px;
+  height: 20px;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./components/folder/Header.module.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Header_header__lech2 {
+  display: flex;
+  height: 374px;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 6rem;
+  background: var(--linkbrary-bg, #f0f6ff);
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./components/folder/Modal.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Modal_modalContent__67lTj {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 360px;
+  padding: 32px 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  border: 1px solid var(--Stroke-light, #dee2e6);
+  background: var(--Gray-White, #fff);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.Modal_closeModal__vmbvz {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+.Modal_modal-button-blue__SNvLV {
+  color: var(--Grey-Light, #f5f5f5);
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  border: none;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+}
+
+.Modal_modal-button-red__ZHPjZ {
+  color: var(--Grey-Light, #f5f5f5);
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  border: none;
+  background: var(--Linkbrary-red, #ff5b56);
+}
+
+.Modal_modal-title-box__vd9py {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Modal_modal-title__g3Ybq {
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.Modal_modal-title-subtitle__c5yBA {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.Modal_modal-input__RV7Zx {
+  display: flex;
+  width: 280px;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+}
+
+.Modal_shareIcon-box__IYZVc {
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.Modal_addToFolderModal-folderList__LvgJE {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 280px;
+  height: 172px;
+  overflow-y: scroll;
+}
+
+.Modal_addToFolderModal-folderName-box__is4hh {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+}
+
+.Modal_addToFolderModal-folderName__ZYss_ {
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.Modal_addToFolderModal-folderLinkLength__RdIob {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.Modal_modalLayout__3ouV0 {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./components/folder/LinkAddInput.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.LinkAddInput_ref-position__hpkx8 {
+  position: absolute;
+  z-index: -1;
+  height: 200px;
+}
+
+.LinkAddInput_header-content__F4Zf1 {
+  display: flex;
+  margin: 153px auto 90px;
+  max-width: 865px;
+  width: 100%;
+  padding: 0 32.5px;
+}
+
+.LinkAddInput_fixed-bottom__JCsAo {
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+}
+
+.LinkAddInput_link-search-box__XApvT {
+  width: 100%;
+  display: flex;
+  padding: 16px 20px;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+  justify-content: space-between;
+}
+
+.LinkAddInput_link-search-input__iZtRO {
+  outline: none;
+  width: 100%;
+  border: none;
+}
+
+.LinkAddInput_link-button-img__xm7XU {
+  cursor: pointer;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./components/folder/Nav.module.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Nav_nav___IzKh {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  padding: 3.3rem 20rem 3.2rem;
+  background: var(--linkbrary-bg, #f0f6ff);
+}
+@media screen and (max-width: 1199px) {
+  .Nav_nav___IzKh {
+    display: grid;
+    grid-template-columns: minmax(32px, auto) minmax(32px, 800px) minmax(32px, auto);
+    padding: 33px 0;
+  }
+}
+
+.Nav_nav-content__Oo3e7 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 1199px) {
+  .Nav_nav-content__Oo3e7 {
+    grid-column: 2/3;
+  }
+}
+
+.Nav_header-logo-img__UlPvS {
+  height: 2.4rem;
+}
+
+.Nav_userProfile-link__Tmh39 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.Nav_userProfile-link__Tmh39 .Nav_userProfile-login-img__9JXBg {
+  width: 2.8rem;
+}
+
+.Nav_userProfile-login-email__leER4 {
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+@media screen and (max-width: 767px) {
+  .Nav_userProfile-login-email__leER4 {
+    display: none;
+  }
+}
