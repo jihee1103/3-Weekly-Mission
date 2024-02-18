@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getUserFolder } from "../../api/api";
+import { SampleFolderLink, getUserFolder } from "../../api/api";
 import { getTimeDifference, formatCreatedAt } from "../../utils/Utils";
 import styles from "./ShareSection.module.scss";
 import classNames from "classnames/bind";
@@ -20,7 +20,7 @@ export default function Section() {
 }
 
 function FoderContentCard() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<SampleFolderLink[] | null>(null);
   const openNewWindow = (url) => {
     window.open(url, "_blank");
   };
@@ -35,7 +35,7 @@ function FoderContentCard() {
 
   return (
     <ul className={cx("cards")}>
-      {items.length > 0 ? (
+      {items && items.length > 0 ? (
         items.map(({ createdAt, url, id, description, imageSource }) => {
           const timeAgo = getTimeDifference(createdAt);
           const formatAt = formatCreatedAt(createdAt);

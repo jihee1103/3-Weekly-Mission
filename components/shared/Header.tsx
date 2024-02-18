@@ -1,7 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { getUserFolder, getUserId } from "../../api/api";
+import {
+  SampleFolder,
+  SampleUser,
+  getUserFolder,
+  getUserId,
+} from "../../api/api";
 import styles from "./Header.module.scss";
 import classNames from "classnames/bind";
 import Link from "next/link";
@@ -29,7 +34,7 @@ export default function Header() {
 }
 
 function UserProfileInHeader() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<SampleUser | null>(null);
   useEffect(() => {
     async function handleLoginProfile() {
       const user = await getUserId();
@@ -56,7 +61,7 @@ function UserProfileInHeader() {
 }
 
 function UserFolderProfile() {
-  const [userFolder, setUserFolder] = useState(null);
+  const [userFolder, setUserFolder] = useState<SampleFolder | null>(null);
   useEffect(() => {
     async function handleUserFolderProfile() {
       const userFolder = await getUserFolder();

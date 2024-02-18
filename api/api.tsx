@@ -16,15 +16,17 @@ export interface SampleFolder {
       name: string;
       profileImageSource: string;
     };
-    links: {
-      id: number;
-      createdAt: string;
-      url: string;
-      title: string;
-      description: string;
-      imageSource?: string;
-    }[];
+    links: SampleFolderLink[];
   };
+}
+
+export interface SampleFolderLink {
+  id: number;
+  createdAt: string;
+  url: string;
+  title: string;
+  description: string;
+  imageSource?: string;
 }
 
 export interface User {
@@ -69,7 +71,7 @@ export async function getUserId(): Promise<SampleUser> {
   return await response.json();
 }
 
-export async function getUserFolder() {
+export async function getUserFolder(): Promise<SampleFolder> {
   const response = await fetch(`${API_BASE_URL}/api/sample/folder`, {
     method: "GET",
     headers: {
