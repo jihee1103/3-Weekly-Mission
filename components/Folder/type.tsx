@@ -1,7 +1,3 @@
-export interface ProfileId {
-  data: UserId[];
-}
-
 type UserId = {
   id: number;
   created_at: string;
@@ -11,10 +7,11 @@ type UserId = {
   auth_id: string;
 };
 
+export interface ProfileId {
+  data: UserId[];
+}
+
 export interface FolderId {
-  map(
-    arg0: (item: any) => import("react").JSX.Element
-  ): import("react").ReactNode;
   id: number;
   created_at: string;
   name: string;

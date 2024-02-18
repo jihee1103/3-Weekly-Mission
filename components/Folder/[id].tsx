@@ -1,13 +1,13 @@
 import axiosInstance from "../../lib/axios";
 import { FolderId, LinkId, ProfileId } from "./type";
 
-export async function ProfileApi(): Promise<ProfileId> {
+export async function ProfileApi(userProfileId: number): Promise<ProfileId> {
   try {
-    const response = await axiosInstance.get("users/1");
+    const url = `users/${userProfileId}`;
+    const response = await axiosInstance.get(url);
     return response.data;
   } catch (error) {
-    console.error("Error: ", error);
-    throw error;
+    throw new Error("Failed");
   }
 }
 

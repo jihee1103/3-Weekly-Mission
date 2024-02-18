@@ -1,16 +1,18 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
 import { ProfileApi } from "@/components/Folder/[id]";
 import { ProfileId } from "@/components/Folder/type";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import * as S from "./Style";
 
 export default function Header() {
   const [profileId, setProfileId] = useState<ProfileId | null>(null);
 
   const getProfileId = async () => {
+    const userProfileId = 1;
     try {
-      const userId: ProfileId = await ProfileApi();
+      const userId: ProfileId = await ProfileApi(userProfileId);
       setProfileId(userId);
     } catch (error) {
       console.error("Error: ", error);
@@ -26,12 +28,7 @@ export default function Header() {
       <S.Nav>
         <S.HeaderLinkBox>
           <Link href="/">
-            <Image
-              src={"/assets/Icons/logo.svg"}
-              width={133}
-              height={24}
-              alt="홈 아이콘 이미지"
-            />
+            <img src={"/assets/Icons/logo.svg"} alt="홈 아이콘 이미지" />
           </Link>
           {profileId && (
             <S.ProfileBox>
