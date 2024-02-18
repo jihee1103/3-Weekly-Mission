@@ -1,4 +1,4 @@
-.headerArea{
+.header_Area{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -16,38 +16,38 @@
   z-index: 1;
 }
 
-.profileBox{
+.profile_Box{
   display: flex;
   align-items: center;
   gap: 10px;
   }
 
-.profileImage{
+.profile_Image{
   width: 30px;
   border-radius: 50%;
 }
 
-.headerUnder{
+.header_Under{
   margin-top: 20px;
   }
 
-.bookmarkArea{
+.bookmark_Area{
   margin-top: 100px;
   gap: 20px;
   text-align: center;
 
 }
 
-.userLogo {
+.user_Logo {
   height: 60px;
 }
 
-.userName{
+.user_Name{
   font-size: 16px;
   font-weight: 400;
 }
 
-.bookmarkText{
+.bookmark_Text{
   margin-top: 0;
   font-size: 40px;
   font-weight: 600;

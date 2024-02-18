@@ -35,17 +35,4 @@ export{
     twitter_svg,
     youtube_svg
 }
-// styles.folder_list_btn 여기 다시보기 
-//Profile 이미지 수정하기
-
-// <img
-//                 className="profileImage"
-//                 src={profile.image_source}
-//                 alt="내 프로필"
-//               />
-
-//body{
-//   margin: 0;
-// }
-
-//모달 클래스타입 네임 수정하기 
+// 이미지를 export 하는 방법은? 

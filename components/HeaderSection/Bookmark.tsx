@@ -8,16 +8,16 @@ export default function Bookmark() {
   if (folderData === null) return null;
 
   return (
-    <div className={styles.headerUnder}>
+    <div className={styles.header_Under}>
       {folderData.folder.owner && (
-        <div className={styles.bookmarkArea}>
+        <div className={styles.bookmark_Area}>
           <img
-            className={styles.userLogo}
+            className={styles.user_Logo}
             src={folderData.folder.owner.profileImageSource}
             alt="codeit"
           />
-          <p className={styles.userName}>@{folderData.folder.owner.name}</p>
-          <p className={styles.bookmarkText}>{folderData.folder.name}</p>
+          <p className={styles.user_Name}>@{folderData.folder.owner.name}</p>
+          <p className={styles.bookmark_Text}>{folderData.folder.name}</p>
         </div>
       )}
     </div>

@@ -1,5 +1,4 @@
-
-.footerSection{
+.footer_Section {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -7,7 +6,7 @@
   background-color: #111322;
 }
 
-.footer_box{
+.footer_box {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -15,7 +14,7 @@
   margin: 0 104px;
 }
 
-.write{
+.write {
   color: #676767;
   font-family: Arial;
   font-size: 16px;
@@ -23,7 +22,7 @@
   width: 105px;
 }
 
-.footer_links{
+.footer_links {
   display: flex;
   column-gap: 30px;
   margin-top: 0;
@@ -31,7 +30,7 @@
 }
 
 .footer_link {
-  color: #CFCFCF;
+  color: #cfcfcf;
   font-family: Abel;
   font-size: 16px;
   font-weight: 400;
@@ -43,10 +42,10 @@
   margin-top: 0;
 }
 
-.noline, .footer_link{
+.noline, .footer_link {
   text-decoration-line: none;
 }
 
-.footer_links li{
-  list-style-type: none;
+.icon_list > li {
+  list-style: none;
 }

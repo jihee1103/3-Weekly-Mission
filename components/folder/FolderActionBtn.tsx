@@ -23,10 +23,10 @@ function FolderAtionBtns({ folderLists }: { folderLists: UserFolderType[] }) {
   };
 
   return (
-    <div className={styles.FolderActionBtnArea}>
+    <div className={styles.Folder_Action_Btn_Area}>
       <span>유용한 글</span>
 
-      <div className={styles.FolderActionBtnBox}>
+      <div className={styles.Folder_Action_Btn_Box}>
         <button onClick={handleShareModal}>
           <img src="/image/share.svg" alt="공유 버튼" />
           공유

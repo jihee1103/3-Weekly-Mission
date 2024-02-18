@@ -5,7 +5,7 @@ import styles from './HeaderSection.module.css';
 export default function HeaderSection() {
   
   return (
-    <div className={styles.headerArea}>
+    <div className={styles.header_Area}>
       <Profile/>
       <Bookmark/>
     </div>

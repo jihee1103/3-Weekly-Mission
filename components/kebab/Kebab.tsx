@@ -9,11 +9,6 @@ export default function Kebab() {
     setModalOpen(true);
   };
 
-  //onClick 빈값으로 놔두면 에러가 발생하니까 일단 막아둠
-  const alertMessage = () => {
-    setModalOpen(false);
-  };
-
   return (
     <ul className={styles.kebab_box}>
       <li onClick={handlePopMessage}>삭제하기</li>

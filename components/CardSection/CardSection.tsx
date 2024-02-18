@@ -4,10 +4,10 @@ import styles from "./CardSection.module.css";
 
 export default function CardSection() {
   return (
-    <div className={styles.mainArea}>
-      <div className={styles.mainBOX}>
+    <div className={styles.main_Area}>
+      <div className={styles.main_BOX}>
         <Search />
-        <div className={styles.linkImgBox}>
+        <div className={styles.link_Img_Box}>
           <Card />
         </div>
       </div>

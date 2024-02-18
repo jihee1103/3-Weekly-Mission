@@ -15,9 +15,9 @@ export default function Profile() {
             <img src="/image/logo.svg" alt="로고" />
           </Link>
           {userIdDatas.map((profile: UserIdType) => (
-            <div className={styles.profileBox} key={profile.id}>
+            <div className={styles.profile_Box} key={profile.id}>
               <img
-                className={styles.profileImage}
+                className={styles.profile_Image}
                 src={profile.image_source}
                 alt="내 프로필"
               />

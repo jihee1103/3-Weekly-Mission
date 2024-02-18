@@ -5,14 +5,13 @@ import FolderListBtn from "../components/folder/FolderListBtn";
 import Search from "../components/CardSection/Search";
 import styles from "../components/CardSection/CardSection.module.css";
 
-
 export default function FolderPage() {
   return (
     <>
       <Profile />
       <LinkAdd />
-      <div className={styles.mainArea}>
-        <div className={styles.mainBox}>
+      <div className={styles.main_Area}>
+        <div className={styles.main_Box}>
           <Search />
           <FolderListBtn />
         </div>
@@ -21,3 +20,4 @@ export default function FolderPage() {
     </>
   );
 }
+//"/image/facebook.svg"
