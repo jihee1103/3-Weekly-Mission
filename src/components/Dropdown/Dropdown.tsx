@@ -2,7 +2,11 @@ import { useState } from "react";
 import ModalDeleteLink from "../Modal/ModalDeleteLink";
 import styles from "./Dropdown.module.css";
 
-const Dropdown = ({ link }) => {
+interface Prop {
+  link: { link: string };
+}
+
+const Dropdown = ({ link }: Prop) => {
   const [showModalDeleteLink, setShowModalDeleteLink] = useState(false);
   const modalLink = link.link;
 

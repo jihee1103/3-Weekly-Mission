@@ -2,13 +2,14 @@ import styles from "./CardContainer.module.css";
 import CardList from "../CardList/CardList";
 import { useFolderNameContext } from "../../context/FolderNameContext";
 import { useRouter } from "next/router";
+import { CardContainerProps } from "../ContentsArea/ContentsArea";
 
 const CardContainer = ({
   cardData,
   allCardData,
   sharedFolderData,
   inputText,
-}) => {
+}: CardContainerProps) => {
   const location = useRouter();
   const { folderName } = useFolderNameContext();
 

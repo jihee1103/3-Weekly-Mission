@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import styles from "./Kebab.module.css";
+export type Link = {
+  link: string;
+};
 
-const Kebab = (link) => {
+const Kebab = (link: Link) => {
   const [view, setView] = useState(false);
 
   const handleView = () => {

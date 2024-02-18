@@ -6,8 +6,22 @@ import { useFolderNameContext } from "../../context/FolderNameContext";
 import EmptyArea from "../EmptyArea/EmptyArea";
 import { useRouter } from "next/router";
 
-const CardList = ({ cardList, inputText }) => {
-  function createDate(createdAt) {
+interface Card {
+  id: string;
+  url: string;
+  image_source?: string;
+  title?: string;
+  description?: string;
+  created_at: string;
+}
+
+interface Props {
+  cardList: Card[];
+  inputText?: string;
+}
+
+const CardList = ({ cardList, inputText }: Props) => {
+  function createDate(createdAt: string) {
     const date = new Date(createdAt);
     const year = date.getFullYear();
     const month = date.getMonth() + 1;

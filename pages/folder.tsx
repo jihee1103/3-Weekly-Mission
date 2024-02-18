@@ -9,7 +9,7 @@ import FAB from "@/public/assets/FAB.png";
 const Folder = () => {
   return (
     <div className={styles.folder}>
-      <Header />
+      <Header></Header>
       <AddLinkArea />
       <ContentsArea />
       <Footer />

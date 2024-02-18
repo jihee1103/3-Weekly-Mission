@@ -1,14 +1,26 @@
-import "./Header.module.css";
 import { useEffect, useState } from "react";
 import { getFolderUserData, getUserData } from "../../api/api";
 import { useRouter } from "next/router";
 import styles from "@/src/components/Header/Header.module.css";
 
+interface UserData {
+  email: string;
+}
+
+interface FolderUserData {
+  data: {
+    email: string;
+    image_source: string;
+  }[];
+}
+
 const Header = () => {
   const location = useRouter();
 
-  const [userData, setUserData] = useState();
-  const [folderUserData, setFolderUserData] = useState();
+  const [userData, setUserData] = useState<UserData | null>(null);
+  const [folderUserData, setFolderUserData] = useState<FolderUserData | null>(
+    null
+  );
 
   const handleUserData = async () => {
     const user = await getUserData();

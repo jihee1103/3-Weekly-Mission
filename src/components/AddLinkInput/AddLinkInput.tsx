@@ -1,12 +1,10 @@
 import { useState } from "react";
 import ModalAddLink from "../Modal/ModalAddLink";
 import styles from "./AddLinkInput.module.css";
-import Image from "next/image";
-import link from "@/public/assets/link.png";
 
 const AddLinkInput = () => {
-  const [showModalAddLink, setShowModalAddLink] = useState(false);
-  const [inputText, setInputText] = useState("");
+  const [showModalAddLink, setShowModalAddLink] = useState<boolean>(false);
+  const [inputText, setInputText] = useState<string>("");
 
   const handleModalAddLink = () => {
     setShowModalAddLink(!showModalAddLink);
@@ -21,7 +19,11 @@ const AddLinkInput = () => {
           setInputText(e.target.value);
         }}
       ></input>
-      <Image className={styles.LinkIcon} src={link} alt="링크 아이콘" />
+      <img
+        className={styles.LinkIcon}
+        src={`/assets/link.png`}
+        alt="링크 아이콘"
+      />
       <button className={styles.addButton} onClick={handleModalAddLink}>
         추가하기
       </button>

@@ -2,8 +2,15 @@ import styles from "./SearchArea.module.css";
 import Image from "next/image";
 import searchIcon from "@/public/assets/Search.png";
 import closeIcon from "@/public/assets/input_close.png";
+import React, { ChangeEvent } from "react";
 
-const SearchArea = ({ handleInputText, inputText, deleteInput }) => {
+interface Props {
+  handleInputText: (e: ChangeEvent<HTMLInputElement>) => void;
+  inputText: string | undefined;
+  deleteInput: () => void;
+}
+
+const SearchArea = ({ handleInputText, inputText, deleteInput }: Props) => {
   return (
     <div className={styles.search}>
       <input

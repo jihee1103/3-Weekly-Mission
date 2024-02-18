@@ -1,7 +1,9 @@
-const setPassedTime = (createdTime) => {
+const setPassedTime = (createdTime: string) => {
   const currentDate = new Date();
   const createdDate = new Date(createdTime);
-  const timeDifference = Math.floor((currentDate - createdDate) / (60 * 1000));
+  const timeDifference = Math.floor(
+    (currentDate.getTime() - createdDate.getTime()) / (60 * 1000)
+  );
 
   const SECOND = 1000;
   const MINUTE = SECOND * 60;

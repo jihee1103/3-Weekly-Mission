@@ -4,9 +4,16 @@ import styles from "./FolderListArea.module.css";
 import { useFolderNameContext } from "../../context/FolderNameContext";
 import ModalAddFolder from "../Modal/ModalAddFolder";
 
-const FolderListArea = ({ onFolderClick, onAllFolderClick }) => {
-  const [folderData, setFolderData] = useState({ data: [] });
-  const [showModalAddFolder, setShowModalAddFolder] = useState(false);
+interface Props {
+  onFolderClick: (itemId: string) => void;
+  onAllFolderClick: () => void;
+}
+
+const FolderListArea = ({ onFolderClick, onAllFolderClick }: Props) => {
+  const [folderData, setFolderData] = useState<{
+    data: { id: string; name: string }[];
+  }>({ data: [] });
+  const [showModalAddFolder, setShowModalAddFolder] = useState<boolean>(false);
 
   const handleShowModalAddFolder = () => {
     setShowModalAddFolder(!showModalAddFolder);
@@ -19,10 +26,10 @@ const FolderListArea = ({ onFolderClick, onAllFolderClick }) => {
 
   const { setFolderNameValue, setFolderIdValue } = useFolderNameContext();
 
-  const handleFolderName = (clickItemName) => {
+  const handleFolderName = (clickItemName: string) => {
     setFolderNameValue(clickItemName);
   };
-  const handleFolderId = (clickItemId) => {
+  const handleFolderId = (clickItemId: string) => {
     setFolderIdValue(clickItemId);
   };
 

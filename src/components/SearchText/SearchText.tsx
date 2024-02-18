@@ -1,6 +1,10 @@
 import styles from "./SearchText.module.css";
 
-const SearchText = ({ inputText }) => {
+interface Prop {
+  inputText: string;
+}
+
+const SearchText = ({ inputText }: Prop) => {
   return (
     <div className={styles.textArea}>
       <div className={styles.inputText}>{inputText}</div>
