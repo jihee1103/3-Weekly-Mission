@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import { FolderId } from "@/components/Folder/type";
 import { SortAddModal } from "./modal/Modal";
 import * as S from "./Style";
@@ -59,11 +60,9 @@ export default function Sorted({ data, clickName, selectedName }: SortedProps) {
         <div>
           <S.SortedInput></S.SortedInput>
           <S.SortedImg>
-            <Image
+            <img
               src={"/assets/Icons/add.svg"}
               onClick={handleAdd}
-              width={16}
-              height={16}
               alt="추가하기 아이콘 이미지"
             />
           </S.SortedImg>
