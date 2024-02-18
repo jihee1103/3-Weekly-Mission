@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
-import { ProfileApi } from "@/components/Folder/[id]";
-import { ProfileId } from "@/components/Folder/type";
+import { ProfileApi } from "@/pages/folder/folderApiTs";
+import { ProfileId } from "@/pages/folder/type";
 import Link from "next/link";
 // import Image from "next/image";
 import * as S from "./Style";

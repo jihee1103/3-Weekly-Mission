@@ -144,7 +144,7 @@ export function ShareModal({ onClose }: { onClose: onCloseFunction }) {
   const host = window.location.host;
   const userId = 1;
   const folderId = 1;
-  const shareUrl = `https://${host}/shared?user=${userId}&folder={folderId}`;
+  const shareUrl = `https://${host}/shared?user=${userId}&folder=${folderId}`;
 
   const shareKakao = () => {
     if (!window.Kakao || !window.Kakao.inInitialized()) {

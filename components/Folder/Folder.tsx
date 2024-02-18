@@ -1,13 +1,14 @@
-import { GetFolderId, ShowAll } from "@/components/Folder/[id]";
-import { FolderId, LinkId } from "@/components/Folder/type";
+/* eslint-disable @next/next/no-img-element */
+import { GetFolderId, ShowAll } from "@/pages/folder/folderApiTs";
+import { FolderId, LinkId } from "@/pages/folder/type";
 import React, { useEffect, useState } from "react";
 import useFoldLink from "./hooks/useFoldLink";
 import Header from "./Header";
 import Section from "./Section";
-import Search from "./[Search]";
+import Search from "../../pages/folder/search/[search]";
 import Sorted from "./Sorted";
 import * as S from "./Style";
-import Image from "next/image";
+// import Image from "next/image";
 import { ChangeNameModal, DeleteFolderModal, ShareModal } from "./modal/Modal";
 import Card from "./Card";
 import Footer from "./Footer";
@@ -21,51 +22,34 @@ export default function Folder() {
   const [openModal, setOpenModal] = useState(false);
 
   const clickName: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    setSelectedName(Number(e.currentTarget.value));
+    const value = Number(e.currentTarget.value);
+    setSelectedName(value);
     setLinkTitle(e.currentTarget.title);
   };
 
   const getFolderId = async () => {
+    const userProfileId = 1;
     try {
-      const folderId: FolderId[] = await GetFolderId();
+      const folderId: FolderId[] = await GetFolderId(userProfileId);
       setSorted(folderId);
+
+      const linkId: LinkId[] = await ShowAll(userProfileId);
+      setLink(linkId);
     } catch (error) {
       console.error("Error: ", error);
     }
   };
 
-  const getLinkId = async () => {
-    try {
-      const result: LinkId[] = await ShowAll();
-      setLink(result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useFoldLink(selectedName);
-  const foldLink = useFoldLink(selectedName);
-
   useEffect(() => {
     getFolderId();
   }, []);
 
-  useEffect(() => {
-    getLinkId();
-  }, []);
+  useFoldLink(selectedName);
 
-  const handleShare = () => {
-    setModal("ShareModal");
-    setOpenModal(true);
-  };
+  const foldLink = useFoldLink(selectedName);
 
-  const handleRename = () => {
-    setModal("ChangeNameModal");
-    setOpenModal(true);
-  };
-
-  const handleDelete = () => {
-    setModal("DeleteFolderModal");
+  const handleModal = (content: string) => {
+    setModal(content);
     setOpenModal(true);
   };
 
@@ -73,6 +57,8 @@ export default function Folder() {
     setModal(null);
     setOpenModal(false);
   };
+
+  const isSorted = linkTitle !== "전체";
 
   return (
     <>
@@ -82,49 +68,35 @@ export default function Folder() {
       <Sorted data={sorted} selectedName={selectedName} clickName={clickName} />
       <S.CardTitle>
         <S.CardTitleText>{linkTitle}</S.CardTitleText>
-        {linkTitle === "전체" ? (
-          <></>
-        ) : (
-          <>
-            <S.SortedEdit>
-              <S.EditContent onClick={handleShare}>
-                <Image
-                  src={"/assets/Icons/share.svg"}
-                  width={18}
-                  height={18}
-                  alt="share 아이콘 이미지"
-                />
-                <span>공유</span>
-              </S.EditContent>
-              <S.EditContent onClick={handleRename}>
-                <Image
-                  src={"/assets/Icons/pen.svg"}
-                  width={18}
-                  height={18}
-                  alt="pen 아이콘 이미지"
-                />
-                <span>이름 변경</span>
-              </S.EditContent>
-              <S.EditContent onClick={handleDelete}>
-                <Image
-                  src={"/assets/Icons/delete.svg"}
-                  width={18}
-                  height={18}
-                  alt="delete 아이콘 이미지"
-                />
-                <span>삭제</span>
-              </S.EditContent>
-            </S.SortedEdit>
-            {openModal && modal === "ShareModal" && (
-              <ShareModal onClose={handleClose} />
-            )}
-            {openModal && modal === "ChangeNameModal" && (
-              <ChangeNameModal onClose={handleClose} />
-            )}
-            {openModal && modal === "DeleteFolderModal" && (
-              <DeleteFolderModal onClose={handleClose} />
-            )}
-          </>
+        {isSorted && (
+          <S.SortedEdit>
+            <S.EditContent onClick={() => handleModal("ShareModal")}>
+              <img src={"/assets/Icons/share.svg"} alt="share 아이콘 이미지" />
+              <span>공유</span>
+            </S.EditContent>
+
+            <S.EditContent onClick={() => handleModal("ChangeNameModal")}>
+              <img src={"/assets/Icons/pen.svg"} alt="pen 아이콘 이미지" />
+              <span>이름 변경</span>
+            </S.EditContent>
+
+            <S.EditContent onClick={() => handleModal("DeleteFolderModal")}>
+              <img
+                src={"/assets/Icons/delete.svg"}
+                alt="delete 아이콘 이미지"
+              />
+              <span>삭제</span>
+            </S.EditContent>
+          </S.SortedEdit>
+        )}
+        {openModal && modal === "ShareModal" && (
+          <ShareModal onClose={handleClose} />
+        )}
+        {openModal && modal === "ChangeNameModal" && (
+          <ChangeNameModal onClose={handleClose} />
+        )}
+        {openModal && modal === "DeleteFolderModal" && (
+          <DeleteFolderModal onClose={handleClose} />
         )}
       </S.CardTitle>
       {foldLink && foldLink.length > 0 ? (

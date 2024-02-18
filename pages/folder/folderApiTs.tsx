@@ -11,9 +11,10 @@ export async function ProfileApi(userProfileId: number): Promise<ProfileId> {
   }
 }
 
-export async function GetFolderId(): Promise<FolderId[]> {
+export async function GetFolderId(userProfileId: number): Promise<FolderId[]> {
   try {
-    const response = await axiosInstance.get("users/1/folders");
+    const url = `users/${userProfileId}/folders`;
+    const response = await axiosInstance.get(url);
     return response.data.data;
   } catch (error) {
     console.error("Error: ", error);
@@ -21,9 +22,10 @@ export async function GetFolderId(): Promise<FolderId[]> {
   }
 }
 
-export async function ShowAll(): Promise<LinkId[]> {
+export async function ShowAll(userProfileId: number): Promise<LinkId[]> {
   try {
-    const response = await axiosInstance.get("users/1/links");
+    const url = `users/${userProfileId}/links`;
+    const response = await axiosInstance.get(url);
     return response.data.data;
   } catch (error) {
     console.error("Error :", error);

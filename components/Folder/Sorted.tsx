@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 // import Image from "next/image";
-import { FolderId } from "@/components/Folder/type";
+import { FolderId } from "@/pages/folder/type";
 import { SortAddModal } from "./modal/Modal";
 import * as S from "./Style";
 

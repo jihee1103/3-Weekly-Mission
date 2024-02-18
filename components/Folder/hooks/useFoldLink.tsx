@@ -1,5 +1,5 @@
-import { ShowAll } from "@/components/Folder/[id]";
-import { LinkId } from "@/components/Folder/type";
+import { ShowAll } from "@/pages/folder/folderApiTs";
+import { LinkId } from "@/pages/folder/type";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -11,8 +11,9 @@ export default function useFoldLink(selectedName: number) {
 
   useEffect(() => {
     const getFolder = async () => {
+      const userProfileId = 1;
       try {
-        const result = await ShowAll();
+        const result = await ShowAll(userProfileId);
         let newLink = result;
 
         if (selectedName !== 0) {
