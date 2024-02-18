@@ -1,0 +1,77 @@
+/* html,
+body {
+  font-size: 62.5%;
+} */
+
+/* * {
+  box-sizing: border-box;
+} */
+
+.nav {
+  padding: 20px 200px;
+  box-sizing: border-box;
+  background-color: #f0f6ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.login_btn {
+  background: linear-gradient(91deg, #6d6afe, #6ae3fe);
+  border-radius: 8px;
+  height: 54px;
+  width: 128px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  height: 28px;
+}
+
+.userImg {
+  width: 28px;
+  height: 28px;
+  border-radius: 30px;
+}
+
+.userEmail {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-top: 5.5px;
+  margin-bottom: 5.5px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1124px) {
+  .nav {
+    padding: 20px 32px;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .nav {
+    padding: 20px 32px;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .login_btn {
+    height: 31px;
+    width: 80px;
+    font-size: 1.4rem;
+  }
+}

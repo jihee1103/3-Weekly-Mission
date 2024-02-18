@@ -1,0 +1,21 @@
+.editButtonsArea {
+  display: flex;
+  gap: 12px;
+}
+
+.editButton {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #9fa6b2;
+  display: flex;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.editButtonIcon {
+  width: 18px;
+  height: 18px;
+}
+.editButtonName {
+  margin: 0;
+}
