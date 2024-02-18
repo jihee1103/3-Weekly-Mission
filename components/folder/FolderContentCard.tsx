@@ -9,7 +9,7 @@ export default function FolderContentCard({ items }: FolderContentCardProps) {
   return (
     <>
       <ul className={cx("card-box")}>
-        {items.length > 0 ? (
+        {items && items.length > 0 ? (
           items?.map((item) => {
             return <Card item={item} key={item.id} />;
           })

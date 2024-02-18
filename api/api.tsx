@@ -37,7 +37,7 @@ export interface User {
 }
 
 export interface UserFolder {
-  id: number;
+  id: number | undefined;
   created_at: string;
   name: string;
   user_id: number;
