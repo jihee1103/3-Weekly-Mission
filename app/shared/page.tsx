@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { SharedPageState } from "../../utils/types";
+import SharedPageStateContext from "../../context/SharedPageStateContext";
 import SearchLinkBar from "../../components/SearchLinkBar";
 import SharedPageHeaderNavigation from "../../components/SharedPageHeaderNavigation";
 import SharedPageHeaderUserInfo from "../../components/SharedPageHeaderUserInfo";
@@ -9,9 +9,6 @@ import SharedPageCardList from "../../components/SharedPageCardList";
 import getSampleUserData from "../../api/getSampleUserData";
 import getSampleFolderData from "../../api/getSampleFolderData";
 import styles from "./index.module.css";
-
-export const SharedPageStateContext =
-  React.createContext<SharedPageState | null>(null);
 
 const SharedPage = async () => {
   const userData = await getSampleUserData();

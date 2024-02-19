@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext } from "react";
-import { SharedPageStateContext } from "../../app/shared/page";
+import SharedPageStateContext from "../../context/SharedPageStateContext";
 import Image from "next/image";
 import styles from "./index.module.css";
 

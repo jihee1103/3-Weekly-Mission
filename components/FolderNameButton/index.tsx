@@ -1,7 +1,8 @@
 "use client";
 
 import { useContext } from "react";
-import { FolderPageStateContext } from "../../app/folder/page";
+import FolderPageStateContext from "../../context/FolderPageStateContext";
+
 import styles from "./index.module.css";
 
 const FolderNameButton = () => {

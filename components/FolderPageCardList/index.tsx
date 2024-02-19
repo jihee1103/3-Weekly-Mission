@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext, useState } from "react";
-import { FolderPageStateContext } from "../../app/folder/page";
+import FolderPageStateContext from "../../context/FolderPageStateContext";
 import Image from "next/image";
 import defaultImage from "./default.png";
 import starIcon from "./star.svg";

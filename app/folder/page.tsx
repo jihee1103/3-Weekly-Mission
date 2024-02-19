@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { FolderNameData, FolderData, FolderPageState } from "../../utils/types";
+import { FolderNameData, FolderData } from "../../utils/types";
 import { ModalProvider } from "../../hook/useModal";
+import FolderPageStateContext from "../../context/FolderPageStateContext";
 import AddFolderButton from "../../components/AddFolderButton";
 import AddLinkBar from "../../components/AddLinkBar";
 import FolderFunctionButtons from "../../components/FolderFunctionButtons";
@@ -16,9 +17,6 @@ import CardListDefault from "../../components/CardListDefault";
 import FolderPageHeaderNavigation from "../../components/FolderPageHeaderNavigation";
 import FolderPageCardList from "../../components/FolderPageCardList";
 import styles from "./index.module.css";
-
-export const FolderPageStateContext =
-  React.createContext<FolderPageState | null>(null);
 
 const FolderPage = () => {
   const [foldersNameData, setFoldersNameData] = useState<FolderNameData[]>([]);

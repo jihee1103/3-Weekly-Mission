@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext } from "react";
-import { FolderPageStateContext } from "../../app/folder/page";
+import FolderPageStateContext from "../../context/FolderPageStateContext";
 
 const FolderTitle = () => {
   const context = useContext(FolderPageStateContext);
