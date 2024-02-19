@@ -11,7 +11,7 @@ import getSampleFolderData from "../../api/getSampleFolderData";
 import styles from "./index.module.css";
 
 export const SharedPageStateContext =
-  React.createContext<SharedPageState>(null);
+  React.createContext<SharedPageState | null>(null);
 
 const SharedPage = async () => {
   const userData = await getSampleUserData();
