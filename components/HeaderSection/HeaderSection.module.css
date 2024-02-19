@@ -11,7 +11,6 @@
   display: flex;
   background-color: #edf7ff;
   justify-content: space-between;
-  position: sticky;
   position : fixed;
   z-index: 1;
 }
@@ -40,6 +39,7 @@
 
 .user_Logo {
   height: 60px;
+  width: 60px;
 }
 
 .user_Name{

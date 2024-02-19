@@ -4,6 +4,8 @@ import useUserFolderListData from "../../hook/useUserFolderListData";
 import styles from "./FolderList.module.css";
 import Card from "../CardSection/Card";
 import ModalMessge from "../modal/ModalMessage";
+import Image from "next/image";
+import { add_svg } from "@/public/image";
 
 export default function FolderListBtn() {
   const { folderLists } = useUserFolderListData();
@@ -32,19 +34,21 @@ export default function FolderListBtn() {
             <button
               key={folderList.id}
               className={`${styles.folder_list_btn} ${
-                selectedFolderId === folderList.id ? "selected" : ""
-              }`} 
+                selectedFolderId === folderList.id ? `${styles.selected}` : ""
+              }`}
               onClick={() => handleFolderClick(folderList.id)}
             >
               {folderList.name}
             </button>
           ))}
         </div>
-        <img
-          src="/image/add.svg"
+        <Image
+          src={add_svg}
           alt="추가 버튼"
           className={styles.add_btn}
           onClick={handlechangModal}
+          width={15}
+          height={15}
         />
         <ModalMessge
           modalOpen={modalOpen}
@@ -56,11 +60,9 @@ export default function FolderListBtn() {
         />
       </div>
       <FolderAtionBtn />
-      {selectedFolderId !== null ? ( 
+      {selectedFolderId !== null ? (
         <div className={styles.folder_card_img}>
-          <Card
-            selectedFolderId={selectedFolderId} 
-          />
+          <Card selectedFolderId={selectedFolderId} />
         </div>
       ) : (
         <div className={styles.folder_card_img}>

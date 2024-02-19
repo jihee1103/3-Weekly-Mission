@@ -3,6 +3,8 @@ import { useState } from "react";
 import useUserFolderListData from "../../hook/useUserFolderListData";
 import styles from "./FolderActionBtn.module.css";
 import { UserFolderType } from "../../types/Types";
+import Image from "next/image";
+import { share_svg, pen_svg, delete_svg } from "@/public/image";
 
 // 모달에 폴더이름 전달해주기 위핸 props
 function FolderAtionBtns({ folderLists }: { folderLists: UserFolderType[] }) {
@@ -28,17 +30,17 @@ function FolderAtionBtns({ folderLists }: { folderLists: UserFolderType[] }) {
 
       <div className={styles.Folder_Action_Btn_Box}>
         <button onClick={handleShareModal}>
-          <img src="/image/share.svg" alt="공유 버튼" />
+          <Image src={share_svg} alt="공유 버튼" width={20} height={20} />
           공유
         </button>
 
         <button onClick={handlechangModal}>
-          <img src="/image/pen.svg" alt="이름 변경 버튼" />
+          <Image src={pen_svg} alt="이름 변경 버튼" width={20} height={20}/>
           이름 변경
         </button>
 
         <button onClick={handleRemoveModal}>
-          <img src="/image/delete.svg" alt="삭제" />
+          <Image src={delete_svg} alt="삭제" width={20} height={20}/>
           삭제
         </button>
 
