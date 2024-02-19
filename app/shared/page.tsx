@@ -10,9 +10,8 @@ import getSampleUserData from "../../api/getSampleUserData";
 import getSampleFolderData from "../../api/getSampleFolderData";
 import styles from "./index.module.css";
 
-export const SharedPageStateContext = React.createContext<
-  SharedPageState | undefined
->(undefined);
+export const SharedPageStateContext =
+  React.createContext<SharedPageState>(null);
 
 const SharedPage = async () => {
   const userData = await getSampleUserData();
@@ -21,7 +20,7 @@ const SharedPage = async () => {
     <SharedPageStateContext.Provider
       value={{
         userData: userData || null,
-        folderData: folderData || null,
+        folderData: folderData.folder || null,
       }}
     >
       <header className={styles.header}>
