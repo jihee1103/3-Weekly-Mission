@@ -17,9 +17,8 @@ import FolderPageHeaderNavigation from "../../components/FolderPageHeaderNavigat
 import FolderPageCardList from "../../components/FolderPageCardList";
 import styles from "./index.module.css";
 
-export const FolderPageStateContext = React.createContext<
-  FolderPageState | undefined
->(undefined);
+export const FolderPageStateContext =
+  React.createContext<FolderPageState>(null);
 
 const FolderPage = () => {
   const [foldersNameData, setFoldersNameData] = useState<FolderNameData[]>([]);
