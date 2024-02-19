@@ -10,6 +10,7 @@ import Image from "next/image";
 
 function CardList({ link }: { link: UserLinkType }) {
   const [kebab, setKebab] = useState(false);
+  console.log(link)
 
   const kebabClick = () => {
     setKebab(!kebab); 

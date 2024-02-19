@@ -4,6 +4,8 @@ import LinkAdd from "../components/HeaderSection/LinkAdd";
 import FolderListBtn from "../components/folder/FolderListBtn";
 import Search from "../components/CardSection/Search";
 import styles from "../components/CardSection/CardSection.module.css";
+import React from "react";
+// import useUserLinkData from "@/hook/useUserLinkData";
 
 export default function FolderPage() {
   return (
