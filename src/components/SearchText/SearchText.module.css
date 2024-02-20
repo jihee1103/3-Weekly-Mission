@@ -1,0 +1,12 @@
+.textArea {
+  display: flex;
+  margin-top: 40px;
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+.inputText {
+  color: #373740;
+}
+.defaultText {
+  color: #9fa6b2;
+}
