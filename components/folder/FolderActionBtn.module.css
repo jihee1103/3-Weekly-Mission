@@ -1,0 +1,30 @@
+.Folder_Action_Btn_Area{
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Folder_Action_Btn_Area span{
+  color: #000;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.Folder_Action_Btn_Box{
+  display: flex;
+  gap: 12px;
+}
+
+.Folder_Action_Btn_Box button{
+  border: none;
+  background-color: white;
+  color: var(--Linkbrary-gray60, #9FA6B2);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer
+}
+
