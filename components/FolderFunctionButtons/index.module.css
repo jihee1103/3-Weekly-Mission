@@ -1,0 +1,15 @@
+.div {
+  display: flex;
+}
+
+.div button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+}

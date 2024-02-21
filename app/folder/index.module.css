@@ -1,0 +1,29 @@
+.mainHeader {
+  background-color: #f0f6ff;
+  padding-top: 32px;
+}
+
+.folderSelectSection {
+  display: flex;
+  justify-content: space-between;
+  width: 1060px;
+  margin: 0 auto;
+}
+
+.folderListHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1060px;
+  margin: 0 auto;
+}
+
+.cardListContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 1060px;
+  margin: 0 auto;
+  position: relative;
+}

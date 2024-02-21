@@ -1,0 +1,7 @@
+.nav {
+  display: flex;
+  width: 1060px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}

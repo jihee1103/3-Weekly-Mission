@@ -1,0 +1,31 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.nav button {
+  display: flex;
+  padding: 12px 12px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background-color: var(--Linkbrary-white, #fff);
+}
+
+.nav button:hover {
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-gray10, #e7effb);
+  cursor: pointer;
+}
+
+.nav button:focus {
+  color: white;
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-primary-color, #6d6afe);
+  cursor: pointer;
+}

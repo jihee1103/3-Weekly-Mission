@@ -1,0 +1,14 @@
+.button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button span {
+  font-size: 16px;
+  color: #6d6afe;
+}
