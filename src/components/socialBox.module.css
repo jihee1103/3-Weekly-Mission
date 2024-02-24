@@ -1,0 +1,23 @@
+.container {
+  margin: 2px 0 0;
+  padding: 12px 24px;
+  border-radius: 8px;
+  width: 100%;
+  border: 1px solid var(--linkbrary-gray-20, #ccd5e3);
+  background: var(--linkbrary-gray-10, #e7effb);
+  font-size: 1.4rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iconContainer {
+  display: flex;
+  gap: 16px;
+}
+
+.icon {
+  width: 42px;
+  height: 42px;
+}

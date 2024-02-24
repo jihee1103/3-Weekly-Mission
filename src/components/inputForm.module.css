@@ -1,0 +1,19 @@
+.input {
+  display: flex;
+  width: 100%;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #ccd5e3;
+  background: #ffffff;
+  font-size: 1.6rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 1.4rem;
+  width: 400px;
+}

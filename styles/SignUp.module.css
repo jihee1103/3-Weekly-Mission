@@ -1,0 +1,33 @@
+.logoImage {
+  position: relative;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 238px auto;
+  width: 400px;
+  gap: 30px;
+}
+
+.question,
+.Link {
+  font-size: 1.6rem;
+}
+
+.Link {
+  color: #6d6afe;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
