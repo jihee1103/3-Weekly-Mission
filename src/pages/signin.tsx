@@ -5,8 +5,24 @@ import Link from 'next/link'
 import InputForm from '../components/inputForm'
 import Button from '../components/button'
 import SocialBox from '../components/socialBox'
+import { useForm } from 'react-hook-form'
+import { SubmitHandler } from 'react-hook-form'
+import { useState } from 'react'
+
+interface FormData {
+  email: string
+  password: string
+}
 
 export default function SignIn() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>()
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    console.log(data)
+  }
   return (
     <>
       <Head>
@@ -32,11 +48,13 @@ export default function SignIn() {
               </Link>
             </div>
           </div>
-          <div className={styles.inputForm}>
-            <InputForm type={'email'} />
-            <InputForm type={'signInPassword'} />
-          </div>
-          <Button type={'signIn'} />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className={styles.inputForm}>
+              <InputForm register={register} type={'email'} />
+              <InputForm register={register} type={'signInPassword'} />
+            </div>
+            <Button type={'signIn'} />
+          </form>
           <SocialBox type={'signIn'} />
         </div>
       </main>
